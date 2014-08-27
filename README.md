@@ -3,4 +3,6 @@ odrlapi
 
 API to manipulate ODRL expressions
 
-Víctor Rodríguez Doncel - August 2014
+For more info, see http://vroddon.github.io/odrlapi/
+
+VÃ­ctor RodrÃ­guez Doncel - August 2014
