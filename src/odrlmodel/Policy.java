@@ -10,8 +10,11 @@ import org.apache.commons.io.FilenameUtils;
 
 /**
  * Policy represents an ODRL policy, supporting a reduced set of the features defined in the ODRL2.0 specification
- * @seeAlso For more information, check http://www.w3.org/community/odrl/two/model/#section-21
+ * 
+ * The Policy entity is the top-level entity.
+ * 
  * An abstract common ancestor to Permissions, Prohibitions and Duties.
+ * @seeAlso For more information, check http://www.w3.org/community/odrl/two/model/#section-21
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class Policy extends MetadataObject {
@@ -34,6 +37,15 @@ public class Policy extends MetadataObject {
      */
     public Policy() {
         uri = MetadataObject.DEFAULT_NAMESPACE + "policy/" + UUID.randomUUID().toString();
+    }
+
+    /**
+     * Policy constructor with a given URI 
+     * A policy is by default a Set policy
+     * @param _uri Given URI
+     */
+    public Policy(String _uri) {
+        uri = _uri;
     }
 
     /**
@@ -173,9 +185,11 @@ public class Policy extends MetadataObject {
     }
 
     /**
-     * Returns true if there is at least one constraint that offers the good per rdf:Statement
+     * Returns
+     * @deprecated
+     * @return  true if there is at least one constraint that offers the good per rdf:Statement
      */
-    public boolean isPerTriple() {
+    protected boolean isPerTriple() {
         if (rules.size() > 0) {
             Rule r = rules.get(0);
             if (r.getConstraints().size() > 0) {
@@ -194,7 +208,9 @@ public class Policy extends MetadataObject {
         return false;
     }
 
-    //Si hay al menos alguna abierta
+    /**
+     * @deprecated
+     */
     public boolean isOpen() {
         boolean open = false;
         for (Rule r : rules) {
@@ -218,6 +234,9 @@ public class Policy extends MetadataObject {
         return open;
     }
 
+    /**
+     * @deprecated
+     */
     public String getPriceString() {
         String price = "";
         for (Rule r : rules) {
@@ -243,6 +262,7 @@ public class Policy extends MetadataObject {
     }
 
     /**
+     * @deprecated
      * Decides whether there is a play at least in a one of the rules
      */
     public boolean isInOffer() {
@@ -258,6 +278,9 @@ public class Policy extends MetadataObject {
         return false;
     }
 
+    /**
+     * @deprecated
+     */
     public boolean hasFirstTarget(String resource) {
         for (Rule r : rules) {
             if (r.target.equals(resource)) {
@@ -285,6 +308,9 @@ public class Policy extends MetadataObject {
         return "";
     }
 
+    /**
+     * @deprecated
+     */
     public String getFirstCurrency() {
         for (Rule r : rules) {
             List<Constraint> lc = r.getConstraints();
@@ -298,6 +324,10 @@ public class Policy extends MetadataObject {
         }
         return "";
     }    
+
+    /**
+     * @deprecated
+     */
     public double getFirstPrice() {
         for (Rule r : rules) {
             List<Constraint> lc = r.getConstraints();

@@ -2,7 +2,9 @@ package odrlmodel;
 
 //JAVA
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 //APACHE COMMONS
@@ -71,7 +73,7 @@ public class Rule extends MetadataObject {
      * Gets an string describing the kind of the rule
      * @returns either "Permission", or "Prohibition" or "Duty" -empty if unkown kind.
      */
-    public String getKindOfRuleString()
+    protected String getKindOfRuleString()
     {
         if (ikind==0)
             return "Permission";
@@ -90,6 +92,16 @@ public class Rule extends MetadataObject {
     {
         return actions;
     }
+
+    /**
+     * Sets the actions referred by this rule
+     * @param _actions List of actions
+     */
+    public void setActions(List<Action> _actions)
+    {
+        actions.clear();
+        actions.addAll(_actions);
+    }
     
     /**
      * Gets the list of constraints the rule has.
@@ -99,7 +111,6 @@ public class Rule extends MetadataObject {
     {
         return constraints;
     }
-    
 
 
     public void addAction(Action a) {

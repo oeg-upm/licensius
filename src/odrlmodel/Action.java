@@ -22,7 +22,7 @@ import org.apache.commons.io.FilenameUtils;
  * <ul>
  * <li>	http://www.w3.org/ns/odrl/2/write</li>
  * <li>	http://www.w3.org/ns/odrl/2/read</li>
- * <li>	http://www.w3.org/ns/odrl/2/read</li>
+ * <li>	http://www.w3.org/ns/odrl/2/distribute</li>
  * </ul>
  * 
  * Communities will develop new (or extend existing) profiles to capture additional and refined semantics.
@@ -67,6 +67,7 @@ public class Action extends MetadataObject {
     }
 
     /**
+     * @deprecated
      * Returns true if 
      * @return true if the action gives access to the resource.
      */
