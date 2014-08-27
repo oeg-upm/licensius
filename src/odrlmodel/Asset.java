@@ -28,7 +28,6 @@ import java.util.UUID;
  * such as Dublin Core Metadata Terms that are appropriate to the Asset type or purpose.
  * 
  * The Relation entity is used to associate the Asset entity with the relevant Permission, Prohibition, and Duty entities
- * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class Asset extends MetadataObject {
 
@@ -39,18 +38,18 @@ public class Asset extends MetadataObject {
 
     /**
      * Creates a Linked Data resource, identifiable by its URI.
-     * @param s URI of the asset
-     */
-    public Asset(String s) {
-        uri=s;
-    }
-
-    /**
-     * Creates a Linked Data resource, identifiable by its URI.
      * A random URI is given.
      */
     public Asset() {
         this(MetadataObject.DEFAULT_NAMESPACE+"asset/" + UUID.randomUUID().toString());        
+    }
+
+    /**
+     * Creates a Linked Data resource, identifiable by its URI.
+     * @param s URI of the asset
+     */
+    public Asset(String s) {
+        uri=s;
     }
 
     /**

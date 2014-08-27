@@ -19,9 +19,14 @@ import java.util.List;
 public class Permission extends Rule {
     
     private List<Duty> duties = new ArrayList();
-    
+
+    /**
+     * Permission constructor
+     * Permission are by default anonymous
+     */
     public Permission()
     {
+        super("");
         setKindOfRule(Rule.RULE_PERMISSION);
     }
     

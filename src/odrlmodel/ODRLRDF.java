@@ -70,92 +70,19 @@ public class ODRLRDF {
 
         //RULES
         for (Rule r : policy.rules) {
-            
             Resource rrule2 = getResourceFromRule(r);
-            
-            
-            r.uri="";   //las hacemos anónimas
-            Resource rrule;
-            if (r.uri==null || r.uri.isEmpty())
-                rrule = model.createResource();
-            else
-                rrule = model.createResource(r.uri.toString());
-            if (r.getKindOfRule()==Rule.RULE_PERMISSION) {
-                rrule.addProperty(RDF.type, ODRLRDF.RPERMISSION);
-                rpolicy.addProperty(ODRLRDF.PPERMISSION, rrule);
-                
-                if (r.getClass().equals(Permission.class))
-                {
-                    Permission permiso = (Permission)r;
-                    List<Duty> duties=permiso.getDuties();
-                    for(Duty duty : duties)
-                    {
-                        Resource rduty = ODRLRDF.getResourceFromDuty(duty);
-                        model.add(rduty.getModel());
-                        rrule.addProperty(ODRLRDF.PDUTY, rduty);
-                    }
-                }
-            }
-            if (r.getKindOfRule()==Rule.RULE_PROHIBITION) {
-                rrule.addProperty(RDF.type, ODRLRDF.RPROHIBITION);
-                rpolicy.addProperty(ODRLRDF.PPROHIBITION, rrule);
-            }
-            if (!r.target.isEmpty()) 
-                rrule.addProperty(ODRLRDF.PTARGET, r.target);
-            if (!r.getAssignee().isEmpty())
-                rrule.addProperty(ODRLRDF.PASSIGNEE, r.getAssignee());
-           if (!r.getAssigner().isEmpty())
-                rrule.addProperty(ODRLRDF.PASSIGNER, r.getAssigner());
-
-           //A few constraints as example
-            for (Constraint req : r.constraints) {
-                if (req.getClass().equals(ConstraintLocation.class))
-                {
-                    ConstraintLocation cp = ((ConstraintLocation)req);
-                    Resource rconstraint = model.createResource();
-                    rconstraint.addProperty(ODRLRDF.PSPATIAL, cp.location);
-                    rconstraint.addProperty(ODRLRDF.POPERATOR, ODRLRDF.LEQ);
-                    rrule.addProperty(ODRLRDF.PCONSTRAINT, rconstraint);
-                }else if (req.getClass().equals(ConstraintIndustry.class))
-                {
-                    ConstraintIndustry cp = ((ConstraintIndustry)req);
-                    Resource rconstraint = model.createResource();
-                    rconstraint.addProperty(ODRLRDF.PINDUSTRY, cp.industry);
-                    rconstraint.addProperty(ODRLRDF.POPERATOR, ODRLRDF.LEQ);
-                    rrule.addProperty(ODRLRDF.PCONSTRAINT, rconstraint);
-                }
-
-                
-                else {
-                    if (req==null)
-                    {
-                        continue;
-                    }
-                    Resource rconstraint;
-                    if (req.uri==null || req.uri.isEmpty())
-                        rconstraint = model.createResource();
-                    else 
-                        rconstraint = model.createResource(req.uri.toString());
-            //        rconstraint.addProperty(RDF.type, ODRL.RCONSTRAINT);
-                    rrule.addProperty(ODRLRDF.PCONSTRAINT, rconstraint);
-
-                }
-            }
-            for (Action a : r.actions) {
-                Resource raction = model.createResource(a.uri.toString());
-        //        raction.addProperty(RDF.type, ODRL.RACTION);
-                rrule.addProperty(ODRLRDF.PACTION, raction);
-            }
+            if (r.getKindOfRule()==Rule.RULE_PERMISSION)
+                rpolicy.addProperty(ODRLRDF.PPERMISSION, rrule2);
+            if (r.getKindOfRule()==Rule.RULE_DUTY)
+                rpolicy.addProperty(ODRLRDF.PDUTY, rrule2);
+            if (r.getKindOfRule()==Rule.RULE_PROHIBITION)
+                rpolicy.addProperty(ODRLRDF.PPROHIBITION, rrule2);
+            model.add(rrule2.getModel());
         }
+
         Model mx = ModelFactory.createDefaultModel();
         mx.add(rpolicy.getModel());
-  //      RDFUtils.print(mx);
-        
         return rpolicy;
-     /*   StringWriter sw = new StringWriter();
-        RDFDataMgr.write(sw, model, Lang.TTL);
-        s = sw.toString();
-        return s;*/
     }
 
 /******************* PRIVATE METHODS ******************************************/    
@@ -199,6 +126,25 @@ public class ODRLRDF {
     }
     
     /**
+     * Gets a Jena Resource from a a constraint
+     * @param constraint Constraint in the ODRL2.0 Model
+     * @return A Jena constraint
+     */
+    private static Resource getResourceFromConstraint(Constraint constraint)
+    {
+        Model model = ModelFactory.createDefaultModel();
+        Resource rconstraint = constraint.isAnon() ? model.createResource() : model.createResource(constraint.uri.toString());
+        rconstraint.addProperty(RDF.type, ODRLRDF.RCONSTRAINT);
+        
+        Property prho = model.createProperty(constraint.rightOperand);
+        rconstraint.addProperty(prho, constraint.value);
+        rconstraint.addProperty(ODRLRDF.POPERATOR,  model.createResource(constraint.operator));
+        
+        return rconstraint;
+    }
+    
+    
+    /**
      * Gets a Jena Resource from a rule
      * @param permission Permission in the ODRL2.0 Model
      * @return A Jena permission
@@ -225,11 +171,19 @@ public class ODRLRDF {
         
         //ACTIONS
         for (Action a : rule.actions) {
-            Resource raction = model.createResource(a.uri.toString());
+            Resource raction = getResourceFromAction(a);
             rrule.addProperty(ODRLRDF.PACTION, raction);
         }        
         
-        //DUTIES
+        for(Constraint c : rule.constraints)
+        {
+            Resource rconstraint = getResourceFromConstraint(c);
+            rrule.addProperty(ODRLRDF.PCONSTRAINT, rconstraint);
+            model.add(rconstraint.getModel());
+        }
+        
+        
+        //DUTIES (ONLY FOR PERMISSIONS)
         if (rule.getClass().equals(Permission.class))
         {
             Permission permiso = (Permission)rule;

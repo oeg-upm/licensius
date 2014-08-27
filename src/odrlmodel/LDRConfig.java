@@ -10,6 +10,8 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.TreeSet;
 
+//LOG4J
+import org.apache.log4j.Logger;
 
 /**
  * Reads and writes parameters in a configfile
@@ -205,7 +207,7 @@ public class LDRConfig {
             tmp.putAll(prop);
             tmp.store(new FileWriter("../ldr.config"), null);
         } catch (Exception ex) {
-            ex.printStackTrace();
+            Logger.getLogger("ldr").error("Error opening config file" + ex.toString());
         }
     }
 }

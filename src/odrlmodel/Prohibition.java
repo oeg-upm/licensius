@@ -12,8 +12,13 @@ package odrlmodel;
  */
 public class Prohibition extends Rule {
 
+    /**
+     * Prohibition constructor
+     * Prohibitions are by default anonymous
+     */
     public Prohibition()
     {
+        super(""); 
         setKindOfRule(Rule.RULE_PROHIBITION);
     }    
 }
