@@ -25,8 +25,6 @@ public class MetadataObject {
     public String title="";
     public String uri = "";
     
-    private boolean anonymous = false;
-    
 
     /**
      * Builds an empty metadata object

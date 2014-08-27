@@ -3,15 +3,18 @@
 \mainpage ODRL 2.0 Simple API
 <!--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>-->
 
+
+
 <h1>Introduction</h1>
 <p>ODRL2.0 is a language to express policies: permissions, prohibitions, obligations.</p>
+<center><img src = "../../doc/odrlapi.jpg"/></center>
 <p>This API is able to manipulate expressions conformant to a subset of the <a href="http://www.w3.org/community/odrl/two/model/">
-Core Model specification</a> and <a href="http://www.w3.org/community/odrl/two/vocab/">Common Vocabulary</a>, but it is intended to grow.</p>
+Core Model specification</a> and <a href="http://www.w3.org/community/odrl/two/vocab/">Common Vocabulary</a>.</p>
 <p>ODRL2.0 can be serialized as XML, as JSON or as RDF based on the draft <a href="http://www.w3.org/ns/odrl/2/">ODRL2.0 Ontology</a>. The only serialization this Java API supports in this version is the RDF</p>
 
 <h1>Download</h1>
 
-<a href="lasversion.jar">odrl2simple.0.1.jar</a>
+<a href="lasversion.jar">odrlapi.0.1.jar</a>
 
 <h1>Fast intro to ODRL2.0 and ODRL2.0 Simple API</h1>
 
@@ -25,27 +28,27 @@ ODRL2.0 Core Model is abstract, i.e., serialization independent. The examples in
 </center>
 
 <h2>A first example</h2>
-A policy may represent the following statement: <i>"Alice authorizes Bob to smoke"</i>. 
+A policy may represent the following statement: <i>"The asset 9898 can be read and written"</i>. 
 <pre>
-</policy:01>
-	a odrl:Set;
-	odrl:permission "smoke" ;
-        odrl:assigner "Alice" ;
-        odrl:assignee "Bob" .
+<http://example.com/policy:0099>
+        a                 odrl:Policy , odrl:Set ;
+        odrl:permission   [ a            odrl:Permission ;
+                            odrl:action  odrl:write , odrl:read ;
+                            odrl:target  "http://example.com/asset:9898"
+                          ] ;
 </pre>
-<p>Note we have created a resource, policy:01, of class odrl:Set, with three properties: the permitted action ("smoke"), the assignee ("Bob") and the assigner ("Alice"). 
+<p>Note we have created a resource, policy:01, of class odrl:Set, with a single permission: the permitted actions (read, write), and the resource (asset9898). 
 The absence of the assignee is usually interpreted as "anybody", the absence of the assigner might be interpreted as if it matches the policy publisher.</p>
 
 This may have been defined in Java with the 
 <pre>
-        Policy policy = new Policy();
-        Rule rule = new Rule();
-        rule.addAction("smoke");
-        rule.setAssigner("Alice");
-        rule.setAssignee("Bob");
-        policy.add(rule);
-
-        System.out.println(ODRLRDF.getRDF(policy));
+        Policy policy = new Policy("http://example.com/policy:0099");
+        Permission permission = new Permission();
+        permission.setTarget("http://example.com/asset:9898");
+        permission.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/read"), new Action("http://www.w3.org/ns/odrl/2/write")));
+        policy.addRule(permission);
+		
+        System.out.println(ODRLRDF.getRDF(policy, Lang.TTL));
 
 </pre>
 Note that the last line converts objects in the ODRL2.0 Simple API Model to the RDF (Turtle by default) serialization.
@@ -58,9 +61,9 @@ Note that the last line converts objects in the ODRL2.0 Simple API Model to the 
 
 
 <h1>Author and terms of use</h1>
-<p>This API has been programmed by Víctor Rodríguez Doncel at the <a href="http://www.oeg-upm.net">Ontology Engineering Group</a>, in Universidad Politécnica de Madrid (Spain)</p>
-<center><img src = "../../img/oeg100.png"/></center>
+<p>This API has been programmed by <a href="http://purl.org/NET/vroddon">Víctor Rodríguez Doncel</a> at the <a href="http://www.oeg-upm.net">Ontology Engineering Group</a>, in Universidad Politécnica de Madrid (Spain)</p>
+<center><img src = "../../doc/oeg100.png"/></center>
 
-You may??? use this software.... etc. etc.
+<p>You may use this software as you like, but we do not accept any responsibility in its use.</p>
 
 */

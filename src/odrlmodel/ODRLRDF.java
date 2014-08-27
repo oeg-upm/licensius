@@ -2,12 +2,9 @@ package odrlmodel;
 
 //JAVA
 import java.io.StringWriter;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 
 //JENA
-import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -15,6 +12,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.vocabulary.RDF;
+import java.util.ArrayList;
 
 /**
  * Interface to serialize ODRL2.0 Expressions from / to RDF.
@@ -41,12 +39,119 @@ public class ODRLRDF {
     }   
     
     /**
+     * Loads the ODRL2.0 policies found in a file.
+     * @param path File location
+     * @return A set of policies
+     */
+    public static List<Policy> load(String path) {
+        List<Policy> politicas=new ArrayList();
+        try{
+            Model model = RDFDataMgr.loadModel(path);
+            List<Resource> ls = ODRLRDF.findPolicies(model);
+            for (Resource rpolicy : ls) {
+                Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
+                policy.fileName = path;
+                politicas.add(policy);
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return politicas;
+    }        
+    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+    
+    
+
+    
+
+    /**
+     * Finds the policies in the model. It determines URIs with a type of a known policy term.
+     * Policies are accepted to be odrl:policy, cc:License or dc:LicenseDocument
+     * @param model Model
+     * @return List of resources
+     */
+    protected static List<Resource> findPolicies(Model model) {
+        List<Resource> total = new ArrayList();
+        List<Resource> ls = RDFUtils.getOntResourcesOfType(model,ODRLRDF.RPOLICY);
+        total.addAll(ls);
+        List<Resource> ls2 = RDFUtils.getResourcesOfType(model,ODRLRDF.RCCLICENSE);
+        total.addAll(ls2);
+        List<Resource> ls3 = RDFUtils.getResourcesOfType(model, ODRLRDF.RDCLICENSEDOC);
+        total.addAll(ls3);
+        return total;
+    }
+    
+
+    /**
+     * Gets a ODRL2.0 policy object from a RDF resource
+     * 
+     * @param an RDF Resource
+     * @return An ODRL policy
+     */
+    protected static Policy getPolicyFromResource(Resource rpolicy) {
+        Policy policy = new Policy();
+        policy.uri = rpolicy.getURI();
+        
+        //CARGA LOS METADATOS COMUNES SI LOS HAY
+        policy = (Policy)getResourceMetadata(policy, rpolicy);
+        
+        // Observamos qué tipo de licencia es
+        List<String> stypes = RDFUtils.getAllPropertyStrings(rpolicy, RDF.type);
+        if (stypes.contains("http://creativecommons.org/ns#License"))
+        {
+            policy.setType(Policy.POLICY_CC);
+            Rule ccRule = RDFUtils.findCreativeCommons(rpolicy);
+            if (ccRule!=null)
+                policy.addRule(ccRule);
+            return policy;
+            
+        }
+        else if (stypes.contains("http://www.w3.org/ns/odrl/2/Set"))
+            policy.setType(Policy.POLICY_SET);   
+        else if (stypes.contains("http://www.w3.org/ns/odrl/2/Offer"))
+            policy.setType(Policy.POLICY_OFFER);   
+        else if (stypes.contains("http://www.w3.org/ns/odrl/2/Ticket"))
+            policy.setType(Policy.POLICY_TICKET);   
+        else if (stypes.contains("http://www.w3.org/ns/odrl/2/Request"))
+            policy.setType(Policy.POLICY_REQUEST);   
+        else if (stypes.contains("http://www.w3.org/ns/odrl/2/Agreement"))
+            policy.setType(Policy.POLICY_AGREEMENT);   
+            
+
+        
+        //IF HANDLING AN ODRL PROHIBITION CASE
+        List<Resource> rrulesProhibitionODRL = RDFUtils.getAllPropertyResources(rpolicy, ODRLRDF.PPROHIBITION);
+        for (Resource rrule : rrulesProhibitionODRL) {
+            Rule rule = ODRLRDF.fromResourceToRule(rrule, Rule.RULE_PROHIBITION);
+            if (rule!=null)
+                policy.addRule(rule);
+        }
+        
+        //IF HANDLING AN ODRL PERMISSION CASE
+        List<Resource> rrulesPermissionsODRL = RDFUtils.getAllPropertyResources(rpolicy, ODRLRDF.PPERMISSION);
+        for (Resource rrule : rrulesPermissionsODRL) {
+            Rule rule = ODRLRDF.fromResourceToRule(rrule, Rule.RULE_PERMISSION);
+            if (rule!=null)
+                policy.addRule(rule);
+        }
+        return policy;
+    }
+    
+    
+    
+    /**
      * Gets the JENA resource from a policy
      * @param policy Policy
      */
     private static Resource getResourceFromPolicy(Policy policy)
     {
-        String s = "";
         Model model = ModelFactory.createDefaultModel();
         addPrefixesToModel(model);
 
@@ -74,11 +179,19 @@ public class ODRLRDF {
         for (Rule r : policy.rules) {
             Resource rrule2 = getResourceFromRule(r);
             if (r.getClass().equals(Permission.class))
+            {
                 rpolicy.addProperty(ODRLRDF.PPERMISSION, rrule2);
+            }
             if (r.getClass().equals(Duty.class))
+            {
                 rpolicy.addProperty(ODRLRDF.PDUTY, rrule2);
+            }
             if (r.getClass().equals(Prohibition.class))
+            {
                 rpolicy.addProperty(ODRLRDF.PPROHIBITION, rrule2);
+            }
+            
+            model.add(rpolicy.getModel());
             model.add(rrule2.getModel());
         }
 
@@ -86,8 +199,100 @@ public class ODRLRDF {
         mx.add(rpolicy.getModel());
         return rpolicy;
     }
+        
+    
+    /**
+     * Creates an ODRL Rule from a Jena Resource
+     * @param rrule Resource
+     * @param tipo ?
+     * @return an ODRL Rule or null.
+     */
+    private static Rule fromResourceToRule(Resource rrule, int tipo)
+    {
+        String uri = rrule.isAnon() ? "" : rrule.getURI();
+        Rule rule = new Rule(uri);
+        if (tipo==Rule.RULE_PERMISSION)
+            rule = new Permission(uri);
+        if (tipo==Rule.RULE_PROHIBITION)
+            rule = new Prohibition(uri);
+        if (tipo==Rule.RULE_DUTY)
+            rule = new Duty(uri);
+        
+        rule.setKindOfRule(tipo);
+            //está directamente expresado
+            if (RDFUtils.isOfKind(rrule, ODRLRDF.RACTION.getURI()))
+            {
+                Action a =new Action(rrule.getURI());
+                a = RDFUtils.enrichAction(a);
+                rule.addAction(a);
+            }
+            String sassignee=RDFUtils.getFirstPropertyValue(rrule, ODRLRDF.PASSIGNEE);
+            if (!sassignee.isEmpty())
+                rule.setAssignee(new Party(sassignee));
 
-/******************* PRIVATE METHODS ******************************************/    
+            String sassigner=RDFUtils.getFirstPropertyValue(rrule, ODRLRDF.PASSIGNER);
+            if (!sassigner.isEmpty())
+                rule.setAssignee(new Party(sassigner));
+            
+            String target1 = RDFUtils.getFirstPropertyValue(rrule, ODRLRDF.PTARGET);
+            if (!target1.isEmpty())
+                rule.setTarget(target1);
+
+            List<String> sactions1 = RDFUtils.getAllPropertyStrings(rrule, ODRLRDF.PACTION);
+            for (String saction : sactions1) {
+                Action a = new Action(saction);
+                a = RDFUtils.enrichAction(a);
+                rule.addAction(a);
+            }
+            List<Resource> sconstraints = RDFUtils.getAllPropertyResources(rrule, ODRLRDF.PCONSTRAINT);
+            for (Resource sconstraint : sconstraints) {
+                Constraint c = new Constraint(sconstraint.getURI());
+                c=RDFUtils.enrichConstraint(c);
+
+                rule.addConstraint(c);
+                
+            }
+            List<Resource> sduties = RDFUtils.getAllPropertyResources(rrule, ODRLRDF.PDUTY);
+            for (Resource rduty : sduties) {
+                Constraint c = new Constraint(rduty.getURI());
+                c=RDFUtils.enrichConstraint(c);
+
+                String action = RDFUtils.getFirstPropertyValue(rduty, ODRLRDF.PACTION);
+//                c.label = LD.getFirstPropertyValue(rrule, RDFS.label);
+                Action a = new Action(action);
+                a = RDFUtils.enrichAction(a);
+                c.setLabel(a.getLabel("en"));
+
+                if (a.getURI().equals(""))
+                {
+                    
+                }
+            }
+                
+
+        return rule;
+    }
+    
+    /**
+     * Returns a MetadataObject from a Jena resource
+     * @param me MetadataObject to be enriched
+     * @param resource Resource with the data
+     */
+    protected static MetadataObject getResourceMetadata(MetadataObject me, Resource resource)
+    {
+        me.title = RDFUtils.getFirstPropertyValue(resource, RDFUtils.TITLE);
+        me.comment = RDFUtils.getFirstPropertyValue(resource, RDFUtils.COMMENT);
+        me.setLabel(RDFUtils.getFirstPropertyValue(resource, RDFUtils.LABEL));
+        List<String> labels=RDFUtils.getAllPropertyStrings(resource, RDFUtils.LABEL);
+        me.labels.clear();
+        for(String label:labels)
+            me.addLabel(label);
+        me.seeAlso = RDFUtils.getFirstPropertyValue(resource, RDFUtils.SEEALSO);
+        return me;
+    }    
+    
+    
+
     
     /**
      * Gets a Jena Resource from an action
@@ -221,8 +426,11 @@ public class ODRLRDF {
         return resource;
     }    
     
+    
+
     /**
      * Adds the most common prefixes to the generated model
+     * @param model Jena Model
      */
     private static void addPrefixesToModel(Model model)
     {
@@ -262,9 +470,9 @@ public class ODRLRDF {
     private static Property PCONSTRAINT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/constraint");
     private static Property PCOUNT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/count");
     private static Property POPERATOR = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/operator");
-    private static Property PCCPERMISSION = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#permits");
-    private static Property PCCPERMISSION2 = ModelFactory.createDefaultModel().createProperty("http://web.resource.org/cc/permits");
-    private static Property PCCREQUIRES = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#requires");
+    protected static Property PCCPERMISSION = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#permits");
+    protected static Property PCCPERMISSION2 = ModelFactory.createDefaultModel().createProperty("http://web.resource.org/cc/permits");
+    protected static Property PCCREQUIRES = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#requires");
     private static Resource RPAY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/pay");
     private static Property RDCLICENSEDOC = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/LicenseDocument");
     private static Property PAMOUNTOFTHISGOOD = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/amountOfThisGood");
@@ -284,4 +492,5 @@ public class ODRLRDF {
     private static Property SEEALSO= ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
     private static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
     private static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");    
+    
 }
