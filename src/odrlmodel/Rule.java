@@ -59,6 +59,8 @@ public class Rule extends MetadataObject {
         super(_uri);
     }
     
+
+    
     
     /**
      * Gets the kind of the rule
@@ -121,6 +123,14 @@ public class Rule extends MetadataObject {
         return constraints;
     }
 
+    /**
+     * Sets the constraints for this rule to apply
+     * @param _constraints List of constratins
+     */
+    public void setConstraints(List<Constraint> _constraints)
+    {
+        constraints=_constraints;
+    }    
 
     public void addAction(Action a) {
         actions.add(a);

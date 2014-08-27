@@ -13,7 +13,7 @@ package odrlmodel;
  * 
  * @author Victor
  */
-public class Duty extends Rule{
+public class Duty extends Rule {
     
     public Duty()
     {

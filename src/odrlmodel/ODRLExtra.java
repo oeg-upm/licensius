@@ -33,9 +33,7 @@ public class ODRLExtra {
             }
             List<Constraint> lc = r.getConstraints();
             for (Constraint constraint : lc) {
-                if (constraint.isOpen()) {
-                    return true;
-                }
+                return true;
             }
         }
         return open;
@@ -92,10 +90,6 @@ public class ODRLExtra {
             }
             List<Constraint> lc = r.getConstraints();
             for (Constraint constraint : lc) {
-                if (!constraint.isOpen()) {
-                    ConstraintPay cp = (ConstraintPay)constraint;
-                    price = cp.getPriceString();
-                }
             }
         }
         return price;
@@ -128,6 +122,25 @@ public class ODRLExtra {
         for(Policy policy : _policies)
             if (isInOffer(policy))
                 return true;
+        return false;
+    }
+
+    
+    /**
+     * Returns
+     * @deprecated
+     * @return  true if there is at least one constraint that offers the good per rdf:Statement
+     */
+    protected static boolean isPerTriple(Policy p) {
+        if (p.rules.size() > 0) {
+            Rule r = p.rules.get(0);
+            if (r.getConstraints().size() > 0) {
+                List<Constraint> lc = r.getConstraints();
+                if (lc.size() > 0) {
+                    Constraint c = lc.get(0);
+                }
+            }
+        }
         return false;
     }
     

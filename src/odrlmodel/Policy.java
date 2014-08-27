@@ -184,29 +184,6 @@ public class Policy extends MetadataObject {
         return s;
     }
 
-    /**
-     * Returns
-     * @deprecated
-     * @return  true if there is at least one constraint that offers the good per rdf:Statement
-     */
-    protected boolean isPerTriple() {
-        if (rules.size() > 0) {
-            Rule r = rules.get(0);
-            if (r.getConstraints().size() > 0) {
-                List<Constraint> lc = r.getConstraints();
-                if (lc.size() > 0) {
-                    Constraint c = lc.get(0);
-                    if (c.getClass().equals(ConstraintPay.class))
-                    {
-                    if (((ConstraintPay)c).isPerTriple()) {
-                        return true;
-                    }
-                    }
-                }
-            }
-        }
-        return false;
-    }
 
 
 
@@ -242,38 +219,4 @@ public class Policy extends MetadataObject {
         return "";
     }
 
-    /**
-     * @deprecated
-     */
-    public String getFirstCurrency() {
-        for (Rule r : rules) {
-            List<Constraint> lc = r.getConstraints();
-            for (Constraint c : lc) {
-                if (c.getClass().equals(ConstraintPay.class)) {
-                    ConstraintPay cp = (ConstraintPay) c;
-                    if (cp.amount!=0)
-                        return cp.currency;
-                }
-            }
-        }
-        return "";
-    }    
-
-    /**
-     * @deprecated
-     */
-    public double getFirstPrice() {
-        for (Rule r : rules) {
-            List<Constraint> lc = r.getConstraints();
-            for (Constraint c : lc) {
-                if (c.getClass().equals(ConstraintPay.class)) {
-                    ConstraintPay cp = (ConstraintPay) c;
-                    if (cp.amount != 0) {
-                        return cp.amount;
-                    }
-                }
-            }
-        }
-        return 0.0;
-    }
 }

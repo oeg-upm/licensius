@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import odrlmodel.Action;
+import odrlmodel.Constraint;
 import odrlmodel.Duty;
 import odrlmodel.ODRLRDF;
 import odrlmodel.Permission;
@@ -29,18 +30,30 @@ public class Example2 {
         Policy policy = new Policy("http://example.com/policy:0231");
         policy.setType(Policy.POLICY_OFFER); 
 
+        Duty payment = new Duty("http://example.com/requirements");
+        payment.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/pay")));
+        payment.setTarget("http://example.com/ubl:AUD0.50");
+
         Permission permission = new Permission();
         permission.setTarget("http://example.com/music:4545");
         permission.setAssigner("http://example.com/sony:10");
         permission.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/play")));
-        
-        Duty payment = new Duty("http://example.com/requirements");
-        payment.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/pay")));
-        payment.setTarget("http://example.com/ubl:AUD0.50");
-        
         permission.setDuty(payment);
-            
         policy.addRule(permission);
+
+        Permission permission2 = new Permission();
+        permission2.setTarget("http://example.com/music:4545");
+        permission2.setAssigner("http://example.com/sony:10");
+        permission2.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/copy")));
+        permission2.setDuty(payment);
+        Constraint c = new Constraint("");
+        c.setOperator("http://www.w3.org/ns/odrl/2/lteq");
+        c.setRightOperand("http://www.w3.org/ns/odrl/2/count");
+        c.setValue("1");
+        permission2.setConstraints(Arrays.asList(c));
+        policy.addRule(permission2);
+        
+        
         
         //We serialize the policy
         String rdf=ODRLRDF.getRDF(policy,Lang.TTL);

@@ -70,6 +70,10 @@ public class ODRLRDF {
 
         //RULES
         for (Rule r : policy.rules) {
+            
+            Resource rrule2 = getResourceFromRule(r);
+            
+            
             r.uri="";   //las hacemos anónimas
             Resource rrule;
             if (r.uri==null || r.uri.isEmpty())
@@ -105,20 +109,7 @@ public class ODRLRDF {
 
            //A few constraints as example
             for (Constraint req : r.constraints) {
-                if (req.getClass().equals(ConstraintPay.class))
-                {
-                    ConstraintPay cp = ((ConstraintPay)req);
-                    Resource rconstraint = model.createResource();
-                    rconstraint.addProperty(ODRLRDF.LABEL, "Pay");
-                    rconstraint.addProperty(RDF.type, ODRLRDF.RDUTY);
-                    rconstraint.addProperty(ODRLRDF.PACTION, ODRLRDF.RPAY);
-                    String scount = String.format("%.02f %s", cp.amount, cp.currency);
-                    rconstraint.addProperty(ODRLRDF.PTARGET, scount);
-                    Property pgood = model.createProperty(cp.good);
-                    rconstraint.addProperty(ODRLRDF.PAMOUNTOFTHISGOOD, ""+cp.amountOfThisGood);
-                    rconstraint.addProperty(ODRLRDF.PUNITOFMEASUREMENT, pgood);
-                    rrule.addProperty(ODRLRDF.PDUTY, rconstraint);
-                } else if (req.getClass().equals(ConstraintLocation.class))
+                if (req.getClass().equals(ConstraintLocation.class))
                 {
                     ConstraintLocation cp = ((ConstraintLocation)req);
                     Resource rconstraint = model.createResource();
@@ -191,8 +182,6 @@ public class ODRLRDF {
         {
             rduty.addProperty(ODRLRDF.PTARGET, duty.target);
         }
-        
-        
         return rduty;
     }
     
@@ -210,13 +199,52 @@ public class ODRLRDF {
     }
     
     /**
-     * Gets a Jena Resource from a permission
+     * Gets a Jena Resource from a rule
      * @param permission Permission in the ODRL2.0 Model
      * @return A Jena permission
      */
-    private static Resource getResourceFromPermission(Permission permission)
+    private static Resource getResourceFromRule(Rule rule)
     {
-        return null;
+        Model model = ModelFactory.createDefaultModel();
+        Resource rrule = rule.isAnon() ? model.createResource() : model.createResource(rule.uri.toString());
+        
+        if (rule.getKindOfRule()==Rule.RULE_PERMISSION) 
+            rrule.addProperty(RDF.type, ODRLRDF.RPERMISSION);
+        if (rule.getKindOfRule()==Rule.RULE_DUTY) 
+            rrule.addProperty(RDF.type, ODRLRDF.RDUTY);
+        if (rule.getKindOfRule()==Rule.RULE_PROHIBITION) 
+            rrule.addProperty(RDF.type, ODRLRDF.RPROHIBITION);
+            
+        //TARGET, ASSIGNER, ASSIGNEE
+        if (!rule.target.isEmpty()) 
+            rrule.addProperty(ODRLRDF.PTARGET, rule.target);
+        if (!rule.getAssignee().isEmpty())
+            rrule.addProperty(ODRLRDF.PASSIGNEE, rule.getAssignee());
+        if (!rule.getAssigner().isEmpty())
+            rrule.addProperty(ODRLRDF.PASSIGNER, rule.getAssigner());
+        
+        //ACTIONS
+        for (Action a : rule.actions) {
+            Resource raction = model.createResource(a.uri.toString());
+            rrule.addProperty(ODRLRDF.PACTION, raction);
+        }        
+        
+        //DUTIES
+        if (rule.getClass().equals(Permission.class))
+        {
+            Permission permiso = (Permission)rule;
+            List<Duty> duties=permiso.getDuties();
+            for(Duty duty : duties)
+            {
+                Resource rduty = ODRLRDF.getResourceFromRule(duty);
+                model.add(rduty.getModel());
+                rrule.addProperty(ODRLRDF.PDUTY, rduty);
+            }
+        }
+        
+        
+        
+        return rrule;
     }
     
     

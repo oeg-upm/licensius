@@ -4,16 +4,26 @@ package odrlmodel;
 import java.util.UUID;
 
 /**
-* This class represents an ODRL Constraint.
+* This class represents an ODRL2.0 Constraint.
+ * 
 * The Constraint entity indicates limits and restrictions to the Permission, the Prohibition and the Duty entity. 
 * Constraints express mathematical terms with two operands and one operator. 
 * For example, the “number of usages” (name) must be “smaller than” (operator) the “number 10″ (rightOperand). 
-* @author Victor Rodriguez Doncel at OEG-UPM 2014
+* 
+ * If multiple Constraint entities are linked to the same Permission, Prohibition, 
+ * or Duty entity, then all of the Constraint entities MUST be satisfied. That is, 
+ * all the Constraint entities are (boolean) anded. In the case where the same 
+ * Constraint is repeated, then these MUST be represented as a single Constraint 
+ * entity using an appropriate operator value (for example, isAnyOf).
+ * 
+ * @author Victor Rodriguez Doncel at OEG-UPM 2014
 */
 public class Constraint extends MetadataObject{
 
-    public Action action = null;
-
+    String operator="";
+    String rightOperand="";
+    String value="";
+    
     /** 
      * Default constraint with a random URI
      */
@@ -28,8 +38,6 @@ public class Constraint extends MetadataObject{
     public Constraint(Constraint copia)
     {
         super(copia);
-        
-        action=copia.action;
     }
     
     /**
@@ -40,29 +48,34 @@ public class Constraint extends MetadataObject{
      */
     public Constraint(String _uri)
     {
-        uri = _uri;
+        super(_uri);
     }
     
-    
-    
-    
-    public String toString()
+    /**
+     * Sets the operator
+     * @param _operator An operator, like http://www.w3.org/ns/odrl/2/gt or http://www.w3.org/ns/odrl/2/eq
+     */
+    public void setOperator(String _operator)
     {
-        String label=getLabel("en");
-        return label;
+        operator=_operator;
     }
     
+    /**
+     * Sets the rightOperand
+     * @param _rightOperand A rightOperand, like http://www.w3.org/ns/odrl/2/language, http://www.w3.org/ns/odrl/2/industry, etc.
+     */
+    public void setRightOperand(String _rightOperand)
+    {
+        rightOperand=_rightOperand;
+    }
 
     /**
-     * Decides whether the access is permitted or not, exclusively based on the price.
-     * @return true if the access is open
+     * Sets the vlue
+     * @param _value Value, like http://www.lexvo.org/page/iso639-3/eng, 3, etc.
      */
-    public boolean isOpen() {
-        return true;
-/*        if (amount!=null && amount!=0)
-            return false;
-        return true;*/
+    public void setValue(String _value)
+    {
+        value=_value;
     }
-        
     
 }

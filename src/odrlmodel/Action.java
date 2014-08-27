@@ -53,7 +53,6 @@ public class Action extends MetadataObject {
      */
     public Action(String _uri) {
         super(_uri);
-//        setURI(_uri);
     }
 
 }
