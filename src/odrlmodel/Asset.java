@@ -53,17 +53,6 @@ public class Asset extends MetadataObject {
     }
 
     /**
-     * 
-     */
-    public String toString() {
-        String label = getLabel("");
-        if (label.isEmpty()) {
-            return uri.toString();
-        }
-        return label;
-    }
-
-    /**
      * Returns the list of _policies ya completada
      * @return List of _policies
      */

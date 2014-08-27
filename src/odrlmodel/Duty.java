@@ -26,6 +26,8 @@ public class Duty extends Rule {
      */
     public Duty(String _uri) {
         super(_uri);
+        setKindOfRule(Rule.RULE_DUTY);
     }
+    
     
 }

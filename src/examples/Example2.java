@@ -9,6 +9,7 @@ import odrlmodel.Action;
 import odrlmodel.Constraint;
 import odrlmodel.Duty;
 import odrlmodel.ODRLRDF;
+import odrlmodel.Party;
 import odrlmodel.Permission;
 import odrlmodel.Policy;
 import odrlmodel.Prohibition;
@@ -36,14 +37,14 @@ public class Example2 {
 
         Permission permission = new Permission();
         permission.setTarget("http://example.com/music:4545");
-        permission.setAssigner("http://example.com/sony:10");
+        permission.setAssigner(new Party("http://example.com/sony:10"));
         permission.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/play")));
         permission.setDuty(payment);
         policy.addRule(permission);
 
         Permission permission2 = new Permission();
         permission2.setTarget("http://example.com/music:4545");
-        permission2.setAssigner("http://example.com/sony:10");
+        permission2.setAssigner(new Party("http://example.com/sony:10"));
         permission2.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/copy")));
         permission2.setDuty(payment);
         Constraint c = new Constraint("");

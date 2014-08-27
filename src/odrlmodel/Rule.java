@@ -29,16 +29,15 @@ public class Rule extends MetadataObject {
     
     private int ikind = 0; //either RULE_PERMISSION, RULE_PROHIBITION or RULE_DUTY
 
-    
     public List<Action> actions = new ArrayList();
 
     public List<Constraint> constraints = new ArrayList();
     
     public String target="";   //Target of the rule (object over which the actions are exercised)
 
-    public String assignee=""; //To whom the rule applies
+    protected Party assignee=null; //To whom the rule applies
     
-    public String assigner=""; //Who is assigning the rule
+    protected Party assigner = null; //Who is assigning the rule
 
     
     /**
@@ -59,7 +58,7 @@ public class Rule extends MetadataObject {
         super(_uri);
     }
     
-
+    
     
     
     /**
@@ -144,7 +143,7 @@ public class Rule extends MetadataObject {
      * Sets the assignee of the rule
      * @param _assignee
      */
-    public void setAssignee(String _assignee) {
+    public void setAssignee(Party _assignee) {
         assignee=_assignee;
     }
 
@@ -152,25 +151,26 @@ public class Rule extends MetadataObject {
      * Gets the assignee of the rule.
      * @return The assignee
      */
-    public String getAssignee()
+    public Party getAssignee()
     {
         return assignee;
     }
-    
     
     /**
      * Sets the assigner of the rule
      * @param _assigner
      */
-    public void setAssigner(String _assigner) {
-        assigner=_assigner;
+    public void setAssigner(Party _assigner)
+    {
+        assigner = _assigner;
     }
+    
 
     /**
      * Gets the assigner of the rule.
      * @return The assigner
      */
-    public String getAssigner()
+    public Party getAssigner()
     {
         return assigner;
     }    

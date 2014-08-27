@@ -59,8 +59,10 @@ public class ODRLRDF {
             rpolicy.addProperty(RDF.type, ODRLRDF.REQUEST);
         else if (policy.getType()==Policy.POLICY_OFFER) 
             rpolicy.addProperty(RDF.type, ODRLRDF.OFFER);
-        else if (policy.getType()==Policy.POLICY_SET) 
-            rpolicy.addProperty(RDF.type, ODRLRDF.RSET);
+        else if (policy.getType()==Policy.POLICY_AGREEMENT) 
+            rpolicy.addProperty(RDF.type, ODRLRDF.RAGREEMENT);
+        else if (policy.getType()==Policy.POLICY_TICKET) 
+            rpolicy.addProperty(RDF.type, ODRLRDF.RTICKET);
         else  
             rpolicy.addProperty(RDF.type, ODRLRDF.RSET);
 
@@ -71,11 +73,11 @@ public class ODRLRDF {
         //RULES
         for (Rule r : policy.rules) {
             Resource rrule2 = getResourceFromRule(r);
-            if (r.getKindOfRule()==Rule.RULE_PERMISSION)
+            if (r.getClass().equals(Permission.class))
                 rpolicy.addProperty(ODRLRDF.PPERMISSION, rrule2);
-            if (r.getKindOfRule()==Rule.RULE_DUTY)
+            if (r.getClass().equals(Duty.class))
                 rpolicy.addProperty(ODRLRDF.PDUTY, rrule2);
-            if (r.getKindOfRule()==Rule.RULE_PROHIBITION)
+            if (r.getClass().equals(Prohibition.class))
                 rpolicy.addProperty(ODRLRDF.PPROHIBITION, rrule2);
             model.add(rrule2.getModel());
         }
@@ -88,31 +90,6 @@ public class ODRLRDF {
 /******************* PRIVATE METHODS ******************************************/    
     
     /**
-     * Gets a Jena Resource from a duty
-     * @param duty Duty in the ODRL2.0 Model
-     * @return A Jena duty
-     */
-    private static Resource getResourceFromDuty(Duty duty)
-    {
-        Model model = ModelFactory.createDefaultModel();
-        Resource rduty = duty.isAnon() ? model.createResource() : model.createResource(duty.uri.toString());
-        rduty.addProperty(RDF.type, ODRLRDF.RDUTY);
-
-        List<Action> actions=duty.getActions();
-        for(Action action : actions)
-        {
-            Resource raction = getResourceFromAction(action);
-            rduty.addProperty(ODRLRDF.PACTION, raction);
-        }
-        
-        if (!duty.target.isEmpty())
-        {
-            rduty.addProperty(ODRLRDF.PTARGET, duty.target);
-        }
-        return rduty;
-    }
-    
-    /**
      * Gets a Jena Resource from an action
      * @param duty Duty in the ODRL2.0 Model
      * @return A Jena action
@@ -122,6 +99,19 @@ public class ODRLRDF {
         Model model = ModelFactory.createDefaultModel();
         Resource raction = model.createResource(action.uri.toString());
         raction.addProperty(RDF.type, ODRLRDF.RACTION);
+        return raction;
+    }
+    
+    /**
+     * Gets a Jena Resource from a party
+     * @param duty Duty in the ODRL2.0 Model
+     * @return A Jena action
+     */
+    private static Resource getResourceFromParty(Party party)
+    {
+        Model model = ModelFactory.createDefaultModel();
+        Resource raction = model.createResource(party.uri.toString());
+        raction.addProperty(RDF.type, ODRLRDF.RPARTY);
         return raction;
     }
     
@@ -164,10 +154,18 @@ public class ODRLRDF {
         //TARGET, ASSIGNER, ASSIGNEE
         if (!rule.target.isEmpty()) 
             rrule.addProperty(ODRLRDF.PTARGET, rule.target);
-        if (!rule.getAssignee().isEmpty())
-            rrule.addProperty(ODRLRDF.PASSIGNEE, rule.getAssignee());
-        if (!rule.getAssigner().isEmpty())
-            rrule.addProperty(ODRLRDF.PASSIGNER, rule.getAssigner());
+        if (rule.getAssigner()!=null)
+        {
+            Resource rparty =getResourceFromParty(rule.getAssigner());
+            rrule.addProperty(ODRLRDF.PASSIGNER, rparty);
+            model.add(rparty.getModel());
+        }
+        if (rule.getAssignee()!=null)
+        {
+            Resource rparty =getResourceFromParty(rule.getAssignee());
+            rrule.addProperty(ODRLRDF.PASSIGNEE, rparty);
+            model.add(rparty.getModel());
+        }
         
         //ACTIONS
         for (Action a : rule.actions) {
@@ -175,6 +173,7 @@ public class ODRLRDF {
             rrule.addProperty(ODRLRDF.PACTION, raction);
         }        
         
+        //CONSTRAINTS
         for(Constraint c : rule.constraints)
         {
             Resource rconstraint = getResourceFromConstraint(c);
@@ -195,8 +194,6 @@ public class ODRLRDF {
                 rrule.addProperty(ODRLRDF.PDUTY, rduty);
             }
         }
-        
-        
         
         return rrule;
     }
@@ -242,52 +239,49 @@ public class ODRLRDF {
     }    
     
     private static Resource RPOLICY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Policy");
-    public static Resource RLICENSE = ModelFactory.createDefaultModel().createResource("http://purl.org/dc/terms/LicenseDocument");
-    public static Resource RCCLICENSE = ModelFactory.createDefaultModel().createResource("http://creativecommons.org/ns#License");
-    public static Resource RSET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Set");
-    public static Resource OFFER = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Offer");
-    public static Resource REQUEST = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Request");
-    public static Resource RPERMISSION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Permission");
-    public static Resource RPROHIBITION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Prohibition");
-    public static Property PPROHIBITION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/prohibition");
-    public static Resource RDUTY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Duty");
-    public static Resource RCONSTRAINT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Constraint");
-    public static Resource RACTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Action");
-    public static Property PPERMISSION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/permission");
-    public static Property PTARGET = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/target");
-    public static Property PASSIGNER = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assigner");
-    public static Property PASSIGNEE = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assignee");
-    public static Property PACTION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/action");
-    public static Property PDUTY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/duty");
-    public static Property PCONSTRAINT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/constraint");
-    public static Property PCOUNT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/count");
-    public static Property POPERATOR = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/operator");
-    public static Property PCCPERMISSION = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#permits");
-    public static Property PCCPERMISSION2 = ModelFactory.createDefaultModel().createProperty("http://web.resource.org/cc/permits");
-    public static Property PCCREQUIRES = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#requires");
-    public static Resource RPAY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/pay");
-    public static Property RDCLICENSEDOC = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/LicenseDocument");
-    public static Property PAMOUNTOFTHISGOOD = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/amountOfThisGood");
-    public static Property PUNITOFMEASUREMENT = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/UnitOfMeasurement");
-    
-    public static Property PDCLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
-    public static Property PDCRIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
-    public static Property PWASGENERATEDBY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#wasGeneratedBy");
-    public static Property PWASASSOCIATEDWITH = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#wasAssociatedWith");
-    public static Property PENDEDATTIME = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#endedAtTime");
-    
-    
-    public static Property PINDUSTRY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/industry");
-    public static Property PSPATIAL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/spatial");
- //   public static Property POPERATOR = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/operator");
-    public static Literal LEQ = ModelFactory.createDefaultModel().createLiteral("http://www.w3.org/ns/odrl/2/eq");    
-    public static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
-    public static Property COMMENT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#comment");
-    public static Property RIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
-//    public static Property RLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
-    public static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
-    public static Property SEEALSO= ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
-
-    public static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
-    public static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");    
+    private static Resource RLICENSE = ModelFactory.createDefaultModel().createResource("http://purl.org/dc/terms/LicenseDocument");
+    private static Resource RCCLICENSE = ModelFactory.createDefaultModel().createResource("http://creativecommons.org/ns#License");
+    private static Resource RSET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Set");
+    private static Resource OFFER = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Offer");
+    private static Resource REQUEST = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Request");
+    private static Resource RAGREEMENT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Agreement");
+    private static Resource RTICKET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Ticket");
+    private static Resource RPERMISSION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Permission");
+    private static Resource RPROHIBITION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Prohibition");
+    private static Property PPROHIBITION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/prohibition");
+    private static Resource RDUTY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Duty");
+    private static Resource RCONSTRAINT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Constraint");
+    private static Resource RACTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Action");
+    private static Resource RPARTY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Party");
+    private static Property PPERMISSION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/permission");
+    private static Property PTARGET = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/target");
+    private static Property PASSIGNER = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assigner");
+    private static Property PASSIGNEE = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assignee");
+    private static Property PACTION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/action");
+    private static Property PDUTY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/duty");
+    private static Property PCONSTRAINT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/constraint");
+    private static Property PCOUNT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/count");
+    private static Property POPERATOR = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/operator");
+    private static Property PCCPERMISSION = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#permits");
+    private static Property PCCPERMISSION2 = ModelFactory.createDefaultModel().createProperty("http://web.resource.org/cc/permits");
+    private static Property PCCREQUIRES = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#requires");
+    private static Resource RPAY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/pay");
+    private static Property RDCLICENSEDOC = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/LicenseDocument");
+    private static Property PAMOUNTOFTHISGOOD = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/amountOfThisGood");
+    private static Property PUNITOFMEASUREMENT = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/UnitOfMeasurement");
+    private static Property PDCLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
+    private static Property PDCRIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
+    private static Property PWASGENERATEDBY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#wasGeneratedBy");
+    private static Property PWASASSOCIATEDWITH = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#wasAssociatedWith");
+    private static Property PENDEDATTIME = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#endedAtTime");
+    private static Property PINDUSTRY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/industry");
+    private static Property PSPATIAL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/spatial");
+    private static Literal LEQ = ModelFactory.createDefaultModel().createLiteral("http://www.w3.org/ns/odrl/2/eq");    
+    private static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
+    private static Property COMMENT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#comment");
+    private static Property RIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
+    private static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
+    private static Property SEEALSO= ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
+    private static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
+    private static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");    
 }

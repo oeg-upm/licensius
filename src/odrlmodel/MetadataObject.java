@@ -28,6 +28,9 @@ public class MetadataObject {
     private boolean anonymous = false;
     
 
+    /**
+     * Builds an empty metadata object
+     */
     public MetadataObject()
     {
         
@@ -58,8 +61,8 @@ public class MetadataObject {
     public void setURI(String _uri)
     {
         uri=_uri;
-        if (_uri.isEmpty())
-            anonymous=true;
+//        if (_uri.isEmpty())
+//            anonymous=true;
     }
     
     /**
@@ -76,7 +79,7 @@ public class MetadataObject {
      */
     public boolean isAnon()
     {
-        return anonymous;
+        return (uri.isEmpty());
     }
     
     /**

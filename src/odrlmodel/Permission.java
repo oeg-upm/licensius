@@ -14,10 +14,11 @@ import java.util.List;
  *
  * If several Permission entities are referred to by a Policy, then all of them are valid.
  * 
- * @author Victor Rodríguez Doncel
+ * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class Permission extends Rule {
     
+    //A permission may have duties
     private List<Duty> duties = new ArrayList();
 
     /**
@@ -30,6 +31,15 @@ public class Permission extends Rule {
         setKindOfRule(Rule.RULE_PERMISSION);
     }
     
+   /**
+     * Creates a permission identified by the given URI. 
+     * @param _uri URI of the prohibition
+     */
+    public Permission(String _uri) {
+        super(_uri);
+        setKindOfRule(Rule.RULE_PERMISSION);
+    }      
+    
     /**
      * Sets a single duty associated to this permission
      * @param duty Duty to be retrieved
@@ -39,7 +49,6 @@ public class Permission extends Rule {
         duties.clear();
         duties.add(duty);
     }
-    
     
     /**
      * Sets the duties associated to this permission

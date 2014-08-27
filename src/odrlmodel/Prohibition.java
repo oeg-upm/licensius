@@ -21,4 +21,14 @@ public class Prohibition extends Rule {
         super(""); 
         setKindOfRule(Rule.RULE_PROHIBITION);
     }    
+    
+    /**
+     * Creates a prohibition identified by the given URI. 
+     * @param _uri URI of the prohibition
+     */
+    public Prohibition(String _uri) {
+        super(_uri);
+        setKindOfRule(Rule.RULE_PROHIBITION);
+    }    
+    
 }

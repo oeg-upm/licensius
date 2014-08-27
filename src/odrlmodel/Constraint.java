@@ -20,9 +20,10 @@ import java.util.UUID;
 */
 public class Constraint extends MetadataObject{
 
-    String operator="";
-    String rightOperand="";
-    String value="";
+    
+    protected String operator="";
+    protected String rightOperand="";
+    protected String value="";
     
     /** 
      * Default constraint with a random URI
