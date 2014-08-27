@@ -208,75 +208,9 @@ public class Policy extends MetadataObject {
         return false;
     }
 
-    /**
-     * @deprecated
-     */
-    public boolean isOpen() {
-        boolean open = false;
-        for (Rule r : rules) {
-            List<Action> actions = r.getActions();
-            boolean hasPlay = false;
-            for (Action action : actions) {
-                if (action.hasPlay()) {
-                    hasPlay = true;
-                }
-            }
-            if (hasPlay == false) {
-                continue;
-            }
-            List<Constraint> lc = r.getConstraints();
-            for (Constraint constraint : lc) {
-                if (constraint.isOpen()) {
-                    return true;
-                }
-            }
-        }
-        return open;
-    }
 
-    /**
-     * @deprecated
-     */
-    public String getPriceString() {
-        String price = "";
-        for (Rule r : rules) {
-            List<Action> actions = r.getActions();
-            boolean hasPlay = false;
-            for (Action action : actions) {
-                if (action.hasPlay()) {
-                    hasPlay = true;
-                }
-            }
-            if (hasPlay == false) {
-                continue;
-            }
-            List<Constraint> lc = r.getConstraints();
-            for (Constraint constraint : lc) {
-                if (!constraint.isOpen()) {
-                    ConstraintPay cp = (ConstraintPay)constraint;
-                    price = cp.getPriceString();
-                }
-            }
-        }
-        return price;
-    }
 
-    /**
-     * @deprecated
-     * Decides whether there is a play at least in a one of the rules
-     */
-    public boolean isInOffer() {
-        for (Rule r : rules) {
-            List<Action> actions = r.getActions();
-            boolean hasPlay = false;
-            for (Action action : actions) {
-                if (action.hasPlay()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+
 
     /**
      * @deprecated

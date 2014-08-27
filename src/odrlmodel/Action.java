@@ -52,40 +52,8 @@ public class Action extends MetadataObject {
      * @param _uri URI of the action
      */
     public Action(String _uri) {
-        uri = _uri;
+        super(_uri);
+//        setURI(_uri);
     }
-
-    /***
-     * Obtains a representative label of the individual
-     */
-    @Override
-    public String toString() {
-        if (getLabel("").isEmpty()) {
-            return getLabel("");
-        }
-        return FilenameUtils.getBaseName(uri);
-    }
-
-    /**
-     * @deprecated
-     * Returns true if 
-     * @return true if the action gives access to the resource.
-     */
-    public boolean hasPlay() {
-        boolean containsPlay = false;
-        if (uri.equals("http://creativecommons.org/ns#Reproduction")) 
-            containsPlay = true;
-        if (uri.equals("http://www.w3.org/ns/odrl/2/reproduce")) 
-            containsPlay = true;
-	if (uri.equals("http://www.w3.org/ns/odrl/2/display"))
-            containsPlay=true;
-	if (uri.equals("http://www.w3.org/ns/odrl/2/play"))
-            containsPlay=true;
-	if (uri.equals("http://www.w3.org/ns/odrl/2/present"))
-            containsPlay=true;
-        return containsPlay;
-    }
-    
-    
 
 }

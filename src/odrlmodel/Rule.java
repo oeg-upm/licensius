@@ -50,6 +50,15 @@ public class Rule extends MetadataObject {
         uri=MetadataObject.DEFAULT_NAMESPACE+"rule/" + UUID.randomUUID().toString();
     }
     
+    /**
+     * Rule constructor with a given URI
+     * @param _uri A valid URI. Can be an empty string (anonymous source)
+     */
+    public Rule(String _uri)
+    {
+        super(_uri);
+    }
+    
     
     /**
      * Gets the kind of the rule

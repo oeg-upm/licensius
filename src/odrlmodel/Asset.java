@@ -4,7 +4,6 @@ package odrlmodel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-//import odrlmodel.managers.PolicyManager;
 
 
 /**
@@ -29,7 +28,7 @@ import java.util.UUID;
  * such as Dublin Core Metadata Terms that are appropriate to the Asset type or purpose.
  * 
  * The Relation entity is used to associate the Asset entity with the relevant Permission, Prohibition, and Duty entities
- * @author Victor
+ * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class Asset extends MetadataObject {
 
@@ -120,28 +119,6 @@ public class Asset extends MetadataObject {
         }
     }
 
-    /**
-     * Returns true if it has at least one Policy which isInOffer
-     * @return true if in offer
-     */
-    public boolean isInOffer() {
-        List<Policy> _policies = getPolicies();
-        for(Policy policy : _policies)
-            if (policy.isInOffer())
-                return true;
-        return false;
-    }
 
-    /**
-     * Returns true if it has at least one Policy is Open
-     * @return true if open
-     */
-    public boolean isOpen() {
-        List<Policy> _policies = getPolicies();
-        for(Policy policy : _policies)
-            if (policy.isOpen())
-                return true;
-        return false;
-    }
 
 }

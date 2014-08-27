@@ -1,5 +1,8 @@
 package odrlmodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The Permission entity indicates the Actions that the assignee is permitted to 
  * perform on the associated Asset. In other words, what the assigner (supplier) 
@@ -15,9 +18,42 @@ package odrlmodel;
  */
 public class Permission extends Rule {
     
+    private List<Duty> duties = new ArrayList();
+    
     public Permission()
     {
         setKindOfRule(Rule.RULE_PERMISSION);
     }
     
+    /**
+     * Sets a single duty associated to this permission
+     * @param duty Duty to be retrieved
+     */
+    public void setDuty(Duty duty)
+    {
+        duties.clear();
+        duties.add(duty);
+    }
+    
+    
+    /**
+     * Sets the duties associated to this permission
+     * @param _duties List of duties to be retrieved
+     */
+    public void setDuties(List<Duty> _duties)
+    {
+        duties = _duties;
+    }
+    
+    /**
+     * Sets the duties associated to this permission
+     * @return List of duties
+     */
+    public List<Duty> getDuties()
+    {
+        return duties;
+    }
+    
+            
+            
 }

@@ -24,10 +24,22 @@ public class MetadataObject {
     public String seeAlso="";
     public String title="";
     public String uri = "";
+    
+    private boolean anonymous = false;
+    
 
     public MetadataObject()
     {
         
+    }
+    
+    /**
+     * Creates an URI with a given URI
+     * @param _uri Full URI of the metadata object. If an empty string is given, it will be considered anonymous
+     */
+    public MetadataObject(String _uri)
+    {
+        setURI(_uri);
     }
     
     public MetadataObject(MetadataObject mo)
@@ -39,13 +51,15 @@ public class MetadataObject {
         uri = mo.uri;
     }
     
-    
     /**
      * Sets the URI
+     * @param _uri Full URI of the metadata object. If an empty string is given, it will be considered anonymous
      */
     public void setURI(String _uri)
     {
-        uri=uri;
+        uri=_uri;
+        if (_uri.isEmpty())
+            anonymous=true;
     }
     
     /**
@@ -54,6 +68,15 @@ public class MetadataObject {
     public String getURI()
     {
         return uri;
+    }
+    
+    /**
+     * Gets if the object is anonymous
+     * @return True if the metadata object is anonymous
+     */
+    public boolean isAnon()
+    {
+        return anonymous;
     }
     
     /**
@@ -130,9 +153,25 @@ public class MetadataObject {
         setLabel(label);
     }
 
-    public void setLabel(String label){
+    /**
+     * Sets the only label of a metadata object
+     * @param _label Label (default in English)
+     */
+    public void setLabel(String _label){
         labels.clear();
-        labels.add(label);
+        labels.add(_label);
     }
 
+    /***
+     * Obtains a representative label of the individual.
+     * If no label is present, the name is given
+     * @return A descriptive string
+     */
+    @Override
+    public String toString() {
+        if (getLabel("").isEmpty()) {
+            return getLabel("");
+        }
+        return FilenameUtils.getBaseName(uri);
+    }    
 }

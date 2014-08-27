@@ -15,6 +15,8 @@ import org.apache.jena.riot.Lang;
 
 /**
  * This class shows a very simple example creating a simple ODRL expression
+ * @see http://www.w3.org/ns/odrl/2/#sec-example-1
+ * 
  * @author Victor
  */
 public class Example1 {
@@ -49,8 +51,3 @@ public class Example1 {
 }
 
 
-/***
- 
- //        policy.setType(Policy.POLICY_SET); // this is the default kind of policy, though
-
- */
