@@ -1,0 +1,3280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:code="http://telegraphis.net/ontology/measurement/code#" xmlns:geographis="http://telegraphis.net/ontology/geography/geography#" xmlns:gn="http://www.geonames.org/ontology#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AD/Andorra_la_Vella#AndorralaVella">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AD#AD"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AD ALV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Andorra la Vella</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Andorra_la_Vella"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3041563/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AE/Abu_Dhabi#AbuDhabi">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AE#AE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AE AUH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Abu Dhabi</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Abu_Dhabi"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/292968/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AF/Kabul#Kabul">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AF#AF"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AF KBL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kabul</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kabul"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1138958/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AG/St._John%27s#St.John%27s">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AG#AG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AG SJO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">St. John's</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/St._John%27s%2C_Antigua_and_Barbuda"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3576022/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AI/The_Valley#TheValley">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AI#AI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AI VAL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">The Valley</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/The_Valley"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3573374/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AL/Tirana#Tirana">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AL#AL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AL TIA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tirana</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tirana"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3183875/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AM/Yerevan#Yerevan">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AM#AM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AM EVN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Yerevan</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Yerevan"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/616052/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AN/Willemstad#Willemstad">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AN#AN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AN WIL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Willemstad</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Willemstad%2C_Netherlands_Antilles"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3513090/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AO/Luanda#Luanda">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AO#AO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AO LAD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Luanda</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Luanda"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2240449/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AR/Buenos_Aires#BuenosAires">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AR#AR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AR BUE</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Buenos Aires</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Buenos_Aires"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3435910/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AS/Pago_Pago#PagoPago">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AS#AS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AS PPG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Pago Pago</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Pago_Pago"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/5881576/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AT/Vienna#Vienna">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AT#AT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AT VIE</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Vienna</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Vienna"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2761369/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AU/Canberra#Canberra">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AU#AU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AU CBR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Canberra</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Canberra"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2172517/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AW/Oranjestad#Oranjestad">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AW#AW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AW ORJ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Oranjestad</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Oranjestad"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3577154/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AX/Mariehamn#Mariehamn">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AX#AX"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>FI MHQ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Mariehamn</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mariehamn"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3041732/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/AZ/Baku#Baku">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/AZ#AZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>AZ BAK</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Baku</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Baku"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/587084/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BA/Sarajevo#Sarajevo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BA#BA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BA SJJ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Sarajevo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Sarajevo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3191281/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BB/Bridgetown#Bridgetown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BB#BB"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BB BGI</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bridgetown</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bridgetown"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3374036/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BD/Dhaka#Dhaka">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BD#BD"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BD DAC</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Dhaka</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Dhaka"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1185241/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BE/Brussels#Brussels">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BE#BE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BE BRU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Brussels</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Brussels"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2800866/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BF/Ouagadougou#Ouagadougou">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BF#BF"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BF OUA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Ouagadougou</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Ouagadougou"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2357048/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BG/Sofia#Sofia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BG#BG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BG SOF</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Sofia</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Sofia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/727011/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BH/Manama#Manama">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BH#BH"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BH MAN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Manama</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Manama"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/290340/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BI/Bujumbura#Bujumbura">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BI#BI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BI BJM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bujumbura</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bujumbura"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/425378/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BJ/Porto-Novo#PortoNovo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BJ#BJ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BJ PTN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Porto-Novo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Porto-Novo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2392087/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BL/Gustavia#Gustavia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BL#BL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GP GUS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Gustavia</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Gustavia_%28town%29"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3579132/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BM/Hamilton#Hamilton">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BM#BM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BM BDA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Hamilton</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Hamilton%2C_Bermuda"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3573197/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BN/Bandar_Seri_Begawan#BandarSeriBegawan">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BN#BN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BN BWN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bandar Seri Begawan</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bandar_Seri_Begawan"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1820906/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BO/La_Paz#LaPaz">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BO#BO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BO LPB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">La Paz</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/La_Paz"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3911925/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BR/Bras%C3%ADlia#Bras%C3%ADlia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BR#BR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BR BSB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Brasília</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bras%C3%ADlia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3469058/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BS/Nassau#Nassau">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BS#BS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BS NAS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Nassau</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Nassau%2C_Bahamas"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3571824/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BT/Thimphu#Thimphu">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BT#BT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BT THI</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Thimphu</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Thimphu"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1252416/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BW/Gaborone#Gaborone">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BW#BW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BW GBE</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Gaborone</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Gaborone"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/933773/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BY/Minsk#Minsk">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BY#BY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BY MSQ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Minsk</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Minsk"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/625144/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/BZ/Belmopan#Belmopan">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/BZ#BZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>BZ BMP</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Belmopan</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Belmopan"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3582672/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CA/Ottawa#Ottawa">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CA#CA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CA OTT</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Ottawa</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Ottawa"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6094817/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CC/West_Island#WestIsland">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CC#CC"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">West Island</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/West_Island%2C_Cocos_%28Keeling%29_Islands"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1547351/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CD/Kinshasa#Kinshasa">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CD#CD"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CD FIH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kinshasa</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kinshasa"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2314302/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CF/Bangui#Bangui">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CF#CF"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CF BGF</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bangui</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bangui"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2389853/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CG/Brazzaville#Brazzaville">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CG#CG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CG BZV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Brazzaville</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Brazzaville"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2260535/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CH/Berne#Berne">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CH#CH"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CH BRN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Berne</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Berne"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2661552/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CI/Yamoussoukro#Yamoussoukro">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CI#CI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CI ASK</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Yamoussoukro</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Yamoussoukro"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2279755/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CK/Avarua#Avarua">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CK#CK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CK AVA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Avarua</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Avarua"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4035715/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CL/Santiago#Santiago">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CL#CL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CL SCL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Santiago</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Santiago%2C_Chile"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3871336/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CM/Yaound%C3%A9#Yaound%C3%A9">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CM#CM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CM YAO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Yaoundé</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Yaound%C3%A9"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2220957/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CN/Beijing#Beijing">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CN#CN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CN BJS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Beijing</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Beijing"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1816670/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CO/Bogot%C3%A1#Bogot%C3%A1">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CO#CO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CO BOG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bogotá</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bogot%C3%A1"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3688689/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CR/San_Jos%C3%A9#SanJos%C3%A9">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CR#CR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CR SJO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">San José</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/San_Jos%C3%A9%2C_Costa_Rica"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3621849/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CU/Havana#Havana">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CU#CU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CU HAV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Havana</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Havana"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3553478/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CV/Praia#Praia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CV#CV"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CV RAI</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Praia</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Praia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3374333/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CX/Flying_Fish_Cove#FlyingFishCove">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CX#CX"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CX FFC</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Flying Fish Cove</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Flying_Fish_Cove"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2078127/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CY/Nicosia#Nicosia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CY#CY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CY NIC</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Nicosia</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Nicosia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/146268/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/CZ/Prague#Prague">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/CZ#CZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>CZ PRG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Prague</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Prague"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3067696/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/DE/Berlin#Berlin">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/DE#DE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>DE BER</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Berlin</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Berlin"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2950159/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/DJ/Djibouti#Djibouti">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/DJ#DJ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>DJ JIB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Djibouti</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Djibouti_%28city%29"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/223817/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/DK/Copenhagen#Copenhagen">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/DK#DK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>DK CPH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Copenhagen</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Copenhagen"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2618425/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/DM/Roseau#Roseau">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/DM#DM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>DM RSU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Roseau</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Roseau"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3575635/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/DO/Santo_Domingo#SantoDomingo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/DO#DO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>DO SDQ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Santo Domingo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Santo_Domingo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3492908/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/DZ/Algiers#Algiers">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/DZ#DZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>DZ ALG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Algiers</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Algiers"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2507480/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/EC/Quito#Quito">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/EC#EC"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>EC UIO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Quito</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Quito"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3652462/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/EE/Tallinn#Tallinn">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/EE#EE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>EE TLL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tallinn</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tallinn"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/588409/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/EG/Cairo#Cairo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/EG#EG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>EG CAI</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Cairo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Cairo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/360630/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/EH/El-Aaiun#ElAaiun">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/EH#EH"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">El-Aaiun</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/El_Aai%C3%BAn"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2462881/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ER/Asmara#Asmara">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ER#ER"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ER ASM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Asmara</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Asmara"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/343300/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ES/Madrid#Madrid">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ES#ES"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ES MAD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Madrid</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Madrid"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3117735/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ET/Addis_Ababa#AddisAbaba">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ET#ET"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ET ADD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Addis Ababa</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Addis_Ababa"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/344979/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/FI/Helsinki#Helsinki">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/FI#FI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>FI HEL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Helsinki</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Helsinki"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/658225/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/FJ/Suva#Suva">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/FJ#FJ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>FJ SUV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Suva</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Suva"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2198148/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/FK/Stanley#Stanley">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/FK#FK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>FK PSY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Stanley</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Stanley%2C_Falkland_Islands"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3426691/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/FM/Palikir#Palikir">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/FM#FM"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Palikir</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Palikir"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2081986/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/FO/T%C3%B3rshavn#T%C3%B3rshavn">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/FO#FO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>FO THO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tórshavn</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/T%C3%B3rshavn"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2611396/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/FR/Paris#Paris">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/FR#FR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>FR PAR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Paris</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Paris"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2988507/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GA/Libreville#Libreville">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GA#GA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GA LBV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Libreville</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Libreville"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2399697/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GB/London#London">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GB#GB"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GB LON</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">London</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/London"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2643743/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GD/St._George%27s#St.George%27s">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GD#GD"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GD STG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">St. George's</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/St._George%27s%2C_Grenada"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3579925/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GE/Tbilisi#Tbilisi">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GE#GE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GE TBS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tbilisi</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tbilisi"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/611717/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GF/Cayenne#Cayenne">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GF#GF"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GF CAY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Cayenne</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Cayenne"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3382160/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GG/St_Peter_Port#StPeterPort">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GG#GG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GG SPT</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">St Peter Port</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/St._Peter_Port"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3042287/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GH/Accra#Accra">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GH#GH"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GH ACC</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Accra</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Accra"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2306104/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GI/Gibraltar#Gibraltar">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GI#GI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GI GIB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Gibraltar</gn:name>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2411585/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GL/Nuuk#Nuuk">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GL#GL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GL GOH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Nuuk</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Nuuk"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3421319/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GM/Banjul#Banjul">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GM#GM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GM BJL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Banjul</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Banjul"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2413876/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GN/Conakry#Conakry">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GN#GN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GN CKY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Conakry</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Conakry"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2422465/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GP/Basse-Terre#BasseTerre">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GP#GP"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GP BBR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Basse-Terre</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Basse-Terre"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3579732/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GQ/Malabo#Malabo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GQ#GQ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GQ SSG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Malabo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Malabo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2309527/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GR/Athens#Athens">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GR#GR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GR ATH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Athens</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Athens"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/264371/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GS/Grytviken#Grytviken">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GS#GS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GS GRV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Grytviken</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Grytviken"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3426466/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GT/Guatemala_City#GuatemalaCity">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GT#GT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GT GUA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Guatemala City</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Guatemala_City"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3598132/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GU/Hag%C3%A5t%C3%B1a#Hag%C3%A5t%C3%B1a">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GU#GU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GU AGA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Hagåtña</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Hag%C3%A5t%C3%B1a%2C_Guam"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4044012/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GW/Bissau#Bissau">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GW#GW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GW OXB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bissau</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bissau"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2374775/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/GY/Georgetown#Georgetown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/GY#GY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GY GEO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Georgetown</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Georgetown%2C_Guyana"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3378644/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/HK/Hong_Kong#HongKong">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/HK#HK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>HK HKG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Hong Kong</gn:name>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1819729/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/HN/Tegucigalpa#Tegucigalpa">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/HN#HN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>HN TGU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tegucigalpa</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tegucigalpa"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3600949/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/HR/Zagreb#Zagreb">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/HR#HR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>HR ZAG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Zagreb</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Zagreb"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3186886/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/HT/Port-au-Prince#PortauPrince">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/HT#HT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>HT PAP</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Port-au-Prince</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Port-au-Prince"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3718426/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/HU/Budapest#Budapest">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/HU#HU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>HU BUD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Budapest</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Budapest"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3054643/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ID/Jakarta#Jakarta">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ID#ID"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ID JKT</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Jakarta</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Jakarta"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1642911/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IE/Dublin#Dublin">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IE#IE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IE DUB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Dublin</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Dublin"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2964574/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IL/Jerusalem#Jerusalem">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IL#IL"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Jerusalem</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Jerusalem"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/281184/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IM/Douglas%2C_Isle_of_Man#Douglas%2CIsleofMan">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IM#IM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IM DGS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Douglas, Isle of Man</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Douglas%2C_Isle_of_Man"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3042237/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IN/New_Delhi#NewDelhi">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IN#IN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IN ICD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">New Delhi</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/New_Delhi"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1261481/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IO/Diego_Garcia#DiegoGarcia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IO#IO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IO DGA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Diego Garcia</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Diego_Garcia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1282575/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IQ/Baghdad#Baghdad">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IQ#IQ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IQ BGW</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Baghdad</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Baghdad"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/98182/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IR/Tehran#Tehran">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IR#IR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IR THR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tehran</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tehran"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/112931/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IS/Reykjav%C3%ADk#Reykjav%C3%ADk">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IS#IS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IS REY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Reykjavík</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Reykjav%C3%ADk"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3413829/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/IT/Rome#Rome">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/IT#IT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>IT ROM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Rome</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Rome"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3169070/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/JE/Saint_Helier#SaintHelier">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/JE#JE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>JE STH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Saint Helier</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Saint_Helier"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3042091/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/JM/Kingston#Kingston">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/JM#JM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>JM KIN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kingston</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kingston%2C_Jamaica"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3489854/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/JO/Amman#Amman">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/JO#JO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>JO AMM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Amman</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Amman"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/250441/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/JP/Tokyo#Tokyo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/JP#JP"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>JP TYO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tokyo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tokyo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1850147/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KE/Nairobi#Nairobi">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KE#KE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KE NBO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Nairobi</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Nairobi"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/184745/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KG/Bishkek#Bishkek">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KG#KG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KG FRU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bishkek</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bishkek"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1528675/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KH/Phnom_Penh#PhnomPenh">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KH#KH"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KH PNH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Phnom Penh</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Phnom_Penh"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1821306/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KI/South_Tarawa#SouthTarawa">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KI#KI"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">South Tarawa</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/South_Tarawa"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2110257/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KM/Moroni#Moroni">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KM#KM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KM YVA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Moroni</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Moroni%2C_Comoros"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/921772/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KN/Basseterre#Basseterre">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KN#KN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KN BAS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Basseterre</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Basseterre"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3575551/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KP/Pyongyang#Pyongyang">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KP#KP"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KP FNJ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Pyongyang</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Pyongyang"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1871859/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KR/Seoul#Seoul">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KR#KR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KR SEL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Seoul</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Seoul"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1835848/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KW/Kuwait_City#KuwaitCity">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KW#KW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KW KWI</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kuwait City</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kuwait_City"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/285787/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KY/George_Town#GeorgeTown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KY#KY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KY GEC</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">George Town</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/George_Town%2C_Cayman_Islands"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3580661/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/KZ/Astana#Astana">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/KZ#KZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>KZ AST</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Astana</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Astana"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1526273/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LA/Vientiane#Vientiane">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LA#LA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LA VTE</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Vientiane</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Vientiane"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1651944/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LB/Beirut#Beirut">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LB#LB"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LB BEY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Beirut</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Beirut"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/276781/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LC/Castries#Castries">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LC#LC"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LC CAS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Castries</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Castries"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3576812/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LI/Vaduz#Vaduz">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LI#LI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LI VDZ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Vaduz</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Vaduz"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3042030/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LK/Colombo#Colombo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LK#LK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LK CMB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Colombo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Colombo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1248991/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LR/Monrovia#Monrovia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LR#LR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LR MLW</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Monrovia</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Monrovia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2274895/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LS/Maseru#Maseru">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LS#LS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LS MSU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Maseru</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Maseru"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/932505/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LT/Vilnius#Vilnius">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LT#LT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LT VNO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Vilnius</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Vilnius"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/593116/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LU/Luxembourg#Luxembourg">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LU#LU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LU LUX</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Luxembourg</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Luxembourg_%28city%29"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2960316/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LV/Riga#Riga">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LV#LV"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LV RIX</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Riga</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Riga"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/456172/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/LY/Tripolis#Tripolis">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/LY#LY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>LY TIP</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tripolis</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tripoli"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2210247/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MA/Rabat#Rabat">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MA#MA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MA RBA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Rabat</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Rabat"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2538475/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MC/Monaco#Monaco">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MC#MC"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MC MON</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Monaco</gn:name>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2993458/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MD/Chi%C5%9Fin%C4%83u#Chi%C5%9Fin%C4%83u">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MD#MD"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MD KIV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Chişinău</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Chi%C5%9Fin%C4%83u"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/618426/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ME/Podgorica#Podgorica">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ME#ME"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ME TGD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Podgorica</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Podgorica"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3193044/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MF/Marigot#Marigot">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MF#MF"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>GP MSB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Marigot</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Marigot%2C_Saint_Martin"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3578851/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MG/Antananarivo#Antananarivo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MG#MG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MG TNR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Antananarivo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Antananarivo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1070940/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MH/Uliga#Uliga">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MH#MH"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Uliga</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Uliga"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2113779/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MK/Skopje#Skopje">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MK#MK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MK SKP</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Skopje</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Skopje"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/785842/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ML/Bamako#Bamako">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ML#ML"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ML BKO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bamako</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bamako"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2460596/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MN/Ulan_Bator#UlanBator">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MN#MN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MN ULN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Ulan Bator</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Ulan_Bator"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2028462/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MO/Macao#Macao">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MO#MO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MO MFM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Macao</gn:name>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1821274/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MP/Saipan#Saipan">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MP#MP"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MP SPN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Saipan</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Saipan"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4041550/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MQ/Fort-de-France#FortdeFrance">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MQ#MQ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MQ FDF</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Fort-de-France</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Fort-de-France"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3570675/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MR/Nouakchott#Nouakchott">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MR#MR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MR NKC</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Nouakchott</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Nouakchott"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2377450/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MS/Plymouth#Plymouth">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MS#MS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MS PLY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Plymouth</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Plymouth%2C_Montserrat"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3578069/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MT/Valletta#Valletta">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MT#MT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MT MLA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Valletta</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Valletta"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2562305/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MU/Port_Louis#PortLouis">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MU#MU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MU PLU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Port Louis</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Port_Louis"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/934154/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MV/Mal%C3%A9#Mal%C3%A9">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MV#MV"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MV MLE</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Malé</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mal%C3%A9"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1282027/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MW/Lilongwe#Lilongwe">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MW#MW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MW LLW</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Lilongwe</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Lilongwe"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/927967/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MX/Mexico_City#MexicoCity">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MX#MX"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MX MEX</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Mexico City</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mexico_City"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3530597/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MY/Kuala_Lumpur#KualaLumpur">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MY#MY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MY KUL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kuala Lumpur</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kuala_Lumpur"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1735161/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MZ/Maputo#Maputo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MZ#MZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>MZ MPM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Maputo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Maputo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1040652/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NA/Windhoek#Windhoek">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NA#NA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NA WDH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Windhoek</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Windhoek"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3352136/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NC/Noum%C3%A9a#Noum%C3%A9a">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NC#NC"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NC NOU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Nouméa</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Noum%C3%A9a"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2139521/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NE/Niamey#Niamey">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NE#NE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NE NIM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Niamey</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Niamey"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2440485/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NF/Kingston#Kingston">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NF#NF"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kingston</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kingston%2C_Norfolk_Island"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2161314/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NG/Abuja#Abuja">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NG#NG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NG ABV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Abuja</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Abuja"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2352778/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NI/Managua#Managua">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NI#NI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NI MGA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Managua</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Managua"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3617763/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NL/Amsterdam#Amsterdam">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NL#NL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NL AMS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Amsterdam</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Amsterdam"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2759794/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NO/Oslo#Oslo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NO#NO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NO OSL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Oslo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Oslo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3143244/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NP/Kathmandu#Kathmandu">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NP#NP"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NP KTM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kathmandu</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kathmandu"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1283240/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NR/Yaren#Yaren">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NR#NR"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Yaren</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Yaren"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2110418/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NU/Alofi#Alofi">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NU#NU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NU ALO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Alofi</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Alofi"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4036284/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/NZ/Wellington#Wellington">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/NZ#NZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>NZ WLG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Wellington</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Wellington"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2179537/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/OM/Muscat#Muscat">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/OM#OM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>OM MCT</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Muscat</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Muscat%2C_Oman"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/287286/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PA/Panama_City#PanamaCity">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PA#PA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PA PTY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Panama City</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Panama_City"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3703443/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PE/Lima#Lima">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PE#PE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PE LIM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Lima</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Lima"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3936456/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PF/Papeete#Papeete">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PF#PF"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PF PPT</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Papeete</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Papeete"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4033936/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PG/Port_Moresby#PortMoresby">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PG#PG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PG POM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Port Moresby</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Port_Moresby"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2088122/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PH/Manila#Manila">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PH#PH"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PH MNL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Manila</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Manila"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1701668/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PK/Islamabad#Islamabad">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PK#PK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PK ISB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Islamabad</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Islamabad"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1176615/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PL/Warsaw#Warsaw">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PL#PL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PL WAW</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Warsaw</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Warsaw"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/756135/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PM/Saint-Pierre#SaintPierre">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PM#PM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PM FSP</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Saint-Pierre</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Saint-Pierre%2C_Saint_Pierre_and_Miquelon"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3424934/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PN/Adamstown#Adamstown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PN#PN"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Adamstown</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Adamstown%2C_Pitcairn_Islands"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4030723/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PR/San_Juan#SanJuan">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PR#PR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PR SJU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">San Juan</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/San_Juan%2C_Puerto_Rico"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4568127/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PS/East_Jerusalem#EastJerusalem">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PS#PS"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">East Jerusalem</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/East_Jerusalem"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PT/Lisbon#Lisbon">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PT#PT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PT LIS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Lisbon</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Lisbon"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2267057/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PY/Asunci%C3%B3n#Asunci%C3%B3n">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PY#PY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>PY ASU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Asunción</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Asunci%C3%B3n"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3439389/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/QA/Doha#Doha">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/QA#QA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>QA DOH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Doha</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Doha"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/290030/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/RE/Saint-Denis#SaintDenis">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/RE#RE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>RE RUN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Saint-Denis</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Saint-Denis%2C_R%C3%A9union"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/935264/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/RO/Bucharest#Bucharest">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/RO#RO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>RO BUH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bucharest</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bucharest"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/683506/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/RS/Belgrade#Belgrade">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/RS#RS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>RS BEG</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Belgrade</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Belgrade"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/792680/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/RU/Moscow#Moscow">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/RU#RU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>RU MOW</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Moscow</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Moscow"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/524901/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/RW/Kigali#Kigali">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/RW#RW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>RW KGL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kigali</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kigali"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/202061/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SA/Riyadh#Riyadh">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SA#SA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SA RUH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Riyadh</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Riyadh"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/108410/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SB/Honiara#Honiara">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SB#SB"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SB HIR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Honiara</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Honiara"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2108502/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SC/Victoria#Victoria">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SC#SC"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SC POV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Victoria</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Victoria%2C_Seychelles"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/241131/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SD/Khartoum#Khartoum">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SD#SD"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SD KRT</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Khartoum</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Khartoum"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/379252/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SE/Stockholm#Stockholm">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SE#SE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SE STO</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Stockholm</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Stockholm"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2673730/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SG/Singapur#Singapur">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SG#SG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SG SIN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Singapur</gn:name>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1880252/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SH/Jamestown#Jamestown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SH#SH"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SH SHN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Jamestown</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Jamestown%2C_Saint_Helena"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3370903/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SI/Ljubljana#Ljubljana">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SI#SI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SI LJU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Ljubljana</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Ljubljana"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3196359/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SJ/Longyearbyen#Longyearbyen">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SJ#SJ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SJ LYR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Longyearbyen</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Longyearbyen"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2729907/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SK/Bratislava#Bratislava">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SK#SK"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SK BTS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bratislava</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bratislava"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3060972/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SL/Freetown#Freetown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SL#SL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SL FNA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Freetown</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Freetown"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2409306/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SM/San_Marino#SanMarino">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SM#SM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SM SAI</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">San Marino</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/City_of_San_Marino"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3168070/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SN/Dakar#Dakar">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SN#SN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SN DKR</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Dakar</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Dakar"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2253354/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SO/Mogadishu#Mogadishu">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SO#SO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SO MGQ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Mogadishu</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mogadishu"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/53654/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SR/Paramaribo#Paramaribo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SR#SR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SR PBM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Paramaribo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Paramaribo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3383330/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ST/S%C3%A3o_Tom%C3%A9#S%C3%A3oTom%C3%A9">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ST#ST"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ST TMS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">São Tomé</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/S%C3%A3o_Tom%C3%A9"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2410763/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SV/San_Salvador#SanSalvador">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SV#SV"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SV SAL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">San Salvador</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/San_Salvador"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3583361/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SY/Damascus#Damascus">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SY#SY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SY DAM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Damascus</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Damascus"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/170654/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/SZ/Mbabane#Mbabane">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/SZ#SZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>SZ QMN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Mbabane</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mbabane"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/934985/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TC/Cockburn_Town#CockburnTown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TC#TC"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Cockburn Town</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Cockburn_Town"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3576994/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TD/N%27Djamena#N%27Djamena">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TD#TD"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TD NDJ</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">N'Djamena</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/N%27Djamena"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2427123/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TF/Martin-de-Vivi%C3%A8s#MartindeVivi%C3%A8s">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TF#TF"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Martin-de-Viviès</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Martin-de-Vivi%C3%A8s"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1546290/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TG/Lom%C3%A9#Lom%C3%A9">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TG#TG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TG LFW</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Lomé</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Lom%C3%A9"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2365267/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TH/Bangkok#Bangkok">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TH#TH"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TH BKK</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Bangkok</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Bangkok"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1609350/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TJ/Dushanbe#Dushanbe">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TJ#TJ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TJ DYU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Dushanbe</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Dushanbe"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1221874/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TL/Dili#Dili">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TL#TL"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TL DIL</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Dili</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Dili"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1645457/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TM/Ashgabat#Ashgabat">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TM#TM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TM ASB</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Ashgabat</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Ashgabat"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/162183/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TN/Tunis#Tunis">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TN#TN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TN TUN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tunis</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tunis"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2464470/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TO/Nuku%27alofa#Nuku%27alofa">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TO#TO"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TO TBU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Nuku'alofa</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Nuku%CA%BBalofa"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4032402/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TR/Ankara#Ankara">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TR#TR"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TR ANK</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Ankara</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Ankara"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/323786/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TT/Port_of_Spain#PortofSpain">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TT#TT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TT POS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Port of Spain</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Port_of_Spain"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3573890/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TV/Vaiaku#Vaiaku">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TV#TV"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Vaiaku</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Vaiaku"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2110394/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TW/Taipei#Taipei">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TW#TW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TW TPE</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Taipei</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Taipei"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1668341/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/UA/Kiev#Kiev">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/UA#UA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>UA IEV</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kiev</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kiev"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/703448/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/UG/Kampala#Kampala">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/UG#UG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>UG KLA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kampala</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kampala"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/232422/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/US/Washington#Washington">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/US#US"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>US WAS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Washington</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Washington%2C_D.C."/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4140963/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/UY/Montevideo#Montevideo">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/UY#UY"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>UY MVD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Montevideo</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Montevideo"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3441575/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/UZ/Tashkent#Tashkent">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/UZ#UZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>UZ TAS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Tashkent</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Tashkent"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1512569/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/VA/Vatican_City#VaticanCity">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/VA#VA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>VA VAT</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Vatican City</gn:name>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6691831/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/VC/Kingstown#Kingstown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/VC#VC"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>VC KTN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Kingstown</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Kingstown"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3577887/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/VE/Caracas#Caracas">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/VE#VE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>VE CCS</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Caracas</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Caracas"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3646738/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/VG/Road_Town#RoadTown">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/VG#VG"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>VG RAD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Road Town</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Road_Town"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/3577430/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/VI/Charlotte_Amalie#CharlotteAmalie">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/VI#VI"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>VI CHA</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Charlotte Amalie</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Charlotte_Amalie%2C_United_States_Virgin_Islands"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4795467/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/VN/Hanoi#Hanoi">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/VN#VN"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>VN HAN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Hanoi</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Hanoi"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1581130/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/VU/Port_Vila#PortVila">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/VU#VU"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>VU VLI</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Port Vila</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Port_Vila"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/2135171/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/WF/Mat%C3%A2%27Utu#Mat%C3%A2%27Utu">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/WF#WF"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>WF MAU</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Matâ'Utu</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mata-Utu"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4034821/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/WS/Apia#Apia">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/WS#WS"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>WS APW</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Apia</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Apia"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/4035413/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/YE/San%E2%80%98a%E2%80%99#San%E2%80%98a%E2%80%99">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/YE#YE"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>YE SAH</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">San‘a’</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Sana%27a"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/71137/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/YT/Mamoudzou#Mamoudzou">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/YT#YT"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>YT MAM</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Mamoudzou</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Mamoudzou"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/921815/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ZA/Pretoria#Pretoria">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ZA#ZA"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ZA PRY</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Pretoria</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Pretoria"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/964137/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ZM/Lusaka#Lusaka">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ZM#ZM"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ZM LUN</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Lusaka</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Lusaka"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/909137/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/ZW/Harare#Harare">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/ZW#ZW"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>ZW HRE</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Harare</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Harare"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/890299/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/TZ/Dodoma#Dodoma">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/TZ#TZ"/>
+    <code:hasCode>
+      <code:Code>
+        <code:inCodeScheme rdf:resource="http://telegraphis.net/data/capitals/codeSchemes#unlocode"/>
+        <rdf:value>TZ DOD</rdf:value>
+      </code:Code>
+    </code:hasCode>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Dodoma</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Dodoma"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/160196/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/MM/Naypyidaw#Naypyidaw">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/MM#MM"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Naypyidaw</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Naypyidaw"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/6611854/"/>
+  </gn:Capital>
+  <gn:Capital rdf:about="http://telegraphis.net/data/capitals/PW/Melekeok#Melekeok">
+    <geographis:capitalOf rdf:resource="http://telegraphis.net/data/countries/PW#PW"/>
+    <gn:featureClass rdf:resource="http://www.geonames.org/ontology#P"/>
+    <gn:featureCode rdf:resource="http://www.geonames.org/ontology#P.PPLC"/>
+    <gn:name xml:lang="en">Melekeok</gn:name>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Melekeok"/>
+    <owl:sameAs rdf:resource="http://sws.geonames.org/1559804/"/>
+  </gn:Capital>
+</rdf:RDF>
