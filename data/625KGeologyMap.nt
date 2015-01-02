@@ -1,0 +1,30 @@
+
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://purl.org/dc/terms/accessRights> "The dataset is made freely available for access, e.g. via the Internet. Either no third  party data / information is contained in the dataset or BGS has secured written permission from the owner(s) of any third party data / information contained in the dataset to make the dataset freely accessible."@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://xmlns.com/foaf/0.1/seeAlso> "http://www.bgs.ac.uk/products/digitalmaps/digmapgb_625.html"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://xmlns.com/foaf/0.1/seeAlso> "http://www.bgs.ac.uk/data/services/geolwms.html"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://xmlns.com/foaf/0.1/seeAlso> "http://www.bgs.ac.uk/igeology/home.html"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://xmlns.com/foaf/0.1/seeAlso> "http://www.bgs.ac.uk/discoveringGeology/geologyOfBritain/viewer.html"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://xmlns.com/foaf/0.1/seeAlso> "http://www.bgs.ac.uk/research/UKGeology/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://xmlns.com/foaf/0.1/seeAlso> "http://www.bgs.ac.uk/reference/symbols/home.html"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://purl.org/dc/terms/creator> <http://www.bgs.ac.uk/foaf.rdf> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://purl.org/dc/terms/publisher> <http://www.bgs.ac.uk/foaf.rdf> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://purl.org/dc/terms/title> "BGS 1:625 000 Digital Geological Map"@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Dyke> <http://purl.org/dc/terms/accessRights> "The dataset is made freely available for access, e.g. via the Internet. Either no third  party data / information is contained in the dataset or BGS has secured written permission from the owner(s) of any third party data / information contained in the dataset to make the dataset freely accessible."@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Dyke> <http://purl.org/dc/terms/creator> <http://www.bgs.ac.uk/foaf.rdf> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Dyke> <http://purl.org/dc/terms/publisher> <http://www.bgs.ac.uk/foaf.rdf> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Dyke> <http://purl.org/dc/terms/title> "BGS 1:625 000 Digital Geological Map - Dykes"@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Dyke> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Fault> <http://purl.org/dc/terms/accessRights> "The dataset is made freely available for access, e.g. via the Internet. Either no third  party data / information is contained in the dataset or BGS has secured written permission from the owner(s) of any third party data / information contained in the dataset to make the dataset freely accessible."@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Fault> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Fault> <http://purl.org/dc/terms/title> "BGS 1:625 000 Digital Geological Map - Faults"@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Fault> <http://purl.org/dc/terms/creator> <http://www.bgs.ac.uk/foaf.rdf> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Fault> <http://purl.org/dc/terms/publisher> <http://www.bgs.ac.uk/foaf.rdf> .
+
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Unit> <http://purl.org/dc/terms/accessRights> "The dataset is made freely available for access, e.g. via the Internet. Either no third  party data / information is contained in the dataset or BGS has secured written permission from the owner(s) of any third party data / information contained in the dataset to make the dataset freely accessible."@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Unit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Unit> <http://purl.org/dc/terms/title> "BGS 1:625 000 Digital Geological Map - Bedrock Units"@en .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Unit> <http://purl.org/dc/terms/publisher> <http://www.bgs.ac.uk/foaf.rdf> .
+<http://data.bgs.ac.uk/ref/625KGeologyMap/Unit> <http://purl.org/dc/terms/creator> <http://www.bgs.ac.uk/foaf.rdf> .

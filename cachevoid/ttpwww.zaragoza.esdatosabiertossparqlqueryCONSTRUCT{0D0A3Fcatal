@@ -1,0 +1,54 @@
+<http://www.zaragoza.es/datosabiertos/id/set/139>
+      a       <http://vocab.deri.ie/dcat#Dataset> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Conjunto de datos Población Extranjera por Sexo y País, América 2009" ;
+      <http://purl.org/dc/terms/accrualPeriodicity>
+              [ a       <http://purl.org/dc/terms/Frecuency> ;
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                        "P1Y"^^<http://www.w3.org/2001/XMLSchema#period> ;
+                <http://www.w3.org/2000/01/rdf-schema#label>
+                        "Cada  año"
+              ] ;
+      <http://purl.org/dc/terms/description>
+              "Datos Demográficos de la población extranjera en Zaragoza por sexo y país, en el año 2009 en América" ;
+      <http://purl.org/dc/terms/editor>
+              "Unidad de Gestión de la Web Municipal" ;
+      <http://purl.org/dc/terms/identifier>
+              "139" ;
+      <http://purl.org/dc/terms/license>
+              <https://www.coloriuris.net/risp-ayto-zaragoza/contenido/123> ;
+      <http://purl.org/dc/terms/publiser>
+              <http://www.zaragoza.es/datosabiertos/id/comun/ayto-zaragoza> ;
+      <http://purl.org/dc/terms/spatial>
+              "Zaragoza" ;
+      <http://purl.org/dc/terms/subject>
+              <http://www.zaragoza.es/datosabiertos/id/kos/infraestructuras/materiaCatalogo/24> ;
+      <http://purl.org/dc/terms/title>
+              "Población Extranjera por Sexo y País, América 2009" ;
+      <http://vocab.deri.ie/dcat#distribution>
+              [ a       <http://vocab.deri.ie/dcat#Distribution> ;
+                <http://www.w3.org/2000/01/rdf-schema#label>
+                        "0" ;
+                <http://purl.org/dc/terms/format>
+                        [] ;
+                <http://purl.org/dc/terms/type>
+                        <http://vocab.deri.ie/dcat#WebService> , <http://vocab.deri.ie/dcat#Download>
+              ] ;
+      <http://vocab.deri.ie/dcat#distribution>
+              [] ;
+      <http://vocab.deri.ie/dcat#distribution>
+              [ a       <http://vocab.deri.ie/dcat#Distribution> ;
+                <http://www.w3.org/2000/01/rdf-schema#label>
+                        "0" ;
+                <http://purl.org/dc/terms/format>
+                        [] ;
+                <http://purl.org/dc/terms/type>
+                        <http://vocab.deri.ie/dcat#WebService> , <http://vocab.deri.ie/dcat#Download>
+              ] ;
+      <http://vocab.deri.ie/dcat#keyword>
+              "accidente" , "ludoteca" , "ambiente" , "centros" , " alquiler" , " parque" , "mujer" , " niños" , "oficina" , "Trafico" , "demograficos" , " consumidor" , "depósito" , " venta" , "publica" , " equipamientos" , " ciudadanos" , " Dionisio Casañal" , "economia" , "población" , "camping" , "paradas" , " mujeres" , "Fondo" , "limpio" , " bicicleta" , "eventos" , "locales" , "sala" , "coche" , " centros" , " servicios y bienes funerarios" , "gestión" , "teléfono" , "contratos" , " bar" , "estadística" , "cementerios" , " juntas" , " turismo" , "protección" , " servicios" , " desocupado" , "jornada" , "infancia" , "alojamiento" , "cultura" , "historia" , "ocio" , "plano" , " juventud" , "correos" , "2008" , "servicios" , "universidad" , "munucipal" , "ciudad" , "civil" , "restaurante" , "Local" , " religion" , "educación" , "sostenibilidad" , " asociaciones" , " topografía" , " Zaragoza" , " grande proyectos" , "justicia" , "parque" , "cementerio" , "puntos" , " cultura" , "potrero" , "personas con discapacidad" , "aseos" , " Galtier" , "antenas" , " alergias" , "    demograficos" , "reciclaje" , " organismo" , "clavo" , " 3d" , "pública" , "cartón" , " consumo" , "monumento" , " conjunto" , "exposicion 2008" , "instituto" , "ertert" , "demograf" , "calle" , "edificio" , "escuela " , "mapas" , "precio" , "subvención" , "contaminación" , "pnesión" , " decretos" , " formación" , " exposiciones" , "música" , "Invesión" , "monumentos" , "instalaciones" , "exposición" , "centros cívicos" , "áfrica" , "barrio rurales de zaragoza" , "danza" , "infanil" , "suelo urbano" , "indicadores" , "impresos" , "equipamientos" , "suelo" , " Fiestas del pilar 2011" , "juventud" , " tiempo libre" , "parcela" , "minusválidos" , " tráfico" , "dionisio" , "consumo" , " localización" , "yuyuyuy" , "baloncesto" , " trabajo" , "jardín" , " residuos domésticos" , "hotel" , "zaragoza" , "juntas" , " transeúntes" , " inserción social y laboral" , "Presupuesto" , "asociaciones" , "afección" , " seguridad" , "taxi" , "aparcamiento" , "servicio" , "deporte" , "casa" , "centro" , " fiestas pilar" , "Ebro" , "interés" , "jornadas" , "expo" , "bús" , "ruido" , " aire" , "palacio" , "gobierno" , " supresión de barreras" , "transportes" , "conexión" , "móvil" , "documentacion" , "europea" , "plano histórico" , "información" , " página web" , " barreras" , " agenda" , "Zaragoza" , "cartográfico" , "comercio" , " procedimientos" , "parques de bomberos" , "tramalena" , " edificio" , "aeropuerto" , "corte de suministro" , " planos" , "limpieza " , " vehículos" , "empleo" , "policía" , " catálogo" , "clavos" , "hospital" , " dirección" , "libre" , "párking" , "pabellón" , "limpios" , "estaciones" , " Movilidad" , "movilidad" , " ordenación del territorio" , " " , "ordenanzas" , "dcat" , "bicicleta" , " prestaciones sociales básicas" , "esculturas" , "demografía" , "mapa" , "null" , "adultos" , "enseñanza" , " personas mayores" , "via_pública" , " departamento" , "novedades" , "gasolinera" , "urbano" , "municipal" , "tercera edad" , " comercio" , "administración local" , " plantas" , "apartamento" , " ocio" , "oceanía" , "dependencias" , "aragón" , " accesible" , "estación" , "turismo" , " demografia" , " empleo" , " plano" , " temperatura" , "mayores" , "incidencia" , "servicios sociales comunitarios" , "edificios" , "cortes" , "públicos" , "barrios" , "iglesia" , "biblioteca" , "asia" , "ayuntamiento" , "aparcabicis" , "térmicos" , "deportivo" , " agua" , "hidrográfica" , "agenda" , "incidencias" , " Via publica" , "callejero" , "planos históricos" , "fijo" , "punto" , "servicios y bienes funerario" , "bus" , " deshechos" , "primaria" , "suministro" , " niñas" , " sin barreras" , "bombero" , "mercados" , "junta" , " Agenda 21" , "sociolaboral" , "policías" , "administración" , "plaza" , " plano histórico" , " mapas" , "histórico" , "europa" , "Dionisio Casañal" , "clavos topográficos" , "fijos" , "paraninfo" , "colegio" , " incidencias" , "ofertas" , "museos" , "organismo" , "extranjero" , "plástico" , "corte" , "atmósfera" , "diputación" , " compra" , "medio" , "planeamiento" , " zonas" , "2016" , "congreso" , "campo" , "Procesiones" , "ciudadanos" , "reglamentos" , "intermodal" , "geoRSS" , " modelado" , " peques" , " registro" , "bomberos" , "recogida" , "oferta" , " infancia" , "taller" , " sanidad" , "Estatal" , "américa" , " protección civil" , "internet" , "farmacias" , "casco" , " casco histórico" , "unión" , "facultad" , "calidad" , " actividades" , " municipal" , "hostal" , "datos" , "fútbol" , " precipitaciones" , " gestiones" , "TUZSA" , " vía pública" , "bici" , "vehículos" , "verde" , "vacío" , "basura" , "tráfico" , "polen" , " jardín" , " reciclaje" , "presupuesto" , "buses" , "público" , "distrito" , "tiempo libre" , "nuevos" , "indicador" , "infraestructuras" , "aparcar" , "fuentes" , "ayuda" , " órgano" , "vecinales" , "yoyo" , "estatua" , "jóvenes" , "cartografía" , "tablon" , "médico" , "arte" , "servicios sociales" , "trabajo" , "vidrio" , " diversión" , " control de velocidad" , "urbanismo" , "escuela" , " hostal" , "de" , " via publica" , "espacio" , "especial" , "envases" , " noticias" , "trámites" , "ribera" , " Semana Santa" , "barrio" , " dataset" , "municipales" , "limpieza pública " , "residencias" , " operadoras" , " Fiestas del pilar" , "tiempo" , "carril" , "confederación" , "contenedor" , "economía" , "infraestrucras" , "parking" , "municipio" , "bibliotecas" , "accesibilidad" , " web" , "sector" , "social" , "bizi" , "edificios. 3d" , "demográficos" , " mujer" , "zona" , "funerario" , "ebro" , " Zaragoa" , "farmacia" , "hacienda" , "ermita" , "combustible" , "aparcamientos" , "archivo" , "teatro" , "papel" , " oferta" , "1911" , "Aparcamientos" , "potreros" , "rural" , "red" , "demografia" , "accesible" , " alojamiento" , "via" , "adolescentes" , "salud" , "infraestructura" , "jovenes" , "desocupado" , "agua" , "complejo" , "local" , "actualidad" , "cámara" , " deporte" , "wifi" , "móviles" , " accesibilidad" , "IE" , " inmigración" , "planos" , " albergue" , "medicamento" , "autobús" , "topográfico" , "comunicaciones" , "delegación" .
+
+<http://www.zaragoza.es/datosabiertos/id/set>
+      a       <http://vocab.deri.ie/dcat#Catalog> ;
+      <http://vocab.deri.ie/dcat#dataset>
+              <http://www.zaragoza.es/datosabiertos/id/set/139> .
