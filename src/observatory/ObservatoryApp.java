@@ -52,7 +52,7 @@ public class ObservatoryApp extends SingleFrameApplication {
     public static Reportador getReportador()
     {
         try{Reportador r = (ObservatoryView)getApplication().getMainView();return r;}
-        catch(Exception e) {Logger.getLogger("licenser").warn("Sin reportador");return null;}
+        catch(Exception e) {Logger.getLogger("licenser").warn("Sin reportador");return new ReportadorNull();}
     }    
     
     

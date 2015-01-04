@@ -140,12 +140,16 @@ public class Observation implements Serializable {
         return true;
     }
 
+    /**
+     * Updates the dataset given in the collection of datasets under track
+     * @param ds Dataset with updated information
+     */
     void updateDataset(Dataset ds) {
 
         List<Dataset> lds=new ArrayList();
         for(Dataset d : datasets)
         {
-            if (!d.uri.equals(ds.uri))
+            if (d.uri==null || ds.uri==null || !d.uri.equals(ds.uri))
                 lds.add(d);
             else
                 lds.add(ds);

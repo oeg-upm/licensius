@@ -38,7 +38,9 @@ public class Dataset implements Serializable, Comparable {
     public String license_id;
     public String license;
     public String license_title;
+    public String ckanjson;
     public List<RecursoDescrito> recursos = new ArrayList();
+    public List<String> tags=new ArrayList();;
 
     public String toSummaryString() {
         String s = title + "\t" + license_id + "\t" + license + "\t" + license_title + "\t" + recursos.size();
@@ -186,4 +188,13 @@ public class Dataset implements Serializable, Comparable {
         Dataset d = (Dataset)o;
         return d.uri.compareTo(uri);
     }
+    
+    public boolean hasTag(String tag)
+    {
+        for(String t : tags)
+            if (tag.equals(t))
+                return true;
+        return false;
+    }
+    
 }

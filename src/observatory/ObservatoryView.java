@@ -47,9 +47,9 @@ import javax.swing.UIManager;
 import javax.swing.text.EditorKit;
 
 //LICENSER, VRODDON
-import licenser.CKANDatasets;
-import licenser.CKANExplorer;
-import licenser.CKANExplorerold;
+import ckan.CKANDatasets;
+import ckan.CKANExplorer;
+import ckan.CKANExplorerold;
 import licenser.LOVVocabs;
 import licenser.LicenseFinder;
 import vroddon.commons.StringUtils;
@@ -843,6 +843,8 @@ private void btnTestHealthActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         int conta = 0;
         for (Dataset d : ld) {
             Dataset ds = CKANExplorer.getDatasetFromCKAN(d.title);
+            if (ds==null)
+                continue;
             Observatory.observation.updateDataset(ds);
 //            CKANExplorer.updateDataFromCKAN(d);
             progressBar.setValue(++conta * 100 / ld.size());
@@ -855,7 +857,7 @@ private void btnTestHealthActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 
 private void menuJokerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuJokerActionPerformed
     List<Dataset> lds = new ArrayList();
-    List<String> ls = CKANExplorer.getAllDatasets();
+    List<String> ls = CKANExplorer.getDatasetNames();
     for (String s : ls) {
         Dataset d = new Dataset();
         d.uri = "http://datahub.io/dataset/" + s;
@@ -1085,6 +1087,8 @@ class ActionJList extends MouseAdapter implements KeyListener {
         list.setSelectedIndex(list.locationToIndex(e.getPoint())); //select the item
         int index = list.locationToIndex(e.getPoint());
         ListModel dlm = list.getModel();
+        if (dlm==null || index==-1)
+            return;
         final Object o = dlm.getElementAt(index);
 
         if (o.getClass() == Vocab.class) {

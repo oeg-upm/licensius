@@ -125,6 +125,8 @@ public class CKANExplorer {
         }
     }
 
+
+
     /**
      * Parsea la información de datasets de un archivo local obtenido con el método getMiniJSONRapido
      * @param filename Nombre del archivo
@@ -273,12 +275,10 @@ public class CKANExplorer {
         return licencia;
 
     }
-    
-    
+
     // ej: 81f850c1-501d-499c-8f6c-b6a06e2805fa
-    public static Dataset getDatasetFromCKAN(String id)
-    {
-        ObservatoryApp.getReportador().flashStatus("Querying CKAN about " + id +" ...");
+    public static Dataset getDatasetFromCKAN(String id) {
+        ObservatoryApp.getReportador().flashStatus("Querying CKAN about " + id + " ...");
         Dataset ds = new Dataset();
         try {
             String uri = "http://datahub.io/api/rest/package/" + id;
@@ -298,49 +298,49 @@ public class CKANExplorer {
                 obj = JSONValue.parse(output);
             }
             JSONObject jobj = (JSONObject) obj;
-            
-            String name = (String)jobj.get("name");
-            String title = (String)jobj.get("title");
-            ds.title=name;
-            ds.description=title;
-            ds.license_id = (String)jobj.get("license_id");
-            ds.license = (String)jobj.get("license");
-            ds.license_title = (String)jobj.get("license_title");
-            ds.uri="http://datahub.io/dataset/"+name;
-            
+
+            String name = (String) jobj.get("name");
+            String title = (String) jobj.get("title");
+            ds.title = name;
+            ds.description = title;
+            ds.license_id = (String) jobj.get("license_id");
+            ds.license = (String) jobj.get("license");
+            ds.license_title = (String) jobj.get("license_title");
+            ds.uri = "http://datahub.io/dataset/" + name;
+
             JSONArray list = (JSONArray) jobj.get("resources");
-            
+
             int tam = list.size();
             for (int i = 0; i < tam; i++) {
                 JSONObject recurso = (JSONObject) list.get(i);
                 RecursoDescrito r = new RecursoDescrito();
-                r.title=(String)recurso.get("name");
-                r.description = (String)recurso.get("description");
-                r.url=(String)recurso.get("url");
-                r.mimetype=(String)recurso.get("mimetype");
-                if (r.mimetype.isEmpty())
-                    r.mimetype=(String)recurso.get("format");
-                r.ckanid=(String)recurso.get("id");
+                r.title = (String) recurso.get("name");
+                r.description = (String) recurso.get("description");
+                r.url = (String) recurso.get("url");
+                r.mimetype = (String) recurso.get("mimetype");
+                if (r.mimetype.isEmpty()) {
+                    r.mimetype = (String) recurso.get("format");
+                }
+                r.ckanid = (String) recurso.get("id");
                 ds.recursos.add(r);
             }
-            ds.alive=(tam>0);
+            ds.alive = (tam > 0);
 
         } catch (Exception e) {
             Logger.getLogger("licenser").info("error in " + e.getLocalizedMessage());
-        }        
-        
-        
+        }
+
+
         return ds;
     }
-    
 
     public static void main(String[] args) {
         List<String> ls = getDatasetsFromAGroup("linguistics");
-        for(String id : ls)
-        {
+        for (String id : ls) {
             Dataset ds = getDatasetFromCKAN(id);
-            if (ds!=null)
+            if (ds != null) {
                 System.out.println(ds.toSummaryString());
+            }
         }
         System.out.println(ls);
     }
@@ -369,7 +369,7 @@ public class CKANExplorer {
             }
             JSONObject jobj = (JSONObject) obj;
             JSONArray list = (JSONArray) jobj.get("result");
-            
+
             int tam = list.size();
             for (int i = 0; i < tam; i++) {
                 JSONArray listlist = (JSONArray) list.get(i);

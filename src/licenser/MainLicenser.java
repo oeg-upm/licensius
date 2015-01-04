@@ -1,6 +1,9 @@
 package licenser;
 
 //JAVA
+import ckan.CKANExplorer;
+import ckan.CKANExplorerold;
+import ckan.CKANDatasets;
 import java.util.Date;
 import java.util.List;
 
@@ -56,12 +59,12 @@ public class MainLicenser {
         String output="";
         try {
 
-            options.addOption("sp", false, "Search predicate");
-            options.addOption("a", true, "Adds a license (given the URL as a parameter) in a given RDF");
+            options.addOption("sp", false,"Search predicate");
+            options.addOption("a", true,  "Adds a license (given the URL as a parameter) in a given RDF");
             options.addOption("e", false, "Explores massively the SPARQL endpoints looking for licensing terms");
             options.addOption("h", false, "shows this (Help)");
-            options.addOption("i", true, "specifies the Input (either a filename or a URI)");
-            options.addOption("o", true, "specifies the Output file");
+            options.addOption("i", true,  "specifies the Input (either a filename or a URI)");
+            options.addOption("o", true,  "specifies the Output file");
             options.addOption("f", false, "Finds a license in the given input dataset");
             options.addOption("q", false, "finds the licenses in a given sparQl end-point");
             options.addOption("s", false, "gets URLs of possible datasets in a webpage (in RDF/XML, Turtle or N3, including compressed)");
