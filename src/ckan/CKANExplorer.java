@@ -37,8 +37,8 @@ import vroddon.web.utils.Downloader;
  */
 public class CKANExplorer {
 
-//    private static String CKANSITE="http://datahub.io";
-    private static String CKANSITE = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de";
+    private static String CKANSITE="http://datahub.io";
+ //   private static String CKANSITE = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de";
 
 
     public static void downloadJSONFromCKAN(String filename, int number) {
@@ -383,7 +383,7 @@ public class CKANExplorer {
 
     }
 
-    private static Dataset parseCKANJSON(String output) {
+    public static Dataset getDatasetFromJSON(String output) {
         Dataset ds = new Dataset();
         Object obj = JSONValue.parse(output);
         JSONObject jobj = (JSONObject) JSONValue.parse(output);
@@ -413,7 +413,7 @@ public class CKANExplorer {
             r.description = (String) recurso.get("description");
             r.url = (String) recurso.get("url");
             r.mimetype = (String) recurso.get("mimetype");
-            if (r.mimetype.isEmpty()) {
+            if (r.mimetype==null || r.mimetype.isEmpty()) {
                 r.mimetype = (String) recurso.get("format");
             }
             r.ckanid = (String) recurso.get("id");
@@ -443,11 +443,12 @@ public class CKANExplorer {
                 return null;
             }
 
-            Dataset ds = parseCKANJSON(output);
+            Dataset ds = getDatasetFromJSON(output);
             return ds;
 
 
         } catch (Exception e) {
+            e.printStackTrace();
             Logger.getLogger("licenser").info("error in " + e.getLocalizedMessage());
         }
 

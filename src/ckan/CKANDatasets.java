@@ -16,12 +16,15 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 
 //JSON
+import java.io.File;
 import licenser.EndPointExplorer;
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 
+import vroddon.sw.Dataset;
 import vroddon.sw.Modelo;
 
 /**
@@ -33,7 +36,6 @@ import vroddon.sw.Modelo;
  * @author Victor
  */
 public class CKANDatasets {
- 
 
     public static void main(String[] args) {
         List<String> ls = getAllVOIDURI();
@@ -44,28 +46,29 @@ public class CKANDatasets {
             if (!modelo.isEmpty()) {
                 try {
                     ok = Modelo.parseFromString(modelo, true);
-                    if (!ok)
+                    if (!ok) {
                         ok = Modelo.parseFromString(modelo, false);
-                    if (ok)
-                    {
-                    boolean b1=isTherePredicate("http://purl.org/dc/terms/rights");
-                    boolean b2=isTherePredicate("http://purl.org/dc/terms/license");
-                    boolean b3=isTherePredicate("http://creativecommons.org/ns#license");
-                    boolean b4=isTherePredicate("http://www.w3.org/1999/xhtml/vocab/‎license");
-                    boolean b5=isTherePredicate("http://purl.org/dc/elements/1.1/license");
-                    boolean b6=isTherePredicate("http://purl.org/dc/elements/1.1/rights");                        
-
-                        System.out.println("Parsed\t" + svoid +"\t" +b1+"\t" +b2+"\t" +b3+"\t" +b4+"\t" +b5+"\t" +b6);
                     }
-            
+                    if (ok) {
+                        boolean b1 = isTherePredicate("http://purl.org/dc/terms/rights");
+                        boolean b2 = isTherePredicate("http://purl.org/dc/terms/license");
+                        boolean b3 = isTherePredicate("http://creativecommons.org/ns#license");
+                        boolean b4 = isTherePredicate("http://www.w3.org/1999/xhtml/vocab/‎license");
+                        boolean b5 = isTherePredicate("http://purl.org/dc/elements/1.1/license");
+                        boolean b6 = isTherePredicate("http://purl.org/dc/elements/1.1/rights");
+
+                        System.out.println("Parsed\t" + svoid + "\t" + b1 + "\t" + b2 + "\t" + b3 + "\t" + b4 + "\t" + b5 + "\t" + b6);
+                    }
+
                 } catch (Exception e) {
                     ok = false;
                 }
+            } else {
+                ok = false;
             }
-            else 
-                ok=false;
-            if (!ok)
+            if (!ok) {
                 System.out.println("Not parsed\t" + svoid);
+            }
 
         }
 
@@ -74,8 +77,7 @@ public class CKANDatasets {
         //    CKANExplorer.parseLocalJSON("void.json");
         //http://datahub.io/api/3/search/resource?res_format=meta%2Fvoid
     }
-    
-   
+
     /**
      * Obtiene una lista de datasets leyéndolos del archivo "datasets.txt" en este mismo paquete
      * 
@@ -96,7 +98,7 @@ public class CKANDatasets {
         }
         Logger.getLogger("licenser").info("Precargados " + ls.size() + " datasets");
         return ls;
-    }    
+    }
 
     /**
      * 
@@ -122,23 +124,49 @@ public class CKANDatasets {
                 String url = (String) jobj.get("url");
                 url = (url == null ? "null" : url);
                 uris.add(url);
-   //             System.out.println(id + "\t" + url + "\t");
+                //             System.out.println(id + "\t" + url + "\t");
             }
         } catch (Exception e) {
             System.err.println("HA HABIDO UN ERROR");
         }
         return uris;
     }
-    
-    static boolean isTherePredicate(String s)
-    {
+
+    static boolean isTherePredicate(String s) {
         Property ptipo = Modelo.model.getProperty(s);
-        ResIterator ri=Modelo.model.listSubjectsWithProperty(ptipo);
-        if (ri.hasNext())
+        ResIterator ri = Modelo.model.listSubjectsWithProperty(ptipo);
+        if (ri.hasNext()) {
             return true;
+        }
         return false;
     }
     ///xxxxxxxxxx pero puedo precargar datasets e ids.
     ///http://datahub.io/api/rest/package/eurostat-rdf b93f71f1-909c-473c-8e5a-ccb512957b86
     ///http://datahub.io/api/rest/package/eurostat-rdf obtiene un id que es el mismo que aparece en el json del recurso como "package_id"
+
+    static List<Dataset> getLocalDatasets(String sfolder) {
+        List datasets = new ArrayList();
+
+        try {
+            File folder = new File(sfolder);
+            File[] listOfFiles = folder.listFiles();
+            for (File file : listOfFiles) {
+                if (file.isFile()) {
+                    String string = FileUtils.readFileToString(file);
+                    try{
+                        Dataset ds=CKANExplorer.getDatasetFromJSON(string);
+                        datasets.add(ds);
+                    }catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+        //            System.out.println(file.getName());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return datasets;
+    }
 }

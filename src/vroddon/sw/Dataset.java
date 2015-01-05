@@ -41,6 +41,7 @@ public class Dataset implements Serializable, Comparable {
     public String ckanjson;
     public List<RecursoDescrito> recursos = new ArrayList();
     public List<String> tags=new ArrayList();;
+    public String tipo;
 
     public String toSummaryString() {
         String s = title + "\t" + license_id + "\t" + license + "\t" + license_title + "\t" + recursos.size();
