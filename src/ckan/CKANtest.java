@@ -19,13 +19,15 @@ public class CKANtest {
     public static Map<String, String> mapa = new HashMap();
 
     public static void main(String[] args) {
-        List<Dataset> lds = f3();
+        
+        f4();
+    /*    List<Dataset> lds = f3();
 
         for (Dataset d : lds) {
             mapa.put(d.uri, d.tipo);
         }
 
-        Lodcloud.parse();
+        Lodcloud.parse();*/
 
         /*
         //        Dataset ds=CKANExplorer.getDatasetFromCKAN("rdflicense");
@@ -45,7 +47,9 @@ public class CKANtest {
 
 
     }
-
+  public static void f4() {
+      List<String> datasets = CKANExplorer.getDatasetNamesFromTag("lod");
+  }
     public static List<Dataset> f3() {
         List<Dataset> lds = CKANDatasets.getLocalDatasets("local/ckan");
         List<Dataset> ret = new ArrayList();
