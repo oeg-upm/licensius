@@ -144,6 +144,12 @@ public class CKANDatasets {
     ///http://datahub.io/api/rest/package/eurostat-rdf b93f71f1-909c-473c-8e5a-ccb512957b86
     ///http://datahub.io/api/rest/package/eurostat-rdf obtiene un id que es el mismo que aparece en el json del recurso como "package_id"
 
+    
+    /**
+     * Loads the datasets in a folder , where each file has to be a JSON with the CKAN info.
+     * @param folder Like "local/ckan"
+     * @return List of datasets
+     */
     static List<Dataset> getLocalDatasets(String sfolder) {
         List datasets = new ArrayList();
 
@@ -160,13 +166,11 @@ public class CKANDatasets {
                     {
                         e.printStackTrace();
                     }
-        //            System.out.println(file.getName());
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return datasets;
     }
 }

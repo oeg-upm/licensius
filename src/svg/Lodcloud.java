@@ -1,13 +1,14 @@
 package svg;
 
 import ckan.CKANtest;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 
 /**
- *
+ * Esta clase representa la nube de datos enlazados.
  * @author vroddon
  */
 public class Lodcloud {
@@ -16,6 +17,9 @@ public class Lodcloud {
    parse();
     }
     
+    /**
+     * This method loads a LOD.svg file and generates a LOD2.svg where, for each dataset, a color is stablished based on a property
+     */
     public static void parse()
     {
      try {
@@ -52,9 +56,6 @@ public class Lodcloud {
                         if (res.equals("other"))
                                 color="888888";
                         str=s1+color+s2;
-
-
-
                     }
                 }
                 
@@ -83,9 +84,6 @@ public class Lodcloud {
             BufferedWriter out = new BufferedWriter(new FileWriter("lod2.svg"));
             out.write(sout);
             out.close();
-
-
-
         } catch (Exception e) {
             System.err.println("HA HABIDO UN ERROR SE VA HABE UN FOLLON"+e.getMessage());
         }        
