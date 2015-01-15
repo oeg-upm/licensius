@@ -809,4 +809,44 @@ public class CKANExplorer {
 
 
     }
+
+    static List<String> getDatasetNamesFromTag(String string) {
+       List<String> ls = new ArrayList();
+        try {
+            String uri = CKANSITE + "/api/search/dataset?q=tags:lod";
+            
+//            String uri = CKANSITE + "/api/3/action/member_list?tags=" + tring;
+            URL url = new URL(uri);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != 200) {
+                Logger.getLogger("licenser").warn("error from the api");
+                return ls;
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output;
+            String cadena = "";
+            Object obj = null;
+            if ((output = br.readLine()) != null) {
+                obj = JSONValue.parse(output);
+         //       System.out.println(output);
+            }
+            JSONObject jobj = (JSONObject) obj;
+            JSONArray list = (JSONArray) jobj.get("result");
+
+            int tam = list.size();
+            for (int i = 0; i < tam; i++) {
+                JSONArray listlist = (JSONArray) list.get(i);
+                String list1 = (String) listlist.get(0);
+                ls.add(list1);
+                System.out.println(list1);
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger("licenser").info("error in " + e.getLocalizedMessage());
+            System.out.println("error");
+        }
+        return ls;
+    }
 }
