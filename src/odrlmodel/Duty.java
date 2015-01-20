@@ -10,7 +10,7 @@ package odrlmodel;
  * Duty entities, all of them have to be fulfilled for the Permission to become valid. 
  * If several Permission entities refer to one Duty, then the Duty only has to be 
  * fulfilled once for all the Permission entities to become valid.
- * 
+ * @version Suitable for ODRL 2.1
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class Duty extends Rule {
