@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import ldrauthorizerold.LDRAuthorizerApp;
 
 //LOG4J
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import org.apache.log4j.Logger;
 
 public class ODRLAuthorizerSampleClient {

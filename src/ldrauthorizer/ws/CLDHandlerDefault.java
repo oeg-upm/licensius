@@ -13,7 +13,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ldrauthorizerold.GoogleAuthHelper;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import org.apache.commons.io.FileUtils;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.log4j.Logger;

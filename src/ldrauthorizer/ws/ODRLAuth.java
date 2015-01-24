@@ -1,7 +1,7 @@
 package ldrauthorizer.ws;
 
 import java.util.UUID;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 
 /**
  *

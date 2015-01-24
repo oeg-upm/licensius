@@ -5,7 +5,7 @@ import ldrauthorizer.ws.CLDHandlerDefault;
 import ldrauthorizer.ws.JettyServer;
 
 //APACHE LOG4J
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import org.apache.log4j.Logger;
 
 //JETTY
@@ -24,10 +24,10 @@ public class LDRCore {
     
     JettyServer server = null;
     
-    
     /**
      * Starts the server
-    //http://stackoverflow.com/questions/19718159/java-lang-illegalstateexception-no-sessionmanager
+     * http://stackoverflow.com/questions/19718159/java-lang-illegalstateexception-no-sessionmanager
+     * https://wiki.eclipse.org/Jetty/Tutorial/Embedding_Jetty
      */
     public void StartServer() {
         try {

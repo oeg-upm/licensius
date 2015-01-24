@@ -16,7 +16,7 @@ import com.hp.hpl.jena.sparql.core.DatasetGraphMaker;
 import com.hp.hpl.jena.sparql.core.DatasetImpl;
 import java.util.List;
 import odrlmodel.Action;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.Rule;
 import odrlmodel.rdf.ODRLModel;

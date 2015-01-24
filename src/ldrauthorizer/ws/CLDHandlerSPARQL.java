@@ -22,7 +22,7 @@ import static org.apache.commons.lang.StringEscapeUtils.escapeHtml;
 
 ///JETTY
 import ldrauthorizerold.GoogleAuthHelper;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.rdf.Authorization;
 import org.apache.commons.io.IOUtils;

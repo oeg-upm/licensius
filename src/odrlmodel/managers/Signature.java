@@ -23,7 +23,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.*;
 
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import org.w3c.dom.*;
 
 /**

@@ -14,7 +14,7 @@ import java.util.List;
 import languages.LanguageManager;
 import ldrauthorizerold.Multilingual;
 
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManager;
 

@@ -34,7 +34,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import odrlmodel.Asset;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import odrlmodel.MetadataObject;
 import odrlmodel.rdf.ODRLModel;
 import odrlmodel.rdf.ODRLRDF;

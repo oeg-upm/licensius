@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import ldrauthorizer.ws.JettyServer;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

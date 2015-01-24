@@ -41,7 +41,7 @@ import ldrauthorizerold.GoogleAuthHelper;
 import ldrauthorizerold.Multilingual;
 
 import odrlmodel.Asset;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.PolicyManager;

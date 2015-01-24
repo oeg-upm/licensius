@@ -1,26 +1,47 @@
 package ldconditional;
 
-import java.io.IOException;
+import ldserver.GeneralHandler;
+import ldserver.ServiceHandler;
+import ldserver.MainHandler;
+import ldrauthorizer.ws.JettyServer;
+import ldrauthorizerold.LDRCore;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.NCSARequestLog;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.eclipse.jetty.server.handler.DefaultHandler;
+import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.server.handler.RequestLogHandler;
+import org.eclipse.jetty.server.handler.ContextHandler;
+import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.server.session.HashSessionIdManager;
+import org.eclipse.jetty.server.session.HashSessionManager;
+import org.eclipse.jetty.server.session.SessionHandler;
 
 /**
- * Main class, entry point of the Web Server
- * 
+ * Main class, entry point of the Linked Data Web Server
+ *  
  * @author Victor
  */
 public class Main {
 
     static final Logger logger = Logger.getLogger(Main.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         initLogger();
-        logger.info("Starting the application");
+        
+        initServer();
+
     }
 
+    /**
+     * Initializes the logger with some predefined parameters
+     */
     public static void initLogger() {
         try {
             PatternLayout layout = new PatternLayout("%d{ABSOLUTE} %5p %C{1}:%L - %m%n");
@@ -28,22 +49,53 @@ public class Main {
             console.setName("console");
             console.setTarget("System.out");
             console.setLayout(layout);
-            console.setThreshold(Level.DEBUG); //Level.DEBUG
+            console.setThreshold(Level.INFO); //Level.DEBUG
             console.activateOptions();
             Logger.getRootLogger().addAppender(console);
-
-//                FileAppender file = new FileAppender(layout, "inspecteelogs.txt");
             RollingFileAppender file;
-            file = new RollingFileAppender(layout, "logs.txt");
-            file.setMaxFileSize("256MB");
+            file = new RollingFileAppender(layout, "./logs/logs.txt");
+            file.setMaxFileSize("1MB");
             file.setName("file");
             file.setLayout(layout);
             file.setThreshold(Level.DEBUG);
-            //   file.setFile("inspecteelogsx.txt", true, false, 1024);
             file.activateOptions();
             Logger.getRootLogger().addAppender(file);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
+    
+    public static void initServer() throws Exception
+    {
+        int port = Integer.parseInt(LDRConfig.getPort());
+        logger.info("Starting the server in " + port);
+        int puerto = Integer.parseInt(LDRConfig.getPort());
+        Server server = new Server(puerto);
+        RequestLogHandler requestLogHandler = new RequestLogHandler();
+        HandlerCollection handlers = new HandlerCollection();
+        HashSessionManager manager = new HashSessionManager();
+        SessionHandler sessions = new SessionHandler(manager);
+        HashSessionIdManager idmanager = new HashSessionIdManager();
+        server.setSessionIdManager(idmanager);
+        ServiceHandler serviceHandler = new ServiceHandler();
+        GeneralHandler generalHandler = new GeneralHandler();
+        MainHandler mainHandler = new MainHandler();
+        ContextHandler contextGeneral = new ContextHandler("/");
+        contextGeneral.setHandler(sessions);
+        sessions.setHandler(mainHandler);
+        handlers.addHandler(requestLogHandler);
+        handlers.addHandler(contextGeneral);
+        handlers.addHandler(serviceHandler);
+        handlers.addHandler(generalHandler);
+        NCSARequestLog requestLog = new NCSARequestLog("./logs/jetty-yyyy_mm_dd.request.log");
+        requestLog.setRetainDays(90);
+        requestLog.setAppend(true);
+        requestLog.setExtended(false);
+        requestLog.setLogTimeZone("GMT");
+        requestLogHandler.setRequestLog(requestLog);
+        server.setHandler(handlers);
+        server.start();
+        server.join();        
+    }
+    
 }

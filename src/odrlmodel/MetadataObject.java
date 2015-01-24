@@ -1,6 +1,7 @@
 package odrlmodel;
 
 //JAVA
+import ldconditional.LDRConfig;
 import java.net.URI;
 
 //APACHE COMMONS

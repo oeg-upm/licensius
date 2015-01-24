@@ -11,7 +11,7 @@ import ldrauthorizerold.GoogleAuthHelper;
 import ldrauthorizer.ws.LDRServer;
 
 //ODRLMODEL
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.managers.HTMLODRLManager;
 import odrlmodel.managers.PolicyManager;

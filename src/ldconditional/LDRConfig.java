@@ -1,4 +1,4 @@
-package odrlmodel;
+package ldconditional;
 
 //JAVA
 import java.io.FileInputStream;
@@ -22,46 +22,10 @@ import org.apache.log4j.Logger;
  */
 public class LDRConfig {
 
-    private final static String CONFIGFILE = "../ldr.config";
+    private final static String CONFIGFILE = "ldr.config";
     
     //Propiedades
     static Properties prop = new Properties();
-
-
-    /**
-     * Inserta el valor de un parámetro para un elemento consumidor.
-     * @param nomparam Nombre del parámetro
-     * @param idElemCons Id del elemento consumidor
-     * @param valor Valor
-     */
-    public static void insertParamValue(String nomparam, int idElemCons, int valor)
-    {
-        String clave="~"+nomparam + ":" + idElemCons;
-        prop.setProperty(clave,Integer.toString(valor));
-    }
-    
-    /**
-    * Obtiene el valor de un parámetro para un elemento consumidor.
-    * @param nomparam Nombre del parámetro
-    * @param idElemCons Identificador del elemento consumidor
-    * @return Un valor numérico
-    */
-    public static int getParamValue(String nomparam, int idElemCons)
-    {
-        String clave="~"+nomparam + ":" + idElemCons;
-        String s = prop.getProperty(clave);
-        if (s == null)
-        {
-            clave="~"+nomparam + ":" + "-1"; // valor por defecto
-            s = prop.getProperty(clave);            
-        }
-        if (s != null){
-            return Integer.parseInt(s);
-        }
-        return Integer.MIN_VALUE; //solo si no hubiera valor por defecto
-    }
-    
-
 
     /**
      * Obtiene el valor de una propiedad
@@ -164,9 +128,6 @@ public class LDRConfig {
     public static String getPort() {
         return prop.getProperty("port", "80");
     }
-    
-    
-    
 
     public static String getDataset() {
         return prop.getProperty("dataset", "../data/data.nq");
@@ -212,7 +173,7 @@ public class LDRConfig {
                 }
             };
             tmp.putAll(prop);
-            tmp.store(new FileWriter("../ldr.config"), null);
+            tmp.store(new FileWriter(CONFIGFILE), null);
         } catch (Exception ex) {
             Logger.getLogger("ldr").error("Error opening config file" + ex.toString());
         }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //APACHE COMMONS
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import odrlmodel.rdf.ODRLModel;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.Policy;

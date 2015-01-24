@@ -1,7 +1,7 @@
 package ldrauthorizer.ws;
 
 import java.io.IOException;
-import odrlmodel.LDRConfig;
+import ldconditional.LDRConfig;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
