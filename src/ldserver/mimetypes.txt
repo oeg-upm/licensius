@@ -569,6 +569,7 @@
 .wmls	text/vnd.wap.wmlscript
 .wmlsc	application/vnd.wap.wmlscriptc
 .word	application/msword
+.woff   application/x-font-woff
 .wp	application/wordperfect
 .wp5	application/wordperfect
 .wp5	application/wordperfect6.0

@@ -55,25 +55,34 @@ public class GeneralHandler extends AbstractHandler {
         response.setStatus(HttpServletResponse.SC_OK);
         boolean binario = false;
         try {
-
+                
             String token = "";
-            String requestUri = request.getRequestURI();
-
-            if (requestUri.equals("/img/rdf-condicional.png"))
-                logger.info("Fileuri "+ requestUri);
-            String referer = baseRequest.getHeader("Referer");
-            String suri = requestUri;
-            if (referer!=null)
-            {
-                URI uri = new URI(referer);
-                String path= uri.getPath();
-                suri = "./datasets" + path + requestUri;
-            }
-            else
-                suri = "./datasets" + requestUri;
-
+            if (request.getRequestURI().endsWith(".css"))
+                token=token+"";
+            if (request.getRequestURI().endsWith(".png"))
+                token=token+"";
             
-            File f = new File(suri);
+            String requestUri = request.getRequestURI();
+  //          String referer = baseRequest.getHeader("Referer");
+            String suri = requestUri;
+/*            if (referer != null ) {
+                URI uri = new URI(referer);
+                String path = uri.getPath();
+                String local=baseRequest.getLocalAddr();
+               String s1=baseRequest.getPathTranslated();
+               String s2=baseRequest.getPathInfo();
+                int i=path.lastIndexOf(".");
+            }*/
+ //               logger.info("Referrer:" + referer + " Path:" +path + " RequestURI:"+requestUri);
+ //               suri = "./datasets" + path + requestUri;
+ //           } else {
+                suri = "./datasets" + requestUri;
+//                if (suri.equals("./datasets/")) {
+//                    requestUri = "./datasets/index.html";
+//                    suri = requestUri;
+//                }
+//            }
+           File f = new File(suri);
             if (!f.exists()) {
                 return false;
             }
@@ -81,17 +90,16 @@ public class GeneralHandler extends AbstractHandler {
                 logger.info("Retrieving a dataset " + requestUri);
                 requestUri = requestUri + "/index.html";
                 requestUri = requestUri.replace("//", "/"); //por si acaso había la barra al final
-                f = new File("./datasets" + requestUri);
+                response.sendRedirect(requestUri);
+                return true;
             }
             int i = requestUri.lastIndexOf("/");
             if (i == -1) {
                 return false;
             }
-            
-//            String filename = uri.substring(i + 1);
             i = requestUri.lastIndexOf(".");
             if (i != -1) {
-                String extension = requestUri.substring(i); 
+                String extension = requestUri.substring(i);
                 MimeManager mm = new MimeManager();
                 String tipo = mm.mapa.get(extension);
                 if (tipo != null) {
@@ -109,8 +117,18 @@ public class GeneralHandler extends AbstractHandler {
                         }
                     }
                 }
+                else
+                {
+                    response.setContentType("application/octet-stream");
+                        ServletOutputStream output = response.getOutputStream();
+                        InputStream input = new FileInputStream(f);
+                        byte[] buffer = new byte[2048];
+                        int bytesRead;
+                        while ((bytesRead = input.read(buffer)) != -1) {
+                            output.write(buffer, 0, bytesRead);
+                        }
+                }
             }
-
         } catch (Exception e) {
             return false;
         }

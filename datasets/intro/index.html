@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>conditional.linkeddata: About this project</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<!-- Navigation bar -->
+  	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="#">
+		    <img alt="Brand" src="img/rdf-condicional.png" class="img-responsive" style="max-width: 400px">
+		  </a>
+		</div>
+		</div>
+	</nav>
+  	<div class="container">
+  		<div class="col-lg-8 col-sm-9">
+  			<ul class="nav nav-pills" role="tablist">
+  				<li role="presentation" ><a href="#details" data-toggle="pill" role="tab" >Technical details</a></li>
+  				<li role="presentation" class="active"><a href="#intro" data-toggle="pill" role="tab" >Introduction</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" id="intro" class="tab-pane fade in active">
+		  			<h1>What is Conditional Access to Linked Data? </h1>
+		  			<p class="justify">Conditional access to Linked Data is a way of publishing data in the Web, making information to be selectively available according to a set of desired conditions (free, paid content, etc.), using standard formats granting the best availability and interoperability for both people and applications</p>
+					<h2>What is this website?</h2>
+					<p class="justify">These pages demonstrate the conditional access to Linked Data with a simple test dataset where you can play the user's and the admin's role. The test dataset has been taken from the IGN Geolinkeddata).</p>
+					<p class="justify">
+					The GeoLinkedData dataset includes the Spanish Autonomous Communities, provinces and province capitals, together with the geopositions of the municipalities. Additionally, links for each geographic entity to the corresponding DBPedia page have been provided.</p>
+			    </div>
+			    <div role="tabpanel" id="details" class="tab-pane fade">
+		  			<h1>Some simple technical details...</h1>
+		  			<p class="justify">1. Linked Data in the web describes resources identified by URIs, interconnected with other resources and accessible via HTTP for both people and applications. Linked Data are often structured according to the RDF standard and they are accesible either as dumps or through query languages. See the specification at RDF1.1
+					<p class="justify">2. ODRL2.0 is a policy expression language, which allows expressing which resources are available under which conditions. The code determining whether a resource is available or not is therefore expressed in ODRL. See the core model specification at ODRL2.0, and the vocabulary for Linked Data at Linked Data Rights.</p>
+					<p class="justify">
+					3. ODRL2.0 can be serialized as XML, JSON or RDF (based on the ODRL ontology). The OEG research group has developed a Java API to ease the manipulation of ODRL policies. Check the online documentation of API ODRL2.0 RDF (still under development).</p>
+					<p class="justify">4. The OEG group has developed a desktop application for the edition of ODRL policies. (see a snapshot)</p>
+					<p class="justify">
+					5. Linked Data is served according to ODRL policies. The ODRL authorizer can be tested through these pages, with a dataset of geographical Linked Data</p>
+			    </div>
+		    </div>
+  		</div>
+  		<div class="col-lg-4 col-sm-3">
+  			<button class="btn btn-default btn-xlg">Start demo</button>
+  		</div>
+  		
+	    
+  	</div>
+    <footer class="container" style="height:100px;margin-top:100px">These pages have been developed with the purpose of demonstrating the conditional access to Linked Data based on ODRL/LDR policies
+￼</footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
