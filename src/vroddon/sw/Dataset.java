@@ -39,6 +39,7 @@ public class Dataset implements Serializable, Comparable {
     public String license;
     public String license_title;
     public String ckanjson;
+    public String rdfdump;
     public List<RecursoDescrito> recursos = new ArrayList();
     public List<String> tags=new ArrayList();;
     public List<String> langs = new ArrayList();

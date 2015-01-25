@@ -272,6 +272,7 @@ public class ObservatoryView extends FrameView implements Reportador {
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         menuLoadFile = new javax.swing.JMenuItem();
+        menuFileOpenDump = new javax.swing.JMenuItem();
         menuSave = new javax.swing.JMenuItem();
         javax.swing.JMenuItem menuLoad = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -467,6 +468,15 @@ public class ObservatoryView extends FrameView implements Reportador {
             }
         });
         fileMenu.add(menuLoadFile);
+
+        menuFileOpenDump.setText(resourceMap.getString("menuFileOpenDump.text")); // NOI18N
+        menuFileOpenDump.setName("menuFileOpenDump"); // NOI18N
+        menuFileOpenDump.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileOpenDumpActionPerformed(evt);
+            }
+        });
+        fileMenu.add(menuFileOpenDump);
 
         menuSave.setText(resourceMap.getString("menuSave.text")); // NOI18N
         menuSave.setName("menuSave"); // NOI18N
@@ -918,6 +928,9 @@ private void menuSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
 }//GEN-LAST:event_menuSaveActionPerformed
 
+
+
+
 /**
  * Carga un archivo
  */
@@ -946,6 +959,24 @@ private void menuLoadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 private void menuIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIDActionPerformed
 // TODO add your handling code here:
 }//GEN-LAST:event_menuIDActionPerformed
+
+private void menuFileOpenDumpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileOpenDumpActionPerformed
+    final JFileChooser fc = new JFileChooser("./data");
+    int returnVal = fc.showOpenDialog(null);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+        File f = fc.getSelectedFile();
+        String path = f.getAbsolutePath();
+        String name=f.getName();
+        Dataset ds = new Dataset();
+        ds.uri=path;
+        ds.title=name;
+        ds.rdfdump=path;
+        Observatory.observation.datasets.add(ds);
+        refreshDatasets();
+    }
+// TODO add your handling code here:
+}//GEN-LAST:event_menuFileOpenDumpActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoadVocabs;
     private javax.swing.JButton btnReporte;
@@ -964,6 +995,7 @@ private void menuIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
     private javax.swing.JList listVocabs;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem menuFileOpenDump;
     private javax.swing.JMenu menuID;
     private javax.swing.JMenuItem menuJoker;
     private javax.swing.JMenuItem menuLoadFile;
