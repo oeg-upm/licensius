@@ -277,6 +277,8 @@ public class ObservatoryView extends FrameView implements Reportador {
         javax.swing.JMenuItem menuLoad = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        menuRDFDumpCountTriples = new javax.swing.JMenuItem();
         menuID = new javax.swing.JMenu();
         menuJoker = new javax.swing.JMenuItem();
         javax.swing.JMenu helpMenu = new javax.swing.JMenu();
@@ -508,6 +510,20 @@ public class ObservatoryView extends FrameView implements Reportador {
         jMenu1.add(jMenuItem3);
 
         menuBar.add(jMenu1);
+
+        jMenu2.setText(resourceMap.getString("jMenu2.text")); // NOI18N
+        jMenu2.setName("jMenu2"); // NOI18N
+
+        menuRDFDumpCountTriples.setText(resourceMap.getString("menuRDFDumpCountTriples.text")); // NOI18N
+        menuRDFDumpCountTriples.setName("menuRDFDumpCountTriples"); // NOI18N
+        menuRDFDumpCountTriples.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRDFDumpCountTriplesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuRDFDumpCountTriples);
+
+        menuBar.add(jMenu2);
 
         menuID.setText(resourceMap.getString("menuID.text")); // NOI18N
         menuID.setName("menuID"); // NOI18N
@@ -977,6 +993,18 @@ private void menuFileOpenDumpActionPerformed(java.awt.event.ActionEvent evt) {//
 // TODO add your handling code here:
 }//GEN-LAST:event_menuFileOpenDumpActionPerformed
 
+private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRDFDumpCountTriplesActionPerformed
+    Dataset ds = (Dataset)listDatasets.getSelectedValue();
+    if (ds==null)
+        return;
+        mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        
+        
+        
+        mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+    
+}//GEN-LAST:event_menuRDFDumpCountTriplesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoadVocabs;
     private javax.swing.JButton btnReporte;
@@ -985,6 +1013,7 @@ private void menuFileOpenDumpActionPerformed(java.awt.event.ActionEvent evt) {//
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JEditorPane edConsola;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -999,6 +1028,7 @@ private void menuFileOpenDumpActionPerformed(java.awt.event.ActionEvent evt) {//
     private javax.swing.JMenu menuID;
     private javax.swing.JMenuItem menuJoker;
     private javax.swing.JMenuItem menuLoadFile;
+    private javax.swing.JMenuItem menuRDFDumpCountTriples;
     private javax.swing.JMenuItem menuSave;
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel statusAnimationLabel;
