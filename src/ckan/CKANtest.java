@@ -20,15 +20,19 @@ public class CKANtest {
 
     public static void main(String[] args) {
         
-        f4();
-    /*    List<Dataset> lds = f3();
+//        CKANtest.downloadJSONsFromCKAN("/ckan/lod2014cloud.txt");
+        
+        
+        
+       /* List<Dataset> lds = fillWithKindOfLicense();
 
         for (Dataset d : lds) {
             mapa.put(d.uri, d.tipo);
-        }
+        }*/
 
-        Lodcloud.parse();*/
+//        Lodcloud.parse();
 
+        
         /*
         //        Dataset ds=CKANExplorer.getDatasetFromCKAN("rdflicense");
         //        System.out.println(ds.toSummaryString());
@@ -47,16 +51,17 @@ public class CKANtest {
 
 
     }
-  public static void f4() {
-      List<String> datasets = CKANExplorer.getDatasetNamesFromTag("lod");
-  }
-    public static List<Dataset> f3() {
+
+    
+    
+    /**
+     * Loads the datsets from a folder and checks its license_id, filling in the field "tipo". 
+     */
+    public static List<Dataset> fillWithKindOfLicense() {
         List<Dataset> lds = CKANDatasets.getLocalDatasets("local/ckan");
         List<Dataset> ret = new ArrayList();
         for (Dataset d : lds) {
             String tipo = "";
-
-
             if (d.license_id == null || d.license_id.equals("null") || d.license_id.equals("notspecified") || d.license_id.equals("")) {
                 tipo = "notspecified";
             } else if (d.license_id.equals("other-pd") || d.license_id.equals("cc-zero") || d.license_id.equals("odc-pddl")) {
@@ -75,24 +80,22 @@ public class CKANtest {
             d.tipo = tipo;
 
             ret.add(d);
-
             if (d.license_id == null) {
                 d.license_id = "";
             }
-
             //      System.out.println(d.uri +"\t"+d.license_id+"\t"+tipo);
-
-
-
-
         }
         return ret;
 
 
     }
 
-    public static void f2() {
-        List<String> sds = CKANDatasets.getPreloadedDatasets("/ckan/lod2014cloud.txt");//lod2014cloud.txt
+    /**
+     * Loads a list of 569 preloaded datasets with the lod as of 2014, downloading the json in the given folder
+     * @param fileName File with a list of entries, one per line, with entries like "http://datahub.io/dataset/uniprot"
+     */
+    public static void downloadJSONsFromCKAN(String fileName) {
+        List<String> sds = CKANDatasets.getPreloadedDatasets(fileName);//lod2014cloud.txt
 
         for (String sd : sds) {
             sd = sd.replace("http://datahub.io/dataset/", "");

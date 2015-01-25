@@ -383,6 +383,11 @@ public class CKANExplorer {
 
     }
 
+    /**
+     * Gets a Dataset Object from a JSON text given as the input param
+     * @param output Input JSON
+     * @return A Dataset
+     */
     public static Dataset getDatasetFromJSON(String output) {
         Dataset ds = new Dataset();
         Object obj = JSONValue.parse(output);
