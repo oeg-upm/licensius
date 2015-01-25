@@ -18,7 +18,42 @@ import org.apache.commons.io.IOUtils;
 /**
  * Clase para dascargar archivos.
  */
-public class Downloader {
+public class Downloader implements Runnable {
+
+    private String url ="";
+    private String archivo ="";
+    
+    public void run() {
+        Descargar(url, getArchivo());
+    }
+
+    /**
+     * @return the url
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * @param url the url to set
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    /**
+     * @return the archivo
+     */
+    public String getArchivo() {
+        return archivo;
+    }
+
+    /**
+     * @param archivo the archivo to set
+     */
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
+    }
 
     private static class ProgressListener implements ActionListener {
 
@@ -26,7 +61,7 @@ public class Downloader {
         public void actionPerformed(ActionEvent e) {
             // e.getSource() gives you the object of DownloadCountingOutputStream
             // because you set it in the overriden method, afterWrite().
-            System.out.print("\rDownloaded bytes : " + ((DownloadCountingOutputStream) e.getSource()).getByteCount());
+        //    System.out.print("\rDownloaded bytes : " + ((DownloadCountingOutputStream) e.getSource()).getByteCount());
         }
     }
 
@@ -53,7 +88,7 @@ public class Downloader {
             // you may want to convert to integer and store this value to
             // calculate percentage of the progression.
             String total=dl.openConnection().getHeaderField("Content-Length");
-            System.out.println("Total: " + total + " bytes");
+      //      System.out.println("Total: " + total + " bytes");
             // begin transfer by writing to dcount, not os.
             IOUtils.copy(is, dcount);
             return true;

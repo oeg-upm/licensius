@@ -21,20 +21,82 @@ import vroddon.sw.NTriples;
 public class DyldoTest {
 
     public static void main(String[] args) throws Exception {
-//        String archivo = "local/dyldo/2015.01.11.data.nq";
-//        String archivo = "local/dyldo/2012.12.30.data.nq";
 //        String archivo = "e://data//dyldo//2014.01.05.data.nq";
 //          String archivo = "e://data//dyldo//2014.12.05.linghub.nt";
 //          String archivo = "e://data//dyldo//salida.txt";
-        String archivo = "e://data//dyldo//2015.01.11.data.nq";
-        parseHugeNQuads(archivo);
+        String archivo = "e://data//llod//linghub.full.nt";
+//        String archivo = "e://data//dyldo//2013.01.06.data.nq";
+//        parseHugeNQuads(archivo);
 
 //        int lineas = FileUtils.countLineNumber(archivo);
 //        int lineas = FileUtils.countLineByLine(archivo);
 //        System.out.println("El archivo " + archivo + " tiene " + lineas + " lineas");
 //        parseHugeNTriple(archivo);
+        
+        searchForObjectsWithPredicate(archivo);
     }
 
+    /**
+     * Parses a huge file 
+     */
+    public static void searchForObjectsWithPredicate(String filename) throws Exception {
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        String line;
+        int lines = 0;
+        int langtags = 0;
+        int en = 0;
+        int it = 0;
+        int fr = 0;
+        int es = 0;
+        int de = 0;
+        int ru = 0;
+        int pl = 0;
+        int nl = 0;
+        int zhtw = 0;
+        int pt = 0;
+        int sv = 0;
+        int others = 0;
+        int nulo = 0;
+
+        int literals = 0;
+        int count=0;
+        Map<String, Integer> mapa = new HashMap();
+        while ((line = br.readLine()) != null) {
+            lines++;
+            //PRESENTAMOS LA INFORMACIÓN CADA CIERTO TIEMPO
+            if (lines % 1048576 == 0) {
+                System.out.println(lines+"\t"+count);
+            }
+
+
+            //OBTENEMOS OBJETO Y GRAFO
+            line = line.trim();
+            String predicate = NTriples.getPredicateFromNTriple(line);
+            if (predicate.equals("http://purl.org/dc/elements/1.1/language") || predicate.equals("http://purl.org/dc/terms/language") || predicate.equals("http://purl.org/dc/terms/language"))
+            {
+                count++;
+                String object = NTriples.getObjectFromNTriple(line);
+                Integer i = mapa.get(object);
+                if (i==null) i=0;
+                i++;
+                mapa.put(object,i);
+            }
+        }
+        
+        Iterator xit = mapa.entrySet().iterator();
+        while (xit.hasNext()) {
+        Map.Entry e = (Map.Entry)xit.next();
+            System.out.println(e.getKey() + "\t" + e.getValue());
+        }
+        
+        
+        System.out.println(lines + "\t" + literals + "\t" + langtags + "\t" + en + "\t" + it + "\t" + fr + "\t" + es + "\t" + de + "\t" + ru + "\t" + pl + "\t" + nl + "\t" + zhtw + "\t" + pt + "\t" + sv + "\t" + others + "\t");
+
+        br.close();
+    }
+    
+    
     /**
      * Parses a huge file 
      */
@@ -88,32 +150,32 @@ public class DyldoTest {
 
                 langtags++;
                 langtag = langtag.toLowerCase();
-                if (langtag.equalsIgnoreCase("en") || langtag.startsWith("en-") || langtag.startsWith("en_")) {
+                if (langtag.equalsIgnoreCase("en") || langtag.startsWith("en-") || langtag.startsWith("en_") || langtag.equals("eng")) {
                     en++;
-                } else if (langtag.equals("it") || langtag.startsWith("it-") || langtag.startsWith("it_")) {
+                } else if (langtag.equals("it") || langtag.startsWith("it-") || langtag.startsWith("it_") || langtag.equals("ita")) {
                     it++;
-                } else if (langtag.equals("fr") || langtag.startsWith("fr-") || langtag.startsWith("fr_")) {
+                } else if (langtag.equals("fr") || langtag.startsWith("fr-") || langtag.startsWith("fr_")|| langtag.equals("fra")|| langtag.equals("fre")) {
                     fr++;
-                } else if (langtag.equals("es") || langtag.startsWith("es-") || langtag.startsWith("es_")) {
+                } else if (langtag.equals("es") || langtag.startsWith("es-") || langtag.startsWith("es_")|| langtag.equals("spa")) {
                     es++;
-                } else if (langtag.equals("de") || langtag.startsWith("de-") || langtag.startsWith("de_")) {
+                } else if (langtag.equals("de") || langtag.startsWith("de-") || langtag.startsWith("de_")|| langtag.equals("ger")|| langtag.equals("deu")) {
                     de++;
-                } else if (langtag.equals("ru") || langtag.startsWith("ru-") || langtag.startsWith("ru_")) {
+                } else if (langtag.equals("ru") || langtag.startsWith("ru-") || langtag.startsWith("ru_")|| langtag.equals("rus")) {
                     ru++;
-                } else if (langtag.equals("pl") || langtag.startsWith("pl-") || langtag.startsWith("pl_")) {
+                } else if (langtag.equals("pl") || langtag.startsWith("pl-") || langtag.startsWith("pl_")|| langtag.equals("pol")) {
                     pl++;
-                } else if (langtag.equals("nl") || langtag.startsWith("nl-") || langtag.startsWith("nl_")) {
+                } else if (langtag.equals("nl") || langtag.startsWith("nl-") || langtag.startsWith("nl_")|| langtag.equals("dut")) {
                     nl++;
-                } else if (langtag.equals("zw") || langtag.startsWith("zw-") || langtag.startsWith("zw_")) {
+                } else if (langtag.equals("zh") || langtag.startsWith("zh-") || langtag.startsWith("zh_")|| langtag.equals("chi")) {
                     zhtw++;
-                } else if (langtag.equals("pt") || langtag.startsWith("pt-") || langtag.startsWith("pt_")) {
+                } else if (langtag.equals("pt") || langtag.startsWith("pt-") || langtag.startsWith("pt_")|| langtag.equals("por")) {
                     pt++;
-                } else if (langtag.equals("sv") || langtag.startsWith("sv-") || langtag.startsWith("sv_")) {
+                } else if (langtag.equals("sv") || langtag.startsWith("sv-") || langtag.startsWith("sv_")|| langtag.equals("swe")) {
                     sv++;
                 } else {
                     others++;
                 }
-                System.out.println(langtag);
+            //    System.out.println(langtag);
             }
 
 
@@ -217,7 +279,7 @@ public class DyldoTest {
                     pl++;
                 } else if (langtag.equals("nl") || langtag.startsWith("nl-") || langtag.startsWith("nl_")) {
                     nl++;
-                } else if (langtag.equals("zw") || langtag.startsWith("zw-") || langtag.startsWith("zw_")) {
+                } else if (langtag.equals("zh") || langtag.startsWith("zh-") || langtag.startsWith("zh_")) {
                     zh++;
                 } else if (langtag.equals("pt") || langtag.startsWith("pt-") || langtag.startsWith("pt_")) {
                     pt++;

@@ -89,6 +89,21 @@ public class NTriples {
         res=obj;
         return res;
     }    
+    public static String getPredicateFromNTriple(String line) {
+        String res = null;
+        int finsubject=line.indexOf(' ');
+        if (finsubject==-1) 
+            return null;
+        int inipredicate=line.indexOf(' ', finsubject);   //a partir de inipredicate+1 empieza el predicado
+        if (inipredicate==-1)
+            return null;
+        int iniobj=line.indexOf(' ', inipredicate+1);   //a partir de iniobj empieza el objeto
+        if (iniobj==-1)
+            return null;
+
+        String pred=line.substring(inipredicate+2,iniobj-1);
+        return pred;
+    }
     
     
     /**
@@ -152,6 +167,7 @@ public class NTriples {
         
         return pld;
     }
+
 
     
     

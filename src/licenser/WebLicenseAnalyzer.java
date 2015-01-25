@@ -42,7 +42,7 @@ public class WebLicenseAnalyzer {
     public static void main(String[] args) {
         final String PAGINA = "http://creativecommons.org/ns";
         System.out.println(checkForLicenseHint(PAGINA));
-//        WebLicenseAnalyzer.analyzeWeb(PAGINA);
+//        WebLicenseAnalyzer.downloadRDFfromHTML(PAGINA);
     }
     
     
@@ -93,8 +93,7 @@ public class WebLicenseAnalyzer {
     /**
      * Downloads all the RDF in a web page into the data folder
      */
-    public static String analyzeWeb(String PAGINA) {
-        String s = "";
+    public static boolean  downloadRDFfromHTML(String PAGINA) {
 
         final WebClient webClient = new WebClient();
         try {
@@ -107,7 +106,7 @@ public class WebLicenseAnalyzer {
                     Logger.getLogger("licenser").info("Downloading " + url);
                     try {
                         f = new File(url.getFile());
-                        String sf = "data/" + f.getName();
+                        String sf = "./data/" + f.getName();
                         boolean ok = Downloader.Descargar(url.toString(), sf);
                         if (ok == true) {
                             Logger.getLogger("licenser").info("Downloaded as " + sf);
@@ -118,13 +117,16 @@ public class WebLicenseAnalyzer {
                             f.delete();
                         }
                         Logger.getLogger("licenser").error("Error");
+                        return false;
                     }
                 }
             }
         } catch (Exception ex) {
             Logger.getLogger("licenser").error("Error " + ex);
+            System.err.println(ex.getMessage());
+            return false;
         };
-        return s;
+        return true;
     }
 
     /**

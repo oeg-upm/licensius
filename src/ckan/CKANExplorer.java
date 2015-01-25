@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //JSON Simpler
+import licenser.WebLicenseAnalyzer;
 import observatory.ObservatoryApp;
 import observatory.ObservatoryCommands;
 import org.apache.log4j.Logger;
@@ -462,14 +463,25 @@ public class CKANExplorer {
     }
 
     public static void main(String[] args) {
-        List<String> ls = getDatasetsFromAGroup("linguistics");
+        
+
+        List<String> sds = CKANDatasets.getPreloadedDatasets("/ckan/llod2014cloud.txt");//lod2014cloud.txt
+        
+        List<String> files=getRDFFilesFromCKAN("lexvo");
+        for(String file : files)
+        {
+            WebLicenseAnalyzer.downloadRDFfromHTML(file);
+            System.out.println(file);            
+        }
+        
+/*        List<String> ls = getDatasetsFromAGroup("linguistics");
         for (String id : ls) {
             Dataset ds = getDatasetFromCKAN(id);
             if (ds != null) {
                 System.out.println(ds.toSummaryString());
             }
         }
-        System.out.println(ls);
+        System.out.println(ls);*/
     }
 
     /**
@@ -714,15 +726,38 @@ public class CKANExplorer {
      * @todo ESTA PENDIENTE DE COMPLETA. ¿CUAL ES LA LISTA DE MIMETYPES QUE HEMOS DE ENTENDER?
      */
     public static boolean isRDF(String tipo) {
+//        System.out.println(tipo);
         if (tipo.equals("text/turtle")) {
             return true;
         }
         if (tipo.equals("7z:turtle")) {
             return true;
         }
+        if (tipo.equals("examples/rdf+xml")) {
+            return true;
+        }
         if (tipo.equals("application/rdf+xml")) {
             return true;
         }
+        if (tipo.equals("application/x-ntriples")) {
+            return true;
+        }
+        if (tipo.equals("example/ntriples")) {
+            return true;
+        }
+        if (tipo.equals("example/ntriples")) {
+            return true;
+        }
+        if (tipo.equals("RDF")) {
+            return true;
+        }
+        if (tipo.equals("example/n3")) {
+            return true;
+        }
+        if (tipo.equals("rdf/turtle")) {
+            return true;
+        }
+        
 
         return false;
     }
