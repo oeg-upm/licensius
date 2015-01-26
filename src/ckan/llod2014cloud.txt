@@ -1,0 +1,73 @@
+http://datahub.io/dataset/agrovoc-skos
+http://datahub.io/dataset/alpino-rdf
+http://datahub.io/dataset/apertium-rdf
+http://datahub.io/dataset/apertium-rdf-ca-it
+http://datahub.io/dataset/apertium-rdf-en-ca
+http://datahub.io/dataset/apertium-rdf-en-es
+http://datahub.io/dataset/apertium-rdf-en-gl
+http://datahub.io/dataset/apertium-rdf-es-ca
+http://datahub.io/dataset/apertium-rdf-es-gl
+http://datahub.io/dataset/apertium-rdf-es-ro
+http://datahub.io/dataset/apertium-rdf-es-pt
+http://datahub.io/dataset/apertium-rdf-fr-ca
+http://datahub.io/dataset/apertium-rdf-fr-es
+http://datahub.io/dataset/apertium-rdf-pt-ca
+http://datahub.io/dataset/asjp
+http://datahub.io/dataset/automated similarity judgment program lexical data
+http://datahub.io/dataset/babelnet
+http://datahub.io/dataset/bible-ontology
+http://datahub.io/dataset/clean-energy-data-reegle
+http://datahub.io/dataset/clld-ewave
+http://datahub.io/dataset/clld-afbo
+http://datahub.io/dataset/clld-apics
+http://datahub.io/dataset/clld-glottolog
+http://datahub.io/dataset/clld-phoible
+http://datahub.io/dataset/clld-sails
+http://datahub.io/dataset/clld-wals
+http://datahub.io/dataset/clld-wold
+http://datahub.io/dataset/cornetto
+http://datahub.io/dataset/dbnary
+http://datahub.io/dataset/fao-geopolitical-ontology
+http://datahub.io/dataset/fiesta
+http://datahub.io/dataset/gemet
+http://datahub.io/dataset/germlex
+http://datahub.io/dataset/gesis-thesoz
+http://datahub.io/dataset/glottolog
+http://datahub.io/dataset/gold
+http://datahub.io/dataset/gutenberg
+http://datahub.io/dataset/ids
+http://datahub.io/dataset/ietflang
+http://datahub.io/dataset/intercontinental dictionary series
+http://datahub.io/dataset/jrc-name
+http://datahub.io/dataset/jrc-names
+http://datahub.io/dataset/lexicon
+http://datahub.io/dataset/lexinfo
+http://datahub.io/dataset/lexvo
+http://datahub.io/dataset/lingvoj
+http://datahub.io/dataset/linked-hypernyms
+http://datahub.io/dataset/lodac-bdls
+http://datahub.io/dataset/masc
+http://datahub.io/dataset/metashare
+http://datahub.io/dataset/mexico
+http://datahub.io/dataset/mlsa
+http://datahub.io/dataset/muninn-world-war-i
+http://datahub.io/dataset/olia
+http://datahub.io/dataset/olia-discourse
+http://datahub.io/dataset/opencyc
+http://datahub.io/dataset/panlex
+http://datahub.io/dataset/parole-simple-ont
+http://datahub.io/dataset/phoible
+http://datahub.io/dataset/pleiades
+http://datahub.io/dataset/saldo-rdf
+http://datahub.io/dataset/saldom-rdf
+http://datahub.io/dataset/simple
+http://datahub.io/dataset/swefn-rdf
+http://datahub.io/dataset/the speech accent archive
+http://datahub.io/dataset/umthes
+http://datahub.io/dataset/wikilinks-rdf-nif
+http://datahub.io/dataset/wold
+http://datahub.io/dataset/world atlas of language structuctures
+http://datahub.io/dataset/world loanword database
+http://datahub.io/dataset/xlid-lexica
+http://datahub.io/dataset/yleinen suomalainen asiasanasto
+http://datahub.io/dataset/zhishi-me
