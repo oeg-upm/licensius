@@ -61,7 +61,7 @@ import vroddon.sw.Vocab;
 //INFONODE LOOK AND FEEL
 import net.infonode.gui.laf.InfoNodeLookAndFeel;
 
-import licenser.Licenser;
+import vroddon.sw.Licenser;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.log4j.Logger;
@@ -280,6 +280,8 @@ public class ObservatoryView extends FrameView implements Reportador {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuRDFDumpCountTriples = new javax.swing.JMenuItem();
+        menuRDFDumpFilter = new javax.swing.JMenuItem();
+        menuRDFDumpExportCSV = new javax.swing.JMenuItem();
         menuID = new javax.swing.JMenu();
         menuJoker = new javax.swing.JMenuItem();
         javax.swing.JMenu helpMenu = new javax.swing.JMenu();
@@ -314,7 +316,7 @@ public class ObservatoryView extends FrameView implements Reportador {
             tabVocabsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabVocabsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -341,7 +343,7 @@ public class ObservatoryView extends FrameView implements Reportador {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -357,7 +359,7 @@ public class ObservatoryView extends FrameView implements Reportador {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGap(0, 445, Short.MAX_VALUE)
         );
 
         tabContainerx.addTab(resourceMap.getString("jPanel2.TabConstraints.tabTitle"), jPanel2); // NOI18N
@@ -444,7 +446,7 @@ public class ObservatoryView extends FrameView implements Reportador {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tabContainerx, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE))
+                        .addComponent(tabContainerx, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,7 +456,7 @@ public class ObservatoryView extends FrameView implements Reportador {
                             .addComponent(btnReporte)
                             .addComponent(btnTestHealth))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -514,6 +516,11 @@ public class ObservatoryView extends FrameView implements Reportador {
 
         jMenu2.setText(resourceMap.getString("jMenu2.text")); // NOI18N
         jMenu2.setName("jMenu2"); // NOI18N
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
 
         menuRDFDumpCountTriples.setText(resourceMap.getString("menuRDFDumpCountTriples.text")); // NOI18N
         menuRDFDumpCountTriples.setName("menuRDFDumpCountTriples"); // NOI18N
@@ -523,6 +530,24 @@ public class ObservatoryView extends FrameView implements Reportador {
             }
         });
         jMenu2.add(menuRDFDumpCountTriples);
+
+        menuRDFDumpFilter.setText(resourceMap.getString("menuRDFDumpFilter.text")); // NOI18N
+        menuRDFDumpFilter.setName("menuRDFDumpFilter"); // NOI18N
+        menuRDFDumpFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRDFDumpFilterActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuRDFDumpFilter);
+
+        menuRDFDumpExportCSV.setText(resourceMap.getString("menuRDFDumpExportCSV.text")); // NOI18N
+        menuRDFDumpExportCSV.setName("menuRDFDumpExportCSV"); // NOI18N
+        menuRDFDumpExportCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRDFDumpExportCSVActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuRDFDumpExportCSV);
 
         menuBar.add(jMenu2);
 
@@ -965,7 +990,7 @@ private void menuLoadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
             Observation.loadFromFile(f.getAbsolutePath());
         }
     }
-    this.refreshDatasets();
+    this.refreshDatasets(); 
     this.refreshVocabs();// TODO add your handling code here:
 }//GEN-LAST:event_menuLoadFileActionPerformed
 
@@ -998,12 +1023,63 @@ private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent e
     mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
     RDFDump dump = new RDFDump(ds.rdfdump);
+    dump.setReportador(ObservatoryApp.getReportador());
     int ntriples = dump.countTriples();
     ObservatoryApp.getApplication().getReportador().promptMessage("RDFDump de " + ntriples +" triples", null);
     mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
 
 }//GEN-LAST:event_menuRDFDumpCountTriplesActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void menuRDFDumpFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRDFDumpFilterActionPerformed
+    Dataset ds = (Dataset) listDatasets.getSelectedValue();
+    if (ds == null || ds.rdfdump == null || ds.rdfdump.isEmpty()) {
+        return;
+    }
+    mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+    RDFDump dump = new RDFDump(ds.rdfdump);
+        dump.setReportador(ObservatoryApp.getReportador());
+
+    List<String> predicates=Licenser.getRightsPredicates();
+    
+    dump.filterByPredicates(predicates, "./local/output.nt");
+    
+//    ObservatoryApp.getApplication().getReportador().promptMessage("RDFDump de " + ntriples +" triples", null);
+    mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+
+    }//GEN-LAST:event_menuRDFDumpFilterActionPerformed
+
+    private void menuRDFDumpExportCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRDFDumpExportCSVActionPerformed
+    Dataset ds = (Dataset) listDatasets.getSelectedValue();
+    if (ds == null || ds.rdfdump == null || ds.rdfdump.isEmpty()) {
+        return;
+    }
+    mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+    final JFileChooser fc = new JFileChooser("./observations");
+    String path = "";
+    int returnVal = fc.showSaveDialog(null);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+        try {
+            RDFDump dump = new RDFDump(ds.rdfdump);
+                dump.setReportador(ObservatoryApp.getReportador());
+
+            File f = fc.getSelectedFile();
+            dump.exportToCSV(f.getAbsolutePath());
+            ObservatoryApp.getReportador().promptMessage("Archivo guardado correctamentew", "info");
+        }catch(Exception e)
+        {
+            ObservatoryApp.getReportador().promptMessage("No se pudo exportar", "error");
+        }
+    }
+        
+    mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_menuRDFDumpExportCSVActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoadVocabs;
     private javax.swing.JButton btnReporte;
@@ -1028,6 +1104,8 @@ private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent e
     private javax.swing.JMenuItem menuJoker;
     private javax.swing.JMenuItem menuLoadFile;
     private javax.swing.JMenuItem menuRDFDumpCountTriples;
+    private javax.swing.JMenuItem menuRDFDumpExportCSV;
+    private javax.swing.JMenuItem menuRDFDumpFilter;
     private javax.swing.JMenuItem menuSave;
     private javax.swing.JProgressBar progressBar;
     private javax.swing.JLabel statusAnimationLabel;

@@ -1,17 +1,16 @@
-
-package licenser;
+package vroddon.sw;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author Victor
+ * @author Victor Rodriguez Doncel
  */
 public class Licenser {
     
     /**
-     * Obtiene una lista con los predicados más usados para info de derechos
+     * Retrieves a list with the most common predicates
      */
     public static List<String> getRightsPredicates()
     {
