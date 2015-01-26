@@ -306,6 +306,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuLoadFileActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuFileOpenDump">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="menuFileOpenDump.text"/>
+                <Property name="name" type="java.lang.String" value="menuFileOpenDump" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuFileOpenDumpActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuSave">
               <Properties>
                 <Property name="text" type="java.lang.String" resourceKey="menuSave.text"/>
@@ -344,6 +353,23 @@
                 <Property name="text" type="java.lang.String" resourceKey="jMenuItem3.text"/>
                 <Property name="name" type="java.lang.String" value="jMenuItem3" noResource="true"/>
               </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu2">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="jMenu2.text"/>
+            <Property name="name" type="java.lang.String" value="jMenu2" noResource="true"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuRDFDumpCountTriples">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="menuRDFDumpCountTriples.text"/>
+                <Property name="name" type="java.lang.String" value="menuRDFDumpCountTriples" noResource="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuRDFDumpCountTriplesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
