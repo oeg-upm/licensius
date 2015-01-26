@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import vroddon.commons.FileUtils;
-import vroddon.sw.NTriples;
+import vroddon.sw.NTriple;
 
 /**
  * This package reads and processes data from DYLDO (http://swse.deri.org/dyldo/)
@@ -72,11 +72,11 @@ public class DyldoTest {
 
             //OBTENEMOS OBJETO Y GRAFO
             line = line.trim();
-            String predicate = NTriples.getPredicateFromNTriple(line);
+            String predicate = NTriple.getPredicateFromNTriple(line);
             if (predicate.equals("http://purl.org/dc/elements/1.1/language") || predicate.equals("http://purl.org/dc/terms/language") || predicate.equals("http://purl.org/dc/terms/language"))
             {
                 count++;
-                String object = NTriples.getObjectFromNTriple(line);
+                String object = NTriple.getObjectFromNTriple(line);
                 Integer i = mapa.get(object);
                 if (i==null) i=0;
                 i++;
@@ -134,16 +134,16 @@ public class DyldoTest {
 
             //OBTENEMOS OBJETO Y GRAFO
             line = line.trim();
-            String object = NTriples.getObjectFromNTriple(line);
+            String object = NTriple.getObjectFromNTriple(line);
 
 
             //PROCESAMOS EL OBJETO Y SU LANGTAG
             if (object != null) {
-                if (!NTriples.isLiteral(object)) {
+                if (!NTriple.isLiteral(object)) {
                     continue;
                 }
                 literals++;
-                String langtag = NTriples.getLangTag(object);
+                String langtag = NTriple.getLangTag(object);
                 if (langtag == null) {
                     continue;
                 }
@@ -237,13 +237,13 @@ public class DyldoTest {
 
             //OBTENEMOS OBJETO Y GRAFO
             line = line.trim();
-            String object = NTriples.getObjectFromNQuad(line);
-            String grafo = NTriples.getGraphFromNQuad(line);
+            String object = NTriple.getObjectFromNQuad(line);
+            String grafo = NTriple.getGraphFromNQuad(line);
 
             //AÑADIMOS EL DATASET SI LO HUBIERA
             Set<String> idiomas = new HashSet();
             if (grafo != null) {
-                grafo = NTriples.getPayLevelDomain(grafo);
+                grafo = NTriple.getPayLevelDomain(grafo);
                 idiomas = mapa.get(grafo);
                 if (idiomas == null) {
                     idiomas = new HashSet();
@@ -253,11 +253,11 @@ public class DyldoTest {
 
             //PROCESAMOS EL OBJETO Y SU LANGTAG
             if (object != null) {
-                if (!NTriples.isLiteral(object)) {
+                if (!NTriple.isLiteral(object)) {
                     continue;
                 }
                 literals++;
-                String langtag = NTriples.getLangTag(object);
+                String langtag = NTriple.getLangTag(object);
                 if (langtag == null) {
                     continue;
                 }

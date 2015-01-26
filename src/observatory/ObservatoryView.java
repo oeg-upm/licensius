@@ -69,6 +69,7 @@ import vroddon.hilos.EjecutadorOperacionLenta;
 import vroddon.hilos.OperacionLenta;
 import vroddon.hilos.Reportador;
 import vroddon.sw.Dataset;
+import vroddon.sw.RDFDump;
 import vroddon.sw.SemanticWeb;
 
 /**
@@ -661,22 +662,21 @@ private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GE
 
 }//GEN-LAST:event_btnViewDetailsActionPerformed
 
+    public static void main(String[] args) {
+        Vocab v = new Vocab("test", "http://purl.org/vocab/aiiso/schema");
+        Modelo.model = ModelFactory.createDefaultModel();
+        Modelo.model.read(v.uri);
+        LicenseFinder lf = new LicenseFinder();
+        String findLicenseInOntology = lf.findLicenseInOntology();
 
- public static void main(String[] args) {
-     Vocab v = new Vocab("test", "http://purl.org/vocab/aiiso/schema");
-     Modelo.model = ModelFactory.createDefaultModel();
-     Modelo.model.read(v.uri);
-     LicenseFinder lf = new LicenseFinder();
-    String findLicenseInOntology = lf.findLicenseInOntology();
-     
-     
- }
 
+    }
 
     public String showLicensesInVocab(Vocab v) {
         boolean ok = ObservatoryCommands.loadVocab(v);
-        if(ok)
+        if (ok) {
             flashStatus("Vocabulary has been correctly retrieved");
+        }
         LicenseFinder lf = new LicenseFinder();
         List<String> ls = lf.findLicenseStatementsForResource(Modelo.getOntologyUri());
         String superls = "";
@@ -803,10 +803,9 @@ private void menuLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 uri = v.uri;
             }
             String objeto = Modelo.findFirstObjectForSubjectAndPredicate(uri, newcustom);
-            
-            if (objeto.isEmpty())
-            {
-                objeto = Modelo.findFirstObjectForSubjectAndPredicate(uri+"/", newcustom);
+
+            if (objeto.isEmpty()) {
+                objeto = Modelo.findFirstObjectForSubjectAndPredicate(uri + "/", newcustom);
             }
 
             String newstring = v.vocab + "\t" + v.uri + "\t" + ok + "\t" + objeto + "\n";
@@ -869,8 +868,9 @@ private void btnTestHealthActionPerformed(java.awt.event.ActionEvent evt) {//GEN
         int conta = 0;
         for (Dataset d : ld) {
             Dataset ds = CKANExplorer.getDatasetFromCKAN(d.title);
-            if (ds==null)
+            if (ds == null) {
                 continue;
+            }
             Observatory.observation.updateDataset(ds);
 //            CKANExplorer.updateDataFromCKAN(d);
             progressBar.setValue(++conta * 100 / ld.size());
@@ -944,12 +944,9 @@ private void menuSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
 }//GEN-LAST:event_menuSaveActionPerformed
 
-
-
-
-/**
- * Carga un archivo
- */
+    /**
+     * Carga un archivo
+     */
 private void menuLoadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLoadFileActionPerformed
     final JFileChooser fc = new JFileChooser("./observations");
     int returnVal = fc.showOpenDialog(null);
@@ -982,11 +979,11 @@ private void menuFileOpenDumpActionPerformed(java.awt.event.ActionEvent evt) {//
     if (returnVal == JFileChooser.APPROVE_OPTION) {
         File f = fc.getSelectedFile();
         String path = f.getAbsolutePath();
-        String name=f.getName();
+        String name = f.getName();
         Dataset ds = new Dataset();
-        ds.uri=path;
-        ds.title=name;
-        ds.rdfdump=path;
+        ds.uri = path;
+        ds.title = name;
+        ds.rdfdump = path;
         Observatory.observation.datasets.add(ds);
         refreshDatasets();
     }
@@ -994,17 +991,19 @@ private void menuFileOpenDumpActionPerformed(java.awt.event.ActionEvent evt) {//
 }//GEN-LAST:event_menuFileOpenDumpActionPerformed
 
 private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRDFDumpCountTriplesActionPerformed
-    Dataset ds = (Dataset)listDatasets.getSelectedValue();
-    if (ds==null)
+    Dataset ds = (Dataset) listDatasets.getSelectedValue();
+    if (ds == null || ds.rdfdump == null || ds.rdfdump.isEmpty()) {
         return;
-        mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        
-        
-        
-        mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-    
-}//GEN-LAST:event_menuRDFDumpCountTriplesActionPerformed
+    }
+    mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
+    RDFDump dump = new RDFDump(ds.rdfdump);
+    int ntriples = dump.countTriples();
+    ObservatoryApp.getApplication().getReportador().promptMessage("RDFDump de " + ntriples +" triples", null);
+    mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+
+
+}//GEN-LAST:event_menuRDFDumpCountTriplesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoadVocabs;
     private javax.swing.JButton btnReporte;
@@ -1043,6 +1042,20 @@ private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent e
     private final Icon[] busyIcons = new Icon[15];
     private int busyIconIndex = 0;
     private JDialog aboutBox;
+
+    @Override
+    public void promptMessage(String text, String tipo) {
+        if (tipo == null) {
+            tipo = "info";
+        }
+        if (tipo.equals("warn")) {
+            JOptionPane.showMessageDialog(null, text, "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else if (tipo.equals("error")) {
+            JOptionPane.showMessageDialog(null, text, "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, text, "Info", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
 
     /**
      * Cambia el icono de la aplicación mientras este se está ejecutando
@@ -1149,14 +1162,16 @@ class ActionJList extends MouseAdapter implements KeyListener {
         list.setSelectedIndex(list.locationToIndex(e.getPoint())); //select the item
         int index = list.locationToIndex(e.getPoint());
         ListModel dlm = list.getModel();
-        if (dlm==null || index==-1)
+        if (dlm == null || index == -1) {
             return;
+        }
         final Object o = dlm.getElementAt(index);
 
         if (o.getClass() == Vocab.class) {
             JPopupMenu menu = new JPopupMenu();
             JMenuItem item = new JMenuItem("View vocabulary");
             item.addActionListener(new ActionListener() {
+
                 public void actionPerformed(ActionEvent e) {
                     Vocab v = (Vocab) o;
                     view.showVocabulary(v);
@@ -1165,27 +1180,30 @@ class ActionJList extends MouseAdapter implements KeyListener {
             menu.add(item);
             JMenuItem item2 = new JMenuItem("Check availability");
             item2.addActionListener(new ActionListener() {
+
                 public void actionPerformed(ActionEvent e) {
                     Vocab v = (Vocab) o;
                     v.alive = ObservatoryCommands.isAlive(v);
-                    view.flashStatus(v.vocab + (v.alive==true ? " is alive" : " is not alive"));
+                    view.flashStatus(v.vocab + (v.alive == true ? " is alive" : " is not alive"));
                     view.refreshVocabs();
                 }
             });
             menu.add(item2);
-            
+
             JMenuItem item3 = new JMenuItem("Scan for rights information");
             item3.addActionListener(new ActionListener() {
+
                 public void actionPerformed(ActionEvent e) {
                     Vocab v = (Vocab) o;
-                    String str=view.showLicensesInVocab(v);
-                    if (str.isEmpty())
+                    String str = view.showLicensesInVocab(v);
+                    if (str.isEmpty()) {
                         view.flashStatus("No rights information has been found");
+                    }
                 }
             });
             menu.add(item3);
 
-            
+
             menu.show(list, e.getX(), e.getY()); //and show the menu
         }
     }

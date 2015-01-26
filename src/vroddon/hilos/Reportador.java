@@ -27,5 +27,11 @@ public interface Reportador {
      * Muestra un mensaje durante 5 segundos y luego pone el mensaje de ready
      */
     public void flashStatus(String text);
+    /**
+     * Muestra un mensaje importante en un popup o de manera que requiera atención del usuario
+     * @param text Cadena a mostrar
+     * @param tipo Puede ser "info", "warn" o "error"
+     */
+    public void promptMessage(String text, String tipo);
     
 }

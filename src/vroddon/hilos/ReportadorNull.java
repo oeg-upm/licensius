@@ -1,15 +1,10 @@
-package observatory;
-
-import vroddon.hilos.Reportador;
+package vroddon.hilos;
 
 /**
  *
- * @author vroddon
+ * @author Victor
  */
-class ReportadorNull implements Reportador {
-
-    public ReportadorNull() {
-    }
+public class ReportadorNull implements Reportador{
 
     public void status(String text, int progreso) {
     }
