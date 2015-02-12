@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49063507-1', 'linkeddata.es');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+
+<center><img src="/ldr/img/pagos.png">
+
+<h3>Should we imagine you have paid? (this is just a demo)</h3>
+<form action="/ldr/service/fakePayment">
+  <input type="submit" value="Yes" name="payment"/>
+  <input type="submit" value="No" name="payment" onclick="window.close()" />
+  <input type="hidden" id="policy" name="policy" value="<!--TEMPLATEHERE1-->" />
+  <input type="hidden" id="target" name="target" value="<!--TEMPLATEHERE2-->" />
+</form>
+<small>You are purchasing <!--TEMPLATEHERE2--></small>
+
+</center>
+</body>
+</html>
