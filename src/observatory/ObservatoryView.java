@@ -50,6 +50,7 @@ import javax.swing.text.EditorKit;
 import ckan.CKANDatasets;
 import ckan.CKANExplorer;
 import ckan.CKANExplorerold;
+import licenser.GeneralPolicy;
 import licenser.LOVVocabs;
 import licenser.LicenseFinder;
 import vroddon.commons.StringUtils;
@@ -284,6 +285,7 @@ public class ObservatoryView extends FrameView implements Reportador {
         menuRDFDumpExportCSV = new javax.swing.JMenuItem();
         menuID = new javax.swing.JMenu();
         menuJoker = new javax.swing.JMenuItem();
+        menuJoker2 = new javax.swing.JMenuItem();
         javax.swing.JMenu helpMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
         statusPanel = new javax.swing.JPanel();
@@ -316,7 +318,7 @@ public class ObservatoryView extends FrameView implements Reportador {
             tabVocabsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabVocabsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -343,7 +345,7 @@ public class ObservatoryView extends FrameView implements Reportador {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -359,7 +361,7 @@ public class ObservatoryView extends FrameView implements Reportador {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 445, Short.MAX_VALUE)
+            .addGap(0, 446, Short.MAX_VALUE)
         );
 
         tabContainerx.addTab(resourceMap.getString("jPanel2.TabConstraints.tabTitle"), jPanel2); // NOI18N
@@ -446,7 +448,7 @@ public class ObservatoryView extends FrameView implements Reportador {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tabContainerx, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE))
+                        .addComponent(tabContainerx, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,7 +458,7 @@ public class ObservatoryView extends FrameView implements Reportador {
                             .addComponent(btnReporte)
                             .addComponent(btnTestHealth))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -567,6 +569,15 @@ public class ObservatoryView extends FrameView implements Reportador {
             }
         });
         menuID.add(menuJoker);
+
+        menuJoker2.setText(resourceMap.getString("menuJoker2.text")); // NOI18N
+        menuJoker2.setName("menuJoker2"); // NOI18N
+        menuJoker2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuJoker2ActionPerformed(evt);
+            }
+        });
+        menuID.add(menuJoker2);
 
         menuBar.add(menuID);
 
@@ -1035,6 +1046,10 @@ private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent e
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenu2ActionPerformed
 
+    
+    
+    
+    
     private void menuRDFDumpFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRDFDumpFilterActionPerformed
     Dataset ds = (Dataset) listDatasets.getSelectedValue();
     if (ds == null || ds.rdfdump == null || ds.rdfdump.isEmpty()) {
@@ -1080,6 +1095,40 @@ private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent e
     mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_menuRDFDumpExportCSVActionPerformed
 
+    
+private void menuJoker2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuJoker2ActionPerformed
+    final Dataset ds = (Dataset) listDatasets.getSelectedValue();
+    if (ds == null || ds.rdfdump == null || ds.rdfdump.isEmpty()) {
+        return;
+    }
+    mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        EjecutadorOperacionLenta task = new EjecutadorOperacionLenta(new OperacionLenta() {
+            public Object metodolento() {
+                updateStatus("Joker2", false);
+                try {
+                    RDFDump dump = new RDFDump(ds.rdfdump);
+                    dump.setReportador(ObservatoryApp.getReportador());
+                    List<String> namespaces=GeneralPolicy.getPolicyNamespaces();
+                    dump.filterByNamespace(namespaces, "./local/output.nt");
+                } catch (Exception ex) {
+                }
+                return (Object) null;
+            }
+
+            public void done() {
+                mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));                
+                updateStatus("listo", false);
+            }
+        });
+        task.execute();
+        
+        
+    
+    
+
+
+}//GEN-LAST:event_menuJoker2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoadVocabs;
     private javax.swing.JButton btnReporte;
@@ -1102,6 +1151,7 @@ private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent e
     private javax.swing.JMenuItem menuFileOpenDump;
     private javax.swing.JMenu menuID;
     private javax.swing.JMenuItem menuJoker;
+    private javax.swing.JMenuItem menuJoker2;
     private javax.swing.JMenuItem menuLoadFile;
     private javax.swing.JMenuItem menuRDFDumpCountTriples;
     private javax.swing.JMenuItem menuRDFDumpExportCSV;

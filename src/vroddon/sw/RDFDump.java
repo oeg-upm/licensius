@@ -63,6 +63,20 @@ public class RDFDump {
      * @todo IMPLEMENT 
      */
     boolean seemNQuads() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = br.readLine();
+            br.close();
+            if (line == null) {
+                return false;
+            }
+            List<String> spog = NQuad.getSPOG(line);
+            if (spog != null && spog.size() == 4) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
         return false;
     }
 
@@ -184,6 +198,57 @@ public class RDFDump {
             bw.close();
         } catch (Exception e) {
         }
+    }
+
+    
+    /**
+     * 
+     */
+    public void filterByNamespace(List<String> namespaces, String fileNameOutput) {
+        BufferedWriter bw = null;
+        if (!seemNTriples() && !seemNQuads()) {
+            return;
+        }
+        try {
+            File file = new File(fileNameOutput);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            bw = new BufferedWriter(fw);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return;
+        }
+        reportador.flashStatus("Counting triples...");
+        int total = countTriples();
+        reportador.flashStatus("Parsing " + total + " lines");
+        int lines = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                try {
+                    List<String> spo = NTriple.getSPO(line);
+                    for (String predicate : namespaces) {
+                        if (spo.get(0).contains(predicate)||spo.get(1).contains(predicate)||spo.get(2).contains(predicate)) {
+                            bw.write(line + "\n");
+                            break;
+                        }
+                    }
+                } catch (Exception e) {
+                    logger.warn("Error parsing line " + lines);
+                }
+                if (lines % (1024 * 64) == 0) {
+                    reportador.status("Parsed triples (thousands): " + lines / 1000 + " (" + total / 1000 + ")", 100 * lines / total);
+                }
+                lines++;
+            }
+            br.close();
+            bw.close();
+        } catch (Exception e) {
+        }        
+        
     }
     
     
