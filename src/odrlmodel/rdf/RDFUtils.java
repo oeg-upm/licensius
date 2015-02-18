@@ -13,6 +13,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.vocabulary.RDF;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class RDFUtils {
     public static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
     public static Property COMMENT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#comment");
     public static Property RIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
-    public static Property RLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
+    public static Property PLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
     public static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
     public static Property SEEALSO= ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
 
@@ -200,6 +201,22 @@ public class RDFUtils {
         return cadenas;
     }
     
+    public static List<Resource> getAllSubjectsWithObject(Model model, String s)
+    {
+        List<Resource> lres=new ArrayList();
+        
+        StmtIterator it = model.listStatements();
+        while (it.hasNext()) {
+            Statement stmt2 = it.nextStatement();
+            RDFNode nodo = stmt2.getObject();
+            String objeto = nodo.toString();
+            if (s.equals(objeto))
+                lres.add(stmt2.getSubject());
+        }       
+        
+        return lres;
+    }
+    
     
     public static List<Resource> getAllPropertyResources(Resource resource, Property property)
     {
@@ -215,6 +232,24 @@ public class RDFUtils {
             }
         }
         return cadenas;
+    }    
+
+    /**
+     * Adds the most common prefixes to the generated model
+     * 
+     */
+    public static void addPrefixesToModel(Model model)
+    {
+        model.setNsPrefix("odrl", "http://www.w3.org/ns/odrl/2/"); //http://w3.org/ns/odrl/2/
+        model.setNsPrefix("dct", "http://purl.org/dc/terms/");
+        model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+        model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+        model.setNsPrefix("cc", "http://creativecommons.org/ns#");
+        model.setNsPrefix("ldr", "http://purl.oclc.org/NET/ldr/ns#");
+        model.setNsPrefix("void", "http://rdfs.org/ns/void#");
+        model.setNsPrefix("dcat", "http://www.w3.org/ns/dcat#");
+        model.setNsPrefix("gr", "http://purl.org/goodrelations/");
+        model.setNsPrefix("prov", "http://www.w3.org/ns/prov#");
     }    
     
 }

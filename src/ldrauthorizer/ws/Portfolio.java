@@ -21,7 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import ldrauthorizerold.GoogleAuthHelper;
 import odrlmodel.Policy;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.managers.Signature;
 import odrlmodel.rdf.ODRLRDF;
 import org.apache.jena.riot.Lang;
@@ -69,7 +69,7 @@ public class Portfolio {
         String filename = "../data/portfolios/"+mail;
         Model model = ModelFactory.createDefaultModel();
         RDFDataMgr.read(model, filename, Lang.TTL);
-        List<Resource> ls = PolicyManager.findPolicies(model);
+        List<Resource> ls = PolicyManagerOld.findPolicies(model);
         Portfolio portfolio = new Portfolio();
         for(Resource r :ls)
         {

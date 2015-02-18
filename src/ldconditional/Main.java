@@ -3,19 +3,13 @@ package ldconditional;
 import ldserver.GeneralHandler;
 import ldserver.ServiceHandler;
 import ldserver.MainHandler;
-import ldrauthorizer.ws.JettyServer;
-import ldrauthorizerold.LDRCore;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
-import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.NCSARequestLog;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.server.handler.DefaultHandler;
-import org.eclipse.jetty.server.handler.HandlerCollection;
 import org.eclipse.jetty.server.handler.RequestLogHandler;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.HandlerCollection;
@@ -34,6 +28,8 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         initLogger();
+        
+        initDatasets();
         
         initServer();
 
@@ -65,6 +61,9 @@ public class Main {
         }
     }
     
+    /**
+     * Initializes the web server
+     */
     public static void initServer() throws Exception
     {
         int port = Integer.parseInt(LDRConfig.getPort());
@@ -96,6 +95,16 @@ public class Main {
         server.setHandler(handlers);
         server.start();
         server.join();        
+    }
+    
+    
+    public static void initDatasets()
+    {
+        ConditionalDatasets.loadDatasets();
+        for(ConditionalDataset dataset : ConditionalDatasets.datasets)
+        {
+            logger.info("Loaded: " + dataset.toRDF());
+        }
     }
     
 }

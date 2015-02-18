@@ -16,7 +16,7 @@ import ldrauthorizerold.Multilingual;
 
 import ldconditional.LDRConfig;
 import odrlmodel.Policy;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 
 /**
  * This class represents a RDF statement that has been licensed.
@@ -158,7 +158,7 @@ public class LicensedTriple {
             
             //If the object is a policy, consider the following
             if (hasPolicyAsObject()) {
-                Policy policy = PolicyManager.getPolicy(sobjetooriginal);
+                Policy policy = PolicyManagerOld.getPolicy(sobjetooriginal);
                 boolean bperunit = policy.isPerTriple();
                 String link = sobjetooriginal;
 

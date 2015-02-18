@@ -4,7 +4,7 @@ package odrlmodel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 
 
 /**
@@ -63,7 +63,7 @@ public class Asset extends MetadataObject {
         List<Policy> lpolicies = new ArrayList();
         for(Policy p : policies)
         {
-            Policy policy2 = PolicyManager.getPolicy(p.getURI());
+            Policy policy2 = PolicyManagerOld.getPolicy(p.getURI());
             if (policy2!=null)
                 lpolicies.add(policy2);
             else

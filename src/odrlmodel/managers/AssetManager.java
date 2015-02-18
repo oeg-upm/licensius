@@ -201,7 +201,7 @@ public class AssetManager {
     }
 
     public static Policy findPolicyByTitle(String resource) {
-        List<Policy> policies = PolicyManager.getPolicies();
+        List<Policy> policies = PolicyManagerOld.getPolicies();
         for (Policy p : policies) {
             if (p.getTitle().equals(resource)) {
                 return p;
@@ -211,7 +211,7 @@ public class AssetManager {
     }
 
     public static Policy findPolicyByLabel(String resource) {
-        List<Policy> policies = PolicyManager.getPolicies();
+        List<Policy> policies = PolicyManagerOld.getPolicies();
         for (Policy p : policies) {
             if (p.getLabel("en").equals(resource)) {
                 return p;
@@ -375,8 +375,8 @@ public class AssetManager {
             model.add(modelPolicy);
             rpolicy = model.getResource(policy.getURI());
             }
-            asset.getResource().removeAll(RDFUtils.RLICENSE);
-            asset.getResource().addProperty(RDFUtils.RLICENSE, rpolicy);
+            asset.getResource().removeAll(RDFUtils.PLICENSE);
+            asset.getResource().addProperty(RDFUtils.PLICENSE, rpolicy);
              */
             AssetManager.setAssets(AssetManager.readAssets());
             //        RDFUtils.print(AssetManager.model);
@@ -415,7 +415,7 @@ public class AssetManager {
             model.add(modelPolicy);
             Resource rpolicy = model.getResource(policy.getURI());
             Resource rasset=ODRLRDF.getResourceFromAsset(asset);
-            rasset.addProperty(RDFUtils.RLICENSE, rpolicy);
+            rasset.addProperty(RDFUtils.PLICENSE, rpolicy);
             AssetManager.writeAssets();
             AssetManager.setAssets(AssetManager.readAssets());*/
 //            LD.print(model);
@@ -432,7 +432,7 @@ public class AssetManager {
     public static void removePolicy(Asset asset, Policy policy) {
         Resource rpolicy = model.getResource(policy.getURI());
         Resource rasset = model.getResource(asset.getURI().toString());
-        model.remove(rasset, RDFUtils.RLICENSE, rpolicy);
+        model.remove(rasset, RDFUtils.PLICENSE, rpolicy);
         asset.removePolicy(policy.getURI());
         AssetManager.writeAssets();
 //        AssetManager.setAssets(AssetManager.readAssets());
@@ -458,12 +458,12 @@ public class AssetManager {
             InputStream streamPolicy = new ByteArrayInputStream(spolicy.getBytes("UTF-8"));
             Model modelPolicy = ModelFactory.createDefaultModel();
             Resource rpolicy = model2.getResource(policy.getURI());
-//            asset.getResource().addProperty(RDFUtils.RLICENSE, rpolicy);
+//            asset.getResource().addProperty(RDFUtils.PLICENSE, rpolicy);
             RDFDataMgr.read(modelPolicy, streamPolicy, Lang.TTL);
             model2.add(modelPolicy);
 
             Resource rasset2 = model2.getResource(asset.getURI().toString());
-            rasset2.addProperty(RDFUtils.RLICENSE, rpolicy);
+            rasset2.addProperty(RDFUtils.PLICENSE, rpolicy);
 
             FileOutputStream fos = new FileOutputStream(fileName);
             RDFDataMgr.write(fos, model2, Lang.RDFXML);
@@ -585,7 +585,7 @@ public class AssetManager {
         }
         List<Policy> policies = asset.getPolicies();
         for (Policy p : policies) {
-            Policy p2 = PolicyManager.getPolicy(p.getURI());
+            Policy p2 = PolicyManagerOld.getPolicy(p.getURI());
             if (p2 == null) {
                 Logger.getLogger("ldr").info(p.getURI() + " es una uri desconocida");
                 ls.add("Unknown");
@@ -604,7 +604,7 @@ public class AssetManager {
         }
         List<Policy> policies = asset.getPolicies();
         for (Policy p : policies) {
-            Policy p2 = PolicyManager.getPolicy(p.getURI());
+            Policy p2 = PolicyManagerOld.getPolicy(p.getURI());
             if (p2 == null) {
                 Logger.getLogger("ldr").info(p.getURI() + " es una uri desconocida");
                 ls.add("Unknown");
@@ -628,7 +628,7 @@ public class AssetManager {
             return "Sin licenciar";
         }
         Policy p = policies.get(0);
-        p = PolicyManager.getPolicy(p.getURI());
+        p = PolicyManagerOld.getPolicy(p.getURI());
         if (p == null) {
             return "unknown";
         }
@@ -648,7 +648,7 @@ public class AssetManager {
             return "Sin licenciar";
         }
         Policy p = policies.get(0);
-        p = PolicyManager.getPolicy(p.getURI());
+        p = PolicyManagerOld.getPolicy(p.getURI());
         if (p == null) {
             return "unknown";
         }
@@ -691,7 +691,7 @@ public class AssetManager {
         } catch (IOException ex) {
             return "";
         }
-    }
+    } 
 
     /**
      * Obtiene los triples de un grafo dado

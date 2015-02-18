@@ -29,10 +29,6 @@ public class Policy extends MetadataObject {
     
     private int type = POLICY_SET;
 
-    public String getLegalcode()
-    {
-        return legalCode;
-    }
     
     /**
      * Policy constructor with a random URI in the default namespace
@@ -304,6 +300,10 @@ public class Policy extends MetadataObject {
         }
         return "";
     }    
+    
+    /**
+     * Gets the first price found for 
+     */
     public double getFirstPrice() {
         for (Rule r : rules) {
             List<Constraint> lc = r.getConstraints();
@@ -318,4 +318,10 @@ public class Policy extends MetadataObject {
         }
         return 0.0;
     }
+    
+    public String getLegalcode()
+    {
+        return legalCode;
+    }
+    
 }

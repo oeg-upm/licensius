@@ -42,7 +42,7 @@ public class ODRLRDF {
      * @return An ODRL policy
      */
     public static Policy getPolicyFromResource(Resource rpolicy) {
-        Policy policy = new Policy();
+        Policy policy = new Policy(); 
         policy.uri = rpolicy.getURI();
         
         //CARGA LOS METADATOS COMUNES SI LOS HAY
@@ -420,7 +420,7 @@ public class ODRLRDF {
         asset = (Asset)getResourceMetadata(asset, rasset);
        
         //READ THE POLICIES
-        List<Resource> rpolicies = RDFUtils.getAllPropertyResources(rasset,RDFUtils.RLICENSE);
+        List<Resource> rpolicies = RDFUtils.getAllPropertyResources(rasset,RDFUtils.PLICENSE);
         for(Resource rpolicy : rpolicies)
         {
             Policy policy = getPolicyFromResource(rpolicy);
@@ -461,7 +461,7 @@ public class ODRLRDF {
      //       System.out.println("a");RDFUtils.print(model);            
             if (rpolicy==null)
                 continue;
-            rasset.addProperty(RDFUtils.RLICENSE, rpolicy);
+            rasset.addProperty(RDFUtils.PLICENSE, rpolicy);
             
        //     System.out.println("o");RDFUtils.print(model);            
             

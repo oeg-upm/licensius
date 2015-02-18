@@ -26,7 +26,7 @@ import ldrauthorizerold.GoogleAuthHelper;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.ODRLModel;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.rdf.RDFUtils;
@@ -63,7 +63,7 @@ public class LDRServices {
             e.printStackTrace();
         }
 
-        Policy policy = PolicyManager.getPolicy(paramPolicy);
+        Policy policy = PolicyManagerOld.getPolicy(paramPolicy);
 
         if (paramPago!=null && paramPago.equals("Yes") && policy != null) {
             policy.setTargetInAllRules(paramName);
@@ -162,7 +162,7 @@ public class LDRServices {
             String uripolicy = policiesForAsset.get(0).getURI();
 
             for (Policy policyX : policiesForAsset) {
-                Policy policytmp = PolicyManager.getPolicy(policyX.getURI());
+                Policy policytmp = PolicyManagerOld.getPolicy(policyX.getURI());
                 if (policytmp == null) {
                     Logger.getLogger("ldr").warn("No se ha encontrado la política " + policyX.getURI());
                     try {
@@ -211,7 +211,7 @@ public class LDRServices {
             for (Policy p : ar.policies) {
                 Resource rpolicy = ODRLRDF.getResourceFromPolicy(p);
                 model.add(rpolicy.getModel());
-                rdataset.addProperty(RDFUtils.RLICENSE, rpolicy);
+                rdataset.addProperty(RDFUtils.PLICENSE, rpolicy);
             }
             //ADD PROVENANCE INFORMATION
             Resource activity = model.createResource();

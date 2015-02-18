@@ -21,7 +21,7 @@ import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.HTMLODRLManager;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.ODRLRDF;
 
 //APACHE JENA
@@ -134,14 +134,14 @@ public class CLDHandlerRDFLicense extends AbstractHandler {
                 response.setContentType("text/turtle");
             } else if (LDRServer.isHuman(request)) {
                 Logger.getLogger("ldr").info("Serving HTML ");
-                Policy policy = PolicyManager.load(path, slicense);
+                Policy policy = PolicyManagerOld.load(path, slicense);
                 String legalcode=policy.getLegalcode();
                 if (legalcode!=null && !legalcode.isEmpty())
                     response.sendRedirect(legalcode);
             } else {
                 Logger.getLogger("ldr").info("Nos gustaria servir RDF/XML ");
                 response.setContentType("application/rdf+xml");
-                Policy policy = PolicyManager.load(path, slicense);
+                Policy policy = PolicyManagerOld.load(path, slicense);
                 if (policy!=null)
                 {
                     String rdf = ODRLRDF.getRDF(policy, Lang.RDFXML);
@@ -255,7 +255,7 @@ public class CLDHandlerRDFLicense extends AbstractHandler {
 
             List<Policy> policies = asset.getPolicies();
             for (Policy policy : policies) {
-                Policy policy2 = PolicyManager.getPolicy(policy.getURI());
+                Policy policy2 = PolicyManagerOld.getPolicy(policy.getURI());
                 if (policy2 == null) {
                     continue;
                 }

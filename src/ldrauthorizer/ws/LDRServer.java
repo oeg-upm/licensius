@@ -44,7 +44,7 @@ import odrlmodel.Asset;
 import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;

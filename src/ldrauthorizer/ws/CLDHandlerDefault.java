@@ -43,7 +43,7 @@ public class CLDHandlerDefault extends AbstractHandler {
         String sinfo = "Recibida la consulta " + request.getMethod() + " ";
         sinfo += request.getRequestURI() + " ";
         try {
-            sinfo = sinfo + " de " + request.getRemoteHost() + " " + request.getRemoteAddr();
+            sinfo = sinfo; // + " de " + request.getRemoteHost() + " " + request.getRemoteAddr();
         } catch (Exception e) {
         }
         Logger.getLogger("ldr").info(sinfo);
