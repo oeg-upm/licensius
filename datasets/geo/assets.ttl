@@ -1,0 +1,27 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix mysite: <http://salonica.dia.fi.upm.es/ldr/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix ldr:   <http://purl.oclc.org/NET/ldr/ns#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
+
+ <http://conditional.linkeddata.es/ldr/dataset/default> 
+        a             dcat:Dataset ;
+        rdfs:comment  "Mappings to terms in other resources" ;
+        rdfs:label    "Mappings" ;
+        dct:license   <http://salonica.dia.fi.upm.es/ldr/policy/ee32f675-ccae-4ca9-a544-3c07abf0b16e> .
+
+<http://salonica.dia.fi.upm.es/ldr/dataset/default>
+        a             dcat:Dataset ;
+        rdfs:comment  "General dataset" ;
+        rdfs:label    "General" ;
+        dct:license   <http://salonica.dia.fi.upm.es/ldr/policy/cc-by> .
+
+<http://salonica.dia.fi.upm.es/ldr/dataset/thing>
+        a             dcat:Dataset ;
+        rdfs:comment  "Synset for Thing" ;
+        rdfs:label    "Thing" ;
+        dct:license   <http://salonica.dia.fi.upm.es/ldr/policy/cdaddba4-fc2e-4ee0-a784-e62f1db259bf> .

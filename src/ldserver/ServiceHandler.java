@@ -18,7 +18,7 @@ public class ServiceHandler extends AbstractHandler {
     static final Logger logger = Logger.getLogger(Main.class);
     
         public void handle(String string, Request baseRequest, HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        if (baseRequest.isHandled() || !string.startsWith("/service")) {
+        if (baseRequest.isHandled() || !string.contains("/service")) {
             return;
         }
         logger.info("Service handler");
@@ -26,7 +26,9 @@ public class ServiceHandler extends AbstractHandler {
         if (string.contains("/service/getOffers"))
         {
             GetOffers go = new GetOffers();
-            return go.doGet(req, resp)
+            go.doGet(req, resp);
+            baseRequest.setHandled(true);
+            return;
         }
         
         

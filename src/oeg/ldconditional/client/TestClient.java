@@ -13,6 +13,8 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import ldconditional.Main;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -21,18 +23,19 @@ import java.nio.file.Paths;
 public class TestClient {
     
     static String SERVER = "http://localhost";
+    private static final Logger logger = Logger.getLogger(TestClient.class);    
     
     public static void main(String[] args) {
+        Main.initLogger();
 
-        test1();
+        testGetOffers("geo");
     }
 
-    public static void test1() {
+    public static void testGetOffers(String dataset) {
         String uriToScan = "";
         String output = "";
         try {
-            
-            String uri = SERVER+"/getLicense?content=";
+            String uri = SERVER+"/" +dataset+"/service/getOffers?content=";
             String encodedData = URLEncoder.encode(uriToScan);
             uri += encodedData;
             URL url = new URL(uri);
@@ -52,8 +55,9 @@ public class TestClient {
             conn.disconnect();            
         }catch(Exception e)
         {
-            
+            logger.warn(e.getMessage());
         }
+        System.out.println(output);
     }
     
     

@@ -11,6 +11,8 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
+import ldconditional.Main;
+import oeg.ldconditional.client.TestClient;
 import org.apache.log4j.Logger;
 
 /**
@@ -32,8 +34,23 @@ public class GetOffers extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         
         String uri = req.getRequestURI();
+        int index=uri.indexOf('/',1);
         
+        
+        String dataset = uri.substring(1,index);
+              
+        
+        
+        resp.setContentType("text/html;charset=utf-8");
+        resp.setStatus(HttpServletResponse.SC_OK);
+        resp.getWriter().println("<h1>Bueno bonito y barato</h1>" + dataset);
     }
+    
+    public static void main(String[] args) throws Exception {
+        Main.initLogger();
+        TestClient.testGetOffers("geo");
+    }
+    
     
     
 }

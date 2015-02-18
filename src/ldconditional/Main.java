@@ -103,7 +103,7 @@ public class Main {
         ConditionalDatasets.loadDatasets();
         for(ConditionalDataset dataset : ConditionalDatasets.datasets)
         {
-            logger.info("Loaded: " + dataset.toRDF());
+     //       logger.info("Loaded: " + dataset.toRDF());
         }
     }
     
