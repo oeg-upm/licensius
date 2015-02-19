@@ -80,11 +80,11 @@ public class ConditionalDataset {
         dump = new NQuadRawFile("datasets/"+name+"/data.nq");
     }
     
-    
-    public Policy getPolicyForGraph(String graph)
+    public List<Policy> getPoliciesForGraph(String grafo)
     {
-        return null;
+        return pm.getPolicies(grafo);
     }
+    
     
     /**
      * Returns the named graphs present in the dataset

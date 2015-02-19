@@ -91,6 +91,12 @@ public class TestODRLModel {
         return policy;
     }   
     
+    private Policy readRDFLicensePolicy()
+    {
+        
+    }
+    
+    
     private void loadCreativeCommonsLicense()
     {
         List<Policy> policies = PolicyManagerOld.load("./licenses/cc-by.ttl");

@@ -2,6 +2,8 @@ package ldconditional;
 
 //JENA
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 
@@ -37,6 +39,15 @@ public class DatasetPolicy {
         policies = loadPolicies();
     }
     
+    public List<Policy> getPolicies(String grafo)
+    {
+        List<Policy> lout = policies.get(grafo);
+        if (lout==null)
+            return new ArrayList();
+        return lout;
+    }
+    
+    
     /**
      * Gets a map that for each dataset has a list of the graphs under control
      */
@@ -49,12 +60,23 @@ public class DatasetPolicy {
         {
             List<Policy> policies = new ArrayList();
             Resource res = it.next();
-            ResIterator itl = model.listResourcesWithProperty(RDFUtils.PLICENSE);
+            NodeIterator itl = model.listObjectsOfProperty(res, RDFUtils.PLICENSE);
             while(itl.hasNext())
             {
-                Resource rlic = itl.next();
-                Policy policy = ODRLRDF.getPolicyFromResource(rlic);
-                policies.add(policy);
+                RDFNode rlic = itl.next();
+                if (rlic.isResource())
+                {
+                    Resource rrlic = rlic.asResource();
+                    Policy policy = ODRLRDF.getPolicyFromResource(rrlic);
+                    if (policy!=null)
+                    {
+                        policies.add(policy);
+                        int count = RDFUtils.countStatements(rrlic.getModel());
+                        logger.info("Remotely loaded policy " + policy.uri + " with " + count+ " statements");
+                    }
+                    else
+                        logger.warn("Failed to remotely load policy " + policy.uri);
+                }
             }
             map.put(res.getURI(), policies);
         }

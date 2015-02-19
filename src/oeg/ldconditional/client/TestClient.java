@@ -50,7 +50,7 @@ public class TestClient {
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             String linea = "";
             while ((linea = br.readLine()) != null) {
-                output = linea;
+                output += linea;
             }
             conn.disconnect();            
         }catch(Exception e)
