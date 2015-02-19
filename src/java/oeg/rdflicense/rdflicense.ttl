@@ -14,8 +14,6 @@
 @prefix l4lod: <http://ns.inria.fr/l4lod/> .
 @prefix : <http://purl.org/NET/rdflicense/> .
 
-#uploaded 15.11.2014
-#GENERAL INFORMATION (NOT LICENSES)
 
 <http://purl.org/NET/rdflicense/allrightsreserved>  
         a          odrl:Policy ;
