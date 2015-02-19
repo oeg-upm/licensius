@@ -12,7 +12,9 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.vocabulary.RDF;
+import java.io.File;
 import java.util.ArrayList;
+import org.apache.commons.io.FileUtils;
 
 /**
  * Interface to serialize ODRL2.0 Expressions from / to RDF.
@@ -46,6 +48,41 @@ public class ODRLRDF {
     public static List<Policy> load(String path) {
         List<Policy> politicas=new ArrayList();
         try{
+            Model model = null;
+            if (path.startsWith("http"))
+            {
+                String rdf = RDFUtils.browseSemanticWeb(path);
+                model = RDFUtils.parseFromText(rdf);
+            }
+            else
+            {
+                String rdf = FileUtils.readFileToString(new File(path));
+                model = RDFUtils.parseFromText(rdf);
+//                model = RDFDataMgr.loadModel(path);
+            }
+            List<Resource> ls = ODRLRDF.findPolicies(model);
+            for (Resource rpolicy : ls) {
+                Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
+                policy.fileName = path;
+                politicas.add(policy);
+            }
+        }catch(Exception e)
+        {
+            System.err.println("error " + e.getMessage());
+            e.printStackTrace();
+        }
+        return politicas;
+    }  
+    
+    
+    /**
+     * Loads the ODRL2.0 policies found in a file.
+     * @param path File location
+     * @return A set of policies
+     */
+    /*public static List<Policy> load(String path) {
+        List<Policy> politicas=new ArrayList();
+        try{
             Model model = RDFDataMgr.loadModel(path);
             List<Resource> ls = ODRLRDF.findPolicies(model);
             for (Resource rpolicy : ls) {
@@ -58,18 +95,17 @@ public class ODRLRDF {
             e.printStackTrace();
         }
         return politicas;
-    }        
-    
-/******************* NON-PUBLIC METHODS ******************************************/    
-/******************* NON-PUBLIC METHODS ******************************************/    
-/******************* NON-PUBLIC METHODS ******************************************/    
-/******************* NON-PUBLIC METHODS ******************************************/    
-/******************* NON-PUBLIC METHODS ******************************************/    
-/******************* NON-PUBLIC METHODS ******************************************/    
+    }        */
     
     
-
     
+    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
+/******************* NON-PUBLIC METHODS ******************************************/    
 
     /**
      * Finds the policies in the model. It determines URIs with a type of a known policy term.
@@ -104,16 +140,8 @@ public class ODRLRDF {
         
         // Observamos qué tipo de licencia es
         List<String> stypes = RDFUtils.getAllPropertyStrings(rpolicy, RDF.type);
-        if (stypes.contains("http://creativecommons.org/ns#License"))
-        {
-            policy.setType(Policy.POLICY_CC);
-            Rule ccRule = RDFUtils.findCreativeCommons(rpolicy);
-            if (ccRule!=null)
-                policy.addRule(ccRule);
-            return policy;
-            
-        }
-        else if (stypes.contains("http://www.w3.org/ns/odrl/2/Set"))
+        
+       if (stypes.contains("http://www.w3.org/ns/odrl/2/Set") || stypes.contains("http://www.w3.org/ns/odrl/2/Policy"))
             policy.setType(Policy.POLICY_SET);   
         else if (stypes.contains("http://www.w3.org/ns/odrl/2/Offer"))
             policy.setType(Policy.POLICY_OFFER);   
@@ -123,8 +151,14 @@ public class ODRLRDF {
             policy.setType(Policy.POLICY_REQUEST);   
         else if (stypes.contains("http://www.w3.org/ns/odrl/2/Agreement"))
             policy.setType(Policy.POLICY_AGREEMENT);   
-            
-
+        else if (stypes.contains("http://creativecommons.org/ns#License"))
+        {
+            policy.setType(Policy.POLICY_CC);
+            Rule ccRule = RDFUtils.findCreativeCommons(rpolicy);
+            if (ccRule!=null)
+                policy.addRule(ccRule);
+            return policy;
+        }
         
         //IF HANDLING AN ODRL PROHIBITION CASE
         List<Resource> rrulesProhibitionODRL = RDFUtils.getAllPropertyResources(rpolicy, ODRLRDF.PPROHIBITION);
@@ -143,8 +177,6 @@ public class ODRLRDF {
         }
         return policy;
     }
-    
-    
     
     /**
      * Gets the JENA resource from a policy
@@ -268,8 +300,6 @@ public class ODRLRDF {
                     
                 }
             }
-                
-
         return rule;
     }
     
@@ -290,9 +320,6 @@ public class ODRLRDF {
         me.seeAlso = RDFUtils.getFirstPropertyValue(resource, RDFUtils.SEEALSO);
         return me;
     }    
-    
-    
-
     
     /**
      * Gets a Jena Resource from an action
@@ -399,7 +426,6 @@ public class ODRLRDF {
                 rrule.addProperty(ODRLRDF.PDUTY, rduty);
             }
         }
-        
         return rrule;
     }
     

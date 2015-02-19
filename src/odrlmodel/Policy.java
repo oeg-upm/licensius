@@ -54,6 +54,16 @@ public class Policy extends MetadataObject {
         uri = _uri;
     }
 
+    public String toString()
+    {
+        if (!getTitle().isEmpty())
+            return getTitle();
+        if (!getLabel("en").isEmpty())
+            return getLabel("en");
+        return uri;
+    }
+    
+    
     /**
      * Gets the type of the Policy
      * @return one of: Policy.POLICY_SET, Policy.POLICY_REQUEST, Policy.POLICY_OFFER
