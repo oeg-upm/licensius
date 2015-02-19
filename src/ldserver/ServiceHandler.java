@@ -21,17 +21,22 @@ public class ServiceHandler extends AbstractHandler {
         if (baseRequest.isHandled() || !string.contains("/service")) {
             return;
         }
-        logger.info("Service handler");
+        logger.info("Serving a general file");
+        
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        resp.setHeader("Access-Control-Allow-Headers", "x-requested-with");        
         
         if (string.contains("/service/getOffers"))
         {
             GetOffers go = new GetOffers();
             go.doGet(req, resp);
             baseRequest.setHandled(true);
+            resp.setStatus(HttpServletResponse.SC_OK);
+            resp.setContentType("application/json");
             return;
         }
-        
-        
         resp.setContentType("text/html;charset=utf-8");
         resp.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);

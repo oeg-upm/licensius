@@ -283,7 +283,6 @@ public class RDFUtils {
                     redirect = true;
                 }
             }
-            
             if (redirect) {
 		String newUrl = conn.getHeaderField("Location");
 		String cookies = conn.getHeaderField("Set-Cookie");  
@@ -295,9 +294,7 @@ public class RDFUtils {
 	StringBuffer html = new StringBuffer();
 	while ((inputLine = in.readLine()) != null) {html.append(inputLine);}
 	in.close();            
-            
         document = html.toString();
-            
         } catch (Exception e) {
             
         }

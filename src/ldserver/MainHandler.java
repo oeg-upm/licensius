@@ -20,10 +20,6 @@ public class MainHandler extends AbstractHandler {
         if (baseRequest.isHandled())
             return;
         logQuery(request);
-        
-        
-        
-        
     }
 
     
@@ -36,6 +32,7 @@ public class MainHandler extends AbstractHandler {
             sid=request.getSession(true).getId();
             sinfo = sinfo + " de "+ request.getRemoteAddr() + " " + sid;
         } catch (Exception e) {
+            logger.warn(e.getMessage());
         }
         logger.info(sinfo);
         

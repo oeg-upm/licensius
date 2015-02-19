@@ -101,10 +101,6 @@ public class Main {
     public static void initDatasets()
     {
         ConditionalDatasets.loadDatasets();
-        for(ConditionalDataset dataset : ConditionalDatasets.datasets)
-        {
-     //       logger.info("Loaded: " + dataset.toRDF());
-        }
     }
     
 }

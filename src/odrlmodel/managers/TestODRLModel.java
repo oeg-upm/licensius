@@ -91,11 +91,6 @@ public class TestODRLModel {
         return policy;
     }   
     
-    private Policy readRDFLicensePolicy()
-    {
-        
-    }
-    
     
     private void loadCreativeCommonsLicense()
     {

@@ -11,7 +11,7 @@
 
 <http://salonica.dia.fi.upm.es/geo/dataset/default>
         a             dcat:Dataset ;
-        rdfs:comment  "General dataset" ;
-        rdfs:label    "General" ;
+        rdfs:comment  "This dataset contains all the information about the Municipality of Madrid" ;
+        rdfs:label    "Dataset Madrid" ;
         dct:license   <http://purl.org/NET/rdflicense/cc-by4.0> .
 

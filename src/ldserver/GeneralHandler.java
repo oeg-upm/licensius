@@ -34,6 +34,8 @@ public class GeneralHandler extends AbstractHandler {
         if (baseRequest.isHandled()) {
             return;
         }
+        logger.info("Serving a general file");
+        
         String folder = string;
         boolean ok = serveStandardFile(baseRequest, request, response, folder);
         if (ok) {

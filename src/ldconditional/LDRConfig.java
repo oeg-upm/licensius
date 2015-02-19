@@ -94,7 +94,7 @@ public class LDRConfig {
     }
     
      public static String getPolicyassetstore() {
-        return prop.getProperty("policyassetstore", "../data/assets.ttl");
+        return prop.getProperty("policyassetstore", "../data/void.ttl");
     }
     
     public static void setPolicyassetstore(String numBins) {

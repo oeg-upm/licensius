@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
  */
 public class ODRLAuthorizer {
 
-    private static final String ASSETS_FILE = "../data/assets.ttl";
+    private static final String ASSETS_FILE = "../data/void.ttl";
 
 
     /**
