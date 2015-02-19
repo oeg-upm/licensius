@@ -74,6 +74,21 @@ public class ODRLRDF {
         return politicas;
     }  
     
+    /**
+     * Gets a policy from a 
+     */
+    public static Policy getPolicy(String rdf)
+    {
+        Model model = RDFUtils.parseFromText(rdf);
+        List<Resource> ls = ODRLRDF.findPolicies(model);
+        if (!ls.isEmpty())
+        {
+            Policy policy = ODRLRDF.getPolicyFromResource(ls.get(0));
+            return policy;
+        }
+        return null;
+    }
+    
     
     /**
      * Loads the ODRL2.0 policies found in a file.

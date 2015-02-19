@@ -32,14 +32,13 @@ import org.apache.jena.atlas.lib.StrUtils;
 
 /**
  * Helper class with some useful methods to manipulate RDF
- * Not to be used by external users
+ * Not to be used by external users.
  * @exclude
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
-public class RDFUtils {
+class RDFUtils {
     
     private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
-    
 
     String property = "";
     String value = "";
