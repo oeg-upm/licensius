@@ -9,6 +9,11 @@
 @prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
 
 
+<http://salonica.dia.fi.upm.es/geo/>
+        a             dcat:Catalog ;
+        rdfs:label    "Geographic dataset with the provinces of Spain" .
+
+
 <http://salonica.dia.fi.upm.es/geo/dataset/default>
         a             dcat:Dataset ;
         rdfs:comment  "This dataset contains all the information about the Municipality of Madrid" ;
