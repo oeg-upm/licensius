@@ -26,6 +26,11 @@ public class RDFLicenseDataset {
     public RDFLicenseDataset() {
         readRDFLicense();
     }
+    
+    public boolean isValid()
+    {
+        return modelTotal!=null;
+    }
 
     /**
      * Gets an RDFLicense given its URI

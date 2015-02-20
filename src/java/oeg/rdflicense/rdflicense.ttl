@@ -1981,6 +1981,7 @@
  a odrl:Set;
 		dct:hasVersion "1.0" ;
 		rdfs:label   "UK NONCOMMERCIAL GOVERNMENT LICENSE";
+            rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/non-commercial-government-licence.htm> ;
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
        l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/>; 
    	   odrl:permission [
@@ -2035,12 +2036,13 @@
 			
     
 <http://purl.org/NET/rdflicense/COMMON1.0>
- a odrl:Set;
-	   rdfs:label   "Common Public License";
-	   dct:hasVersion "1.0" ;
-       l4lod:licensingTerms <http://www.ibm.com/developerworks/library/os-cpl.html> ; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-   	   odrl:permission [
+        a odrl:Set;
+	rdfs:label   "Common Public License";
+	dct:hasVersion "1.0" ;
+        rdfs:seeAlso <http://opensource.org/licenses/cpl1.0.php> ;
+        l4lod:licensingTerms <http://www.ibm.com/developerworks/library/os-cpl.html> ; 
+	dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+   	odrl:permission [
 	   	   a odrl:Permission;
 		   odrl:action odrl:distribute;
 		   odrl:action odrl:derive;
@@ -2057,6 +2059,7 @@
  a odrl:Set;
 	   rdfs:label   "IBM Public License";
 	   dct:hasVersion "1.0" ;
+       rdfs:seeAlso <http://opensource.org/licenses/IPL-1.0>; 
        l4lod:licensingTerms <http://opensource.org/licenses/IPL-1.0>; 
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	   odrl:permission [
@@ -2077,6 +2080,7 @@
 	   rdfs:label   "W3C SOFTWARE NOTICE AND LICENSE";
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   dct:hasVersion "1.0" ;
+       rdfs:seeAlso <http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231>; 
        l4lod:licensingTerms <http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231>; 
    	   odrl:permission [
 	   	   a odrl:Permission;
@@ -2123,6 +2127,7 @@
 	   
 <http://purl.org/NET/rdflicense/FREEBSD1.0>
  a odrl:Set;
+    rdfs:seeAlso <http://www.freebsd.org/copyright/freebsd-doc-license.html> ;
        l4lod:licensingTerms <http://www.freebsd.org/copyright/freebsd-doc-license.html>; 
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   rdfs:label   "FREE BSD DOCUMENTATION LICENSE";
@@ -2139,8 +2144,9 @@
 	   
 <http://purl.org/NET/rdflicense/BSD1.0>
  a odrl:Set;
-       l4lod:licensingTerms <http://www.linfo.org/bsdlicense.html>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+        l4lod:licensingTerms <http://www.linfo.org/bsdlicense.html>; 
+        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+        rdfs:seeAlso <http://www.linfo.org/bsdlicense.html> ;
 	   rdfs:label   "BSD LICENSE";	   
    	   odrl:permission [
 	   	   a odrl:Permission;
@@ -2156,6 +2162,7 @@
 <http://purl.org/NET/rdflicense/BOOST1.0>
  a odrl:Set;
        l4lod:licensingTerms <http://opensource.org/licenses/BSL-1.0>; 
+       rdfs:seeAlso <http://opensource.org/licenses/BSL-1.0>; 
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   rdfs:label   "BOOST SOFTWARE LICENSE 1.0";	
 	   dct:hasVersion "1.0" ;
@@ -2174,6 +2181,7 @@
 <http://purl.org/NET/rdflicense/ARTISTIC2.0>
  a odrl:Set;
        l4lod:licensingTerms <http://www.perlfoundation.org/artistic_license_2_0>; 
+        rdfs:seeAlso <http://opensource.org/licenses/Artistic-2.0> ;
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   rdfs:label   "ARTISTIC LICENSE 2.0";	
 	   dct:hasVersion "2.0" ;
@@ -2228,8 +2236,8 @@
 
 <http://purl.org/NET/rdflicense/MIT1.0>
  a odrl:Set;
-       l4lod:licensingTerms <http://opensource.org/licenses/MIT>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+    rdfs:seeAlso <http://opensource.org/licenses/MIT>; 
+    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   rdfs:label   "MIT LICENSE";	  
    	   odrl:permission [
 	   	   a odrl:Permission;
@@ -2258,6 +2266,7 @@
 <http://purl.org/NET/rdflicense/GOVTRACK1.0>
  a odrl:Set;
        l4lod:licensingTerms <https://www.govtrack.us/developers/license>; 
+        rdfs:seeAlso <https://www.govtrack.us/developers/license> ;
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   	   rdfs:label   "GOVTRACK LICENSE";	
    	   odrl:permission [
@@ -2329,6 +2338,7 @@
  a odrl:Set;
 	   rdfs:label   "APACHE LICENSE 2.0";	
 	   dct:hasVersion "2.0" ;
+           rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-2.0> ;
        l4lod:licensingTerms <http://www.apache.org/licenses/LICENSE-2.0>; 
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	   odrl:permission [
@@ -2346,6 +2356,7 @@
 <http://purl.org/NET/rdflicense/MOZILLA2.0>
  a odrl:Set;
 	   rdfs:label   "MOZILLA PUBLIC LICENSE 2.0";	
+        rdfs:seeAlso <https://www.mozilla.org/MPL/2.0/> ;
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   dct:hasVersion "2.0" ;
 	   dct:creator <http://www.mozilla.org/>;
@@ -2362,8 +2373,9 @@
  a odrl:Set;
 	   rdfs:label   "ECLIPSE PUBLIC LICENSE 1.0";
 	   dct:hasVersion "1.0" ;
-	   dct:creator <http://www.eclipse.org/org/foundation/>;
-       l4lod:licensingTerms <http://www.eclipse.org/legal/epl-v10.html>; 
+           rdfs:seeAlso <https://www.eclipse.org/legal/epl-v10.html> ;
+           dct:creator <http://www.eclipse.org/org/foundation/>;
+           l4lod:licensingTerms <http://www.eclipse.org/legal/epl-v10.html>; 
 	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	   odrl:permission [
 	   	   a odrl:Permission;
@@ -2399,6 +2411,7 @@
 <http://purl.org/NET/rdflicense/GNU-LGPL3.0>
 a odrl:Set;
 	rdfs:label   "GNU LESSER GENERAL PUBLIC LICENSE";
+        rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.html> ;
        l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html>; 
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   dct:hasVersion "3.0" ;
