@@ -1114,7 +1114,6 @@ private void menuJoker2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 }
                 return (Object) null;
             }
-
             public void done() {
                 mainPanel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));                
                 updateStatus("listo", false);
