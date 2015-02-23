@@ -24,13 +24,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 import licenser.EndPointExplorer;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
+import vroddon.sw.Licenser;
 import vroddon.sw.RDFUtils;
+import vroddon.sw.Tripleta;
 import vroddon.sw.Vocab;
 
 /**
@@ -42,54 +45,49 @@ public class LOVVocabs {
     public static void main(String[] args) {
 //        List<Vocab> lv = queryLOVForVocabs();
 //        System.out.println(lv);
-        
-        List<Vocab> vocabs = LOVVocabs.readVocabs("D:\\svn\\observatorio\\data\\lov.nq");
-        for(Vocab v : vocabs)
-        {
-            System.out.println(v.uri+"\t"+v.license);
+
+        List<Vocab> vocabs = LOVVocabs.readVocabsFromNQuads("D:\\svn\\observatorio\\data\\lov.nq");
+        for (Vocab v : vocabs) {
+            System.out.println(v.uri + "\t" + v.license);
         }
-            
-        
+
+
     }
-    
-    public static List<Vocab> readVocabs(String filename)
-    {
+
+    public static List<Vocab> readVocabsFromNQuads(String filename) {
+
         List<Vocab> ls = new ArrayList();
-//        Model model = RDFDataMgr.loadModel(filename) ;
         Model model = ModelFactory.createDefaultModel();
-//        model.read(filename);
-        
-/*        DatasetGraphFactory.GraphMaker maker = new DatasetGraphFactory.GraphMaker() {
+        DatasetGraphFactory.GraphMaker maker = new DatasetGraphFactory.GraphMaker() {
             public Graph create() {
                 return new GraphMem();
             }
-       };
-        Dataset ds = DatasetImpl.wrap(new DatasetGraphMaker(maker));        */
-        
-        RDFDataMgr.read(model, "file:"+filename);
-        if (model==null || model.isEmpty())
-            System.out.println("joder");
-        Resource RVOCAB = model.createResource("http://purl.org/vocommons/voaf#Vocabulary");
-        List<Resource> lres= RDFUtils.getResourcesOfType(model, RVOCAB);
-        for(Resource res : lres)
-        {
-            Vocab v = new Vocab(res.getLocalName(), res.getURI());
-            StmtIterator iter2 = res.listProperties();
-            while (iter2.hasNext()) {
-                Statement stmt2 = iter2.nextStatement();
-                RDFNode nodo = stmt2.getObject();
-                Property prop = stmt2.getPredicate();
-                if (prop.getURI().equals(RDFUtils.RLICENSE.getURI()))
-                {
-                    v.license = nodo.toString();
+        };
+        List<String> plicenses = Licenser.getRightsPredicates();
+        Dataset ds = DatasetImpl.wrap(new DatasetGraphMaker(maker));
+        RDFDataMgr.read(ds, filename);
+        Iterator<String> listNames = ds.listNames();
+        while (listNames.hasNext()) {
+            String listName = listNames.next();
+            Model mv = ds.getNamedModel(listName);
+            Vocab v = new Vocab(listName, listName);
+
+            for (String license : plicenses) {
+                List<Tripleta> lt=RDFUtils.getTripletasForProperty(mv, license);
+                for(Tripleta t : lt)
+                    System.out.println(t.s +"\t"+ t.p+ "\t" + t.o);
+
+                if(true) continue;
+                List<String> licencias = RDFUtils.getObjectsForProperty(mv, license);
+              if (licencias.size() > 0) {
+                    System.out.println(listName +"\t"+ license+ "\t" + licencias.get(0));
                 }
-            }        
-            ls.add(v);
+            }
         }
+
         return ls;
     }
-    
-    
+
     /**
      * Obtiene una lista de datasets leyéndolos del archivo "datasets.txt" en este mismo paquete
      * 
@@ -137,8 +135,8 @@ public class LOVVocabs {
             ResultSet results = qexec.execSelect();
             for (; results.hasNext();) {
                 QuerySolution qs = results.next();
-                String uri=qs.get("?vocabURI").toString();
-                String prefix=qs.get("?vocabPrefix").toString();
+                String uri = qs.get("?vocabURI").toString();
+                String prefix = qs.get("?vocabPrefix").toString();
                 Vocab v = new Vocab(prefix, uri);
                 lv.add(v);
             }
@@ -150,5 +148,4 @@ public class LOVVocabs {
 
         return lv;
     }
-
 }

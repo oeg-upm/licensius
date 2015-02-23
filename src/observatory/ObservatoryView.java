@@ -1096,7 +1096,7 @@ private void menuRDFDumpCountTriplesActionPerformed(java.awt.event.ActionEvent e
 
     
 private void menuJoker2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuJoker2ActionPerformed
-    final Dataset ds = (Dataset) listDatasets.getSelectedValue();
+/*    final Dataset ds = (Dataset) listDatasets.getSelectedValue();
     if (ds == null || ds.rdfdump == null || ds.rdfdump.isEmpty()) {
         return;
     }
@@ -1120,7 +1120,7 @@ private void menuJoker2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         });
         task.execute();
         
-        
+        */
     
     
 

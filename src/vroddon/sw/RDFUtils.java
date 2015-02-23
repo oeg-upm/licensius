@@ -54,6 +54,7 @@ import java.util.List;
 public class RDFUtils {
 
     private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
+
     String property = "";
     String value = "";
     public static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
@@ -226,6 +227,35 @@ public class RDFUtils {
         return lres;
     }
 
+    /**
+     * Devuelve los objetos para una propiedad dada:
+     * - Si es recurso, la URI
+     * - Si es literal, solo el literal (sin language tag ni datatype)
+     */
+    public static List<Tripleta> getTripletasForProperty(Model model, String sproperty) {
+        List<Tripleta> lres = new ArrayList();
+        StmtIterator it = model.listStatements();
+        while (it.hasNext()) {
+            Statement st = it.next();
+            String s1=st.getPredicate().getURI();
+            if (!s1.equals(sproperty))
+                continue;
+            RDFNode nodo = st.getObject();
+            String so = "";
+            if (nodo.isResource()) {
+                Resource r = (Resource) nodo;
+                so = r.getURI();
+            }
+            if (nodo.isLiteral()) {
+                Literal l = (Literal) nodo;
+                so = l.getString();
+            }
+            lres.add(new Tripleta(st.getSubject().getURI(), st.getPredicate().getURI(),so));
+        }
+        return lres;
+    }
+    
+    
     /**
      * Devuelve todos objetos dado un recurso y una propiedad.
      */
