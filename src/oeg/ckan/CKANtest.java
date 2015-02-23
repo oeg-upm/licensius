@@ -1,4 +1,4 @@
-package ckan;
+package oeg.ckan;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -23,43 +23,12 @@ public class CKANtest {
 
     public static Map<String, String> mapa = new HashMap();
 
+
+    
+    
     public static void main(String[] args) {
-
-//        CKANtest.downloadJSONsFromCKAN("/ckan/llod2014cloud.txt", "./local/llod/");
-
-        CKANtest.descargaMasiva();
-
-
-//        CKANtest.downloadJSONsFromCKAN("/ckan/lod2014cloud.txt");
-
-
-
-        /* List<Dataset> lds = fillWithKindOfLicense();
         
-        for (Dataset d : lds) {
-        mapa.put(d.uri, d.tipo);
-        }*/
-
-//        Lodcloud.parse();
-
-
-        /*
-        //        Dataset ds=CKANExplorer.getDatasetFromCKAN("rdflicense");
-        //        System.out.println(ds.toSummaryString());
-        List<String> sdatasets = CKANExplorer.getAllDatasets();
-        //       List<String> sdatasets = CKANExplorer.getDatasetsFromAGroup("LinkedDataCrawl2014");
-        int conta=0;
-        for (String sdataset : sdatasets) {
-        Dataset ds=CKANExplorer.getDatasetFromCKAN(sdataset);
-        if (!ds.hasTag("LinkedDataCrawl2014"))
-        continue;
-        
-        
-        
-        System.out.println(++conta+" "+ sdataset);
-        }*/
-
-
+        List<String> rdfdatasets = CKANExplorer.getRDFDatasets();
     }
     
 public static String getLastBitFromUrl(final String url){

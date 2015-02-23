@@ -20,10 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.openjena.riot.Lang;
+
 
 /**
- *
+ * This class represents a CKAN Dataset
  * @author vroddon
  */
 public class Dataset implements Serializable, Comparable {

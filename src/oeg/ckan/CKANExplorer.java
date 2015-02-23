@@ -1,4 +1,4 @@
-package ckan;
+package oeg.ckan;
 
 //JAVA
 import java.io.BufferedReader;
@@ -41,7 +41,39 @@ public class CKANExplorer {
     private static String CKANSITE="http://datahub.io";
  //   private static String CKANSITE = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de";
 
+    /**
+     * Retrieves a Dataset object from the CKAN dataset name
+     * @param id Id of the dataset, like : 81f850c1-501d-499c-8f6c-b6a06e2805fa
+     */
+    public static Dataset getDatasetFromCKAN(String id) {
+        ObservatoryApp.getReportador().flashStatus("Querying CKAN about " + id + " ...");
+        try {
+            String uri = CKANSITE + "/api/rest/package/" + id;
+            URL url = new URL(uri);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != 200) {
+                Logger.getLogger("licenser").warn("error from the api");
+                return null;
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output = br.readLine();
+            if (output == null) {
+                return null;
+            }
+            Dataset ds = getDatasetFromJSON(output);
+            return ds;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Logger.getLogger("licenser").info("error in " + e.getLocalizedMessage());
+        }
+        return null;
+    }    
 
+    /**
+     * Downloads the description version of a Dataset as a JSON
+     */
     public static void downloadJSONFromCKAN(String filename, int number) {
         if (number<=1000)
         {
@@ -147,8 +179,10 @@ public class CKANExplorer {
     }
 
     /**
+     * Retrieves a long description of every dataset in CKAN.
+     * This method takes several hours to run.
+     * The output is a single file, with one description in JSON per line.
      * Almacena todos los JSONs en un único archivo llamado "totaljson.txt"
-     * ESTE METODO TARDA VARIAS HORAS EN EJECUTARSE
      */
     public static void TESTstoreAllJSON() {
         List<String> ldatasets = CKANExplorer.getDatasetNames();
@@ -165,6 +199,9 @@ public class CKANExplorer {
         }
     }
 
+    /** 
+     * Reads
+     */
     public static List<Dataset> getDatasetsFromFile(String filename) {
         List datasets = new ArrayList();
         try {
@@ -190,6 +227,9 @@ public class CKANExplorer {
         return datasets;
     }
 
+/******************************************************************************/    
+/** PRIVATE METHOS ***/    
+/******************************************************************************/    
     private static Dataset parseDataset(JSONObject jobj) {
         Dataset ds = new Dataset();
         String name = (String) jobj.get("name");
@@ -287,7 +327,6 @@ public class CKANExplorer {
      */
     private static void getMiniJSONRapido(String uri, String filename) {
         try {
-
             BufferedWriter out = new BufferedWriter(new FileWriter(filename));
             URL url = new URL(uri);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -429,38 +468,7 @@ public class CKANExplorer {
         return ds;
     }
 
-    // ej: 81f850c1-501d-499c-8f6c-b6a06e2805fa
-    public static Dataset getDatasetFromCKAN(String id) {
-        ObservatoryApp.getReportador().flashStatus("Querying CKAN about " + id + " ...");
 
-        try {
-            String uri = CKANSITE + "/api/rest/package/" + id;
-            URL url = new URL(uri);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-            if (conn.getResponseCode() != 200) {
-                Logger.getLogger("licenser").warn("error from the api");
-                return null;
-            }
-            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-            String output = br.readLine();
-            if (output == null) {
-                return null;
-            }
-
-            Dataset ds = getDatasetFromJSON(output);
-            return ds;
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Logger.getLogger("licenser").info("error in " + e.getLocalizedMessage());
-        }
-
-
-        return null;
-    }
 
     public static void main(String[] args) {
         
@@ -485,7 +493,7 @@ public class CKANExplorer {
     }
 
     /**
-     * Obtiene una lista con los ids de los datsaets en un grupo
+     * Gets the list of datasets present in a group
      */
     public static List<String> getDatasetsFromAGroup(String grupo) {
         List<String> ls = new ArrayList();
@@ -602,7 +610,7 @@ public class CKANExplorer {
 
     /**
      * Obtiene los tipos de recursos de un dataset del CKAN dado, junto con su URL (separado por tabs)
-     * 
+     * Devuelve una cadena que contiene URL y tipo, separado por tabulacion
      * @param dataset Nombre del dataset segun CKAN
      * @return El endpoint (URL) o un texto "no endpoint"
      */
@@ -757,6 +765,9 @@ public class CKANExplorer {
         if (tipo.equals("rdf/turtle")) {
             return true;
         }
+        if (tipo.equals("sparql")) {
+            return true;
+        }
         
 
         return false;
@@ -884,4 +895,41 @@ public class CKANExplorer {
         }
         return ls;
     }
+    
+    /**
+     * Returns a list of datasets in CKAN that have RDF in any manner.
+     */
+    public static List<String> getRDFDatasets()
+    {
+        List<String> rdf = new ArrayList();
+        List<String> datasets = CKANExplorerold.getAllDatasets();
+        for(String dataset : datasets)
+        {
+            List<String> tipos = CKANExplorer.getResourceTypes(dataset);
+            boolean isrdf = false;
+            for(String tipourl : tipos)
+            {
+                String[] parts = tipourl.split("\t");
+                if (parts.length!=2)
+                    continue;
+                String tipo = parts[0];
+                String uri = parts[1];
+                if (CKANExplorer.isRDF(tipo))
+                {
+                    isrdf=true;
+                    break;
+                }
+            }
+            if (isrdf)
+            {
+                System.out.println(dataset+"\t SI");
+                rdf.add(dataset);
+            }
+            else
+            {
+                System.out.println(dataset+"\t NO");
+            }
+       }     
+        return rdf;
+    }    
 }

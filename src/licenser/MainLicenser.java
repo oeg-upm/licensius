@@ -1,9 +1,9 @@
 package licenser;
 
 //JAVA
-import ckan.CKANExplorer;
-import ckan.CKANExplorerold;
-import ckan.CKANDatasets;
+import oeg.ckan.CKANExplorer;
+import oeg.ckan.CKANExplorerold;
+import oeg.ckan.CKANDatasets;
 import java.util.Date;
 import java.util.List;
 

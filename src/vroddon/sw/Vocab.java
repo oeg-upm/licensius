@@ -22,6 +22,7 @@ public class Vocab implements Serializable {
     
     public String vocab;
     public String uri;
+    public String license;
     
     
     public boolean alive=false;
@@ -83,7 +84,6 @@ public class Vocab implements Serializable {
             Statement stmt = iter.nextStatement();
             Resource res = stmt.getSubject();
             v.uri = res.getURI();
-
             StmtIterator iter2 = res.listProperties();
             while (iter2.hasNext()) {
                 Statement stmt2 = iter2.nextStatement();

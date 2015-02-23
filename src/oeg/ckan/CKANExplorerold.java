@@ -1,4 +1,4 @@
-package ckan;
+package oeg.ckan;
 
 //JAVA
 import java.io.BufferedReader;
@@ -308,7 +308,6 @@ public class CKANExplorerold {
             if ((output = br.readLine()) != null) {
                 obj = JSONValue.parse(output);
             }
-
             JSONObject jobj = (JSONObject) obj;
             String license = (String) jobj.get("license");
             String formato = (String) jobj.get("author");

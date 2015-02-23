@@ -102,7 +102,6 @@ public class DyldoTest {
      */
     public static void parseHugeNTriple(String filename) throws Exception {
         Map<String, Set<String>> mapa = new HashMap();
-
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line;
         int lines = 0;
@@ -120,23 +119,16 @@ public class DyldoTest {
         int sv = 0;
         int others = 0;
         int nulo = 0;
-
         int literals = 0;
         while ((line = br.readLine()) != null) {
             lines++;
-
-
             //PRESENTAMOS LA INFORMACIÓN CADA CIERTO TIEMPO
             if (lines % 1048576 == 0) {
                 System.out.println(lines + "\t" + literals + "\t" + langtags + "\t" + en + "\t" + it + "\t" + fr + "\t" + es + "\t" + de + "\t" + ru + "\t" + pl + "\t" + nl + "\t" + zhtw + "\t" + pt + "\t" + sv + "\t" + others + "\t");
             }
-
-
             //OBTENEMOS OBJETO Y GRAFO
             line = line.trim();
             String object = NTriple.getObjectFromNTriple(line);
-
-
             //PROCESAMOS EL OBJETO Y SU LANGTAG
             if (object != null) {
                 if (!NTriple.isLiteral(object)) {
@@ -147,7 +139,6 @@ public class DyldoTest {
                 if (langtag == null) {
                     continue;
                 }
-
                 langtags++;
                 langtag = langtag.toLowerCase();
                 if (langtag.equalsIgnoreCase("en") || langtag.startsWith("en-") || langtag.startsWith("en_") || langtag.equals("eng")) {

@@ -1,6 +1,6 @@
 package svg;
 
-import ckan.CKANtest;
+import oeg.ckan.CKANtest;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

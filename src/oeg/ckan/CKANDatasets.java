@@ -1,4 +1,4 @@
-package ckan;
+package oeg.ckan;
 
 //JAVA
 import java.io.BufferedReader;
@@ -101,7 +101,7 @@ public class CKANDatasets {
     }
 
     /**
-     * 
+     * Lee un archivo llamado void.json
      */
     public static List<String> getAllVOIDURI() {
         List<String> uris = new ArrayList();
