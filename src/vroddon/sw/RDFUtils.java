@@ -288,20 +288,16 @@ public class RDFUtils {
         return "";
     }
 
-    public static String getLabel(Model model, String uri) {
+    public static String getFirstLabel(Model model, String uri) {
         Resource res = model.getResource(uri);
         if (res == null) {
             return "";
         }
-//        StmtIterator it = model.listStatements();
         StmtIterator it = res.listProperties(LABEL);
         while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
             RDFNode nodo = stmt2.getObject();
             return nodo.toString();
-//            RDFNode p = stmt2.getPredicate();
-            //          if (p.toString().equals(LABEL.toString()) && )
-//                System.out.println(nodo.toString());
         }
         return "";
     }

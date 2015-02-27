@@ -20,8 +20,10 @@ import com.hp.hpl.jena.sparql.core.DatasetGraphFactory;
 import com.hp.hpl.jena.sparql.core.DatasetGraphMaker;
 import com.hp.hpl.jena.sparql.core.DatasetImpl;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -42,10 +44,11 @@ import vroddon.sw.Vocab;
  */
 public class LOVVocabs {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 //        List<Vocab> lv = queryLOVForVocabs();
 //        System.out.println(lv);
 
+        
         List<Vocab> vocabs = LOVVocabs.readVocabsFromNQuads("D:\\svn\\observatorio\\data\\lov.nq");
         for (Vocab v : vocabs) {
             System.out.println(v.uri + "\t" + v.license);
@@ -72,16 +75,23 @@ public class LOVVocabs {
             Model mv = ds.getNamedModel(listName);
             Vocab v = new Vocab(listName, listName);
 
+            boolean virgen=true;
             for (String license : plicenses) {
                 List<Tripleta> lt=RDFUtils.getTripletasForProperty(mv, license);
                 for(Tripleta t : lt)
+                {
+                    virgen=false;
                     System.out.println(t.s +"\t"+ t.p+ "\t" + t.o);
-
-                if(true) continue;
-                List<String> licencias = RDFUtils.getObjectsForProperty(mv, license);
-              if (licencias.size() > 0) {
-                    System.out.println(listName +"\t"+ license+ "\t" + licencias.get(0));
+                    break;
                 }
+                if (!virgen)
+                    break;
+
+//                if(true) continue;
+//                List<String> licencias = RDFUtils.getObjectsForProperty(mv, license);
+//              if (licencias.size() > 0) {
+//                    System.out.println(listName +"\t"+ license+ "\t" + licencias.get(0));
+//                }
             }
         }
 
