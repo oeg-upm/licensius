@@ -15,29 +15,14 @@
 @prefix : <http://purl.org/NET/rdflicense/> .
 
 
-<http://purl.org/NET/rdflicense/allrightsreserved>  
-        a       odrl:Policy ;
-		rdfs:label   "All rights reserved"@en;
-		rdfs:comment "This license does not disclose any of the IPR and database rights" ;
-		odrl:prohibition [
-			odrl:action ldr:IPRRight, ldr:databaseRight;
-			] . 	
-
-<http://purl.org/NET/rdflicense/publicdomain>
-        a       odrl:Policy ;
-		rdfs:label   "Public domain";
-		rdfs:comment "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable)." ;
-		odrl:permission [
-			odrl:action ldr:IPRRight, ldr:databaseRight;
-			] . 	
 			
 #CREATIVE COMMONS LICENSES VERSION 4.0
 			
 <http://purl.org/NET/rdflicense/cc-by4.0>
         a       odrl:Policy ;
 		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY 4.0";
-                dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Creative Commons CC-BY";
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
@@ -50,8 +35,8 @@
 <http://purl.org/NET/rdflicense/cc-by-nc4.0>
         a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY-NC 4.0";
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Creative Commons CC-BY-NC";
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
@@ -67,8 +52,8 @@
 <http://purl.org/NET/rdflicense/cc-by-nd4.0>
 		a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY-ND 4.0";
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Creative Commons CC-BY-ND";
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
@@ -81,7 +66,7 @@
 <http://purl.org/NET/rdflicense/cc-by-sa4.0>
         a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY-SA 4.0";
+		rdfs:label   "Creative Commons CC-BY-SA";
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
@@ -95,7 +80,7 @@
 <http://purl.org/NET/rdflicense/cc-by-nc-sa4.0>
         a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY-NC-SA 4.0";
+		rdfs:label   "Creative Commons CC-BY-NC-SA";
 	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks ,cc:Reproduction, ldr:extraction, ldr:reutilization ;
@@ -112,7 +97,7 @@
 <http://purl.org/NET/rdflicense/cc-by-nc-nd4.0>
         a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY-NC-ND 4.0";
+		rdfs:label   "Creative Commons CC-BY-NC-ND";
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:Reproduction, ldr:extraction, ldr:reutilization ;
@@ -141,7 +126,7 @@
 <http://purl.org/NET/rdflicense/cc-by3.0>
         a          odrl:Policy ;
 		dct:hasVersion "3.0" ;
-		rdfs:label   "Creative Commons CC-BY 3.0";
+		rdfs:label   "Creative Commons CC-BY";
  	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction ;
@@ -172,8 +157,8 @@
 <http://purl.org/NET/rdflicense/cc-by-nd3.0>
 		a          odrl:Policy ;
 		dct:hasVersion "3.0" ;
-		rdfs:label   "Creative Commons CC-BY-ND 3.0";
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Creative Commons CC-BY-ND";
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:Reproduction;
 			odrl:duty [
@@ -186,7 +171,7 @@
 <http://purl.org/NET/rdflicense/cc-by-sa3.0>
         a          odrl:Policy ;
 		dct:hasVersion "3.0" ;
-		rdfs:label   "Creative Commons CC-BY-SA 3.0";
+		rdfs:label   "Creative Commons CC-BY-SA";
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction;
@@ -200,7 +185,7 @@
 <http://purl.org/NET/rdflicense/cc-by-nc-sa3.0>
         a          odrl:Policy ;
 		dct:hasVersion "3.0" ;
-		rdfs:label   "Creative Commons CC-BY-NC-SA 3.0";
+		rdfs:label   "Creative Commons CC-BY-NC-SA";
 	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks ,cc:Reproduction ;
@@ -217,7 +202,7 @@
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0>
         a          odrl:Policy ;
 		dct:hasVersion "3.0" ;
-		rdfs:label   "Creative Commons CC-BY-NC-ND 3.0";
+		rdfs:label   "Creative Commons CC-BY-NC-ND";
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:Reproduction;
@@ -234,45 +219,36 @@
 		
 #OLDER CREATIVE COMMONS LICENSES
 
-<http://purl.org/NET/rdflicense/cc-by3.0fr> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY 3.0 France";
-  cc:legalcode <http://creativecommons.org/licenses/by/3.0/fr/legalcode>; 
-  dct:hasVersion "3.0" ; 
-  dct:language <http://www.lexvo.org/page/iso639-3/fra>;
-  cc:jurisdiction <http://dbpedia.org/page/France>;
-  rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/fr> ; 
-        odrl:permission [
-        a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
-       ] ;
-       odrl:duty [
-           a odrl:Duty;
-        odrl:action odrl:attribute;
-     odrl:action odrl:attachPolicy
-       ] .  
+<http://purl.org/NET/rdflicense/cc-by3.0fr> a odrl:Policy;
+	rdfs:label "Creative Commons CC-BY 3.0 France";
+	dct:title "CC-BY 3.0 France" ;
+	cc:legalcode <http://creativecommons.org/licenses/by/3.0/fr/legalcode>; 
+	dct:hasVersion "3.0" ; 
+	dct:language <http://www.lexvo.org/page/iso639-3/fra>;
+	cc:jurisdiction <http://dbpedia.org/page/France>;
+	rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/fr> ; 
+    odrl:permission [
+		odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution ;
+		odrl:duty [
+			odrl:action cc:Attribution, cc:Notice;
+		] ;  
+    ] .
 
-<http://purl.org/NET/rdflicense/cc-by-3.0es> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY 3.0 Spain";
-        cc:legalcode <http://creativecommons.org/licenses/by/3.0/es/legalcode>; 
-  dct:hasVersion "3.0" ; 
-  dct:language <http://www.lexvo.org/page/iso639-3/spa>;
-  cc:jurisdiction <http://dbpedia.org/page/Spain>;
-  rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/es> ; 
-        odrl:permission [
-        a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
-       ] ;
-       odrl:duty [
-           a odrl:Duty;
-        odrl:action odrl:attribute;
-     odrl:action odrl:attachPolicy
-       ] .  
+<http://purl.org/NET/rdflicense/cc-by-3.0es> a odrl:Policy;
+	rdfs:label   "Creative Commons CC-BY 3.0 Spain";
+    cc:legalcode <http://creativecommons.org/licenses/by/3.0/es/legalcode>; 
+	dct:hasVersion "3.0" ; 
+	dct:language <http://www.lexvo.org/page/iso639-3/spa>;
+	cc:jurisdiction <http://dbpedia.org/page/Spain>;
+	rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/es> ; 
+	odrl:permission [
+		odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution;
+		odrl:duty [
+			odrl:action cc:Attribution, cc:Notice;
+		] ;  
+    ] .
 
-<http://purl.org/NET/rdflicense/cc-by3.0gr> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0gr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Greece";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/gr/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -281,17 +257,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/gr> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 	   
-<http://purl.org/NET/rdflicense/cc-by3.0de> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0de> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Germany";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/de/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -300,17 +276,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/de> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 	   
-<http://purl.org/NET/rdflicense/cc-by3.0nl> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0nl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Netherlands";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/nl/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -319,17 +295,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/nl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 	   
-<http://purl.org/NET/rdflicense/cc-by3.0be> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0be> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Belgium";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/be/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -338,17 +314,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/be> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0dk> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0dk> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Denmark";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/dk/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -357,17 +333,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/dk> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0ie> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0ie> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Ireland";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/ie/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -376,17 +352,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/ie> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0it> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0it> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Italy";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/it/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -395,17 +371,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/it> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0pt> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0pt> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Portugal";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/pt/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -414,17 +390,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/pt> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0at> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0at> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Austria";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/at/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -433,17 +409,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/at> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0au> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0au> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Australia";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/au/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -452,17 +428,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/au> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0br> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0br> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Brazil";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/br/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -471,17 +447,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/br> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by3.0ch> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0ch> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Switzerland";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/ch/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -490,16 +466,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/ch> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by3.0cl> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0cl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Chile";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/cl/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -508,16 +484,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/cl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by3.0ve> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0ve> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Venezuela";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/ve/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -526,16 +502,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/ve> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by3.0cn> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0cn> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 China";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/cn/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -544,16 +520,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/cn> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by3.0ro> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0ro> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Romania";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/ro/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -562,16 +538,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/ro> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by3.0ec> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by3.0ec> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 3.0 Ecuador";
         cc:legalcode <http://creativecommons.org/licenses/by/3.0/ec/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -580,16 +556,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/ec> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0fr> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0fr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 France";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/fr/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -598,16 +574,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/fr> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0es> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0es> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Spain";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/es/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -616,16 +592,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/es> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0gr> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0gr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Greece";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/gr/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -634,16 +610,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/gr> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0de> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0de> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Germany";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/de/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -652,16 +628,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/de> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0nl> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0nl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Netherlands";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/nl/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -670,16 +646,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/nl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0be> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0be> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Belgium";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/be/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -688,16 +664,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/be> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0dk> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0dk> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Denmark";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/dk/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -706,16 +682,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/dk> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0ie> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0ie> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Ireland";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/ie/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -724,16 +700,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/ie> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0it> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0it> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Italy";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/it/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -742,16 +718,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/it> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0pt> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0pt> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Portugal";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/pt/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -760,16 +736,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/pt> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0at> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0at> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Austria";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/at/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -778,16 +754,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/at> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0au> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0au> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Australia";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/au/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -796,17 +772,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/au> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by2.0ca> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0ca> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Canada";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/ca/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -815,17 +791,17 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/ca> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.org/NET/rdflicense/cc-by2.0br> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0br> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Brazil";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/br/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -834,16 +810,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/br> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.5ch> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.5ch> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.5 Switzerland";
   cc:legalcode <http://creativecommons.org/licenses/by/2.5/ch/legalcode>; 
   dct:hasVersion "2.5" ; 
@@ -852,16 +828,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/ch> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0jp> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0jp> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Japan";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/jp/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -870,16 +846,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/jp> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by2.0cl> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by2.0cl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY 2.0 Chile";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/cl/legalcode>; 
   dct:hasVersion "2.0" ; 
@@ -888,16 +864,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/cl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0fr> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0fr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 France";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/fr/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -906,15 +882,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/fr> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0es> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0es> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Spain";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/es/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -923,15 +899,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/es> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0gr> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0gr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Greece";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/gr/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -940,15 +916,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/gr> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0de> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0de> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Germany";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/de/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -957,15 +933,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/de> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0nl> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0nl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Netherlands";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/nl/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -974,15 +950,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/nl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0be> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0be> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Belgium";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/be/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -991,15 +967,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/be> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0dk> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0dk> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Denmark";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/dk/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1008,15 +984,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/dk> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0ie> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0ie> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Ireland";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/ie/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1025,15 +1001,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ie> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0it> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0it> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Italy";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/it/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1042,15 +1018,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/it> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0pt> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0pt> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Portugal";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/pt/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1059,15 +1035,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/pt> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0at> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0at> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Austria";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/at/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1076,15 +1052,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/at> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0au> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0au> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Australia";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/au/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1093,15 +1069,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/au> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0br> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0br> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Brazil";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/br/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1110,15 +1086,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/br> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0ch> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0ch> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Switzerland";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/ch/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1127,15 +1103,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ch> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0cl> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0cl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Chile";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/cl/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1144,15 +1120,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/cl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0ve> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0ve> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Venezuela";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/ve/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1161,15 +1137,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ve> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0cn> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0cn> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 China";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/cn/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1178,15 +1154,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/cn> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0ro> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0ro> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Romania";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/ro/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1195,15 +1171,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ro> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.org/NET/rdflicense/cc-by-nd3.0ec> a odrl:Set;
+<http://purl.org/NET/rdflicense/cc-by-nd3.0ec> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-ND 3.0 Ecuador";
         cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/ec/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1212,15 +1188,15 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ec> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0fr> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0fr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 France";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/fr/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1229,16 +1205,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/fr> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0es> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0es> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Spain";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/es/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1247,16 +1223,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/es> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0gr> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0gr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Greece";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/gr/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1265,16 +1241,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/gr> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0de> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0de> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Germany";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/de/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1283,16 +1259,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/de> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0nl> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0nl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Netherlands";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/nl/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1301,16 +1277,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/nl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ie> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ie> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Ireland";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/ie/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1319,16 +1295,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/ie> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0it> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0it> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Italy";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/it/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1337,16 +1313,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/it> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0pt> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0pt> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Portugal";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/pt/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1355,16 +1331,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/pt> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0at> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0at> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Austria";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/at/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1373,16 +1349,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/at> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0au> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0au> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Australia";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/au/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1391,16 +1367,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/au> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0br> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0br> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Brazil";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/br/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1409,16 +1385,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/br> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ch> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ch> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Switzerland";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/ch/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1427,16 +1403,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/ch> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0cl> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0cl> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Chile";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/cl/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1445,16 +1421,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/cl> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ve> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ve> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Venezuela";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/ve/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1463,16 +1439,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/ve> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0cn> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0cn> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 China";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/cn/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1481,16 +1457,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/cn> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ro> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ro> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Romania";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/ro/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1499,16 +1475,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/ro> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ec> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-sa3.0ec> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-SA 3.0 Ecuador";
         cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/ec/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1517,16 +1493,16 @@
   rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/ec> ; 
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:derive;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:DerivativeWorks;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute, odrl:shareAlike;
+        odrl:action cc:Attribution, cc:ShareAlike;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0fr> a odrl:Set;
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0fr> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 France";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/fr/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1539,16 +1515,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0es> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Spain";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0es> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Spain";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/es/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/spa>;
@@ -1560,16 +1536,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0gr> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Greece";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0gr> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Greece";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/gr/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/ell>;
@@ -1581,16 +1557,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0de> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Germany";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0de> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Germany";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/de/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/deu>;
@@ -1602,16 +1578,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0nl> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Netherlands";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0nl> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Netherlands";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/nl/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/nld>;
@@ -1623,18 +1599,18 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ie> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Ireland";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ie> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Ireland";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/ie/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
@@ -1646,16 +1622,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0it> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Italy";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0it> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Italy";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/it/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/ita>;
@@ -1667,16 +1643,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0pt> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Portugal";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0pt> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Portugal";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/pt/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/por>;
@@ -1688,15 +1664,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0at> a odrl:Set;
+	   
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0at> a odrl:Policy;
   rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Austria";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/at/legalcode>; 
   dct:hasVersion "3.0" ; 
@@ -1709,16 +1686,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0au> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Australia";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0au> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Australia";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/au/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
@@ -1730,17 +1707,17 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0br> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Brazil";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0br> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Brazil";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/br/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/por>;
@@ -1752,16 +1729,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ch> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Switzerland";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ch> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Switzerland";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/ch/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/fra>;
@@ -1773,17 +1750,17 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0cl> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Chile";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0cl> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Chile";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/cl/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/spa>;
@@ -1795,16 +1772,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ve> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Venezuela";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ve> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Venezuela";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/ve/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/spa>;
@@ -1816,37 +1793,35 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0cn> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 China";
-        cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/cn/legalcode>; 
-  dct:hasVersion "3.0" ; 
-  dct:language <http://www.lexvo.org/page/iso639-3/zho>;
-  cc:jurisdiction <http://dbpedia.org/page/China>;
-  rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/cn> ; 
+	   
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0cn> a odrl:Policy;
+	rdfs:label   "Creative Commons CC-BY-NC-ND China";
+    cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/cn/legalcode>; 
+	dct:hasVersion "3.0" ; 
+	dct:language <http://www.lexvo.org/page/iso639-3/zho>;
+	cc:jurisdiction <http://dbpedia.org/page/China>;
+	rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/cn> ; 
        odrl:prohibition [
-           a odrl:Prohibition;
-        odrl:action odrl:commercialize
+			odrl:action odrl:commercialize
        ] ;
         odrl:permission [
-        a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
-       ] ;
-       odrl:duty [
-           a odrl:Duty;
-        odrl:action odrl:attribute;
-     odrl:action odrl:attachPolicy
-       ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ro> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Romania";
+			odrl:action cc:Reproduction, cc:Distribution ;
+			odrl:duty [
+				odrl:action cc:Attribution, odrl:attachPolicy ;
+			]	;		
+       ] .
+         
+	   
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ro> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Romania";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/ro/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/ron>;
@@ -1858,16 +1833,16 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ec> a odrl:Set;
-  rdfs:label   "Creative Commons CC-BY-NC-ND 3.0 Ecuador";
+<http://purl.oclc.org/NET/rdflicense/cc-by-nc-nd3.0ec> a odrl:Policy;
+  rdfs:label   "Creative Commons CC-BY-NC-ND Ecuador";
         cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/ec/legalcode>; 
   dct:hasVersion "3.0" ; 
   dct:language <http://www.lexvo.org/page/iso639-3/esp>;
@@ -1879,17 +1854,14 @@
        ] ;
         odrl:permission [
         a odrl:Permission;
-     odrl:action odrl:reproduce;
-     odrl:action odrl:distribute
+     odrl:action cc:Reproduction;
+     odrl:action cc:Distribution
        ] ;
        odrl:duty [
            a odrl:Duty;
-        odrl:action odrl:attribute;
+        odrl:action cc:Attribution;
      odrl:action odrl:attachPolicy
        ] . 
-
-
-		
 		
 #OTHER LICENSES
 		
@@ -1897,7 +1869,7 @@
         a          odrl:Policy ;
 		dct:hasVersion "1.0" ;
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		rdfs:label   "Open Data Commons Public Domain Dedication and License 1.0";
+		rdfs:label   "Open Data Commons Public Domain Dedication and License";
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 		];
@@ -1908,7 +1880,7 @@
         a          odrl:Policy ;
 		dct:hasVersion "1.0" ;
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		rdfs:label    "Open Data Commons Attribution License 1.0";
+		rdfs:label    "Open Data Commons Attribution License";
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
@@ -1922,7 +1894,7 @@
         a          odrl:Policy ;
 		dct:hasVersion "1.0" ;
 		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		rdfs:label   "Open Data Commons Open Database License 1.0";
+		rdfs:label   "Open Data Commons Open Database License";
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
@@ -1937,15 +1909,15 @@
 
 <http://purl.org/NET/rdflicense/ukogl1.0>
         a          odrl:Policy ;
-		rdfs:label   "Open Government Licence v1.0";
+		rdfs:label   "Open Government Licence";
 		dct:hasVersion "1.0" ;
 		cc:jurisdiction <http://dbpedia.org/page/United_Kingdom>;
 		cc:legalcode <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/> ;					
 		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
-			odrl:action odrl:derive , odrl:distribute , odrl:reproduce, ldr:extraction, ldr:reutilization ;
+			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
-				odrl:action odrl:attribute , odrl:attachPolicy
+				odrl:action cc:Attribution , odrl:attachPolicy
 				]
 			];
 		l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/>;
@@ -1954,8 +1926,8 @@
 			
 <http://purl.org/NET/rdflicense/ukogl2.0>
         a          odrl:Policy ;
-		dct:hasVersion "1.0" ;
-		rdfs:label   "Open Government Licence v2.0";
+		dct:hasVersion "2.0" ;
+		rdfs:label   "Open Government Licence";
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
@@ -1967,46 +1939,41 @@
 		rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> . 						
 			
 <http://purl.org/NET/rdflicense/PDM1.0>
- a odrl:Set;
-       l4lod:licensingTerms <http://creativecommons.org/publicdomain/mark/1.0/>; 
-	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:reproduce;
-		   odrl:action odrl:derive;
-		   odrl:action odrl:distribute
+		a odrl:Policy;
+		rdfs:label   "Public Domain Mark";
+		dct:hasVersion "1.0" ;
+		rdfs:seeAlso <http://creativecommons.org/publicdomain/mark/1.0/>; 
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+		   odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution ;
    	   ] . 			
 			
 <http://purl.org/NET/rdflicense/OGL1.0>
- a odrl:Set;
+ a odrl:Policy;
 		dct:hasVersion "1.0" ;
-		rdfs:label   "UK NONCOMMERCIAL GOVERNMENT LICENSE";
+		rdfs:label   "UK NonCommercial Government License";
             rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/non-commercial-government-licence.htm> ;
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
        l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/>; 
    	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:copy;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:derive
+		   odrl:action odrl:copy, cc:Distribution, cc:DerivativeWorks;
+			odrl:duty [
+				odrl:action cc:Attribution, odrl:attachPolicy
+			] ;		   
    	   ] ;
    	   odrl:prohibition [
    	       a odrl:Prohibition;
    		   odrl:action odrl:commercialize
    	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:attribute;
-                   odrl:action odrl:attachPolicy
-   	   ] . 			
+   	    . 			
 			
 <http://purl.org/NET/rdflicense/gpl2.0>
-        a          odrl:Policy ;
-		dct:hasVersion "3.0" ;
+        a	odrl:Policy ;
+		dct:hasVersion "2.0" ;
 		dct:creator <http://fsf.org/> ;
 		cc:legalcode <http://gnu.org/licenses/gpl-2.0.html> ;
 		foaf:logo <http://www.gnu.org/graphics/gplv3-127x51.png>;
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		rdfs:label   "GNU General Public License";
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction ;
@@ -2015,10 +1982,26 @@
 				]
 			];
 		owl:sameAs <http://www.gnu.org/licenses/gpl-2.0.rdf>;
-		rdfs:seeAlso <http://gnu.org/licenses/gpl-2.0.html> . 			
+		rdfs:seeAlso <http://gnu.org/licenses/gpl-2.0.html> .
+
+<http://purl.org/NET/rdflicense/simple2.0>
+        a	odrl:Policy ;
+		dct:hasVersion "2.0" ;
+		dct:creator <http://fsf.org/> ;
+		cc:legalcode <http://opensource.org/licenses/SimPL-2.0> ;
+		rdfs:seeAlso <http://opensource.org/licenses/SimPL-2.0> ;
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Simple Public License";
+		odrl:permission [
+			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction ;
+			odrl:duty [
+				odrl:action cc:SourceCode , cc:Notice, cc:Copyleft ;
+				]
+			] .
+		
 			
 <http://purl.org/NET/rdflicense/gpl3.0>
-        a          odrl:Policy ;
+        a	odrl:Policy ;
 		dct:creator <http://fsf.org/> ;
 		dct:hasVersion "3.0" ;
 		cc:legalcode <http://gnu.org/licenses/gpl-3.0.html> ;
@@ -2036,7 +2019,7 @@
 			
     
 <http://purl.org/NET/rdflicense/COMMON1.0>
-        a odrl:Set;
+        a odrl:Policy;
 	rdfs:label   "Common Public License";
 	dct:hasVersion "1.0" ;
         rdfs:seeAlso <http://opensource.org/licenses/cpl1.0.php> ;
@@ -2044,19 +2027,19 @@
 	dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	odrl:permission [
 	   	   a odrl:Permission;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:derive;
-		   odrl:action odrl:reproduce;
+		   odrl:action cc:Distribution;
+		   odrl:action cc:DerivativeWorks;
+		   odrl:action cc:Reproduction;
 		   odrl:action odrl:sell
    	   ] ;
    	   odrl:duty [
    	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
+   		   odrl:action cc:ShareAlike;
 		   odrl:action odrl:attachPolicy
    	   ] . 		
 	   
 <http://purl.org/NET/rdflicense/IBM1.0>
- a odrl:Set;
+ a odrl:Policy;
 	   rdfs:label   "IBM Public License";
 	   dct:hasVersion "1.0" ;
        rdfs:seeAlso <http://opensource.org/licenses/IPL-1.0>; 
@@ -2064,126 +2047,150 @@
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	   odrl:permission [
 	   	   a odrl:Permission;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:derive;
-		   odrl:action odrl:reproduce;
+		   odrl:action cc:Distribution;
+		   odrl:action cc:DerivativeWorks;
+		   odrl:action cc:Reproduction;
 		   odrl:action odrl:sell
    	   ] ;
    	   odrl:duty [
    	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
+   		   odrl:action cc:ShareAlike;
 		   odrl:action odrl:attachPolicy
    	   ] . 
 	   
 <http://purl.org/NET/rdflicense/W3C1.0>
- a odrl:Set;
-	   rdfs:label   "W3C SOFTWARE NOTICE AND LICENSE";
+ a odrl:Policy;
+	   rdfs:label   "W3C Software Notice and License";
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	   dct:hasVersion "1.0" ;
        rdfs:seeAlso <http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231>; 
        l4lod:licensingTerms <http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231>; 
    	   odrl:permission [
 	   	   a odrl:Permission;
-		   odrl:action odrl:distribute;
+		   odrl:action cc:Distribution;
 		   odrl:action odrl:modify;
 		   odrl:action odrl:copy
    	   ] ;
    	   odrl:duty [
    	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
+   		   odrl:action cc:ShareAlike;
 		   odrl:action odrl:attachPolicy
    	   ] . 	   
 	   
 <http://purl.org/NET/rdflicense/CRYPTIX1.0>
- a odrl:Set;
-	   rdfs:label   "CRYPTIX GENERAL LICENSE";
-       l4lod:licensingTerms <http://cryptix.org/LICENSE.TXT>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:modify
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
-		   odrl:action odrl:attachPolicy
-   	   ] . 
+		a odrl:Policy;
+		rdfs:label   "Cryptix General License";
+		rdfs:seeAlso <http://cryptix.org/LICENSE.TXT>; 
+		cc:legalcode <http://cryptix.org/LICENSE.TXT>; 
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+		   odrl:action cc:Distribution, odrl:modify;
+		   odrl:duty [
+			   odrl:action cc:ShareAlike, odrl:attachPolicy;
+		   ] ;		   
+   	   ] .
+ 
 	   
 <http://purl.org/NET/rdflicense/MICROSOFT1.0>
- a odrl:Set;
-       l4lod:licensingTerms <http://referencesource.microsoft.com/referencesourcelicensing.aspx>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "MICROSOFT REFERENCE SOURCE LICENSE";
-   	   odrl:permission [
-	   	   a odrl:Permission;
+		a odrl:Policy;
+		l4lod:licensingTerms <http://referencesource.microsoft.com/referencesourcelicensing.aspx>; 
+		rdfs:seeAlso <http://referencesource.microsoft.com/referencesourcelicensing.aspx>; 
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Microsoft Reference Source License";
+		odrl:permission [
 		   odrl:action odrl:read
-   	   ] ;
-  	   odrl:prohibition [
-  	       a odrl:Prohibition;
-		   odrl:action odrl:modify;
-		   odrl:action odrl:distribute
-   	   ] . 	   
+		] ;
+		odrl:prohibition [
+		   odrl:action odrl:modify, cc:Distribution ;
+		] . 	   
 	   
 <http://purl.org/NET/rdflicense/FREEBSD1.0>
- a odrl:Set;
-    rdfs:seeAlso <http://www.freebsd.org/copyright/freebsd-doc-license.html> ;
-       l4lod:licensingTerms <http://www.freebsd.org/copyright/freebsd-doc-license.html>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "FREE BSD DOCUMENTATION LICENSE";
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:modify
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
-		   odrl:action odrl:attachPolicy
-   	   ] . 	   
+		a odrl:Policy;
+		rdfs:seeAlso <http://www.freebsd.org/copyright/freebsd-doc-license.html> ;
+		l4lod:licensingTerms <http://www.freebsd.org/copyright/freebsd-doc-license.html>; 
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Free BSD Documentation License";
+		odrl:permission [
+			odrl:action cc:Distribution, odrl:modify;
+			odrl:duty [
+				odrl:action cc:ShareAlike, odrl:attachPolicy;
+			] 		   
+		] .
 	   
-<http://purl.org/NET/rdflicense/BSD1.0>
- a odrl:Set;
+<http://purl.org/NET/rdflicense/BSD2.0>
+ a odrl:Policy;
         l4lod:licensingTerms <http://www.linfo.org/bsdlicense.html>; 
         dct:language <http://www.lexvo.org/page/iso639-3/eng>;
         rdfs:seeAlso <http://www.linfo.org/bsdlicense.html> ;
-	   rdfs:label   "BSD LICENSE";	   
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:modify
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
-		   odrl:action odrl:attachPolicy
-   	   ] . 
+		rdfs:label   "2-clause BSD License";	   
+		dct:hasVersion "2.0" ;
+		odrl:permission [
+			odrl:action cc:Distribution, odrl:modify ;
+			odrl:duty [
+				odrl:action cc:ShareAlike, cc:Notice
+			] ;  	   
+	   ] .
+	   
+<http://purl.org/NET/rdflicense/BSD3.0>
+ a odrl:Policy;
+        l4lod:licensingTerms <http://www.linfo.org/bsdlicense.html>; 
+        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+        rdfs:seeAlso <http://www.linfo.org/bsdlicense.html> ;
+		rdfs:label   "BSD License 3-clause";	   
+		dct:hasVersion "4.0" ;
+		odrl:permission [
+			odrl:action cc:Distribution, odrl:modify ;
+			odrl:prohibition [
+				odrl:action "Endorsement" 
+			] ;
+			odrl:duty [
+				odrl:action cc:Notice, cc:ShareAlike ;
+			] ;  	   
+	   ] .
+	   
+<http://purl.org/NET/rdflicense/BSD4.0>
+ a odrl:Policy;
+        l4lod:licensingTerms <http://www.linfo.org/bsdlicense.html>; 
+        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+        rdfs:seeAlso <http://www.linfo.org/bsdlicense.html> ;
+		rdfs:label   "BSD License 4-clause";	   
+		dct:hasVersion "4.0" ;
+		odrl:permission [
+			odrl:action cc:Distribution, odrl:modify ;
+			odrl:prohibition [
+				odrl:action "Endorsement" 
+			] ;
+			odrl:duty [
+				odrl:action cc:Notice, cc:ShareAlike, cc:Attribution ;
+			] ;  	   
+	   ] .
+ 
 	   
 <http://purl.org/NET/rdflicense/BOOST1.0>
- a odrl:Set;
+ a odrl:Policy;
        l4lod:licensingTerms <http://opensource.org/licenses/BSL-1.0>; 
        rdfs:seeAlso <http://opensource.org/licenses/BSL-1.0>; 
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "BOOST SOFTWARE LICENSE 1.0";	
+	   rdfs:label   "BOOST Software License 1.0";	
 	   dct:hasVersion "1.0" ;
    	   odrl:permission [
 	   	   a odrl:Permission;
-		   odrl:action odrl:reproduce;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:derive
+		   odrl:action cc:Reproduction;
+		   odrl:action cc:Distribution;
+		   odrl:action cc:DerivativeWorks
    	   ] ;
    	   odrl:duty [
    	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
+   		   odrl:action cc:ShareAlike;
 		   odrl:action odrl:attachPolicy
    	   ] . 
 	   
 <http://purl.org/NET/rdflicense/ARTISTIC2.0>
- a odrl:Set;
+ a odrl:Policy;
        l4lod:licensingTerms <http://www.perlfoundation.org/artistic_license_2_0>; 
         rdfs:seeAlso <http://opensource.org/licenses/Artistic-2.0> ;
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "ARTISTIC LICENSE 2.0";	
+	   rdfs:label   "Artistic License 2.0";	
 	   dct:hasVersion "2.0" ;
    	   odrl:permission [
 	   	   a odrl:Permission;
@@ -2191,222 +2198,211 @@
    	   ] ;
    	   odrl:duty [
    	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike
+   		   odrl:action cc:ShareAlike
    	   ] ;
   	   odrl:prohibition [
   	       a odrl:Prohibition;
-		   odrl:action odrl:distribute
+		   odrl:action cc:Distribution
    	   ] . 	   
 	   
 <http://purl.org/NET/rdflicense/ORACLE1.0>
- a odrl:Set;
-	   rdfs:label   "ORACLE BERKELEY DB LICENSE";	
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-       l4lod:licensingTerms <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html>; 
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:copy;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:modify
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
-		   odrl:action odrl:attachPolicy
-   	   ] . 
+		a odrl:Policy;
+		rdfs:label   "Oracle Berkely DB License";	
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:seeAlso <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html>; 
+		l4lod:licensingTerms <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html>; 
+		odrl:permission [
+			odrl:action cc:Distribution, odrl:copy,  odrl:modify;
+			odrl:duty [
+				odrl:action cc:ShareAlike, odrl:attachPolicy ;
+			];		   
+   	   ] .
 	   
 <http://purl.org/NET/rdflicense/CDDL1.0>
- a odrl:Set;
-		rdfs:label "COMMON DEVELOPMENT AND DISTRIBUTION LICENSE";
-       l4lod:licensingTerms <http://opensource.org/licenses/CDDL-1.0>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   	   dct:hasVersion "1.0" ;
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:reproduce;
-		   odrl:action odrl:modify;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:derive
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike
-   	   ] . 	   
-
+		a odrl:Policy;
+		rdfs:label "Common Develpment and Distribution License";
+		l4lod:licensingTerms <http://opensource.org/licenses/CDDL-1.0>; 
+		rdfs:seeAlso <http://opensource.org/licenses/CDDL-1.0>; 
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+	   	dct:hasVersion "1.0" ;
+		odrl:permission [
+			odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, odrl:modify;
+			odrl:duty [
+				odrl:action cc:ShareAlike
+			] ;
+   	   ] .
 
 <http://purl.org/NET/rdflicense/MIT1.0>
-    a odrl:Set;
+    a odrl:Policy;
     rdfs:seeAlso <http://opensource.org/licenses/MIT>; 
     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-    rdfs:label  "MIT LICENSE" ;	  
+    rdfs:label  "MIT License" ;	  
     odrl:permission [
-        a odrl:Permission;
-            odrl:action odrl:distribute;
-            odrl:action odrl:copy;
-            odrl:action odrl:modify;
-            odrl:action odrl:sell
+		odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, odrl:modify, odrl:sell;
     ] .
 	   
 	   
 <http://purl.org/NET/rdflicense/EUC1.0>
- a odrl:Set;
-	   rdfs:label   "EUROPEAN COMMISSION COPYRIGHT";	  
-       l4lod:licensingTerms <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+ a odrl:Policy;
+	   rdfs:label   "European Comission Copyright";	  
+       rdfs:seeAlso <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright>; 
+	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:reproduce
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:attribute
-   	   ] . 
+		   odrl:action cc:Reproduction ;
+			odrl:duty [
+				odrl:action cc:Attribution;
+			] 		   
+   	   ] .
+ 
 	   
 <http://purl.org/NET/rdflicense/GOVTRACK1.0>
- a odrl:Set;
-       l4lod:licensingTerms <https://www.govtrack.us/developers/license>; 
-        rdfs:seeAlso <https://www.govtrack.us/developers/license> ;
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   	   rdfs:label   "GOVTRACK LICENSE";	
+ a odrl:Policy;
+      l4lod:licensingTerms <https://www.govtrack.us/developers/license>; 
+       rdfs:seeAlso <https://www.govtrack.us/developers/license> ;
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Govtrack License";	
    	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:copy
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
-		   odrl:action odrl:attribute
+			odrl:action cc:Reproduction, odrl:copy ;
+			odrl:duty [
+				odrl:action cc:ShareAlike, cc:Attribution;
+			] 		   
    	   ] ;
   	   odrl:prohibition [
-  	       a odrl:Prohibition;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:commercialize
+		   odrl:action cc:Distribution, odrl:commercialize;
    	   ] . 	  
 	  
 <http://purl.org/NET/rdflicense/OL1.0>
- a odrl:Set;
-       l4lod:licensingTerms <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/fra>;
-	   	   rdfs:label   "OPEN LICENSE (LICENCE OUVERTE)";	
+ a odrl:Policy;
+		dct:title "OL";
+		dct:hasVersion "1.0";
+       rdfs:seeAlso <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf>; 
+       cc:legalcode <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf>; 
+       dct:language <http://www.lexvo.org/page/iso639-3/fra>;
+   	   rdfs:label   "License Ouverte"@fr;	
    	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:copy;
-   		   odrl:action odrl:reproduce; 
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:modify;
-		   odrl:action odrl:derive;
-		   odrl:action odrl:commercialize 
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:attribute
-   	   ] . 	  
+		   odrl:action odrl:copy, cc:Reproduction, cc:Distribution, odrl:modify, cc:DerivativeWorks, odrl:commercialize ;
+		   odrl:duty [
+				odrl:action cc:Attribution ;
+		   ] ;
+   	   ] .
 	  
 <http://purl.org/NET/rdflicense/NDL1.0>
- a odrl:Set;
-       l4lod:licensingTerms <http://iss.ndl.go.jp/ndla/use/>; 
+ a odrl:Policy;
+       rdfs:seeAlso <http://iss.ndl.go.jp/ndla/use/>; 
 	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "WEB NDL AUTHORITY LICENSE";	
+	   rdfs:label   "Web NDL Authority License";	
    	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:copy;
-		   odrl:action odrl:distribute
+		   odrl:action odrl:Reproduction, cc:Distribution ;
    	   ] ;
   	   odrl:prohibition [
-  	       a odrl:Prohibition;
 		   odrl:action odrl:commercialize
    	   ] . 	  
 	  
 <http://purl.org/NET/rdflicense/COLORIURIS1.0>
- a odrl:Set;
-       l4lod:licensingTerms <http://www.coloriuris.net/en:avisos_legales#copyright_and_industrial_property>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "ColorIURIS COPYRIGHT";	
+	a odrl:Policy;
+       rdfs:seeAlso <http://www.coloriuris.net/en:avisos_legales#copyright_and_industrial_property>; 
+	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+	   rdfs:label   "ColorIURIS Copyright";	
    	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:copy;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:reproduce
-   	   ] ;
-  	   odrl:prohibition [
-  	       a odrl:Prohibition;
-		   odrl:action odrl:commercialize
+			odrl:action odrl:copy, cc:Distribution, cc:Reproduction;
+			odrl:prohibition [
+				odrl:action odrl:commercialize
+			] ;
    	   ] . 
 	  
 <http://purl.org/NET/rdflicense/APACHE2.0>
- a odrl:Set;
-	   rdfs:label   "APACHE LICENSE 2.0";	
-	   dct:hasVersion "2.0" ;
-           rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-2.0> ;
-       l4lod:licensingTerms <http://www.apache.org/licenses/LICENSE-2.0>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:reproduce;
-		   odrl:action odrl:derive;
-		   odrl:action odrl:distribute
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike;
-		   odrl:action odrl:attribute
-   	   ] . 
+ a odrl:Policy;
+		rdfs:label   "Apache License";	
+		dct:hasVersion "2.0" ;
+		rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-2.0> ;
+		l4lod:licensingTerms <http://www.apache.org/licenses/LICENSE-2.0>;
+		cc:legalcode <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+		   odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution ;
+		   odrl:duty [
+			   odrl:action cc:ShareAlike, cc:Attribution
+		   ]		   
+   	   ] .
+ 
 	  
 <http://purl.org/NET/rdflicense/MOZILLA2.0>
- a odrl:Set;
-	   rdfs:label   "MOZILLA PUBLIC LICENSE 2.0";	
-        rdfs:seeAlso <https://www.mozilla.org/MPL/2.0/> ;
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   dct:hasVersion "2.0" ;
-	   dct:creator <http://www.mozilla.org/>;
-       l4lod:licensingTerms <http://www.mozilla.org/MPL/2.0/>; 
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:reproduce;
-		   odrl:action odrl:modify;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:sell
+		a odrl:Policy;
+		dct:title "MPL";
+		rdfs:label   "Mozilla Public License";
+		rdfs:seeAlso <https://www.mozilla.org/MPL/2.0/> ;
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		dct:hasVersion "2.0" ;
+		dct:creator <http://www.mozilla.org/>;
+		l4lod:licensingTerms <http://www.mozilla.org/MPL/2.0/>; 
+		odrl:permission [
+		   odrl:action cc:Reproduction, odrl:modify, cc:Distribution, odrl:sell ;
    	   ] . 	   
 	   
 <http://purl.org/NET/rdflicense/ECLIPSE1.0>
- a odrl:Set;
-	   rdfs:label   "ECLIPSE PUBLIC LICENSE 1.0";
+	   a odrl:Policy;
+	   rdfs:label   "Eclipse Public License";
 	   dct:hasVersion "1.0" ;
-           rdfs:seeAlso <https://www.eclipse.org/legal/epl-v10.html> ;
-           dct:creator <http://www.eclipse.org/org/foundation/>;
-           l4lod:licensingTerms <http://www.eclipse.org/legal/epl-v10.html>; 
+       rdfs:seeAlso <https://www.eclipse.org/legal/epl-v10.html> ;
+       dct:creator <http://www.eclipse.org/org/foundation/>;
+       l4lod:licensingTerms <http://www.eclipse.org/legal/epl-v10.html>; 
 	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:reproduce;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:derive;
-		   odrl:action odrl:sell
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:shareAlike
-   	   ] . 
+		   odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:sell ;
+		   odrl:duty [
+				odrl:action cc:ShareAlike ;
+		   ] ;
+   	   ] .
 	   
-<http://purl.org/NET/rdflicense/OS>
-    a odrl:Set;
+<http://purl.org/NET/rdflicense/OS3.0>
+		a odrl:Policy;
         l4lod:licensingTerms <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
+        rdfs:seeAlso <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
         dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		rdfs:label   "OS OPEN DATA LICENSE";
+		rdfs:label "OS Open Data License";
+		dct:hasVersion "3.0" ;
 		odrl:permission [
-	   	   a odrl:Permission;
-   		   odrl:action odrl:reproduce;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:derive;
-		   odrl:action odrl:commercialize
-		] ;
-		odrl:duty [
-			odrl:action odrl:attribute
-        ] . 	   
+   		   odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize;
+			odrl:duty [
+				odrl:action cc:Attribution;
+			]		   
+	] .
 
+<http://purl.org/NET/rdflicense/GNU-GFDL1.3>
+    a odrl:Policy;
+		rdfs:label "GNU Free Documentation License"@en;
+        dct:title "GFDL";
+        rdfs:seeAlso <https://gnu.org/licenses/fdl.html> ;
+        cc:legalcode <https://gnu.org/licenses/fdl.html> ;
+        l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html> ; 
+		dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
+		dct:hasVersion "1.3" ;
+        odrl:permission [
+			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize;
+			odrl:constraint [
+				odrl:count 100 ;
+				odrl:operator odrl:lteq
+			] ;			
+			odrl:duty [
+				odrl:action cc:Attribution , cc:ShareAlike, "logChanges" ;
+			] ;
+			odrl:prohibition [
+				odrl:action "noDRM"  ;
+			] ;
+		] , [
+			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize ;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:ShareAlike, cc:SourceCode, "logChanges" ;
+			] ;
+			odrl:prohibition [
+				odrl:action "noDRM" ;
+			] ;
+		] . 
+
+	
 <http://purl.org/NET/rdflicense/GNU-LGPL3.0>
-    a odrl:Set;
-		rdfs:label "GNU LESSER GENERAL PUBLIC LICENSE"@en;
+    a odrl:Policy;
+		rdfs:label "GNU Lesser General Public License"@en;
         dct:title "LGPL";
         rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.html> ;
         cc:legalcode <https://www.gnu.org/licenses/lgpl.htm> ;
@@ -2414,15 +2410,15 @@
 		dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
 		dct:hasVersion "3.0" ;
         odrl:permission [
-			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks
+			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks ;
 			odrl:duty [
 				odrl:action cc:Attribution , cc:Notice, cc:SourceCode, cc:LesserCopyleft
 			] ;
 		] . 
 
 <http://purl.org/NET/rdflicense/GNU-AGPL3.0>
-    a odrl:Set;
-		rdfs:label "GNU LESSER GENERAL PUBLIC LICENSE"@en;
+    a odrl:Policy;
+		rdfs:label "GNU Affero General Public License"@en;
         dct:title "AGPL";
         rdfs:seeAlso <http://www.gnu.org/licenses/agpl-3.0.html> ;
         cc:legalcode <http://www.gnu.org/licenses/agpl-3.0.html> ;
@@ -2431,10 +2427,30 @@
 		foaf:logo <http://www.gnu.org/graphics/agplv3-88x31.png> ;
 		dct:hasVersion "3.0" ;
         odrl:permission [
-				odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks
+				odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks ;
 				odrl:duty [
 					odrl:action cc:Attribution , cc:Notice, cc:SourceCode, cc:Copyleft
 				] ;
 		] .
+	   
+#PSEUDO-LICENSES (THEY ARE NOT LICENSES BUT USEFUL ANYWAY)
+	   
+<http://purl.org/NET/rdflicense/allrightsreserved>  
+		a	odrl:Policy ;
+		rdfs:label   "All rights reserved"@en;
+		rdfs:comment "This license does not disclose any of the IPR and database rights"@en ;
+		rdfs:seeAlso <http://en.wikipedia.org/wiki/All_rights_reserved> ;
+		odrl:prohibition [
+			odrl:action ldr:IPRRight, ldr:databaseRight;
+		] . 	
+
+<http://purl.org/NET/rdflicense/publicdomain>
+        a       odrl:Policy ;
+		rdfs:label   "Public domain";
+		rdfs:seeAlso <http://en.wikipedia.org/wiki/Public_domain> ;
+		rdfs:comment "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable)." ;
+		odrl:permission [
+			odrl:action ldr:IPRRight, ldr:databaseRight;
+		] . 	
 	   
 #END OF FILE. This file should be available under: http://rdflicense.appspot.com/rdflicense/

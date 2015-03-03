@@ -17,7 +17,6 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 //LOG4J
 import org.apache.log4j.Logger;
 
-
 /**
  * Helper class with some useful methods to manipulate RDF
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
@@ -35,8 +34,6 @@ public class RDFUtils {
     public static Property SEEALSO = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
     public static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
     public static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");
-
-
 
     /**
      * Gets the first object for a given subject and property
@@ -82,16 +79,16 @@ public class RDFUtils {
         InputStream is = new ByteArrayInputStream(txt.getBytes());
         logger.info("Size: " + txt.length());
         try {
-            model.read(is, null, "RDF/XML");
-            logger.warn("Read as RDF/XML");
+            model.read(is, null, "TURTLE");
+            logger.info("Read as TURTLE");
             return model;
         } catch (Exception e) {
             logger.warn("Failed as RDF/XML. " + e.getMessage());
             try {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes());
-                model.read(is, null, "TURTLE");
-                logger.warn("Read as TURTLE");
+                model.read(is, null, "RDF/XML");
+                logger.info("Read as RDF/XML");
                 return model;
             } catch (Exception e2) {
                 logger.warn("Failed as TURTLE. " + e2.getMessage());
@@ -122,7 +119,4 @@ public class RDFUtils {
         s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
         return s;
     }
-    
-    
- 
 }

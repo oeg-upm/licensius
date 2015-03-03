@@ -18,7 +18,7 @@ import org.json.simple.JSONObject;
  */
 public class RDFLicense {
 
-    public static Model model = null;
+    public Model model = null;
     String uri = "";
     
     /**
@@ -45,6 +45,13 @@ public class RDFLicense {
             return "";
         return RDFUtils.getFirstValue(model, uri, "http://www.w3.org/2000/01/rdf-schema#label");
     }
+    
+    String getVersion() {
+        if (model==null)
+            return "";
+        return RDFUtils.getFirstValue(model, uri, "http://purl.org/dc/terms/hasVersion");
+    }
+    
 
     /**
      * Gets the URI for the legal code or an empty string if non-existing
@@ -56,10 +63,18 @@ public class RDFLicense {
         return RDFUtils.getFirstValue(model, uri, "http://creativecommons.org/ns#legalcode");
     }
     
+    
     /**
      * Gets the official URI of the license
      */
     public String getURI()
+    {
+        return uri;
+    }    
+    /**
+     * Gets the official URI of the license
+     */
+    public String getSeeAlso()
     {
         if (model==null)
             return "error";
@@ -85,7 +100,7 @@ public class RDFLicense {
         try {
             JSONObject obj = new JSONObject();
             obj.put("rdf", uri);
-            obj.put("uri", getURI());
+            obj.put("uri", getSeeAlso());
             obj.put("title", getLabel());
             json = obj.toString();
         } catch (Exception e) {
@@ -116,5 +131,6 @@ public class RDFLicense {
 //        RDFDataMgr.write(sw, model, Lang.RDFXML); //does not work in APPEngine
         return sw.toString();
     }
+
     
 }

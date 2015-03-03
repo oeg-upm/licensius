@@ -2,12 +2,17 @@ package oeg.rdflicense;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.ResIterator;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.RDF;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
@@ -33,7 +38,7 @@ public class RDFLicenseDataset {
     }
 
     /**
-     * Gets an RDFLicense given its URI
+     * Gets an RDFLicense given its URI. It does not extract this information from the model, but searchs for it independently
      * @param rdfuri URI of an RDFLicense
      */
     public RDFLicense getRDFLicense(String rdfuri) {
@@ -64,6 +69,32 @@ public class RDFLicenseDataset {
         return rdflicense;
     }
 
+    
+    /**
+     * Obtains a list with all the licenses in the dataset
+     */
+    public List<RDFLicense> getRDFLicenses() {
+        List<RDFLicense> licenses = new ArrayList();
+        List<Resource> rdflicenses = new ArrayList();
+        List<Resource> licenseclasses = ODRL.getCommonPolicyClasses();
+        for(Resource licenseclass : licenseclasses)
+        {
+            ResIterator it = modelTotal.listSubjectsWithProperty(RDF.type,  licenseclass);
+            while(it.hasNext())
+            {
+                Resource res = it.next();
+                rdflicenses.add(res);
+            }
+        }
+        for(Resource res : rdflicenses)
+        {
+            System.out.println("Loading: " + res.getURI());
+            RDFLicense rdflicense=getRDFLicense(res.getURI());
+//            System.out.println(rdflicense.getLabel());
+            licenses.add(rdflicense);
+        }
+        return licenses;
+    }    
     
     /**
      * Gets a TTL representation of the RDFLicense
@@ -103,7 +134,7 @@ public class RDFLicenseDataset {
      * 
      *****************************************************************/
     /**
-     * This method reads the local rdflicense.ttl file
+     * This method reads the local rdflicense.ttl file and loads it in memory
      */
     private void readRDFLicense() {
         try {
@@ -120,12 +151,14 @@ public class RDFLicenseDataset {
             }
             InputStream is = new ByteArrayInputStream(raw.getBytes());
             modelTotal.read(is, null, "TURTLE");
-            logger.info("rdflicense read with " + raw.length() + " bytes");
+            logger.info("rdflicense read OK with " + raw.length() + " bytes");
         } catch (Exception e) {
             logger.error(e.getMessage());
             return;
         }
     }
+
+
     
     
     
