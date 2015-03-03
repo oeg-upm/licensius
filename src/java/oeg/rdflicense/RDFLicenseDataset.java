@@ -64,6 +64,7 @@ public class RDFLicenseDataset {
         return rdflicense;
     }
 
+    
     /**
      * Gets a TTL representation of the RDFLicense
      */
@@ -115,7 +116,7 @@ public class RDFLicenseDataset {
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String str = "";
             while ((str = br.readLine()) != null) {
-                raw += str + "\n";
+                raw += str + " \n";
             }
             InputStream is = new ByteArrayInputStream(raw.getBytes());
             modelTotal.read(is, null, "TURTLE");
@@ -125,4 +126,7 @@ public class RDFLicenseDataset {
             return;
         }
     }
+    
+    
+    
 }

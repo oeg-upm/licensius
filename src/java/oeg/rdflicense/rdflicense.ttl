@@ -16,30 +16,28 @@
 
 
 <http://purl.org/NET/rdflicense/allrightsreserved>  
-        a          odrl:Policy ;
-		rdfs:label   "All rights reserved";
+        a       odrl:Policy ;
+		rdfs:label   "All rights reserved"@en;
 		rdfs:comment "This license does not disclose any of the IPR and database rights" ;
 		odrl:prohibition [
-			odrl:action 
-					ldr:IPRRight, ldr:databaseRight;
+			odrl:action ldr:IPRRight, ldr:databaseRight;
 			] . 	
 
 <http://purl.org/NET/rdflicense/publicdomain>
-        a          odrl:Policy ;
+        a       odrl:Policy ;
 		rdfs:label   "Public domain";
 		rdfs:comment "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable)." ;
 		odrl:permission [
-			odrl:action 
-					ldr:IPRRight, ldr:databaseRight;
+			odrl:action ldr:IPRRight, ldr:databaseRight;
 			] . 	
 			
 #CREATIVE COMMONS LICENSES VERSION 4.0
 			
 <http://purl.org/NET/rdflicense/cc-by4.0>
-        a          odrl:Policy ;
+        a       odrl:Policy ;
 		dct:hasVersion "4.0" ;
 		rdfs:label   "Creative Commons CC-BY 4.0";
- 	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+                dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
@@ -807,6 +805,7 @@
         odrl:action odrl:attribute;
      odrl:action odrl:attachPolicy
        ] . 
+
 <http://purl.org/NET/rdflicense/cc-by2.0ca> a odrl:Set;
   rdfs:label   "Creative Commons CC-BY 2.0 Canada";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/ca/legalcode>; 
@@ -825,6 +824,7 @@
         odrl:action odrl:attribute;
      odrl:action odrl:attachPolicy
        ] . 
+
 <http://purl.org/NET/rdflicense/cc-by2.0br> a odrl:Set;
   rdfs:label   "Creative Commons CC-BY 2.0 Brazil";
         cc:legalcode <http://creativecommons.org/licenses/by/2.0/br/legalcode>; 
@@ -2235,18 +2235,17 @@
 
 
 <http://purl.org/NET/rdflicense/MIT1.0>
- a odrl:Set;
+    a odrl:Set;
     rdfs:seeAlso <http://opensource.org/licenses/MIT>; 
     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "MIT LICENSE";	  
-   	   odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:copy;
-		   odrl:action odrl:modify;
-		   odrl:action odrl:sell
-   	   ] . 	   
-	   
+    rdfs:label  "MIT LICENSE" ;	  
+    odrl:permission [
+        a odrl:Permission;
+            odrl:action odrl:distribute;
+            odrl:action odrl:copy;
+            odrl:action odrl:modify;
+            odrl:action odrl:sell
+    ] .
 	   
 	   
 <http://purl.org/NET/rdflicense/EUC1.0>
@@ -2389,36 +2388,37 @@
    		   odrl:action odrl:shareAlike
    	   ] . 
 	   
-	   
-	   
 <http://purl.org/NET/rdflicense/OS>
- a odrl:Set;
-       l4lod:licensingTerms <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
-	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   rdfs:label   "OS OPEN DATA LICENSE";
-   	   odrl:permission [
+    a odrl:Set;
+        l4lod:licensingTerms <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
+        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+	rdfs:label   "OS OPEN DATA LICENSE";
+   	odrl:permission [
 	   	   a odrl:Permission;
    		   odrl:action odrl:reproduce;
 		   odrl:action odrl:distribute;
 		   odrl:action odrl:derive;
 		   odrl:action odrl:commercialize
-   	   ] ;
-   	   odrl:duty [
-   	       a odrl:Duty;
-   		   odrl:action odrl:attribute
-   	   ] . 	   
-	   
+   	] ;
+   	odrl:duty [
+            a odrl:Duty;
+                odrl:action odrl:attribute
+        ] . 	   
+
 <http://purl.org/NET/rdflicense/GNU-LGPL3.0>
-a odrl:Set;
-	rdfs:label   "GNU LESSER GENERAL PUBLIC LICENSE";
+    a odrl:Set;
+	rdfs:label   "GNU LESSER GENERAL PUBLIC LICENSE"@en;
+        dct:title   "LGPL";
         rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.html> ;
-       l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html>; 
-	     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	   dct:hasVersion "3.0" ;
-   	   odrl:permission [
+        cc:legalcode <https://www.gnu.org/licenses/lgpl.htm> ;
+        l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html> ; 
+	dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
+	dct:hasVersion "3.0" ;
+        odrl:permission [
 	   	   a odrl:Permission;
 		   odrl:action odrl:copy;
 		   odrl:action odrl:distribute;
 		   odrl:action odrl:modify
-   	   ] . 
-	   
+   	] . 
+
+#END OF FILE. This file should be available under: http://rdflicense.appspot.com/rdflicense/

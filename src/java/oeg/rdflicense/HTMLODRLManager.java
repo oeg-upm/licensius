@@ -28,12 +28,10 @@ public class HTMLODRLManager {
 
         RDFLicenseDataset dataset = new RDFLicenseDataset();
         String rdflicenseuri = "http://purl.org/NET/rdflicense/cc-by3.0gr";
-        RDFLicense license = dataset.getRDFLicense(rdflicenseuri);
-        Policy policy = license.getPolicy();
-        if (policy != null) {
-            String html = HTMLODRLManager.htmlPolicy(policy, "en");
-            System.out.println(html);
-        }
+//        RDFLicense license = dataset.getRDFLicense(rdflicenseuri);
+//        RDFLicense license = RDFLicenseDataset.getRDFLicenseByURI(lic);
+//        System.out.println(license.toTTL());
+        
 
     }
 

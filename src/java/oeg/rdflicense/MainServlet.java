@@ -87,7 +87,6 @@ public class MainServlet extends HttpServlet {
             bHTML=true;
         }
         
-        
         RDFLicense license = dataset.getRDFLicense(rdflicenseuri);
         if (license == null)
         {

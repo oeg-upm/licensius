@@ -112,6 +112,7 @@ public class RDFUtils {
         s += "@prefix xml: <http://www.w3.org/XML/1998/namespace> .\n";
         s += "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
         s += "@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n";
+        s += "@prefix l4lod: <http://ns.inria.fr/l4lod/> .\n";
         s += "@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
         s += "@prefix odrl: <http://www.w3.org/ns/odrl/2/> .\n";
         s += "@prefix ldr: <http://purl.org/NET/ldr/ns#> .\n";
