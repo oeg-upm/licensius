@@ -2392,33 +2392,49 @@
     a odrl:Set;
         l4lod:licensingTerms <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
         dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	rdfs:label   "OS OPEN DATA LICENSE";
-   	odrl:permission [
+		rdfs:label   "OS OPEN DATA LICENSE";
+		odrl:permission [
 	   	   a odrl:Permission;
    		   odrl:action odrl:reproduce;
 		   odrl:action odrl:distribute;
 		   odrl:action odrl:derive;
 		   odrl:action odrl:commercialize
-   	] ;
-   	odrl:duty [
-            a odrl:Duty;
-                odrl:action odrl:attribute
+		] ;
+		odrl:duty [
+			odrl:action odrl:attribute
         ] . 	   
 
 <http://purl.org/NET/rdflicense/GNU-LGPL3.0>
     a odrl:Set;
-	rdfs:label   "GNU LESSER GENERAL PUBLIC LICENSE"@en;
-        dct:title   "LGPL";
+		rdfs:label "GNU LESSER GENERAL PUBLIC LICENSE"@en;
+        dct:title "LGPL";
         rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.html> ;
         cc:legalcode <https://www.gnu.org/licenses/lgpl.htm> ;
         l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html> ; 
-	dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
-	dct:hasVersion "3.0" ;
+		dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
+		dct:hasVersion "3.0" ;
         odrl:permission [
-	   	   a odrl:Permission;
-		   odrl:action odrl:copy;
-		   odrl:action odrl:distribute;
-		   odrl:action odrl:modify
-   	] . 
+			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice, cc:SourceCode, cc:LesserCopyleft
+			] ;
+		] . 
 
+<http://purl.org/NET/rdflicense/GNU-AGPL3.0>
+    a odrl:Set;
+		rdfs:label "GNU LESSER GENERAL PUBLIC LICENSE"@en;
+        dct:title "AGPL";
+        rdfs:seeAlso <http://www.gnu.org/licenses/agpl-3.0.html> ;
+        cc:legalcode <http://www.gnu.org/licenses/agpl-3.0.html> ;
+		dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
+		dct:creator <http://fsf.org/> ;
+		foaf:logo <http://www.gnu.org/graphics/agplv3-88x31.png> ;
+		dct:hasVersion "3.0" ;
+        odrl:permission [
+				odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks
+				odrl:duty [
+					odrl:action cc:Attribution , cc:Notice, cc:SourceCode, cc:Copyleft
+				] ;
+		] .
+	   
 #END OF FILE. This file should be available under: http://rdflicense.appspot.com/rdflicense/
