@@ -2,8 +2,8 @@
 <project default="-deploy-ant" basedir=".">
 
     <!-- Google App Engine Properties -->
-    <property name="appengine.location" value="C:\Java\appengine-java-sdk-1.7.5"/>
-    <property name="appengine.http.port" value="8083"/>
+    <property name="appengine.location" value="C:\Java\appengine-java-sdk-1.9.4\appengine-java-sdk-1.9.4"/>
+    <property name="appengine.http.port" value="8053"/>
     <property name="appengine.debug.port" value="8765"/>
 
     <!-- Import Google App Engine Macros -->

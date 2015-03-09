@@ -29,6 +29,7 @@
 				odrl:action cc:Attribution , cc:Notice 
 				]
 			];
+                foaf:logo <http://i.creativecommons.org/l/by-nc/4.0/88x31.png> ;
 		cc:legalcode <http://creativecommons.org/licenses/by/4.0/legalcode> ;
 		rdfs:seeAlso <http://creativecommons.org/licenses/by/4.0/> . 
 		
@@ -41,8 +42,8 @@
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
 				odrl:action cc:Attribution , cc:Notice 
-				]
-			];	
+			]
+		];	
 		odrl:prohibition [
 			odrl:action cc:CommercialUse ;
 		];
@@ -60,6 +61,7 @@
 				odrl:action cc:Attribution , cc:Notice 
 				]
 			];	
+                foaf:logo <http://i.creativecommons.org/l/by-nc-nd/2.0/88x31.png> ;
 		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode> ;			
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/4.0/> . 
 		
@@ -91,6 +93,7 @@
 		odrl:prohibition [
 			odrl:action cc:CommercialUse ;
 		];			
+                foaf:logo <http://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png> ;
 		cc:legalcode <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode> ;				
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-sa/4.0/> . 		
 		
@@ -2001,19 +2004,23 @@
 		skos:related <http://purl.org/NET/rdflicense/cc-by/4.0>;
 		rdfs:seeAlso <http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/re-use-and-licensing/ukglf/> . 					
 			
-<http://purl.org/NET/rdflicense/ukogl2.0>
-        a          odrl:Policy ;
-		dct:hasVersion "2.0" ;
-		rdfs:label   "Open Government Licence";
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		odrl:permission [
-			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
-			odrl:duty [
-				odrl:action cc:Attribution , cc:Notice
-				]
-			];
-		cc:legalcode <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> ;					
-		rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> . 						
+<http://purl.org/NET/rdflicense/ukogl-nc2.0>
+    a   odrl:Policy ;
+    dct:hasVersion "2.0" ;
+    rdfs:label   "Open Government Licence Non Commercial";
+    cc:jurisdiction <http://dbpedia.org/page/United_Kingdom>;
+    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+    odrl:permission [
+        odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
+        odrl:duty [
+            odrl:action cc:Attribution , cc:Notice
+	] ;
+        odrl:prohibition [
+                odrl:action cc:CommercialUse ;
+        ] ;
+    ];
+    cc:legalcode <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> ;					
+    rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> . 						
 			
 <http://purl.org/NET/rdflicense/PDM1.0>
 		a odrl:Policy;
@@ -2024,7 +2031,26 @@
 		odrl:permission [
 		   odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution ;
    	   ] . 			
-			
+		
+<http://purl.org/NET/rdflicense/ogl-nc1.0>
+ a odrl:Policy;
+		dct:hasVersion "1.0" ;
+		rdfs:label   "UK NonCommercial Government License";
+            rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/non-commercial-government-licence.htm> ;
+		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+       l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/>; 
+   	   odrl:permission [
+		   odrl:action odrl:copy, cc:Distribution, cc:DerivativeWorks;
+			odrl:duty [
+				odrl:action cc:Attribution, odrl:attachPolicy
+			] ;		   
+   	   ] ;
+   	   odrl:prohibition [
+   	       a odrl:Prohibition;
+   		   odrl:action odrl:commercialize
+   	   ] ;
+   	    . 
+	
 <http://purl.org/NET/rdflicense/OGL1.0>
  a odrl:Policy;
 		dct:hasVersion "1.0" ;
@@ -2315,7 +2341,10 @@
     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
     rdfs:label  "MIT License" ;	  
     odrl:permission [
-		odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, odrl:modify, odrl:sell;
+	odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, odrl:modify, odrl:sell;
+        odrl:duty [
+            odrl:action cc:Notice ;
+        ] ;        
     ] .
 	   
 	   
@@ -2330,6 +2359,20 @@
 				odrl:action cc:Attribution;
 			] 		   
    	   ] .
+
+<http://purl.org/NET/rdflicense/EUPL1.1>
+ a odrl:Policy;
+    rdfs:label   "European Union Public License";	  
+    rdfs:seeAlso <https://joinup.ec.europa.eu/software/page/eupl/licence-eupl>; 
+    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+    odrl:permission [
+        odrl:action cc:Reproduction, cc:DerivativeWorks , cc:Distribution, odrl:sell, odrl:lease ;
+	odrl:duty [
+            odrl:action cc:ShareAlike, cc:Attribution, cc:SourceCode ;
+	] 		   
+   ] .
+
+
  
 	   
 <http://purl.org/NET/rdflicense/GOVTRACK1.0>
@@ -2388,19 +2431,19 @@
    	   ] . 
 	  
 <http://purl.org/NET/rdflicense/APACHE2.0>
- a odrl:Policy;
-		rdfs:label   "Apache License";	
-		dct:hasVersion "2.0" ;
-		rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-2.0> ;
-		l4lod:licensingTerms <http://www.apache.org/licenses/LICENSE-2.0>;
-		cc:legalcode <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
-	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		odrl:permission [
-		   odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution ;
-		   odrl:duty [
-			   odrl:action cc:ShareAlike, cc:Attribution
-		   ]		   
-   	   ] .
+    a odrl:Policy;
+        rdfs:label   "Apache License";	
+        dct:hasVersion "2.0" ;
+	rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-2.0> ;
+	l4lod:licensingTerms <http://www.apache.org/licenses/LICENSE-2.0> ;
+	cc:legalcode <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
+        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+	odrl:permission [
+            odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, "patentFree" ;
+            odrl:duty [
+                odrl:action cc:ShareAlike, cc:Attribution
+            ]		   
+        ] .
  
 	  
 <http://purl.org/NET/rdflicense/MOZILLA2.0>
@@ -2417,92 +2460,92 @@
    	   ] . 	   
 	   
 <http://purl.org/NET/rdflicense/ECLIPSE1.0>
-	   a odrl:Policy;
-	   rdfs:label   "Eclipse Public License";
-	   dct:hasVersion "1.0" ;
-       rdfs:seeAlso <https://www.eclipse.org/legal/epl-v10.html> ;
-       dct:creator <http://www.eclipse.org/org/foundation/>;
-       l4lod:licensingTerms <http://www.eclipse.org/legal/epl-v10.html>; 
-	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-   	   odrl:permission [
-		   odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:sell ;
-		   odrl:duty [
-				odrl:action cc:ShareAlike ;
-		   ] ;
-   	   ] .
+    a odrl:Policy;
+    rdfs:label   "Eclipse Public License";
+    dct:hasVersion "1.0" ;
+    rdfs:seeAlso <https://www.eclipse.org/legal/epl-v10.html> ;
+    dct:creator <http://www.eclipse.org/org/foundation/>;
+    l4lod:licensingTerms <http://www.eclipse.org/legal/epl-v10.html>; 
+    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+    odrl:permission [
+        odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:sell ;
+        odrl:duty [
+            odrl:action cc:ShareAlike ;
+        ] ;
+    ] .
 	   
 <http://purl.org/NET/rdflicense/OS3.0>
-		a odrl:Policy;
-        l4lod:licensingTerms <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
-        rdfs:seeAlso <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
-        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		rdfs:label "OS Open Data License";
-		dct:hasVersion "3.0" ;
-		odrl:permission [
-   		   odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize;
-			odrl:duty [
-				odrl:action cc:Attribution;
-			]		   
-	] .
+    a odrl:Policy;
+    l4lod:licensingTerms <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
+    rdfs:seeAlso <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html>; 
+    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+    rdfs:label "OS Open Data License";
+    dct:hasVersion "3.0" ;
+    odrl:permission [
+        odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize;
+        odrl:duty [
+            odrl:action cc:Attribution;
+	]		   
+    ] .
 
 <http://purl.org/NET/rdflicense/GNU-GFDL1.3>
     a odrl:Policy;
-		rdfs:label "GNU Free Documentation License"@en;
-        dct:title "GFDL";
-        rdfs:seeAlso <https://gnu.org/licenses/fdl.html> ;
-        cc:legalcode <https://gnu.org/licenses/fdl.html> ;
-        l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html> ; 
-		dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
-		dct:hasVersion "1.3" ;
-        odrl:permission [
-			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize;
-			odrl:constraint [
-				odrl:count 100 ;
-				odrl:operator odrl:lteq
-			] ;			
-			odrl:duty [
-				odrl:action cc:Attribution , cc:ShareAlike, "logChanges" ;
-			] ;
-			odrl:prohibition [
-				odrl:action "noDRM"  ;
-			] ;
-		] , [
-			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize ;
-			odrl:duty [
-				odrl:action cc:Attribution , cc:ShareAlike, cc:SourceCode, "logChanges" ;
-			] ;
-			odrl:prohibition [
-				odrl:action "noDRM" ;
-			] ;
-		] . 
+    rdfs:label "GNU Free Documentation License"@en;
+    dct:title "GFDL";
+    rdfs:seeAlso <https://gnu.org/licenses/fdl.html> ;
+    cc:legalcode <https://gnu.org/licenses/fdl.html> ;
+    l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html> ; 
+    dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
+    dct:hasVersion "1.3" ;
+    odrl:permission [
+        odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize;
+        odrl:constraint [
+            odrl:count 100 ;
+            odrl:operator odrl:lteq
+        ] ;			
+        odrl:duty [
+            odrl:action cc:Attribution , cc:ShareAlike, "logChanges" ;
+	] ;
+	odrl:prohibition [
+            odrl:action "noDRM"  ;
+	] ;
+	] , [
+            odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks, odrl:commercialize ;
+            odrl:duty [
+            odrl:action cc:Attribution , cc:ShareAlike, cc:SourceCode, "logChanges" ;
+	] ;
+        odrl:prohibition [
+            odrl:action "noDRM" ;
+	] ;
+    ] . 
 
 	
 <http://purl.org/NET/rdflicense/GNU-LGPL3.0>
     a odrl:Policy;
-		rdfs:label "GNU Lesser General Public License"@en;
-        dct:title "LGPL";
-        rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.html> ;
-        cc:legalcode <https://www.gnu.org/licenses/lgpl.htm> ;
-        l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html> ; 
-		dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
-		dct:hasVersion "3.0" ;
-        odrl:permission [
-			odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks ;
-			odrl:duty [
-				odrl:action cc:Attribution , cc:Notice, cc:SourceCode, cc:LesserCopyleft
-			] ;
-		] . 
+    rdfs:label "GNU Lesser General Public License"@en;
+    dct:title "LGPL";
+    rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.html> ;
+    cc:legalcode <https://www.gnu.org/licenses/lgpl.htm> ;
+    l4lod:licensingTerms <http://www.gnu.org/licenses/lgpl-3.0.html> ; 
+    dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
+    dct:hasVersion "3.0" ;
+    odrl:permission [
+        odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks ;
+        odrl:duty [
+            odrl:action cc:Attribution , cc:Notice, cc:SourceCode, cc:LesserCopyleft
+	] ;
+    ] . 
 
 <http://purl.org/NET/rdflicense/GNU-AGPL3.0>
     a odrl:Policy;
-		rdfs:label "GNU Affero General Public License"@en;
+	rdfs:label "GNU Affero General Public License"@en;
         dct:title "AGPL";
         rdfs:seeAlso <http://www.gnu.org/licenses/agpl-3.0.html> ;
         cc:legalcode <http://www.gnu.org/licenses/agpl-3.0.html> ;
-		dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
-		dct:creator <http://fsf.org/> ;
-		foaf:logo <http://www.gnu.org/graphics/agplv3-88x31.png> ;
-		dct:hasVersion "3.0" ;
+	dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
+	dct:creator <http://fsf.org/> ;
+	foaf:logo <http://www.gnu.org/graphics/agplv3-88x31.png> ;
+	dct:hasVersion "3.0" ;
         odrl:permission [
 				odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks ;
 				odrl:duty [
@@ -2510,6 +2553,9 @@
 				] ;
 		] .
 	   
+
+
+
 #PSEUDO-LICENSES (THEY ARE NOT LICENSES BUT USEFUL ANYWAY)
 	   
 <http://purl.org/NET/rdflicense/allrightsreserved>  

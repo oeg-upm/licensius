@@ -4,11 +4,25 @@
         <servlet-name>rdflicense</servlet-name>
         <servlet-class>oeg.rdflicense.MainServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>oeg.rdflicense.DefaultWrapperServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>rdflicense</servlet-name>
         <url-pattern>/rdflicense</url-pattern>
         <url-pattern>/rdflicense/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.ico</url-pattern>
+        <url-pattern>*.png</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.htc</url-pattern>
+        <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>       
     <welcome-file-list>
         <welcome-file>rdflicense.jsp</welcome-file>
     </welcome-file-list>
