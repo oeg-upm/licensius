@@ -2309,7 +2309,8 @@
    	   ] . 	   
 	   
 <http://purl.org/NET/rdflicense/ORACLE1.0>
-		a odrl:Policy;
+	   dct:hasVersion "1.0" ;
+	a odrl:Policy;
 		rdfs:label   "Oracle Berkely DB License";	
 	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		rdfs:seeAlso <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html>; 
@@ -2351,7 +2352,8 @@
 <http://purl.org/NET/rdflicense/EUC1.0>
  a odrl:Policy;
 	   rdfs:label   "European Comission Copyright";	  
-       rdfs:seeAlso <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright>; 
+	   dct:hasVersion "1.0" ;
+        rdfs:seeAlso <http://ec.europa.eu/geninfo/legal_notices_en.htm#copyright>; 
 	   dct:language <http://www.lexvo.org/page/iso639-3/eng>;
    	   odrl:permission [
 		   odrl:action cc:Reproduction ;
@@ -2361,7 +2363,8 @@
    	   ] .
 
 <http://purl.org/NET/rdflicense/EUPL1.1>
- a odrl:Policy;
+    a odrl:Policy;
+    dct:hasVersion "1.1" ;
     rdfs:label   "European Union Public License";	  
     rdfs:seeAlso <https://joinup.ec.europa.eu/software/page/eupl/licence-eupl>; 
     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
