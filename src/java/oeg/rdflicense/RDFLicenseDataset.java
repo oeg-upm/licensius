@@ -16,7 +16,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
- * Class centralizing methods around the RDFLicenseDataset dataset
+ * Class centralizing methods around the RDFLicenseDataset dataset.
+ * Served under: http://localhost:8053/
  * @author Victor oeg 
  */
 public class RDFLicenseDataset {
