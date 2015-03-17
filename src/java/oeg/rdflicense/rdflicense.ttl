@@ -19,24 +19,28 @@
 #CREATIVE COMMONS LICENSES VERSION 4.0
 			
 <http://purl.org/NET/rdflicense/cc-by4.0>
-        a       odrl:Policy ;
-		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY";
-		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		odrl:permission [
-			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
-			odrl:duty [
-				odrl:action cc:Attribution , cc:Notice 
-				]
-			];
-                foaf:logo <http://i.creativecommons.org/l/by-nc/4.0/88x31.png> ;
-		cc:legalcode <http://creativecommons.org/licenses/by/4.0/legalcode> ;
-		rdfs:seeAlso <http://creativecommons.org/licenses/by/4.0/> . 
+    a   odrl:Policy ;
+        dct:hasVersion "4.0" ;
+	rdfs:label   "Creative Commons CC-BY";
+	dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+	odrl:permission [
+            odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
+            odrl:duty [
+                odrl:action cc:Attribution , cc:Notice 
+		]
+            ];
+        dct:title "Creative Commons - Attribution 4.0 International - CC BY 4.0"@en ;
+        dct:alternative "CC BY";
+        foaf:logo <http://i.creativecommons.org/l/by/4.0/88x31.png> ;
+	cc:legalcode <http://creativecommons.org/licenses/by/4.0/legalcode> ;
+	rdfs:seeAlso <http://creativecommons.org/licenses/by/4.0/> . 
 		
 <http://purl.org/NET/rdflicense/cc-by-nc4.0>
         a          odrl:Policy ;
-		dct:hasVersion "4.0" ;
+        dct:hasVersion "4.0" ;
 		rdfs:label   "Creative Commons CC-BY-NC";
+        dct:title "Creative Commons - Attribution-NonCommercial 4.0 International - CC BY-NC 4.0"@en ;
+        dct:alternative "CC BY-NC";
 		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
@@ -47,6 +51,7 @@
 		odrl:prohibition [
 			odrl:action cc:CommercialUse ;
 		];
+                foaf:logo <http://i.creativecommons.org/l/by-nc/2.0/88x31.png> ;
 		cc:legalcode <http://creativecommons.org/licenses/by-nc/4.0/legalcode> ;
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc/4.0/> . 
 
@@ -54,6 +59,8 @@
 		a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
 		rdfs:label   "Creative Commons CC-BY-ND";
+                dct:title "Creative Commons - Attribution-NoDerivatives 4.0 International - CC BY-ND 4.0"@en ;
+                dct:alternative "CC BY-ND";
 		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:Reproduction, ldr:extraction, ldr:reutilization ;
@@ -61,28 +68,33 @@
 				odrl:action cc:Attribution , cc:Notice 
 				]
 			];	
-                foaf:logo <http://i.creativecommons.org/l/by-nc-nd/2.0/88x31.png> ;
-		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode> ;			
-		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/4.0/> . 
+                foaf:logo <http://i.creativecommons.org/l/by-nd/2.0/88x31.png> ;
+		cc:legalcode <http://creativecommons.org/licenses/by-nd/4.0/legalcode> ;			
+		rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/4.0/> . 
 		
 <http://purl.org/NET/rdflicense/cc-by-sa4.0>
-        a          odrl:Policy ;
-		dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY-SA";
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		odrl:permission [
-			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
-			odrl:duty [
-				odrl:action cc:Attribution , cc:Notice , cc:ShareAlike
-				]
-			];
-		cc:legalcode <http://creativecommons.org/licenses/by-sa/4.0/legalcode> ;					
-		rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/4.0/> . 		
+    a   odrl:Policy ;
+	dct:hasVersion "4.0" ;
+	rdfs:label   "Creative Commons CC-BY-SA" ;
+        dct:title "Creative Commons - Attribution-ShareAlike 4.0 International - CC BY-SA 4.0"@en ;
+        dct:alternative "CC BY-SA";
+	dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+	odrl:permission [
+            odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
+            odrl:duty [
+                odrl:action cc:Attribution , cc:Notice , cc:ShareAlike ;
+                ] ;
+            ] ;
+        foaf:logo <http://i.creativecommons.org/l/by-sa/4.0/80x15.png> ;
+        cc:legalcode <http://creativecommons.org/licenses/by-sa/4.0/legalcode> ;					
+	rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/4.0/> . 		
 
 <http://purl.org/NET/rdflicense/cc-by-nc-sa4.0>
         a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
 		rdfs:label   "Creative Commons CC-BY-NC-SA";
+        dct:title "Creative Commons - Attribution-NonCommercial-ShareAlike 4.0 International - CC BY-NC-SA 4.0"@en ;
+        dct:alternative "CC BY-NC-SA";
 	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks ,cc:Reproduction, ldr:extraction, ldr:reutilization ;
@@ -101,7 +113,9 @@
         a          odrl:Policy ;
 		dct:hasVersion "4.0" ;
 		rdfs:label   "Creative Commons CC-BY-NC-ND";
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+                dct:title "Creative Commons - Attribution-NonCommercial-NoDerivatives 4.0 International - CC BY-NC-ND 4.0"@en ;
+                dct:alternative "CC BY-NC-ND";
 		odrl:permission [
 			odrl:action cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
@@ -111,17 +125,21 @@
 		odrl:prohibition [
 			odrl:action cc:CommercialUse ;
 		];			
-		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode> ;				
+                foaf:logo <http://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png> ;
+                cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode> ;				
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/4.0/> . 		
 				
 <http://purl.org/NET/rdflicense/cc-zero1.0>
         a          odrl:Policy ;
 		dct:hasVersion "1.0" ;
 		rdfs:label   "Creative Commons CC0";
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+                dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+                dct:title "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication"@en ;
+                dct:alternative "CC0";
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 		];
+                foaf:logo <http://i.creativecommons.org/p/zero/1.0/88x31.png> ;
 		cc:legalcode <http://creativecommons.org/publicdomain/zero/1.0/legalcode> ;			
 		rdfs:seeAlso <http://creativecommons.org/publicdomain/zero/1.0/> . 
 
@@ -141,7 +159,7 @@
 		rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/> . 
 		
 <http://purl.org/NET/rdflicense/cc-by-nc3.0>
-        a          odrl:Policy ;
+        a       odrl:Policy ;
 		dct:hasVersion "3.0" ;
 		rdfs:label   "Creative Commons CC-BY-NC 3.0";
 		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
@@ -2542,7 +2560,8 @@
 <http://purl.org/NET/rdflicense/GNU-AGPL3.0>
     a odrl:Policy;
 	rdfs:label "GNU Affero General Public License"@en;
-        dct:title "AGPL";
+        dct:alternative "AGPL";
+        dct:title "GNU Affero General Public License 3.0";
         rdfs:seeAlso <http://www.gnu.org/licenses/agpl-3.0.html> ;
         cc:legalcode <http://www.gnu.org/licenses/agpl-3.0.html> ;
 	dct:language <http://www.lexvo.org/page/iso639-3/eng> ; 
