@@ -17,7 +17,7 @@ import ldconditional.Main;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Esta clase incluye diferentes métodos para testear los servicios
  * @author Victor
  */
 public class TestClient {
@@ -28,9 +28,19 @@ public class TestClient {
     public static void main(String[] args) {
         Main.initLogger();
 
-        testGetOffers("geo");
+ //       testGetOffers("geo");
+        testGetOpenResource("http://salonica.dia.fi.upm.es/geo/Valladolid");
     }
 
+    public static void testGetOpenResource(String uriToScan)
+    { 
+        String uri = "http://salonica.dia.fi.upm.es/geo/service/getOpenResources?uri=";
+        String encodedData = URLEncoder.encode(uriToScan);
+        uri+=encodedData;
+        
+        System.out.println(uri);
+    }
+    
     public static void testGetOffers(String dataset) {
         String uriToScan = "";
         String output = "";

@@ -33,18 +33,16 @@ public class GetOffers extends HttpServlet {
 
     /**
      * Serves requests like: http://localhost/geo/service/getOffers
+     * http://salonica.dia.fi.upm.es/geo/service/getOffers
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         
         String uri = req.getRequestURI();
         int index=uri.indexOf('/',1);
         String sdataset = uri.substring(1,index);
-        
         String out ="";
-        
         ConditionalDataset dataset = new ConditionalDataset(sdataset);
         List<String> graphs = dataset.getGraphs();
-        
         JSONArray list = new JSONArray();
         for(String grafo : graphs)
         {

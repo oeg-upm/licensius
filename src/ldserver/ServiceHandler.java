@@ -37,6 +37,24 @@ public class ServiceHandler extends AbstractHandler {
             resp.setContentType("application/json");
             return;
         }
+        if (string.contains("/service/getResources"))
+        {
+            GetResources go = new GetResources();
+            go.doGet(req, resp);
+            baseRequest.setHandled(true);
+            resp.setStatus(HttpServletResponse.SC_OK);
+            resp.setContentType("application/json");
+            return;
+        }
+        if (string.contains("/service/getOpenResource"))
+        {
+            GetOpenResource go = new GetOpenResource();
+            go.doGet(req, resp);
+            baseRequest.setHandled(true);
+            resp.setStatus(HttpServletResponse.SC_OK);
+            resp.setContentType("application/json");
+            return;
+        }
         resp.setContentType("text/html;charset=utf-8");
         resp.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
