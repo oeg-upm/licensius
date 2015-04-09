@@ -10,6 +10,7 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
 
 /**
  * Main handler, distributing tasks to the other handlers
+ * 
  * @author vroddon
  */
 public class MainHandler extends AbstractHandler {
@@ -20,13 +21,12 @@ public class MainHandler extends AbstractHandler {
         if (baseRequest.isHandled())
             return;
         logQuery(request);
-        
-        
-        
-        
     }
 
     
+    /**
+     * Stores a query
+     */
     private void logQuery(HttpServletRequest request)
     {
         String sinfo = "Recibida la consulta " + request.getMethod() + " ";

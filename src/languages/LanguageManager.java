@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
- * v?
+ * Hace de mapa de idiomas
  * @author Victor Rodriguez Doncel
  */
 public class LanguageManager {

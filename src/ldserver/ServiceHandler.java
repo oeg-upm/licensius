@@ -4,13 +4,18 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ldconditional.Main;
-import org.apache.log4j.Logger;
+
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
+import org.apache.log4j.Logger;
+
+import ldconditional.Main;
+
+
 /**
- * Handler that processes commands
+ * Handler that processes commands.
+ * 
  * @author vroddon
  */
 public class ServiceHandler extends AbstractHandler {

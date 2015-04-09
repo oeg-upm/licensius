@@ -3,19 +3,13 @@ package ldconditional;
 import ldserver.GeneralHandler;
 import ldserver.ServiceHandler;
 import ldserver.MainHandler;
-import ldrauthorizer.ws.JettyServer;
-import ldrauthorizerold.LDRCore;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
-import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.NCSARequestLog;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.server.handler.DefaultHandler;
-import org.eclipse.jetty.server.handler.HandlerCollection;
 import org.eclipse.jetty.server.handler.RequestLogHandler;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.HandlerCollection;
@@ -51,7 +45,7 @@ public class Main {
             console.setLayout(layout);
             console.setThreshold(Level.INFO); //Level.DEBUG
             console.activateOptions();
-            Logger.getRootLogger().addAppender(console);
+            Logger.getRootLogger().addAppender(console);            
             RollingFileAppender file;
             file = new RollingFileAppender(layout, "./logs/logs.txt");
             file.setMaxFileSize("1MB");
@@ -65,6 +59,9 @@ public class Main {
         }
     }
     
+    /**
+     * Initializes the server and enters in wait state
+     */
     public static void initServer() throws Exception
     {
         int port = Integer.parseInt(LDRConfig.getPort());
