@@ -15,7 +15,7 @@ import ldrauthorizerold.GoogleAuthHelper;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
 
 
@@ -146,7 +146,7 @@ public class CLDHandlerDatasets extends AbstractHandler {
 
             List<Policy> policies = asset.getPolicies();
             for (Policy policy : policies) {
-                Policy policy2 = PolicyManager.getPolicy(policy.getURI());
+                Policy policy2 = PolicyManagerOld.getPolicy(policy.getURI());
                 if (policy2 == null) {
                     continue;
                 }

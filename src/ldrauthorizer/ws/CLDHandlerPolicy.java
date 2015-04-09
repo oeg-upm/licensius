@@ -14,7 +14,7 @@ import ldrauthorizer.ws.LDRServer;
 import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.managers.HTMLODRLManager;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.ODRLRDF;
 
 //JETTY
@@ -61,10 +61,10 @@ public class CLDHandlerPolicy extends AbstractHandler {
             turtle = true;
         }
         String licensesfolder = LDRConfig.getLicensesfolder();
-        PolicyManager.setPolicies(PolicyManager.readPolicies(licensesfolder)); //"../LDREditor/licenses"
+        PolicyManagerOld.setPolicies(PolicyManagerOld.readPolicies(licensesfolder)); //"../LDREditor/licenses"
 
 
-        Policy policy = PolicyManager.getPolicy(urlcompleta);
+        Policy policy = PolicyManagerOld.getPolicy(urlcompleta);
         Portfolio portfolio = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
         for (Policy policyx : portfolio.policies) {
             if (policyx.getURI().equals(urlcompleta)) {

@@ -29,6 +29,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         initLogger();
         
+        initDatasets();
+        
         initServer();
 
     }
@@ -60,7 +62,11 @@ public class Main {
     }
     
     /**
+<<<<<<< HEAD
      * Initializes the server and enters in wait state
+=======
+     * Initializes the web server
+>>>>>>> 0981c2eee2c2f70aba2ba64e7747551c51447e8a
      */
     public static void initServer() throws Exception
     {
@@ -93,6 +99,12 @@ public class Main {
         server.setHandler(handlers);
         server.start();
         server.join();        
+    }
+    
+    
+    public static void initDatasets()
+    {
+        ConditionalDatasets.loadDatasets();
     }
     
 }

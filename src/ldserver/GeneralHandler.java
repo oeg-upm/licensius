@@ -19,9 +19,11 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
  * Handler that processes the rest of resources
  * 
  * http://conditional.linkeddata.es/iate                              -- intro
- * http://conditional.linkeddata.es/iate/resource/sparql              -- sparql endpoint
- * http://conditional.linkeddata.es/iate/resource/word                -- linked data
- * http://conditional.linkeddata.es/iate/service?listResources        -- (depende)
+ * http://conditional.linkeddata.es/iate/sparql                       -- sparql endpoint
+ * http://conditional.linkeddata.es/iate/resource/myresource          -- linked data
+ * http://conditional.linkeddata.es/iate/service?listResources        -- 
+ * http://conditional.linkeddata.es/iate/service?getOffers            -- 
+ * 
  * @author vroddon
  */
 public class GeneralHandler extends AbstractHandler {
@@ -32,11 +34,13 @@ public class GeneralHandler extends AbstractHandler {
         if (baseRequest.isHandled()) {
             return;
         }
-        response.setContentType("text/html;charset=utf-8");
+        logger.info("Serving a general file");
+        
         String folder = string;
         boolean ok = serveStandardFile(baseRequest, request, response, folder);
         if (ok) {
             response.setStatus(HttpServletResponse.SC_OK);
+            response.setContentType("text/html;charset=utf-8");
             baseRequest.setHandled(true);
         } else //error 404
         {
@@ -50,7 +54,7 @@ public class GeneralHandler extends AbstractHandler {
     /**
      * Sirve un archivo estándar
      */
-    public boolean serveStandardFile(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String folder) {
+    private boolean serveStandardFile(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String folder) {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         boolean binario = false;

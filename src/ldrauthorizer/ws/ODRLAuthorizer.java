@@ -10,7 +10,7 @@ import odrlmodel.Constraint;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.Policy;
 import odrlmodel.Rule;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
  */
 public class ODRLAuthorizer {
 
-    private static final String ASSETS_FILE = "../data/assets.ttl";
+    private static final String ASSETS_FILE = "../data/void.ttl";
 
 
     /**
@@ -69,7 +69,7 @@ public class ODRLAuthorizer {
         AuthorizationResponse ar = new AuthorizationResponse();
         for(Policy policy : policies)
         {
-            Policy policyFromStore = PolicyManager.getPolicy(policy.getURI());
+            Policy policyFromStore = PolicyManagerOld.getPolicy(policy.getURI());
             List<Rule> rules=policyFromStore.getRules();
             for(Rule r : rules)
             {
@@ -169,7 +169,7 @@ public class ODRLAuthorizer {
         //SI HAY ALGUNA POLITICA ABIRTA, PERFECTO
         for(Policy policy :policies)
         {
-            Policy policyFromStore = PolicyManager.getPolicy(policy.getURI());
+            Policy policyFromStore = PolicyManagerOld.getPolicy(policy.getURI());
             if (policyFromStore==null)
                 continue;
             if (policyFromStore.isInOffer() && policyFromStore.isOpen())

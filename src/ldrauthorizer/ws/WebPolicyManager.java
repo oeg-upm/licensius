@@ -10,7 +10,7 @@ import ldrauthorizerold.Multilingual;
 import odrlmodel.Asset;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.Policy;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
@@ -99,7 +99,7 @@ public class WebPolicyManager {
 
         String opciones = form + "<select name=\"licencia\" id=\"licencia\">";
         String defecto = AssetManager.getPolicyLabelForAssetURI(selectedGrafo);
-        List<Policy> policies = PolicyManager.getPolicies();
+        List<Policy> policies = PolicyManagerOld.getPolicies();
         for (Policy policy : policies) {
             String opcion = policy.getLabel("en");
             if (opcion.equals(defecto)) {

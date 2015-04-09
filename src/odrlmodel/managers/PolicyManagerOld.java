@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
  * default policies and providing serialization methods
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
-public class PolicyManager {
+public class PolicyManagerOld {
 
     private static List<Policy> policies = new ArrayList();
     
@@ -35,7 +35,7 @@ public class PolicyManager {
      * @return A list of ODRL policies
      */
     public static List<Policy> readPolicies(String folder) {
-        List<Policy> pols = PolicyManager.getLicensesInFolder(folder);
+        List<Policy> pols = PolicyManagerOld.getLicensesInFolder(folder);
         return pols;
     }
 
@@ -68,7 +68,7 @@ public class PolicyManager {
         if (policies.isEmpty())
         {
             String folder=LDRConfig.getLicensesfolder();
-            PolicyManager.setPolicies(PolicyManager.readPolicies(folder));            
+            PolicyManagerOld.setPolicies(PolicyManagerOld.readPolicies(folder));            
         }
         return policies;
     }
@@ -121,7 +121,7 @@ public class PolicyManager {
                 try {
                     File f = listOfFiles[i];
                     Logger.getLogger("ldr").info("Parsed licence in " + f.getAbsolutePath() + " successfully");
-                    List<Policy> lp = PolicyManager.load(f.getAbsolutePath());
+                    List<Policy> lp = PolicyManagerOld.load(f.getAbsolutePath());
                     politicasx.addAll(lp);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -142,7 +142,7 @@ public class PolicyManager {
         List<Policy> politicas=new ArrayList();
         try{
             Model model = RDFDataMgr.loadModel(path);
-            List<Resource> ls = PolicyManager.findPolicies(model);
+            List<Resource> ls = PolicyManagerOld.findPolicies(model);
             for (Resource rpolicy : ls) {
                 Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
                 policy.fileName = path;
@@ -166,7 +166,7 @@ public class PolicyManager {
         Policy politica = null;
         try{
             Model model = RDFDataMgr.loadModel(path);
-            List<Resource> ls = PolicyManager.findPolicies(model);
+            List<Resource> ls = PolicyManagerOld.findPolicies(model);
             for (Resource rpolicy : ls) {
                 Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
                 policy.fileName = path;

@@ -1,0 +1,22 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix mysite: <http://salonica.dia.fi.upm.es/ldr/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix ldr:   <http://purl.oclc.org/NET/ldr/ns#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
+
+
+<http://salonica.dia.fi.upm.es/geo/>
+        a             dcat:Catalog ;
+        rdfs:label    "Geographic dataset with the provinces of Spain" .
+
+
+<http://salonica.dia.fi.upm.es/geo/dataset/default>
+        a             dcat:Dataset ;
+        rdfs:comment  "This dataset contains all the information about the Municipality of Madrid" ;
+        rdfs:label    "Dataset Madrid" ;
+        dct:license   <http://purl.org/NET/rdflicense/cc-by4.0> .
+

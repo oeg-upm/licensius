@@ -1,7 +1,7 @@
 package odrlmodel.managers;
 
 import odrlmodel.rdf.ODRLRDF;
-import odrlmodel.managers.PolicyManager;
+import odrlmodel.managers.PolicyManagerOld;
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.mem.GraphMem;
 import com.hp.hpl.jena.query.Dataset;
@@ -91,9 +91,10 @@ public class TestODRLModel {
         return policy;
     }   
     
+    
     private void loadCreativeCommonsLicense()
     {
-        List<Policy> policies = PolicyManager.load("./licenses/cc-by.ttl");
+        List<Policy> policies = PolicyManagerOld.load("./licenses/cc-by.ttl");
         for(Policy policy : policies)
         {
             String rdf=ODRLRDF.getRDF(policy);
@@ -106,9 +107,9 @@ public class TestODRLModel {
     {
         //Write
         System.out.println("Writing");
-        PolicyManager.store(createSimplePolicy(), "test.ttl");
+        PolicyManagerOld.store(createSimplePolicy(), "test.ttl");
         System.out.println("Reading");
-        List<Policy> policies = PolicyManager.load("test.ttl");
+        List<Policy> policies = PolicyManagerOld.load("test.ttl");
         for(Policy policy2 : policies)
             System.out.println(ODRLRDF.getRDF(policy2));
     }
@@ -196,7 +197,7 @@ public class TestODRLModel {
     private void loadCC() {
         LDRConfig.Load();
         String folder=LDRConfig.getLicensesfolder();
-        List<Policy> policies = PolicyManager.load(folder+"/cc-by.ttl");
+        List<Policy> policies = PolicyManagerOld.load(folder+"/cc-by.ttl");
         for(Policy policy : policies)
         {
             System.out.println(ODRLRDF.getRDF(policy));
@@ -209,7 +210,7 @@ public class TestODRLModel {
     private void loadMetashare(){
         LDRConfig.Load();
         String folder=LDRConfig.getLicensesfolder();
-        List<Policy> policies = PolicyManager.load(folder+"/C-NoReD.ttl");
+        List<Policy> policies = PolicyManagerOld.load(folder+"/C-NoReD.ttl");
         for(Policy policy : policies)
         {
             System.out.println(ODRLRDF.getRDF(policy));
@@ -222,7 +223,7 @@ public class TestODRLModel {
     private void loadComplex(){
         LDRConfig.Load();
         String folder=LDRConfig.getLicensesfolder();
-        List<Policy> policies = PolicyManager.load(folder+"/research.ttl");
+        List<Policy> policies = PolicyManagerOld.load(folder+"/research.ttl");
         for(Policy policy : policies)
         {
             System.out.println(ODRLRDF.getRDF(policy));
@@ -236,7 +237,7 @@ public class TestODRLModel {
     private void loadODRLPolicyWithPayment(){
         LDRConfig.Load();
         String folder=LDRConfig.getLicensesfolder();
-        List<Policy> policies = PolicyManager.load(folder+"/pago15euros.ttl");
+        List<Policy> policies = PolicyManagerOld.load(folder+"/pago15euros.ttl");
         for(Policy policy : policies)
         {
             System.out.println(ODRLRDF.getRDF(policy));
@@ -249,7 +250,7 @@ public class TestODRLModel {
     private void loadODRLPolicyWithPaymentPerTriple(){
         LDRConfig.Load();
         String folder=LDRConfig.getLicensesfolder();
-        List<Policy> policies = PolicyManager.load(folder+"/onecent.ttl");
+        List<Policy> policies = PolicyManagerOld.load(folder+"/onecent.ttl");
         for(Policy policy : policies)
         {
             System.out.println(ODRLRDF.getRDF(policy));

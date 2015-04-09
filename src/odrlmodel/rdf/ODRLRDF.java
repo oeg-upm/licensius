@@ -13,6 +13,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 //LOG4J
@@ -42,8 +43,22 @@ public class ODRLRDF {
      * @return An ODRL policy
      */
     public static Policy getPolicyFromResource(Resource rpolicy) {
-        Policy policy = new Policy();
+        Policy policy = new Policy(); 
         policy.uri = rpolicy.getURI();
+
+        //CHECK IF THEY ARE LOCAL OR REMOTE
+        StmtIterator it = rpolicy.listProperties(RDF.type);
+        if(!it.hasNext())
+        {
+            String rdf = RDFUtils.browseSemanticWeb(policy.uri);
+            Model model = RDFUtils.parseFromText(rdf);
+            if (model!=null)
+            {
+                rpolicy = model.getResource(policy.uri);
+                System.out.println(RDFUtils.countStatements(model) + " statements");
+            }
+        }
+        
         
         //CARGA LOS METADATOS COMUNES SI LOS HAY
         policy = (Policy)getResourceMetadata(policy, rpolicy);
@@ -420,7 +435,7 @@ public class ODRLRDF {
         asset = (Asset)getResourceMetadata(asset, rasset);
        
         //READ THE POLICIES
-        List<Resource> rpolicies = RDFUtils.getAllPropertyResources(rasset,RDFUtils.RLICENSE);
+        List<Resource> rpolicies = RDFUtils.getAllPropertyResources(rasset,RDFUtils.PLICENSE);
         for(Resource rpolicy : rpolicies)
         {
             Policy policy = getPolicyFromResource(rpolicy);
@@ -461,7 +476,7 @@ public class ODRLRDF {
      //       System.out.println("a");RDFUtils.print(model);            
             if (rpolicy==null)
                 continue;
-            rasset.addProperty(RDFUtils.RLICENSE, rpolicy);
+            rasset.addProperty(RDFUtils.PLICENSE, rpolicy);
             
        //     System.out.println("o");RDFUtils.print(model);            
             
