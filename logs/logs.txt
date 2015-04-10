@@ -1,0 +1,1454 @@
+19:57:07,429 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:07,429 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@470220cd[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+19:57:07,429 DEBUG AbstractConnection:98 - fillInterested HttpConnection@53f25921{FILLING}
+19:57:07,429 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@53f25921{FILLING_FILL_INTERESTED}
+19:57:07,429 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@53f25921{FILL_INTERESTED}
+19:57:07,429 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+19:57:07,429 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@16f0cd3b
+19:57:07,429 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+19:57:07,430 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+19:57:07,430 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:07,940 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+19:57:07,944  INFO DatasetPolicy:93 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 6 statements
+19:57:07,948 DEBUG Server:462 - RESPONSE /geo/service/getOffers  200 handled=true
+19:57:07,948 DEBUG HttpChannelState:291 - HttpChannelState@49452f0d{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+19:57:07,948 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@39286f9d[ITERATING] generate: NEED_HEADER (null,[p=0,l=352,c=32768,r=352],true)@START
+19:57:07,948 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@39286f9d[ITERATING] generate: FLUSH ([p=0,l=287,c=8192,r=287],[p=0,l=352,c=32768,r=352],true)@COMPLETING
+19:57:07,948 DEBUG WriteFlusher:328 - write: WriteFlusher@cd98af6{IDLE} [HeapByteBuffer@38a5cc0a[p=0,l=287,c=8192,r=287]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>nt-Type: applicat...���������������},HeapByteBuffer@51929c13[p=0,l=352,c=32768,r=352]={<<<[{"resource":{"li...BY 4.0@en"}}]||>>>�����������������...���������������}]
+19:57:07,948 DEBUG WriteFlusher:117 - update WriteFlusher@cd98af6{WRITING}:IDLE-->WRITING
+19:57:07,949 DEBUG ChannelEndPoint:184 - flushed 639 SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:07,949 DEBUG WriteFlusher:337 - flushed true
+19:57:07,949 DEBUG WriteFlusher:117 - update WriteFlusher@cd98af6{IDLE}:WRITING-->IDLE
+19:57:07,949 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@39286f9d[ITERATING] generate: DONE ([p=287,l=287,c=8192,r=0],[p=352,l=352,c=32768,r=0],true)@END
+19:57:07,949 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of 0}
+19:57:07,949 DEBUG HttpParser:1523 - END --> START
+19:57:07,950 DEBUG HttpChannel:410 - HttpChannelOverHttp@ac9fa94{r=1,a=IDLE,uri=-} handle exit, result COMPLETE
+19:57:07,950 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:07,950 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:07,950 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@470220cd[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+19:57:07,950 DEBUG AbstractConnection:98 - fillInterested HttpConnection@2ccb2a7c{FILLING}
+19:57:07,950 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@2ccb2a7c{FILLING_FILL_INTERESTED}
+19:57:07,950 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@2ccb2a7c{FILL_INTERESTED}
+19:57:07,950 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+19:57:07,950 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@69c9b181
+19:57:07,950 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+19:57:07,956 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+19:57:07,956 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:07,977 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+19:57:07,980  INFO DatasetPolicy:93 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 6 statements
+19:57:07,983 DEBUG Server:462 - RESPONSE /geo/service/getResources  200 handled=true
+19:57:07,983 DEBUG HttpChannelState:291 - HttpChannelState@7934155{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+19:57:07,984 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@296e14ec[ITERATING] generate: NEED_HEADER (null,[p=0,l=1091,c=32768,r=1091],true)@START
+19:57:07,984 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@296e14ec[ITERATING] generate: FLUSH ([p=0,l=288,c=8192,r=288],[p=0,l=1091,c=32768,r=1091],true)@COMPLETING
+19:57:07,984 DEBUG WriteFlusher:328 - write: WriteFlusher@1ebd060a{IDLE} [HeapByteBuffer@38a5cc0a[p=0,l=288,c=8192,r=288]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>t-Type: applicati...���������������},HeapByteBuffer@51929c13[p=0,l=1091,c=32768,r=1091]={<<<[{"triples":564,"...t\/default"}]||>>>�����������������...���������������}]
+19:57:07,984 DEBUG WriteFlusher:117 - update WriteFlusher@1ebd060a{WRITING}:IDLE-->WRITING
+19:57:07,985 DEBUG ChannelEndPoint:184 - flushed 1379 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:07,985 DEBUG WriteFlusher:337 - flushed true
+19:57:07,985 DEBUG WriteFlusher:117 - update WriteFlusher@1ebd060a{IDLE}:WRITING-->IDLE
+19:57:07,986 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@296e14ec[ITERATING] generate: DONE ([p=288,l=288,c=8192,r=0],[p=1091,l=1091,c=32768,r=0],true)@END
+19:57:07,986 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+19:57:07,986 DEBUG HttpParser:1523 - END --> START
+19:57:07,986 DEBUG HttpChannel:410 - HttpChannelOverHttp@7f90b865{r=2,a=IDLE,uri=-} handle exit, result COMPLETE
+19:57:07,986 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:07,986 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:07,986 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@5c6bfb39[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/service/...���������������}
+19:57:07,986 DEBUG AbstractConnection:98 - fillInterested HttpConnection@5dc543aa{FILLING}
+19:57:07,986 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@5dc543aa{FILLING_FILL_INTERESTED}
+19:57:07,986 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@5dc543aa{FILL_INTERESTED}
+19:57:07,987 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+19:57:07,987 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@18c7d676
+19:57:07,987 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+19:57:07,988 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+19:57:07,988 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:08,009 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+19:57:08,009 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+19:57:08,010 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,010 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@18c7d676
+19:57:08,010 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@5dc543aa{FILLING}
+19:57:08,010 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:08,010 DEBUG HttpConnection:186 - HttpConnection@5dc543aa{FILLING} onFillable HttpChannelState@7934155{s=IDLE i=true a=null}
+19:57:08,010 DEBUG ChannelEndPoint:139 - filled 341 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,010 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@470220cd[p=0,l=341,c=16384,r=341]={<<<GET /favicon.ico ...4xc386gh0k6||||>>>�����������������...���������������}
+19:57:08,010 DEBUG HttpParser:1523 - START --> SPACE1
+19:57:08,010 DEBUG HttpParser:1523 - SPACE1 --> URI
+19:57:08,010 DEBUG HttpParser:1523 - URI --> SPACE2
+19:57:08,010 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+19:57:08,010 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+19:57:08,010 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,010 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,010 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,011 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,011 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,011 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,011 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,011 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,011 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,011 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,011 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,011 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,011 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,011 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,011 DEBUG HttpParser:1523 - HEADER --> END
+19:57:08,011 DEBUG HttpChannel:656 - HttpChannelOverHttp@7f90b865{r=3,a=IDLE,uri=-} messageComplete
+19:57:08,011 DEBUG HttpInput:229 - HttpInputOverHTTP@434c1f28 EOF
+19:57:08,011 DEBUG HttpChannel:246 - HttpChannelOverHttp@7f90b865{r=3,a=IDLE,uri=-} handle enter
+19:57:08,012 DEBUG HttpChannelState:177 - HttpChannelState@7934155{s=IDLE i=true a=null} handling IDLE
+19:57:08,012 DEBUG HttpChannel:269 - HttpChannelOverHttp@7f90b865{r=3,a=DISPATCHED,uri=/favicon.ico} action REQUEST_DISPATCH
+19:57:08,012 DEBUG Server:450 - REQUEST /favicon.ico on HttpChannelOverHttp@7f90b865{r=3,a=DISPATCHED,uri=/favicon.ico}
+19:57:08,012 DEBUG ContextHandler:964 - scope null||/favicon.ico @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+19:57:08,012 DEBUG ContextHandler:1038 - context=||/favicon.ico @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+19:57:08,013 DEBUG SessionHandler:265 - Got Session ID 13t8k5qeirlfdz4xc386gh0k6 from cookie
+19:57:08,013 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@183ec003
+19:57:08,013 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:13t8k5qeirlfdz4xc386gh0k6@1717662415
+19:57:08,013  INFO MainHandler:41 - Recibida la consulta GET /favicon.ico  de 0:0:0:0:0:0:0:1 13t8k5qeirlfdz4xc386gh0k6
+19:57:08,014  INFO GeneralHandler:37 - Serving a general file
+19:57:08,014 DEBUG Server:462 - RESPONSE /favicon.ico  200 handled=true
+19:57:08,014 DEBUG HttpChannelState:291 - HttpChannelState@7934155{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+19:57:08,014 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@44724a8[ITERATING] generate: NEED_HEADER (null,[p=0,l=15,c=32768,r=15],true)@START
+19:57:08,015 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@44724a8[ITERATING] generate: FLUSH ([p=0,l=110,c=8192,r=110],[p=0,l=15,c=32768,r=15],true)@COMPLETING
+19:57:08,015 DEBUG WriteFlusher:328 - write: WriteFlusher@1ebd060a{IDLE} [HeapByteBuffer@38a5cc0a[p=0,l=110,c=8192,r=110]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>ess-Control-Max-A...���������������},HeapByteBuffer@51929c13[p=0,l=15,c=32768,r=15]={<<<404 not found||>>>,"licenses":[{"co...���������������}]
+19:57:08,015 DEBUG WriteFlusher:117 - update WriteFlusher@1ebd060a{WRITING}:IDLE-->WRITING
+19:57:08,016 DEBUG ChannelEndPoint:184 - flushed 125 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,016 DEBUG WriteFlusher:337 - flushed true
+19:57:08,016 DEBUG WriteFlusher:117 - update WriteFlusher@1ebd060a{IDLE}:WRITING-->IDLE
+19:57:08,017 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@44724a8[ITERATING] generate: DONE ([p=110,l=110,c=8192,r=0],[p=15,l=15,c=32768,r=0],true)@END
+19:57:08,017 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+19:57:08,017 DEBUG HttpParser:1523 - END --> START
+19:57:08,017 DEBUG HttpChannel:410 - HttpChannelOverHttp@7f90b865{r=3,a=IDLE,uri=-} handle exit, result COMPLETE
+19:57:08,017 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,018 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,018 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@128a47f1[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/service/...���������������}
+19:57:08,018 DEBUG AbstractConnection:98 - fillInterested HttpConnection@5dc543aa{FILLING}
+19:57:08,018 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@5dc543aa{FILLING_FILL_INTERESTED}
+19:57:08,018 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@5dc543aa{FILL_INTERESTED}
+19:57:08,018 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+19:57:08,018 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@18c7d676
+19:57:08,018 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+19:57:08,019 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+19:57:08,019 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:08,048 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+19:57:08,048 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+19:57:08,049 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,049 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@18c7d676
+19:57:08,049 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@5dc543aa{FILLING}
+19:57:08,049 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:08,049 DEBUG HttpConnection:186 - HttpConnection@5dc543aa{FILLING} onFillable HttpChannelState@7934155{s=IDLE i=true a=null}
+19:57:08,050 DEBUG ChannelEndPoint:139 - filled 341 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,050 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@5c6bfb39[p=0,l=341,c=16384,r=341]={<<<GET /favicon.ico ...4xc386gh0k6||||>>>s-ES,es;q=0.8,ca;...���������������}
+19:57:08,050 DEBUG HttpParser:1523 - START --> SPACE1
+19:57:08,050 DEBUG HttpParser:1523 - SPACE1 --> URI
+19:57:08,050 DEBUG HttpParser:1523 - URI --> SPACE2
+19:57:08,050 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+19:57:08,050 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+19:57:08,050 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,050 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,050 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,050 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,050 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,050 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,050 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,050 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,050 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,050 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,050 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,051 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,051 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+19:57:08,051 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+19:57:08,051 DEBUG HttpParser:1523 - HEADER --> END
+19:57:08,051 DEBUG HttpChannel:656 - HttpChannelOverHttp@7f90b865{r=4,a=IDLE,uri=-} messageComplete
+19:57:08,051 DEBUG HttpInput:229 - HttpInputOverHTTP@434c1f28 EOF
+19:57:08,051 DEBUG HttpChannel:246 - HttpChannelOverHttp@7f90b865{r=4,a=IDLE,uri=-} handle enter
+19:57:08,051 DEBUG HttpChannelState:177 - HttpChannelState@7934155{s=IDLE i=true a=null} handling IDLE
+19:57:08,051 DEBUG HttpChannel:269 - HttpChannelOverHttp@7f90b865{r=4,a=DISPATCHED,uri=/favicon.ico} action REQUEST_DISPATCH
+19:57:08,051 DEBUG Server:450 - REQUEST /favicon.ico on HttpChannelOverHttp@7f90b865{r=4,a=DISPATCHED,uri=/favicon.ico}
+19:57:08,052 DEBUG ContextHandler:964 - scope null||/favicon.ico @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+19:57:08,052 DEBUG ContextHandler:1038 - context=||/favicon.ico @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+19:57:08,052 DEBUG SessionHandler:265 - Got Session ID 13t8k5qeirlfdz4xc386gh0k6 from cookie
+19:57:08,052 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@183ec003
+19:57:08,052 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:13t8k5qeirlfdz4xc386gh0k6@1717662415
+19:57:08,052  INFO MainHandler:41 - Recibida la consulta GET /favicon.ico  de 0:0:0:0:0:0:0:1 13t8k5qeirlfdz4xc386gh0k6
+19:57:08,052  INFO GeneralHandler:37 - Serving a general file
+19:57:08,052 DEBUG Server:462 - RESPONSE /favicon.ico  200 handled=true
+19:57:08,052 DEBUG HttpChannelState:291 - HttpChannelState@7934155{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+19:57:08,052 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@2450225a[ITERATING] generate: NEED_HEADER (null,[p=0,l=15,c=32768,r=15],true)@START
+19:57:08,053 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@2450225a[ITERATING] generate: FLUSH ([p=0,l=110,c=8192,r=110],[p=0,l=15,c=32768,r=15],true)@COMPLETING
+19:57:08,053 DEBUG WriteFlusher:328 - write: WriteFlusher@1ebd060a{IDLE} [HeapByteBuffer@38a5cc0a[p=0,l=110,c=8192,r=110]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>ess-Control-Max-A...���������������},HeapByteBuffer@51929c13[p=0,l=15,c=32768,r=15]={<<<404 not found||>>>,"licenses":[{"co...���������������}]
+19:57:08,053 DEBUG WriteFlusher:117 - update WriteFlusher@1ebd060a{WRITING}:IDLE-->WRITING
+19:57:08,053 DEBUG ChannelEndPoint:184 - flushed 125 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,053 DEBUG WriteFlusher:337 - flushed true
+19:57:08,054 DEBUG WriteFlusher:117 - update WriteFlusher@1ebd060a{IDLE}:WRITING-->IDLE
+19:57:08,054 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@2450225a[ITERATING] generate: DONE ([p=110,l=110,c=8192,r=0],[p=15,l=15,c=32768,r=0],true)@END
+19:57:08,054 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+19:57:08,054 DEBUG HttpParser:1523 - END --> START
+19:57:08,054 DEBUG HttpChannel:410 - HttpChannelOverHttp@7f90b865{r=4,a=IDLE,uri=-} handle exit, result COMPLETE
+19:57:08,054 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,054 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:08,054 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@470220cd[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+19:57:08,054 DEBUG AbstractConnection:98 - fillInterested HttpConnection@5dc543aa{FILLING}
+19:57:08,054 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@5dc543aa{FILLING_FILL_INTERESTED}
+19:57:08,054 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@5dc543aa{FILL_INTERESTED}
+19:57:08,054 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+19:57:08,054 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@18c7d676
+19:57:08,055 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+19:57:08,055 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+19:57:08,055 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:28,268 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602248268
+19:57:36,803 DEBUG IdleTimeout:145 - SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 28853 ms, remaining: 1147 ms
+19:57:37,338 DEBUG IdleTimeout:145 - SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 29284 ms, remaining: 716 ms
+19:57:37,410 DEBUG IdleTimeout:145 - SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 29981 ms, remaining: 19 ms
+19:57:37,430 DEBUG IdleTimeout:145 - SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 30001 ms, remaining: -1 ms
+19:57:37,430 DEBUG IdleTimeout:151 - SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout expired
+19:57:37,430 DEBUG WriteFlusher:444 - ignored: WriteFlusher@38a6e729{IDLE} java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+19:57:37,430 DEBUG AbstractConnection:236 - FILL_INTERESTED-->IDLE HttpConnection@53f25921{IDLE}
+19:57:37,430 DEBUG HttpParser:1491 - close HttpParser{s=START,0 of -1}
+19:57:37,430 DEBUG HttpParser:1523 - START --> CLOSED
+19:57:37,430 DEBUG AbstractConnection:136 - HttpConnection@53f25921{IDLE} onFillInterestedFailed java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+19:57:37,430 DEBUG ChannelEndPoint:73 - oshut SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,out,-,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+19:57:37,431 DEBUG AbstractConnection:98 - fillInterested HttpConnection@53f25921{IDLE}
+19:57:37,431 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@53f25921{FILL_INTERESTED}
+19:57:37,431 DEBUG SelectChannelEndPoint:146 - Ignoring local interests update 1 -> 1 for SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+19:57:37,951 DEBUG IdleTimeout:145 - SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 30001 ms, remaining: -1 ms
+19:57:37,951 DEBUG IdleTimeout:151 - SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout expired
+19:57:37,951 DEBUG WriteFlusher:444 - ignored: WriteFlusher@cd98af6{IDLE} java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+19:57:37,951 DEBUG AbstractConnection:236 - FILL_INTERESTED-->IDLE HttpConnection@2ccb2a7c{IDLE}
+19:57:37,951 DEBUG HttpParser:1491 - close HttpParser{s=START,0 of -1}
+19:57:37,951 DEBUG HttpParser:1523 - START --> CLOSED
+19:57:37,951 DEBUG AbstractConnection:136 - HttpConnection@2ccb2a7c{IDLE} onFillInterestedFailed java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+19:57:37,951 DEBUG ChannelEndPoint:73 - oshut SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,out,-,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+19:57:37,952 DEBUG AbstractConnection:98 - fillInterested HttpConnection@2ccb2a7c{IDLE}
+19:57:37,952 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@2ccb2a7c{FILL_INTERESTED}
+19:57:37,952 DEBUG SelectChannelEndPoint:146 - Ignoring local interests update 1 -> 1 for SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+19:57:38,055 DEBUG IdleTimeout:145 - SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 30001 ms, remaining: -1 ms
+19:57:38,055 DEBUG IdleTimeout:151 - SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout expired
+19:57:38,055 DEBUG WriteFlusher:444 - ignored: WriteFlusher@1ebd060a{IDLE} java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+19:57:38,055 DEBUG AbstractConnection:236 - FILL_INTERESTED-->IDLE HttpConnection@5dc543aa{IDLE}
+19:57:38,055 DEBUG HttpParser:1491 - close HttpParser{s=START,0 of -1}
+19:57:38,055 DEBUG HttpParser:1523 - START --> CLOSED
+19:57:38,055 DEBUG AbstractConnection:136 - HttpConnection@5dc543aa{IDLE} onFillInterestedFailed java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+19:57:38,055 DEBUG ChannelEndPoint:73 - oshut SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,out,-,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+19:57:38,055 DEBUG AbstractConnection:98 - fillInterested HttpConnection@5dc543aa{IDLE}
+19:57:38,055 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@5dc543aa{FILL_INTERESTED}
+19:57:38,055 DEBUG SelectChannelEndPoint:146 - Ignoring local interests update 1 -> 1 for SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+19:57:47,418 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+19:57:47,418 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+19:57:47,418 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+19:57:47,418 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+19:57:47,418 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+19:57:47,418 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,418 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+19:57:47,418 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,419 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@69c9b181
+19:57:47,418 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@18c7d676
+19:57:47,419 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@2ccb2a7c{FILLING}
+19:57:47,419 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,419 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@16f0cd3b
+19:57:47,419 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:47,419 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@5dc543aa{FILLING}
+19:57:47,419 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:47,419 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@53f25921{FILLING}
+19:57:47,419 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+19:57:47,419 DEBUG HttpConnection:186 - HttpConnection@2ccb2a7c{FILLING} onFillable HttpChannelState@49452f0d{s=IDLE i=true a=null}
+19:57:47,419 DEBUG HttpConnection:186 - HttpConnection@53f25921{FILLING} onFillable HttpChannelState@6494d628{s=IDLE i=true a=null}
+19:57:47,419 DEBUG HttpConnection:186 - HttpConnection@5dc543aa{FILLING} onFillable HttpChannelState@7934155{s=IDLE i=true a=null}
+19:57:47,420 DEBUG ChannelEndPoint:139 - filled -1 SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,420 DEBUG ChannelEndPoint:139 - filled -1 SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,420 DEBUG ChannelEndPoint:64 - ishut SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,420 DEBUG ChannelEndPoint:139 - filled -1 SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,420 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,420 DEBUG ChannelEndPoint:64 - ishut SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,420 DEBUG ChannelEndPoint:112 - close SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,420 DEBUG ChannelEndPoint:64 - ishut SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,421 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,421 DEBUG SelectorManager$ManagedSelector:679 - Destroyed SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+19:57:47,421 DEBUG ChannelEndPoint:112 - close SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,421 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,421 DEBUG SelectorManager$ManagedSelector:679 - Destroyed SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+19:57:47,421 DEBUG AbstractConnection:176 - onClose HttpConnection@53f25921{FILLING}
+19:57:47,421 DEBUG AbstractConnection:176 - onClose HttpConnection@2ccb2a7c{FILLING}
+19:57:47,421 DEBUG ChannelEndPoint:112 - close SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+19:57:47,421 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@57cdc700{/0:0:0:0:0:0:0:1:53748<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+19:57:47,437 DEBUG HttpParser:1483 - atEOF HttpParser{s=CLOSED,0 of -1}
+19:57:47,437 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@28f4bbba{/0:0:0:0:0:0:0:1:53744<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+19:57:47,437 DEBUG HttpParser:1193 - parseNext s=CLOSED HeapByteBuffer@5c6bfb39[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+19:57:47,437 DEBUG SelectorManager$ManagedSelector:679 - Destroyed SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+19:57:47,437 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@53f25921{IDLE}
+19:57:47,437 DEBUG HttpParser:1483 - atEOF HttpParser{s=CLOSED,0 of -1}
+19:57:47,437 DEBUG AbstractConnection:176 - onClose HttpConnection@5dc543aa{FILLING}
+19:57:47,437 DEBUG HttpParser:1193 - parseNext s=CLOSED HeapByteBuffer@128a47f1[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/service/...���������������}
+19:57:47,437 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@59fadc4d{/0:0:0:0:0:0:0:1:53746<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+19:57:47,437 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@2ccb2a7c{IDLE}
+19:57:47,437 DEBUG HttpParser:1483 - atEOF HttpParser{s=CLOSED,0 of -1}
+19:57:47,438 DEBUG HttpParser:1193 - parseNext s=CLOSED HeapByteBuffer@470220cd[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+19:57:47,438 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@5dc543aa{IDLE}
+19:57:58,269 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602278269
+19:58:28,270 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602308270
+19:58:58,270 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602338270
+19:59:28,271 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602368271
+19:59:58,272 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602398272
+20:00:28,273 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602428273
+20:00:58,273 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602458273
+20:01:28,274 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602488274
+20:01:58,275 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602518275
+20:02:28,275 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602548275
+20:02:58,277 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602578277
+20:03:28,278 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602608278
+20:03:58,279 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602638279
+20:04:28,279 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602668279
+20:04:58,280 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602698280
+20:05:28,281 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602728281
+20:05:58,281 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602758281
+20:06:28,282 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602788282
+20:06:58,283 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602818283
+20:07:28,284 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602848284
+20:07:58,284 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602878284
+20:08:28,285 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602908285
+20:08:58,286 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602938286
+20:09:28,286 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602968286
+20:09:58,287 DEBUG HashSessionManager:351 - Scavenging sessions at 1428602998287
+20:10:28,288 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603028288
+20:10:58,289 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603058289
+20:11:28,289 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603088289
+20:11:58,290 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603118290
+20:12:28,291 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603148291
+20:12:58,291 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603178291
+20:13:28,292 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603208292
+20:13:58,293 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603238293
+20:14:28,294 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603268294
+20:14:58,294 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603298294
+20:15:28,295 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603328295
+20:15:58,296 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603358296
+20:16:28,296 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603388296
+20:16:58,297 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603418297
+20:17:28,298 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603448298
+20:17:58,299 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603478299
+20:18:28,299 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603508299
+20:18:58,300 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603538300
+20:19:28,301 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603568301
+20:19:58,301 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603598301
+20:20:28,302 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603628302
+20:20:58,303 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603658303
+20:21:28,304 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603688304
+20:21:58,304 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603718304
+20:22:28,304 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603748304
+20:22:58,305 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603778305
+20:23:28,305 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603808305
+20:23:58,306 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603838306
+20:24:28,307 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603868307
+20:24:58,308 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603898308
+20:25:28,308 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603928308
+20:25:58,309 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603958309
+20:26:28,310 DEBUG HashSessionManager:351 - Scavenging sessions at 1428603988310
+20:26:58,310 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604018310
+20:27:28,311 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604048311
+20:27:58,312 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604078312
+20:28:28,313 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604108313
+20:28:58,313 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604138313
+20:29:28,314 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604168314
+20:29:58,315 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604198315
+20:30:28,315 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604228315
+20:30:58,316 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604258316
+20:31:28,317 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604288317
+20:31:58,318 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604318318
+20:32:28,318 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604348318
+20:32:58,319 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604378319
+20:33:28,320 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604408320
+20:33:58,321 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604438321
+20:34:28,321 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604468321
+20:34:58,322 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604498322
+20:35:28,323 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604528323
+20:35:58,323 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604558323
+20:36:28,324 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604588324
+20:36:58,325 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604618325
+20:37:28,326 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604648326
+20:37:58,326 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604678326
+20:38:28,327 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604708327
+20:38:58,328 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604738328
+20:39:28,328 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604768328
+20:39:58,329 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604798329
+20:40:28,330 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604828330
+20:40:58,331 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604858331
+20:41:28,331 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604888331
+20:41:58,332 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604918332
+20:42:28,333 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604948333
+20:42:58,333 DEBUG HashSessionManager:351 - Scavenging sessions at 1428604978333
+20:43:28,334 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605008334
+20:43:58,335 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605038335
+20:44:28,336 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605068336
+20:44:58,336 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605098336
+20:45:28,337 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605128337
+20:45:58,338 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605158338
+20:46:28,338 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605188338
+20:46:58,339 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605218339
+20:47:28,340 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605248340
+20:47:58,341 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605278341
+20:48:28,341 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605308341
+20:48:58,342 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605338342
+20:49:28,343 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605368343
+20:49:58,343 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605398343
+20:50:28,344 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605428344
+20:50:58,345 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605458345
+20:51:28,346 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605488346
+20:51:58,346 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605518346
+20:52:28,347 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605548347
+20:52:58,348 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605578348
+20:53:28,348 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605608348
+20:53:58,349 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605638349
+20:54:28,350 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605668350
+20:54:58,351 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605698351
+20:55:28,351 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605728351
+20:55:58,352 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605758352
+20:56:28,353 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605788353
+20:56:58,353 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605818353
+20:57:28,354 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605848354
+20:57:58,355 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605878355
+20:58:28,356 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605908356
+20:58:58,356 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605938356
+20:59:28,357 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605968357
+20:59:58,358 DEBUG HashSessionManager:351 - Scavenging sessions at 1428605998358
+21:00:28,358 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606028358
+21:00:58,359 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606058359
+21:01:28,360 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606088360
+21:01:58,361 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606118361
+21:02:28,361 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606148361
+21:02:58,362 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606178362
+21:03:28,363 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606208363
+21:03:58,363 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606238363
+21:04:28,364 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606268364
+21:04:58,365 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606298365
+21:05:28,366 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606328366
+21:05:58,366 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606358366
+21:06:28,367 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606388367
+21:06:58,368 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606418368
+21:07:28,368 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606448368
+21:07:58,369 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606478369
+21:08:28,370 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606508370
+21:08:58,371 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606538371
+21:09:28,371 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606568371
+21:09:58,372 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606598372
+21:10:28,373 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606628373
+21:10:58,373 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606658373
+21:11:28,374 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606688374
+21:11:58,375 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606718375
+21:12:28,376 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606748376
+21:12:58,376 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606778376
+21:13:28,377 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606808377
+21:13:58,378 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606838378
+21:14:28,378 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606868378
+21:14:58,379 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606898379
+21:15:28,380 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606928380
+21:15:58,381 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606958381
+21:16:28,381 DEBUG HashSessionManager:351 - Scavenging sessions at 1428606988381
+21:16:58,382 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607018382
+21:17:28,383 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607048383
+21:17:58,384 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607078384
+21:18:28,384 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607108384
+21:18:58,385 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607138385
+21:19:28,386 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607168386
+21:19:58,386 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607198386
+21:20:28,387 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607228387
+21:20:58,388 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607258388
+21:21:28,389 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607288389
+21:21:58,389 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607318389
+21:22:28,390 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607348390
+21:22:58,391 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607378391
+21:23:28,391 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607408391
+21:23:58,392 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607438392
+21:24:28,393 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607468393
+21:24:58,394 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607498394
+21:25:28,394 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607528394
+21:25:58,395 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607558395
+21:26:28,396 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607588396
+21:26:58,396 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607618396
+21:27:28,397 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607648397
+21:27:58,398 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607678398
+21:28:28,399 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607708399
+21:28:58,399 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607738399
+21:29:28,400 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607768400
+21:29:58,401 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607798401
+21:30:28,401 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607828401
+21:30:58,402 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607858402
+21:31:28,403 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607888403
+21:31:58,404 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607918404
+21:32:28,404 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607948404
+21:32:58,405 DEBUG HashSessionManager:351 - Scavenging sessions at 1428607978405
+21:33:28,406 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608008406
+21:33:58,406 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608038406
+21:34:28,407 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608068407
+21:34:58,408 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608098408
+21:35:28,409 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608128409
+21:35:58,409 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608158409
+21:36:28,410 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608188410
+21:36:58,411 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608218411
+21:37:28,411 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608248411
+21:37:58,412 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608278412
+21:38:28,413 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608308413
+21:38:58,414 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608338414
+21:39:28,414 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608368414
+21:39:58,415 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608398415
+21:40:28,416 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608428416
+21:40:58,416 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608458416
+21:41:28,417 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608488417
+21:41:58,418 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608518418
+21:42:28,419 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608548419
+21:42:58,419 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608578419
+21:43:28,420 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608608420
+21:43:58,421 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608638421
+21:44:28,421 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608668421
+21:44:58,422 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608698422
+21:45:28,423 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608728423
+21:45:58,424 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608758424
+21:46:28,424 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608788424
+21:46:58,425 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608818425
+21:47:28,426 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608848426
+21:47:58,426 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608878426
+21:48:28,427 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608908427
+21:48:58,428 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608938428
+21:49:28,429 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608968429
+21:49:58,429 DEBUG HashSessionManager:351 - Scavenging sessions at 1428608998429
+21:50:28,430 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609028430
+21:50:58,431 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609058431
+21:51:28,431 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609088431
+21:51:58,432 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609118432
+21:52:28,433 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609148433
+21:52:58,434 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609178434
+21:53:28,434 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609208434
+21:53:58,435 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609238435
+21:54:28,436 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609268436
+21:54:58,436 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609298436
+21:55:28,437 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609328437
+21:55:58,438 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609358438
+21:56:28,439 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609388439
+21:56:58,439 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609418439
+21:57:28,440 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609448440
+21:57:58,441 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609478441
+21:58:28,441 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609508441
+21:58:58,442 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609538442
+21:59:28,443 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609568443
+21:59:58,444 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609598444
+22:00:28,444 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609628444
+22:00:58,445 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609658445
+22:01:28,446 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609688446
+22:01:58,447 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609718447
+22:02:28,447 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609748447
+22:02:58,448 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609778448
+22:03:28,449 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609808449
+22:03:58,449 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609838449
+22:04:28,450 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609868450
+22:04:58,451 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609898451
+22:05:28,452 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609928452
+22:05:58,452 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609958452
+22:06:28,453 DEBUG HashSessionManager:351 - Scavenging sessions at 1428609988453
+22:06:58,454 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610018454
+22:07:28,454 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610048454
+22:07:58,455 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610078455
+22:08:28,456 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610108456
+22:08:58,457 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610138457
+22:09:28,457 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610168457
+22:09:58,458 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610198458
+22:10:28,459 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610228459
+22:10:58,459 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610258459
+22:11:28,460 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610288460
+22:11:58,461 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610318461
+22:12:28,462 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610348462
+22:12:58,462 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610378462
+22:13:28,463 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610408463
+22:13:58,464 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610438464
+22:14:28,464 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610468464
+22:14:58,465 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610498465
+22:15:28,466 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610528466
+22:15:58,467 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610558467
+22:16:28,467 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610588467
+22:16:58,468 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610618468
+22:17:28,469 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610648469
+22:17:58,469 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610678469
+22:18:28,470 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610708470
+22:18:58,471 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610738471
+22:19:28,472 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610768472
+22:19:58,472 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610798472
+22:20:28,473 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610828473
+22:20:58,474 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610858474
+22:21:28,474 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610888474
+22:21:58,475 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610918475
+22:22:28,476 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610948476
+22:22:58,477 DEBUG HashSessionManager:351 - Scavenging sessions at 1428610978477
+22:23:28,477 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611008477
+22:23:58,478 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611038478
+22:24:28,479 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611068479
+22:24:58,479 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611098479
+22:25:28,480 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611128480
+22:25:58,481 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611158481
+22:26:28,482 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611188482
+22:26:58,482 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611218482
+22:27:28,483 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611248483
+22:27:58,484 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611278484
+22:28:28,484 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611308484
+22:28:58,485 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611338485
+22:29:28,486 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611368486
+22:29:58,487 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611398487
+22:30:28,487 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611428487
+22:30:58,488 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611458488
+22:31:28,489 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611488489
+22:31:58,489 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611518489
+22:32:28,490 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611548490
+22:32:58,491 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611578491
+22:33:28,492 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611608492
+22:33:58,492 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611638492
+22:34:28,493 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611668493
+22:34:58,494 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611698494
+22:35:28,494 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611728494
+22:35:58,495 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611758495
+22:36:28,496 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611788496
+22:36:58,497 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611818497
+22:37:28,497 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611848497
+22:37:58,498 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611878498
+22:38:28,499 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611908499
+22:38:58,499 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611938499
+22:39:28,500 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611968500
+22:39:58,501 DEBUG HashSessionManager:351 - Scavenging sessions at 1428611998501
+22:40:28,502 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612028502
+22:40:58,502 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612058502
+22:41:28,503 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612088503
+22:41:58,504 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612118504
+22:42:28,504 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612148504
+22:42:58,505 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612178505
+22:43:28,506 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612208506
+22:43:58,507 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612238507
+22:44:28,507 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612268507
+22:44:58,508 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612298508
+22:45:28,509 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612328509
+22:45:58,510 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612358510
+22:46:28,510 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612388510
+22:46:58,511 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612418511
+22:47:28,512 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612448512
+22:47:58,512 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612478512
+22:48:28,513 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612508513
+22:48:58,514 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612538514
+22:49:28,515 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612568515
+22:49:58,515 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612598515
+22:50:28,516 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612628516
+22:50:58,518 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612658518
+22:51:28,518 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612688518
+22:51:58,519 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612718519
+22:52:28,521 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612748521
+22:52:58,522 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612778522
+22:53:28,522 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612808522
+22:53:58,523 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612838523
+22:54:28,524 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612868524
+22:54:58,524 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612898524
+22:55:28,525 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612928525
+22:55:58,526 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612958526
+22:56:28,527 DEBUG HashSessionManager:351 - Scavenging sessions at 1428612988527
+22:56:58,527 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613018527
+22:57:28,528 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613048528
+22:57:58,529 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613078529
+22:58:28,529 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613108529
+22:58:58,530 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613138530
+22:59:28,531 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613168531
+22:59:58,532 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613198532
+23:00:28,532 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613228532
+23:00:58,534 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613258534
+23:01:28,535 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613288535
+23:01:58,536 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613318536
+23:02:28,537 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613348537
+23:02:58,538 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613378538
+23:03:28,539 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613408539
+23:03:58,539 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613438539
+23:04:28,540 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613468540
+23:04:58,541 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613498541
+23:05:28,541 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613528541
+23:05:58,542 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613558542
+23:06:28,543 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613588543
+23:06:58,544 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613618544
+23:07:28,544 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613648544
+23:07:58,545 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613678545
+23:08:28,546 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613708546
+23:08:58,546 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613738546
+23:09:28,547 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613768547
+23:09:58,548 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613798548
+23:10:28,549 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613828549
+23:10:58,549 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613858549
+23:11:28,550 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613888550
+23:11:58,551 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613918551
+23:12:28,551 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613948551
+23:12:58,552 DEBUG HashSessionManager:351 - Scavenging sessions at 1428613978552
+23:13:28,553 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614008553
+23:13:58,554 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614038554
+23:14:28,554 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614068554
+23:14:58,555 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614098555
+23:15:28,556 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614128556
+23:15:58,556 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614158556
+23:16:28,557 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614188557
+23:16:58,558 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614218558
+23:17:28,559 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614248559
+23:17:58,559 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614278559
+23:18:28,560 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614308560
+23:18:58,561 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614338561
+23:19:28,561 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614368561
+23:19:58,562 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614398562
+23:20:28,563 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614428563
+23:20:58,564 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614458564
+23:21:28,564 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614488564
+23:21:58,565 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614518565
+23:22:28,566 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614548566
+23:22:58,566 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614578566
+23:23:28,567 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614608567
+23:23:58,568 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614638568
+23:24:28,569 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614668569
+23:24:58,569 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614698569
+23:25:28,570 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614728570
+23:25:58,571 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614758571
+23:26:28,572 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614788572
+23:26:58,572 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614818572
+23:27:28,573 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614848573
+23:27:58,574 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614878574
+23:28:28,574 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614908574
+23:28:58,575 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614938575
+23:29:28,576 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614968576
+23:29:58,577 DEBUG HashSessionManager:351 - Scavenging sessions at 1428614998577
+23:30:28,577 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615028577
+23:30:58,578 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615058578
+23:31:28,579 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615088579
+23:31:58,579 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615118579
+23:32:28,580 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615148580
+23:32:58,580 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615178580
+23:33:28,581 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615208581
+23:33:58,581 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615238581
+23:34:28,582 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615268582
+23:34:58,583 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615298583
+23:35:28,583 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615328583
+23:35:58,584 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615358584
+23:36:28,585 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615388585
+23:36:58,586 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615418586
+23:37:28,586 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615448586
+23:37:58,587 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615478587
+23:38:28,588 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615508588
+23:38:58,588 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615538588
+23:39:28,589 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615568589
+23:39:58,590 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615598590
+23:40:28,591 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615628591
+23:40:58,591 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615658591
+23:41:28,592 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615688592
+23:41:58,593 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615718593
+23:42:28,593 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615748593
+23:42:58,594 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615778594
+23:43:28,595 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615808595
+23:43:58,596 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615838596
+23:44:28,596 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615868596
+23:44:58,597 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615898597
+23:45:28,598 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615928598
+23:45:58,598 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615958598
+23:46:28,599 DEBUG HashSessionManager:351 - Scavenging sessions at 1428615988599
+23:46:58,600 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616018600
+23:47:28,601 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616048601
+23:47:58,601 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616078601
+23:48:28,602 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616108602
+23:48:58,603 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616138603
+23:49:28,603 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616168603
+23:49:58,604 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616198604
+23:50:28,605 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616228605
+23:50:58,606 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616258606
+23:51:28,606 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616288606
+23:51:58,607 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616318607
+23:52:28,608 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616348608
+23:52:58,608 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616378608
+23:53:28,609 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616408609
+23:53:58,610 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616438610
+23:54:28,611 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616468611
+23:54:58,611 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616498611
+23:55:28,612 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616528612
+23:55:58,613 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616558613
+23:56:28,613 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616588613
+23:56:58,614 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616618614
+23:57:28,615 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616648615
+23:57:58,616 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616678616
+23:58:28,616 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616708616
+23:58:58,620 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616738620
+23:59:28,621 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616768621
+23:59:58,621 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616798621
+00:00:28,622 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616828622
+00:00:58,623 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616858623
+00:01:28,624 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616888624
+00:01:58,624 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616918624
+00:02:28,625 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616948625
+00:02:58,626 DEBUG HashSessionManager:351 - Scavenging sessions at 1428616978626
+00:03:28,626 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617008626
+00:03:58,627 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617038627
+00:04:28,628 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617068628
+00:04:58,629 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617098629
+00:05:28,629 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617128629
+00:05:58,630 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617158630
+00:06:28,631 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617188631
+00:06:58,631 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617218631
+00:07:28,632 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617248632
+00:07:58,633 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617278633
+00:08:28,634 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617308634
+00:08:58,634 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617338634
+00:09:28,635 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617368635
+00:09:58,636 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617398636
+00:10:28,637 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617428637
+00:10:58,637 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617458637
+00:11:28,638 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617488638
+00:11:58,639 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617518639
+00:12:28,639 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617548639
+00:12:58,640 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617578640
+00:13:28,641 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617608641
+00:13:58,642 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617638642
+00:14:28,642 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617668642
+00:14:58,643 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617698643
+00:15:28,644 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617728644
+00:15:58,644 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617758644
+00:16:28,645 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617788645
+00:16:58,646 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617818646
+00:17:28,647 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617848647
+00:17:58,647 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617878647
+00:18:28,648 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617908648
+00:18:58,649 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617938649
+00:19:28,649 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617968649
+00:19:58,650 DEBUG HashSessionManager:351 - Scavenging sessions at 1428617998650
+00:20:28,651 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618028651
+00:20:58,652 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618058652
+00:21:28,652 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618088652
+00:21:58,653 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618118653
+00:22:28,654 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618148654
+00:22:58,654 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618178654
+00:23:28,655 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618208655
+00:23:58,656 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618238656
+00:24:28,657 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618268657
+00:24:58,657 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618298657
+00:25:28,658 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618328658
+00:25:58,659 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618358659
+00:26:28,659 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618388659
+00:26:58,660 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618418660
+00:27:28,661 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618448661
+00:27:58,662 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618478662
+00:28:28,662 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618508662
+00:28:58,663 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618538663
+00:29:28,664 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618568664
+00:29:58,664 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618598664
+00:30:28,665 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618628665
+00:30:58,666 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618658666
+00:31:28,667 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618688667
+00:31:58,667 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618718667
+00:32:28,668 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618748668
+00:32:58,669 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618778669
+00:33:28,669 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618808669
+00:33:58,670 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618838670
+00:34:28,671 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618868671
+00:34:58,672 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618898672
+00:35:28,672 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618928672
+00:35:58,674 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618958674
+00:36:28,675 DEBUG HashSessionManager:351 - Scavenging sessions at 1428618988675
+00:36:58,675 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619018675
+00:37:28,676 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619048676
+00:37:58,679 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619078679
+00:38:28,680 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619108680
+00:38:58,680 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619138680
+00:39:28,681 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619168681
+00:39:58,682 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619198682
+00:40:28,682 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619228682
+00:40:58,683 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619258683
+00:41:28,684 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619288684
+00:41:58,685 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619318685
+00:42:28,685 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619348685
+00:42:58,686 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619378686
+00:43:28,687 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619408687
+00:43:58,687 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619438687
+00:44:28,688 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619468688
+00:44:58,689 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619498689
+00:45:28,690 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619528690
+00:45:58,690 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619558690
+00:46:28,693 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619588693
+00:46:58,694 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619618694
+00:47:28,694 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619648694
+00:47:58,695 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619678695
+00:48:28,696 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619708696
+00:48:58,697 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619738697
+00:49:28,697 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619768697
+00:49:58,698 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619798698
+00:50:28,699 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619828699
+00:50:58,699 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619858699
+00:51:28,700 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619888700
+00:51:58,701 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619918701
+00:52:28,702 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619948702
+00:52:58,702 DEBUG HashSessionManager:351 - Scavenging sessions at 1428619978702
+00:53:28,703 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620008703
+00:53:58,704 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620038704
+00:54:28,705 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620068705
+00:54:58,707 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620098706
+00:55:28,708 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620128708
+00:55:58,710 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620158710
+00:56:28,710 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620188710
+00:56:58,711 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620218711
+00:57:28,712 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620248712
+00:57:58,713 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620278713
+00:58:28,713 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620308713
+00:58:58,714 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620338714
+00:59:28,715 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620368715
+00:59:58,715 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620398715
+01:00:28,716 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620428716
+01:00:58,717 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620458717
+01:01:28,718 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620488718
+01:01:58,718 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620518718
+01:02:28,721 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620548721
+01:02:58,722 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620578722
+01:03:28,722 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620608722
+01:03:58,723 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620638723
+01:04:28,724 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620668724
+01:04:58,725 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620698725
+01:05:28,725 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620728725
+01:05:58,726 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620758726
+01:06:28,727 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620788727
+01:06:58,727 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620818727
+01:07:28,728 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620848728
+01:07:58,729 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620878729
+01:08:28,730 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620908730
+01:08:58,730 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620938730
+01:09:28,731 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620968731
+01:09:58,732 DEBUG HashSessionManager:351 - Scavenging sessions at 1428620998732
+01:10:28,732 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621028732
+01:10:58,735 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621058735
+01:11:28,736 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621088736
+01:11:58,737 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621118737
+01:12:28,739 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621148739
+01:12:58,740 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621178740
+01:13:28,741 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621208741
+01:13:58,741 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621238741
+01:14:28,742 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621268742
+01:14:58,743 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621298743
+01:15:28,744 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621328744
+01:15:58,744 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621358744
+01:16:28,745 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621388745
+01:16:58,746 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621418746
+01:17:28,746 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621448746
+01:17:58,747 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621478747
+01:18:28,748 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621508748
+01:18:58,749 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621538749
+01:19:28,750 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621568749
+01:19:58,752 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621598752
+01:20:28,753 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621628753
+01:20:58,753 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621658753
+01:21:28,754 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621688754
+01:21:58,755 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621718755
+01:22:28,756 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621748756
+01:22:58,756 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621778756
+01:23:28,757 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621808757
+01:23:58,758 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621838758
+01:24:28,758 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621868758
+01:24:58,759 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621898759
+01:25:28,760 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621928760
+01:25:58,761 DEBUG HashSessionManager:351 - Scavenging sessions at 1428621958761
+06:40:30,727 DEBUG HashSessionManager:351 - Scavenging sessions at 1428640830727
+06:41:00,730 DEBUG HashSessionManager:351 - Scavenging sessions at 1428640860729
+06:41:30,732 DEBUG HashSessionManager:351 - Scavenging sessions at 1428640890732
+1:20,937 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+06:41:21,124 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+06:41:21,124 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+06:41:21,141 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+06:41:21,141 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+06:41:22,270 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+06:41:22,358 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+06:41:22,359 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+06:41:22,359 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+06:41:22,359 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+06:41:22,359 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+06:41:22,360 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+06:41:22,360 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+06:41:22,360 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+06:41:22,360 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+06:41:22,361 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+06:41:22,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+06:41:22,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+06:41:22,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+06:41:22,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+06:41:22,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+06:41:22,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+06:41:22,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+06:41:22,363 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+06:41:22,392 DEBUG FileManager:179 - Add location: LocatorFile
+06:41:22,392 DEBUG FileManager:179 - Add location: LocatorURL
+06:41:22,393 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+06:41:22,394 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+06:41:22,425 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+06:41:22,425 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+06:41:22,425 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+06:41:22,425 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+06:41:22,447 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+06:41:22,457  INFO DatasetPolicy:93 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 6 statements
+06:41:22,470  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+06:41:22,470  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+06:41:22,471 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+06:41:22,471 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+06:41:22,478 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+06:41:22,478 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+07:12:05,079  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+07:12:05,211 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+07:12:05,329 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+07:12:05,329 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+07:12:05,331 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+07:12:05,331 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+07:12:06,213 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+07:12:06,285 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+07:12:06,285 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+07:12:06,286 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+07:12:06,286 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+07:12:06,286 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+07:12:06,286 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+07:12:06,287 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+07:12:06,287 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+07:12:06,287 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+07:12:06,289 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+07:12:06,289 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+07:12:06,290 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+07:12:06,290 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+07:12:06,290 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+07:12:06,290 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+07:12:06,290 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+07:12:06,291 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+07:12:06,291 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+07:12:06,297 DEBUG FileManager:179 - Add location: LocatorFile
+07:12:06,297 DEBUG FileManager:179 - Add location: LocatorURL
+07:12:06,298 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+07:12:06,299 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+07:12:06,330 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+07:12:06,330 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+07:12:06,331 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+07:12:06,331 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+07:12:06,336 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+07:12:06,346  INFO DatasetPolicy:93 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 6 statements
+07:12:06,347  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+07:12:06,347  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+07:12:06,348 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+07:12:06,348 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+07:12:06,348 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+07:12:06,348 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+07:12:27,355 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+07:12:27,355  INFO DatasetPolicy:93 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cdaddba4-fc2e-4ee0-a784-e62f1db259bf with 12 statements
+07:12:48,358 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+07:12:48,358  INFO DatasetPolicy:93 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/ee32f675-ccae-4ca9-a544-3c07abf0b16e with 12 statements
+07:13:09,362 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+07:13:09,363  INFO DatasetPolicy:93 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cc-by with 12 statements
+07:13:09,363  INFO ConditionalDatasets:32 - Dataset intro has been loaded
+07:13:09,363  INFO ConditionalDatasets:28 - Dataset rdflicense is being been loaded
+07:13:09,363  INFO ConditionalDatasets:32 - Dataset rdflicense has been loaded
+07:13:09,364  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+07:13:09,364  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+07:13:09,364  INFO Main:74 - Starting the server in 80
+07:13:09,373 DEBUG Log:173 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+07:13:09,380 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6d4d66d2 added {qtp1522095831{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+07:13:09,389 DEBUG ContainerLifeCycle:304 - HttpConnectionFactory@33065d67{HTTP/1.1} added {HttpConfiguration@712625fd{32768,8192/8192,https://:0,[]},POJO}
+07:13:09,390 DEBUG ContainerLifeCycle:304 - ServerConnector@15043a2f{null}{0.0.0.0:0} added {org.eclipse.jetty.server.Server@6d4d66d2,UNMANAGED}
+07:13:09,391 DEBUG ContainerLifeCycle:304 - ServerConnector@15043a2f{null}{0.0.0.0:0} added {qtp1522095831{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+07:13:09,391 DEBUG ContainerLifeCycle:304 - ServerConnector@15043a2f{null}{0.0.0.0:0} added {org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@1c5920df,AUTO}
+07:13:09,391 DEBUG ContainerLifeCycle:304 - ServerConnector@15043a2f{null}{0.0.0.0:0} added {org.eclipse.jetty.io.ArrayByteBufferPool@4a83a74a,POJO}
+07:13:09,391 DEBUG ContainerLifeCycle:304 - ServerConnector@15043a2f{null}{0.0.0.0:0} added {HttpConnectionFactory@33065d67{HTTP/1.1},AUTO}
+07:13:09,392 DEBUG ContainerLifeCycle:304 - ServerConnector@15043a2f{HTTP/1.1}{0.0.0.0:0} added {org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@d737b89,MANAGED}
+07:13:09,393 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6d4d66d2 added {ServerConnector@15043a2f{HTTP/1.1}{0.0.0.0:80},AUTO}
+07:13:09,401 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@7c137fd5 added {org.eclipse.jetty.server.session.HashSessionManager@183ec003,AUTO}
+07:13:09,402 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6d4d66d2 added {org.eclipse.jetty.server.session.HashSessionIdManager@3e08ff24,AUTO}
+07:13:09,407 DEBUG ContainerLifeCycle:304 - o.e.j.s.h.ContextHandler@43df23d3{/,null,null} added {org.eclipse.jetty.server.session.SessionHandler@7c137fd5,AUTO}
+07:13:09,407 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@7c137fd5 added {ldserver.MainHandler@6d60fe40,AUTO}
+07:13:09,407 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@19932c16 added {org.eclipse.jetty.server.handler.RequestLogHandler@73eb439a,AUTO}
+07:13:09,408 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@19932c16 added {o.e.j.s.h.ContextHandler@43df23d3{/,null,null},AUTO}
+07:13:09,408 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@19932c16 added {ldserver.ServiceHandler@514646ef,AUTO}
+07:13:09,408 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@19932c16 added {ldserver.GeneralHandler@305ffe9e,AUTO}
+07:13:09,409 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.RequestLogHandler@73eb439a added {org.eclipse.jetty.server.NCSARequestLog@433defed,AUTO}
+07:13:09,409 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6d4d66d2 added {org.eclipse.jetty.server.handler.HandlerCollection@19932c16,AUTO}
+07:13:09,409 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.Server@6d4d66d2
+07:13:09,410  INFO Server:300 - jetty-9.1.1.v20140108
+07:13:09,418 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.Server@6d4d66d2
+07:13:09,418 DEBUG AbstractLifeCycle:184 - starting qtp1522095831{STOPPED,8<=0<=200,i=0,q=0}
+07:13:09,420 DEBUG AbstractLifeCycle:177 - STARTED qtp1522095831{STARTED,8<=8<=200,i=6,q=0}
+07:13:09,420 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionIdManager@3e08ff24
+07:13:09,420 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionIdManager@3e08ff24
+07:13:09,420 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.HandlerCollection@19932c16
+07:13:09,420 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.HandlerCollection@19932c16
+07:13:09,420 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.RequestLogHandler@73eb439a
+07:13:09,420 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.RequestLogHandler@73eb439a
+07:13:09,420 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.NCSARequestLog@433defed
+07:13:09,424  INFO NCSARequestLog:230 - Opened D:\svn\ldconditional\logs\jetty-2015_04_10.request.log
+07:13:09,426 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.NCSARequestLog@433defed
+07:13:09,426 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.RequestLogHandler@73eb439a
+07:13:09,426 DEBUG AbstractLifeCycle:184 - starting o.e.j.s.h.ContextHandler@43df23d3{/,null,null}
+07:13:09,430 DEBUG AbstractHandler:57 - starting o.e.j.s.h.ContextHandler@43df23d3{/,null,STARTING}
+07:13:09,430 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.SessionHandler@7c137fd5
+07:13:09,430 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.session.SessionHandler@7c137fd5
+07:13:09,431 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionManager@183ec003
+07:13:09,431 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@2de56eb2
+07:13:09,432 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@2de56eb2
+07:13:09,433 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionManager@183ec003
+07:13:09,433 DEBUG AbstractLifeCycle:184 - starting ldserver.MainHandler@6d60fe40
+07:13:09,433 DEBUG AbstractHandler:57 - starting ldserver.MainHandler@6d60fe40
+07:13:09,433 DEBUG AbstractLifeCycle:177 - STARTED ldserver.MainHandler@6d60fe40
+07:13:09,433 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.SessionHandler@7c137fd5
+07:13:09,434  INFO ContextHandler:746 - Started o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+07:13:09,434 DEBUG AbstractLifeCycle:177 - STARTED o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+07:13:09,434 DEBUG AbstractLifeCycle:184 - starting ldserver.ServiceHandler@514646ef
+07:13:09,434 DEBUG AbstractHandler:57 - starting ldserver.ServiceHandler@514646ef
+07:13:09,434 DEBUG AbstractLifeCycle:177 - STARTED ldserver.ServiceHandler@514646ef
+07:13:09,434 DEBUG AbstractLifeCycle:184 - starting ldserver.GeneralHandler@305ffe9e
+07:13:09,434 DEBUG AbstractHandler:57 - starting ldserver.GeneralHandler@305ffe9e
+07:13:09,434 DEBUG AbstractLifeCycle:177 - STARTED ldserver.GeneralHandler@305ffe9e
+07:13:09,434 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.HandlerCollection@19932c16
+07:13:09,434 DEBUG AbstractLifeCycle:184 - starting ServerConnector@15043a2f{HTTP/1.1}{0.0.0.0:80}
+07:13:09,443 DEBUG ContainerLifeCycle:304 - ServerConnector@15043a2f{HTTP/1.1}{0.0.0.0:80} added {sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:80],POJO}
+07:13:09,443 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@1c5920df
+07:13:09,443 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@1c5920df
+07:13:09,444 DEBUG AbstractLifeCycle:184 - starting HttpConnectionFactory@33065d67{HTTP/1.1}
+07:13:09,444 DEBUG AbstractLifeCycle:177 - STARTED HttpConnectionFactory@33065d67{HTTP/1.1}
+07:13:09,444 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@d737b89
+07:13:09,446 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@38467116 keys=-1 selected=-1
+07:13:09,493 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@38467116 keys=0 selected=0
+07:13:09,493 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@23941fb4 keys=-1 selected=-1
+07:13:09,494 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-20-selector-ServerConnectorManager@d737b89/0,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@38467116 keys=0 selected=0
+07:13:09,494 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,500 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@23941fb4 keys=0 selected=0
+07:13:09,500 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@7486b455 keys=-1 selected=-1
+07:13:09,500 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-19-selector-ServerConnectorManager@d737b89/1,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@23941fb4 keys=0 selected=0
+07:13:09,501 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,516 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@7486b455 keys=0 selected=0
+07:13:09,516 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@660acfb keys=-1 selected=-1
+07:13:09,516 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-18-selector-ServerConnectorManager@d737b89/2,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@7486b455 keys=0 selected=0
+07:13:09,516 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,532 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@660acfb keys=0 selected=0
+07:13:09,532 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@5d908d47 keys=-1 selected=-1
+07:13:09,532 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-17-selector-ServerConnectorManager@d737b89/3,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@660acfb keys=0 selected=0
+07:13:09,532 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,547 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@5d908d47 keys=0 selected=0
+07:13:09,547 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@5efa40fe keys=-1 selected=-1
+07:13:09,547 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-16-selector-ServerConnectorManager@d737b89/4,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@5d908d47 keys=0 selected=0
+07:13:09,548 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,563 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@5efa40fe keys=0 selected=0
+07:13:09,563 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@1f9f6368 keys=-1 selected=-1
+07:13:09,563 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-15-selector-ServerConnectorManager@d737b89/5,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@5efa40fe keys=0 selected=0
+07:13:09,563 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,579 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@1f9f6368 keys=0 selected=0
+07:13:09,579 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@1c9b0314 keys=-1 selected=-1
+07:13:09,583 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-14-selector-ServerConnectorManager@d737b89/6,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@1f9f6368 keys=0 selected=0
+07:13:09,583 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,595 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@1c9b0314 keys=0 selected=0
+07:13:09,595 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@d737b89
+07:13:09,595 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1522095831-13-selector-ServerConnectorManager@d737b89/7,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@1c9b0314 keys=0 selected=0
+07:13:09,595 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:13:09,596  INFO AbstractConnector:265 - Started ServerConnector@15043a2f{HTTP/1.1}{0.0.0.0:80}
+07:13:09,596 DEBUG AbstractLifeCycle:177 - STARTED ServerConnector@15043a2f{HTTP/1.1}{0.0.0.0:80}
+07:13:09,597 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.Server@6d4d66d2
+07:13:39,434 DEBUG HashSessionManager:351 - Scavenging sessions at 1428642819434
+07:14:09,436 DEBUG HashSessionManager:351 - Scavenging sessions at 1428642849436
+07:14:39,437 DEBUG HashSessionManager:351 - Scavenging sessions at 1428642879437
+07:15:09,437 DEBUG HashSessionManager:351 - Scavenging sessions at 1428642909437
+07:15:39,438 DEBUG HashSessionManager:351 - Scavenging sessions at 1428642939438
+07:16:09,439 DEBUG HashSessionManager:351 - Scavenging sessions at 1428642969439
+07:16:39,439 DEBUG HashSessionManager:351 - Scavenging sessions at 1428642999439
+07:17:09,440 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643029440
+07:17:39,441 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643059441
+07:18:09,442 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643089442
+07:18:39,442 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643119442
+07:19:09,443 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643149443
+07:19:39,444 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643179444
+07:20:09,444 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643209444
+07:20:39,445 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643239445
+07:21:09,446 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643269446
+07:21:11,912 DEBUG SelectorManager$ManagedSelector:421 - Queued change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@225f3860
+07:21:11,913 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/0 selected
+07:21:11,914 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@225f3860
+07:21:11,925 DEBUG AbstractEndPoint:96 - onOpen SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0}
+07:21:11,925 DEBUG IdleTimeout:145 - SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0} idle timeout check, elapsed: 6 ms, remaining: 29994 ms
+07:21:11,957 DEBUG HttpConnection:98 - New HTTP Connection HttpConnection@37ded77b{IDLE}
+07:21:11,958 DEBUG AbstractConnection:167 - onOpen HttpConnection@37ded77b{IDLE}
+07:21:11,958 DEBUG AbstractConnection:98 - fillInterested HttpConnection@37ded77b{IDLE}
+07:21:11,958 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@37ded77b{FILL_INTERESTED}
+07:21:11,958 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=0}
+07:21:11,958 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@58bc
+07:21:11,958 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+07:21:11,959 DEBUG SelectorManager$ManagedSelector:673 - Created SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=0}
+07:21:11,959 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:21:12,370 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+07:21:12,370 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+07:21:12,371 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:12,371 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@58bc
+07:21:12,371 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@37ded77b{FILLING}
+07:21:12,371 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:21:12,371 DEBUG HttpConnection:186 - HttpConnection@37ded77b{FILLING} onFillable HttpChannelState@58e5442f{s=IDLE i=true a=null}
+07:21:12,372 DEBUG ChannelEndPoint:139 - filled 441 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:12,372 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@5622b143[p=0,l=441,c=16384,r=441]={<<<GET /geo/service/...4xc386gh0k6||||>>>�����������������...���������������}
+07:21:12,373 DEBUG HttpParser:1523 - START --> SPACE1
+07:21:12,373 DEBUG HttpParser:1523 - SPACE1 --> URI
+07:21:12,373 DEBUG HttpParser:1523 - URI --> SPACE2
+07:21:12,373 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+07:21:12,373 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+07:21:12,374 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+07:21:12,374 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+07:21:12,374 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:12,375 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:12,375 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:12,375 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:12,375 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:12,375 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+07:21:12,375 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:12,376 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+07:21:12,376 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+07:21:12,376 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:12,377 DEBUG HttpParser:1523 - HEADER --> END
+07:21:12,378 DEBUG HttpChannel:656 - HttpChannelOverHttp@2cef35d7{r=1,a=IDLE,uri=-} messageComplete
+07:21:12,379 DEBUG HttpInput:229 - HttpInputOverHTTP@68b5f1ed EOF
+07:21:12,379 DEBUG HttpChannel:246 - HttpChannelOverHttp@2cef35d7{r=1,a=IDLE,uri=-} handle enter
+07:21:12,379 DEBUG HttpChannelState:177 - HttpChannelState@58e5442f{s=IDLE i=true a=null} handling IDLE
+07:21:12,380 DEBUG HttpChannel:269 - HttpChannelOverHttp@2cef35d7{r=1,a=DISPATCHED,uri=/geo/service/getResources} action REQUEST_DISPATCH
+07:21:12,381 DEBUG Server:450 - REQUEST /geo/service/getResources on HttpChannelOverHttp@2cef35d7{r=1,a=DISPATCHED,uri=/geo/service/getResources}
+07:21:12,382 DEBUG ContextHandler:964 - scope null||/geo/service/getResources @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+07:21:12,382 DEBUG ContextHandler:1038 - context=||/geo/service/getResources @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+07:21:12,386 DEBUG SessionHandler:265 - Got Session ID 13t8k5qeirlfdz4xc386gh0k6 from cookie
+07:21:12,386 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@183ec003
+07:21:12,386 DEBUG SessionHandler:178 - session=null
+07:21:12,389 DEBUG AbstractSession:85 - new session & id sp8c9iuez8ecu9drr5cdzaak sp8c9iuez8ecu9drr5cdzaak
+07:21:12,390  INFO MainHandler:41 - Recibida la consulta GET /geo/service/getResources  de 0:0:0:0:0:0:0:1 sp8c9iuez8ecu9drr5cdzaak
+07:21:12,390  INFO ServiceHandler:29 - Serving a general file
+07:21:12,393 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+07:21:12,393 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+07:21:12,393 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+07:21:12,393 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+07:21:13,070 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+07:21:13,078  INFO DatasetPolicy:93 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 6 statements
+07:21:13,130 DEBUG Server:462 - RESPONSE /geo/service/getResources  200 handled=true
+07:21:13,130 DEBUG HttpChannelState:291 - HttpChannelState@58e5442f{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+07:21:13,133 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@39f97138[ITERATING] generate: NEED_HEADER (null,[p=0,l=1091,c=32768,r=1091],true)@START
+07:21:13,134 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@39f97138[ITERATING] generate: FLUSH ([p=0,l=384,c=8192,r=384],[p=0,l=1091,c=32768,r=1091],true)@COMPLETING
+07:21:13,134 DEBUG WriteFlusher:328 - write: WriteFlusher@2defc0f0{IDLE} [HeapByteBuffer@156ff6b7[p=0,l=384,c=8192,r=384]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>�����������������...���������������},HeapByteBuffer@676d3593[p=0,l=1091,c=32768,r=1091]={<<<[{"triples":564,"...t\/default"}]||>>>�����������������...���������������}]
+07:21:13,135 DEBUG WriteFlusher:117 - update WriteFlusher@2defc0f0{WRITING}:IDLE-->WRITING
+07:21:13,137 DEBUG ChannelEndPoint:184 - flushed 1475 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,137 DEBUG WriteFlusher:337 - flushed true
+07:21:13,137 DEBUG WriteFlusher:117 - update WriteFlusher@2defc0f0{IDLE}:WRITING-->IDLE
+07:21:13,138 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@39f97138[ITERATING] generate: DONE ([p=384,l=384,c=8192,r=0],[p=1091,l=1091,c=32768,r=0],true)@END
+07:21:13,140 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of 0}
+07:21:13,140 DEBUG HttpParser:1523 - END --> START
+07:21:13,141 DEBUG HttpChannel:410 - HttpChannelOverHttp@2cef35d7{r=1,a=IDLE,uri=-} handle exit, result COMPLETE
+07:21:13,141 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,141 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,141 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@5622b143[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/service/...���������������}
+07:21:13,141 DEBUG AbstractConnection:98 - fillInterested HttpConnection@37ded77b{FILLING}
+07:21:13,142 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@37ded77b{FILLING_FILL_INTERESTED}
+07:21:13,142 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@37ded77b{FILL_INTERESTED}
+07:21:13,142 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+07:21:13,142 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@58bc
+07:21:13,142 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+07:21:13,143 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+07:21:13,143 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:21:13,212 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+07:21:13,212 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+07:21:13,213 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,213 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@58bc
+07:21:13,213 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@37ded77b{FILLING}
+07:21:13,213 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:21:13,214 DEBUG HttpConnection:186 - HttpConnection@37ded77b{FILLING} onFillable HttpChannelState@58e5442f{s=IDLE i=true a=null}
+07:21:13,214 DEBUG ChannelEndPoint:139 - filled 340 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,214 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@5622b143[p=0,l=340,c=16384,r=340]={<<<GET /favicon.ico ...9drr5cdzaak||||>>>||Accept-Language...���������������}
+07:21:13,214 DEBUG HttpParser:1523 - START --> SPACE1
+07:21:13,214 DEBUG HttpParser:1523 - SPACE1 --> URI
+07:21:13,215 DEBUG HttpParser:1523 - URI --> SPACE2
+07:21:13,215 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+07:21:13,215 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+07:21:13,215 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:13,215 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:13,215 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:13,215 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:13,215 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:13,215 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:13,215 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:13,215 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:13,216 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:13,216 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:13,216 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+07:21:13,216 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:13,216 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+07:21:13,216 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+07:21:13,216 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+07:21:13,216 DEBUG HttpParser:1523 - HEADER --> END
+07:21:13,217 DEBUG HttpChannel:656 - HttpChannelOverHttp@2cef35d7{r=2,a=IDLE,uri=-} messageComplete
+07:21:13,217 DEBUG HttpInput:229 - HttpInputOverHTTP@68b5f1ed EOF
+07:21:13,217 DEBUG HttpChannel:246 - HttpChannelOverHttp@2cef35d7{r=2,a=IDLE,uri=-} handle enter
+07:21:13,217 DEBUG HttpChannelState:177 - HttpChannelState@58e5442f{s=IDLE i=true a=null} handling IDLE
+07:21:13,218 DEBUG HttpChannel:269 - HttpChannelOverHttp@2cef35d7{r=2,a=DISPATCHED,uri=/favicon.ico} action REQUEST_DISPATCH
+07:21:13,218 DEBUG Server:450 - REQUEST /favicon.ico on HttpChannelOverHttp@2cef35d7{r=2,a=DISPATCHED,uri=/favicon.ico}
+07:21:13,219 DEBUG ContextHandler:964 - scope null||/favicon.ico @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+07:21:13,219 DEBUG ContextHandler:1038 - context=||/favicon.ico @ o.e.j.s.h.ContextHandler@43df23d3{/,null,AVAILABLE}
+07:21:13,219 DEBUG SessionHandler:265 - Got Session ID sp8c9iuez8ecu9drr5cdzaak from cookie
+07:21:13,219 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@183ec003
+07:21:13,219 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:sp8c9iuez8ecu9drr5cdzaak@1499207679
+07:21:13,219  INFO MainHandler:41 - Recibida la consulta GET /favicon.ico  de 0:0:0:0:0:0:0:1 sp8c9iuez8ecu9drr5cdzaak
+07:21:13,220  INFO GeneralHandler:37 - Serving a general file
+07:21:13,220 DEBUG Server:462 - RESPONSE /favicon.ico  200 handled=true
+07:21:13,220 DEBUG HttpChannelState:291 - HttpChannelState@58e5442f{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+07:21:13,221 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1c5e92b0[ITERATING] generate: NEED_HEADER (null,[p=0,l=15,c=32768,r=15],true)@START
+07:21:13,221 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1c5e92b0[ITERATING] generate: FLUSH ([p=0,l=110,c=8192,r=110],[p=0,l=15,c=32768,r=15],true)@COMPLETING
+07:21:13,221 DEBUG WriteFlusher:328 - write: WriteFlusher@2defc0f0{IDLE} [HeapByteBuffer@156ff6b7[p=0,l=110,c=8192,r=110]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>T||Access-Control...���������������},HeapByteBuffer@676d3593[p=0,l=15,c=32768,r=15]={<<<404 not found||>>>,"licenses":[{"co...���������������}]
+07:21:13,221 DEBUG WriteFlusher:117 - update WriteFlusher@2defc0f0{WRITING}:IDLE-->WRITING
+07:21:13,222 DEBUG ChannelEndPoint:184 - flushed 125 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,222 DEBUG WriteFlusher:337 - flushed true
+07:21:13,223 DEBUG WriteFlusher:117 - update WriteFlusher@2defc0f0{IDLE}:WRITING-->IDLE
+07:21:13,223 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1c5e92b0[ITERATING] generate: DONE ([p=110,l=110,c=8192,r=0],[p=15,l=15,c=32768,r=0],true)@END
+07:21:13,223 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+07:21:13,223 DEBUG HttpParser:1523 - END --> START
+07:21:13,223 DEBUG HttpChannel:410 - HttpChannelOverHttp@2cef35d7{r=2,a=IDLE,uri=-} handle exit, result COMPLETE
+07:21:13,223 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,224 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:13,224 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@5622b143[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+07:21:13,224 DEBUG AbstractConnection:98 - fillInterested HttpConnection@37ded77b{FILLING}
+07:21:13,224 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@37ded77b{FILLING_FILL_INTERESTED}
+07:21:13,224 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@37ded77b{FILL_INTERESTED}
+07:21:13,225 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+07:21:13,225 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@58bc
+07:21:13,225 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+07:21:13,226 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+07:21:13,226 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:21:39,447 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643299447
+07:21:41,921 DEBUG IdleTimeout:145 - SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 28697 ms, remaining: 1303 ms
+07:21:43,225 DEBUG IdleTimeout:145 - SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 30001 ms, remaining: -1 ms
+07:21:43,225 DEBUG IdleTimeout:151 - SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout expired
+07:21:43,226 DEBUG WriteFlusher:444 - ignored: WriteFlusher@2defc0f0{IDLE} java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+07:21:43,226 DEBUG AbstractConnection:236 - FILL_INTERESTED-->IDLE HttpConnection@37ded77b{IDLE}
+07:21:43,226 DEBUG HttpParser:1491 - close HttpParser{s=START,0 of -1}
+07:21:43,226 DEBUG HttpParser:1523 - START --> CLOSED
+07:21:43,226 DEBUG AbstractConnection:136 - HttpConnection@37ded77b{IDLE} onFillInterestedFailed java.util.concurrent.TimeoutException: Idle timeout expired: 30001/30000 ms
+07:21:43,226 DEBUG ChannelEndPoint:73 - oshut SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,out,-,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+07:21:43,226 DEBUG AbstractConnection:98 - fillInterested HttpConnection@37ded77b{IDLE}
+07:21:43,227 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@37ded77b{FILL_INTERESTED}
+07:21:43,227 DEBUG SelectChannelEndPoint:146 - Ignoring local interests update 1 -> 1 for SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+07:21:53,219 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+07:21:53,219 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+07:21:53,219 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:53,219 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@58bc
+07:21:53,220 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@37ded77b{FILLING}
+07:21:53,220 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+07:21:53,220 DEBUG HttpConnection:186 - HttpConnection@37ded77b{FILLING} onFillable HttpChannelState@58e5442f{s=IDLE i=true a=null}
+07:21:53,220 DEBUG ChannelEndPoint:139 - filled -1 SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:53,220 DEBUG ChannelEndPoint:64 - ishut SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:53,221 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:53,221 DEBUG ChannelEndPoint:112 - close SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+07:21:53,221 DEBUG SelectorManager$ManagedSelector:679 - Destroyed SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+07:21:53,221 DEBUG AbstractConnection:176 - onClose HttpConnection@37ded77b{FILLING}
+07:21:53,222 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@31abbbd7{/0:0:0:0:0:0:0:1:60383<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+07:21:53,222 DEBUG HttpParser:1483 - atEOF HttpParser{s=CLOSED,0 of -1}
+07:21:53,222 DEBUG HttpParser:1193 - parseNext s=CLOSED HeapByteBuffer@5622b143[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+07:21:53,222 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@37ded77b{IDLE}
+07:22:09,447 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643329447
+07:22:39,448 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643359448
+07:23:09,449 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643389449
+07:23:39,449 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643419449
+07:24:09,450 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643449450
+07:24:39,451 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643479451
+07:25:09,452 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643509452
+07:25:39,452 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643539452
+07:26:09,453 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643569453
+07:26:39,454 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643599454
+07:27:09,455 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643629455
+07:27:39,455 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643659455
+07:28:09,456 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643689456
+07:28:39,457 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643719457
+07:29:09,457 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643749457
+07:29:39,458 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643779458
+07:30:09,459 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643809459
+07:30:39,460 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643839460
+07:31:09,460 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643869460
+07:31:39,461 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643899461
+07:32:09,462 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643929462
+07:32:39,462 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643959462
+07:33:09,463 DEBUG HashSessionManager:351 - Scavenging sessions at 1428643989463
+07:33:39,464 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644019464
+07:34:09,465 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644049465
+07:34:39,465 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644079465
+07:35:09,466 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644109466
+07:35:39,467 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644139467
+07:36:09,467 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644169467
+07:36:39,468 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644199468
+07:37:09,469 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644229469
+07:37:39,470 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644259470
+07:38:09,470 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644289470
+07:38:39,471 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644319471
+07:39:09,472 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644349472
+07:39:39,472 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644379472
+07:40:09,473 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644409473
+07:40:39,474 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644439474
+07:41:09,475 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644469475
+07:41:39,475 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644499475
+07:42:09,476 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644529476
+07:42:39,477 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644559477
+07:43:09,477 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644589477
+07:43:39,478 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644619478
+07:44:09,479 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644649479
+07:44:39,480 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644679480
+07:45:09,480 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644709480
+07:45:39,481 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644739481
+07:46:09,482 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644769482
+07:46:39,482 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644799482
+07:47:09,483 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644829483
+07:47:39,484 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644859484
+07:48:09,485 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644889485
+07:48:39,485 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644919485
+07:49:09,486 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644949486
+07:49:39,487 DEBUG HashSessionManager:351 - Scavenging sessions at 1428644979487
+07:50:09,487 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645009487
+07:50:39,488 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645039488
+07:51:09,489 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645069489
+07:51:39,490 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645099490
+07:52:09,490 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645129490
+07:52:39,491 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645159491
+07:53:09,492 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645189492
+07:53:39,492 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645219492
+07:54:09,493 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645249493
+07:54:39,494 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645279494
+07:55:09,495 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645309495
+07:55:39,495 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645339495
+07:56:09,496 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645369496
+07:56:39,497 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645399497
+07:57:09,497 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645429497
+07:57:39,498 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645459498
+07:58:09,499 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645489499
+07:58:39,500 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645519500
+07:59:09,500 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645549500
+07:59:39,501 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645579501
+08:00:09,502 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645609502
+08:00:39,502 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645639502
+08:01:09,503 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645669503
+08:01:39,504 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645699504
+08:02:09,505 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645729505
+08:02:39,505 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645759505
+08:03:09,506 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645789506
+08:03:39,507 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645819507
+08:04:09,507 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645849507
+08:04:39,508 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645879508
+08:05:09,509 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645909509
+08:05:39,510 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645939510
+08:06:09,510 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645969510
+08:06:39,511 DEBUG HashSessionManager:351 - Scavenging sessions at 1428645999511
+08:07:09,512 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646029512
+08:07:39,512 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646059512
+08:08:09,513 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646089513
+08:08:39,514 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646119514
+08:09:09,515 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646149515
+08:09:39,515 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646179515
+08:10:09,516 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646209516
+08:10:39,517 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646239517
+08:11:09,518 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646269518
+08:11:39,518 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646299518
+08:12:09,519 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646329519
+08:12:39,520 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646359520
+08:13:09,520 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646389520
+08:13:39,521 DEBUG HashSessionManager:351 - Scavenging sessions at 1428646419521
+08:38:41,504 DEBUG HashSessionManager:351 - Scavenging sessions at 1428647921503
+08:39:11,505 DEBUG HashSessionManager:351 - Scavenging sessions at 1428647951505
+08:39:41,506 DEBUG HashSessionManager:351 - Scavenging sessions at 1428647981506
+08:40:11,507 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648011507
+08:40:41,507 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648041507
+08:41:11,508 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648071508
+08:41:41,509 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648101509
+08:42:11,510 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648131510
+08:42:41,510 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648161510
+08:43:11,511 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648191511
+08:43:41,512 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648221512
