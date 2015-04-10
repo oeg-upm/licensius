@@ -3,6 +3,7 @@ package ldconditional;
 //JENA
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
+import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -43,6 +44,8 @@ public class DatasetPolicy {
             policies = loadPolicies();
         }
     }
+    
+    
 
     public Recurso getRecurso(String grafo)
     {
@@ -71,6 +74,19 @@ public class DatasetPolicy {
         return lista;
     }
 
+    
+    /**
+     * The first metadata field
+     */
+    public String getFirstObjectForProperty(String sprop)
+    {
+        Property prop = model.createProperty(sprop);
+        NodeIterator it = model.listObjectsOfProperty(prop);
+        if (it.hasNext())
+            return it.next().toString();
+        return "";
+    }    
+    
     /**
      * Gets a map that for each dataset has a list of the graphs under control
      */

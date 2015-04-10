@@ -56,31 +56,29 @@ public class GetResources extends HttpServlet {
 
     /**
      * Genera el Json correspondiente al dataset
+     * {label1, uri, numeroTriples, licenses: [{uri:'ffaf', 'label', 'color'''}, {uri:'ffaf', label, color''}]}  }, 
      */
     public String generarJson(String sdataset, int page, int size)
     {
         ConditionalDataset dataset = new ConditionalDataset(sdataset);
-        List<String> graphs = dataset.getGraphs();
+        
+
         JSONArray list = new JSONArray();
-        int i=0;
         int ini = page*size;
         int fin = page*size+size-1;
-        
-        //para cada grafo, debería procesar los ldp:contains que haya. 
-        //pero como esto es muy complicado, mejor pido por TODOS los recursos.
-        for(String grafo : graphs)
-        { 
+        List<Recurso> lr=dataset.getRecursos(ini, fin);
+        for(Recurso r : lr)
+        {
             JSONObject obj = new JSONObject();
-            obj.put("name", grafo);
-            obj.put("uri", grafo);
-            obj.put("triples", 564);
+            obj.put("uri", r.getUri());
+            obj.put("label", r.getLabel());
+            obj.put("numeroTriples", r.getNumTriples());
             JSONArray licencias = new JSONArray();
             licencias.add(getLicencia());
             licencias.add(getLicencia());
             obj.put("licenses", licencias);
             list.add(obj);
-            i++;
-        }       
+        }
         return list.toJSONString();
     }
     
@@ -88,8 +86,8 @@ public class GetResources extends HttpServlet {
     {
         JSONObject res = new JSONObject();
         res.put("name", "Etiqueta");
-        res.put("uri", "http://asd");
-        res.put("color", "fúscia");
+        res.put("uri", "http://creativecommons.org/cc-by");
+        res.put("color", "#FF8888");
         return res;
         
     }

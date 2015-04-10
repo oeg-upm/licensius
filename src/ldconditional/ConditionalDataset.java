@@ -8,12 +8,16 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.List;
+import ldserver.Recurso;
 
 
 import odrlmodel.Policy;
 import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.NQuad;
 import oeg.rdf.commons.NQuadRawFile;
+import oeg.rdf.commons.NTriple;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 
@@ -53,6 +57,15 @@ public class ConditionalDataset {
     public List<Policy> getPoliciesForGraph(String grafo)
     {
         return pm.getPolicies(grafo);
+    }
+    
+    public List<Recurso> getRecursos(int min, int max)
+    {
+        String patron = pm.getFirstObjectForProperty("http://www.w3.org/ns/ldp#contains");
+        String o = NTriple.getObject(patron);
+        List<Recurso> recursos = dump.getRecursosWithObject(o, min, max);
+        recursos = enrichWithLabels(recursos);
+        return recursos;
     }
     
     
@@ -111,6 +124,21 @@ public class ConditionalDataset {
         StringWriter sw = new StringWriter();
         RDFDataMgr.write(sw, metadata, Lang.TTL);
         return sw.toString();
+    }
+
+    private List<Recurso> enrichWithLabels(List<Recurso> recursos) {
+        for(Recurso r : recursos)
+        {
+            String uri = r.getUri();
+            String label = dump.getFirstObject(uri, "http://www.w3.org/2000/01/rdf-schema#label");
+            if (label.startsWith("\""))
+            {
+                int i1=label.lastIndexOf("\"");
+                label = label.substring(1, i1);
+            }
+            r.setLabel(label);
+        }
+        return recursos;
     }
     
     

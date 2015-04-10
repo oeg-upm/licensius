@@ -1452,3 +1452,9 @@
 08:42:41,510 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648161510
 08:43:11,511 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648191511
 08:43:41,512 DEBUG HashSessionManager:351 - Scavenging sessions at 1428648221512
+10:12:37,863  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+10:12:38,031 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+10:12:38,165 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+10:12:38,166 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+10:12:38,167 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+10:12:38,167 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl

@@ -28,6 +28,10 @@ public class Recurso implements Comparator<Recurso>{
         return uri;
     }
 
+    public String getNumTriples() {
+        return "0";
+    }
+
     /**
      * @param uri the uri to set
      */
