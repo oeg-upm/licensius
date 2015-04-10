@@ -21,6 +21,13 @@ import org.json.simple.JSONObject;
  * {label1, uri, numeroTriples, licenses: [{uri:'ffaf', 'label', 'color'''}, {uri:'ffaf', label, color''}]}  },
  * {label1, uri, openOrclosed}.... 
  * 
+ * @prefix dcterms: <http://purl.org/dc/terms/>.
+ * @prefix ldp: <http://www.w3.org/ns/ldp#>.
+ * <http://example.org/c1/>
+ *    a ldp:BasicContainer;
+ *    dcterms:title "A very simple container";
+ *    ldp:contains <r1>, <r2>, <r3>.
+ * 
  * @author Victor
  */
 public class GetResources extends HttpServlet {
@@ -59,7 +66,8 @@ public class GetResources extends HttpServlet {
         int ini = page*size;
         int fin = page*size+size-1;
         
-        
+        //para cada grafo, debería procesar los ldp:contains que haya. 
+        //pero como esto es muy complicado, mejor pido por TODOS los recursos.
         for(String grafo : graphs)
         { 
             JSONObject obj = new JSONObject();
