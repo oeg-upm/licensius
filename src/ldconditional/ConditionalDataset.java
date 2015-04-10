@@ -140,6 +140,16 @@ public class ConditionalDataset {
         }
         return recursos;
     }
+
+    public String getRecurso(String subject) {
+        Model model = dump.getRecurso(subject);
+        StringWriter sw = new StringWriter();
+   //    JenaJSONLD.init();
+        org.openjena.riot.RIOT.init(); 
+        model.write(sw, "RDF/JSON", "");
+//        RDFDataMgr.write(sw, model, Lang.JSONLD);//.JSONLD
+        return sw.toString();
+    }
     
     
 }

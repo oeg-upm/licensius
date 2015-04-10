@@ -1,5 +1,13 @@
 package oeg.rdf.commons;
 
+import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
+import odrlmodel.rdf.RDFUtils;
+
 /**
  * Class representing a NQuad. 
  * It is very fast.
@@ -47,6 +55,29 @@ public class NQuad {
         int i1 = nquad.indexOf("<", i0+1);
         int i2 = nquad.indexOf(">", i1+1);
         return nquad.substring(i1+1,i2);
+    }
+
+    static Model getStatement(String nquad) {
+        String s= getSubject(nquad);
+        String p= getPredicate(nquad);
+        String o= getObject(nquad);
+        
+        Model model = ModelFactory.createDefaultModel();
+        Resource js = model.createResource(s);
+        Property jp = model.createProperty(p);
+        if (RDFUtils.isURI(o))
+        {
+            Resource jo = model.createResource(o);
+            js.addProperty(jp, jo);
+        }
+        else
+        {
+            int index = o.lastIndexOf("\"");
+            o = o.substring(1,index);
+            Literal jo = model.createLiteral(o);
+            js.addProperty(jp, jo);
+        }
+        return model;
     }
     
 }

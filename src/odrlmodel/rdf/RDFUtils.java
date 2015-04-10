@@ -22,10 +22,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import org.apache.jena.atlas.lib.StrUtils;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
@@ -36,6 +39,15 @@ import org.openjena.riot.Lang;
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class RDFUtils {
+
+    public static boolean isURI(String o) {
+        try {
+            URI uri = new URI(o);
+            return true;
+        } catch (URISyntaxException ex) {
+            return false;
+        }
+    }
 
 
     String property="";

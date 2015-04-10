@@ -1,5 +1,9 @@
 package oeg.rdf.commons;
 
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -130,6 +134,25 @@ public class NQuadRawFile {
         NQuadRawFile raw = new NQuadRawFile("datasets/geo/data.nq");
      //   raw.rebase("http://conditional.linkeddata.es/ldr/", "http://salonica.dia.fi.upm.es/geo/");
 
+    }
+
+    public Model getRecurso(String subject) {
+        Model modelo = ModelFactory.createDefaultModel();
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {        
+                String s = NQuad.getSubject(line);
+                if (!s.equals(subject))
+                    continue;
+                Model mm=NQuad.getStatement(line);
+                modelo.add(mm);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return modelo;
     }
 
 

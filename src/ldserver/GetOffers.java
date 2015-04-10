@@ -23,11 +23,11 @@ import org.json.simple.JSONObject;
  * 
  * @apiParam {String} dataset One word name of the dataset
  *
- * @apiSuccess {String} licenseURI URI of the recognized license
- * @author Victor at OEG
- * 
- * 
- * For example:
+ * @apiSuccess {String} An array of offers in JSON as follows: 
+ * {recurso1:  label, uri, comment} {license1: label, uri, precio, imgsrc}
+ * {recurso2:  label, uri, comment} {license2: label, uri, precio, imgsrc}
+ *
+ * @author Victor Rodriguez, OEG-UPM, 2015. 
  */
 public class GetOffers extends HttpServlet {
 

@@ -18,7 +18,8 @@ import org.eclipse.jetty.server.session.HashSessionManager;
 import org.eclipse.jetty.server.session.SessionHandler;
 
 /**
- * Main class, entry point of the Linked Data Web Server
+ * Main class, entry point of the Linked Data Web Server.
+ * This project is documented making use of 
  *  
  * @author Victor
  */
