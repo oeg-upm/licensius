@@ -2,8 +2,11 @@ package ldserver;
 
 import java.io.IOException;
 import java.net.URLDecoder;
+import java.util.Enumeration;
+import java.util.HashMap;
 import javax.servlet.http.*;
 import java.util.List;
+import java.util.Map;
 import ldconditional.ConditionalDataset;
 import ldconditional.Main;
 import odrlmodel.Policy;
@@ -13,7 +16,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 /**
  *
- * geo/service/getOpenResource?uri=http://geo/Almeria
+ * geo/service/getOpenResource?uri=http://geo/Almeria ?
+ * geo/service/getResource?uri=http://geo/Almeria ? 
  * http://salonica.dia.fi.upm.es/geo/service/getOpenResources?uri=http://salonica.dia.fi.upm.es/geo/
  * @author Victor
  */
@@ -24,20 +28,31 @@ public class GetOpenResource extends HttpServlet {
         int index=uri.indexOf('/',1);
         String sdataset = uri.substring(1,index);
         ConditionalDataset dataset = new ConditionalDataset(sdataset);        
-        
-        
+        String resource ="";
         
             String uriToScan = req.getParameter("uri");
             try {
                 uriToScan = URLDecoder.decode(uriToScan, "UTF-8");
+
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        JSONArray list = new JSONArray();
+            
+            
             resp.getWriter().print("");
             
   
     }
 
+
+    
+    
+
+    
+    
+    
     public static void main(String[] args) throws Exception {
         Main.initLogger();
         TestClient.testGetOffers("geo");

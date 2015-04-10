@@ -51,7 +51,7 @@ public class ServiceHandler extends AbstractHandler {
             resp.setContentType("application/json");
             return;
         }
-        if (string.contains("/service/getOpenResource"))
+        if (string.contains("/service/getResource"))
         {
             GetOpenResource go = new GetOpenResource();
             go.doGet(req, resp);

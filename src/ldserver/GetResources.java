@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServlet;
 import java.io.IOException;
 import javax.servlet.http.*;
 import java.util.List;
+import java.util.Map;
 import ldconditional.ConditionalDataset;
 import ldconditional.Main;
 import odrlmodel.Policy;
@@ -15,6 +16,11 @@ import org.json.simple.JSONObject;
 /**
  * Llamada tipo que se nos hará: geo/service/getResources?page=1&size=100
  * http://salonica.dia.fi.upm.es/geo/service/getResources?page=1&size=100
+ * 
+ * Obtiene la lista de provincias, (Almeria, Albacete...)
+ * {label1, uri, numeroTriples, licenses: [{uri:'ffaf', 'label', 'color'''}, {uri:'ffaf', label, color''}]}  },
+ * {label1, uri, openOrclosed}.... 
+ * 
  * @author Victor
  */
 public class GetResources extends HttpServlet {
@@ -23,21 +29,37 @@ public class GetResources extends HttpServlet {
         String uri = req.getRequestURI();
         int index = uri.indexOf('/', 1);
         String sdataset = uri.substring(1, index);
-        String out = "";
-        String json = generarJson(sdataset);
+        
+        int page=1;
+        int size=100;
+        Map<String, String> mapa = ServerUtils.getparams(req);
+        if (mapa.get("page")!=null)
+            page =  Integer.parseInt(mapa.get("page"));
+        if (mapa.get("size")!=null)
+            size =  Integer.parseInt(mapa.get("size"));        
+        
+        String json = generarJson(sdataset, page, size);
+        
 
         resp.setContentType("text/html;charset=utf-8");
         resp.setStatus(HttpServletResponse.SC_OK);
-        resp.getWriter().println(json);        
+        resp.getWriter().println(json);  
     }
 
 
-    public String generarJson(String sdataset)
+    /**
+     * Genera el Json correspondiente al dataset
+     */
+    public String generarJson(String sdataset, int page, int size)
     {
         ConditionalDataset dataset = new ConditionalDataset(sdataset);
         List<String> graphs = dataset.getGraphs();
         JSONArray list = new JSONArray();
         int i=0;
+        int ini = page*size;
+        int fin = page*size+size-1;
+        
+        
         for(String grafo : graphs)
         { 
             JSONObject obj = new JSONObject();
@@ -67,7 +89,7 @@ public class GetResources extends HttpServlet {
     public static void main(String[] args)
     {
         GetResources x = new GetResources();
-        String s= x.generarJson("geo");
+        String s= x.generarJson("geo", 1, 20);
         System.out.println(s);
     }
     

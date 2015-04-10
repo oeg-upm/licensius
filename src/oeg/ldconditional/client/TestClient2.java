@@ -1,4 +1,4 @@
-package test.client;
+package oeg.ldconditional.client;
 
 import java.awt.Desktop;
 import java.awt.GraphicsEnvironment;
@@ -10,9 +10,9 @@ import org.apache.log4j.Logger;
  *
  * @author vroddon
  */
-public class TestClient {
+public class TestClient2 {
 
-    static final Logger logger = Logger.getLogger(TestClient.class);
+    static final Logger logger = Logger.getLogger(TestClient2.class);
 
     public static void main(String[] args) throws Exception {
 //        test0();
@@ -30,7 +30,9 @@ public class TestClient {
     }
     
     public static void test1() {
-        browse("http://localhost:80/geo/service/getOffers");
+     //   browse("http://localhost/geo/service/getOffers");
+        browse("http://localhost/geo/service/getResources?page=1&size=100");
+     //   browse("http://localhost/geo/service/getResource?uri=http://geo/Almeria");
     }
     
     public static void browse(String uri)
