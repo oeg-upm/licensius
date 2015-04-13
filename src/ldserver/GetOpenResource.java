@@ -18,19 +18,17 @@ import org.json.simple.JSONObject;
 
 /**
  * 
- * @api {get} /{dataset}/getOffers getOffers
+ * @api {get} /{dataset}/getResource getResource
  * @apiName /getOffers
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
- * @apiDescription Gets the policy offers for a given dataset. An offer is a 
- * policy applied to a given resource (named graph) that has an attribute to be
+ * @apiDescription It currently implements both getOpenResource and getClosedResource. 
+ * Gets an open resource
  * promoted: <dataseturi> schema:makesOffer <policy>
  * 
- * @apiParam {String} dataset One word name of the dataset
+ * @apiParam {String} uri Resource to be retrieved.
  *
- * @apiSuccess {String} An array of offers in JSON as follows: 
- * {recurso1:  label, uri, comment} {license1: label, uri, precio, imgsrc}
- * {recurso2:  label, uri, comment} {license2: label, uri, precio, imgsrc}
+ * @apiSuccess {String} JSON-LD with the triples related to that uri -in principle all the triples of which the resource is subject.
  *
  * @author Victor Rodriguez, OEG-UPM, 2015. 
 *

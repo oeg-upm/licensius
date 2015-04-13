@@ -91,7 +91,11 @@ public class GetOffers extends HttpServlet {
     
     public static void main(String[] args) throws Exception {
         Main.initLogger();
-        TestClient.testGetOffers("geo");
+        
+        GetOffers x = new GetOffers();
+        String s= x.generarJson("geo");
+        System.out.println(s);        
+//        TestClient.testGetOffers("geo");
     }
     
     

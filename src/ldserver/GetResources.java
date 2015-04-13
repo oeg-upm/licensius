@@ -14,6 +14,24 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
+ * @api {get} /{dataset}/getResources getResources
+ * @apiName /getOffers
+ * @apiGroup ConditionalLinkedData
+ * @apiVersion 1.0.0
+ * @apiDescription Gets the policy offers for a given dataset. An offer is a 
+ * policy applied to a given resource (named graph) that has an attribute to be
+ * promoted: <dataseturi> schema:makesOffer <policy>
+ * 
+ * @apiParam {String} dataset This is not a parameter, but appears in the URI string immediatly before the method.
+ * @apiParam {String} page Page of results to be returned (e.g. 1)
+ * @apiParam {String} size Number of rows to be returned (e.g. 20)
+ *
+ * @apiSuccess {String} An array of offers in JSON as follows: 
+ * {recurso1:  label, uri, comment} {license1: label, uri, precio, imgsrc}
+ * {recurso2:  label, uri, comment} {license2: label, uri, precio, imgsrc}
+ *
+ * @author Victor Rodriguez, OEG-UPM, 2015. 
+* 
  * Llamada tipo que se nos hará: geo/service/getResources?page=1&size=100
  * http://salonica.dia.fi.upm.es/geo/service/getResources?page=1&size=100
  * 
