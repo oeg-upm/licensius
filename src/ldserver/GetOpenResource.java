@@ -22,14 +22,13 @@ import org.json.simple.JSONObject;
  * @apiName /getResource
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
- * @apiDescription It currently implements both getOpenResource and getClosedResource. 
- * Gets an open resource
- * promoted: <dataseturi> schema:makesOffer <policy>
+ * @apiDescription Obtains Linked Data as JSON-LD for one resource. It currently implements both getOpenResource and getClosedResource. 
+ * You may want to try this: <a href="http://salonica.dia.fi.upm.es/geo/service/getResource?uri=http://salonica.dia.fi.upm.es/geo/resource/Provincia/Valladolid">http://salonica.dia.fi.upm.es/geo/service/getResource?uri=http://salonica.dia.fi.upm.es/geo/resource/Provincia/Valladolid</a>
  * 
  * @apiParam {String} uri Resource to be retrieved.
  *
  * @apiSuccess {String} data JSON-LD with the triples related to that uri -in principle all the triples of which the resource is subject.
- *
+ * 
  * @author Victor Rodriguez, OEG-UPM, 2015. 
 *
 * Example:

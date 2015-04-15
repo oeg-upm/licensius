@@ -19,7 +19,8 @@ import org.json.simple.JSONObject;
  * @apiVersion 1.0.0
  * @apiDescription Gets the policy offers for a given dataset. An offer is a 
  * policy applied to a given resource (named graph) that has an attribute to be
- * promoted: <dataseturi> schema:makesOffer <policy>
+ * promoted: <dataseturi> schema:makesOffer <policy>.
+ * You may want to try this: <a href="http://salonica.dia.fi.upm.es/geo/service/getOffers">http://salonica.dia.fi.upm.es/geo/service/getOffers</a>
  * 
  * @apiParam {String} dataset One word name of the dataset
  *

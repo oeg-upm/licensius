@@ -20,7 +20,8 @@ import org.json.simple.JSONObject;
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
  * @apiDescription Gets the resources in a dataset. Dataset resources are those declared with the ldp:contains.
- * Once declared, they are check for their label (to be diplayed) and for their policies
+ * Once declared, they are check for their label (to be diplayed) and for their policies. You may want to try this:
+ * <a href="http://salonica.dia.fi.upm.es/geo/service/getResources?page=1&size=100">http://salonica.dia.fi.upm.es/geo/service/getResources?page=1&size=100</a>
  * 
  * @apiParam {String} dataset This is not a parameter, but appears in the URI string immediatly before the service/method.
  * @apiParam {String} page Page of results to be returned (e.g. 1)
