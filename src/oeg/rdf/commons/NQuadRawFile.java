@@ -56,6 +56,26 @@ public class NQuadRawFile {
         }
         return lgrafos;
     }
+    
+    public int getNumTriples(String recurso)
+    {
+    int contador=0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {        
+                String nqs = NQuad.getSubject(line);
+                if (!nqs.equals(recurso))
+                    continue;
+                contador++;
+            }
+        }catch(Exception e)
+        {
+            contador=-1;
+        }
+        return contador;
+    }
 
     /**
      * 

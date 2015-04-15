@@ -36,6 +36,7 @@ public class Recurso implements Comparator<Recurso>{
     }
 
     public String getNumTriples() {
+        
         return "0";
     }
 

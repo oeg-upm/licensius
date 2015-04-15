@@ -9,6 +9,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import ldserver.Recurso;
@@ -49,6 +50,23 @@ public class ConditionalDataset {
         addMetadataResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/dcat#Dataset");
         dpolicy = new DatasetPolicy("datasets/"+name+"/void.ttl");
         dump = new NQuadRawFile("datasets/"+name+"/data.nq");
+    }
+    
+    public int getNumTriples(String recurso)
+    {
+        return dump.getNumTriples(recurso);
+    }
+    
+    public Set<Policy> getPolicies(Recurso r)
+    {
+        Set<Policy> lp=new HashSet();
+        for(String g:r.graphs)
+        {
+            List<Policy> politicas = dpolicy.policies.get(g);
+            if (politicas!=null)
+                lp.addAll(politicas);
+        }
+        return lp;
     }
     
     public DatasetPolicy getDatasetPolicy()

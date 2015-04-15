@@ -27,11 +27,10 @@ import org.json.simple.JSONObject;
  * @apiParam {String} size Number of rows to be returned (e.g. 20)
  *
  * @apiSuccess {String} An array of offers in JSON as follows: 
- * {recurso1:  label, uri, comment} {license1: label, uri, precio, imgsrc}
- * {recurso2:  label, uri, comment} {license2: label, uri, precio, imgsrc}
+ * [{"licenses":[],"numTriples":7,"label":"Lleida","uri":"http:\/\/salonica.dia.fi.upm.es\/geo\/resource\/Provincia\/Lleida"}]
  *
  * @author Victor Rodriguez, OEG-UPM, 2015. 
-* 
+ * 
  * Llamada tipo que se nos hará: geo/service/getResources?page=1&size=100
  * http://salonica.dia.fi.upm.es/geo/service/getResources?page=1&size=100
  * 
@@ -87,12 +86,12 @@ public class GetResources extends HttpServlet {
             JSONObject obj = new JSONObject();
             obj.put("uri", r.getUri());
             obj.put("label", r.getLabel());
-            obj.put("numTriples", r.getNumTriples());
+            obj.put("numTriples", dataset.getNumTriples(r.getUri()));
             JSONArray licencias = new JSONArray();
-            Set<Policy> policies = r.getPolicies();
+            Set<Policy> policies = dataset.getPolicies(r);
             for(Policy p : policies)
             {
-                licencias.add(p);
+                licencias.add(p.getURI());
             }
             obj.put("licenses", licencias);
             list.add(obj);

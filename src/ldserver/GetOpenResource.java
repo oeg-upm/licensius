@@ -18,8 +18,8 @@ import org.json.simple.JSONObject;
 
 /**
  * 
- * @api {get} /{dataset}/getResource getResource
- * @apiName /getOffers
+ * @api {get} /{dataset}/service/getResource getResource
+ * @apiName /getResource
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
  * @apiDescription It currently implements both getOpenResource and getClosedResource. 
@@ -28,12 +28,12 @@ import org.json.simple.JSONObject;
  * 
  * @apiParam {String} uri Resource to be retrieved.
  *
- * @apiSuccess {String} JSON-LD with the triples related to that uri -in principle all the triples of which the resource is subject.
+ * @apiSuccess {String} data JSON-LD with the triples related to that uri -in principle all the triples of which the resource is subject.
  *
  * @author Victor Rodriguez, OEG-UPM, 2015. 
 *
-* geo/service/getOpenResource?uri=http://geo/Almeria ?
-* geo/service/getResource?uri=http://geo/Almeria ? 
+* Example:
+* http://salonica.dia.fi.upm.es/geo/service/getResource?uri=http://salonica.dia.fi.upm.es/geo/resource/Provincia/Valladolid ? 
 * http://salonica.dia.fi.upm.es/geo/service/getOpenResources?uri=http://salonica.dia.fi.upm.es/geo/
 * it returns json-ld
 * @author Victor

@@ -34,7 +34,8 @@ import org.apache.log4j.Logger;
  */
 public class DatasetPolicy {
 
-    Map<Recurso, List<Policy>> policies = new HashMap();
+    //Mapa que mapea Grafos a Politicas
+    Map<String, List<Policy>> policies = new HashMap();
     private static final Logger logger = Logger.getLogger(DatasetPolicy.class);
     Model model = null;
 
@@ -57,9 +58,10 @@ public class DatasetPolicy {
         Iterator it = policies.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry) it.next();
-            Recurso r = (Recurso) e.getKey();
-            if (r.getUri().equals(grafo)) {
-                return r;
+            String r = (String) e.getKey();
+            if (r.equals(grafo)) {
+                Recurso re = new Recurso(r);
+                return re;
             }
         }
         return null;
@@ -73,8 +75,8 @@ public class DatasetPolicy {
         Iterator it = policies.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry) it.next();
-            Recurso r = (Recurso) e.getKey();
-            if (r.getUri().equals(grafo)) {
+            String r = (String) e.getKey();
+            if (r.equals(grafo)) {
                 List<Policy> politicas = (List<Policy>)e.getValue();
                 lista.addAll(politicas);
             }
@@ -85,10 +87,10 @@ public class DatasetPolicy {
     public List<String> getObjectsForProperty(String sprop)
     {
         List<String> ls = new ArrayList();
-                Property prop = model.createProperty(sprop);
+        Property prop = model.createProperty(sprop);
 
         NodeIterator it = model.listObjectsOfProperty(prop);
-        if (it.hasNext())
+        while(it.hasNext())
             ls.add(it.next().toString());
         return ls;
     }
@@ -106,10 +108,10 @@ public class DatasetPolicy {
     }    
     
     /**
-     * Gets a map that for each dataset has a list of the graphs under control
+     * Gets a map where for each graph
      */
-    private Map<Recurso, List<Policy>> loadPolicies() {
-        Map<Recurso, List<Policy>> map = new HashMap();
+    private Map<String, List<Policy>> loadPolicies() {
+        Map<String, List<Policy>> map = new HashMap();
         model.createResource();
         ResIterator it = model.listResourcesWithProperty(RDF.type, RDFUtils.RDATASET);
         while (it.hasNext()) {
@@ -147,7 +149,7 @@ public class DatasetPolicy {
             r.setUri(res.getURI());
             r.setComment(RDFUtils.getFirstPropertyValue(res, RDFS.comment));
             r.setLabel(RDFUtils.getFirstPropertyValue(res, RDFS.label));
-            map.put(r, policies);
+            map.put(r.getUri(), policies);
         }
         return map;
     }
