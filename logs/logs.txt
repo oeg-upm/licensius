@@ -253,3 +253,9 @@
 22:43:29,360 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
 22:43:29,366 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
 22:43:29,376  INFO DatasetPolicy:139 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 11 statements
+22:44:54,299  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+22:47:04,374  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+22:47:28,027  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+22:48:34,714  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+22:49:17,581  INFO LDRConfig:153 - Config file read from ldr.config
+22:49:17,584  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
