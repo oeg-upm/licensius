@@ -1,6 +1,11 @@
 package ldserver;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import odrlmodel.Policy;
 import org.json.simple.JSONObject;
 
 /**
@@ -11,6 +16,8 @@ public class Recurso implements Comparator<Recurso>{
     private String uri ="";
     private String label ="";
     private String comment ="";
+    
+    public Set<String> graphs = new HashSet();
 
     public Recurso()
     {
@@ -81,5 +88,18 @@ public class Recurso implements Comparator<Recurso>{
         res.put("comment", getComment());
         return res;
     }    
+
+    public void setGraphs(Set<String> lg) {
+        graphs=lg;
+    }
+
+    public Set<Policy> getPolicies() {
+        Set<Policy> policies = new HashSet();
+        for(String grafo : graphs)
+        {
+            
+        }
+        return policies;
+    }
     
 }

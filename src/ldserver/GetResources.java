@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.*;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import ldconditional.ConditionalDataset;
 import ldconditional.Main;
 import odrlmodel.Policy;
@@ -14,15 +15,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
- * @api {get} /{dataset}/getResources getResources
- * @apiName /getOffers
+ * @api {get} /{dataset}/service/getResources getResources
+ * @apiName /getResources
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
- * @apiDescription Gets the policy offers for a given dataset. An offer is a 
- * policy applied to a given resource (named graph) that has an attribute to be
- * promoted: <dataseturi> schema:makesOffer <policy>
+ * @apiDescription Gets the resources in a dataset. Dataset resources are those declared with the ldp:contains.
+ * Once declared, they are check for their label (to be diplayed) and for their policies
  * 
- * @apiParam {String} dataset This is not a parameter, but appears in the URI string immediatly before the method.
+ * @apiParam {String} dataset This is not a parameter, but appears in the URI string immediatly before the service/method.
  * @apiParam {String} page Page of results to be returned (e.g. 1)
  * @apiParam {String} size Number of rows to be returned (e.g. 20)
  *
@@ -64,7 +64,6 @@ public class GetResources extends HttpServlet {
             size =  Integer.parseInt(mapa.get("size"));        
         
         String json = generarJson(sdataset, page, size);
-        
 
         resp.setContentType("text/html;charset=utf-8");
         resp.setStatus(HttpServletResponse.SC_OK);
@@ -79,21 +78,22 @@ public class GetResources extends HttpServlet {
     public String generarJson(String sdataset, int page, int size)
     {
         ConditionalDataset dataset = new ConditionalDataset(sdataset);
-        
-
         JSONArray list = new JSONArray();
-        int ini = page*size;
-        int fin = page*size+size-1;
+        int ini = (page-1)*size;
+        int fin = (page-1)*size+size-1;
         List<Recurso> lr=dataset.getRecursos(ini, fin);
         for(Recurso r : lr)
         {
             JSONObject obj = new JSONObject();
             obj.put("uri", r.getUri());
             obj.put("label", r.getLabel());
-            obj.put("numeroTriples", r.getNumTriples());
+            obj.put("numTriples", r.getNumTriples());
             JSONArray licencias = new JSONArray();
-            licencias.add(getLicencia());
-            licencias.add(getLicencia());
+            Set<Policy> policies = r.getPolicies();
+            for(Policy p : policies)
+            {
+                licencias.add(p);
+            }
             obj.put("licenses", licencias);
             list.add(obj);
         }

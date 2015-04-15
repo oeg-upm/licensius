@@ -10,6 +10,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import ldserver.Recurso;
 
 
@@ -41,6 +42,7 @@ public class ConditionalDataset {
      */
     public ConditionalDataset(String name)
     {
+        BASE = LDRConfig.getServer();
         metadata = ModelFactory.createDefaultModel();
         RDFUtils.addPrefixesToModel(metadata);
         dataset = metadata.createProperty(BASE+name);
@@ -59,12 +61,27 @@ public class ConditionalDataset {
         return dpolicy.getPolicies(grafo);
     }
     
+    /**
+     * Obtiene los recursos del min-esimo al max-esimo. 
+     * 
+     */
     public List<Recurso> getRecursos(int min, int max)
     {
-        String patron = dpolicy.getFirstObjectForProperty("http://www.w3.org/ns/ldp#contains");
+        List<String> ls = dpolicy.getObjectsForProperty("http://www.w3.org/ns/ldp#contains");
+        List<Recurso> recursos = new ArrayList();
+        int i=0;
+        for(String s : ls)
+        {
+            Recurso r = new Recurso(s);
+            if (i>=min && i<=max)
+                recursos.add(r);
+            i++;
+        }
+       /* String patron = dpolicy.getFirstObjectForProperty("http://www.w3.org/ns/ldp#contains");
         String o = NTriple.getObject(patron);
-        List<Recurso> recursos = dump.getRecursosWithObject(o, min, max);
+        recursos = dump.getRecursosWithObject(o, min, max);*/
         recursos = enrichWithLabels(recursos);
+        recursos = enrichWithGraphs(recursos);
         return recursos;
     }
     
@@ -149,6 +166,19 @@ public class ConditionalDataset {
         model.write(sw, "RDF/JSON", "");
 //        RDFDataMgr.write(sw, model, Lang.JSONLD);//.JSONLD
         return sw.toString();
+    }
+
+    /**
+     * Enriquece los recursos dados con grafos
+     */
+    private List<Recurso> enrichWithGraphs(List<Recurso> recursos) {
+        for(Recurso r : recursos)
+        {
+            String uri = r.getUri();
+            Set<String> lg=dump.getGraphsForSubject(r.getUri());
+            r.setGraphs(lg);
+        }
+        return recursos;        
     }
     
     

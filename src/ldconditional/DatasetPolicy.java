@@ -82,8 +82,16 @@ public class DatasetPolicy {
         return lista;
     }
 
-    
-    
+    public List<String> getObjectsForProperty(String sprop)
+    {
+        List<String> ls = new ArrayList();
+                Property prop = model.createProperty(sprop);
+
+        NodeIterator it = model.listObjectsOfProperty(prop);
+        if (it.hasNext())
+            ls.add(it.next().toString());
+        return ls;
+    }
     
     /**
      * The first metadata field

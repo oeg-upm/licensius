@@ -14,6 +14,8 @@
 <http://salonica.dia.fi.upm.es/geo/>
         a             dcat:Catalog ;
 		ldp:contains "?s rdf:type <http://salonica.dia.fi.upm.es/geo/ontology/Provincia>" ;
+		ldp:contains <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Lleida> ;
+		ldp:contains <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Valladolid> ;
         rdfs:label    "Geographic dataset with the provinces of Spain" .
 
 

@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,7 +34,7 @@ public class NQuadRawFile {
     }
 
     /**
-     * Gets a list with the graphs in the raw file
+     * Gets a list with the graphs in the raw file.
      */
     public List<String> getGraphs() {
         List<String> lgrafos = new ArrayList();
@@ -153,6 +154,29 @@ public class NQuadRawFile {
             e.printStackTrace();
         }
         return modelo;
+    }
+
+    /**
+     * Gets the graphs in which the given URI appears as object.
+     */
+    public Set<String> getGraphsForSubject(String uri) {
+        Set<String> ls = new HashSet();
+      
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String s= NQuad.getSubject(line);
+                if (!s.equals(uri))
+                    continue;
+                ls.add(NQuad.getGraph(line));
+            }
+        }catch(Exception e)
+        {
+            logger.warn(e.getMessage());
+        }
+        
+        return ls;
     }
 
 
