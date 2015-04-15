@@ -59,6 +59,7 @@ public class RDFUtils {
     public static Property PLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
     public static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
     public static Property SEEALSO= ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
+    public static Property PMAKESOFFER= ModelFactory.createDefaultModel().createProperty("http://schema.org/makesOffer");
 
     public static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
     public static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");

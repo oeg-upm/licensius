@@ -8,6 +8,7 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
 @prefix ldp:   <http://www.w3.org/ns/ldp#>.
 @prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
+@prefix schema: <http://schema.org/> .
 
 
 <http://salonica.dia.fi.upm.es/geo/>
@@ -21,5 +22,6 @@
         rdfs:comment  "This dataset contains all the information about the Municipality of Madrid" ;
         rdfs:label    "Dataset Madrid" ;
 		ldp:contains "?s rdf:type <http://salonica.dia.fi.upm.es/geo/ontology/Provincia>" ;
+		schema:makesOffer <http://purl.org/NET/rdflicense/cc-by4.0> ;
         dct:license   <http://purl.org/NET/rdflicense/cc-by4.0> .
 

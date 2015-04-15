@@ -31,7 +31,7 @@ public class ConditionalDataset {
     Model metadata = null;
     String BASE="http://conditional.linkeddata.es/";
     Resource dataset = null;
-    DatasetPolicy pm = null; 
+    DatasetPolicy dpolicy = null; 
     NQuadRawFile dump = null;
             
     
@@ -45,23 +45,23 @@ public class ConditionalDataset {
         RDFUtils.addPrefixesToModel(metadata);
         dataset = metadata.createProperty(BASE+name);
         addMetadataResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/dcat#Dataset");
-        pm = new DatasetPolicy("datasets/"+name+"/void.ttl");
+        dpolicy = new DatasetPolicy("datasets/"+name+"/void.ttl");
         dump = new NQuadRawFile("datasets/"+name+"/data.nq");
     }
     
     public DatasetPolicy getDatasetPolicy()
     {
-        return pm;
+        return dpolicy;
     }
     
     public List<Policy> getPoliciesForGraph(String grafo)
     {
-        return pm.getPolicies(grafo);
+        return dpolicy.getPolicies(grafo);
     }
     
     public List<Recurso> getRecursos(int min, int max)
     {
-        String patron = pm.getFirstObjectForProperty("http://www.w3.org/ns/ldp#contains");
+        String patron = dpolicy.getFirstObjectForProperty("http://www.w3.org/ns/ldp#contains");
         String o = NTriple.getObject(patron);
         List<Recurso> recursos = dump.getRecursosWithObject(o, min, max);
         recursos = enrichWithLabels(recursos);

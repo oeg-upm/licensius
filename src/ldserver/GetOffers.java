@@ -13,7 +13,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
- * @api {get} /{dataset}/getOffers getOffers
+ * @api {get} /{dataset}/service/getOffers getOffers
  * @apiName /getOffers
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
@@ -23,10 +23,17 @@ import org.json.simple.JSONObject;
  * 
  * @apiParam {String} dataset One word name of the dataset
  *
- * @apiSuccess {String} An array of offers in JSON as follows: 
- * {recurso1:  label, uri, comment} {license1: label, uri, precio, imgsrc}
- * {recurso2:  label, uri, comment} {license2: label, uri, precio, imgsrc}
- *
+ * @apiSuccess {String} offers An array of offers in JSON as follows: <br/>
+ * <pre>
+ * "offers":[
+ * resource: {link, comment, label} license: {label, uri, precio, imgsrc},<br/>
+ * resource: {link, comment, label} license: {label, uri, precio, imgsrc} <br/>
+ * ]
+ * </pre>
+ * 
+ * @example
+ * http://salonica.dia.fi.upm.es/geo/service/getOffers
+ * 
  * @author Victor Rodriguez, OEG-UPM, 2015. 
  */
 public class GetOffers extends HttpServlet {
@@ -72,6 +79,8 @@ public class GetOffers extends HttpServlet {
                 String nombre = p.getTitle();
                 if (nombre.isEmpty())
                     nombre = p.getLabel("en");
+                if (!p.inOffer)
+                    continue;
                 
                 //CREA LA OFERTA DE CADA POLÍTICA
                 Oferta offer = new Oferta();

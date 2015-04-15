@@ -7,6 +7,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
 
 //JAVA
 import com.hp.hpl.jena.vocabulary.RDF;
@@ -37,6 +38,10 @@ public class DatasetPolicy {
     private static final Logger logger = Logger.getLogger(DatasetPolicy.class);
     Model model = null;
 
+    /**
+     * The constructor loads the policy found in the given file 
+     * @param _filename: Name of the metadata of the dataset. For example, datasets/geo/void.ttl
+     */
     public DatasetPolicy(String _filename) {
         File f = new File(_filename);
         if (f.exists()) {
@@ -60,6 +65,9 @@ public class DatasetPolicy {
         return null;
     }
     
+    /**
+     * Gets the policies for 
+     */
     public List<Policy> getPolicies(String grafo) {
         List<Policy> lista = new ArrayList();
         Iterator it = policies.entrySet().iterator();
@@ -74,6 +82,8 @@ public class DatasetPolicy {
         return lista;
     }
 
+    
+    
     
     /**
      * The first metadata field
@@ -97,6 +107,16 @@ public class DatasetPolicy {
         while (it.hasNext()) {
             List<Policy> policies = new ArrayList();
             Resource res = it.next();
+            
+            NodeIterator otl = model.listObjectsOfProperty(res, RDFUtils.PMAKESOFFER);
+            List<String> lo = new ArrayList();
+            while (otl.hasNext()) {
+                RDFNode rlic = otl.next();
+                if (rlic.isResource())
+                   lo.add(rlic.asResource().getURI()); 
+            }
+            
+            //iteramos por las licencias.
             NodeIterator itl = model.listObjectsOfProperty(res, RDFUtils.PLICENSE);
             while (itl.hasNext()) {
                 RDFNode rlic = itl.next();
@@ -104,6 +124,8 @@ public class DatasetPolicy {
                     Resource rrlic = rlic.asResource();
                     Policy policy = ODRLRDF.getPolicyFromResource(rrlic);
                     if (policy != null) {
+                        if (lo.contains(policy.getURI()))
+                            policy.setInOffer(true);
                         policies.add(policy);
                         int count = RDFUtils.countStatements(rrlic.getModel());
                         logger.info("Remotely loaded policy " + policy.uri + " with " + count + " statements");

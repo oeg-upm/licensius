@@ -18,6 +18,7 @@ public class Policy extends MetadataObject {
 
     public String fileName = "";
     public String legalCode ="";
+    public boolean inOffer=false;
     
     //A policy is made of one or more rules
     public List<Rule> rules = new ArrayList();
@@ -322,6 +323,10 @@ public class Policy extends MetadataObject {
     public String getLegalcode()
     {
         return legalCode;
+    }
+
+    public void setInOffer(boolean b) {
+        inOffer=b;
     }
     
 }
