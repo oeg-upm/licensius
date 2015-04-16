@@ -3670,3 +3670,1729 @@ java.lang.NullPointerException
 23:26:34,505 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@22ac3010{IDLE}
 23:26:49,368 DEBUG HashSessionManager:351 - Scavenging sessions at 1429133209368
 23:27:19,369 DEBUG HashSessionManager:351 - Scavenging sessions at 1429133239369
+00:25:23,095 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+00:25:24,140 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+00:25:24,141 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+00:25:24,152 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+00:25:24,153 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+00:25:26,184 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+00:25:26,763 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+00:25:26,764 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+00:25:26,766 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+00:25:26,767 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+00:25:26,768 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+00:25:26,769 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+00:25:26,770 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+00:25:26,771 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+00:25:26,773 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+00:25:26,774 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+00:25:26,781 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+00:25:26,783 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+00:25:26,784 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+00:25:26,785 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+00:25:26,786 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+00:25:26,787 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+00:25:26,788 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+00:25:26,792 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+00:25:26,815 DEBUG FileManager:179 - Add location: LocatorFile
+00:25:26,818 DEBUG FileManager:179 - Add location: LocatorURL
+00:25:26,820 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+00:25:26,825 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+00:25:27,101 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+00:25:27,101 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+00:25:27,103 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+00:25:27,103 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+00:25:27,131 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+00:25:27,197  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+00:25:27,409 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+00:25:27,448  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:08:31,795  INFO LDRConfig:153 - Config file read from ldr.config
+20:08:31,813  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:08:32,773 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:08:33,554 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:08:33,555 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:08:33,566 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:08:33,567 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:08:34,990 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:08:35,540 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:08:35,541 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:08:35,543 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:08:35,544 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:08:35,545 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:08:35,546 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:08:35,547 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:08:35,548 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:08:35,556 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:08:35,557 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:08:35,558 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:08:35,559 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:08:35,560 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:08:35,561 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:08:35,561 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:08:35,562 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:08:35,563 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:08:35,567 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:08:35,588 DEBUG FileManager:179 - Add location: LocatorFile
+20:08:35,592 DEBUG FileManager:179 - Add location: LocatorURL
+20:08:35,594 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:08:35,599 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:08:35,795 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:08:35,795 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:08:35,797 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:08:35,797 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:08:35,825 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:08:35,892  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:08:36,146 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:08:36,187  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:08:36,192  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:08:36,194  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+20:08:36,196 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+20:08:36,196 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+20:08:36,213 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+20:08:36,214 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+20:08:57,418 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:08:57,420  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/ee32f675-ccae-4ca9-a544-3c07abf0b16e with 12 statements
+20:09:18,429 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:09:18,432  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cdaddba4-fc2e-4ee0-a784-e62f1db259bf with 12 statements
+20:09:33,969  INFO LDRConfig:153 - Config file read from ldr.config
+20:09:33,995  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:09:34,974 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:09:35,745 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:09:35,746 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:09:35,756 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:09:35,757 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:09:36,988 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:09:37,517 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:09:37,518 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:09:37,520 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:09:37,521 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:09:37,522 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:09:37,523 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:09:37,524 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:09:37,525 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:09:37,532 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:09:37,533 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:09:37,535 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:09:37,536 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:09:37,537 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:09:37,538 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:09:37,539 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:09:37,548 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:09:37,549 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:09:37,553 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:09:37,575 DEBUG FileManager:179 - Add location: LocatorFile
+20:09:37,579 DEBUG FileManager:179 - Add location: LocatorURL
+20:09:37,581 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:09:37,587 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:09:37,817 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:09:37,818 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:09:37,819 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:09:37,820 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:09:37,849 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:09:37,914  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:09:38,107 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:09:38,150  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:09:38,158  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:09:38,159  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+20:09:38,161 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+20:09:38,162 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+20:09:38,164 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+20:09:38,164 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+20:09:59,265 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:09:59,267  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/ee32f675-ccae-4ca9-a544-3c07abf0b16e with 12 statements
+20:10:20,269 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:10:20,271  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cdaddba4-fc2e-4ee0-a784-e62f1db259bf with 12 statements
+20:10:57,216  INFO LDRConfig:153 - Config file read from ldr.config
+20:11:20,344  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:11:27,552 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:11:30,704 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:11:30,705 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:11:30,742 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:11:30,744 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:11:43,630 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:11:46,276 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:11:46,282 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:11:46,291 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:11:46,303 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:11:46,306 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:11:46,313 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:11:46,316 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:11:46,319 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:11:46,352 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:11:46,356 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:11:46,359 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:11:46,362 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:11:46,367 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:11:46,370 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:11:46,373 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:11:46,376 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:11:46,379 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:11:46,397 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:11:46,488 DEBUG FileManager:179 - Add location: LocatorFile
+20:11:46,502 DEBUG FileManager:179 - Add location: LocatorURL
+20:11:46,512 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:11:46,554 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:11:47,787 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:11:47,788 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:11:47,800 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:11:47,801 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:11:47,932 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:11:48,196  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:11:48,481 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:11:48,674  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:12:01,006  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:12:07,166  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+20:12:08,777 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+20:12:08,778 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+20:12:08,782 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+20:12:08,783 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+20:12:40,609  INFO LDRConfig:153 - Config file read from ldr.config
+20:12:40,637  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:14:19,308 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:16:32,005 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:16:32,008 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:16:32,046 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:16:32,047 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:16:36,103 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:16:38,869 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:16:38,873 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:16:38,880 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:16:38,883 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:16:38,886 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:16:38,892 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:16:38,895 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:16:38,898 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:16:38,933 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:16:38,937 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:16:38,940 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:16:38,943 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:16:38,947 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:16:38,950 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:16:38,953 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:16:38,958 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:16:38,962 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:16:38,979 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:16:39,073 DEBUG FileManager:179 - Add location: LocatorFile
+20:16:39,085 DEBUG FileManager:179 - Add location: LocatorURL
+20:16:39,097 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:16:39,139 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:16:40,396 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:16:40,398 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:16:40,410 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:16:40,412 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:16:40,543 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:16:40,820  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:16:41,197 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:16:41,404  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:18:39,868  INFO LDRConfig:153 - Config file read from ldr.config
+20:18:39,894  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:18:40,864 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:18:41,593 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:18:41,594 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:18:41,603 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:18:41,604 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:18:51,963 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:18:52,656 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:18:52,658 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:18:52,660 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:18:52,661 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:18:52,663 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:18:52,665 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:18:52,666 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:18:52,666 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:18:52,676 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:18:52,677 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:18:52,679 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:18:52,680 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:18:52,681 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:18:52,682 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:18:52,683 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:18:52,684 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:18:52,685 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:18:52,691 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:18:52,716 DEBUG FileManager:179 - Add location: LocatorFile
+20:18:52,721 DEBUG FileManager:179 - Add location: LocatorURL
+20:18:52,724 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:18:52,732 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:18:52,980 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:18:52,981 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:18:52,982 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:18:52,983 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:18:53,011 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:18:53,083  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:18:53,480 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:18:53,518  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:18:53,524  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:18:53,526  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+20:18:53,527 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+20:18:53,528 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+20:18:53,529 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+20:18:53,529 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+20:19:14,560 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:19:14,562  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/ee32f675-ccae-4ca9-a544-3c07abf0b16e with 12 statements
+20:19:35,571 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:19:35,573  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cdaddba4-fc2e-4ee0-a784-e62f1db259bf with 12 statements
+20:19:56,588 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:19:56,591  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cc-by with 12 statements
+20:19:56,592  INFO ConditionalDatasets:32 - Dataset intro has been loaded
+20:19:56,594  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+20:19:56,596  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+20:33:02,115  INFO LDRConfig:153 - Config file read from ldr.config
+20:33:02,138  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:33:03,132 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:33:03,890 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:33:03,891 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:33:03,900 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:33:03,900 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:33:06,118 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:33:06,654 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:33:06,656 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:33:06,657 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:33:06,658 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:33:06,659 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:33:06,660 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:33:06,661 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:33:06,662 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:33:06,671 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:33:06,672 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:33:06,673 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:33:06,674 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:33:06,675 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:33:06,676 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:33:06,677 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:33:06,679 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:33:06,680 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:33:06,684 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:33:06,706 DEBUG FileManager:179 - Add location: LocatorFile
+20:33:06,710 DEBUG FileManager:179 - Add location: LocatorURL
+20:33:06,712 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:33:06,717 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:33:06,926 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:33:06,926 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:33:06,928 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:33:06,928 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:33:06,956 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:33:07,023  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:33:07,346 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:33:07,386  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:33:07,391  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:33:07,393  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+20:33:07,394 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+20:33:07,395 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+20:33:07,396 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+20:33:07,396 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+20:33:29,562 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:33:29,566  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/ee32f675-ccae-4ca9-a544-3c07abf0b16e with 12 statements
+20:33:50,569 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:33:50,574  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cdaddba4-fc2e-4ee0-a784-e62f1db259bf with 12 statements
+20:34:11,578 ERROR ErrorHandlerFactory$ErrorLogger:84 - Premature end of file.
+20:34:11,580  INFO DatasetPolicy:141 - Remotely loaded policy http://salonica.dia.fi.upm.es/ldr/policy/cc-by with 12 statements
+20:34:11,581  INFO ConditionalDatasets:32 - Dataset intro has been loaded
+20:34:11,582  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+20:34:11,583  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+20:34:11,583  INFO Main:73 - Starting the server in 80
+20:34:11,783 DEBUG Log:173 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+20:34:11,844 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@33d8341c added {qtp236106052{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:34:12,023 DEBUG ContainerLifeCycle:304 - HttpConnectionFactory@281de7b2{HTTP/1.1} added {HttpConfiguration@43566bb1{32768,8192/8192,https://:0,[]},POJO}
+20:34:12,034 DEBUG ContainerLifeCycle:304 - ServerConnector@5a60f1ea{null}{0.0.0.0:0} added {org.eclipse.jetty.server.Server@33d8341c,UNMANAGED}
+20:34:12,036 DEBUG ContainerLifeCycle:304 - ServerConnector@5a60f1ea{null}{0.0.0.0:0} added {qtp236106052{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:34:12,038 DEBUG ContainerLifeCycle:304 - ServerConnector@5a60f1ea{null}{0.0.0.0:0} added {org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@31c98853,AUTO}
+20:34:12,039 DEBUG ContainerLifeCycle:304 - ServerConnector@5a60f1ea{null}{0.0.0.0:0} added {org.eclipse.jetty.io.ArrayByteBufferPool@12aa6801,POJO}
+20:34:12,041 DEBUG ContainerLifeCycle:304 - ServerConnector@5a60f1ea{null}{0.0.0.0:0} added {HttpConnectionFactory@281de7b2{HTTP/1.1},AUTO}
+20:34:12,048 DEBUG ContainerLifeCycle:304 - ServerConnector@5a60f1ea{HTTP/1.1}{0.0.0.0:0} added {org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@3a2fc571,MANAGED}
+20:34:12,050 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@33d8341c added {ServerConnector@5a60f1ea{HTTP/1.1}{0.0.0.0:80},AUTO}
+20:34:12,156 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@178c47d added {org.eclipse.jetty.server.session.HashSessionManager@1fabeb4c,AUTO}
+20:34:12,162 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@33d8341c added {org.eclipse.jetty.server.session.HashSessionIdManager@69414a71,AUTO}
+20:34:12,265 DEBUG ContainerLifeCycle:304 - o.e.j.s.h.ContextHandler@1d3639a5{/,null,null} added {org.eclipse.jetty.server.session.SessionHandler@178c47d,AUTO}
+20:34:12,266 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@178c47d added {ldserver.MainHandler@53028e9e,AUTO}
+20:34:12,286 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@24ec459a added {org.eclipse.jetty.server.handler.RequestLogHandler@13cd9466,AUTO}
+20:34:12,287 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@24ec459a added {o.e.j.s.h.ContextHandler@1d3639a5{/,null,null},AUTO}
+20:34:12,288 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@24ec459a added {ldserver.ServiceHandler@1dc9beb2,AUTO}
+20:34:12,288 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@24ec459a added {ldserver.GeneralHandler@2806a765,AUTO}
+20:34:12,311 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.RequestLogHandler@13cd9466 added {org.eclipse.jetty.server.NCSARequestLog@635c714a,AUTO}
+20:34:12,311 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@33d8341c added {org.eclipse.jetty.server.handler.HandlerCollection@24ec459a,AUTO}
+20:34:12,312 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.Server@33d8341c
+20:34:12,319  INFO Server:300 - jetty-9.1.1.v20140108
+20:34:12,405 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.Server@33d8341c
+20:34:12,406 DEBUG AbstractLifeCycle:184 - starting qtp236106052{STOPPED,8<=0<=200,i=0,q=0}
+20:34:12,412 DEBUG AbstractLifeCycle:177 - STARTED qtp236106052{STARTED,8<=8<=200,i=7,q=0}
+20:34:12,413 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionIdManager@69414a71
+20:34:12,413 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionIdManager@69414a71
+20:34:12,414 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.HandlerCollection@24ec459a
+20:34:12,414 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.HandlerCollection@24ec459a
+20:34:12,415 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.RequestLogHandler@13cd9466
+20:34:12,415 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.RequestLogHandler@13cd9466
+20:34:12,415 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.NCSARequestLog@635c714a
+20:34:12,504  INFO NCSARequestLog:230 - Opened C:\svn\oeg\ldconditional\logs\jetty-2015_04_16.request.log
+20:34:12,528 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.NCSARequestLog@635c714a
+20:34:12,529 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.RequestLogHandler@13cd9466
+20:34:12,530 DEBUG AbstractLifeCycle:184 - starting o.e.j.s.h.ContextHandler@1d3639a5{/,null,null}
+20:34:12,670 DEBUG AbstractHandler:57 - starting o.e.j.s.h.ContextHandler@1d3639a5{/,null,STARTING}
+20:34:12,671 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.SessionHandler@178c47d
+20:34:12,671 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.session.SessionHandler@178c47d
+20:34:12,672 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionManager@1fabeb4c
+20:34:12,673 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@2e794854
+20:34:12,794 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@2e794854
+20:34:12,807 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionManager@1fabeb4c
+20:34:12,807 DEBUG AbstractLifeCycle:184 - starting ldserver.MainHandler@53028e9e
+20:34:12,808 DEBUG AbstractHandler:57 - starting ldserver.MainHandler@53028e9e
+20:34:12,808 DEBUG AbstractLifeCycle:177 - STARTED ldserver.MainHandler@53028e9e
+20:34:12,809 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.SessionHandler@178c47d
+20:34:12,810  INFO ContextHandler:746 - Started o.e.j.s.h.ContextHandler@1d3639a5{/,null,AVAILABLE}
+20:34:12,810 DEBUG AbstractLifeCycle:177 - STARTED o.e.j.s.h.ContextHandler@1d3639a5{/,null,AVAILABLE}
+20:34:12,811 DEBUG AbstractLifeCycle:184 - starting ldserver.ServiceHandler@1dc9beb2
+20:34:12,811 DEBUG AbstractHandler:57 - starting ldserver.ServiceHandler@1dc9beb2
+20:34:12,812 DEBUG AbstractLifeCycle:177 - STARTED ldserver.ServiceHandler@1dc9beb2
+20:34:12,812 DEBUG AbstractLifeCycle:184 - starting ldserver.GeneralHandler@2806a765
+20:34:12,812 DEBUG AbstractHandler:57 - starting ldserver.GeneralHandler@2806a765
+20:34:12,813 DEBUG AbstractLifeCycle:177 - STARTED ldserver.GeneralHandler@2806a765
+20:34:12,813 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.HandlerCollection@24ec459a
+20:34:12,814 DEBUG AbstractLifeCycle:184 - starting ServerConnector@5a60f1ea{HTTP/1.1}{0.0.0.0:80}
+20:34:12,991 DEBUG ContainerLifeCycle:304 - ServerConnector@5a60f1ea{HTTP/1.1}{0.0.0.0:80} added {sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:80],POJO}
+20:34:12,991 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@31c98853
+20:34:12,992 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@31c98853
+20:34:12,993 DEBUG AbstractLifeCycle:184 - starting HttpConnectionFactory@281de7b2{HTTP/1.1}
+20:34:12,993 DEBUG AbstractLifeCycle:177 - STARTED HttpConnectionFactory@281de7b2{HTTP/1.1}
+20:34:12,994 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@3a2fc571
+20:34:13,068 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@a097eb1 keys=-1 selected=-1
+20:34:13,600 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@a097eb1 keys=0 selected=0
+20:34:13,625 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@5bdf2f9c keys=-1 selected=-1
+20:34:13,637 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@5bdf2f9c keys=0 selected=0
+20:34:13,638 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@2662d341 keys=-1 selected=-1
+20:34:13,651 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp236106052-18-selector-ServerConnectorManager@3a2fc571/1,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@5bdf2f9c keys=0 selected=0
+20:34:13,654 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp236106052-16-selector-ServerConnectorManager@3a2fc571/0,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@a097eb1 keys=0 selected=0
+20:34:13,660 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@2662d341 keys=0 selected=0
+20:34:13,661 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@3d08113c keys=-1 selected=-1
+20:34:13,672 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp236106052-11-selector-ServerConnectorManager@3a2fc571/2,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@2662d341 keys=0 selected=0
+20:34:13,680 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:34:13,685 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@3d08113c keys=0 selected=0
+20:34:13,686 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@3a2fc571
+20:34:13,690 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp236106052-17-selector-ServerConnectorManager@3a2fc571/3,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@3d08113c keys=0 selected=0
+20:34:13,690 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:34:13,691 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:34:13,691 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:34:13,736  INFO AbstractConnector:265 - Started ServerConnector@5a60f1ea{HTTP/1.1}{0.0.0.0:80}
+20:34:13,737 DEBUG AbstractLifeCycle:177 - STARTED ServerConnector@5a60f1ea{HTTP/1.1}{0.0.0.0:80}
+20:34:13,737 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.Server@33d8341c
+20:34:42,800 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209282800
+20:35:12,842 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209312842
+20:35:42,843 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209342843
+20:36:12,845 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209372845
+20:36:42,847 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209402847
+20:37:00,732  INFO LDRConfig:153 - Config file read from ldr.config
+20:37:00,755  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:37:01,949 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:37:02,815 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:37:02,816 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:37:02,830 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:37:02,830 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:37:04,112 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:37:04,686 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:37:04,687 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:37:04,688 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:37:04,689 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:37:04,690 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:04,692 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:04,693 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:04,694 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:37:04,704 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:37:04,705 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:37:04,706 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:37:04,707 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:37:04,708 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:37:04,709 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:37:04,710 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:37:04,710 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:37:04,711 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:37:04,715 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:04,740 DEBUG FileManager:179 - Add location: LocatorFile
+20:37:04,743 DEBUG FileManager:179 - Add location: LocatorURL
+20:37:04,746 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:37:04,751 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:37:04,974 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:37:04,974 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:37:04,976 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:37:04,976 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:37:05,007 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:37:05,075  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:37:05,304 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:37:05,342  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:37:05,349  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:37:05,352  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+20:37:05,353  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+20:37:05,354  INFO Main:73 - Starting the server in 80
+20:37:05,425 DEBUG Log:173 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+20:37:05,459 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@3c75b790 added {qtp1258725927{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:37:05,564 DEBUG ContainerLifeCycle:304 - HttpConnectionFactory@24c96a1a{HTTP/1.1} added {HttpConfiguration@2354e3d4{32768,8192/8192,https://:0,[]},POJO}
+20:37:05,576 DEBUG ContainerLifeCycle:304 - ServerConnector@6767e4ea{null}{0.0.0.0:0} added {org.eclipse.jetty.server.Server@3c75b790,UNMANAGED}
+20:37:05,579 DEBUG ContainerLifeCycle:304 - ServerConnector@6767e4ea{null}{0.0.0.0:0} added {qtp1258725927{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:37:05,581 DEBUG ContainerLifeCycle:304 - ServerConnector@6767e4ea{null}{0.0.0.0:0} added {org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@7cacdd8f,AUTO}
+20:37:05,583 DEBUG ContainerLifeCycle:304 - ServerConnector@6767e4ea{null}{0.0.0.0:0} added {org.eclipse.jetty.io.ArrayByteBufferPool@55e5f3af,POJO}
+20:37:05,585 DEBUG ContainerLifeCycle:304 - ServerConnector@6767e4ea{null}{0.0.0.0:0} added {HttpConnectionFactory@24c96a1a{HTTP/1.1},AUTO}
+20:37:05,594 DEBUG ContainerLifeCycle:304 - ServerConnector@6767e4ea{HTTP/1.1}{0.0.0.0:0} added {org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@73527bec,MANAGED}
+20:37:05,597 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@3c75b790 added {ServerConnector@6767e4ea{HTTP/1.1}{0.0.0.0:80},AUTO}
+20:37:05,665 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@7154b2f added {org.eclipse.jetty.server.session.HashSessionManager@6fafe4b,AUTO}
+20:37:05,671 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@3c75b790 added {org.eclipse.jetty.server.session.HashSessionIdManager@1cfd04a1,AUTO}
+20:37:05,731 DEBUG ContainerLifeCycle:304 - o.e.j.s.h.ContextHandler@33f21f7e{/,null,null} added {org.eclipse.jetty.server.session.SessionHandler@7154b2f,AUTO}
+20:37:05,732 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@7154b2f added {ldserver.MainHandler@5cf1a3d6,AUTO}
+20:37:05,737 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@36905c6e added {org.eclipse.jetty.server.handler.RequestLogHandler@3fa455be,AUTO}
+20:37:05,738 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@36905c6e added {o.e.j.s.h.ContextHandler@33f21f7e{/,null,null},AUTO}
+20:37:05,739 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@36905c6e added {ldserver.ServiceHandler@3df94d96,AUTO}
+20:37:05,740 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@36905c6e added {ldserver.GeneralHandler@3a54d2a3,AUTO}
+20:37:05,754 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.RequestLogHandler@3fa455be added {org.eclipse.jetty.server.NCSARequestLog@6f045aa2,AUTO}
+20:37:05,755 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@3c75b790 added {org.eclipse.jetty.server.handler.HandlerCollection@36905c6e,AUTO}
+20:37:05,756 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.Server@3c75b790
+20:37:05,763  INFO Server:300 - jetty-9.1.1.v20140108
+20:37:05,809 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.Server@3c75b790
+20:37:05,811 DEBUG AbstractLifeCycle:184 - starting qtp1258725927{STOPPED,8<=0<=200,i=0,q=0}
+20:37:05,817 DEBUG AbstractLifeCycle:177 - STARTED qtp1258725927{STARTED,8<=8<=200,i=7,q=0}
+20:37:05,818 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionIdManager@1cfd04a1
+20:37:05,819 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionIdManager@1cfd04a1
+20:37:05,819 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.HandlerCollection@36905c6e
+20:37:05,819 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.HandlerCollection@36905c6e
+20:37:05,820 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.RequestLogHandler@3fa455be
+20:37:05,820 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.RequestLogHandler@3fa455be
+20:37:05,821 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.NCSARequestLog@6f045aa2
+20:37:05,845  INFO NCSARequestLog:230 - Opened C:\svn\oeg\ldconditional\logs\jetty-2015_04_16.request.log
+20:37:05,855 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.NCSARequestLog@6f045aa2
+20:37:05,856 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.RequestLogHandler@3fa455be
+20:37:05,857 DEBUG AbstractLifeCycle:184 - starting o.e.j.s.h.ContextHandler@33f21f7e{/,null,null}
+20:37:05,900 DEBUG AbstractHandler:57 - starting o.e.j.s.h.ContextHandler@33f21f7e{/,null,STARTING}
+20:37:05,900 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.SessionHandler@7154b2f
+20:37:05,901 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.session.SessionHandler@7154b2f
+20:37:05,901 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionManager@6fafe4b
+20:37:05,902 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@3f23bead
+20:37:05,912 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@3f23bead
+20:37:05,921 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionManager@6fafe4b
+20:37:05,922 DEBUG AbstractLifeCycle:184 - starting ldserver.MainHandler@5cf1a3d6
+20:37:05,922 DEBUG AbstractHandler:57 - starting ldserver.MainHandler@5cf1a3d6
+20:37:05,923 DEBUG AbstractLifeCycle:177 - STARTED ldserver.MainHandler@5cf1a3d6
+20:37:05,923 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.SessionHandler@7154b2f
+20:37:05,924  INFO ContextHandler:746 - Started o.e.j.s.h.ContextHandler@33f21f7e{/,null,AVAILABLE}
+20:37:05,925 DEBUG AbstractLifeCycle:177 - STARTED o.e.j.s.h.ContextHandler@33f21f7e{/,null,AVAILABLE}
+20:37:05,926 DEBUG AbstractLifeCycle:184 - starting ldserver.ServiceHandler@3df94d96
+20:37:05,927 DEBUG AbstractHandler:57 - starting ldserver.ServiceHandler@3df94d96
+20:37:05,927 DEBUG AbstractLifeCycle:177 - STARTED ldserver.ServiceHandler@3df94d96
+20:37:05,928 DEBUG AbstractLifeCycle:184 - starting ldserver.GeneralHandler@3a54d2a3
+20:37:05,928 DEBUG AbstractHandler:57 - starting ldserver.GeneralHandler@3a54d2a3
+20:37:05,929 DEBUG AbstractLifeCycle:177 - STARTED ldserver.GeneralHandler@3a54d2a3
+20:37:05,930 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.HandlerCollection@36905c6e
+20:37:05,931 DEBUG AbstractLifeCycle:184 - starting ServerConnector@6767e4ea{HTTP/1.1}{0.0.0.0:80}
+20:37:05,967 DEBUG ContainerLifeCycle:304 - ServerConnector@6767e4ea{HTTP/1.1}{0.0.0.0:80} added {sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:80],POJO}
+20:37:05,967 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@7cacdd8f
+20:37:05,968 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@7cacdd8f
+20:37:05,969 DEBUG AbstractLifeCycle:184 - starting HttpConnectionFactory@24c96a1a{HTTP/1.1}
+20:37:05,970 DEBUG AbstractLifeCycle:177 - STARTED HttpConnectionFactory@24c96a1a{HTTP/1.1}
+20:37:05,970 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@73527bec
+20:37:05,988 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@3e25e2b8 keys=-1 selected=-1
+20:37:06,028 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@3e25e2b8 keys=0 selected=0
+20:37:06,029 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@49bf32f3 keys=-1 selected=-1
+20:37:06,033 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1258725927-18-selector-ServerConnectorManager@73527bec/0,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@3e25e2b8 keys=0 selected=0
+20:37:06,036 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:37:06,049 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@49bf32f3 keys=0 selected=0
+20:37:06,050 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@7bccf12f keys=-1 selected=-1
+20:37:06,050 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1258725927-13-selector-ServerConnectorManager@73527bec/1,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@49bf32f3 keys=0 selected=0
+20:37:06,051 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:37:06,069 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@7bccf12f keys=0 selected=0
+20:37:06,070 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@1826850a keys=-1 selected=-1
+20:37:06,071 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1258725927-17-selector-ServerConnectorManager@73527bec/2,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@7bccf12f keys=0 selected=0
+20:37:06,072 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:37:06,091 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@1826850a keys=0 selected=0
+20:37:06,092 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@73527bec
+20:37:06,093 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1258725927-16-selector-ServerConnectorManager@73527bec/3,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@1826850a keys=0 selected=0
+20:37:06,094 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:37:06,096  INFO AbstractConnector:265 - Started ServerConnector@6767e4ea{HTTP/1.1}{0.0.0.0:80}
+20:37:06,099 DEBUG AbstractLifeCycle:177 - STARTED ServerConnector@6767e4ea{HTTP/1.1}{0.0.0.0:80}
+20:37:06,099 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.Server@3c75b790
+20:37:35,917 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209455917
+20:37:53,232  INFO LDRConfig:153 - Config file read from ldr.config
+20:37:53,258  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:37:54,198 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:37:54,912 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:37:54,912 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:37:54,921 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:37:54,922 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:37:56,209 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:37:56,751 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:37:56,752 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:37:56,754 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:37:56,755 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:37:56,756 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:56,757 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:56,758 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:56,759 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:37:56,767 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:37:56,768 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:37:56,769 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:37:56,770 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:37:56,771 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:37:56,772 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:37:56,773 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:37:56,774 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:37:56,775 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:37:56,779 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:37:56,802 DEBUG FileManager:179 - Add location: LocatorFile
+20:37:56,805 DEBUG FileManager:179 - Add location: LocatorURL
+20:37:56,808 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:37:56,813 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:37:57,023 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:37:57,023 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:37:57,025 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:37:57,025 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:37:57,062 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:37:57,143  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:37:57,496 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:37:57,544  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:37:57,550  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:37:57,552  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+20:37:57,553  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+20:37:57,553  INFO Main:73 - Starting the server in 80
+20:37:57,639 DEBUG Log:173 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+20:37:57,674 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@4ebf837a added {qtp908718101{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:37:57,764 DEBUG ContainerLifeCycle:304 - HttpConnectionFactory@28927976{HTTP/1.1} added {HttpConfiguration@286446c9{32768,8192/8192,https://:0,[]},POJO}
+20:37:57,773 DEBUG ContainerLifeCycle:304 - ServerConnector@52188a54{null}{0.0.0.0:0} added {org.eclipse.jetty.server.Server@4ebf837a,UNMANAGED}
+20:37:57,776 DEBUG ContainerLifeCycle:304 - ServerConnector@52188a54{null}{0.0.0.0:0} added {qtp908718101{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:37:57,777 DEBUG ContainerLifeCycle:304 - ServerConnector@52188a54{null}{0.0.0.0:0} added {org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@8f8d044,AUTO}
+20:37:57,779 DEBUG ContainerLifeCycle:304 - ServerConnector@52188a54{null}{0.0.0.0:0} added {org.eclipse.jetty.io.ArrayByteBufferPool@4921bae7,POJO}
+20:37:57,780 DEBUG ContainerLifeCycle:304 - ServerConnector@52188a54{null}{0.0.0.0:0} added {HttpConnectionFactory@28927976{HTTP/1.1},AUTO}
+20:37:57,788 DEBUG ContainerLifeCycle:304 - ServerConnector@52188a54{HTTP/1.1}{0.0.0.0:0} added {org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@338aa90a,MANAGED}
+20:37:57,791 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@4ebf837a added {ServerConnector@52188a54{HTTP/1.1}{0.0.0.0:80},AUTO}
+20:37:57,847 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@60d1a23c added {org.eclipse.jetty.server.session.HashSessionManager@62f242cc,AUTO}
+20:37:57,853 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@4ebf837a added {org.eclipse.jetty.server.session.HashSessionIdManager@56a9038f,AUTO}
+20:37:57,894 DEBUG ContainerLifeCycle:304 - o.e.j.s.h.ContextHandler@47b2254c{/,null,null} added {org.eclipse.jetty.server.session.SessionHandler@60d1a23c,AUTO}
+20:37:57,894 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@60d1a23c added {ldserver.MainHandler@aec55a,AUTO}
+20:37:57,897 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645 added {org.eclipse.jetty.server.handler.RequestLogHandler@1fb77bbb,AUTO}
+20:37:57,898 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645 added {o.e.j.s.h.ContextHandler@47b2254c{/,null,null},AUTO}
+20:37:57,899 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645 added {ldserver.ServiceHandler@471c4241,AUTO}
+20:37:57,900 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645 added {ldserver.GeneralHandler@1041dde0,AUTO}
+20:37:57,910 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.RequestLogHandler@1fb77bbb added {org.eclipse.jetty.server.NCSARequestLog@6b439025,AUTO}
+20:37:57,911 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@4ebf837a added {org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645,AUTO}
+20:37:57,912 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.Server@4ebf837a
+20:37:57,919  INFO Server:300 - jetty-9.1.1.v20140108
+20:37:57,965 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.Server@4ebf837a
+20:37:57,967 DEBUG AbstractLifeCycle:184 - starting qtp908718101{STOPPED,8<=0<=200,i=0,q=0}
+20:37:57,974 DEBUG AbstractLifeCycle:177 - STARTED qtp908718101{STARTED,8<=8<=200,i=5,q=0}
+20:37:57,974 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionIdManager@56a9038f
+20:37:57,975 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionIdManager@56a9038f
+20:37:57,978 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645
+20:37:57,979 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645
+20:37:57,980 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.RequestLogHandler@1fb77bbb
+20:37:57,980 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.RequestLogHandler@1fb77bbb
+20:37:57,981 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.NCSARequestLog@6b439025
+20:37:58,004  INFO NCSARequestLog:230 - Opened C:\svn\oeg\ldconditional\logs\jetty-2015_04_16.request.log
+20:37:58,014 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.NCSARequestLog@6b439025
+20:37:58,014 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.RequestLogHandler@1fb77bbb
+20:37:58,015 DEBUG AbstractLifeCycle:184 - starting o.e.j.s.h.ContextHandler@47b2254c{/,null,null}
+20:37:58,055 DEBUG AbstractHandler:57 - starting o.e.j.s.h.ContextHandler@47b2254c{/,null,STARTING}
+20:37:58,056 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.SessionHandler@60d1a23c
+20:37:58,057 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.session.SessionHandler@60d1a23c
+20:37:58,058 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionManager@62f242cc
+20:37:58,059 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@710b34b7
+20:37:58,067 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@710b34b7
+20:37:58,073 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionManager@62f242cc
+20:37:58,074 DEBUG AbstractLifeCycle:184 - starting ldserver.MainHandler@aec55a
+20:37:58,075 DEBUG AbstractHandler:57 - starting ldserver.MainHandler@aec55a
+20:37:58,076 DEBUG AbstractLifeCycle:177 - STARTED ldserver.MainHandler@aec55a
+20:37:58,077 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.SessionHandler@60d1a23c
+20:37:58,078  INFO ContextHandler:746 - Started o.e.j.s.h.ContextHandler@47b2254c{/,null,AVAILABLE}
+20:37:58,079 DEBUG AbstractLifeCycle:177 - STARTED o.e.j.s.h.ContextHandler@47b2254c{/,null,AVAILABLE}
+20:37:58,080 DEBUG AbstractLifeCycle:184 - starting ldserver.ServiceHandler@471c4241
+20:37:58,081 DEBUG AbstractHandler:57 - starting ldserver.ServiceHandler@471c4241
+20:37:58,081 DEBUG AbstractLifeCycle:177 - STARTED ldserver.ServiceHandler@471c4241
+20:37:58,082 DEBUG AbstractLifeCycle:184 - starting ldserver.GeneralHandler@1041dde0
+20:37:58,082 DEBUG AbstractHandler:57 - starting ldserver.GeneralHandler@1041dde0
+20:37:58,083 DEBUG AbstractLifeCycle:177 - STARTED ldserver.GeneralHandler@1041dde0
+20:37:58,084 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.HandlerCollection@7c3b6645
+20:37:58,085 DEBUG AbstractLifeCycle:184 - starting ServerConnector@52188a54{HTTP/1.1}{0.0.0.0:80}
+20:37:58,123 DEBUG ContainerLifeCycle:304 - ServerConnector@52188a54{HTTP/1.1}{0.0.0.0:80} added {sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:80],POJO}
+20:37:58,124 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@8f8d044
+20:37:58,125 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@8f8d044
+20:37:58,126 DEBUG AbstractLifeCycle:184 - starting HttpConnectionFactory@28927976{HTTP/1.1}
+20:37:58,127 DEBUG AbstractLifeCycle:177 - STARTED HttpConnectionFactory@28927976{HTTP/1.1}
+20:37:58,128 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@338aa90a
+20:37:58,146 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@3aa49259 keys=-1 selected=-1
+20:37:58,209 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@3aa49259 keys=0 selected=0
+20:37:58,215 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp908718101-12-selector-ServerConnectorManager@338aa90a/0,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@3aa49259 keys=0 selected=0
+20:37:58,218 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:37:58,220 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@73d649a0 keys=-1 selected=-1
+20:37:58,238 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@73d649a0 keys=0 selected=0
+20:37:58,240 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@797be2c9 keys=-1 selected=-1
+20:37:58,254 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp908718101-14-selector-ServerConnectorManager@338aa90a/1,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@73d649a0 keys=0 selected=0
+20:37:58,256 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:37:58,265 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@797be2c9 keys=0 selected=0
+20:37:58,267 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@2302d8a2 keys=-1 selected=-1
+20:37:58,275 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp908718101-16-selector-ServerConnectorManager@338aa90a/2,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@797be2c9 keys=0 selected=0
+20:37:58,276 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:37:58,292 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@2302d8a2 keys=0 selected=0
+20:37:58,293 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@338aa90a
+20:37:58,300  INFO AbstractConnector:265 - Started ServerConnector@52188a54{HTTP/1.1}{0.0.0.0:80}
+20:37:58,302 DEBUG AbstractLifeCycle:177 - STARTED ServerConnector@52188a54{HTTP/1.1}{0.0.0.0:80}
+20:37:58,302 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.Server@4ebf837a
+20:37:58,307 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp908718101-17-selector-ServerConnectorManager@338aa90a/3,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@2302d8a2 keys=0 selected=0
+20:37:58,308 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:38:34,914  INFO LDRConfig:153 - Config file read from ldr.config
+20:38:34,939  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:38:36,173 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:38:37,000 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:38:37,000 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:38:37,009 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:38:37,010 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:38:38,517 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:38:39,186 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:38:39,188 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:38:39,190 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:38:39,192 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:38:39,193 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:38:39,195 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:38:39,196 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:38:39,197 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:38:39,207 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:38:39,212 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:38:39,214 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:38:39,216 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:38:39,217 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:38:39,218 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:38:39,219 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:38:39,221 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:38:39,222 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:38:39,228 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:38:39,254 DEBUG FileManager:179 - Add location: LocatorFile
+20:38:39,259 DEBUG FileManager:179 - Add location: LocatorURL
+20:38:39,262 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:38:39,270 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:38:39,536 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:38:39,537 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:38:39,539 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:38:39,540 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:38:39,580 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:38:39,662  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:38:39,920 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:38:39,973  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:38:39,980  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:38:39,981  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+20:38:39,984  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+20:38:39,985  INFO Main:73 - Starting the server in 80
+20:38:40,107 DEBUG Log:173 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+20:38:40,169 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@39974439 added {qtp261398093{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:38:40,280 DEBUG ContainerLifeCycle:304 - HttpConnectionFactory@109957ab{HTTP/1.1} added {HttpConfiguration@434aa410{32768,8192/8192,https://:0,[]},POJO}
+20:38:40,289 DEBUG ContainerLifeCycle:304 - ServerConnector@2cdbf42e{null}{0.0.0.0:0} added {org.eclipse.jetty.server.Server@39974439,UNMANAGED}
+20:38:40,291 DEBUG ContainerLifeCycle:304 - ServerConnector@2cdbf42e{null}{0.0.0.0:0} added {qtp261398093{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:38:40,293 DEBUG ContainerLifeCycle:304 - ServerConnector@2cdbf42e{null}{0.0.0.0:0} added {org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@335ee1b3,AUTO}
+20:38:40,294 DEBUG ContainerLifeCycle:304 - ServerConnector@2cdbf42e{null}{0.0.0.0:0} added {org.eclipse.jetty.io.ArrayByteBufferPool@1c7c0f04,POJO}
+20:38:40,297 DEBUG ContainerLifeCycle:304 - ServerConnector@2cdbf42e{null}{0.0.0.0:0} added {HttpConnectionFactory@109957ab{HTTP/1.1},AUTO}
+20:38:40,308 DEBUG ContainerLifeCycle:304 - ServerConnector@2cdbf42e{HTTP/1.1}{0.0.0.0:0} added {org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@2f463cd0,MANAGED}
+20:38:40,310 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@39974439 added {ServerConnector@2cdbf42e{HTTP/1.1}{0.0.0.0:80},AUTO}
+20:38:40,369 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@6d662a8a added {org.eclipse.jetty.server.session.HashSessionManager@4e730222,AUTO}
+20:38:40,375 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@39974439 added {org.eclipse.jetty.server.session.HashSessionIdManager@e1e012a,AUTO}
+20:38:40,426 DEBUG ContainerLifeCycle:304 - o.e.j.s.h.ContextHandler@fcad25c{/,null,null} added {org.eclipse.jetty.server.session.SessionHandler@6d662a8a,AUTO}
+20:38:40,427 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@6d662a8a added {ldserver.MainHandler@4cb89e1d,AUTO}
+20:38:40,434 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7640f42a added {org.eclipse.jetty.server.handler.RequestLogHandler@225e2e0d,AUTO}
+20:38:40,435 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7640f42a added {o.e.j.s.h.ContextHandler@fcad25c{/,null,null},AUTO}
+20:38:40,436 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7640f42a added {ldserver.ServiceHandler@5521691b,AUTO}
+20:38:40,437 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@7640f42a added {ldserver.GeneralHandler@47b9747,AUTO}
+20:38:40,451 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.RequestLogHandler@225e2e0d added {org.eclipse.jetty.server.NCSARequestLog@51658c66,AUTO}
+20:38:40,451 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@39974439 added {org.eclipse.jetty.server.handler.HandlerCollection@7640f42a,AUTO}
+20:38:40,452 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.Server@39974439
+20:38:40,463  INFO Server:300 - jetty-9.1.1.v20140108
+20:38:40,530 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.Server@39974439
+20:38:40,532 DEBUG AbstractLifeCycle:184 - starting qtp261398093{STOPPED,8<=0<=200,i=0,q=0}
+20:38:40,539 DEBUG AbstractLifeCycle:177 - STARTED qtp261398093{STARTED,8<=8<=200,i=6,q=0}
+20:38:40,540 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionIdManager@e1e012a
+20:38:40,541 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionIdManager@e1e012a
+20:38:40,542 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.HandlerCollection@7640f42a
+20:38:40,543 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.HandlerCollection@7640f42a
+20:38:40,543 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.RequestLogHandler@225e2e0d
+20:38:40,544 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.RequestLogHandler@225e2e0d
+20:38:40,545 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.NCSARequestLog@51658c66
+20:38:40,574  INFO NCSARequestLog:230 - Opened C:\svn\oeg\ldconditional\logs\jetty-2015_04_16.request.log
+20:38:40,582 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.NCSARequestLog@51658c66
+20:38:40,583 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.RequestLogHandler@225e2e0d
+20:38:40,583 DEBUG AbstractLifeCycle:184 - starting o.e.j.s.h.ContextHandler@fcad25c{/,null,null}
+20:38:40,627 DEBUG AbstractHandler:57 - starting o.e.j.s.h.ContextHandler@fcad25c{/,null,STARTING}
+20:38:40,628 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.SessionHandler@6d662a8a
+20:38:40,629 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.session.SessionHandler@6d662a8a
+20:38:40,630 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionManager@4e730222
+20:38:40,631 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@78f02d62
+20:38:40,641 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@78f02d62
+20:38:40,651 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionManager@4e730222
+20:38:40,652 DEBUG AbstractLifeCycle:184 - starting ldserver.MainHandler@4cb89e1d
+20:38:40,653 DEBUG AbstractHandler:57 - starting ldserver.MainHandler@4cb89e1d
+20:38:40,653 DEBUG AbstractLifeCycle:177 - STARTED ldserver.MainHandler@4cb89e1d
+20:38:40,654 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.SessionHandler@6d662a8a
+20:38:40,656  INFO ContextHandler:746 - Started o.e.j.s.h.ContextHandler@fcad25c{/,null,AVAILABLE}
+20:38:40,658 DEBUG AbstractLifeCycle:177 - STARTED o.e.j.s.h.ContextHandler@fcad25c{/,null,AVAILABLE}
+20:38:40,659 DEBUG AbstractLifeCycle:184 - starting ldserver.ServiceHandler@5521691b
+20:38:40,659 DEBUG AbstractHandler:57 - starting ldserver.ServiceHandler@5521691b
+20:38:40,660 DEBUG AbstractLifeCycle:177 - STARTED ldserver.ServiceHandler@5521691b
+20:38:40,661 DEBUG AbstractLifeCycle:184 - starting ldserver.GeneralHandler@47b9747
+20:38:40,663 DEBUG AbstractHandler:57 - starting ldserver.GeneralHandler@47b9747
+20:38:40,664 DEBUG AbstractLifeCycle:177 - STARTED ldserver.GeneralHandler@47b9747
+20:38:40,665 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.HandlerCollection@7640f42a
+20:38:40,667 DEBUG AbstractLifeCycle:184 - starting ServerConnector@2cdbf42e{HTTP/1.1}{0.0.0.0:80}
+20:38:40,704 DEBUG ContainerLifeCycle:304 - ServerConnector@2cdbf42e{HTTP/1.1}{0.0.0.0:80} added {sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:80],POJO}
+20:38:40,705 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@335ee1b3
+20:38:40,705 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@335ee1b3
+20:38:40,706 DEBUG AbstractLifeCycle:184 - starting HttpConnectionFactory@109957ab{HTTP/1.1}
+20:38:40,707 DEBUG AbstractLifeCycle:177 - STARTED HttpConnectionFactory@109957ab{HTTP/1.1}
+20:38:40,708 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@2f463cd0
+20:38:40,723 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@1ca7e7be keys=-1 selected=-1
+20:38:40,757 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@1ca7e7be keys=0 selected=0
+20:38:40,759 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@2b6f5657 keys=-1 selected=-1
+20:38:40,762 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp261398093-11-selector-ServerConnectorManager@2f463cd0/0,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@1ca7e7be keys=0 selected=0
+20:38:40,765 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:38:40,779 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@2b6f5657 keys=0 selected=0
+20:38:40,780 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@23933646 keys=-1 selected=-1
+20:38:40,780 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp261398093-16-selector-ServerConnectorManager@2f463cd0/1,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@2b6f5657 keys=0 selected=0
+20:38:40,782 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:38:40,801 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@23933646 keys=0 selected=0
+20:38:40,803 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@1b13e52f keys=-1 selected=-1
+20:38:40,803 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp261398093-17-selector-ServerConnectorManager@2f463cd0/2,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@23933646 keys=0 selected=0
+20:38:40,804 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:38:40,822 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@1b13e52f keys=0 selected=0
+20:38:40,824 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp261398093-18-selector-ServerConnectorManager@2f463cd0/3,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@1b13e52f keys=0 selected=0
+20:38:40,825 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:38:40,824 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@2f463cd0
+20:38:40,832  INFO AbstractConnector:265 - Started ServerConnector@2cdbf42e{HTTP/1.1}{0.0.0.0:80}
+20:38:40,834 DEBUG AbstractLifeCycle:177 - STARTED ServerConnector@2cdbf42e{HTTP/1.1}{0.0.0.0:80}
+20:38:40,870 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.Server@39974439
+20:39:07,552  INFO LDRConfig:153 - Config file read from ldr.config
+20:39:07,576  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:39:08,654 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:39:09,492 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:39:09,492 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:39:09,501 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:39:09,502 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:39:11,252 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:39:11,917 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:39:11,918 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:39:11,919 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:39:11,920 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:39:11,921 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:11,923 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:11,924 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:11,924 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:39:11,935 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:39:11,936 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:39:11,937 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:39:11,938 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:39:11,940 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:39:11,941 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:39:11,942 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:39:11,943 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:39:11,944 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:39:11,948 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:11,970 DEBUG FileManager:179 - Add location: LocatorFile
+20:39:11,976 DEBUG FileManager:179 - Add location: LocatorURL
+20:39:11,979 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:39:11,985 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:39:12,296 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:39:12,296 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:39:12,298 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:39:12,298 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:39:12,344 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:39:12,430  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:39:12,695 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:39:12,751  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:39:12,759  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:39:12,762  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+20:39:12,763  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+20:39:12,764  INFO Main:73 - Starting the server in 80
+20:39:12,859 DEBUG Log:173 - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.eclipse.jetty.util.log) via org.eclipse.jetty.util.log.Slf4jLog
+20:39:12,897 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6a8ba7d9 added {qtp1634901253{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:39:12,990 DEBUG ContainerLifeCycle:304 - HttpConnectionFactory@374b85ae{HTTP/1.1} added {HttpConfiguration@3f357ede{32768,8192/8192,https://:0,[]},POJO}
+20:39:13,005 DEBUG ContainerLifeCycle:304 - ServerConnector@5ec9acf0{null}{0.0.0.0:0} added {org.eclipse.jetty.server.Server@6a8ba7d9,UNMANAGED}
+20:39:13,007 DEBUG ContainerLifeCycle:304 - ServerConnector@5ec9acf0{null}{0.0.0.0:0} added {qtp1634901253{STOPPED,8<=0<=200,i=0,q=0},AUTO}
+20:39:13,008 DEBUG ContainerLifeCycle:304 - ServerConnector@5ec9acf0{null}{0.0.0.0:0} added {org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@10f005ef,AUTO}
+20:39:13,010 DEBUG ContainerLifeCycle:304 - ServerConnector@5ec9acf0{null}{0.0.0.0:0} added {org.eclipse.jetty.io.ArrayByteBufferPool@a78f12e,POJO}
+20:39:13,012 DEBUG ContainerLifeCycle:304 - ServerConnector@5ec9acf0{null}{0.0.0.0:0} added {HttpConnectionFactory@374b85ae{HTTP/1.1},AUTO}
+20:39:13,019 DEBUG ContainerLifeCycle:304 - ServerConnector@5ec9acf0{HTTP/1.1}{0.0.0.0:0} added {org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@6e4c1e31,MANAGED}
+20:39:13,021 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6a8ba7d9 added {ServerConnector@5ec9acf0{HTTP/1.1}{0.0.0.0:80},AUTO}
+20:39:13,079 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@1524be18 added {org.eclipse.jetty.server.session.HashSessionManager@1f3c2480,AUTO}
+20:39:13,085 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6a8ba7d9 added {org.eclipse.jetty.server.session.HashSessionIdManager@5f85f4b7,AUTO}
+20:39:13,130 DEBUG ContainerLifeCycle:304 - o.e.j.s.h.ContextHandler@3655a5d0{/,null,null} added {org.eclipse.jetty.server.session.SessionHandler@1524be18,AUTO}
+20:39:13,131 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.session.SessionHandler@1524be18 added {ldserver.MainHandler@30f9168e,AUTO}
+20:39:13,136 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a added {org.eclipse.jetty.server.handler.RequestLogHandler@72163468,AUTO}
+20:39:13,137 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a added {o.e.j.s.h.ContextHandler@3655a5d0{/,null,null},AUTO}
+20:39:13,138 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a added {ldserver.ServiceHandler@fcad25c,AUTO}
+20:39:13,139 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a added {ldserver.GeneralHandler@4cb89e1d,AUTO}
+20:39:13,154 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.handler.RequestLogHandler@72163468 added {org.eclipse.jetty.server.NCSARequestLog@54e7c733,AUTO}
+20:39:13,155 DEBUG ContainerLifeCycle:304 - org.eclipse.jetty.server.Server@6a8ba7d9 added {org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a,AUTO}
+20:39:13,156 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.Server@6a8ba7d9
+20:39:13,166  INFO Server:300 - jetty-9.1.1.v20140108
+20:39:13,243 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.Server@6a8ba7d9
+20:39:13,245 DEBUG AbstractLifeCycle:184 - starting qtp1634901253{STOPPED,8<=0<=200,i=0,q=0}
+20:39:13,257 DEBUG AbstractLifeCycle:177 - STARTED qtp1634901253{STARTED,8<=8<=200,i=7,q=0}
+20:39:13,258 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionIdManager@5f85f4b7
+20:39:13,258 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionIdManager@5f85f4b7
+20:39:13,259 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a
+20:39:13,259 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a
+20:39:13,260 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.handler.RequestLogHandler@72163468
+20:39:13,260 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.handler.RequestLogHandler@72163468
+20:39:13,261 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.NCSARequestLog@54e7c733
+20:39:13,292  INFO NCSARequestLog:230 - Opened C:\svn\oeg\ldconditional\logs\jetty-2015_04_16.request.log
+20:39:13,303 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.NCSARequestLog@54e7c733
+20:39:13,304 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.RequestLogHandler@72163468
+20:39:13,304 DEBUG AbstractLifeCycle:184 - starting o.e.j.s.h.ContextHandler@3655a5d0{/,null,null}
+20:39:13,351 DEBUG AbstractHandler:57 - starting o.e.j.s.h.ContextHandler@3655a5d0{/,null,STARTING}
+20:39:13,351 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.SessionHandler@1524be18
+20:39:13,352 DEBUG AbstractHandler:57 - starting org.eclipse.jetty.server.session.SessionHandler@1524be18
+20:39:13,353 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:13,354 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@7490badc
+20:39:13,365 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@7490badc
+20:39:13,378 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:13,379 DEBUG AbstractLifeCycle:184 - starting ldserver.MainHandler@30f9168e
+20:39:13,379 DEBUG AbstractHandler:57 - starting ldserver.MainHandler@30f9168e
+20:39:13,380 DEBUG AbstractLifeCycle:177 - STARTED ldserver.MainHandler@30f9168e
+20:39:13,381 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.session.SessionHandler@1524be18
+20:39:13,382  INFO ContextHandler:746 - Started o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:13,383 DEBUG AbstractLifeCycle:177 - STARTED o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:13,384 DEBUG AbstractLifeCycle:184 - starting ldserver.ServiceHandler@fcad25c
+20:39:13,385 DEBUG AbstractHandler:57 - starting ldserver.ServiceHandler@fcad25c
+20:39:13,385 DEBUG AbstractLifeCycle:177 - STARTED ldserver.ServiceHandler@fcad25c
+20:39:13,386 DEBUG AbstractLifeCycle:184 - starting ldserver.GeneralHandler@4cb89e1d
+20:39:13,387 DEBUG AbstractHandler:57 - starting ldserver.GeneralHandler@4cb89e1d
+20:39:13,387 DEBUG AbstractLifeCycle:177 - STARTED ldserver.GeneralHandler@4cb89e1d
+20:39:13,388 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.handler.HandlerCollection@4635bd2a
+20:39:13,389 DEBUG AbstractLifeCycle:184 - starting ServerConnector@5ec9acf0{HTTP/1.1}{0.0.0.0:80}
+20:39:13,430 DEBUG ContainerLifeCycle:304 - ServerConnector@5ec9acf0{HTTP/1.1}{0.0.0.0:80} added {sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:80],POJO}
+20:39:13,431 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@10f005ef
+20:39:13,431 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.util.thread.ScheduledExecutorScheduler@10f005ef
+20:39:13,432 DEBUG AbstractLifeCycle:184 - starting HttpConnectionFactory@374b85ae{HTTP/1.1}
+20:39:13,433 DEBUG AbstractLifeCycle:177 - STARTED HttpConnectionFactory@374b85ae{HTTP/1.1}
+20:39:13,433 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@6e4c1e31
+20:39:13,448 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@10187831 keys=-1 selected=-1
+20:39:13,488 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@10187831 keys=0 selected=0
+20:39:13,491 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@66e82bff keys=-1 selected=-1
+20:39:13,502 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1634901253-11-selector-ServerConnectorManager@6e4c1e31/0,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@10187831 keys=0 selected=0
+20:39:13,505 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:13,515 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@66e82bff keys=0 selected=0
+20:39:13,516 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@771eeb20 keys=-1 selected=-1
+20:39:13,541 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@771eeb20 keys=0 selected=0
+20:39:13,542 DEBUG AbstractLifeCycle:184 - starting org.eclipse.jetty.io.SelectorManager$ManagedSelector@edebef9 keys=-1 selected=-1
+20:39:13,551 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1634901253-12-selector-ServerConnectorManager@6e4c1e31/1,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@66e82bff keys=0 selected=0
+20:39:13,551 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1634901253-13-selector-ServerConnectorManager@6e4c1e31/2,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@771eeb20 keys=0 selected=0
+20:39:13,553 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:13,553 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:13,568 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.io.SelectorManager$ManagedSelector@edebef9 keys=0 selected=0
+20:39:13,569 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.ServerConnector$ServerConnectorManager@6e4c1e31
+20:39:13,575  INFO AbstractConnector:265 - Started ServerConnector@5ec9acf0{HTTP/1.1}{0.0.0.0:80}
+20:39:13,577 DEBUG AbstractLifeCycle:177 - STARTED ServerConnector@5ec9acf0{HTTP/1.1}{0.0.0.0:80}
+20:39:13,577 DEBUG AbstractLifeCycle:177 - STARTED org.eclipse.jetty.server.Server@6a8ba7d9
+20:39:13,585 DEBUG SelectorManager$ManagedSelector:482 - Starting Thread[qtp1634901253-14-selector-ServerConnectorManager@6e4c1e31/3,5,main] on org.eclipse.jetty.io.SelectorManager$ManagedSelector@edebef9 keys=0 selected=0
+20:39:13,586 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:14,220  INFO LDRConfig:153 - Config file read from ldr.config
+20:39:14,244  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+20:39:15,241 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+20:39:15,994 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+20:39:15,995 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+20:39:16,003 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+20:39:16,004 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+20:39:17,226 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:39:17,785 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:39:17,786 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+20:39:17,788 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+20:39:17,789 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+20:39:17,790 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:17,791 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:17,792 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:17,793 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+20:39:17,802 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+20:39:17,803 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+20:39:17,804 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+20:39:17,805 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+20:39:17,807 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+20:39:17,808 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+20:39:17,809 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+20:39:17,810 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+20:39:17,812 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+20:39:17,816 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+20:39:17,836 DEBUG FileManager:179 - Add location: LocatorFile
+20:39:17,841 DEBUG FileManager:179 - Add location: LocatorURL
+20:39:17,843 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+20:39:17,848 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+20:39:18,031 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+20:39:18,031 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+20:39:18,033 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+20:39:18,033 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+20:39:18,071 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+20:39:18,135  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 15 statements
+20:39:18,375 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+20:39:18,414  INFO DatasetPolicy:141 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by-nc4.0 with 15 statements
+20:39:18,420  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+20:39:18,420  INFO ConditionalDatasets:28 - Dataset wordnet is being been loaded
+20:39:18,421  INFO ConditionalDatasets:32 - Dataset wordnet has been loaded
+20:39:42,149 DEBUG SelectorManager$ManagedSelector:421 - Queued change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@4eef43f1
+20:39:42,149 DEBUG SelectorManager$ManagedSelector:421 - Queued change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@64c14e1c
+20:39:42,152 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/0 selected
+20:39:42,152 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/0 selected
+20:39:42,153 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@64c14e1c
+20:39:42,153 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@4eef43f1
+20:39:42,416 DEBUG AbstractEndPoint:96 - onOpen SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0}
+20:39:42,416 DEBUG AbstractEndPoint:96 - onOpen SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0}
+20:39:42,419 DEBUG IdleTimeout:145 - SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0} idle timeout check, elapsed: 137 ms, remaining: 29863 ms
+20:39:42,419 DEBUG IdleTimeout:145 - SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0} idle timeout check, elapsed: 137 ms, remaining: 29863 ms
+20:39:42,798 DEBUG HttpConnection:98 - New HTTP Connection HttpConnection@7f98cac6{IDLE}
+20:39:42,798 DEBUG HttpConnection:98 - New HTTP Connection HttpConnection@7f98cac6{IDLE}
+20:39:42,800 DEBUG AbstractConnection:167 - onOpen HttpConnection@7f98cac6{IDLE}
+20:39:42,801 DEBUG AbstractConnection:167 - onOpen HttpConnection@7f98cac6{IDLE}
+20:39:42,802 DEBUG AbstractConnection:98 - fillInterested HttpConnection@7f98cac6{IDLE}
+20:39:42,802 DEBUG AbstractConnection:98 - fillInterested HttpConnection@7f98cac6{IDLE}
+20:39:42,803 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@7f98cac6{FILL_INTERESTED}
+20:39:42,804 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@7f98cac6{FILL_INTERESTED}
+20:39:42,806 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=0}
+20:39:42,807 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=0}
+20:39:42,807 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@36772002
+20:39:42,808 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@46d67f3d
+20:39:42,809 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:42,809 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:42,812 DEBUG SelectorManager$ManagedSelector:673 - Created SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=0}
+20:39:42,813 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:42,813 DEBUG SelectorManager$ManagedSelector:673 - Created SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=0}
+20:39:42,814 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:43,371 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209583371
+20:39:43,642 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:39:43,642 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:39:43,644 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:43,645 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@46d67f3d
+20:39:43,646 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@7f98cac6{FILLING}
+20:39:43,647 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:43,648 DEBUG HttpConnection:186 - HttpConnection@7f98cac6{FILLING} onFillable HttpChannelState@2d1552dd{s=IDLE i=true a=null}
+20:39:43,650 DEBUG ChannelEndPoint:139 - filled 357 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:43,651 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=357,c=16384,r=357]={<<<GET /geo HTTP/1.1....6,en;q=0.4||||>>>�����������������...���������������}
+20:39:43,655 DEBUG HttpParser:1523 - START --> SPACE1
+20:39:43,658 DEBUG HttpParser:1523 - SPACE1 --> URI
+20:39:43,659 DEBUG HttpParser:1523 - URI --> SPACE2
+20:39:43,659 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+20:39:43,659 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+20:39:43,660 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:43,661 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:43,661 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,665 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,665 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,666 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:43,666 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:43,667 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,667 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:43,668 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:43,668 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,669 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,669 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,670 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:43,670 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:43,671 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,674 DEBUG HttpParser:1523 - HEADER --> END
+20:39:43,719 DEBUG HttpChannel:656 - HttpChannelOverHttp@30d7bea1{r=1,a=IDLE,uri=-} messageComplete
+20:39:43,721 DEBUG HttpInput:229 - HttpInputOverHTTP@7890aa82 EOF
+20:39:43,721 DEBUG HttpChannel:246 - HttpChannelOverHttp@30d7bea1{r=1,a=IDLE,uri=-} handle enter
+20:39:43,723 DEBUG HttpChannelState:177 - HttpChannelState@2d1552dd{s=IDLE i=true a=null} handling IDLE
+20:39:43,727 DEBUG HttpChannel:269 - HttpChannelOverHttp@30d7bea1{r=1,a=DISPATCHED,uri=/geo} action REQUEST_DISPATCH
+20:39:43,729 DEBUG Server:450 - REQUEST /geo on HttpChannelOverHttp@30d7bea1{r=1,a=DISPATCHED,uri=/geo}
+20:39:43,731 DEBUG ContextHandler:964 - scope null||/geo @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:43,734 DEBUG ContextHandler:1038 - context=||/geo @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:43,740 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:43,741 DEBUG SessionHandler:178 - session=null
+20:39:43,776 DEBUG AbstractSession:85 - new session & id rf1q387xpmue1j0d17ia084f7 rf1q387xpmue1j0d17ia084f7
+20:39:43,786  INFO MainHandler:41 - Recibida la consulta GET /geo  de 0:0:0:0:0:0:0:1 rf1q387xpmue1j0d17ia084f7
+20:39:43,787  INFO GeneralHandler:37 - Serving a general file
+20:39:43,788  INFO GeneralHandler:94 - Retrieving a dataset /geo
+20:39:43,851 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@c5b6add[ITERATING] generate: NEED_HEADER (null,[p=0,l=0,c=0,r=0],true)@START
+20:39:43,854 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@c5b6add[ITERATING] generate: FLUSH ([p=0,l=252,c=8192,r=252],[p=0,l=0,c=0,r=0],true)@COMPLETING
+20:39:43,855 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@4eb29cb5[p=0,l=252,c=8192,r=252]={<<<HTTP/1.1 302 Foun....v20140108)||||>>>�����������������...���������������}]
+20:39:43,856 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:43,859 DEBUG ChannelEndPoint:184 - flushed 252 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:43,859 DEBUG WriteFlusher:337 - flushed true
+20:39:43,860 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:43,862 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@c5b6add[ITERATING] generate: DONE ([p=252,l=252,c=8192,r=0],[p=0,l=0,c=0,r=0],true)@END
+20:39:43,862 DEBUG Server:462 - RESPONSE /geo  200 handled=true
+20:39:43,863 DEBUG HttpChannelState:291 - HttpChannelState@2d1552dd{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+20:39:43,879 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of 0}
+20:39:43,880 DEBUG HttpParser:1523 - END --> START
+20:39:43,881 DEBUG HttpChannel:410 - HttpChannelOverHttp@30d7bea1{r=1,a=IDLE,uri=-} handle exit, result COMPLETE
+20:39:43,883 DEBUG ChannelEndPoint:139 - filled 414 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:43,883 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=414,c=16384,r=414]={<<<GET /geo/index.ht...0d17ia084f7||||>>>�����������������...���������������}
+20:39:43,883 DEBUG HttpParser:1523 - START --> SPACE1
+20:39:43,884 DEBUG HttpParser:1523 - SPACE1 --> URI
+20:39:43,884 DEBUG HttpParser:1523 - URI --> SPACE2
+20:39:43,884 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+20:39:43,885 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+20:39:43,885 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,886 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,886 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,886 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,887 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,887 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,888 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,888 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,888 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,889 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,889 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:43,889 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,890 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:43,890 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:43,890 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:43,891 DEBUG HttpParser:1523 - HEADER --> END
+20:39:43,892 DEBUG HttpChannel:656 - HttpChannelOverHttp@30d7bea1{r=2,a=IDLE,uri=-} messageComplete
+20:39:43,892 DEBUG HttpInput:229 - HttpInputOverHTTP@7890aa82 EOF
+20:39:43,893 DEBUG HttpChannel:246 - HttpChannelOverHttp@30d7bea1{r=2,a=IDLE,uri=-} handle enter
+20:39:43,894 DEBUG HttpChannelState:177 - HttpChannelState@2d1552dd{s=IDLE i=true a=null} handling IDLE
+20:39:43,895 DEBUG HttpChannel:269 - HttpChannelOverHttp@30d7bea1{r=2,a=DISPATCHED,uri=/geo/index.html} action REQUEST_DISPATCH
+20:39:43,896 DEBUG Server:450 - REQUEST /geo/index.html on HttpChannelOverHttp@30d7bea1{r=2,a=DISPATCHED,uri=/geo/index.html}
+20:39:43,898 DEBUG ContextHandler:964 - scope null||/geo/index.html @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:43,898 DEBUG ContextHandler:1038 - context=||/geo/index.html @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:43,910 DEBUG SessionHandler:265 - Got Session ID rf1q387xpmue1j0d17ia084f7 from cookie
+20:39:43,911 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:43,911 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:rf1q387xpmue1j0d17ia084f7@113275219
+20:39:43,912  INFO MainHandler:41 - Recibida la consulta GET /geo/index.html  de 0:0:0:0:0:0:0:1 rf1q387xpmue1j0d17ia084f7
+20:39:43,913  INFO GeneralHandler:37 - Serving a general file
+20:39:44,059 DEBUG Server:462 - RESPONSE /geo/index.html  200 handled=true
+20:39:44,060 DEBUG HttpChannelState:291 - HttpChannelState@2d1552dd{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+20:39:44,061 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1e5484ba[ITERATING] generate: NEED_HEADER (null,[p=0,l=3795,c=32768,r=3795],true)@START
+20:39:44,062 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1e5484ba[ITERATING] generate: FLUSH ([p=0,l=112,c=8192,r=112],[p=0,l=3795,c=32768,r=3795],true)@COMPLETING
+20:39:44,063 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@4eb29cb5[p=0,l=112,c=8192,r=112]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>GMT||Content-Type...���������������},HeapByteBuffer@3ed5dee4[p=0,l=3795,c=32768,r=3795]={<<<<!DOCTYPE html>||...ody>||</html>||>>>�����������������...���������������}]
+20:39:44,065 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:44,083 DEBUG ChannelEndPoint:184 - flushed 3907 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,083 DEBUG WriteFlusher:337 - flushed true
+20:39:44,085 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:44,085 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1e5484ba[ITERATING] generate: DONE ([p=112,l=112,c=8192,r=0],[p=3795,l=3795,c=32768,r=0],true)@END
+20:39:44,086 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+20:39:44,087 DEBUG HttpParser:1523 - END --> START
+20:39:44,088 DEBUG HttpChannel:410 - HttpChannelOverHttp@30d7bea1{r=2,a=IDLE,uri=-} handle exit, result COMPLETE
+20:39:44,089 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,092 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,094 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/index.ht...���������������}
+20:39:44,095 DEBUG AbstractConnection:98 - fillInterested HttpConnection@7f98cac6{FILLING}
+20:39:44,095 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@7f98cac6{FILLING_FILL_INTERESTED}
+20:39:44,096 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@7f98cac6{FILL_INTERESTED}
+20:39:44,098 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+20:39:44,098 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@46d67f3d
+20:39:44,099 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:44,126 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+20:39:44,126 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,347 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:39:44,348 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:39:44,352 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,355 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@46d67f3d
+20:39:44,357 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@7f98cac6{FILLING}
+20:39:44,357 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,359 DEBUG HttpConnection:186 - HttpConnection@7f98cac6{FILLING} onFillable HttpChannelState@2d1552dd{s=IDLE i=true a=null}
+20:39:44,363 DEBUG ChannelEndPoint:139 - filled 407 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,368 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=407,c=16384,r=407]={<<<GET /geo/css/boot...0d17ia084f7||||>>>4f7||||����������...���������������}
+20:39:44,371 DEBUG HttpParser:1523 - START --> SPACE1
+20:39:44,371 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:39:44,372 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:39:44,375 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,375 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@36772002
+20:39:44,377 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@7f98cac6{FILLING}
+20:39:44,377 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,372 DEBUG HttpParser:1523 - SPACE1 --> URI
+20:39:44,378 DEBUG HttpParser:1523 - URI --> SPACE2
+20:39:44,379 DEBUG HttpConnection:186 - HttpConnection@7f98cac6{FILLING} onFillable HttpChannelState@18f7a385{s=IDLE i=true a=null}
+20:39:44,379 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+20:39:44,381 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+20:39:44,381 DEBUG ChannelEndPoint:139 - filled 415 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,382 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,382 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@20a3d02a[p=0,l=415,c=16384,r=415]={<<<GET /geo/img/rdf-...0d17ia084f7||||>>>�����������������...���������������}
+20:39:44,416 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,417 DEBUG HttpParser:1523 - START --> SPACE1
+20:39:44,418 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,418 DEBUG HttpParser:1523 - SPACE1 --> URI
+20:39:44,418 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,419 DEBUG HttpParser:1523 - URI --> SPACE2
+20:39:44,419 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,420 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+20:39:44,420 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,421 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+20:39:44,421 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,422 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,422 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,423 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,423 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,424 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,424 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,425 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,425 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,426 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,426 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,427 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,427 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,428 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,428 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,428 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,429 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,430 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,429 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,430 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,431 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,431 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,432 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,432 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,432 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,433 DEBUG HttpParser:1523 - HEADER --> END
+20:39:44,433 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,434 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,435 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,435 DEBUG HttpChannel:656 - HttpChannelOverHttp@30d7bea1{r=3,a=IDLE,uri=-} messageComplete
+20:39:44,436 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,437 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,438 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,438 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,439 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,440 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,440 DEBUG HttpParser:1523 - HEADER --> END
+20:39:44,437 DEBUG HttpInput:229 - HttpInputOverHTTP@7890aa82 EOF
+20:39:44,472 DEBUG HttpChannel:246 - HttpChannelOverHttp@30d7bea1{r=3,a=IDLE,uri=-} handle enter
+20:39:44,473 DEBUG HttpChannelState:177 - HttpChannelState@2d1552dd{s=IDLE i=true a=null} handling IDLE
+20:39:44,474 DEBUG HttpChannel:269 - HttpChannelOverHttp@30d7bea1{r=3,a=DISPATCHED,uri=/geo/css/bootstrap.css} action REQUEST_DISPATCH
+20:39:44,482 DEBUG Server:450 - REQUEST /geo/css/bootstrap.css on HttpChannelOverHttp@30d7bea1{r=3,a=DISPATCHED,uri=/geo/css/bootstrap.css}
+20:39:44,461 DEBUG HttpChannel:656 - HttpChannelOverHttp@7c9a2f1a{r=1,a=IDLE,uri=-} messageComplete
+20:39:44,494 DEBUG ContextHandler:964 - scope null||/geo/css/bootstrap.css @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:44,495 DEBUG ContextHandler:1038 - context=||/geo/css/bootstrap.css @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:44,496 DEBUG SessionHandler:265 - Got Session ID rf1q387xpmue1j0d17ia084f7 from cookie
+20:39:44,497 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:44,497 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:rf1q387xpmue1j0d17ia084f7@113275219
+20:39:44,495 DEBUG HttpInput:229 - HttpInputOverHTTP@3f7b3304 EOF
+20:39:44,498  INFO MainHandler:41 - Recibida la consulta GET /geo/css/bootstrap.css  de 0:0:0:0:0:0:0:1 rf1q387xpmue1j0d17ia084f7
+20:39:44,499 DEBUG HttpChannel:246 - HttpChannelOverHttp@7c9a2f1a{r=1,a=IDLE,uri=-} handle enter
+20:39:44,502 DEBUG HttpChannelState:177 - HttpChannelState@18f7a385{s=IDLE i=true a=null} handling IDLE
+20:39:44,499  INFO GeneralHandler:37 - Serving a general file
+20:39:44,503 DEBUG HttpChannel:269 - HttpChannelOverHttp@7c9a2f1a{r=1,a=DISPATCHED,uri=/geo/img/rdf-condicional.png} action REQUEST_DISPATCH
+20:39:44,505 DEBUG Server:450 - REQUEST /geo/img/rdf-condicional.png on HttpChannelOverHttp@7c9a2f1a{r=1,a=DISPATCHED,uri=/geo/img/rdf-condicional.png}
+20:39:44,507 DEBUG ContextHandler:964 - scope null||/geo/img/rdf-condicional.png @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:44,507 DEBUG ContextHandler:1038 - context=||/geo/img/rdf-condicional.png @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:44,508 DEBUG SessionHandler:265 - Got Session ID rf1q387xpmue1j0d17ia084f7 from cookie
+20:39:44,509 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:44,509 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:rf1q387xpmue1j0d17ia084f7@113275219
+20:39:44,510  INFO MainHandler:41 - Recibida la consulta GET /geo/img/rdf-condicional.png  de 0:0:0:0:0:0:0:1 rf1q387xpmue1j0d17ia084f7
+20:39:44,511  INFO GeneralHandler:37 - Serving a general file
+20:39:44,592 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@76b41f9c[ITERATING] generate: NEED_HEADER (null,[p=0,l=32768,c=32768,r=32768],false)@START
+20:39:44,593 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@76b41f9c[ITERATING] generate: FLUSH ([p=0,l=125,c=8192,r=125],[p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,595 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@4eb29cb5[p=0,l=125,c=8192,r=125]={<<<HTTP/1.1 200 OK||...0108)||||8000||>>>Type: text/html;c...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<�PNG||�|���|IHDR�...�pl��b��e6�\���>>>}]
+20:39:44,597 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,601 DEBUG ChannelEndPoint:184 - flushed 32893 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,601 DEBUG WriteFlusher:337 - flushed true
+20:39:44,606 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,608 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@76b41f9c[ITERATING] generate: DONE ([p=125,l=125,c=8192,r=0],[p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,611 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@4ac0499d[ITERATING] generate: NEED_CHUNK ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,613 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@4ac0499d[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,615 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<��q��,#�:�7���R��...>��������Lq���g>>>}]
+20:39:44,617 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,621 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,622 DEBUG WriteFlusher:337 - flushed true
+20:39:44,623 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,624 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@4ac0499d[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,625 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@52c603e7[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,626 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<[��o���%�����i�c�...��I�,��%+�S���L>>>}]
+20:39:44,627 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,630 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,631 DEBUG WriteFlusher:337 - flushed true
+20:39:44,633 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,634 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@52c603e7[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,636 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@462a5d25[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,637 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<8��%��>Rg:BE���C�...���N��!�o�C�o�5>>>}]
+20:39:44,642 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,645 DEBUG SelectorManager$ManagedSelector:421 - Queued change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@5ca874d9
+20:39:44,647 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/0 selected
+20:39:44,648 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectorManager$ManagedSelector$Accept@5ca874d9
+20:39:44,652 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,652 DEBUG AbstractEndPoint:96 - onOpen SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0}
+20:39:44,665 DEBUG IdleTimeout:145 - SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,null}{io=0,kio=0,kro=0} idle timeout check, elapsed: 4 ms, remaining: 29996 ms
+20:39:44,667 DEBUG HttpConnection:98 - New HTTP Connection HttpConnection@1e2b0942{IDLE}
+20:39:44,668 DEBUG AbstractConnection:167 - onOpen HttpConnection@1e2b0942{IDLE}
+20:39:44,669 DEBUG AbstractConnection:98 - fillInterested HttpConnection@1e2b0942{IDLE}
+20:39:44,670 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@1e2b0942{FILL_INTERESTED}
+20:39:44,671 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1b6cdb87[ITERATING] generate: NEED_HEADER (null,[p=0,l=32768,c=32768,r=32768],false)@START
+20:39:44,672 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=0}
+20:39:44,673 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1b6cdb87[ITERATING] generate: FLUSH ([p=0,l=124,c=8192,r=124],[p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,673 DEBUG WriteFlusher:337 - flushed true
+20:39:44,673 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:44,676 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:44,678 DEBUG SelectorManager$ManagedSelector:673 - Created SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=0}
+20:39:44,679 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,674 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@4eb29cb5[p=0,l=124,c=8192,r=124]={<<<HTTP/1.1 200 OK||...0108)||||8000||>>>|Type: text/html;...���������������},HeapByteBuffer@71acc227[p=0,l=32768,c=32768,r=32768]={<<<@import url(http:...||  }||  .col-l>>>}]
+20:39:44,679 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:39:44,680 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:39:44,676 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,682 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@462a5d25[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,683 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,683 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:44,681 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:44,684 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@1e2b0942{FILLING}
+20:39:44,685 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,684 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@f27bf78[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,687 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<����B%��@���z��E#...?�}�4M.M�������>>>}]
+20:39:44,688 DEBUG ChannelEndPoint:184 - flushed 32892 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,689 DEBUG WriteFlusher:337 - flushed true
+20:39:44,691 DEBUG HttpConnection:186 - HttpConnection@1e2b0942{FILLING} onFillable HttpChannelState@2a190399{s=IDLE i=true a=null}
+20:39:44,691 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:44,692 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@1b6cdb87[ITERATING] generate: DONE ([p=124,l=124,c=8192,r=0],[p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,693 DEBUG ChannelEndPoint:139 - filled 394 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,694 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@503b4766[p=0,l=394,c=16384,r=394]={<<<GET /geo/js/boots...0d17ia084f7||||>>>�����������������...���������������}
+20:39:44,694 DEBUG HttpParser:1523 - START --> SPACE1
+20:39:44,695 DEBUG HttpParser:1523 - SPACE1 --> URI
+20:39:44,695 DEBUG HttpParser:1523 - URI --> SPACE2
+20:39:44,696 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+20:39:44,696 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+20:39:44,697 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,698 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,698 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,699 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,699 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,700 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,701 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,701 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,702 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,703 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,704 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,704 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,705 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,705 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:44,706 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,707 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,707 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,708 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,708 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:44,709 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:44,709 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:44,710 DEBUG HttpParser:1523 - HEADER --> END
+20:39:44,711 DEBUG HttpChannel:656 - HttpChannelOverHttp@63cca2b0{r=1,a=IDLE,uri=-} messageComplete
+20:39:44,689 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,728 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,729 DEBUG WriteFlusher:337 - flushed true
+20:39:44,730 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,731 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@f27bf78[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,718 DEBUG HttpInput:229 - HttpInputOverHTTP@2cfcd689 EOF
+20:39:44,735 DEBUG HttpChannel:246 - HttpChannelOverHttp@63cca2b0{r=1,a=IDLE,uri=-} handle enter
+20:39:44,736 DEBUG HttpChannelState:177 - HttpChannelState@2a190399{s=IDLE i=true a=null} handling IDLE
+20:39:44,730 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@b68d372[ITERATING] generate: NEED_CHUNK ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,737 DEBUG HttpChannel:269 - HttpChannelOverHttp@63cca2b0{r=1,a=DISPATCHED,uri=/geo/js/bootstrap.min.js} action REQUEST_DISPATCH
+20:39:44,739 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@b68d372[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,739 DEBUG Server:450 - REQUEST /geo/js/bootstrap.min.js on HttpChannelOverHttp@63cca2b0{r=1,a=DISPATCHED,uri=/geo/js/bootstrap.min.js}
+20:39:44,740 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@60631542[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@71acc227[p=0,l=32768,c=32768,r=32768]={<<<g-11 {||    width... block;||}||.op>>>}]
+20:39:44,740 DEBUG ContextHandler:964 - scope null||/geo/js/bootstrap.min.js @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:44,741 DEBUG ContextHandler:1038 - context=||/geo/js/bootstrap.min.js @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:44,742 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:44,742 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@f11e738[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,744 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<����S�o��7�cuo�:\...|�����q�9���8SH>>>}]
+20:39:44,746 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,742 DEBUG SessionHandler:265 - Got Session ID rf1q387xpmue1j0d17ia084f7 from cookie
+20:39:44,747 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:44,746 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,750 DEBUG WriteFlusher:337 - flushed true
+20:39:44,750 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:rf1q387xpmue1j0d17ia084f7@113275219
+20:39:44,749 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,752 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:44,751  INFO MainHandler:41 - Recibida la consulta GET /geo/js/bootstrap.min.js  de 0:0:0:0:0:0:0:1 rf1q387xpmue1j0d17ia084f7
+20:39:44,753  INFO GeneralHandler:37 - Serving a general file
+20:39:44,753 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@b68d372[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,761 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@21f1abd4[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,763 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@60631542[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@71acc227[p=0,l=32768,c=32768,r=32768]={<<<en > a {||  outli...order-radius: 6>>>}]
+20:39:44,764 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:44,752 DEBUG WriteFlusher:337 - flushed true
+20:39:44,768 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,769 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,769 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@f11e738[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,770 DEBUG WriteFlusher:337 - flushed true
+20:39:44,772 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@147fcb5[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,772 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:44,773 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<�Y1�\f=��D����;g�...K�u��<\������p2>>>}]
+20:39:44,773 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@21f1abd4[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,774 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,777 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,778 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@1d1fcfbb[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,778 DEBUG WriteFlusher:337 - flushed true
+20:39:44,780 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@60631542[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@71acc227[p=0,l=32768,c=32768,r=32768]={<<<px;||}||.jumbotro...||  top: 1px;||>>>}]
+20:39:44,780 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,781 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:44,782 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@147fcb5[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,783 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@137f0ced[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,785 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<YI�I�CS���6���ooS...+�_�:�V~�Esx��{>>>}]
+20:39:44,785 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,786 DEBUG WriteFlusher:337 - flushed true
+20:39:44,788 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:44,789 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@1d1fcfbb[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,790 DEBUG Server:462 - RESPONSE /geo/css/bootstrap.css  200 handled=true
+20:39:44,792 DEBUG HttpChannelState:291 - HttpChannelState@2d1552dd{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+20:39:44,793 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@7a29a59a[ITERATING] generate: FLUSH ([p=0,l=11460,c=32768,r=11460],true)@COMPLETING
+20:39:44,794 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@60631542[p=0,l=8,c=1024,r=8]={<<<||2CC4||>>>�����������������...���������������},HeapByteBuffer@71acc227[p=0,l=11460,c=32768,r=11460]={<<<  margin-left: -1...trap.css.map */>>>und-color: #ebccc...||  top: 1px;||}]
+20:39:44,795 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:44,786 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,799 DEBUG ChannelEndPoint:184 - flushed 11468 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,799 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,800 DEBUG WriteFlusher:337 - flushed true
+20:39:44,802 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,803 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@137f0ced[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,805 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@4437601e[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,806 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<�rxd�b2���n4��X@b...&O��{��8g���z @>>>}]
+20:39:44,808 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,799 DEBUG WriteFlusher:337 - flushed true
+20:39:44,811 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,812 DEBUG WriteFlusher:337 - flushed true
+20:39:44,812 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:44,814 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,814 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@7a29a59a[ITERATING] generate: FLUSH ([p=11460,l=11460,c=32768,r=0],true)@COMPLETING
+20:39:44,815 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@4437601e[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,817 DEBUG WriteFlusher:328 - write: WriteFlusher@304e5770{IDLE} [HeapByteBuffer@60631542[p=0,l=7,c=1024,r=7]={<<<||0||||>>>|����������������...���������������}]
+20:39:44,817 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@f87748f[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,818 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{WRITING}:IDLE-->WRITING
+20:39:44,819 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<������� @������� ...���~�� ��wg����>>>}]
+20:39:44,821 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,826 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,827 DEBUG WriteFlusher:337 - flushed true
+20:39:44,828 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,821 DEBUG ChannelEndPoint:184 - flushed 7 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,829 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@f87748f[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,830 DEBUG WriteFlusher:337 - flushed true
+20:39:44,831 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@5f56040[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,834 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<< ���� ���� ���� �...���c�5��c�����6>>>}]
+20:39:44,835 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,832 DEBUG WriteFlusher:117 - update WriteFlusher@304e5770{IDLE}:WRITING-->IDLE
+20:39:44,841 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@7a29a59a[ITERATING] generate: DONE ([p=11460,l=11460,c=32768,r=0],true)@END
+20:39:44,841 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,842 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+20:39:44,843 DEBUG HttpParser:1523 - END --> START
+20:39:44,842 DEBUG WriteFlusher:337 - flushed true
+20:39:44,844 DEBUG HttpChannel:410 - HttpChannelOverHttp@30d7bea1{r=3,a=IDLE,uri=-} handle exit, result COMPLETE
+20:39:44,845 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,846 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@5f56040[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,846 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,848 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@2a16c143[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,849 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,849 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<����h�P�nE�Pmh���...����mk���u,��om>>>}]
+20:39:44,849 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/css/boot...���������������}
+20:39:44,851 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,851 DEBUG AbstractConnection:98 - fillInterested HttpConnection@7f98cac6{FILLING}
+20:39:44,852 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@7f98cac6{FILLING_FILL_INTERESTED}
+20:39:44,853 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@7f98cac6{FILL_INTERESTED}
+20:39:44,854 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,854 DEBUG WriteFlusher:337 - flushed true
+20:39:44,855 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+20:39:44,856 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@46d67f3d
+20:39:44,856 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,856 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:44,857 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@2a16c143[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,859 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+20:39:44,860 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,860 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@3bea2b4b[ITERATING] generate: FLUSH ([p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,862 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||8000||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=32768,c=32768,r=32768]={<<<J�D��VA>���^O��/�... @������� @����>>>}]
+20:39:44,863 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,866 DEBUG ChannelEndPoint:184 - flushed 32776 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,867 DEBUG WriteFlusher:337 - flushed true
+20:39:44,869 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,870 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@3bea2b4b[ITERATING] generate: DONE ([p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,871 DEBUG Server:462 - RESPONSE /geo/img/rdf-condicional.png  200 handled=true
+20:39:44,872 DEBUG HttpChannelState:291 - HttpChannelState@18f7a385{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+20:39:44,874 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@ac067a8[ITERATING] generate: FLUSH ([p=0,l=16823,c=32768,r=16823],true)@COMPLETING
+20:39:44,875 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=8,c=1024,r=8]={<<<||41B7||>>>�����������������...���������������},HeapByteBuffer@3ed5dee4[p=0,l=16823,c=32768,r=16823]={<<<��� @������� @���...��R����IEND�B`�>>>W�d�u-#�Z���b�.>�... @������� @����}]
+20:39:44,877 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,880 DEBUG ChannelEndPoint:184 - flushed 16831 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,881 DEBUG WriteFlusher:337 - flushed true
+20:39:44,882 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,883 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@ac067a8[ITERATING] generate: FLUSH ([p=16823,l=16823,c=32768,r=0],true)@COMPLETING
+20:39:44,884 DEBUG WriteFlusher:328 - write: WriteFlusher@2b8777a6{IDLE} [HeapByteBuffer@162108c2[p=0,l=7,c=1024,r=7]={<<<||0||||>>>|����������������...���������������}]
+20:39:44,886 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{WRITING}:IDLE-->WRITING
+20:39:44,889 DEBUG ChannelEndPoint:184 - flushed 7 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,890 DEBUG WriteFlusher:337 - flushed true
+20:39:44,892 DEBUG WriteFlusher:117 - update WriteFlusher@2b8777a6{IDLE}:WRITING-->IDLE
+20:39:44,893 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@ac067a8[ITERATING] generate: DONE ([p=16823,l=16823,c=32768,r=0],true)@END
+20:39:44,895 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of 0}
+20:39:44,895 DEBUG HttpParser:1523 - END --> START
+20:39:44,897 DEBUG HttpChannel:410 - HttpChannelOverHttp@7c9a2f1a{r=1,a=IDLE,uri=-} handle exit, result COMPLETE
+20:39:44,902 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,906 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,907 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/css/boot...���������������}
+20:39:44,908 DEBUG AbstractConnection:98 - fillInterested HttpConnection@7f98cac6{FILLING}
+20:39:44,909 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@7f98cac6{FILLING_FILL_INTERESTED}
+20:39:44,909 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@7f98cac6{FILL_INTERESTED}
+20:39:44,911 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+20:39:44,912 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@36772002
+20:39:44,913 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@5dd54c1b[ITERATING] generate: NEED_HEADER (null,[p=0,l=32768,c=32768,r=32768],false)@START
+20:39:44,913 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:44,914 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@5dd54c1b[ITERATING] generate: FLUSH ([p=0,l=131,c=8192,r=131],[p=0,l=32768,c=32768,r=32768],false)@COMMITTED
+20:39:44,916 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+20:39:44,916 DEBUG WriteFlusher:328 - write: WriteFlusher@272345a0{IDLE} [HeapByteBuffer@4eb29cb5[p=0,l=131,c=8192,r=131]={<<<HTTP/1.1 200 OK||...0108)||||8000||>>>text/html;charset...���������������},HeapByteBuffer@71acc227[p=0,l=32768,c=32768,r=32768]={<<</*!|| * Bootstrap...e"),h=e&&a.supp>>>}]
+20:39:44,916 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,918 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{WRITING}:IDLE-->WRITING
+20:39:44,921 DEBUG ChannelEndPoint:184 - flushed 32899 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,922 DEBUG WriteFlusher:337 - flushed true
+20:39:44,924 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{IDLE}:WRITING-->IDLE
+20:39:44,925 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@5dd54c1b[ITERATING] generate: DONE ([p=131,l=131,c=8192,r=0],[p=32768,l=32768,c=32768,r=0],false)@COMMITTED
+20:39:44,926 DEBUG Server:462 - RESPONSE /geo/js/bootstrap.min.js  200 handled=true
+20:39:44,927 DEBUG HttpChannelState:291 - HttpChannelState@2a190399{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+20:39:44,928 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@7cb01f72[ITERATING] generate: NEED_CHUNK ([p=0,l=2839,c=32768,r=2839],true)@COMMITTED
+20:39:44,929 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@7cb01f72[ITERATING] generate: FLUSH ([p=0,l=2839,c=32768,r=2839],true)@COMPLETING
+20:39:44,931 DEBUG WriteFlusher:328 - write: WriteFlusher@272345a0{IDLE} [HeapByteBuffer@60631542[p=0,l=7,c=1024,r=7]={<<<||B17||>>>|����������������...���������������},HeapByteBuffer@71acc227[p=0,l=2839,c=32768,r=2839]={<<<ort.transition&&(...)})})}(jQuery);>>>Class(c).removeAt...e"),h=e&&a.supp}]
+20:39:44,932 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{WRITING}:IDLE-->WRITING
+20:39:44,936 DEBUG ChannelEndPoint:184 - flushed 2846 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,937 DEBUG WriteFlusher:337 - flushed true
+20:39:44,938 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{IDLE}:WRITING-->IDLE
+20:39:44,939 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@7cb01f72[ITERATING] generate: FLUSH ([p=2839,l=2839,c=32768,r=0],true)@COMPLETING
+20:39:44,941 DEBUG WriteFlusher:328 - write: WriteFlusher@272345a0{IDLE} [HeapByteBuffer@60631542[p=0,l=7,c=1024,r=7]={<<<||0||||>>>|����������������...���������������}]
+20:39:44,942 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{WRITING}:IDLE-->WRITING
+20:39:44,944 DEBUG ChannelEndPoint:184 - flushed 0 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:44,945 DEBUG WriteFlusher:337 - flushed false
+20:39:44,947 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{PENDING}:WRITING-->PENDING
+20:39:44,949 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 4 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=4,kio=0,kro=1}
+20:39:44,951 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:44,951 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 4
+20:39:44,953 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+20:39:44,954 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,968 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:39:44,969 DEBUG SelectChannelEndPoint:155 - Key interests updated 4 -> 0
+20:39:44,971 DEBUG SelectChannelEndPoint:135 - Local interests updated 4 -> 0 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=4}
+20:39:44,972 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:44,973 DEBUG WriteFlusher:385 - completeWrite: WriteFlusher@272345a0{PENDING}
+20:39:44,974 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{COMPLETING}:PENDING-->COMPLETING
+20:39:44,977 DEBUG ChannelEndPoint:184 - flushed 7 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=4}
+20:39:44,978 DEBUG WriteFlusher:402 - flushed true
+20:39:44,979 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{IDLE}:COMPLETING-->IDLE
+20:39:44,980 DEBUG HttpConnection$ContentCallback:652 - org.eclipse.jetty.server.HttpConnection$ContentCallback@7cb01f72[ITERATING] generate: DONE ([p=2839,l=2839,c=32768,r=0],true)@END
+20:39:44,980 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:44,985 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of 0}
+20:39:44,986 DEBUG HttpParser:1523 - END --> START
+20:39:44,987 DEBUG HttpChannel:410 - HttpChannelOverHttp@63cca2b0{r=1,a=IDLE,uri=-} handle exit, result COMPLETE
+20:39:44,989 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=4}
+20:39:44,991 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=4}
+20:39:44,992 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@20a3d02a[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/img/rdf-...���������������}
+20:39:44,993 DEBUG AbstractConnection:98 - fillInterested HttpConnection@1e2b0942{FILLING}
+20:39:44,994 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@1e2b0942{FILLING_FILL_INTERESTED}
+20:39:44,995 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@1e2b0942{FILL_INTERESTED}
+20:39:44,997 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=4}
+20:39:44,997 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:44,998 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:45,002 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+20:39:45,003 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:45,446 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:39:45,447 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:39:45,448 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:45,449 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:45,450 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@1e2b0942{FILLING}
+20:39:45,450 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:45,451 DEBUG HttpConnection:186 - HttpConnection@1e2b0942{FILLING} onFillable HttpChannelState@2a190399{s=IDLE i=true a=null}
+20:39:45,453 DEBUG ChannelEndPoint:139 - filled 421 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:45,453 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=421,c=16384,r=421]={<<<GET /geo/fonts/gl...0d17ia084f7||||>>>�����������������...���������������}
+20:39:45,454 DEBUG HttpParser:1523 - START --> SPACE1
+20:39:45,454 DEBUG HttpParser:1523 - SPACE1 --> URI
+20:39:45,454 DEBUG HttpParser:1523 - URI --> SPACE2
+20:39:45,455 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+20:39:45,455 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+20:39:45,456 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:45,456 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,456 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:45,458 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,539 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:45,540 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,541 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:45,541 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,542 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:45,542 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:45,543 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,544 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:45,544 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,545 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:45,545 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,546 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:45,546 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:45,547 DEBUG HttpParser:1523 - HEADER --> END
+20:39:45,548 DEBUG HttpChannel:656 - HttpChannelOverHttp@63cca2b0{r=2,a=IDLE,uri=-} messageComplete
+20:39:45,549 DEBUG HttpInput:229 - HttpInputOverHTTP@2cfcd689 EOF
+20:39:45,550 DEBUG HttpChannel:246 - HttpChannelOverHttp@63cca2b0{r=2,a=IDLE,uri=-} handle enter
+20:39:45,551 DEBUG HttpChannelState:177 - HttpChannelState@2a190399{s=IDLE i=true a=null} handling IDLE
+20:39:45,552 DEBUG HttpChannel:269 - HttpChannelOverHttp@63cca2b0{r=2,a=DISPATCHED,uri=/geo/fonts/glyphicons-halflings-regular.woff} action REQUEST_DISPATCH
+20:39:45,553 DEBUG Server:450 - REQUEST /geo/fonts/glyphicons-halflings-regular.woff on HttpChannelOverHttp@63cca2b0{r=2,a=DISPATCHED,uri=/geo/fonts/glyphicons-halflings-regular.woff}
+20:39:45,554 DEBUG ContextHandler:964 - scope null||/geo/fonts/glyphicons-halflings-regular.woff @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:45,555 DEBUG ContextHandler:1038 - context=||/geo/fonts/glyphicons-halflings-regular.woff @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:45,556 DEBUG SessionHandler:265 - Got Session ID rf1q387xpmue1j0d17ia084f7 from cookie
+20:39:45,556 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:45,557 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:rf1q387xpmue1j0d17ia084f7@113275219
+20:39:45,558  INFO MainHandler:41 - Recibida la consulta GET /geo/fonts/glyphicons-halflings-regular.woff  de 0:0:0:0:0:0:0:1 rf1q387xpmue1j0d17ia084f7
+20:39:45,558  INFO GeneralHandler:37 - Serving a general file
+20:39:45,618 DEBUG Server:462 - RESPONSE /geo/fonts/glyphicons-halflings-regular.woff  200 handled=true
+20:39:45,619 DEBUG HttpChannelState:291 - HttpChannelState@2a190399{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+20:39:45,620 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@42a0221f[ITERATING] generate: NEED_HEADER (null,[p=0,l=23320,c=32768,r=23320],true)@START
+20:39:45,620 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@42a0221f[ITERATING] generate: FLUSH ([p=0,l=113,c=8192,r=113],[p=0,l=23320,c=32768,r=23320],true)@COMPLETING
+20:39:45,621 DEBUG WriteFlusher:328 - write: WriteFlusher@272345a0{IDLE} [HeapByteBuffer@4eb29cb5[p=0,l=113,c=8192,r=113]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>0140108)||||8000|...���������������},HeapByteBuffer@3ed5dee4[p=0,l=23320,c=32768,r=23320]={<<<wOFF������[������...XY��+����R�X���>>>6��Qf:�5�E�g>�5��... @������� @����}]
+20:39:45,622 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{WRITING}:IDLE-->WRITING
+20:39:45,625 DEBUG ChannelEndPoint:184 - flushed 23433 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:45,625 DEBUG WriteFlusher:337 - flushed true
+20:39:45,626 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{IDLE}:WRITING-->IDLE
+20:39:45,627 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@42a0221f[ITERATING] generate: DONE ([p=113,l=113,c=8192,r=0],[p=23320,l=23320,c=32768,r=0],true)@END
+20:39:45,627 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+20:39:45,628 DEBUG HttpParser:1523 - END --> START
+20:39:45,628 DEBUG HttpChannel:410 - HttpChannelOverHttp@63cca2b0{r=2,a=IDLE,uri=-} handle exit, result COMPLETE
+20:39:45,630 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:45,631 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:45,632 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@503b4766[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/js/boots...���������������}
+20:39:45,633 DEBUG AbstractConnection:98 - fillInterested HttpConnection@1e2b0942{FILLING}
+20:39:45,633 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@1e2b0942{FILLING_FILL_INTERESTED}
+20:39:45,634 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@1e2b0942{FILL_INTERESTED}
+20:39:45,635 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+20:39:45,635 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:45,636 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:45,641 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+20:39:45,641 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:46,311 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:39:46,312 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:39:46,313 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:46,314 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:46,314 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@1e2b0942{FILLING}
+20:39:46,314 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:39:46,315 DEBUG HttpConnection:186 - HttpConnection@1e2b0942{FILLING} onFillable HttpChannelState@2a190399{s=IDLE i=true a=null}
+20:39:46,317 DEBUG ChannelEndPoint:139 - filled 382 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:46,317 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@20a3d02a[p=0,l=382,c=16384,r=382]={<<<GET /favicon.ico ...0d17ia084f7||||>>>NID=rf1q387xpmue1...���������������}
+20:39:46,318 DEBUG HttpParser:1523 - START --> SPACE1
+20:39:46,318 DEBUG HttpParser:1523 - SPACE1 --> URI
+20:39:46,318 DEBUG HttpParser:1523 - URI --> SPACE2
+20:39:46,319 DEBUG HttpParser:1523 - SPACE2 --> REQUEST_VERSION
+20:39:46,319 DEBUG HttpParser:1523 - REQUEST_VERSION --> HEADER
+20:39:46,319 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:46,320 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,320 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:46,320 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,321 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:46,321 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,321 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:46,322 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,322 DEBUG HttpParser:1523 - HEADER --> HEADER_VALUE
+20:39:46,322 DEBUG HttpParser:1523 - HEADER_VALUE --> HEADER_IN_VALUE
+20:39:46,323 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,323 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:46,324 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,324 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:46,324 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,325 DEBUG HttpParser:1523 - HEADER --> HEADER_IN_VALUE
+20:39:46,325 DEBUG HttpParser:1523 - HEADER_IN_VALUE --> HEADER
+20:39:46,325 DEBUG HttpParser:1523 - HEADER --> END
+20:39:46,344 DEBUG HttpChannel:656 - HttpChannelOverHttp@63cca2b0{r=3,a=IDLE,uri=-} messageComplete
+20:39:46,345 DEBUG HttpInput:229 - HttpInputOverHTTP@2cfcd689 EOF
+20:39:46,346 DEBUG HttpChannel:246 - HttpChannelOverHttp@63cca2b0{r=3,a=IDLE,uri=-} handle enter
+20:39:46,346 DEBUG HttpChannelState:177 - HttpChannelState@2a190399{s=IDLE i=true a=null} handling IDLE
+20:39:46,347 DEBUG HttpChannel:269 - HttpChannelOverHttp@63cca2b0{r=3,a=DISPATCHED,uri=/favicon.ico} action REQUEST_DISPATCH
+20:39:46,348 DEBUG Server:450 - REQUEST /favicon.ico on HttpChannelOverHttp@63cca2b0{r=3,a=DISPATCHED,uri=/favicon.ico}
+20:39:46,348 DEBUG ContextHandler:964 - scope null||/favicon.ico @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:46,349 DEBUG ContextHandler:1038 - context=||/favicon.ico @ o.e.j.s.h.ContextHandler@3655a5d0{/,null,AVAILABLE}
+20:39:46,350 DEBUG SessionHandler:265 - Got Session ID rf1q387xpmue1j0d17ia084f7 from cookie
+20:39:46,350 DEBUG SessionHandler:177 - sessionManager=org.eclipse.jetty.server.session.HashSessionManager@1f3c2480
+20:39:46,350 DEBUG SessionHandler:178 - session=org.eclipse.jetty.server.session.HashedSession:rf1q387xpmue1j0d17ia084f7@113275219
+20:39:46,351  INFO MainHandler:41 - Recibida la consulta GET /favicon.ico  de 0:0:0:0:0:0:0:1 rf1q387xpmue1j0d17ia084f7
+20:39:46,351  INFO GeneralHandler:37 - Serving a general file
+20:39:46,352 DEBUG Server:462 - RESPONSE /favicon.ico  200 handled=true
+20:39:46,364 DEBUG HttpChannelState:291 - HttpChannelState@2a190399{s=DISPATCHED i=true a=null} unhandle DISPATCHED
+20:39:46,364 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@3458d951[ITERATING] generate: NEED_HEADER (null,[p=0,l=15,c=32768,r=15],true)@START
+20:39:46,365 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@3458d951[ITERATING] generate: FLUSH ([p=0,l=110,c=8192,r=110],[p=0,l=15,c=32768,r=15],true)@COMPLETING
+20:39:46,366 DEBUG WriteFlusher:328 - write: WriteFlusher@272345a0{IDLE} [HeapByteBuffer@4eb29cb5[p=0,l=110,c=8192,r=110]={<<<HTTP/1.1 200 OK||....v20140108)||||>>>|||0140108)||||80...���������������},HeapByteBuffer@71acc227[p=0,l=15,c=32768,r=15]={<<<404 not found||>>>&(g.length&&g.has...e"),h=e&&a.supp}]
+20:39:46,367 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{WRITING}:IDLE-->WRITING
+20:39:46,371 DEBUG ChannelEndPoint:184 - flushed 125 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,W,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:46,372 DEBUG WriteFlusher:337 - flushed true
+20:39:46,373 DEBUG WriteFlusher:117 - update WriteFlusher@272345a0{IDLE}:WRITING-->IDLE
+20:39:46,373 DEBUG HttpConnection$CommitCallback:500 - org.eclipse.jetty.server.HttpConnection$CommitCallback@3458d951[ITERATING] generate: DONE ([p=110,l=110,c=8192,r=0],[p=15,l=15,c=32768,r=0],true)@END
+20:39:46,374 DEBUG HttpParser:1499 - reset HttpParser{s=END,0 of -1}
+20:39:46,374 DEBUG HttpParser:1523 - END --> START
+20:39:46,375 DEBUG HttpChannel:410 - HttpChannelOverHttp@63cca2b0{r=3,a=IDLE,uri=-} handle exit, result COMPLETE
+20:39:46,376 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:46,378 DEBUG ChannelEndPoint:139 - filled 0 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:39:46,378 DEBUG HttpParser:1193 - parseNext s=START HeapByteBuffer@52f3424a[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/fonts/gl...���������������}
+20:39:46,378 DEBUG AbstractConnection:98 - fillInterested HttpConnection@1e2b0942{FILLING}
+20:39:46,425 DEBUG AbstractConnection:236 - FILLING-->FILLING_FILL_INTERESTED HttpConnection@1e2b0942{FILLING_FILL_INTERESTED}
+20:39:46,426 DEBUG AbstractConnection:236 - FILLING_FILL_INTERESTED-->FILL_INTERESTED HttpConnection@1e2b0942{FILL_INTERESTED}
+20:39:46,427 DEBUG SelectChannelEndPoint:135 - Local interests updated 0 -> 1 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=0,kro=1}
+20:39:46,427 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:39:46,428 DEBUG SelectChannelEndPoint:155 - Key interests updated 0 -> 1
+20:39:46,429 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 0/1 selected
+20:39:46,429 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:40:12,285 DEBUG IdleTimeout:145 - SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 27431 ms, remaining: 2569 ms
+20:40:12,288 DEBUG IdleTimeout:145 - SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 27377 ms, remaining: 2623 ms
+20:40:13,375 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209613375
+20:40:14,664 DEBUG IdleTimeout:145 - SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 28238 ms, remaining: 1762 ms
+20:40:14,856 DEBUG IdleTimeout:145 - SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 30002 ms, remaining: -2 ms
+20:40:14,857 DEBUG IdleTimeout:151 - SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout expired
+20:40:14,860 DEBUG WriteFlusher:444 - ignored: WriteFlusher@304e5770{IDLE} java.util.concurrent.TimeoutException: Idle timeout expired: 30002/30000 ms
+20:40:14,860 DEBUG AbstractConnection:236 - FILL_INTERESTED-->IDLE HttpConnection@7f98cac6{IDLE}
+20:40:14,861 DEBUG HttpParser:1491 - close HttpParser{s=START,0 of -1}
+20:40:14,861 DEBUG HttpParser:1523 - START --> CLOSED
+20:40:14,862 DEBUG AbstractConnection:136 - HttpConnection@7f98cac6{IDLE} onFillInterestedFailed java.util.concurrent.TimeoutException: Idle timeout expired: 30002/30000 ms
+20:40:14,863 DEBUG ChannelEndPoint:73 - oshut SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,out,-,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+20:40:14,864 DEBUG AbstractConnection:98 - fillInterested HttpConnection@7f98cac6{IDLE}
+20:40:14,864 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@7f98cac6{FILL_INTERESTED}
+20:40:14,866 DEBUG SelectChannelEndPoint:146 - Ignoring local interests update 1 -> 1 for SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+20:40:14,912 DEBUG IdleTimeout:145 - SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 30002 ms, remaining: -2 ms
+20:40:14,913 DEBUG IdleTimeout:151 - SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout expired
+20:40:14,914 DEBUG WriteFlusher:444 - ignored: WriteFlusher@2b8777a6{IDLE} java.util.concurrent.TimeoutException: Idle timeout expired: 30002/30000 ms
+20:40:14,914 DEBUG AbstractConnection:236 - FILL_INTERESTED-->IDLE HttpConnection@7f98cac6{IDLE}
+20:40:14,915 DEBUG HttpParser:1491 - close HttpParser{s=START,0 of -1}
+20:40:14,915 DEBUG HttpParser:1523 - START --> CLOSED
+20:40:14,916 DEBUG AbstractConnection:136 - HttpConnection@7f98cac6{IDLE} onFillInterestedFailed java.util.concurrent.TimeoutException: Idle timeout expired: 30002/30000 ms
+20:40:14,917 DEBUG ChannelEndPoint:73 - oshut SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,out,-,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+20:40:14,918 DEBUG AbstractConnection:98 - fillInterested HttpConnection@7f98cac6{IDLE}
+20:40:14,918 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@7f98cac6{FILL_INTERESTED}
+20:40:14,919 DEBUG SelectChannelEndPoint:146 - Ignoring local interests update 1 -> 1 for SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+20:40:16,428 DEBUG IdleTimeout:145 - SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout check, elapsed: 30002 ms, remaining: -2 ms
+20:40:16,429 DEBUG IdleTimeout:151 - SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,R,-,30000,HttpConnection}{io=1,kio=1,kro=1} idle timeout expired
+20:40:16,430 DEBUG AbstractConnection:236 - FILL_INTERESTED-->IDLE HttpConnection@1e2b0942{IDLE}
+20:40:16,430 DEBUG WriteFlusher:444 - ignored: WriteFlusher@272345a0{IDLE} java.util.concurrent.TimeoutException: Idle timeout expired: 30002/30000 ms
+20:40:16,431 DEBUG HttpParser:1491 - close HttpParser{s=START,0 of -1}
+20:40:16,431 DEBUG HttpParser:1523 - START --> CLOSED
+20:40:16,432 DEBUG AbstractConnection:136 - HttpConnection@1e2b0942{IDLE} onFillInterestedFailed java.util.concurrent.TimeoutException: Idle timeout expired: 30002/30000 ms
+20:40:16,433 DEBUG ChannelEndPoint:73 - oshut SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,out,-,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+20:40:16,434 DEBUG AbstractConnection:98 - fillInterested HttpConnection@1e2b0942{IDLE}
+20:40:16,434 DEBUG AbstractConnection:236 - IDLE-->FILL_INTERESTED HttpConnection@1e2b0942{FILL_INTERESTED}
+20:40:16,435 DEBUG SelectChannelEndPoint:146 - Ignoring local interests update 1 -> 1 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=1,kio=1,kro=1}
+20:40:22,395 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:40:22,395 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:40:22,396 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:40:22,396 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:40:22,395 DEBUG SelectorManager$ManagedSelector:533 - Selector loop woken up from select, 1/1 selected
+20:40:22,396 DEBUG SelectChannelEndPoint:155 - Key interests updated 1 -> 0
+20:40:22,397 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,397 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@36772002
+20:40:22,397 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,398 DEBUG SelectChannelEndPoint:135 - Local interests updated 1 -> 0 for SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,OSHUT,R,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,398 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@46d67f3d
+20:40:22,398 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@7f98cac6{FILLING}
+20:40:22,399 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@7f98cac6{FILLING}
+20:40:22,399 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:40:22,398 DEBUG SelectorManager$ManagedSelector:465 - Running change org.eclipse.jetty.io.SelectChannelEndPoint$1@7c08a22
+20:40:22,400 DEBUG HttpConnection:186 - HttpConnection@7f98cac6{FILLING} onFillable HttpChannelState@2d1552dd{s=IDLE i=true a=null}
+20:40:22,400 DEBUG HttpConnection:186 - HttpConnection@7f98cac6{FILLING} onFillable HttpChannelState@18f7a385{s=IDLE i=true a=null}
+20:40:22,399 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:40:22,400 DEBUG AbstractConnection:236 - FILL_INTERESTED-->FILLING HttpConnection@1e2b0942{FILLING}
+20:40:22,401 DEBUG SelectorManager$ManagedSelector:530 - Selector loop waiting on select
+20:40:22,402 DEBUG ChannelEndPoint:139 - filled -1 SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,403 DEBUG HttpConnection:186 - HttpConnection@1e2b0942{FILLING} onFillable HttpChannelState@2a190399{s=IDLE i=true a=null}
+20:40:22,404 DEBUG ChannelEndPoint:64 - ishut SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,404 DEBUG ChannelEndPoint:139 - filled -1 SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,405 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,406 DEBUG ChannelEndPoint:64 - ishut SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,406 DEBUG ChannelEndPoint:112 - close SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,402 DEBUG ChannelEndPoint:139 - filled -1 SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,409 DEBUG ChannelEndPoint:64 - ishut SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,Open,in,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,408 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,410 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,410 DEBUG ChannelEndPoint:112 - close SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,409 DEBUG SelectorManager$ManagedSelector:679 - Destroyed SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+20:40:22,411 DEBUG ChannelEndPoint:112 - close SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=0,kro=1}
+20:40:22,412 DEBUG AbstractConnection:176 - onClose HttpConnection@7f98cac6{FILLING}
+20:40:22,413 DEBUG SelectorManager$ManagedSelector:679 - Destroyed SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+20:40:22,414 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@46aa3e6e{/0:0:0:0:0:0:0:1:55782<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+20:40:22,414 DEBUG HttpParser:1483 - atEOF HttpParser{s=CLOSED,0 of -1}
+20:40:22,415 DEBUG SelectorManager$ManagedSelector:679 - Destroyed SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+20:40:22,414 DEBUG AbstractConnection:176 - onClose HttpConnection@1e2b0942{FILLING}
+20:40:22,415 DEBUG AbstractConnection:176 - onClose HttpConnection@7f98cac6{FILLING}
+20:40:22,416 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@7a8e732a{/0:0:0:0:0:0:0:1:55785<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+20:40:22,417 DEBUG AbstractEndPoint:104 - onClose SelectChannelEndPoint@5e47e8e2{/0:0:0:0:0:0:0:1:55783<->80,CLOSED,ISHUT,OSHUT,-,-,30000,HttpConnection}{io=0,kio=-1,kro=-1}
+20:40:22,415 DEBUG HttpParser:1193 - parseNext s=CLOSED HeapByteBuffer@503b4766[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/js/boots...���������������}
+20:40:22,418 DEBUG HttpParser:1483 - atEOF HttpParser{s=CLOSED,0 of -1}
+20:40:22,418 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@7f98cac6{IDLE}
+20:40:22,417 DEBUG HttpParser:1483 - atEOF HttpParser{s=CLOSED,0 of -1}
+20:40:22,419 DEBUG HttpParser:1193 - parseNext s=CLOSED HeapByteBuffer@52f3424a[p=0,l=0,c=16384,r=0]={<<<>>>GET /geo/fonts/gl...���������������}
+20:40:22,420 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@1e2b0942{IDLE}
+20:40:22,418 DEBUG HttpParser:1193 - parseNext s=CLOSED HeapByteBuffer@20a3d02a[p=0,l=0,c=16384,r=0]={<<<>>>GET /favicon.ico ...���������������}
+20:40:22,422 DEBUG AbstractConnection:236 - FILLING-->IDLE HttpConnection@7f98cac6{IDLE}
+20:40:43,377 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209643377
+20:41:13,378 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209673378
+20:41:43,380 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209703380
+20:42:13,382 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209733382
+20:42:43,384 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209763384
+20:43:13,385 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209793385
+20:43:43,387 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209823387
+20:44:13,389 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209853389
+20:44:43,390 DEBUG HashSessionManager:351 - Scavenging sessions at 1429209883390

@@ -3,6 +3,7 @@ package ldconditional;
 import ldserver.GeneralHandler;
 import ldserver.ServiceHandler;
 import ldserver.MainHandler;
+
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -32,10 +33,9 @@ public class Main {
         
         LDRConfig.Load();
         
-        initDatasets();
+        ConditionalDatasets.loadDatasets();
         
         initServer();
-
     }
 
     /**
@@ -65,11 +65,7 @@ public class Main {
     }
     
     /**
-<<<<<<< HEAD
      * Initializes the server and enters in wait state
-=======
-     * Initializes the web server
->>>>>>> 0981c2eee2c2f70aba2ba64e7747551c51447e8a
      */
     public static void initServer() throws Exception
     {
@@ -103,11 +99,7 @@ public class Main {
         server.start();
         server.join();        
     }
-    
-    
-    public static void initDatasets()
-    {
-        ConditionalDatasets.loadDatasets();
-    }
+
+
     
 }

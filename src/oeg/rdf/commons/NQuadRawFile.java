@@ -199,5 +199,9 @@ public class NQuadRawFile {
         return ls;
     }
 
+    public String getFileName()
+    {
+        return filename;
+    }
 
 }

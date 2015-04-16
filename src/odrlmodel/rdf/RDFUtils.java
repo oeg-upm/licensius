@@ -271,6 +271,7 @@ public class RDFUtils {
         model.setNsPrefix("dcat", "http://www.w3.org/ns/dcat#");
         model.setNsPrefix("gr", "http://purl.org/goodrelations/");
         model.setNsPrefix("prov", "http://www.w3.org/ns/prov#");
+        model.setNsPrefix("schema", "http://schema.org/");
     }    
 
     /**

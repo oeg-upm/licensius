@@ -9,10 +9,11 @@ import java.util.Set;
 import ldconditional.ConditionalDataset;
 import ldconditional.Main;
 import odrlmodel.Policy;
-import oeg.ldconditional.client.TestClient;
+
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import ldconditional.test.*;
 
 /**
  * @api {get} /{dataset}/service/getResources getResources

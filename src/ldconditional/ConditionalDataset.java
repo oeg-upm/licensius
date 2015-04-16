@@ -24,7 +24,7 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 
 /**
- * This class represents a linked data dataset
+ * This class represents a linked data dataset.
  * The info must be represented as NQuads
  * @author Victor
  */
@@ -51,7 +51,9 @@ public class ConditionalDataset {
         dpolicy = new DatasetPolicy("datasets/"+name+"/void.ttl");
         dump = new NQuadRawFile("datasets/"+name+"/data.nq");
     }
-    
+
+
+
     public int getNumTriples(String recurso)
     {
         return dump.getNumTriples(recurso);
@@ -68,7 +70,24 @@ public class ConditionalDataset {
         }
         return lp;
     }
-    
+
+    public String toString()
+    {
+        String s ="";
+        s += "Dataset URI: " + dataset.getURI() + "\n";
+        s += "Title: " + getTitle()+ "\n";
+        s += "File name: " + dump.getFileName()+ "\n";
+        s += "Graphs in dump: " + dump.getGraphs().size()+ "\n";
+        s += "Licensed graphs: " + dpolicy.policies.size()+ "\n";
+        return s;
+    }
+
+    public String getTitle()
+    {
+        return getMetadata("http://purl.org/dc/terms/title");
+    }
+
+
     public DatasetPolicy getDatasetPolicy()
     {
         return dpolicy;
@@ -149,10 +168,6 @@ public class ConditionalDataset {
     }
     
     
-    public String toString()
-    {
-        return getMetadata("http://purl.org/dc/terms/title");
-    }
     
     public String toRDF()
     {
