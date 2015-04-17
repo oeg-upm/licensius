@@ -5,13 +5,16 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import ldrauthorizer.ws.LicensedTriple;
 import ldserver.Recurso;
 
 
@@ -22,6 +25,7 @@ import oeg.rdf.commons.NQuadRawFile;
 import oeg.rdf.commons.NTriple;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.log4j.Logger;
 
 /**
  * This class represents a linked data dataset.
@@ -29,32 +33,48 @@ import org.apache.jena.riot.RDFDataMgr;
  * @author Victor
  */
 public class ConditionalDataset {
+    private static final Logger logger = Logger.getLogger(ConditionalDataset.class);
+    
     
     Model metadata = null;
     String BASE="http://conditional.linkeddata.es/";
     Resource dataset = null;
     DatasetPolicy dpolicy = null; 
     NQuadRawFile dump = null;
-            
+
+    public String name = "";
     
     /**
-     * A conditional dataset is initialized with a name
-     * The name must be a simple string, with no blank spaces nor other non-URI characters.
+     * A conditional dataset is initialized with a _name
+     * The _name must be a simple string, with no blank spaces nor other non-URI characters.
      */
-    public ConditionalDataset(String name)
+    public ConditionalDataset(String _name)
     {
+        name = _name;
         BASE = LDRConfig.getServer();
-        metadata = ModelFactory.createDefaultModel();
-        RDFUtils.addPrefixesToModel(metadata);
-        dataset = metadata.createProperty(BASE+name);
-        addMetadataResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/dcat#Dataset");
-        dpolicy = new DatasetPolicy("datasets/"+name+"/void.ttl");
-        dump = new NQuadRawFile("datasets/"+name+"/data.nq");
+
+        try{
+            String filename = "datasets/"+_name+"/void.ttl";
+            metadata = RDFDataMgr.loadModel(filename) ;
+            RDFUtils.addPrefixesToModel(metadata);
+            dataset = metadata.createResource(BASE+_name);
+            dpolicy = new DatasetPolicy(filename);
+        }catch(Exception e)
+        {
+            logger.error("Error processing " + _name + ". "+ e.getMessage());
+        }
+        addMetadata("http://purl.org/dc/terms/title",name);
+       // addMetadataResource("http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://www.w3.org/ns/dcat#Dataset");
+
+        dump = new NQuadRawFile("datasets/"+_name+"/data.nq");
+    }
+
+    public String getNamespace() {
+        return dataset.getURI();
     }
 
 
-
-    public int getNumTriples(String recurso)
+    public int getDumpTriples(String recurso)
     {
         return dump.getNumTriples(recurso);
     }
@@ -102,7 +122,7 @@ public class ConditionalDataset {
      * Obtiene los recursos del min-esimo al max-esimo. 
      * 
      */
-    public List<Recurso> getRecursos(int min, int max)
+    public List<Recurso> getResourcesInDataset(int min, int max)
     {
         List<String> ls = dpolicy.getObjectsForProperty("http://www.w3.org/ns/ldp#contains");
         List<Recurso> recursos = new ArrayList();
@@ -145,7 +165,7 @@ public class ConditionalDataset {
 
     /**
      * Examnple:
-     * "http://purl.org/dc/terms/title
+     * "http://purl.org/dc/terms/title"
      */
     public void addMetadataResource(String sprop, String val)
     {
@@ -161,10 +181,10 @@ public class ConditionalDataset {
     public String getMetadata(String sprop)
     {
         Property prop = metadata.createProperty(sprop);
-        NodeIterator it = metadata.listObjectsOfProperty(prop);
-        if (it.hasNext())
-            return it.next().toString();
-        return "";
+        Statement st = dataset.getProperty(prop);
+        if (st==null)
+            return "";
+        return st.getObject().toString();
     }
     
     
@@ -191,6 +211,11 @@ public class ConditionalDataset {
         return recursos;
     }
 
+    public Model getModelRecurso(String res)
+    {
+        return dump.getRecurso(res);
+    }
+
     public String getRecurso(String subject) {
         Model model = dump.getRecurso(subject);
         StringWriter sw = new StringWriter();
@@ -213,6 +238,40 @@ public class ConditionalDataset {
         }
         return recursos;        
     }
+
+    public String getComment() {
+        String tmp = this.toRDF();
+        System.out.println(tmp);
+        return getMetadata("http://www.w3.org/2000/01/rdf-schema#comment");
+    }
+
+    public String getHTMLMainResources() {
+        String html ="";
+        Property prop = metadata.createProperty("http://www.w3.org/ns/ldp#contains");
+        NodeIterator it = metadata.listObjectsOfProperty(dataset, prop);
+        while(it.hasNext())
+        {
+            RDFNode rdf=it.next();
+            Resource res = rdf.asResource();
+            String label = dump.getFirstObject(res.getURI(), "http://www.w3.org/2000/01/rdf-schema#label");
+            label = label.substring(1, label.lastIndexOf("\""));
+            String s = "<a href=\""+res.getURI()+"\">" + label+ "</a>";
+            html+=s+"\n";
+        }
+        return html;
+    }
+
+    public String getResourceFirstProperty(String recurso)
+    {
+        return dump.getFirstObject(recurso, "http://www.w3.org/2000/01/rdf-schema#label");
+    }
+
+    public List<LicensedTriple> getLicensedTriples(String recurso) {
+        return dump.getLicensedTriples(recurso);
+
+
+    }
+
     
     
 }

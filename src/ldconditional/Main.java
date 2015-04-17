@@ -20,8 +20,9 @@ import org.eclipse.jetty.server.session.SessionHandler;
 
 /**
  * Main class, entry point of the Linked Data Web Server.
- * This project is documented making use of 
- *  
+ * APIs are documented making use of apidoc http://apidocjs.com/
+ *  Most requests are processed by the GeneralHandler class
+ *
  * @author Victor
  */
 public class Main {

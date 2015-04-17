@@ -29,14 +29,14 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 
 /**
- * This class represets the policies applying to a dataset
+ * This class represets the policies applying to the different graphs in a a dataset.
  * @author Victor
  */
 public class DatasetPolicy {
-
-    //Mapa que mapea Grafos a Politicas
-    Map<String, List<Policy>> policies = new HashMap();
     private static final Logger logger = Logger.getLogger(DatasetPolicy.class);
+
+    ///Maps graphs and policies
+    Map<String, List<Policy>> policies = new HashMap();
     Model model = null;
 
     /**

@@ -17,6 +17,7 @@ import ldrauthorizerold.Multilingual;
 import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
+import odrlmodel.rdf.RDFUtils;
 
 /**
  * This class represents a RDF statement that has been licensed.
@@ -34,6 +35,18 @@ public class LicensedTriple {
     public LicensedTriple(LicensedTriple lt) {
         stmt = lt.stmt;
         g = lt.g;
+    }
+
+    public LicensedTriple(String s, String p, String o, String g)
+    {
+        Model m = ModelFactory.createDefaultModel();
+        RDFNode n = null;
+        if (RDFUtils.isURI(o))
+            n=m.createResource(o);
+        else
+            n=m.createLiteral(o);
+        stmt = m.createStatement(m.createResource(s), m.createProperty(p), n);
+        this.g=g;
     }
 
     /**
@@ -137,7 +150,7 @@ public class LicensedTriple {
      * Writes a formatted LDR triple
      * @param lan The language
      */
-    String toHTMLRow(String lan) {
+    public String toHTMLRow(String lan) {
         String str = "";
 
         String p = stmt.getPredicate().getLocalName();

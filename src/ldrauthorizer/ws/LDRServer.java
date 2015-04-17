@@ -283,7 +283,6 @@ public class LDRServer {
      */
     private static void init(String fileName) {
         DatasetGraphFactory.GraphMaker maker = new DatasetGraphFactory.GraphMaker() {
-            
             public Graph create() {
                 return new GraphMem();
             }
@@ -376,6 +375,50 @@ public class LDRServer {
         
         return html;
     }
+        public static String formatHTMLTriplesNew(String label, List<LicensedTriple> ls, String NOTUSED) {
+        String html = "";
+        String tabla = "";
+        String lan = "en";
+
+        String templatefile = "htdocs/resource.html";
+
+        try {
+            html = FileUtils.readFileToString(new File(templatefile));
+            String footer = FileUtils.readFileToString(new File("htdocs/en/footer.html"));
+            html=html.replace("<!--TEMPLATEFOOTER-->", footer);
+        } catch (Exception e) {
+            return "page not found";
+        };
+
+//        html = readTextFile("template.html");
+        label = "<h2>" + label + "</h2>";
+        html = html.replace("<!--TEMPLATEHERE1-->", label);
+
+        tabla += "<h4>Open triples</h4>\n";
+        tabla += "<table><tr><td><strong>" + Multilingual.get(10, lan) + "</strong></td><td><strong>" + Multilingual.get(11, lan) + "</strong></td></tr>\n";
+        List<LicensedTriple> open = getOpenTriples(ls);
+        Collections.sort(open, LicensedTriple.PREDICATECOMPARATOR);
+        for (LicensedTriple lt : open) {
+            tabla += lt.toHTMLRow(lan) + "\n";
+        }
+        tabla += "</table>\n";
+
+        tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
+
+        tabla += "<h4>Limited access triples</h4>\n";
+        tabla += "<table><tr><td><strong>" + Multilingual.get(10, lan) + "</strong></td><td><strong>" + Multilingual.get(11, lan) + "</strong></td></tr>\n";
+        List<LicensedTriple> closed = getLicensedTriples(ls);
+        for (LicensedTriple lt : closed) {
+            tabla += lt.toHTMLRow(lan) + "\n";
+        }
+        tabla += "</table>\n";
+
+
+        html = html.replace("<!--TEMPLATEHERE2-->", tabla);
+
+        return html;
+    }
+
     
     private static String formatHTMLTriplesSingleTable(String label, List<LicensedTriple> ls, String lan) {
         String html = "";

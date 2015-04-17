@@ -81,13 +81,13 @@ public class GetResources extends HttpServlet {
         JSONArray list = new JSONArray();
         int ini = (page-1)*size;
         int fin = (page-1)*size+size-1;
-        List<Recurso> lr=dataset.getRecursos(ini, fin);
+        List<Recurso> lr=dataset.getResourcesInDataset(ini, fin);
         for(Recurso r : lr)
         {
             JSONObject obj = new JSONObject();
             obj.put("uri", r.getUri());
             obj.put("label", r.getLabel());
-            obj.put("numTriples", dataset.getNumTriples(r.getUri()));
+            obj.put("numTriples", dataset.getDumpTriples(r.getUri()));
             JSONArray licencias = new JSONArray();
             Set<Policy> policies = dataset.getPolicies(r);
             for(Policy p : policies)

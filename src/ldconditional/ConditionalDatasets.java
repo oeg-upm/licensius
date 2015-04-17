@@ -12,7 +12,6 @@ import org.apache.log4j.Logger;
 public class ConditionalDatasets {
 
     public static List<ConditionalDataset> datasets = new ArrayList();
-
     private static final Logger logger = Logger.getLogger(ConditionalDatasets.class);
 
     /**
@@ -23,15 +22,25 @@ public class ConditionalDatasets {
         File folder = new File("datasets");
         File[] listOfFiles = folder.listFiles();
         for (File file : listOfFiles) {
-            if(file.isDirectory())
-            {
-                logger.info("Dataset " + file.getName()+" is being been loaded");
-                ConditionalDataset dataset = new ConditionalDataset(file.getName());
-                dataset.addMetadata("http://purl.org/dc/terms/title",file.getName());
-                datasets.add(dataset);
-                logger.info("Dataset " + file.getName()+" has been loaded");
+            if (file.isDirectory()) {
+                logger.info("Dataset " + file.getName() + " is being been loaded");
+                try {
+                    ConditionalDataset dataset = new ConditionalDataset(file.getName());
+                    datasets.add(dataset);
+                    logger.info("Dataset " + file.getName() + " has been loaded");
+                } catch (Exception e) {
+                    logger.info("Dataset " + file.getName() + " has NOT been loaded");
+                }
             }
         }
     }
-    
+
+    public static ConditionalDataset getDataset(String dataset) {
+        for (ConditionalDataset cd : datasets) {
+            if (cd.name.equals(dataset)) {
+                return cd;
+            }
+        }
+        return null;
+    }
 }

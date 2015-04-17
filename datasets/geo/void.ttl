@@ -1,6 +1,5 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
-@prefix mysite: <http://salonica.dia.fi.upm.es/ldr/> .
 @prefix dct:   <http://purl.org/dc/terms/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix void:  <http://rdfs.org/ns/void#> .
@@ -8,30 +7,29 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
 @prefix ldp:   <http://www.w3.org/ns/ldp#>.
 @prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
+@prefix foaf: <http://xmlns.com/foaf/spec/>
 @prefix schema: <http://schema.org/> .
 
 
-<http://salonica.dia.fi.upm.es/geo/>
+<http://localhost/geo>
         a             dcat:Catalog ;
-#		ldp:contains "?s rdf:type <http://salonica.dia.fi.upm.es/geo/ontology/Provincia>" ;
-		ldp:contains <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Lleida> ;
-		ldp:contains <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Madrid> ;
-		ldp:contains <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Valladolid> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Lleida> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Madrid> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Valladolid> ;
+		rdfs:comment "The test dataset has been taken from the IGN Geolinkeddata. The GeoLinkedData dataset includes the Spanish Autonomous Communities, provinces and province capitals, together with the geopositions of the municipalities. Additionally, links for each geographic entity to the corresponding DBPedia page have been provided." ;
         rdfs:label    "Geographic dataset with the provinces of Spain" .
 
 
-<http://salonica.dia.fi.upm.es/geo/dataset/default>
+<http://localhost/geo/dataset/default>
         a             dcat:Dataset ;
         rdfs:comment  "This dataset contains all the open information about the Spanish provinces" ;
         rdfs:label    "Open Data" ;
-#		ldp:contains "?s rdf:type <http://salonica.dia.fi.upm.es/geo/ontology/Provincia>" ;
 		schema:makesOffer <http://purl.org/NET/rdflicense/cc-by4.0> ;
         dct:license   <http://purl.org/NET/rdflicense/cc-by4.0> .
 
-<http://salonica.dia.fi.upm.es/geo/dataset/Madrid>
+<http://localhost/geo/dataset/Madrid>
         a             dcat:Dataset ;
         rdfs:comment  "This dataset contains all the information about the Municipality of Madrid" ;
         rdfs:label    "Dataset Madrid" ;
-#		ldp:contains "?s rdf:type <http://salonica.dia.fi.upm.es/geo/ontology/Provincia>" ;
 		schema:makesOffer <http://purl.org/NET/rdflicense/cc-by-nc4.0> ;
         dct:license   <http://purl.org/NET/rdflicense/cc-by-nc4.0> .

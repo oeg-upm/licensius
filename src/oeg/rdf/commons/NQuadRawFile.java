@@ -16,6 +16,7 @@ import java.util.Set;
 import ldconditional.ConditionalDataset;
 import ldconditional.ConditionalDatasets;
 import ldconditional.Main;
+import ldrauthorizer.ws.LicensedTriple;
 import ldserver.Recurso;
 import org.apache.log4j.Logger;
 
@@ -202,6 +203,29 @@ public class NQuadRawFile {
     public String getFileName()
     {
         return filename;
+    }
+
+    public List<LicensedTriple> getLicensedTriples(String recurso) {
+        List<LicensedTriple> llt = new ArrayList();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String s = NQuad.getSubject(line);
+                if (s.equals(recurso))
+                    continue;
+                String o = NQuad.getObject(line);
+                String p = NQuad.getPredicate(line);
+                String g = NQuad.getGraph(line);
+                LicensedTriple lt = new LicensedTriple(s,p,o,g);
+                llt.add(lt);
+            }
+        }catch(Exception e)
+        {
+
+        }
+        return llt;
     }
 
 }
