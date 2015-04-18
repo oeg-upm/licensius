@@ -205,6 +205,9 @@ public class NQuadRawFile {
         return filename;
     }
 
+    /**
+     * Obtains the licensed triples
+     */
     public List<LicensedTriple> getLicensedTriples(String recurso) {
         List<LicensedTriple> llt = new ArrayList();
         try {
@@ -213,7 +216,7 @@ public class NQuadRawFile {
             String line = null;
             while ((line = br.readLine()) != null) {
                 String s = NQuad.getSubject(line);
-                if (s.equals(recurso))
+                if (!s.equals(recurso))
                     continue;
                 String o = NQuad.getObject(line);
                 String p = NQuad.getPredicate(line);

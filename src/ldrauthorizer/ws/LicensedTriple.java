@@ -185,8 +185,13 @@ public class LicensedTriple {
                 o += "</a>)";
             } else if (isForbidden()) {
                 o = "<font color=\"red\">Información de pago</font>";
-            } else {
-                o = "<a href=\"" + stmt.getObject().asResource().getURI() + "\">" + sobjeto + "</a>";
+            } else
+            {
+                if (stmt.getObject().asResource().getURI().startsWith("http"))
+                    o = "<a href=\"" + stmt.getObject().asResource().getURI() + "\">" + sobjeto + "</a>";
+                else
+                    o = sobjeto;
+            
             }
         }
         if (stmt.getObject().isLiteral()) {

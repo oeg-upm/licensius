@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import ldrauthorizer.ws.LicensedTriple;
 import ldserver.Recurso;
 
@@ -261,9 +262,15 @@ public class ConditionalDataset {
         return html;
     }
 
-    public String getResourceFirstProperty(String recurso)
+    /**
+     * Obtains the first object
+     */
+    public String getFirstObject(String recurso, String propiedad)
     {
-        return dump.getFirstObject(recurso, "http://www.w3.org/2000/01/rdf-schema#label");
+        String o = dump.getFirstObject(recurso, propiedad);
+//        int index = o.indexOf("^^");
+//        o = o.substring(1, index);
+        return o;
     }
 
     public List<LicensedTriple> getLicensedTriples(String recurso) {

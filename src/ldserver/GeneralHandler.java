@@ -80,8 +80,7 @@ public class GeneralHandler extends AbstractHandler {
                 suri = requestUri.substring(1, requestUri.length());
             }
 
-            if (requestUri.contains("/resource/"))
-            {
+            if (requestUri.contains("/resource/")) {
                 logger.info("Serving a resource " + request.getRequestURI());
                 int index = requestUri.indexOf("/", 1);
                 if (index != -1 && index != 0) {
@@ -139,7 +138,7 @@ public class GeneralHandler extends AbstractHandler {
                 String extension = requestUri.substring(i);
                 MimeManager mm = new MimeManager();
                 String tipo = mm.mapa.get(extension);
-                logger.info("Serving a standard file " + request.getRequestURI() + ((tipo==null) ? " de tipo desconocido " : (" de tipo " + tipo) ));
+                logger.info("Serving a standard file " + request.getRequestURI() + ((tipo == null) ? " de tipo desconocido " : (" de tipo " + tipo)));
                 if (tipo != null) {
                     response.setContentType(tipo);
                     if (tipo.startsWith("text")) {
@@ -193,25 +192,27 @@ public class GeneralHandler extends AbstractHandler {
             logger.warn("Error serving index.html " + e.getMessage());
         }
     }
+
     public void serveResource(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
 
-        String recurso =baseRequest.getRootURL().toString() + request.getRequestURI();
+        String recurso = baseRequest.getRootURL().toString() + request.getRequestURI();
         ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
 //        Model m = cd.getModelRecurso(recurso);
         List<LicensedTriple> llt = cd.getLicensedTriples(recurso);
-        String label = cd.getResourceFirstProperty(recurso);
-        String html = formatHTMLTriplesNew(label, llt, label);
-        try{
-        response.getWriter().print(html);
-        response.setStatus(HttpServletResponse.SC_OK);
+        String label = cd.getFirstObject(recurso, "http://www.w3.org/2000/01/rdf-schema#label");
+        String html = formatHTMLTriplesNew(label, llt);
+        try {
+            response.getWriter().print(html);
+            response.setStatus(HttpServletResponse.SC_OK);
 
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
         baseRequest.setHandled(true);
         response.setContentType("text/html;charset=utf-8");
 //        GetOpenResource gr = new GetOpenResource();
 //        String json = gr.generarJson(dataset, recurso);
 //        System.out.println(json);
-      //  formatHTMLTriples();
+        //  formatHTMLTriples();
     }
 
     public void serveLinkeddata(Request baseRequest, HttpServletResponse response, String dataset) {
@@ -237,15 +238,13 @@ public class GeneralHandler extends AbstractHandler {
         }
     }
 
-
-
     /**
      * Formats in HTML the triples to be shown.
      * @param label
      * @param ls List of licensed triples
      * @param lan Language
      */
-    public static String formatHTMLTriplesNew(String label, List<LicensedTriple> ls, String NOTUSED) {
+    public static String formatHTMLTriplesNew(String label, List<LicensedTriple> ls) {
         String html = "";
         String tabla = "";
         String lan = "en";
@@ -255,12 +254,12 @@ public class GeneralHandler extends AbstractHandler {
         try {
             html = FileUtils.readFileToString(new File(templatefile));
             String footer = FileUtils.readFileToString(new File("htdocs/footer.html"));
-            html=html.replace("<!--TEMPLATEFOOTER-->", footer);
+            html = html.replace("<!--TEMPLATEFOOTER-->", footer);
         } catch (Exception e) {
             return "page not found " + e.getMessage();
-        };
+        }
 
-//        html = readTextFile("template.html");
+        // html = readTextFile("template.html");
         label = "<h2>" + label + "</h2>";
         html = html.replace("<!--TEMPLATEHERE1-->", label);
 
@@ -298,6 +297,7 @@ public class GeneralHandler extends AbstractHandler {
         }
         return lop;
     }
+
     public static List<LicensedTriple> getLicensedTriples(List<LicensedTriple> ls) {
         List<LicensedTriple> lop = new ArrayList();
         for (LicensedTriple lt : ls) {
@@ -308,5 +308,4 @@ public class GeneralHandler extends AbstractHandler {
         }
         return lop;
     }
-
 }
