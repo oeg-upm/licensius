@@ -31,13 +31,19 @@ public class Main {
     static final Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
-        initLogger();
-        
-        LDRConfig.Load();
-        
-        ConditionalDatasets.loadDatasets();
-        
+
+        standardInit();
         initServer();
+    }
+
+    public static void standardInit()
+    {
+        initLogger();
+
+        LDRConfig.Load();
+
+        ConditionalDatasets.loadDatasets();
+
     }
 
     /**

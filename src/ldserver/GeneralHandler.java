@@ -35,7 +35,7 @@ import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
 import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.WebPolicyManager;
-import model.DatasetPolicy;
+import model.DatasetVoid;
 import model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
