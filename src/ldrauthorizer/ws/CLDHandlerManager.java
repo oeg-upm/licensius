@@ -23,7 +23,7 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
 public class CLDHandlerManager extends AbstractHandler {
 
     static List<String> grafos = new ArrayList();
-    static String selectedGrafo = "";
+    public static String selectedGrafo = "";
 
     public void handle(String string, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (!string.startsWith("/ldr/manager") && !string.startsWith("/ldr/manageren") && !string.startsWith("/ldr/en/manager")) {

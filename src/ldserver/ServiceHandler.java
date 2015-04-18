@@ -1,5 +1,6 @@
 package ldserver;
 
+import ldserver.ws.GetOffers;
 import ldserver.ws.GetResources;
 import ldserver.ws.GetOpenResource;
 import java.io.IOException;

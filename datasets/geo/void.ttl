@@ -72,13 +72,24 @@
 <http://localhost/geo/dataset/default>
         a             dcat:Dataset ;
         rdfs:comment  "This dataset contains all the open information about the Spanish provinces" ;
-        rdfs:label    "Open Data" ;
+        rdfs:label    "Open Dataset" ;
 		schema:makesOffer <http://purl.org/NET/rdflicense/cc-by4.0> ;
+		void:triples "1717";
         dct:license   <http://purl.org/NET/rdflicense/cc-by4.0> .
 
 <http://localhost/geo/dataset/Madrid>
         a             dcat:Dataset ;
         rdfs:comment  "This dataset contains all the information about the Municipality of Madrid" ;
-        rdfs:label    "Dataset Madrid" ;
+        rdfs:label    "Madrid" ;
+		void:triples "7";
 		schema:makesOffer <http://purl.org/NET/rdflicense/cc-by-nc4.0> ;
         dct:license   <http://purl.org/NET/rdflicense/cc-by-nc4.0> .
+		
+<http://localhost/geo/dataset/Mappings>		
+       a             dcat:Dataset ;
+        rdfs:comment  "Geographical information" ;
+		void:triples "171";
+        rdfs:label    "Mappings" ;
+        dct:license   <http://purl.org/NET/rdflicense/allrightsreserved> .
+		
+		

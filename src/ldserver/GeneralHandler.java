@@ -1,22 +1,31 @@
 package ldserver;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import handlers.HandlerAccount;
+import handlers.HandlerDatasets;
+import handlers.HandlerIndex;
+import handlers.HandlerLinkedData;
+import handlers.HandlerManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ldconditional.ConditionalDataset;
-import ldconditional.ConditionalDatasets;
+import model.ConditionalDataset;
+import model.ConditionalDatasets;
 import ldrauthorizer.ws.AuthorizationResponse;
 import ldrauthorizer.ws.LDRServer;
 import ldrauthorizer.ws.LicensedTriple;
@@ -24,14 +33,22 @@ import ldrauthorizer.ws.ODRLAuthorizer;
 import ldrauthorizer.ws.Portfolio;
 import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
+import ldrauthorizer.ws.CLDHandlerManager;
+import ldrauthorizer.ws.WebPolicyManager;
+import model.DatasetPolicy;
+import model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
+import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 import org.eclipse.jetty.http.HttpURI;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  * Handler that processes the rest of resources
@@ -95,13 +112,7 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
-
-
             File f = new File(suri);
-            if (!f.exists()) {
-                logger.warn("The requested file does not exist");
-                return false;
-            }
             if (f.isDirectory()) {
                 logger.info("Directory. Trying to retrieve a dataset " + requestUri);
                 requestUri = requestUri + "/index.html";
@@ -116,7 +127,8 @@ public class GeneralHandler extends AbstractHandler {
                 int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
-                    serveIndex(baseRequest, response, dataset);
+                    HandlerIndex hi = new HandlerIndex();
+                    hi.serveIndex(baseRequest, response, dataset);
                     return true;
                 }
             }
@@ -126,7 +138,8 @@ public class GeneralHandler extends AbstractHandler {
                 int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
-                    serveLinkeddata(baseRequest, response, dataset);
+                    HandlerLinkedData hld = new HandlerLinkedData();
+                    hld.serveLinkeddata(baseRequest, response, dataset);
                     return true;
                 }
             }
@@ -136,11 +149,47 @@ public class GeneralHandler extends AbstractHandler {
                 int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
-                    serveOffers(baseRequest, request, response, dataset);
+                    HandlerDatasets hd = new HandlerDatasets();
+                    hd.serveOffers(baseRequest, request, response, dataset);
                 }
             }
 
+            if (requestUri.endsWith("account.html")) {
+                logger.info("Serving the account " + request.getRequestURI());
+                int index = requestUri.lastIndexOf("/");
+                if (index != -1 && index != 0) {
+                    String dataset = requestUri.substring(1, index);
+                    HandlerAccount ha = new HandlerAccount();
+                    ha.serveAccount(baseRequest, request, response, dataset);
+                }
+            }
 
+            if (requestUri.contains("manageren")) {
+                logger.info("Serving the manager " + request.getRequestURI());
+                int index = requestUri.lastIndexOf("/");
+                if (index != -1 && index != 0) {
+                    String dataset = requestUri.substring(1, index);
+                    HandlerManager hm = new HandlerManager();
+                    hm.serveManager(baseRequest, request, response, dataset);
+                }
+            }
+
+            serveGeneralFile(f, requestUri, baseRequest, request, response, folder);
+
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    public boolean serveGeneralFile(File f, String requestUri, Request baseRequest, HttpServletRequest request, HttpServletResponse response, String folder) {
+        if (!f.exists()) {
+            logger.warn("The requested file does not exist");
+            return false;
+        }
+
+        try {
             int i = requestUri.lastIndexOf("/");
             if (i == -1) {
                 return false;
@@ -154,7 +203,7 @@ public class GeneralHandler extends AbstractHandler {
                 if (tipo != null) {
                     response.setContentType(tipo);
                     if (tipo.startsWith("text")) {
-                        token = FileUtils.readFileToString(f);
+                        String token = FileUtils.readFileToString(f);
                         response.getWriter().print(token);
                     } else {
                         ServletOutputStream output = response.getOutputStream();
@@ -177,56 +226,12 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
         } catch (Exception e) {
-            logger.warn(e.getMessage());
-            return false;
         }
         return true;
     }
 
-    public void serveIndex(Request baseRequest, HttpServletResponse response, String dataset) {
-        String body = "";
-        try {
-            ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
-            String comment = cd.getComment();
-            body = FileUtils.readFileToString(new File("./htdocs/index.html"));
-            String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
-            body = body.replace("<!--TEMPLATEFOOTER-->", footer);
-            body = body.replace("<!--TEMPLATEDATASETCOMMENT-->", comment);
-
-            String img = "<img src=\"../datasets/" + cd.name + "/logo.png\" style=\"vertical-align:middle;width:200px;float:left;margin:8px;\"/>";
-            body = body.replace("<!--TEMPLATEDATASETIMAGE-->", img);
-
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.setContentType("text/html;charset=utf-8");
-            response.getWriter().print(body);
-            baseRequest.setHandled(true);
-        } catch (Exception e) {
-            logger.warn("Error serving index.html " + e.getMessage());
-        }
-    }
-
-    public void serveLinkeddata(Request baseRequest, HttpServletResponse response, String dataset) {
-        String body = "";
-        try {
-            ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
-            String comment = cd.getComment();
-            body = FileUtils.readFileToString(new File("./htdocs/linkeddata.html"));
-            String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
-            body = body.replace("<!--TEMPLATEFOOTER-->", footer);
-            body = body.replace("<!--TEMPLATEDATASETCOMMENT-->", comment);
-
-            String mainres = cd.getHTMLMainResources();
-            body = body.replace("<!--TEMPLATEMAINRESOURCES-->", mainres);
 
 
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.setContentType("text/html;charset=utf-8");
-            response.getWriter().print(body);
-            baseRequest.setHandled(true);
-        } catch (Exception e) {
-            logger.error("Error serving index.html " + e.getMessage());
-        }
-    }
 
     public void serveResource(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
 
@@ -250,62 +255,10 @@ public class GeneralHandler extends AbstractHandler {
         //  formatHTMLTriples();
     }
 
-    public void serveOffers(Request baseRequest, HttpServletRequest request,  HttpServletResponse response, String dataset) {
-        String body = "";
-        try {
-            String token = "";
-            File f = new File("datasets.html");
-            token = FileUtils.readFileToString(f);
-            String footer = FileUtils.readFileToString(new File("footer.html"));
-            token = token.replace("<!--TEMPLATEFOOTER-->", footer);
-            Portfolio por = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
-            String htmlOffers = "";
-            htmlOffers = getHTMLForDatasets(por.policies);
-            token = token.replace("<!--TEMPLATEHERE1-->", htmlOffers);
-
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.setContentType("text/html;charset=utf-8");
-            response.getWriter().print(token);
-            baseRequest.setHandled(true);
 
 
-            if (true)
-                return;
 
 
-            ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
-            List<String> graphs = cd.getGraphs();
-            for (String grafo : graphs) {
-                Recurso recurso = cd.getDatasetPolicy().getRecurso(grafo);
-                if (recurso == null) {
-                    continue;
-                }
-                List<Policy> policies = cd.getPoliciesForGraph(grafo);
-                for (Policy p : policies) {
-                    String nombre = p.getTitle();
-                    if (nombre.isEmpty()) {
-                        nombre = p.getLabel("en");
-                    }
-                    if (!p.inOffer) {
-                        continue;
-                    }
-                    Oferta offer = new Oferta();
-                    offer.setLicense_title(nombre);
-                    offer.setLicense_link(p.uri);
-                    offer.setLicense_price("OpenData");
-
-                }
-                // LO DEJO POR AQUI PERO ES QUE ESTOY MUERTO DE SUEÑO
-            }
-
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.setContentType("text/html;charset=utf-8");
-            response.getWriter().print(body);
-            baseRequest.setHandled(true);
-        } catch (Exception e) {
-            logger.error("Error serving index.html " + e.getMessage());
-        }
-    }
 
     /**
      * Formats in HTML the triples to be shown.
@@ -378,91 +331,71 @@ public class GeneralHandler extends AbstractHandler {
         return lop;
     }
 
-    private static String getHTMLForDatasets(List<Policy> pPagadas) {
-        String html = "";
-        //Para cada dataset...
-        List<Asset> assets = AssetManager.readAssets();
-        html += "<div style=\"color:#AA2222 !important;\"><tr style=\"height=10px;font-weight: bold;color:#AA2222 !important;\"><td>Dataset";
-        html += "<td>RDF dump</td><td>Licenses</td><td>Description</td></div>\n";
-        for (Asset asset : assets) {
-            if (!asset.isInOffer()) {
-                continue;
+
+    /**
+     * Autoriza un recurso, dado un conjunto de políticas compradas en el portfolio
+     */
+    public static AuthorizationResponse AuthorizeResource(Grafo grafo, List<Policy> portfolioPolicies) {
+        AuthorizationResponse ar = new AuthorizationResponse();
+        ar.ok = false;
+        ar.policies.clear();
+        //y si no, miramos ALGUNA DEL PORTFOLIO
+        for (Policy policy : portfolioPolicies) {
+            if (policy.isInOffer() && policy.hasFirstTarget(grafo.getURI())) {
+                ar.ok = true;
+                ar.policies.add(policy);
+                return ar;
             }
-            String labelAsset = asset.getLabel("en");               //nombre
-            String commentAsset = asset.getComment();               //descripcion
-            String servicio = getServicioGetDatabaseURL(asset);     //enlace
-            boolean bOpen = asset.isOpen();                         //si es o no abierto
-            String sopena = "<img src=\"/ldr/img/arrowdown32green.png\">";
-            String scloseda = "<img src=\"/ldr/img/arrowdown32red.png\">";
-
-
-
-            String sopen = "<button class=\"cupid-blue\" onclick=\"location.href='linkeddata'\">Download</button>";
-            String sclosed = "";
-
-            String color = bOpen ? sopen : sclosed;
-            AuthorizationResponse r = ODRLAuthorizer.AuthorizeResource(asset.getURI(), pPagadas);
-            if (r.ok == true) {
-                color = sopen;
-            }
-
-            String htmlpol = "<td>";
-            List<Policy> policies = asset.getPolicies();
-            int conta=0;
-            for (Policy policy : policies) {
-                Policy policy2 = policy;
-                if (policy2 == null) {
-                    continue;
-                }
-                String uri = policy2.getURI();
-                String target = "";
-                try {
-                    target = URLEncoder.encode(asset.getURI(), "UTF-8");
-                } catch (UnsupportedEncodingException ex) {
-                    ex.printStackTrace();
-                }
-                uri += "?target=" + target;
-                conta++;
-
-                htmlpol+=conta+"- ";
-                htmlpol += "<a href=\"" + uri + "\"/>";
-                if (policy2.isOpen()) {
-                    htmlpol+="<span>"+policy.getLabel("en")+"<br/></span>";
-//                    htmlpol += "<img src=\"/ldr/img/license32green.png\">";
-                } else {
-                    htmlpol+="<span>"+policy.getLabel("en")+"<br/></span>";
-//                    htmlpol += "<img src=\"/ldr/img/license32red.png\">";
-                }
-                htmlpol += "</a>";
-            }
-            htmlpol += "</td>";
-
-
-            html += "<tr style=\"height=20px;\">";
-
-            html += "<td> <strong>" + labelAsset + "</strong></td>";
-
-            html += "<td> <a href=\"" + servicio + "\">" + color + "</a></td>";
-
-            html += htmlpol;
-
-            html += "<td>" + commentAsset + "</td></tr>\n";
-
-
         }
 
-        return html;
+        List<Policy> policies = grafo.getPolicies();
+        if (policies.isEmpty()) {
+            return ar;
+        }
+
+        //SI HAY ALGUNA POLITICA ABIRTA, PERFECTO
+        for (Policy policy : policies) {
+            Policy policyFromStore = PolicyManagerOld.getPolicy(policy.getURI());
+            if (policyFromStore == null) {
+                continue;
+            }
+            if (policyFromStore.isInOffer() && policyFromStore.isOpen()) {
+                ar.ok = true;
+                ar.policies.add(policyFromStore);
+                return ar;
+            } else if (policyFromStore.isInOffer()) {
+                ar.policies.add(policyFromStore);
+            }
+        }
+
+
+
+        return ar;
+
     }
 
     private static String getServicioGetDatabaseURL(Asset asset) {
         String datasetEncoded = asset.getURI();
+
+
         try {
             datasetEncoded = URLEncoder.encode(asset.getURI(), "UTF-8");
+
+
         } catch (Exception e) {
             e.printStackTrace();
+
+
         }
         String servicio = "service/getDataset?dataset=" + datasetEncoded;
+
+
         return servicio;
 
+
     }
+
+
+
+
 }

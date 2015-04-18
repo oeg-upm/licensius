@@ -33,15 +33,12 @@ public class WebPolicyManager {
         List<String> labelGrafos = AssetManager.getGrafosLabels();
         List<String> uriGrafos = AssetManager.getGrafosURIs();
         int total = uriGrafos.size();
-
-
         String churro = "";
         for (int i = 0; i < total; i++) {
 
             try {
                 String grafo = uriGrafos.get(i);
                 String label = labelGrafos.get(i);
-
                 String urigrafo = URLEncoder.encode(grafo, "UTF-8");
                 String enlace = "";
                 if (lan.equals("en")) {
@@ -51,7 +48,6 @@ public class WebPolicyManager {
                     enlace = "/ldr/manager/selectGrafo?grafo=" + urigrafo;
                     enlace = "<a href=\"" + enlace + "\">" + label + "</a>";
                 }
-
                 if (grafo.equals(CLDHandlerManager.selectedGrafo)) {
                     churro += "<div style=\"border:2px solid; border-radius:25px; margin:10px; padding: 8px 8px 8px 8px; background:#0A0;\"><center>" + enlace + "</center></div>\n";
                 } else {

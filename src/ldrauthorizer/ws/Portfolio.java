@@ -28,7 +28,7 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 
 /**
- * This class represents the policies a user has paid for
+ * This class represents the policies a user has paid for.
  * 
  * @author vroddon
  */
@@ -99,7 +99,7 @@ public class Portfolio {
     /**
      * Sets the portfolio for a given session id number
      */
-    static void setPortfolio(String state, Portfolio p) {
+    public static void setPortfolio(String state, Portfolio p) {
         if (state==null)
             state="guest";
         portfolios.put(state,p);
