@@ -255,7 +255,6 @@ public class ConditionalDataset {
             RDFNode rdf=it.next();
             Resource res = rdf.asResource();
             String label = dump.getFirstObject(res.getURI(), "http://www.w3.org/2000/01/rdf-schema#label");
-            label = label.substring(1, label.lastIndexOf("\""));
             String s = "<a href=\""+res.getURI()+"\">" + label+ "</a>";
             html+=s+"\n";
         }

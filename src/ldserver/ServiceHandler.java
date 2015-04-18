@@ -1,5 +1,7 @@
 package ldserver;
 
+import ldserver.ws.GetResources;
+import ldserver.ws.GetOpenResource;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

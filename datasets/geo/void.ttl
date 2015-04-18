@@ -13,9 +13,58 @@
 
 <http://localhost/geo>
         a             dcat:Catalog ;
+		ldp:contains <http://localhost/geo/resource/Provincia/%C3%81lava> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/%C3%81vila> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Albacete> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Alicante> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Almer%C3%ADa> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Asturias> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Badajoz> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Barcelona> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Burgos> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/C%C3%A1ceres> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/C%C3%A1diz> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/C%C3%B3rdoba> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Cantabria> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Castell%C3%B3n> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Ciudad%20Real> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Coru%C3%B1a%2C%20A> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Cuenca> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Girona> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Granada> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Guadalajara> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Guip%C3%BAzcoa> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Huelva> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Huesca> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Illes%20Balears> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Ja%C3%A9n> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Le%C3%B3n> ;
 		ldp:contains <http://localhost/geo/resource/Provincia/Lleida> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Lugo> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/M%C3%A1laga> ;
 		ldp:contains <http://localhost/geo/resource/Provincia/Madrid> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Murcia> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Navarra> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Ourense> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Palencia> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Palmas%2C%20Las> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Pontevedra> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Rioja%2C%20La> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Salamanca> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Santa%20Cruz%20de%20Tenerife> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Segovia> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Sevilla> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Soria> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Tarragona> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Teruel> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Toledo> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Valencia> ;
 		ldp:contains <http://localhost/geo/resource/Provincia/Valladolid> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Vizcaya> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Zamora> ;
+		ldp:contains <http://localhost/geo/resource/Provincia/Zaragoza> ;
+
+		
 		rdfs:comment "The test dataset has been taken from the IGN Geolinkeddata. The GeoLinkedData dataset includes the Spanish Autonomous Communities, provinces and province capitals, together with the geopositions of the municipalities. Additionally, links for each geographic entity to the corresponding DBPedia page have been provided." ;
         rdfs:label    "Geographic dataset with the provinces of Spain" .
 

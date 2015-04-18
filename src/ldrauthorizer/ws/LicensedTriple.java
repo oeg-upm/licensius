@@ -166,6 +166,7 @@ public class LicensedTriple {
                 int index = Math.max(index1, index2);
                 sobjeto = sobjeto.substring(index + 1);
             } catch (Exception e) {
+                
             }
             String texto = Multilingual.get(7, lan);//limited access
             
