@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import languages.LanguageManager;
-import ldrauthorizerold.Multilingual;
+import languages.Multilingual;
 
 import ldconditional.LDRConfig;
 import odrlmodel.Policy;

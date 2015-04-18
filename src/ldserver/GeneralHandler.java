@@ -23,7 +23,7 @@ import ldrauthorizer.ws.LicensedTriple;
 import ldrauthorizer.ws.ODRLAuthorizer;
 import ldrauthorizer.ws.Portfolio;
 import ldrauthorizerold.GoogleAuthHelper;
-import ldrauthorizerold.Multilingual;
+import languages.Multilingual;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;

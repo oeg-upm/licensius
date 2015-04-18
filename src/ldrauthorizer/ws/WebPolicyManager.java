@@ -6,7 +6,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import ldrauthorizerold.Multilingual;
+import languages.Multilingual;
 import odrlmodel.Asset;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.Policy;
