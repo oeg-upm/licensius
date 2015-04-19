@@ -151,6 +151,7 @@ public class GeneralHandler extends AbstractHandler {
                     String dataset = requestUri.substring(1, index);
                     HandlerDatasets hd = new HandlerDatasets();
                     hd.serveOffers(baseRequest, request, response, dataset);
+                    return true;
                 }
             }
 
@@ -161,16 +162,18 @@ public class GeneralHandler extends AbstractHandler {
                     String dataset = requestUri.substring(1, index);
                     HandlerAccount ha = new HandlerAccount();
                     ha.serveAccount(baseRequest, request, response, dataset);
+                    return true;
                 }
             }
 
             if (requestUri.contains("manageren")) {
                 logger.info("Serving the manager " + request.getRequestURI());
-                int index = requestUri.lastIndexOf("/");
+                int index = requestUri.indexOf("/",1);
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
                     HandlerManager hm = new HandlerManager();
                     hm.serveManager(baseRequest, request, response, dataset);
+                    return true;
                 }
             }
 

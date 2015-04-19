@@ -75,7 +75,7 @@ public class LDRConfig {
     }
     
     public static String getLicensesfolder() {
-        return prop.getProperty("licensesfolder", "../licenses");
+        return prop.getProperty("licensesfolder", "./licenses");
     }
     
     public static void setLicensesfolder(String str) {

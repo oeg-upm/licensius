@@ -218,6 +218,14 @@ public class PolicyManagerOld {
         return total;
     }
     
-    
+    public static Policy findPolicyByLabel(String resource) {
+        List<Policy> policies = PolicyManagerOld.getPolicies();
+        for (Policy p : policies) {
+            if (p.getLabel("en").equals(resource)) {
+                return p;
+            }
+        }
+        return null;
+    }
     
 }

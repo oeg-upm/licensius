@@ -22,6 +22,7 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson.JacksonFactory;
+import ldconditional.LDRConfig;
 
 /**
  * Helper class to aid in the Google+ authorization site
@@ -42,6 +43,7 @@ public final class GoogleAuthHelper {
      * Callback URI that google will redirect to after successful authentication
      */
     private static final String CALLBACK_URI = "http://salonica.dia.fi.upm.es/oauth2callback";
+    private static final String CALLBACK_URI2 = "oauth2callback";
     // start google authentication constants
     private static final Iterable<String> SCOPE = Arrays.asList("https://www.googleapis.com/auth/userinfo.profile;https://www.googleapis.com/auth/userinfo.email".split(";"));
     private static final String USER_INFO_URL = "https://www.googleapis.com/oauth2/v1/userinfo";
@@ -110,7 +112,9 @@ public final class GoogleAuthHelper {
 
         final GoogleAuthorizationCodeRequestUrl url = flow.newAuthorizationUrl();
 
-        return url.setRedirectUri(CALLBACK_URI).setState(stateToken).build();
+        String cu = LDRConfig.getServer()+CALLBACK_URI2;
+
+        return url.setRedirectUri(cu).setState(stateToken).build();
     }
 
     /**
@@ -138,7 +142,9 @@ public final class GoogleAuthHelper {
      */
     public String getUserInfoJson(final String authCode) throws IOException {
 
-        final GoogleTokenResponse response = flow.newTokenRequest(authCode).setRedirectUri(CALLBACK_URI).execute();
+        String cu = LDRConfig.getServer()+CALLBACK_URI2;
+
+        final GoogleTokenResponse response = flow.newTokenRequest(authCode).setRedirectUri(cu).execute();
         final Credential credential = flow.createAndStoreCredential(response, null);
         final HttpRequestFactory requestFactory = HTTP_TRANSPORT.createRequestFactory(credential);
         // Make an authenticated request
