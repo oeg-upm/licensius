@@ -323,13 +323,13 @@ public class RDFUtils {
         Model model = ModelFactory.createDefaultModel();
         InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
         try {
-            model.read(is, null, "RDF/XML");
+            model.read(is, null, "TURTLE");
             return model;
         } catch (Exception e) {
             try {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
-                model.read(is, null, "TURTLE");
+                model.read(is, null, "RDF/XML");
                 return model;
             } catch (Exception e2) {
             }

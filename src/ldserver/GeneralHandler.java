@@ -80,8 +80,9 @@ public class GeneralHandler extends AbstractHandler {
         } else //error 404
         {
             response.setContentType("text/html;charset=utf-8");
-            response.setStatus(HttpServletResponse.SC_OK);
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.getWriter().println("404 not found");
+            serveGeneralFile(new File("htdocs/404.html"), request.getRequestURI(), baseRequest, request, response);
             baseRequest.setHandled(true);
         }
     }
@@ -177,7 +178,7 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
-            serveGeneralFile(f, requestUri, baseRequest, request, response, folder);
+            serveGeneralFile(f, requestUri, baseRequest, request, response);
 
         } catch (Exception e) {
             logger.warn(e.getMessage());
@@ -186,7 +187,7 @@ public class GeneralHandler extends AbstractHandler {
         return true;
     }
 
-    public boolean serveGeneralFile(File f, String requestUri, Request baseRequest, HttpServletRequest request, HttpServletResponse response, String folder) {
+    public boolean serveGeneralFile(File f, String requestUri, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         if (!f.exists()) {
             logger.warn("The requested file does not exist");
             return false;
@@ -229,6 +230,7 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
         } catch (Exception e) {
+            logger.warn(e.getMessage());
         }
         return true;
     }
