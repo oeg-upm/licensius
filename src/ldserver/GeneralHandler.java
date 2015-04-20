@@ -245,7 +245,7 @@ public class GeneralHandler extends AbstractHandler {
 //        Model m = cd.getModelRecurso(recurso);
         List<LicensedTriple> llt = cd.getLicensedTriples(recurso);
         String label = cd.getFirstObject(recurso, "http://www.w3.org/2000/01/rdf-schema#label");
-        String html = formatHTMLTriplesNew(label, llt);
+        String html = formatHTMLTriplesNew(cd, label, llt);
         try {
             response.getWriter().print(html);
             response.setStatus(HttpServletResponse.SC_OK);
@@ -271,13 +271,13 @@ public class GeneralHandler extends AbstractHandler {
      * @param ls List of licensed triples
      * @param lan Language
      */
-    public static String formatHTMLTriplesNew(String label, List<LicensedTriple> ls) {
+    public static String formatHTMLTriplesNew(ConditionalDataset cd, String label, List<LicensedTriple> ls) {
         String html = "";
         String tabla = "";
         String lan = "en";
 
-        String templatefile = "htdocs/resource.html";
-
+        String templatefile = "htdocs/template_resource.html";
+        List<Grafo> grafos = cd.getGrafos();
         try {
             html = FileUtils.readFileToString(new File(templatefile));
             String footer = FileUtils.readFileToString(new File("htdocs/footer.html"));
@@ -291,8 +291,8 @@ public class GeneralHandler extends AbstractHandler {
         html = html.replace("<!--TEMPLATEHERE1-->", label);
 
         tabla += "<h4>Open triples</h4>\n";
-        tabla += "<table><tr><td><strong>" + Multilingual.get(10, lan) + "</strong></td><td><strong>" + Multilingual.get(11, lan) + "</strong></td></tr>\n";
-        List<LicensedTriple> open = getOpenTriples(ls);
+        tabla += "<table><tr><td><strong>Property</strong></td><td><strong>Value</strong></td></tr>\n";
+        List<LicensedTriple> open = getOpenTriples(cd, ls);
         Collections.sort(open, LicensedTriple.PREDICATECOMPARATOR);
         for (LicensedTriple lt : open) {
             tabla += lt.toHTMLRow(lan) + "\n";
@@ -302,8 +302,8 @@ public class GeneralHandler extends AbstractHandler {
         tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
 
         tabla += "<h4>Limited access triples</h4>\n";
-        tabla += "<table><tr><td><strong>" + Multilingual.get(10, lan) + "</strong></td><td><strong>" + Multilingual.get(11, lan) + "</strong></td></tr>\n";
-        List<LicensedTriple> closed = getLicensedTriples(ls);
+        tabla += "<table><tr><td><strong>Property</strong></td><td><strong>Value</strong></td></tr>\n";
+        List<LicensedTriple> closed = getClosedTriples(cd, ls);
         for (LicensedTriple lt : closed) {
             tabla += lt.toHTMLRow(lan) + "\n";
         }
@@ -315,23 +315,50 @@ public class GeneralHandler extends AbstractHandler {
         return html;
     }
 
-    public static List<LicensedTriple> getOpenTriples(List<LicensedTriple> ls) {
+    public static boolean contiene(List<Grafo> lg, String grafo)
+    {
+        for(Grafo g : lg)
+        {
+            if (g.getURI().equals(grafo))
+                return true;
+        }
+        return false;
+    }
+
+    public static Grafo getGrafo(List<Grafo> lg, String s)
+    {
+        for(Grafo g : lg)
+            if (g.getURI().equals(s))
+                return g;
+        return null;
+    }
+
+
+
+    public static List<LicensedTriple> getOpenTriples(ConditionalDataset cd, List<LicensedTriple> ls) {
+        List<Grafo> lg = cd.getGrafos();
         List<LicensedTriple> lop = new ArrayList();
         for (LicensedTriple lt : ls) {
-            if (lt.isOpen()) {
+            Grafo g = getGrafo(lg, lt.g);
+            if (g==null)     //Si no tiene ningun grafo, la politica por defecto es NO mostrar
+                continue;
+            if (g.isOpen())
                 lop.add(lt);
-            }
         }
         return lop;
     }
 
-    public static List<LicensedTriple> getLicensedTriples(List<LicensedTriple> ls) {
+    public static List<LicensedTriple> getClosedTriples(ConditionalDataset cd, List<LicensedTriple> ls) {
+        List<Grafo> lg = cd.getGrafos();
         List<LicensedTriple> lop = new ArrayList();
         for (LicensedTriple lt : ls) {
-            //       System.out.println(ls);
-            if (!lt.isOpen()) {
-                lop.add(lt);
-            }
+            Grafo g = getGrafo(lg, lt.g);
+            if (g==null)     //Si no tiene ningun grafo, ni siquiera se muestra como cerrado
+                continue;
+            if (g.isOpen())
+                continue;
+            List<LicensedTriple> llt = LicensedTriple.concealInformation(lt, g.getPolicies());
+            lop.addAll(llt);
         }
         return lop;
     }

@@ -27,6 +27,8 @@ import org.apache.log4j.Logger;
  */
 public class PolicyManagerOld {
 
+    static final Logger logger = Logger.getLogger(PolicyManagerOld.class);
+
     private static List<Policy> policies = new ArrayList();
     
     /**
@@ -150,7 +152,7 @@ public class PolicyManagerOld {
             }
         }catch(Exception e)
         {
-            Logger.getLogger("ldr").warn("No se pudo cargar la licencia " + path);
+            logger.warn("No se pudo cargar la licencia " + path);
             e.printStackTrace();
         }
         return politicas;

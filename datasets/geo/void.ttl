@@ -35,5 +35,6 @@
         a                  dcat:Dataset ;
         rdfs:comment       "This dataset contains all the open information about the Spanish provinces" ;
         rdfs:label         "Open Dataset" ;
+        dct:license        <http://purl.org/NET/rdflicense/cc-by4.0> ;
         void:triples       "1717" ;
         schema:makesOffer  <http://purl.org/NET/rdflicense/cc-by4.0> .

@@ -69,14 +69,9 @@ public class LicensedTriple {
     public boolean hasPolicyAsObject() {
         boolean bPolicy = false;
         if (stmt.getObject().isResource()) {
-
             RDFNode r = stmt.getObject();
-            //     r.asNode().
-
-            String URL = LDRConfig.getServer()+"/ldr/"; 
             String sobjetooriginal = stmt.getObject().asResource().getURI();
             if (sobjetooriginal.contains("policy/") || sobjetooriginal.contains("license/")){
-//            if ((sobjetooriginal.startsWith(URL + "policy/")) || (sobjetooriginal.startsWith(URL + "license/"))) {
                 return true;
             }
         }
@@ -168,7 +163,7 @@ public class LicensedTriple {
             } catch (Exception e) {
                 
             }
-            String texto = Multilingual.get(7, lan);//limited access
+            String texto = "Limited access";//limited access
             
             //If the object is a policy, consider the following
             if (hasPolicyAsObject()) {
@@ -261,10 +256,8 @@ public class LicensedTriple {
      * Añade una política a un triple licenciado como predicado.
      */
     public static List<LicensedTriple> concealInformation(LicensedTriple lt, List<Policy> policies) {
-
         List<LicensedTriple> triples = new ArrayList();
         Model m = ModelFactory.createDefaultModel();
-
         Resource r = null;
         if (policies.isEmpty()) {
             r = m.createResource("http://purl.oclc.org/NET/ldr/ns#ResourceNotAuthorized");
