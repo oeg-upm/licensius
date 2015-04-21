@@ -35,9 +35,7 @@ public class CLDHandlerDatasets extends AbstractHandler {
         }
         String token = "";
         File f = new File("../htdocs/en/datasets.html");
-
         token = FileUtils.readFileToString(f);
-
         String footer = FileUtils.readFileToString(new File("../htdocs/en/footer.html"));
         token = token.replace("<!--TEMPLATEFOOTER-->", footer);
 

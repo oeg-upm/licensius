@@ -46,6 +46,12 @@ public class NQuad {
         String o = nquad.substring(i2+2,i3-1);
         if (o.startsWith("<"))
             return o.substring(1, o.length()-1);
+        int index=o.indexOf("^^");
+        if (index!=-1)
+            o = o.substring(0, index);
+        index = o.lastIndexOf("\"");
+        if (index!=-1)
+            o = o.substring(1, index);
         return o;
     }
 

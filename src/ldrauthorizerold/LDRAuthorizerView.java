@@ -31,7 +31,6 @@ import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.CLDHandlerResource;
 import ldrauthorizer.ws.CLDHandlerDefault;
 import ldrauthorizer.ws.CLDHandlerService;
-import ldrauthorizer.ws.CLDServletTest;
 import ldrauthorizer.ws.JettyServer;
 
 //APACHE LOG4J

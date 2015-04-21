@@ -13,9 +13,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import ldconditional.ConditionalDataset;
-import ldconditional.ConditionalDatasets;
+import model.ConditionalDataset;
+import model.ConditionalDatasets;
 import ldconditional.Main;
+import ldrauthorizer.ws.LicensedTriple;
 import ldserver.Recurso;
 import org.apache.log4j.Logger;
 
@@ -199,5 +200,35 @@ public class NQuadRawFile {
         return ls;
     }
 
+    public String getFileName()
+    {
+        return filename;
+    }
+
+    /**
+     * Obtains the licensed triples
+     */
+    public List<LicensedTriple> getLicensedTriples(String recurso) {
+        List<LicensedTriple> llt = new ArrayList();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String s = NQuad.getSubject(line);
+                if (!s.equals(recurso))
+                    continue;
+                String o = NQuad.getObject(line);
+                String p = NQuad.getPredicate(line);
+                String g = NQuad.getGraph(line);
+                LicensedTriple lt = new LicensedTriple(s,p,o,g);
+                llt.add(lt);
+            }
+        }catch(Exception e)
+        {
+
+        }
+        return llt;
+    }
 
 }

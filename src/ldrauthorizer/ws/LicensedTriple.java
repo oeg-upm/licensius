@@ -12,11 +12,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import languages.LanguageManager;
-import ldrauthorizerold.Multilingual;
+import languages.Multilingual;
 
 import ldconditional.LDRConfig;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
+import odrlmodel.rdf.RDFUtils;
 
 /**
  * This class represents a RDF statement that has been licensed.
@@ -34,6 +35,18 @@ public class LicensedTriple {
     public LicensedTriple(LicensedTriple lt) {
         stmt = lt.stmt;
         g = lt.g;
+    }
+
+    public LicensedTriple(String s, String p, String o, String g)
+    {
+        Model m = ModelFactory.createDefaultModel();
+        RDFNode n = null;
+        if (RDFUtils.isURI(o))
+            n=m.createResource(o);
+        else
+            n=m.createLiteral(o);
+        stmt = m.createStatement(m.createResource(s), m.createProperty(p), n);
+        this.g=g;
     }
 
     /**
@@ -56,14 +69,9 @@ public class LicensedTriple {
     public boolean hasPolicyAsObject() {
         boolean bPolicy = false;
         if (stmt.getObject().isResource()) {
-
             RDFNode r = stmt.getObject();
-            //     r.asNode().
-
-            String URL = LDRConfig.getServer()+"/ldr/"; 
             String sobjetooriginal = stmt.getObject().asResource().getURI();
             if (sobjetooriginal.contains("policy/") || sobjetooriginal.contains("license/")){
-//            if ((sobjetooriginal.startsWith(URL + "policy/")) || (sobjetooriginal.startsWith(URL + "license/"))) {
                 return true;
             }
         }
@@ -137,7 +145,7 @@ public class LicensedTriple {
      * Writes a formatted LDR triple
      * @param lan The language
      */
-    String toHTMLRow(String lan) {
+    public String toHTMLRow(String lan) {
         String str = "";
 
         String p = stmt.getPredicate().getLocalName();
@@ -153,8 +161,9 @@ public class LicensedTriple {
                 int index = Math.max(index1, index2);
                 sobjeto = sobjeto.substring(index + 1);
             } catch (Exception e) {
+                
             }
-            String texto = Multilingual.get(7, lan);//limited access
+            String texto = "Limited access";//limited access
             
             //If the object is a policy, consider the following
             if (hasPolicyAsObject()) {
@@ -172,8 +181,13 @@ public class LicensedTriple {
                 o += "</a>)";
             } else if (isForbidden()) {
                 o = "<font color=\"red\">Información de pago</font>";
-            } else {
-                o = "<a href=\"" + stmt.getObject().asResource().getURI() + "\">" + sobjeto + "</a>";
+            } else
+            {
+                if (stmt.getObject().asResource().getURI().startsWith("http"))
+                    o = "<a href=\"" + stmt.getObject().asResource().getURI() + "\">" + sobjeto + "</a>";
+                else
+                    o = sobjeto;
+            
             }
         }
         if (stmt.getObject().isLiteral()) {
@@ -242,10 +256,8 @@ public class LicensedTriple {
      * Añade una política a un triple licenciado como predicado.
      */
     public static List<LicensedTriple> concealInformation(LicensedTriple lt, List<Policy> policies) {
-
         List<LicensedTriple> triples = new ArrayList();
         Model m = ModelFactory.createDefaultModel();
-
         Resource r = null;
         if (policies.isEmpty()) {
             r = m.createResource("http://purl.oclc.org/NET/ldr/ns#ResourceNotAuthorized");

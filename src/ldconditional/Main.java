@@ -1,8 +1,10 @@
 package ldconditional;
 
+import model.ConditionalDatasets;
 import ldserver.GeneralHandler;
 import ldserver.ServiceHandler;
 import ldserver.MainHandler;
+
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -19,8 +21,9 @@ import org.eclipse.jetty.server.session.SessionHandler;
 
 /**
  * Main class, entry point of the Linked Data Web Server.
- * This project is documented making use of 
- *  
+ * APIs are documented making use of apidoc http://apidocjs.com/
+ *  Most requests are processed by the GeneralHandler class
+ *
  * @author Victor
  */
 public class Main {
@@ -28,13 +31,18 @@ public class Main {
     static final Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
-        initLogger();
-        
-        LDRConfig.Load();
-        
-        initDatasets();
-        
+
+        standardInit();
         initServer();
+    }
+
+    public static void standardInit()
+    {
+        initLogger();
+
+        LDRConfig.Load();
+
+        ConditionalDatasets.loadDatasets();
 
     }
 
@@ -65,11 +73,7 @@ public class Main {
     }
     
     /**
-<<<<<<< HEAD
      * Initializes the server and enters in wait state
-=======
-     * Initializes the web server
->>>>>>> 0981c2eee2c2f70aba2ba64e7747551c51447e8a
      */
     public static void initServer() throws Exception
     {
@@ -103,11 +107,7 @@ public class Main {
         server.start();
         server.join();        
     }
-    
-    
-    public static void initDatasets()
-    {
-        ConditionalDatasets.loadDatasets();
-    }
+
+
     
 }
