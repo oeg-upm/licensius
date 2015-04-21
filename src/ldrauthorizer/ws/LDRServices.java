@@ -42,9 +42,21 @@ import org.eclipse.jetty.server.Request;
  */
 public class LDRServices {
 
-    /**
-     * Service to manage the fake payments
-     */
+
+ /**
+ * Service to manage the fake payments
+ * @api {get} /{dataset}/service/fakePayment fakePayment
+ * @apiName /fakePayement
+ * @apiGroup ConditionalLinkedData
+ * @apiVersion 1.0.0
+ * @apiDescription Simulates a payment has been made. This would be the called to be invoked upon payment in an external gateway.<br/>
+ * <font color="red">Authorization</font>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
+ *
+ * @apiParam {String} policy Policy that has been payed for
+ * @apiParam {String} target Resource that has been payed for
+ * @apiParam {String} payment "Yes" If payment has been made
+ * @apiSuccess {String} void Nothing is returned
+ */
     public static void fakePayment(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
 
         String state = (String) request.getSession().getAttribute("state");
@@ -91,9 +103,19 @@ public class LDRServices {
         baseRequest.setHandled(true);
     }
 
-    /**
-     * Service to show the payment page
-     */
+ /**
+ * Service to manage the fake payments
+ * @api {get} /{dataset}/service/showPayment showPayment
+ * @apiName /showPayement
+ * @apiGroup ConditionalLinkedData
+ * @apiVersion 1.0.0
+ * @apiDescription Redirects the user to the external gateway to make a payment. This is only simulated. </br>
+ * <font color="red">Authorization</font>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
+ *
+ * @apiParam {String} policy Policy that has been payed for
+ * @apiParam {String} target Resource that has been payed for
+ * @apiSuccess {String} void Nothing is returned
+ */
     public static void showPayment(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         String policyName = request.getParameter("policy");
         try {
@@ -109,7 +131,7 @@ public class LDRServices {
         }
         String body = "";
         try {
-            body = FileUtils.readFileToString(new File("../htdocs/en/payment.html"));
+            body = FileUtils.readFileToString(new File("payment.html"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -237,11 +259,9 @@ public class LDRServices {
         }
     }
 
-    /**
-     * Limpia el portfolio del usuario en curso
-/**
+ /**
  * Export portfolio
- * @api {get} /{dataset}/service/resetPorfolio portfolio
+ * @api {get} /{dataset}/service/resetPorfolio resetPortfolio
  * @apiName /resetPortfolio
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
@@ -251,7 +271,7 @@ public class LDRServices {
  * @apiParam {String} dataset One word name of the document to be exported
  * @apiParam {String} signed True if the exported RDF document is to be signed
  *
- * @apiSuccess {String} portfolio RDF document with the policies in hand of a the user<br/>
+ * @apiSuccess {String} void Nothing is returned
  */
     public static void resetPortfolio(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         Portfolio p = new Portfolio();
@@ -265,12 +285,11 @@ public class LDRServices {
         }
         response.setStatus(HttpServletResponse.SC_FOUND);
         baseRequest.setHandled(true);
-
     }
 
 /**
  * Export portfolio
- * @api {get} /{dataset}/service/exportPorfolio portfolio
+ * @api {get} /{dataset}/service/exportPorfolio exportPortfolio
  * @apiName /exportPortfolio
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
