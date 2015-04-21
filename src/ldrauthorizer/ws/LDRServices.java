@@ -241,7 +241,7 @@ public class LDRServices {
      * Limpia el portfolio del usuario en curso
 /**
  * Export portfolio
- * @api {get} /{dataset}/service/resetPorfolio resetPortfolio
+ * @api {get} /{dataset}/service/resetPorfolio portfolio
  * @apiName /resetPortfolio
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
@@ -270,7 +270,7 @@ public class LDRServices {
 
 /**
  * Export portfolio
- * @api {get} /{dataset}/service/exportPorfolio exportPortfolio
+ * @api {get} /{dataset}/service/exportPorfolio portfolio
  * @apiName /exportPortfolio
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
