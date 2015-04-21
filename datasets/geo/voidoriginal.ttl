@@ -1,0 +1,40 @@
+@prefix schema: <http://schema.org/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix foaf:  <http://xmlns.com/foaf/spec/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix ldr:   <http://purl.oclc.org/NET/ldr/ns#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix ldp:   <http://www.w3.org/ns/ldp#> .
+@prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
+
+<http://localhost/geo/dataset/Mappings>
+        a             dcat:Dataset ;
+        rdfs:comment  "Geographical information" ;
+        rdfs:label    "Mappings" ;
+        dct:license   <http://purl.org/NET/rdflicense/allrightsreserved> ;
+        void:triples  "171" .
+
+<http://localhost/geo>
+        a             dcat:Catalog ;
+        rdfs:comment  "The test dataset has been taken from the IGN Geolinkeddata. The GeoLinkedData dataset includes the Spanish Autonomous Communities, provinces and province capitals, together with the geopositions of the municipalities. Additionally, links for each geographic entity to the corresponding DBPedia page have been provided." ;
+        rdfs:label    "Geographic dataset with the provinces of Spain" ;
+        ldp:contains  <http://localhost/geo/resource/Provincia/Zamora> , <http://localhost/geo/resource/Provincia/Badajoz> , <http://localhost/geo/resource/Provincia/%C3%81vila> , <http://localhost/geo/resource/Provincia/Valencia> , <http://localhost/geo/resource/Provincia/Toledo> , <http://localhost/geo/resource/Provincia/%C3%81lava> , <http://localhost/geo/resource/Provincia/Zaragoza> , <http://localhost/geo/resource/Provincia/Burgos> , <http://localhost/geo/resource/Provincia/Murcia> , <http://localhost/geo/resource/Provincia/Pontevedra> , <http://localhost/geo/resource/Provincia/Albacete> , <http://localhost/geo/resource/Provincia/Ourense> , <http://localhost/geo/resource/Provincia/Lleida> , <http://localhost/geo/resource/Provincia/Le%C3%B3n> , <http://localhost/geo/resource/Provincia/Madrid> , <http://localhost/geo/resource/Provincia/Coru%C3%B1a%2C%20A> , <http://localhost/geo/resource/Provincia/C%C3%A1ceres> , <http://localhost/geo/resource/Provincia/Castell%C3%B3n> , <http://localhost/geo/resource/Provincia/Vizcaya> , <http://localhost/geo/resource/Provincia/Guip%C3%BAzcoa> , <http://localhost/geo/resource/Provincia/Almer%C3%ADa> , <http://localhost/geo/resource/Provincia/Barcelona> , <http://localhost/geo/resource/Provincia/Sevilla> , <http://localhost/geo/resource/Provincia/Ciudad%20Real> , <http://localhost/geo/resource/Provincia/C%C3%A1diz> , <http://localhost/geo/resource/Provincia/Soria> , <http://localhost/geo/resource/Provincia/Navarra> , <http://localhost/geo/resource/Provincia/Illes%20Balears> , <http://localhost/geo/resource/Provincia/Palmas%2C%20Las> , <http://localhost/geo/resource/Provincia/Girona> , <http://localhost/geo/resource/Provincia/C%C3%B3rdoba> , <http://localhost/geo/resource/Provincia/Ja%C3%A9n> , <http://localhost/geo/resource/Provincia/Alicante> , <http://localhost/geo/resource/Provincia/Asturias> , <http://localhost/geo/resource/Provincia/Palencia> , <http://localhost/geo/resource/Provincia/Granada> , <http://localhost/geo/resource/Provincia/Salamanca> , <http://localhost/geo/resource/Provincia/Segovia> , <http://localhost/geo/resource/Provincia/Lugo> , <http://localhost/geo/resource/Provincia/Santa%20Cruz%20de%20Tenerife> , <http://localhost/geo/resource/Provincia/Valladolid> , <http://localhost/geo/resource/Provincia/Rioja%2C%20La> , <http://localhost/geo/resource/Provincia/Cuenca> , <http://localhost/geo/resource/Provincia/Teruel> , <http://localhost/geo/resource/Provincia/Guadalajara> , <http://localhost/geo/resource/Provincia/Tarragona> , <http://localhost/geo/resource/Provincia/Huesca> , <http://localhost/geo/resource/Provincia/M%C3%A1laga> , <http://localhost/geo/resource/Provincia/Cantabria> , <http://localhost/geo/resource/Provincia/Huelva> .
+
+<http://localhost/geo/dataset/Madrid>
+        a                  dcat:Dataset ;
+        rdfs:comment       "This dataset contains all the information about the Municipality of Madrid" ;
+        rdfs:label         "Madrid" ;
+        dct:license        <http://localhost/policy/10euro> ;
+        void:triples       "7" ;
+        schema:makesOffer  <http://purl.org/NET/rdflicense/cc-by-nc4.0> .
+
+<http://localhost/geo/dataset/default>
+        a                  dcat:Dataset ;
+        rdfs:comment       "This dataset contains all the open information about the Spanish provinces" ;
+        rdfs:label         "Open Dataset" ;
+        dct:license        <http://purl.org/NET/rdflicense/cc-by4.0> ;
+        void:triples       "1717" ;
+        schema:makesOffer  <http://purl.org/NET/rdflicense/cc-by4.0> .
