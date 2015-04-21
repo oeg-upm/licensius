@@ -42,10 +42,10 @@ public class WebPolicyManager {
                 String urigrafo = URLEncoder.encode(grafo, "UTF-8");
                 String enlace = "";
                 if (lan.equals("en")) {
-                    enlace = "/ldr/manageren/selectGrafo?grafo=" + urigrafo;
+                    enlace = "/ldr/manageren/selectGraph?grafo=" + urigrafo;
                     enlace = "<a href=\"" + enlace + "\">" + label + "</a>";
                 } else {
-                    enlace = "/ldr/manager/selectGrafo?grafo=" + urigrafo;
+                    enlace = "/ldr/manager/selectGraph?grafo=" + urigrafo;
                     enlace = "<a href=\"" + enlace + "\">" + label + "</a>";
                 }
                 if (grafo.equals(CLDHandlerManager.selectedGrafo)) {

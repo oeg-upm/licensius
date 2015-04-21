@@ -76,7 +76,7 @@ public class CLDHandlerManager extends AbstractHandler {
         refreshGrafos();
 
         //Function to select a different graph
-        if (uri.startsWith("/ldr/manager/selectGrafo") || uri.startsWith("/ldr/manageren/selectGrafo")) {
+        if (uri.startsWith("/ldr/manager/selectGraph") || uri.startsWith("/ldr/manageren/selectGraph")) {
             String sel = request.getParameter("grafo");
             try {
                 sel = URLDecoder.decode(sel, "UTF-8");

@@ -85,8 +85,8 @@ public class HandlerManager {
 
  /**
  * Service to manage the fake payments
- * @api {get} /{dataset}/service/selectGrafo selectGrafo
- * @apiName /selectGrafo
+ * @api {get} /{dataset}/service/selectGraph selectGraph
+ * @apiName /selectGraph
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
  * @apiDescription Chooses a graph to be operated with </br>
@@ -185,7 +185,7 @@ public class HandlerManager {
         uri = uri.substring(index, uri.length());
 
         //Function to select a different graph
-        if (uri.contains("selectGrafo")) {
+        if (uri.contains("selectGraph")) {
             selectedGrafo = selectGrafo(cd, request, response, dataset);
         }//function to selecte a different license for the given license
         else if (uri.contains("managePolicy") ) {
@@ -225,7 +225,7 @@ public class HandlerManager {
                 String urigrafo = URLEncoder.encode(g.getURI(), "UTF-8");
                 String enlace = "";
                 String label = g.getLabel();
-                enlace = base + "/manageren/selectGrafo?grafo=" + urigrafo;
+                enlace = base + "/manageren/selectGraph?grafo=" + urigrafo;
                 enlace = "<a href=\"" + enlace + "\">" + label + "</a>";
                 if (g.getURI().equals(selectedGrafo)) {
                     churro += "<div style=\"border:2px solid; border-radius:25px; margin:10px; padding: 8px 8px 8px 8px; background:#0A0;\"><center>" + enlace + "</center></div>\n";
