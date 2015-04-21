@@ -14,6 +14,7 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.apache.log4j.Logger;
 
 import ldconditional.Main;
+import ldrauthorizer.ws.LDRServices;
 
 
 /**
@@ -25,47 +26,99 @@ public class ServiceHandler extends AbstractHandler {
     
     static final Logger logger = Logger.getLogger(Main.class);
     
-        public void handle(String string, Request baseRequest, HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        public void handle(String string, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (baseRequest.isHandled() || !string.contains("/service")) {
             return;
         }
         logger.info("Serving a general file");
         
-        resp.setHeader("Access-Control-Allow-Origin", "*");
-        resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-        resp.setHeader("Access-Control-Max-Age", "3600");
-        resp.setHeader("Access-Control-Allow-Headers", "x-requested-with");        
-        
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+
+        String uri = request.getRequestURI();
+        int index=uri.indexOf('/',1);
+        String sdataset = uri.substring(1,index);
+
+
         if (string.contains("/service/getOffers"))
         {
             GetOffers go = new GetOffers();
-            go.doGet(req, resp);
+            go.doGet(request, response);
             baseRequest.setHandled(true);
-            resp.setStatus(HttpServletResponse.SC_OK);
-            resp.setContentType("application/json");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.setContentType("application/json");
             return;
         }
         if (string.contains("/service/getResources"))
         {
             GetResources go = new GetResources();
-            go.doGet(req, resp);
+            go.doGet(request, response);
             baseRequest.setHandled(true);
-            resp.setStatus(HttpServletResponse.SC_OK);
-            resp.setContentType("application/json");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.setContentType("application/json");
             return;
         }
+
+        //****************** GET RESOURCE
         if (string.contains("/service/getResource"))
         {
             GetOpenResource go = new GetOpenResource();
-            go.doGet(req, resp);
+            go.doGet(request, response);
             baseRequest.setHandled(true);
-            resp.setStatus(HttpServletResponse.SC_OK);
-            resp.setContentType("application/json");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.setContentType("application/json");
             return;
         }
-        resp.setContentType("text/html;charset=utf-8");
-        resp.setStatus(HttpServletResponse.SC_OK);
+
+        //****************** RESET PORTFOLIO
+        if (string.contains("/service/resetPortfolio")) {
+            LDRServices.resetPortfolio(baseRequest, request, response);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+        
+        //****************** FAKE PAYMENT
+        if (string.contains("/service/fakePayment")) {
+            LDRServices.fakePayment(baseRequest, request, response);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+
+        //****************** SHOW PAYMENT
+        if (string.contains("/service/showPayment")) {
+            LDRServices.showPayment(baseRequest, request, response);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+
+        //****************** GET DATASET2 (NO IMPLEMENTADO)
+        /*if (string.contains("dataset/")) {
+            LDRServices.getDataset2(baseRequest, request, response);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }*/
+
+
+        //****************** GET DATASET
+        if (string.contains("/service/getDataset")) {
+            LDRServices.getDataset(baseRequest, request, response);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+
+        //****************** EXPORT PORTFOLIO
+        if (string.contains("/service/exportPortfolio")) {
+            LDRServices.exportPortfolio(baseRequest, request, response);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+
+
+
+        response.setContentType("text/html;charset=utf-8");
+        response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
-        resp.getWriter().println("<h1>Service Hello World</h1>");
     }   
 }

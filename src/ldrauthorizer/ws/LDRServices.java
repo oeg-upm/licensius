@@ -45,7 +45,7 @@ public class LDRServices {
     /**
      * Service to manage the fake payments
      */
-    static void fakePayment(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+    public static void fakePayment(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
 
         String state = (String) request.getSession().getAttribute("state");
         String email = GoogleAuthHelper.getMail(request);
@@ -94,7 +94,7 @@ public class LDRServices {
     /**
      * Service to show the payment page
      */
-    static void showPayment(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+    public static void showPayment(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         String policyName = request.getParameter("policy");
         try {
             policyName = URLDecoder.decode(policyName, "UTF-8");
@@ -130,7 +130,7 @@ public class LDRServices {
     /**
      * Gets the dataset
      */
-    static void getDataset(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+    public static void getDataset(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         Portfolio portfolio = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
         if (portfolio == null) {
             portfolio = new Portfolio();
@@ -240,7 +240,7 @@ public class LDRServices {
     /**
      * Limpia el portfolio del usuario en curso
      */
-    static void resetPortfolio(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+    public static void resetPortfolio(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         Portfolio p = new Portfolio();
         request.getSession().setAttribute("portfolio", p);
         String state = (String) request.getSession().getAttribute("state");
@@ -258,8 +258,19 @@ public class LDRServices {
 
     /**
      * Export portfolio
+/**
+ * @api {get} /{dataset}/service/exportPorfolio exportPortfolio
+ * @apiName /exportPortfolio
+ * @apiGroup ConditionalLinkedData
+ * @apiVersion 1.0.0
+ * @apiDescription Exports a RDF document, signed, where the purchased policies are shown
+ *
+ * @apiParam {String} dataset One word name of the document to be exported
+ * @apiParam {String} export True if the exported RDF document is to be signed
+ *
+ * @apiSuccess {String} portfolio RDF document with the policies in hand of a the user<br/>
      */
-    static void exportPortfolio(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+    public static void exportPortfolio(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         String state = (String) request.getSession().getAttribute("state");
         String signed = (String) request.getParameter("signed");
 
@@ -280,6 +291,6 @@ public class LDRServices {
 
     }
 
-    static void getDataset2(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+    public static void getDataset2(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
     }
 }

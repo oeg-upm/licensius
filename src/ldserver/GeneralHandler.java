@@ -419,23 +419,12 @@ public class GeneralHandler extends AbstractHandler {
 
     private static String getServicioGetDatabaseURL(Asset asset) {
         String datasetEncoded = asset.getURI();
-
-
         try {
             datasetEncoded = URLEncoder.encode(asset.getURI(), "UTF-8");
-
-
         } catch (Exception e) {
             e.printStackTrace();
-
-
         }
-        String servicio = "service/getDataset?dataset=" + datasetEncoded;
-
-
-        return servicio;
-
-
+        return "service/getDataset?dataset=" + datasetEncoded;
     }
 
 
