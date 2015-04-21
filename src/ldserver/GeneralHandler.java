@@ -178,6 +178,17 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
+            if (requestUri.startsWith("/policy/") || requestUri.startsWith("/license/")) {
+                logger.info("Serving a policy offer " + request.getRequestURI());
+                int index = requestUri.indexOf("/",1);
+                if (index != -1 && index != 0) {
+                    String dataset = requestUri.substring(1, index);
+                    HandlerManager hm = new HandlerManager();
+                    hm.serveManager(baseRequest, request, response, dataset);
+                    return true;
+                }
+            }
+
             serveGeneralFile(f, requestUri, baseRequest, request, response);
 
         } catch (Exception e) {
