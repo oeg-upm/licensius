@@ -88,9 +88,9 @@ public class WebPolicyManager {
         churro += slicencia;
         String form = "";
         if (lan.equals("en")) {
-            form = "<form name=\"input\" action=\"/ldr/manageren/changeLicense\" method=\"get\">";
+            form = "<form name=\"input\" action=\"/ldr/manageren/managePolicy\" method=\"get\">";
         } else {
-            form = "<form name=\"input\" action=\"/ldr/manager/changeLicense\" method=\"get\">";
+            form = "<form name=\"input\" action=\"/ldr/manager/managePolicy\" method=\"get\">";
         }
 
         String opciones = form + "<select name=\"licencia\" id=\"licencia\">";

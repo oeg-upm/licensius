@@ -87,7 +87,7 @@ public class CLDHandlerManager extends AbstractHandler {
             selectedGrafo = sel;
 
         }//function to selecte a different license for the given license
-        else if (uri.startsWith("/ldr/manager/changeLicense") || uri.startsWith("/ldr/manageren/changeLicense")) {
+        else if (uri.startsWith("/ldr/manager/managePolicy") || uri.startsWith("/ldr/manageren/managePolicy")) {
             selectedGrafo = request.getParameter("selectedGrafo");
             try {
                 selectedGrafo = URLDecoder.decode(selectedGrafo, "UTF-8");

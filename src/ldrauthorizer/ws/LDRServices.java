@@ -266,7 +266,7 @@ public class LDRServices {
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
  * @apiDescription Resets the  portfolio of the currently logged in user, deleteing any offer he might have purchased.<br/>
- * <div font color="red">Authorization</div>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
+ * <font color="red">Authorization</font>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
  *
  * @apiParam {String} dataset One word name of the document to be exported
  * @apiParam {String} signed True if the exported RDF document is to be signed
@@ -294,7 +294,7 @@ public class LDRServices {
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
  * @apiDescription Exports a RDF document, signed, where the purchased policies are shown.<br/> 
- * <div font color="red">Authorization</div>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
+ * <font color="red">Authorization</font>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
  *
  * @apiParam {String} dataset One word name of the document to be exported
  * @apiParam {String} signed True if the exported RDF document is to be signed

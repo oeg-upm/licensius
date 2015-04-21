@@ -83,30 +83,51 @@ public class HandlerManager {
         baseRequest.setHandled(true);
     }
 
-    /**
-     * Serves the manager
-     */
-    public static String serveManager(ConditionalDataset cd, HttpServletRequest request, HttpServletResponse response, String dataset) {
-        String lan = "en";
-        String uri = request.getRequestURI();
+ /**
+ * Service to manage the fake payments
+ * @api {get} /{dataset}/service/selectGrafo selectGrafo
+ * @apiName /selectGrafo
+ * @apiGroup ConditionalLinkedData
+ * @apiVersion 1.0.0
+ * @apiDescription Chooses a graph to be operated with </br>
+ * <font color="red">Authorization</font>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
+ *
+ * @apiParam {String} grafo Graph to be selected
+ * @apiSuccess {String} void Nothing is returned
+ */
+    public static String selectGrafo(ConditionalDataset cd, HttpServletRequest request, HttpServletResponse response, String dataset)
+    {
+        String sel = request.getParameter("grafo");
+        try {
+            sel = URLDecoder.decode(sel, "UTF-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sel;
+    }
 
-        int index = uri.indexOf(dataset+"/", 0)+ dataset.length()+1;
 
-        uri = uri.substring(index, uri.length());
-
-        //Function to select a different graph
-        if (uri.contains("selectGrafo")) {
-            String sel = request.getParameter("grafo");
-            try {
-                sel = URLDecoder.decode(sel, "UTF-8");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            //         view.addInfo("Seleccionado el grafo " + sel);
-            selectedGrafo = sel;
-
-        }//function to selecte a different license for the given license
-        else if (uri.contains("changeLicense") ) {
+ /**
+ * Manages the policy, executing one of the defined operations
+ * @api {get} /{dataset}/service/managePolicy managePolicy
+ * @apiName /managePolicy
+ * @apiGroup ConditionalLinkedData
+ * @apiVersion 1.0.0
+ * @apiDescription Chooses a graph to be operated with </br>
+ * <font color="red">Authorization</font>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
+ *
+ * @apiParam {String} action Action to be executed. This is a string taking one these values: <br/>
+  * <ul>
+  * <li>"Add": Attaches a policy to a graph </li>
+  * <li>"View": Displays a policy </li>
+  * <li>"Remove": Removes the policy attachment to the graph </li>
+  * <li>"Restore default": Restores the default policies for a demo</li>
+ * @apiParam {String} selectedGrafo Graph to be operated on
+ * @apiParam {String} licencia Policy to be operated on
+ * @apiSuccess {String} void Nothing is returned
+ */
+    public static String managePolicy(ConditionalDataset cd, HttpServletRequest request, HttpServletResponse response, String dataset)
+    {
             selectedGrafo = request.getParameter("selectedGrafo");
             try {
                 selectedGrafo = URLDecoder.decode(selectedGrafo, "UTF-8");
@@ -127,7 +148,7 @@ public class HandlerManager {
                 logger.debug("Accion " + action + " sobre " + selectedGrafo + "  licencia " + licencia);
                 if (action.equals("Add")) {
                     cd.getDatasetVoid().addLicense(selectedGrafo, licencia);
-                    
+
                 } else if (action.equals("View")) {
                     Policy policy = AssetManager.findPolicyByLabel(licencia);
                     if (policy != null) {
@@ -146,12 +167,33 @@ public class HandlerManager {
                     logger.info("Action restore default");
                     cd.getDatasetVoid().restoreDefault();
                 } else {
-                    AssetManager.setPolicyByLabel(selectedGrafo, licencia);
+                    //AssetManager.setPolicyByLabel(selectedGrafo, licencia);
                 }
-            } 
+            }
+            return "";
+    }
+
+    /**
+     * Serves the manager
+     */
+    public static String serveManager(ConditionalDataset cd, HttpServletRequest request, HttpServletResponse response, String dataset) {
+        String lan = "en";
+        String uri = request.getRequestURI();
+
+        int index = uri.indexOf(dataset+"/", 0)+ dataset.length()+1;
+
+        uri = uri.substring(index, uri.length());
+
+        //Function to select a different graph
+        if (uri.contains("selectGrafo")) {
+            selectedGrafo = selectGrafo(cd, request, response, dataset);
+        }//function to selecte a different license for the given license
+        else if (uri.contains("managePolicy") ) {
+            managePolicy(cd, request, response, dataset);
         }
+
         String html = "";
-        String templatefile = "./htdocs/manager.html";
+        String templatefile = "./htdocs/template_manager.html";
         try {
             html = FileUtils.readFileToString(new File(templatefile));
             String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
@@ -224,7 +266,7 @@ public class HandlerManager {
         String slicencia = "";
         churro += slicencia;
 
-        String url = LDRConfig.getServer()+dataset + "/manageren/changeLicense";
+        String url = LDRConfig.getServer()+dataset + "/manageren/managePolicy";
 
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         String opciones = form + "<select name=\"licencia\" id=\"licencia\">";
