@@ -239,15 +239,27 @@ public class LDRServices {
 
     /**
      * Limpia el portfolio del usuario en curso
-     */
+/**
+ * Export portfolio
+ * @api {get} /{dataset}/service/resetPorfolio resetPortfolio
+ * @apiName /resetPortfolio
+ * @apiGroup ConditionalLinkedData
+ * @apiVersion 1.0.0
+ * @apiDescription Resets the  portfolio of the currently logged in user, deleteing any offer he might have purchased.<br/>
+ * <div font color="red">Authorization</div>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
+ *
+ * @apiParam {String} dataset One word name of the document to be exported
+ * @apiParam {String} signed True if the exported RDF document is to be signed
+ *
+ * @apiSuccess {String} portfolio RDF document with the policies in hand of a the user<br/>
+ */
     public static void resetPortfolio(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         Portfolio p = new Portfolio();
         request.getSession().setAttribute("portfolio", p);
-        String state = (String) request.getSession().getAttribute("state");
         String mail = GoogleAuthHelper.getMail(request);
         Portfolio.setPortfolio(mail, new Portfolio());
         try {
-            response.sendRedirect("/ldr/en/account.html");
+            response.sendRedirect("/account.html");
         } catch (IOException ex) {
             java.util.logging.Logger.getLogger(LDRServices.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -256,20 +268,20 @@ public class LDRServices {
 
     }
 
-    /**
-     * Export portfolio
 /**
+ * Export portfolio
  * @api {get} /{dataset}/service/exportPorfolio exportPortfolio
  * @apiName /exportPortfolio
  * @apiGroup ConditionalLinkedData
  * @apiVersion 1.0.0
- * @apiDescription Exports a RDF document, signed, where the purchased policies are shown
+ * @apiDescription Exports a RDF document, signed, where the purchased policies are shown.<br/> 
+ * <div font color="red">Authorization</div>. Needs being authorized. Invoker must have made authentication, otherwise the unnamed user will be used
  *
  * @apiParam {String} dataset One word name of the document to be exported
- * @apiParam {String} export True if the exported RDF document is to be signed
+ * @apiParam {String} signed True if the exported RDF document is to be signed
  *
  * @apiSuccess {String} portfolio RDF document with the policies in hand of a the user<br/>
-     */
+ */
     public static void exportPortfolio(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         String state = (String) request.getSession().getAttribute("state");
         String signed = (String) request.getParameter("signed");
