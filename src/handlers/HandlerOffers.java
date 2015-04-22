@@ -54,15 +54,15 @@ import org.json.simple.JSONValue;
  *
  * @author vroddon
  */
-public class HandlerDatasets {
+public class HandlerOffers {
 
-    static final Logger logger = Logger.getLogger(HandlerDatasets.class);
+    static final Logger logger = Logger.getLogger(HandlerOffers.class);
 
     public void serveOffers(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
         String body = "";
         try {
             String token = "";
-            File f = new File("./htdocs/datasets.html");
+            File f = new File("./htdocs/template_offers.html");
             token = FileUtils.readFileToString(f);
             String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
             token = token.replace("<!--TEMPLATEFOOTER-->", footer);

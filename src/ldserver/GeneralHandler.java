@@ -3,7 +3,7 @@ package ldserver;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import handlers.HandlerAccount;
-import handlers.HandlerDatasets;
+import handlers.HandlerOffers;
 import handlers.HandlerIndex;
 import handlers.HandlerLinkedData;
 import handlers.HandlerManager;
@@ -70,9 +70,8 @@ public class GeneralHandler extends AbstractHandler {
             return;
         }
         logger.info("General handler processing this URI " + request.getRequestURI());
-
         String folder = string;
-        boolean ok = processQuery(baseRequest, request, response, folder);
+        boolean ok = sortQuery(baseRequest, request, response, folder);
         if (ok) {
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType("text/html;charset=utf-8");
@@ -82,7 +81,8 @@ public class GeneralHandler extends AbstractHandler {
             response.setContentType("text/html;charset=utf-8");
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.getWriter().println("404 not found");
-            serveGeneralFile(new File("htdocs/404.html"), request.getRequestURI(), baseRequest, request, response);
+            response.sendRedirect("404.html");
+//            serveGeneralFile(new File("htdocs/404.html"), request.getRequestURI(), baseRequest, request, response);
             baseRequest.setHandled(true);
         }
     }
@@ -90,19 +90,30 @@ public class GeneralHandler extends AbstractHandler {
     /**
      * Sirve un ana query estándar
      */
-    private boolean processQuery(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String folder) {
+    private boolean sortQuery(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String folder) {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         try {
-            String token = "";
             String requestUri = request.getRequestURI();
-            String suri = requestUri;
-            int ini = requestUri.indexOf("/", 1);
-            suri = "htdocs" + requestUri.substring(ini, requestUri.length());
-            if (requestUri.startsWith("/datasets/") && requestUri.endsWith("logo.png")) {
-                suri = requestUri.substring(1, requestUri.length());
+            String sLocalfile = requestUri;
+            sLocalfile = "htdocs" + requestUri.substring(requestUri.indexOf("/", 1), requestUri.length());
+
+            //CASE 1: A FOLDER
+            File f = new File(sLocalfile);
+            if (f.isDirectory()) {
+                logger.info("Directory. Trying to retrieve a dataset " + requestUri);
+                requestUri = requestUri + "/index.html";
+                requestUri = requestUri.replace("//", "/"); //por si acaso había la barra al final
+                response.sendRedirect(requestUri);
+                return true;
             }
 
+            //CASE 2: LOGO OF A DATASET
+            if (requestUri.startsWith("/datasets/") && requestUri.endsWith("logo.png")) {
+                sLocalfile = requestUri.substring(1, requestUri.length());
+            }
+
+            //CASE 3: A RESOURCE (e.g. "Alicante")
             if (requestUri.contains("/resource/")) {
                 logger.info("Serving a resource " + request.getRequestURI());
                 int index = requestUri.indexOf("/", 1);
@@ -113,16 +124,9 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
-            File f = new File(suri);
-            if (f.isDirectory()) {
-                logger.info("Directory. Trying to retrieve a dataset " + requestUri);
-                requestUri = requestUri + "/index.html";
-                requestUri = requestUri.replace("//", "/"); //por si acaso había la barra al final
-                response.sendRedirect(requestUri);
-                return true;
-            }
+
             // PAGINA PRINCIPAL TENEMOS /geo/index.html
-            //veamos si es el índice de un dataset:
+            // CASE 4. MAIN PAGE OF A DATASET
             if (requestUri.endsWith("index.html")) {
                 logger.info("Serving the index " + request.getRequestURI());
                 int index = requestUri.lastIndexOf("/");
@@ -134,6 +138,7 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
+            //CASE 5
             if (requestUri.endsWith("linkeddata.html")) {
                 logger.info("Serving the main resources " + request.getRequestURI());
                 int index = requestUri.lastIndexOf("/");
@@ -145,12 +150,13 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
-            if (requestUri.endsWith("datasets.html")) {
+            //CASE 6 - DATASETS
+            if (requestUri.endsWith("offers.html")) {
                 logger.info("Serving the main offers " + request.getRequestURI());
                 int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
-                    HandlerDatasets hd = new HandlerDatasets();
+                    HandlerOffers hd = new HandlerOffers();
                     hd.serveOffers(baseRequest, request, response, dataset);
                     return true;
                 }
