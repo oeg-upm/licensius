@@ -7,6 +7,8 @@ import handlers.HandlerOffers;
 import handlers.HandlerIndex;
 import handlers.HandlerLinkedData;
 import handlers.HandlerManager;
+import handlers.HandlerPolicy;
+import handlers.HandlerResource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Level;
 import javax.servlet.ServletException;
@@ -34,6 +37,7 @@ import ldrauthorizer.ws.Portfolio;
 import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
 import ldrauthorizer.ws.CLDHandlerManager;
+import ldrauthorizer.ws.Evento;
 import ldrauthorizer.ws.WebPolicyManager;
 import model.DatasetVoid;
 import model.Grafo;
@@ -81,7 +85,7 @@ public class GeneralHandler extends AbstractHandler {
             response.setContentType("text/html;charset=utf-8");
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.getWriter().println("404 not found");
-            response.sendRedirect("404.html");
+            response.sendRedirect("/404.html");
 //            serveGeneralFile(new File("htdocs/404.html"), request.getRequestURI(), baseRequest, request, response);
             baseRequest.setHandled(true);
         }
@@ -118,8 +122,9 @@ public class GeneralHandler extends AbstractHandler {
                 logger.info("Serving a resource " + request.getRequestURI());
                 int index = requestUri.indexOf("/", 1);
                 if (index != -1 && index != 0) {
+                    HandlerResource hr = new HandlerResource();
                     String dataset = requestUri.substring(1, index);
-                    serveResource(baseRequest, request, response, dataset);
+                    hr.serveResource(baseRequest, request, response, dataset);
                     return true;
                 }
             }
@@ -189,8 +194,8 @@ public class GeneralHandler extends AbstractHandler {
                 int index = requestUri.indexOf("/",1);
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
-                    HandlerManager hm = new HandlerManager();
-                    hm.serveManager(baseRequest, request, response, dataset);
+                    HandlerPolicy hm = new HandlerPolicy();
+                    hm.servePolicy(baseRequest, request, response, dataset);
                     return true;
                 }
             }
@@ -255,82 +260,14 @@ public class GeneralHandler extends AbstractHandler {
 
 
 
-    public void serveResource(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
-
-        String recurso = baseRequest.getRootURL().toString() + request.getRequestURI();
-        ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
-//        Model m = cd.getModelRecurso(recurso);
-        List<LicensedTriple> llt = cd.getLicensedTriples(recurso);
-        String label = cd.getFirstObject(recurso, "http://www.w3.org/2000/01/rdf-schema#label");
-        String html = formatHTMLTriplesNew(cd, label, llt);
-        try {
-            response.getWriter().print(html);
-            response.setStatus(HttpServletResponse.SC_OK);
-
-        } catch (Exception e) {
-        }
-        baseRequest.setHandled(true);
-        response.setContentType("text/html;charset=utf-8");
-//        GetOpenResource gr = new GetOpenResource();
-//        String json = gr.generarJson(dataset, recurso);
-//        System.out.println(json);
-        //  formatHTMLTriples();
-    }
 
 
 
 
 
 
-    /**
-     * Formats in HTML the triples to be shown.
-     * @param label
-     * @param ls List of licensed triples
-     * @param lan Language
-     */
-    public static String formatHTMLTriplesNew(ConditionalDataset cd, String label, List<LicensedTriple> ls) {
-        String html = "";
-        String tabla = "";
-        String lan = "en";
-
-        String templatefile = "htdocs/template_resource.html";
-        List<Grafo> grafos = cd.getGrafos();
-        try {
-            html = FileUtils.readFileToString(new File(templatefile));
-            String footer = FileUtils.readFileToString(new File("htdocs/footer.html"));
-            html = html.replace("<!--TEMPLATEFOOTER-->", footer);
-        } catch (Exception e) {
-            return "page not found " + e.getMessage();
-        }
-
-        // html = readTextFile("template.html");
-        label = "<h2>" + label + "</h2>";
-        html = html.replace("<!--TEMPLATEHERE1-->", label);
-
-        tabla += "<h4>Open triples</h4>\n";
-        tabla += "<table><tr><td><strong>Property</strong></td><td><strong>Value</strong></td></tr>\n";
-        List<LicensedTriple> open = getOpenTriples(cd, ls);
-        Collections.sort(open, LicensedTriple.PREDICATECOMPARATOR);
-        for (LicensedTriple lt : open) {
-            tabla += lt.toHTMLRow(lan) + "\n";
-        }
-        tabla += "</table>\n";
-
-        tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
-
-        tabla += "<h4>Limited access triples</h4>\n";
-        tabla += "<table><tr><td><strong>Property</strong></td><td><strong>Value</strong></td></tr>\n";
-        List<LicensedTriple> closed = getClosedTriples(cd, ls);
-        for (LicensedTriple lt : closed) {
-            tabla += lt.toHTMLRow(lan) + "\n";
-        }
-        tabla += "</table>\n";
 
 
-        html = html.replace("<!--TEMPLATEHERE2-->", tabla);
-
-        return html;
-    }
 
     public static boolean contiene(List<Grafo> lg, String grafo)
     {
@@ -342,44 +279,18 @@ public class GeneralHandler extends AbstractHandler {
         return false;
     }
 
-    public static Grafo getGrafo(List<Grafo> lg, String s)
+
+
+
+
+
+      public static Grafo getGrafo(List<Grafo> lg, String s)
     {
         for(Grafo g : lg)
             if (g.getURI().equals(s))
                 return g;
         return null;
     }
-
-
-
-    public static List<LicensedTriple> getOpenTriples(ConditionalDataset cd, List<LicensedTriple> ls) {
-        List<Grafo> lg = cd.getGrafos();
-        List<LicensedTriple> lop = new ArrayList();
-        for (LicensedTriple lt : ls) {
-            Grafo g = getGrafo(lg, lt.g);
-            if (g==null)     //Si no tiene ningun grafo, la politica por defecto es NO mostrar
-                continue;
-            if (g.isOpen())
-                lop.add(lt);
-        }
-        return lop;
-    }
-
-    public static List<LicensedTriple> getClosedTriples(ConditionalDataset cd, List<LicensedTriple> ls) {
-        List<Grafo> lg = cd.getGrafos();
-        List<LicensedTriple> lop = new ArrayList();
-        for (LicensedTriple lt : ls) {
-            Grafo g = getGrafo(lg, lt.g);
-            if (g==null)     //Si no tiene ningun grafo, ni siquiera se muestra como cerrado
-                continue;
-            if (g.isOpen())
-                continue;
-            List<LicensedTriple> llt = LicensedTriple.concealInformation(lt, g.getPolicies());
-            lop.addAll(llt);
-        }
-        return lop;
-    }
-
 
     /**
      * Autoriza un recurso, dado un conjunto de políticas compradas en el portfolio
@@ -434,6 +345,31 @@ public class GeneralHandler extends AbstractHandler {
     }
 
 
-
+    /**
+     * Determina si la petición ha de ser servida a un humano o directamente el RDF
+     * @param request HTTP request
+     */
+    public static boolean isHuman(HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        if (uri.endsWith(".ttl") || uri.endsWith(".rdf")) {
+            return false;
+        }
+        boolean human = true;
+        Enumeration enume = request.getHeaderNames();
+        while (enume.hasMoreElements()) {
+            String hname = (String) enume.nextElement();
+            Enumeration<String> enum2 = request.getHeaders(hname);
+            //      System.out.print(hname + "\t");
+            while (enum2.hasMoreElements()) {
+                String valor = enum2.nextElement();
+                if (hname.equals("Accept")) {
+                    if (valor.equals("application/rdf+xml") || valor.equals("text/turtle") || valor.equals("application/x-turtle")) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return human;
+    }
 
 }

@@ -72,7 +72,9 @@ public class HTMLODRLManager {
         s += "<div style=\"border:2px solid; border-radius:25px; margin:10px; padding: 8px 8px 8px 8px;background:#AAAAAA;\">";
 
 
-        s += "<h1> License: " + p.getLabel("en") + "</h1>";
+        String label = p.getLabel("en");
+        if (label==null) label = "unnamed";
+        s += "<h1> License: " + label + "</h1>";
 
         s += "<h4>Summary</h4>\n";
         s += p.getComment() + "\n";

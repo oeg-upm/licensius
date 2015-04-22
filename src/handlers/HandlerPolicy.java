@@ -56,6 +56,12 @@ public class HandlerPolicy {
             }
         }
 
+        if (policy == null) {
+            try {
+                response.sendRedirect("/404.html");
+            } catch (Exception e) {
+            }
+        }
 
 
         response.setContentType("text/html;charset=utf-8");
