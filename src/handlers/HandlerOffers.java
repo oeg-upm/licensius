@@ -129,12 +129,16 @@ public class HandlerOffers {
             String commentAsset = grafo.getComment();
             String labelAsset = grafo.getLabel();
             String servicio = getServicioGetDatabaseURL(grafo.getURI());     //enlace
-            boolean bOpen = true; // asset.isOpen();                         //si es o no abierto
-            String sopena = "<img src=\"/ldr/img/arrowdown32green.png\">";
-            String scloseda = "<img src=\"/ldr/img/arrowdown32red.png\">";
-            String sopen = "<button class=\"cupid-blue\" onclick=\"location.href='linkeddata'\">Download</button>";
-            String sclosed = "";
+            boolean bOpen = !grafo.getOpenPolicies().isEmpty();
+            boolean bPolicies = !grafo.getPoliciesForMoney().isEmpty();
+            String sopena = "<img src=\"/img/arrowdown32green.png\">";
+            String scloseda = "<img src=\"/img/arrowdown32red.png\">";
+            String sopen = "<button class=\"cupid-green\" onclick=\"location.href='linkeddata'\">Download</button>";
+            String sclosed = "<button class=\"cupid-blue\" onclick=\"location.href='linkeddata'\">Download</button>";
+            String shidden ="";
             String color = bOpen ? sopen : sclosed;
+            if (!bPolicies && !bOpen)
+                color=shidden;
             AuthorizationResponse r = GeneralHandler.AuthorizeResource(grafo, pPagadas);
             if (r.ok == true) {
                 color = sopen;

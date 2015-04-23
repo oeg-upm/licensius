@@ -86,7 +86,16 @@ public class Grafo {
         }
         return llp;
     }
-
+    public List<Policy> getPoliciesForMoney() {
+        List<Policy> llp = new ArrayList();
+        List<Policy> lp = getPolicies();
+        for(Policy p : lp)
+        {
+            if (p.isInOffer())
+                llp.add(p);
+        }
+        return llp;
+    }
     public boolean isOpen() {
         List<Policy> lp = getPolicies();
         for(Policy p : lp)
@@ -96,5 +105,7 @@ public class Grafo {
         }
         return false;
     }
+
+
 
 }

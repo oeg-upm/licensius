@@ -9,6 +9,7 @@ import handlers.HandlerIndex;
 import handlers.HandlerLinkedData;
 import handlers.HandlerManager;
 import handlers.HandlerPolicy;
+import handlers.HandlerPortal;
 import handlers.HandlerResource;
 import java.io.File;
 import java.io.FileInputStream;
@@ -120,7 +121,7 @@ public class GeneralHandler extends AbstractHandler {
             int ixndex = requestUri.indexOf("/", 1);
             if (ixndex != -1) {
                 String sx = requestUri.substring(ixndex, requestUri.length());
-                if (!sx.equals("img") & !sx.equals("css")) {
+                if (!sx.equals("img") & !sx.equals("css") && !sx.equals("js")&& !sx.equals("themes") ) {
                     sdataset = sx;
                 }
                 sLocalfile = "htdocs" + sdataset;
@@ -132,6 +133,9 @@ public class GeneralHandler extends AbstractHandler {
                 sLocalfile = "./htdocs/" + requestUri;
             }
             if (requestUri.endsWith(".css")) {
+                sLocalfile = "./htdocs/" + requestUri;
+            }
+            if (requestUri.endsWith(".js")) {
                 sLocalfile = "./htdocs/" + requestUri;
             }
 
@@ -166,7 +170,7 @@ public class GeneralHandler extends AbstractHandler {
             if (requestUri.equals("/favicon.ico")) {
                 response.setContentType("image/x-icon");
                 ServletOutputStream output = response.getOutputStream();
-                InputStream input = new FileInputStream("../htdocs/favicon.ico");
+                InputStream input = new FileInputStream("./htdocs/favicon.ico");
                 byte[] buffer = new byte[2048];
                 int bytesRead;
                 while ((bytesRead = input.read(buffer)) != -1) {
@@ -188,6 +192,12 @@ public class GeneralHandler extends AbstractHandler {
                 requestUri = requestUri + "/index.html";
                 requestUri = requestUri.replace("//", "/"); //por si acaso había la barra al final
                 response.sendRedirect(requestUri);
+                return true;
+            }
+            if (requestUri.equals("/index.html"))
+            {
+                HandlerPortal hp = new HandlerPortal();
+                hp.serve(request, response);
                 return true;
             }
 
@@ -304,7 +314,7 @@ public class GeneralHandler extends AbstractHandler {
 
     public boolean serveGeneralFile(File f, String requestUri, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         if (!f.exists()) {
-            logger.warn("The requested file does not exist");
+            logger.warn("The requested file "+f.getPath()+"does not exist");
             return false;
         }
 

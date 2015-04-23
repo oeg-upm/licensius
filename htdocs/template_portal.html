@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>smartcity.linkeddata.es</title>
+	<meta name="description" content="Demo del OEG-UPM"/>
+	<meta name="author" content="Victor Rodriguez Doncel"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    <script src="dist/js/jquery.js"></script>
+    <link rel="stylesheet" href="themes/blue/style.css" type="text/css" media="print, projection, screen" />
+    <script src="dist/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="dist/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="dist/js/jquery.stickytableheaders.js"></script>
+    <script type="text/javascript" src="dist/js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="dist/css/jquery-ui.css"></link>
+    <script type="text/javascript" id="js">
+	    $(document).ready(function() 
+		    { 
+		    	$("#tablesorter-demo").tablesorter(); 
+		    	$("#tablesorter-demo").stickyTableHeaders(); 
+		    } 
+	    ); 
+    </script>
+
+    <!-- Le styles -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="dist/css/bootstrap-responsive.css" rel="stylesheet">
+    
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../dist/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="dist/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="dist/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="dist/ico/apple-touch-icon-72pcomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="dist/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="dist/ico/favicon.png">
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-49063507-1', 'linkeddata.es');
+	  ga('send', 'pageview');
+	</script>	
+  </head>
+
+
+
+<body>
+
+<div class="container"> 
+
+
+
+<!-- ENCABEZADO -->
+<div class="sixteen columns">
+<a href="index.html"><img src="/img/rdf-condicional.png" style="width:70px;float:left;margin:8px;"/></a>
+<h1 style="vertical-align:bottom">Conditional access to Linked Data</h1>
+<h2 style="vertical-align:bottom">GeoLinkedData dataset</h2>
+<p class="vbottommini"></p>
+</div>
+
+
+
+<!-- SEPARACION EXTRA MENU-CONTENIDO -->
+<div class="one column omega" style="visibility:hidden;">
+.
+</div>
+
+<!-- CONTENIDO -->
+<div class="twelve columns omega" >
+
+<div class="ldrheading"><p>What is <i>Conditional access to Linked Data</i>?</p></div>
+<p class="bigger"><strong>Conditional access to Linked Data</strong> is a way of publishing data in the Web, making information to be selectively 
+available according to a set of desired conditions (free, paid content, etc.), using standard formats 
+granting the best availability and interoperability for both people and applications</span></p>
+
+<div class="ldrheading"><p>What is this website?</p></div>
+<p class="bigger">These pages demonstrate the <strong>conditional access to Linked Data</strong> with some simple test datasets where you can play the user's and the admin's role.</p>
+
+<!--TEMPLATEDATASETS-->
+<a class="btn btn-default" href="#" role="button">Link</a>
+<button class="btn btn-default" type="submit">Button</button>
+<input class="btn btn-default" type="button" value="Input">
+<input class="btn btn-default" type="submit" value="Submit">
+
+
+
+
+
+
+
+<table id="tablesorter-demo" class="tablesorter table table-hover table-responsive" style="padding: 0px;">
+<thead class="tableFloatingHeaderOriginal" style="width: 1140px; margin-top: 0px; z-index: 1; top: 50px; left: 103px; position: static;">
+<tr>
+<th class="col-md-2 header" style="min-width: 0px; max-width: none;">Logo</th>
+<th class="col-md-2 header" style="min-width: 0px; max-width: none;">Dataset</th>
+<th class="col-md-2 header" style="min-width: 0px; max-width: none;">Policies</th>
+<th class="col-md-4 header" style="min-width: 0px; max-width: none;">Description</th>
+</tr>
+</thead><thead class="tableFloatingHeader" style="display: none;">
+<tr>
+<th class="col-md-2 header">Logo</th>
+<th class="col-md-2 header">Dataset</th>
+<th class="col-md-2 header">Policies</th>
+<th class="col-md-4 header">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="tr1">
+<td><a href="http://purl.org/net/p-plan" target="_blank">The P-Plan ontology</a> <a href="http://vocab.linkeddata.es/ontologies/purl.orgnetp-plan.html" target="_blank"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="More information about this vocabulary"></span></a></td>
+<td>
+<span class="label label-primary">rdf+xml</span>
+<span class="label label-primary">html</span>
+</td>
+<td><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank"> <span class="label label-success">CC-BY-NC-SA 2.0</span> </a></td>
+<td>
+PROV extension for linking Plans and parts of plans to their respective executions.</td>
+<input type="hidden" name="inp1" id="inp1" value="The P-Plan ontology--e-Science--plan--provenance--scientific workflow--"></tr>
+</tbody></table>
+
+
+<p class="vbottom"></p>
+
+</div>
+<!--TEMPLATEFOOTER-->
+
+
+
+</div>
+</body>
+</html>
