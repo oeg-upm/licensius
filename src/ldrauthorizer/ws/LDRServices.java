@@ -95,7 +95,7 @@ public class LDRServices {
         }
 
         try {
-            response.sendRedirect("/ldr/en/account.html");
+            response.sendRedirect("/account.html");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,7 +131,7 @@ public class LDRServices {
         }
         String body = "";
         try {
-            body = FileUtils.readFileToString(new File("payment.html"));
+            body = FileUtils.readFileToString(new File("htdocs/payment.html"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }

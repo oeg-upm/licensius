@@ -14,7 +14,7 @@
         a             dcat:Dataset ;
         rdfs:comment  "Geographical information" ;
         rdfs:label    "Mappings" ;
-        dct:license   <http://purl.org/NET/rdflicense/allrightsreserved> ;
+        dct:license   <http://localhost/policy/10euro> ;
         void:triples  "171" .
 
 <http://localhost/geo>
@@ -27,9 +27,8 @@
         a                  dcat:Dataset ;
         rdfs:comment       "This dataset contains all the information about the Municipality of Madrid" ;
         rdfs:label         "Madrid" ;
-        dct:license        <http://localhost/policy/10euro> ;
+		dct:license   <http://purl.org/NET/rdflicense/allrightsreserved> ;
         void:triples       "7" ;
-        schema:makesOffer  <http://purl.org/NET/rdflicense/cc-by-nc4.0> .
 
 <http://localhost/geo/dataset/default>
         a                  dcat:Dataset ;

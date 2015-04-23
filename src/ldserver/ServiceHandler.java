@@ -30,7 +30,7 @@ public class ServiceHandler extends AbstractHandler {
         if (baseRequest.isHandled() || !string.contains("/service")) {
             return;
         }
-        logger.info("Serving a general file");
+        logger.info("Service handler");
         
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");

@@ -28,7 +28,7 @@ public class HandlerPolicy {
 
     static final Logger logger = Logger.getLogger(HandlerPolicy.class);
 
-    public void servePolicy(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
+    public void servePolicy(Policy policy, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         String target = request.getParameter("target");
         if (target == null) {
             target = "";
@@ -42,12 +42,13 @@ public class HandlerPolicy {
         String s2 = request.getRequestURI();
         String SERVER = LDRConfig.getServer();
         String urlcompleta = SERVER + s2;
-        boolean turtle = false;
         if (urlcompleta.endsWith(".ttl")) {
             urlcompleta = urlcompleta.substring(0, urlcompleta.length() - 4);
-            turtle = true;
+//            turtle = true;
         }
-        Policy policy = PolicyManagerOld.getPolicy(urlcompleta);
+
+
+//        Policy policy = PolicyManagerOld.getPolicy(urlcompleta);
         Portfolio portfolio = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
         for (Policy policyx : portfolio.policies) {
             if (policyx.getURI().equals(urlcompleta)) {
@@ -68,14 +69,15 @@ public class HandlerPolicy {
         //               view.addInfo("Servida al humano la licencia " + urlcompleta);
         try {
             String html = HTMLODRLManager.htmlPolicy(policy, "en");
-            if (!target.isEmpty()) {
-                String urilicense = URLEncoder.encode(policy.getURI(), "UTF-8");
+            String urilicense = URLEncoder.encode(policy.getURI(), "UTF-8");
+
+            if (target != null && !target.isEmpty()) {
                 String uritarget = URLEncoder.encode(request.getParameter("target"), "UTF-8");
                 String urioferta = "/service/showPayment?policy=" + urilicense + "&target=" + uritarget;
-                String oferta = "<center><img width=\"64\" src=\"/ldr/img/carrito.png\"/><a href=\"" + urioferta + "\">purchase</a></center>";
+                String oferta = "<center><img width=\"64\" src=\"/carrito.png\"/><a href=\"" + urioferta + "\">purchase</a></center>";
                 html = html.replaceAll("<!--TEMPLATEHERE1-->", oferta);
-                response.getWriter().print(html);
             }
+            response.getWriter().print(html);
 
         } catch (Exception e) {
             logger.warn("error con " + e.getMessage());

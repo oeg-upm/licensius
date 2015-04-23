@@ -145,19 +145,24 @@ public class HandlerManager {
             }
 
             if (action != null && selectedGrafo != null && licencia != null) {
-                logger.debug("Accion " + action + " sobre " + selectedGrafo + "  licencia " + licencia);
+                logger.info("Accion " + action + " sobre " + selectedGrafo + "  licencia " + licencia);
                 if (action.equals("Add")) {
                     cd.getDatasetVoid().addLicense(selectedGrafo, licencia);
-
                 } else if (action.equals("View")) {
-                    Policy policy = AssetManager.findPolicyByLabel(licencia);
+                    Policy policy = PolicyManagerOld.findPolicyByLabel(licencia);
+                    if (policy==null)
+                        policy = PolicyManagerOld.getPolicy(licencia);
+//                    cd.getDatasetVoid().viewLicense(policy);
+//                    Policy policy = AssetManager.findPolicyByLabel(licencia);
                     if (policy != null) {
                         try {
-                            response.sendRedirect(policy.uri);
+                            HandlerPolicy hp = new HandlerPolicy();
+                            hp.servePolicy(policy, null, request, response);
+                 //           response.sendRedirect(policy.uri);
+                            response.setStatus(HttpServletResponse.SC_FOUND);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        response.setStatus(HttpServletResponse.SC_FOUND);
                         return "";
                     }
                 } else if (action.equals("Remove")) {
@@ -190,6 +195,7 @@ public class HandlerManager {
         }//function to selecte a different license for the given license
         else if (uri.contains("managePolicy") ) {
             managePolicy(cd, request, response, dataset);
+            return "";
         }
 
         String html = "";

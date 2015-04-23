@@ -42,6 +42,7 @@ import languages.Multilingual;
 
 import odrlmodel.Asset;
 import ldconditional.LDRConfig;
+import model.ConditionalDataset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.PolicyManagerOld;
@@ -375,7 +376,8 @@ public class LDRServer {
         
         return html;
     }
-        public static String formatHTMLTriplesNew(String label, List<LicensedTriple> ls, String NOTUSED) {
+    /*
+        public static String formatHTMLTriplesNew(String label, List<LicensedTriple> ls, ConditionalDataset cd) {
         String html = "";
         String tabla = "";
         String lan = "en";
@@ -399,7 +401,7 @@ public class LDRServer {
         List<LicensedTriple> open = getOpenTriples(ls);
         Collections.sort(open, LicensedTriple.PREDICATECOMPARATOR);
         for (LicensedTriple lt : open) {
-            tabla += lt.toHTMLRow(lan) + "\n";
+            tabla += lt.toHTMLRowNew(cd) + "\n";
         }
         tabla += "</table>\n";
 
@@ -409,7 +411,7 @@ public class LDRServer {
         tabla += "<table><tr><td><strong>" + Multilingual.get(10, lan) + "</strong></td><td><strong>" + Multilingual.get(11, lan) + "</strong></td></tr>\n";
         List<LicensedTriple> closed = getLicensedTriples(ls);
         for (LicensedTriple lt : closed) {
-            tabla += lt.toHTMLRow(lan) + "\n";
+            tabla += lt.toHTMLRowNew(cd) + "\n";
         }
         tabla += "</table>\n";
 
@@ -418,8 +420,8 @@ public class LDRServer {
 
         return html;
     }
-
-    
+*/
+    /*
     private static String formatHTMLTriplesSingleTable(String label, List<LicensedTriple> ls, String lan) {
         String html = "";
         String tabla = "";
@@ -437,7 +439,7 @@ public class LDRServer {
         
         return html;
     }
-
+*/
     /**
      * Busca todos los triples para los cuales uri es el sujeto
      * @param uri is a resource

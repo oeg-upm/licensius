@@ -2,6 +2,7 @@ package ldserver;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
 import handlers.HandlerAccount;
 import handlers.HandlerOffers;
 import handlers.HandlerIndex;
@@ -36,6 +37,7 @@ import ldrauthorizer.ws.ODRLAuthorizer;
 import ldrauthorizer.ws.Portfolio;
 import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
+import ldconditional.LDRConfig;
 import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.Evento;
 import ldrauthorizer.ws.WebPolicyManager;
@@ -45,6 +47,7 @@ import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.PolicyManagerOld;
+import odrlmodel.rdf.ODRLRDF;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
@@ -78,7 +81,7 @@ public class GeneralHandler extends AbstractHandler {
         boolean ok = sortQuery(baseRequest, request, response, folder);
         if (ok) {
             response.setStatus(HttpServletResponse.SC_OK);
-            response.setContentType("text/html;charset=utf-8");
+  //          response.setContentType("text/html;charset=utf-8");
             baseRequest.setHandled(true);
         } else //error 404
         {
@@ -100,9 +103,28 @@ public class GeneralHandler extends AbstractHandler {
         try {
             String requestUri = request.getRequestURI();
             String sLocalfile = requestUri;
-            sLocalfile = "htdocs" + requestUri.substring(requestUri.indexOf("/", 1), requestUri.length());
 
-            //CASE 1: A FOLDER
+            int ixndex = requestUri.indexOf("/", 1);
+            if (ixndex != -1) {
+                sLocalfile = "htdocs" + requestUri.substring(ixndex, requestUri.length());
+            }
+            else if (requestUri.equals("/404.html"))
+                sLocalfile = "./htdocs" + requestUri;
+            
+            if ( requestUri.endsWith(".png")) {
+                sLocalfile = "./htdocs/" + requestUri;
+            }
+            if ( requestUri.endsWith(".css")) {
+                sLocalfile = "./htdocs/" + requestUri;
+            }
+
+            //CASE 1: LOGO OF A DATASET
+            if (requestUri.startsWith("/datasets/") && requestUri.endsWith("logo.png")) {
+                sLocalfile = requestUri.substring(1, requestUri.length());
+            }
+
+
+            //CASE 2: A FOLDER
             File f = new File(sLocalfile);
             if (f.isDirectory()) {
                 logger.info("Directory. Trying to retrieve a dataset " + requestUri);
@@ -110,11 +132,6 @@ public class GeneralHandler extends AbstractHandler {
                 requestUri = requestUri.replace("//", "/"); //por si acaso había la barra al final
                 response.sendRedirect(requestUri);
                 return true;
-            }
-
-            //CASE 2: LOGO OF A DATASET
-            if (requestUri.startsWith("/datasets/") && requestUri.endsWith("logo.png")) {
-                sLocalfile = requestUri.substring(1, requestUri.length());
             }
 
             //CASE 3: A RESOURCE (e.g. "Alicante")
@@ -169,18 +186,14 @@ public class GeneralHandler extends AbstractHandler {
 
             if (requestUri.endsWith("account.html")) {
                 logger.info("Serving the account " + request.getRequestURI());
-                int index = requestUri.lastIndexOf("/");
-                if (index != -1 && index != 0) {
-                    String dataset = requestUri.substring(1, index);
-                    HandlerAccount ha = new HandlerAccount();
-                    ha.serveAccount(baseRequest, request, response, dataset);
-                    return true;
-                }
+                HandlerAccount ha = new HandlerAccount();
+                ha.serveAccount(baseRequest, request, response);
+                return true;
             }
 
             if (requestUri.contains("manageren")) {
                 logger.info("Serving the manager " + request.getRequestURI());
-                int index = requestUri.indexOf("/",1);
+                int index = requestUri.indexOf("/", 1);
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
                     HandlerManager hm = new HandlerManager();
@@ -191,11 +204,28 @@ public class GeneralHandler extends AbstractHandler {
 
             if (requestUri.startsWith("/policy/") || requestUri.startsWith("/license/")) {
                 logger.info("Serving a policy offer " + request.getRequestURI());
-                int index = requestUri.indexOf("/",1);
+                int index = requestUri.indexOf("/", 1);
                 if (index != -1 && index != 0) {
-                    String dataset = requestUri.substring(1, index);
-                    HandlerPolicy hm = new HandlerPolicy();
-                    hm.servePolicy(baseRequest, request, response, dataset);
+                    String policyuri = LDRConfig.getServer() + requestUri.substring(1, requestUri.length());
+                    boolean human = true;
+                    if (policyuri.endsWith(".ttl") || policyuri.endsWith(".rdf")) {
+                        policyuri = policyuri.substring(0, policyuri.length() - 4);
+
+                        human = false;
+                    }
+                    Policy policy = PolicyManagerOld.getPolicy(policyuri);
+                    if (policy == null) {
+                        response.sendRedirect("/404.html");
+                    }
+                    if (!human) {
+                        String html = toTTL(policy);
+                        response.getWriter().println(html);
+                        response.setStatus(HttpServletResponse.SC_OK);
+                        response.setContentType("text/turtle;charset=utf-8");
+                    } else {
+                        HandlerPolicy hm = new HandlerPolicy();
+                        hm.servePolicy(policy, baseRequest, request, response);
+                    }
                     return true;
                 }
             }
@@ -207,6 +237,12 @@ public class GeneralHandler extends AbstractHandler {
             return false;
         }
         return true;
+    }
+
+    public String toTTL(Policy policy) {
+//        Resource rpolicy = ODRLRDF.getResourceFromPolicy(policy);
+        return ODRLRDF.getRDF(policy);
+
     }
 
     public boolean serveGeneralFile(File f, String requestUri, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
@@ -257,38 +293,21 @@ public class GeneralHandler extends AbstractHandler {
         return true;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    public static boolean contiene(List<Grafo> lg, String grafo)
-    {
-        for(Grafo g : lg)
-        {
-            if (g.getURI().equals(grafo))
+    public static boolean contiene(List<Grafo> lg, String grafo) {
+        for (Grafo g : lg) {
+            if (g.getURI().equals(grafo)) {
                 return true;
+            }
         }
         return false;
     }
 
-
-
-
-
-
-      public static Grafo getGrafo(List<Grafo> lg, String s)
-    {
-        for(Grafo g : lg)
-            if (g.getURI().equals(s))
+    public static Grafo getGrafo(List<Grafo> lg, String s) {
+        for (Grafo g : lg) {
+            if (g.getURI().equals(s)) {
                 return g;
+            }
+        }
         return null;
     }
 
@@ -344,7 +363,6 @@ public class GeneralHandler extends AbstractHandler {
         return "service/getDataset?dataset=" + datasetEncoded;
     }
 
-
     /**
      * Determina si la petición ha de ser servida a un humano o directamente el RDF
      * @param request HTTP request
@@ -371,5 +389,4 @@ public class GeneralHandler extends AbstractHandler {
         }
         return human;
     }
-
 }

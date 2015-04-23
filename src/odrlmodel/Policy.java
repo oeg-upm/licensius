@@ -328,5 +328,7 @@ public class Policy extends MetadataObject {
     public void setInOffer(boolean b) {
         inOffer=b;
     }
+
+
     
 }
