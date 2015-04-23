@@ -22,7 +22,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import ldconditional.LDRConfig;
 import ldrauthorizerold.GoogleAuthHelper;
+import model.ConditionalDataset;
+import model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
@@ -95,7 +98,11 @@ public class LDRServices {
         }
 
         try {
-            response.sendRedirect("../../account.html");
+            String ruta = request.getRequestURI();
+            int index = ruta.indexOf("service/");
+            if (index!=-1)
+                ruta = ruta.substring(0,index);
+            response.sendRedirect(ruta+"account.html");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -164,6 +171,8 @@ public class LDRServices {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
         Asset asset = AssetManager.findAsset(datasetName);
         if (asset == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -259,6 +268,133 @@ public class LDRServices {
         }
     }
 
+    private static void addPrefixes(Model model) {
+        model.setNsPrefix("odrl", "http://www.w3.org/ns/odrl/2/"); //http://w3.org/ns/odrl/2/
+        model.setNsPrefix("dct", "http://purl.org/dc/terms/");
+        model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+        model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+        model.setNsPrefix("cc", "http://creativecommons.org/ns#");
+        model.setNsPrefix("ldr", "http://purl.oclc.org/NET/ldr/ns#");
+        model.setNsPrefix("void", "http://rdfs.org/ns/void#");
+        model.setNsPrefix("dcat", "http://www.w3.org/ns/dcat#");
+        model.setNsPrefix("ldp", "http://www.w3.org/ns/ldp#");
+        model.setNsPrefix("foaf", "http://xmlns.com/foaf/spec/");
+        model.setNsPrefix("schema", "http://schema.org/");
+    }
+    
+    public static void getDataset2(ConditionalDataset cd, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+        Portfolio portfolio = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
+        if (portfolio == null) {
+            portfolio = new Portfolio();
+        }
+        AuthorizationResponse ar = new AuthorizationResponse();
+        String datasetName = request.getParameter("dataset");
+        try {
+            datasetName = URLDecoder.decode(datasetName, "UTF-8");
+        } catch (Exception e) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            baseRequest.setHandled(true);
+            e.printStackTrace();
+            return;
+        }
+        Grafo grafo = cd.getDatasetVoid().getGrafo(datasetName);
+        
+        boolean ok = grafo.isOpen();
+        if (ok)
+        {
+            ar.ok=ok;
+            ar.policies=grafo.getOpenPolicies();
+        }
+
+        if (!ok)
+        {
+            ar = ODRLAuthorizer.AuthorizeResource(datasetName, portfolio.policies);
+            ok = ar.ok;
+        }
+        if (!ok) {            //The authorization has failed, we need now to offer the payment
+            List<Policy> policiesForAsset = grafo.getPolicies();
+            if (policiesForAsset == null || policiesForAsset.isEmpty()) {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                baseRequest.setHandled(true);
+                return;
+            }
+            String uripolicy = policiesForAsset.get(0).getURI();
+
+            for (Policy policyX : policiesForAsset) {
+                Policy policytmp = PolicyManagerOld.getPolicy(policyX.getURI());
+                if (policytmp == null) {
+                    Logger.getLogger("ldr").warn("No se ha encontrado la política " + policyX.getURI());
+                    try {
+                        response.sendRedirect("account.html");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    response.setStatus(HttpServletResponse.SC_FOUND);
+                    baseRequest.setHandled(true);
+                    return;
+                }
+
+                if (!policytmp.isPerTriple()) {
+                    uripolicy = policyX.getURI();
+                }
+            }
+            try {
+                uripolicy = URLEncoder.encode(uripolicy, "UTF-8");
+            } catch (UnsupportedEncodingException ex) {
+                ex.printStackTrace();
+            }
+            String uritarget = datasetName;
+            try {
+                uritarget = URLEncoder.encode(uritarget, "UTF-8");
+                response.sendRedirect("service/showPayment?policy=" + uripolicy + "&target=" + uritarget);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            response.setStatus(HttpServletResponse.SC_FOUND);
+            baseRequest.setHandled(true);
+            Evento.addEvento("Dataset " + datasetName + " denied", 0.0);
+            return;
+        } else { //the authorization was fine!
+            
+            List<Statement> lst = cd.getDatasetDump().getTriplesInGrafo(grafo.getURI());
+            Model model = ModelFactory.createDefaultModel();
+            for (Statement st : lst) {
+                model.add(st);
+            }
+            addPrefixes(model);
+
+            //ADD LICENSE INFORMATION
+            Resource rdataset = model.createResource(datasetName);
+            rdataset.addProperty(RDF.type, RDFUtils.RDATASET);
+            for (Policy p : ar.policies) {
+                Resource rpolicy = ODRLRDF.getResourceFromPolicy(p);
+                model.add(rpolicy.getModel());
+                rdataset.addProperty(RDFUtils.PLICENSE, rpolicy);
+            }
+            //ADD PROVENANCE INFORMATION
+            Resource activity = model.createResource();
+            rdataset.addProperty(ODRLModel.PWASGENERATEDBY, activity);
+            activity.addProperty(ODRLModel.PWASASSOCIATEDWITH, LDRConfig.getServer());
+            Literal l = model.createTypedLiteral(new Date(), XSDDatatype.XSDdate);
+            activity.addProperty(ODRLModel.PENDEDATTIME, l);
+
+
+            try {
+                StringWriter sw = new StringWriter();
+                RDFDataMgr.write(sw, model, Lang.TTL);
+                String ttl = sw.toString();
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType("text/turtle;charset=utf-8");
+                response.getWriter().print(ttl);
+                baseRequest.setHandled(true);
+                Evento.addEvento("Dataset " + datasetName + " served", 0.0);
+            } catch (Exception e) {
+                e.printStackTrace();
+                //          view.flashStatus("Error saving file");
+            }
+        }
+    }
+
  /**
  * Export portfolio
  * @api {get} /{dataset}/service/resetPorfolio resetPortfolio
@@ -323,6 +459,4 @@ public class LDRServices {
 
     }
 
-    public static void getDataset2(Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
-    }
 }

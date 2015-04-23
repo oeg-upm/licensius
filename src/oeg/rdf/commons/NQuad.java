@@ -4,6 +4,7 @@ import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import odrlmodel.rdf.RDFUtils;
@@ -36,6 +37,32 @@ public class NQuad {
             return "";
         return nquad.substring(i+1,j);
     }
+
+    static RDFNode getObjectRDFNode(String nquad)
+    {
+        Model m = ModelFactory.createDefaultModel();
+        nquad = nquad.trim();
+        int i0 = nquad.indexOf("<");   
+        int i1 = nquad.indexOf("<", i0+1);
+        int i2 = nquad.indexOf(">", i1+1);
+        int i3 = nquad.lastIndexOf("<");   
+        String o = nquad.substring(i2+2,i3-1);
+        if (o.startsWith("<"))
+        {
+            Resource r = m.createResource(o.substring(1, o.length()-1));
+            return r;
+        }
+        int index=o.indexOf("^^");
+        if (index!=-1)
+            o = o.substring(0, index);
+        index = o.lastIndexOf("\"");
+        if (index!=-1)
+            o = o.substring(1, index);
+        Literal l = m.createLiteral(o);
+        return l;
+        
+    }
+
 
     static String getObject(String nquad) {
         nquad = nquad.trim();

@@ -35,6 +35,9 @@ public class ConditionalDatasets {
         }
     }
 
+    /**
+     * Obtains one preloaded dataset from its name
+     */
     public static ConditionalDataset getDataset(String dataset) {
         for (ConditionalDataset cd : datasets) {
             if (cd.name.equals(dataset)) {

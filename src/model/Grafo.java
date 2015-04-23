@@ -4,6 +4,7 @@ import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import odrlmodel.Policy;
 
@@ -74,6 +75,16 @@ public class Grafo {
         }
         return 0;
 
+    }
+    public List<Policy> getOpenPolicies() {
+        List<Policy> llp = new ArrayList();
+        List<Policy> lp = getPolicies();
+        for(Policy p : lp)
+        {
+            if (p.isOpen())
+                llp.add(p);
+        }
+        return llp;
     }
 
     public boolean isOpen() {

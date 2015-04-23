@@ -109,7 +109,15 @@ public class HandlerOffers {
             logger.error("Error serving dataset.html " + e.getMessage());
         }
     }
-
+    private static String getServicioGetDatabaseURL(String asset) {
+        String datasetEncoded = asset;
+        try {
+            datasetEncoded = URLEncoder.encode(asset, "UTF-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "service/getDataset?dataset=" + datasetEncoded;
+    }
     private static String getHTMLForOffers(ConditionalDataset cd, List<Policy> pPagadas) {
         String html = "";
         html += "<div style=\"color:#AA2222 !important;\"><tr style=\"height=10px;font-weight: bold;color:#AA2222 !important;\"><td>Dataset";
@@ -120,7 +128,7 @@ public class HandlerOffers {
         for (Grafo grafo : grafos) {
             String commentAsset = grafo.getComment();
             String labelAsset = grafo.getLabel();
-            String servicio = "asdf"; //getServicioGetDatabaseURL(asset);     //enlace
+            String servicio = getServicioGetDatabaseURL(grafo.getURI());     //enlace
             boolean bOpen = true; // asset.isOpen();                         //si es o no abierto
             String sopena = "<img src=\"/ldr/img/arrowdown32green.png\">";
             String scloseda = "<img src=\"/ldr/img/arrowdown32red.png\">";

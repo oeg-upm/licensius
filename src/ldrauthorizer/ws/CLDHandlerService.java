@@ -41,11 +41,7 @@ public class CLDHandlerService extends AbstractHandler {
             LDRServices.showPayment(baseRequest, request, response);
             return;
         }
-        
-        //****************** GET DATASET2 (NO IMPLEMENTADO)
-        if (string.startsWith("/ldr/dataset/")) {
-            LDRServices.getDataset2(baseRequest, request, response);
-        }
+
         
         
         //****************** GET DATASET

@@ -2,6 +2,7 @@ package oeg.rdf.commons;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedReader;
@@ -223,6 +224,29 @@ public class NQuadRawFile {
                 String g = NQuad.getGraph(line);
                 LicensedTriple lt = new LicensedTriple(s,p,o,g);
                 llt.add(lt);
+            }
+        }catch(Exception e)
+        {
+
+        }
+        return llt;
+    }
+    public List<Statement> getTriplesInGrafo(String uri) {
+    List<Statement> llt = new ArrayList();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String g = NQuad.getGraph(line);
+                if (!g.equals(uri))
+                    continue;
+                String s = NQuad.getSubject(line);
+                RDFNode o = NQuad.getObjectRDFNode(line);
+                String p = NQuad.getPredicate(line);
+                Model m = ModelFactory.createDefaultModel();
+                Statement stmt =m.createStatement(m.createResource(s), m.createProperty(p), o);
+                llt.add(stmt);
             }
         }catch(Exception e)
         {

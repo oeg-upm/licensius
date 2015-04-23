@@ -410,15 +410,7 @@ public class GeneralHandler extends AbstractHandler {
 
     }
 
-    private static String getServicioGetDatabaseURL(Asset asset) {
-        String datasetEncoded = asset.getURI();
-        try {
-            datasetEncoded = URLEncoder.encode(asset.getURI(), "UTF-8");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "service/getDataset?dataset=" + datasetEncoded;
-    }
+
 
     /**
      * Determina si la petición ha de ser servida a un humano o directamente el RDF

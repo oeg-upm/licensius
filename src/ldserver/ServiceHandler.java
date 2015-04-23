@@ -15,6 +15,8 @@ import org.apache.log4j.Logger;
 
 import ldconditional.Main;
 import ldrauthorizer.ws.LDRServices;
+import model.ConditionalDataset;
+import model.ConditionalDatasets;
 
 
 /**
@@ -103,7 +105,10 @@ public class ServiceHandler extends AbstractHandler {
 
         //****************** GET DATASET
         if (string.contains("/service/getDataset")) {
-            LDRServices.getDataset(baseRequest, request, response);
+            ConditionalDataset cd = ConditionalDatasets.getDataset(sdataset);
+            if (cd==null)
+                return;
+            LDRServices.getDataset2(cd, baseRequest, request, response);
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }

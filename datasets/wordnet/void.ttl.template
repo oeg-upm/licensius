@@ -6,23 +6,25 @@
 @prefix void:  <http://rdfs.org/ns/void#> .
 @prefix ldr:   <http://purl.oclc.org/NET/ldr/ns#> .
 @prefix cc:    <http://creativecommons.org/ns#> .
+@prefix ldp:   <http://www.w3.org/ns/ldp#> .
 @prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
 
 #salonica .dia.fi.upm.es
-<http://localhost/dataset/sameas>
-        a             dcat:Dataset ;
-        rdfs:comment  "Mappings to terms in other resources" ;
-        rdfs:label    "Mappings" ;
-        dct:license   <http://localhost/ldr/policy/ee32f675-ccae-4ca9-a544-3c07abf0b16e> .
+<http://localhost/wordnet>
+        a             dcat:Catalog ;
+        rdfs:comment  "The test dataset has been taken from Wordnet and " ;
+        rdfs:label    "Dataset with several synsets from Wordnet" ;
+        ldp:contains  <http://localhost/wordnet/resource/100060809-N>, <http://localhost/wordnet/resource/100002452-n>, <http://localhost/wordnet/resource/100070424-N>.
 
-<http://localhost/dataset/default>
-        a             dcat:Dataset ;
-        rdfs:comment  "General dataset" ;
-        rdfs:label    "General" ;
-        dct:license   <http://localhost/ldr/policy/cc-by> .
+<http://localhost/wordnet/dataset/default>
 
-<http://localhost/dataset/thing>
+        a             dcat:Dataset ;
+        rdfs:comment  "Subseet of Wordnet that is offered for free" ;
+        rdfs:label    "Open data" ;
+        dct:license   <http://purl.org/NET/rdflicense/cc-by4.0> .
+
+<http://localhost/wordnet/dataset/thing>
         a             dcat:Dataset ;
         rdfs:comment  "Synset for Thing" ;
         rdfs:label    "Thing" ;
-        dct:license   <http://localhost/ldr/policy/cdaddba4-fc2e-4ee0-a784-e62f1db259bf> .
+        dct:license   <http://localhost/policy/10euro> .

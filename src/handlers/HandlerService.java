@@ -41,10 +41,6 @@ public class HandlerService {
             return;
         }
 
-        //****************** GET DATASET2 (NO IMPLEMENTADO)
-        if (string.startsWith("dataset/")) {
-            LDRServices.getDataset2(baseRequest, request, response);
-        }
 
 
         //****************** GET DATASET
