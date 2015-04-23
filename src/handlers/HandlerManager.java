@@ -143,7 +143,6 @@ public class HandlerManager {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             if (action != null && selectedGrafo != null && licencia != null) {
                 logger.info("Accion " + action + " sobre " + selectedGrafo + "  licencia " + licencia);
                 if (action.equals("Add")) {

@@ -95,7 +95,6 @@ public class GeneralHandler extends AbstractHandler {
         boolean ok = sortQuery(baseRequest, request, response, folder);
         if (ok) {
             response.setStatus(HttpServletResponse.SC_OK);
-            //          response.setContentType("text/html;charset=utf-8");
             baseRequest.setHandled(true);
         } else //error 404
         {
@@ -103,7 +102,6 @@ public class GeneralHandler extends AbstractHandler {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.getWriter().println("404 not found");
             response.sendRedirect("/404.html");
-//            serveGeneralFile(new File("htdocs/404.html"), request.getRequestURI(), baseRequest, request, response);
             baseRequest.setHandled(true);
         }
     }
@@ -139,10 +137,10 @@ public class GeneralHandler extends AbstractHandler {
 
             if (requestUri.startsWith("/oauth2callback")) {
                 System.out.println("Recibida una autenticación en Google");
-                String nuevaurl = "/account.html";
+                String nuevaurl = "account.html";
 
                 URIBuilder builder = new URIBuilder();
-                builder.setPath("/account.html");
+                builder.setPath("account.html");
                 Enumeration<String> enume = request.getParameterNames();
                 while (enume.hasMoreElements()) {
                     String p = enume.nextElement();

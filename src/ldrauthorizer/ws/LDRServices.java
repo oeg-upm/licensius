@@ -95,7 +95,7 @@ public class LDRServices {
         }
 
         try {
-            response.sendRedirect("/account.html");
+            response.sendRedirect("../../account.html");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -279,13 +279,14 @@ public class LDRServices {
         String mail = GoogleAuthHelper.getMail(request);
         Portfolio.setPortfolio(mail, new Portfolio());
         try {
-            response.sendRedirect("/account.html");
+            response.sendRedirect("../account.html");
         } catch (IOException ex) {
             java.util.logging.Logger.getLogger(LDRServices.class.getName()).log(Level.SEVERE, null, ex);
         }
         response.setStatus(HttpServletResponse.SC_FOUND);
         baseRequest.setHandled(true);
     }
+
 
 /**
  * Export portfolio

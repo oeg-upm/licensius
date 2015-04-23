@@ -120,9 +120,9 @@ public class HandlerAccount {
                     }
                     str += "</table>";
                     login += str;
-                    login += "<a href=\"/service/resetPortfolio\"><button>Reset portfolio</button> </a>";
-                    login += "<a href=\"/service/exportPortfolio?signed=false\"><button>View portfolio</button></a>";
-                    login += "<a href=\"/service/exportPortfolio?signed=true\"><button>View signed portfolio</button></a>";
+                    login += "<a href=\"service/resetPortfolio\"><button>Reset portfolio</button> </a>";
+                    login += "<a href=\"service/exportPortfolio?signed=false\"><button>View portfolio</button></a>";
+                    login += "<a href=\"service/exportPortfolio?signed=true\"><button>View signed portfolio</button></a>";
                 }
             } catch (Exception e) {
                 e.printStackTrace();

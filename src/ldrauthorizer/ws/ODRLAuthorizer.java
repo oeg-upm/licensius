@@ -155,7 +155,7 @@ public class ODRLAuthorizer {
                 return ar;
             }
         }        
-        
+        /*
         Model model = ModelFactory.createDefaultModel();
         RDFDataMgr.read(model, ASSETS_FILE);
         Asset asset = AssetManager.findAsset(resource);
@@ -183,7 +183,7 @@ public class ODRLAuthorizer {
                 ar.policies.add(policyFromStore);
             }
         }
-
+*/
         
         
         return ar;

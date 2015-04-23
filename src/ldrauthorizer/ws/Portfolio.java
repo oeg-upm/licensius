@@ -51,7 +51,7 @@ public class Portfolio {
             Portfolio p = Portfolio.getPortfolio(mail);
             
             mail=mail.replaceAll("mailto:", "");
-            String filename = "../data/portfolios/"+mail;
+            String filename = "./portfolios/"+mail;
             Path path = Paths.get(filename);
             Charset ENCODING = StandardCharsets.UTF_8;
             BufferedWriter writer = Files.newBufferedWriter(path, ENCODING);

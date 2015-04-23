@@ -73,7 +73,7 @@ public class HandlerPolicy {
 
             if (target != null && !target.isEmpty()) {
                 String uritarget = URLEncoder.encode(request.getParameter("target"), "UTF-8");
-                String urioferta = "/service/showPayment?policy=" + urilicense + "&target=" + uritarget;
+                String urioferta = "../service/showPayment?policy=" + urilicense + "&target=" + uritarget;
                 String oferta = "<center><img width=\"64\" src=\"/carrito.png\"/><a href=\"" + urioferta + "\">purchase</a></center>";
                 html = html.replaceAll("<!--TEMPLATEHERE1-->", oferta);
             }
