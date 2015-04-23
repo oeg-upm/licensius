@@ -86,7 +86,7 @@ public class HandlerAccount {
                     final GoogleAuthHelper helper = new GoogleAuthHelper(sesState);
                     String neochurro = "";
                     neochurro += "Logged in as <strong>guest</strong></br>";
-                    neochurro += "<a href='" + helper.buildLoginUrl() + "'><img src=\"img/googleplus.png\" height=40/> </a>";
+                    neochurro += "<a href='" + helper.buildLoginUrl() + "'><img src=\"/img/googleplus.png\" height=40/> </a>";
                     //       request.getSession().setAttribute("state", helper.getStateToken());
                     login += neochurro;
                 } else if (sesState != null) {

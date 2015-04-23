@@ -59,7 +59,7 @@ public class HandlerIndex {
         try {
             ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
             String comment = cd.getDatasetVoid().getComment();
-            body = FileUtils.readFileToString(new File("./htdocs/index.html"));
+            body = FileUtils.readFileToString(new File("./htdocs/template_index.html"));
             String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
             body = body.replace("<!--TEMPLATEFOOTER-->", footer);
             body = body.replace("<!--TEMPLATEDATASETCOMMENT-->", comment);

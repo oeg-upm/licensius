@@ -125,7 +125,7 @@ public class HTMLODRLManager {
                 s += "Issued by " + assigner + "</br>";
             }
         }
-        s += "<hr/><img src=\"/ldr/img/rdf24.png\"/><small>View <a type=\"text/turtle\" href=\"" + p.getURI() + ".ttl\">license in RDF</a></small>";
+        s += "<hr/><img src=\"/img/rdf24.png\"/><small>View <a type=\"text/turtle\" href=\"" + p.getURI() + ".ttl\">license in RDF</a></small>";
         s += "</div>";
         s += "<br/><!--TEMPLATEHERE1-->";
 

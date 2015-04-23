@@ -49,6 +49,7 @@ import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.ODRLRDF;
 import org.apache.commons.io.FileUtils;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 import org.eclipse.jetty.http.HttpURI;
@@ -77,11 +78,24 @@ public class GeneralHandler extends AbstractHandler {
             return;
         }
         logger.info("General handler processing this URI " + request.getRequestURI());
+
+        //Gestión del usuario de sesión
+        String sesState = (String) request.getSession().getAttribute("state");
+        if (sesState == null) {
+            final GoogleAuthHelper helper = new GoogleAuthHelper();
+            request.getSession().setAttribute("state", helper.getStateToken());
+        }
+        //Fin de gestión de usuario de sesión
+
+
+        
+
+
         String folder = string;
         boolean ok = sortQuery(baseRequest, request, response, folder);
         if (ok) {
             response.setStatus(HttpServletResponse.SC_OK);
-  //          response.setContentType("text/html;charset=utf-8");
+            //          response.setContentType("text/html;charset=utf-8");
             baseRequest.setHandled(true);
         } else //error 404
         {
@@ -101,22 +115,67 @@ public class GeneralHandler extends AbstractHandler {
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         try {
-            String requestUri = request.getRequestURI();
+            String requestUri = request.getRequestURI(); //por ejemplo, /geo/service?getOffers o /img/logo.png
             String sLocalfile = requestUri;
+            String sdataset = "";
 
             int ixndex = requestUri.indexOf("/", 1);
             if (ixndex != -1) {
-                sLocalfile = "htdocs" + requestUri.substring(ixndex, requestUri.length());
-            }
-            else if (requestUri.equals("/404.html"))
+                String sx = requestUri.substring(ixndex, requestUri.length());
+                if (!sx.equals("img") & !sx.equals("css")) {
+                    sdataset = sx;
+                }
+                sLocalfile = "htdocs" + sdataset;
+            } else if (requestUri.equals("/404.html")) {
                 sLocalfile = "./htdocs" + requestUri;
-            
-            if ( requestUri.endsWith(".png")) {
+            }
+
+            if (requestUri.endsWith(".png")) {
                 sLocalfile = "./htdocs/" + requestUri;
             }
-            if ( requestUri.endsWith(".css")) {
+            if (requestUri.endsWith(".css")) {
                 sLocalfile = "./htdocs/" + requestUri;
             }
+
+            if (requestUri.startsWith("/oauth2callback")) {
+                System.out.println("Recibida una autenticación en Google");
+                String nuevaurl = "/account.html";
+
+                URIBuilder builder = new URIBuilder();
+                builder.setPath("/account.html");
+                Enumeration<String> enume = request.getParameterNames();
+                while (enume.hasMoreElements()) {
+                    String p = enume.nextElement();
+                    String values[] = request.getParameterValues(p);
+                    for (int i = 0; i < values.length; i++) {
+                        System.out.println("Param " + p + " " + values[i]);
+                        builder.addParameter(p, values[i]);
+                    }
+                }
+                String uri = "";
+                try {
+                    uri = builder.build().toString();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                System.out.println("URI " + uri);
+                response.sendRedirect(uri);
+                response.setStatus(HttpServletResponse.SC_FOUND);
+                baseRequest.setHandled(true);
+                return true;
+            }
+
+            if (requestUri.equals("/favicon.ico")) {
+                response.setContentType("image/x-icon");
+                ServletOutputStream output = response.getOutputStream();
+                InputStream input = new FileInputStream("../htdocs/favicon.ico");
+                byte[] buffer = new byte[2048];
+                int bytesRead;
+                while ((bytesRead = input.read(buffer)) != -1) {
+                    output.write(buffer, 0, bytesRead);
+                }
+            }
+
 
             //CASE 1: LOGO OF A DATASET
             if (requestUri.startsWith("/datasets/") && requestUri.endsWith("logo.png")) {

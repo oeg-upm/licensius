@@ -1,0 +1,1 @@
+This folder contains the html sources and templates to be served

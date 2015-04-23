@@ -1,0 +1,1 @@
+This folder contains the portfolio: the information of which user has bought what
