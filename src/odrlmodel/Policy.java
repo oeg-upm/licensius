@@ -248,7 +248,7 @@ public class Policy extends MetadataObject {
     /**
      * Decides whether there is a play at least in a one of the rules
      */
-    public boolean isInOffer() {
+    public boolean hasPlay() {
         for (Rule r : rules) {
             List<Action> actions = r.getActions();
             boolean hasPlay = false;

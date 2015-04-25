@@ -439,7 +439,7 @@ public class LicensedTriple {
             ar.policies.clear();
             for (Policy policy : portfolio.policies)
             {
-                if (policy.isInOffer() && policy.hasFirstTarget(lt.g))
+                if (policy.hasPlay() && policy.hasFirstTarget(lt.g))
                 {
                     ar.ok=true;
                     ar.policies.add(policy);

@@ -214,8 +214,12 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
             if (requestUri.contains("query")) {
-                HandlerSPARQL sparql = new HandlerSPARQL();
-                sparql.handle(sdataset, baseRequest, request, response);
+                 int index = requestUri.indexOf("/", 1);
+                if (index != -1 && index != 0) {
+                    String dataset = requestUri.substring(1, index);
+                    HandlerSPARQL sparql = new HandlerSPARQL();
+                    sparql.handle(sdataset, baseRequest, request, response, dataset);
+                }
                 return true;
             }
 
@@ -392,7 +396,7 @@ public class GeneralHandler extends AbstractHandler {
         ar.policies.clear();
         //y si no, miramos ALGUNA DEL PORTFOLIO
         for (Policy policy : portfolioPolicies) {
-            if (policy.isInOffer() && policy.hasFirstTarget(grafo.getURI())) {
+            if (policy.hasPlay() && policy.hasFirstTarget(grafo.getURI())) {
                 ar.ok = true;
                 ar.policies.add(policy);
                 return ar;
@@ -410,11 +414,11 @@ public class GeneralHandler extends AbstractHandler {
             if (policyFromStore == null) {
                 continue;
             }
-            if (policyFromStore.isInOffer() && policyFromStore.isOpen()) {
+            if (policyFromStore.hasPlay() && policyFromStore.isOpen()) {
                 ar.ok = true;
                 ar.policies.add(policyFromStore);
                 return ar;
-            } else if (policyFromStore.isInOffer()) {
+            } else if (policyFromStore.hasPlay()) {
                 ar.policies.add(policyFromStore);
             }
         }

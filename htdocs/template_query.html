@@ -59,24 +59,29 @@
 <div class="ldrheading"><p>SPARQL endpoint</p></div>
 <p class="bigger">This <strong>SPARQL endpoint</strong> provides access to the limited subset of RDF triples you are allowed to see</p>
 
-<form action="/query" method="GET" accept-charset="UTF-8">
+<form action="query" method="GET" accept-charset="UTF-8">
         <textarea name="query" cols="700" rows="10" style="width:700px;"></textarea>
         <br>
 
-        Output: <select name="output">
+<!--        Output: <select name="output">
           <option value="text">Text</option>
           <option value="json">JSON</option>
           <option value="xml">XML</option>
           <option value="csv">CSV</option>
           <option value="tsv">TSV</option>
-        </select>
-		Superuser: <input type="checkbox" name="superuser" value="superuser" checked> 
+        </select> 
+		Superuser: <input type="checkbox" name="superuser" value="superuser" checked>  -->
 	    <br>
 	    <input type="submit" value="Get Results">
       </form>
 	  Example:<br>
-	  select * where {&lt;http://salonica.dia.fi.upm.es/ldr/resource/Provincia/Barcelona&gt; ?p ?o}
+	  select * where {&lt;http://localhost/geo/resource/Provincia/Barcelona&gt; ?p ?o}
+	  
+	  <!--TEMPLATERESULTS-->
+	  
 </div>
+
+
 
 <!--TEMPLATEFOOTER-->
 

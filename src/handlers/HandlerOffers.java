@@ -153,7 +153,7 @@ public class HandlerOffers {
                 if (nombre.isEmpty()) {
                     nombre = p.getLabel("en");
                 }
-                if (!p.isInOffer()) {
+                if (!p.hasPlay()) {
                     continue;
                 }
                 Policy policy2 = p;

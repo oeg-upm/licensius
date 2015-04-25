@@ -19,6 +19,7 @@ import model.ConditionalDatasets;
 import ldconditional.Main;
 import ldrauthorizer.ws.LicensedTriple;
 import ldserver.Recurso;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 
 /**
@@ -35,6 +36,13 @@ public class NQuadRawFile {
         filename = _filename;
     }
 
+    /**
+     * POTENCIALMENTE COSTOSÍSIMO!!
+     */
+    public Model loadModel() {
+
+        return RDFDataMgr.loadModel(filename);
+    }
     /**
      * Gets a list with the graphs in the raw file.
      */

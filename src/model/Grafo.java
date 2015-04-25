@@ -91,7 +91,7 @@ public class Grafo {
         List<Policy> lp = getPolicies();
         for(Policy p : lp)
         {
-            if (p.isInOffer())
+            if (p.hasPlay())
                 llp.add(p);
         }
         return llp;

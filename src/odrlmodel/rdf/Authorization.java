@@ -23,7 +23,9 @@ import ldrauthorizerold.GoogleAuthHelper;
 import ldrauthorizer.ws.AuthorizationResponse;
 import ldrauthorizer.ws.ODRLAuthorizer;
 import ldrauthorizer.ws.Portfolio;
+import model.ConditionalDataset;
 import odrlmodel.Asset;
+import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
 import org.apache.jena.riot.RDFDataMgr;
 
@@ -213,7 +215,8 @@ public class Authorization {
         }
         return closePos;
     }
-    
+
+
 
     public static List<String> PolicyMatcher(Portfolio p)
     {

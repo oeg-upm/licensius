@@ -268,14 +268,14 @@ public class CLDHandlerRDFLicense extends AbstractHandler {
 
 
                 String servicio = "/ldr/service/getDataset?dataset=" + datasetEncoded;
-                if (policy2.isInOffer() && policy2.isOpen()) {
+                if (policy2.hasPlay() && policy2.isOpen()) {
                     String offer = " <tr><td style=\"border:0px solid black;\"><a href=\"" + servicio + "\" class=\"myButtongreen\">Download RDF dump <img src=\"/ldr/img/arrowdown48.png\" align=\"right\"";
                     offer += " style=\"margin-right:0px;\"/></br><b>" + labelAsset + " (0 EUR)</b></a></td>";
                     offer += " <td style=\"border: 0px solid black;;vertical-align:top;\">" + commentAsset + " nquads dump file <br/>";
                     offer += "</td></tr>\n";
                     html += offer;
                 } else {
-                    if (policy2.isInOffer() && !policy2.isPerTriple()) {
+                    if (policy2.hasPlay() && !policy2.isPerTriple()) {
                         String color = "myButtonred";
                         String slabeltmp = asset.getLabel("en");
                         if (slabeltmp.equals("Mappings")) {

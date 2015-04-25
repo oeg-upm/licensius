@@ -1,5 +1,6 @@
 package model;
 
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.util.List;
 import oeg.rdf.commons.NQuadRawFile;
@@ -14,6 +15,8 @@ public class DatasetDump extends NQuadRawFile {
     {
         super("datasets/"+name+"/data.nq");
     }
+
+
 
 
 

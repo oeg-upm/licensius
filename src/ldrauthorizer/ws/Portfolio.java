@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ldrauthorizerold.GoogleAuthHelper;
+import model.ConditionalDataset;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.managers.Signature;
@@ -39,7 +40,25 @@ public class Portfolio {
 
     //Mapa de "state" a portfolio
     public static Map<String, Portfolio> portfolios = new HashMap();
-    
+
+
+    public List<Policy> getPolicies()
+    {
+        return policies;
+    }
+
+    public List<String> getGrafos(ConditionalDataset cd)
+    {
+        List<String> ls = new ArrayList();
+        List<Policy> lp = getPolicies();
+        for(Policy p: lp)
+        {
+            String target = p.getFirstTarget();
+            ls.add(target);
+        }
+        return ls;
+    }
+
     /**
      * Stores the portfolios for a given user
      */

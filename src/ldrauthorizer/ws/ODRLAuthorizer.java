@@ -148,7 +148,7 @@ public class ODRLAuthorizer {
         //y si no, miramos ALGUNA DEL PORTFOLIO
         for(Policy policy : portfolioPolicies)
         {
-            if (policy.isInOffer() && policy.hasFirstTarget(resource))
+            if (policy.hasPlay() && policy.hasFirstTarget(resource))
             {
                 ar.ok=true;
                 ar.policies.add(policy);
@@ -172,13 +172,13 @@ public class ODRLAuthorizer {
             Policy policyFromStore = PolicyManagerOld.getPolicy(policy.getURI());
             if (policyFromStore==null)
                 continue;
-            if (policyFromStore.isInOffer() && policyFromStore.isOpen())
+            if (policyFromStore.hasPlay() && policyFromStore.isOpen())
             {
                 ar.ok=true;
                 ar.policies.add(policyFromStore);
                 return ar;
             }
-            else if(policyFromStore.isInOffer())
+            else if(policyFromStore.hasPlay())
             {
                 ar.policies.add(policyFromStore);
             }

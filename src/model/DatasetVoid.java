@@ -76,8 +76,7 @@ public class DatasetVoid {
         return conditionalDataset;
     }
 
-    public void reloadPolicies()
-    {
+    public void reloadPolicies() {
         policies = loadPolicies();
     }
 
@@ -89,8 +88,9 @@ public class DatasetVoid {
         Policy p = PolicyManagerOld.findPolicyByLabel(licencia);
         System.out.println("Quitando " + selectedGrafo + " y " + p.uri);
         System.out.println("Tenemos ahora mismo " + lp.size() + " licencias, que son");
-        for(Policy px : lp)
+        for (Policy px : lp) {
             System.out.println(px.getURI());
+        }
         model.remove(model.createResource(selectedGrafo), RDFUtils.PLICENSE, model.createResource(p.uri));
         write();
         reloadPolicies();
@@ -237,7 +237,7 @@ public class DatasetVoid {
             Resource res = it.next();
             NodeIterator otl = model.listObjectsOfProperty(res, RDFUtils.PMAKESOFFER);
             List<String> lo = new ArrayList();
-            int nofertas=0;
+            int nofertas = 0;
             while (otl.hasNext()) {
                 RDFNode rlic = otl.next();
                 nofertas++;
@@ -257,14 +257,14 @@ public class DatasetVoid {
 
                     //IMPORTANTE: SE INTENTA PRIMERO EN LA CACHÉ PARA QUE TODO VAYA COMO UN TIRO
                     Policy policy = PolicyManagerOld.getPolicy(rrlic.getURI());
-                    if (policy==null)
-                    {
+                    if (policy == null) {
                         policy = ODRLRDF.getPolicyFromResource(rrlic);
-                        if (policy!=null)
+                        if (policy != null) {
                             logger.info("Parsed remotelly policy " + policy.getURI());
-                    }
-                    else
+                        }
+                    } else {
                         logger.info("Parsed locally policy " + policy.getURI());
+                    }
 
                     if (policy != null) {
                         if (lo.contains(policy.getURI())) {
@@ -400,25 +400,43 @@ public class DatasetVoid {
         } catch (IOException ex) {
             java.util.logging.Logger.getLogger(DatasetVoid.class.getName()).log(Level.SEVERE, null, ex);
         }
-       ConditionalDatasets.loadDatasets();
+        ConditionalDatasets.loadDatasets();
 
     }
 
-
-private static void copyFileUsingStream(File source, File dest) throws IOException {
-    InputStream is = null;
-    OutputStream os = null;
-    try {
-        is = new FileInputStream(source);
-        os = new FileOutputStream(dest);
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = is.read(buffer)) > 0) {
-            os.write(buffer, 0, length);
+    private static void copyFileUsingStream(File source, File dest) throws IOException {
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(source);
+            os = new FileOutputStream(dest);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+        } finally {
+            is.close();
+            os.close();
         }
-    } finally {
-        is.close();
-        os.close();
     }
-}
+
+    public List<String> getGrafosAbiertos() {
+        List<String> grafos = new ArrayList();
+        Iterator it = policies.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry) it.next();
+            String grafo = (String)e.getKey();
+            List<Policy> lp = (List<Policy>) e.getValue();
+            for(Policy p : lp)
+            {
+                if (p.hasPlay() && p.isOpen())
+                {
+                    grafos.add(grafo);
+                    break;
+                }
+            }
+        }
+        return grafos;
+    }
 }
