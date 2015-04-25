@@ -19,5 +19,8 @@
       rdfs:label "All rights reserved"@en ;
       rdfs:seeAlso <http://en.wikipedia.org/wiki/All_rights_reserved> ;
       odrl:prohibition
-              [ odrl:action ldr:IPRRight , ldr:databaseRight ;
-              ] .
+	  [ 
+				odrl:action ldr:IPRRight , ldr:databaseRight ;
+      ] .
+	  
+	  

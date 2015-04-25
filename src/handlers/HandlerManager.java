@@ -162,7 +162,7 @@ public class HandlerManager {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        return "";
+                        return "View";
                     }
                 } else if (action.equals("Remove")) {
                     logger.info("Action remove");
@@ -193,8 +193,9 @@ public class HandlerManager {
             selectedGrafo = selectGrafo(cd, request, response, dataset);
         }//function to selecte a different license for the given license
         else if (uri.contains("managePolicy") ) {
-            managePolicy(cd, request, response, dataset);
-            return "";
+            String res=managePolicy(cd, request, response, dataset);
+            if (res.equals("View"))
+                return "";
         }
 
         String html = "";

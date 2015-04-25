@@ -8,7 +8,7 @@
 @prefix cc:    <http://creativecommons.org/ns#> .
 @prefix odrl:  <http://www.w3.org/ns/odrl/2/> .
 
-<http://example/policy/onecent>
+<http://localhost/policy/onecent>
         a                odrl:Policy , odrl:Set ;
         rdfs:comment     "Individual triples are available upon payment of 1 euro cent" ;
         rdfs:label       "License1Cent" ;

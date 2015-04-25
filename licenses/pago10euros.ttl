@@ -9,7 +9,7 @@
 @prefix gr:    <http://purl.org/goodrelations/> .
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 
-<http://example/policy/10euro>
+<http://localhost/policy/10euro>
         a                odrl:Set , odrl:Policy ;
         rdfs:comment     "This license gives access to the resource for the price of 10 euros. No other rights are granted, being forbidden the creation of derived works and the redistribution in any manner." ;
         rdfs:label        "License10euro" ;

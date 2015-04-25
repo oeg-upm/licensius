@@ -9,7 +9,7 @@
 @prefix gr:    <http://purl.org/goodrelations/> .
 @prefix dcat:  <http://www.w3.org/ns/dcat#> .
 
-<http://example/policy/license15euro>
+<http://localhost/policy/license15euro>
         a                odrl:Set , odrl:Policy ;
         rdfs:label        "License15euros" ;
         rdfs:comment     "15 euros have to be paid to grant access. \nUser can see the offered triples, being the object only shown upon payment."@en ;

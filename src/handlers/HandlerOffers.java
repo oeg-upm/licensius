@@ -134,7 +134,8 @@ public class HandlerOffers {
             String sopena = "<img src=\"/img/arrowdown32green.png\">";
             String scloseda = "<img src=\"/img/arrowdown32red.png\">";
             String sopen = "<button class=\"cupid-green\" onclick=\"location.href='linkeddata'\">Download</button>";
-            String sclosed = "<button class=\"cupid-blue\" onclick=\"location.href='linkeddata'\">Download</button>";
+//            String sclosed = "<button class=\"cupid-blue\" onclick=\"location.href='linkeddata'\">Buy</button>";
+            String sclosed = "<button class=\"cupid-red\" onclick=\"location.href='linkeddata'\">Buy</button>";
             String shidden ="";
             String color = bOpen ? sopen : sclosed;
             if (!bPolicies && !bOpen)
@@ -152,7 +153,7 @@ public class HandlerOffers {
                 if (nombre.isEmpty()) {
                     nombre = p.getLabel("en");
                 }
-                if (!p.inOffer) {
+                if (!p.isInOffer()) {
                     continue;
                 }
                 Policy policy2 = p;
