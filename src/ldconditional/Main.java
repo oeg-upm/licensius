@@ -1,8 +1,8 @@
 package ldconditional;
 
 import model.ConditionalDatasets;
-import ldserver.GeneralHandler;
-import ldserver.ServiceHandler;
+import handlers.GeneralHandler;
+import handlers.ServiceHandler;
 import ldserver.MainHandler;
 
 import org.apache.log4j.ConsoleAppender;

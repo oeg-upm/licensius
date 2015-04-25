@@ -1,4 +1,4 @@
-package ldserver;
+package handlers;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -43,6 +43,7 @@ import ldconditional.LDRConfig;
 import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.Evento;
 import ldrauthorizer.ws.WebPolicyManager;
+import ldserver.MimeManager;
 import model.DatasetVoid;
 import model.Grafo;
 import odrlmodel.Asset;
@@ -138,6 +139,20 @@ public class GeneralHandler extends AbstractHandler {
             }
             if (requestUri.endsWith(".js")) {
                 sLocalfile = "./htdocs" + requestUri;
+            }
+
+            if (requestUri.endsWith("/accountability.html")) {
+                String token="";
+                token = FileUtils.readFileToString(new File("./htdocs/template_accountability.html"));
+                String html = Evento.getEventosHTML();
+                token=token.replaceAll("<!--TEMPLATEHERE1-->", html);
+                String footer = FileUtils.readFileToString(new File("../htdocs/en/footer.html"));
+                html=html.replace("<!--TEMPLATEFOOTER-->", footer);
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType("text/html;charset=utf-8");
+                response.getWriter().print(token);
+                baseRequest.setHandled(true);
+                return true;
             }
 
             if (requestUri.startsWith("/oauth2callback")) {

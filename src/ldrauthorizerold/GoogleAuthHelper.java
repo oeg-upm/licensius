@@ -113,8 +113,8 @@ public final class GoogleAuthHelper {
 
         final GoogleAuthorizationCodeRequestUrl url = flow.newAuthorizationUrl();
 
-//        String cu = LDRConfig.getServer()+CALLBACK_URI2;
-        String cu = CALLBACK_URI;
+        String cu = LDRConfig.getServer()+CALLBACK_URI2;
+        //String cu = CALLBACK_URI;
 
         return url.setRedirectUri(cu).setState(stateToken).build();
     }
@@ -144,8 +144,8 @@ public final class GoogleAuthHelper {
      */
     public String getUserInfoJson(final String authCode) throws IOException {
 
-        //String cu = LDRConfig.getServer()+CALLBACK_URI2;
-        String cu = CALLBACK_URI;
+        String cu = LDRConfig.getServer()+CALLBACK_URI2;
+//        String cu = CALLBACK_URI;
 
 
         final GoogleTokenResponse response = flow.newTokenRequest(authCode).setRedirectUri(cu).execute();

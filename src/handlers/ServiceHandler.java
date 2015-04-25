@@ -1,4 +1,4 @@
-package ldserver;
+package handlers;
 
 import ldserver.ws.GetOffers;
 import ldserver.ws.GetResources;

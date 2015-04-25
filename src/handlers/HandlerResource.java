@@ -37,7 +37,6 @@ import languages.Multilingual;
 import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.Evento;
 import ldrauthorizer.ws.WebPolicyManager;
-import ldserver.GeneralHandler;
 import model.DatasetVoid;
 import model.Grafo;
 import odrlmodel.Asset;

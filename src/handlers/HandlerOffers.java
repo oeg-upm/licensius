@@ -32,7 +32,6 @@ import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
 import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.WebPolicyManager;
-import ldserver.GeneralHandler;
 import ldserver.Oferta;
 import ldserver.Recurso;
 import model.DatasetVoid;
@@ -148,6 +147,9 @@ public class HandlerOffers {
             List<Policy> policies = cd.getPoliciesForGraph(grafo.getURI());
             int conta = 0;
             String htmlpol = "<td>";
+
+            String licencias ="";
+            int contador=0;
             for (Policy p : policies) {
                 String nombre = p.getTitle();
                 if (nombre.isEmpty()) {
@@ -160,6 +162,7 @@ public class HandlerOffers {
                 if (policy2 == null) {
                     continue;
                 }
+                contador++;
                 String uri = policy2.getURI();
                 String target = "";
                 try {
@@ -169,23 +172,23 @@ public class HandlerOffers {
                 }
                 uri += "?target=" + target;
                 conta++;
-
-                htmlpol += conta + "- ";
-                htmlpol += "<a href=\"" + uri + "\"/>";
+//                htmlpol += conta + "- ";
+                licencias += "<a href=\"" + uri + "\"/>";
                 if (policy2.isOpen()) {
-                    htmlpol += "<span>" + p.getLabel("en") + "<br/></span>";
+                    licencias += "<span>" + p.getLabel("en") + "<br/></span>";
 //                    htmlpol += "<img src=\"/ldr/img/license32green.png\">";
                 } else {
-                    htmlpol += "<span>" + p.getLabel("en") + "<br/></span>";
+                    licencias += "<span>" + p.getLabel("en") + "<br/></span>";
 //                    htmlpol += "<img src=\"/ldr/img/license32red.png\">";
                 }
-                htmlpol += "</a>";
+                licencias += "</a>";
             }
+
+            if (licencias.isEmpty())
+                licencias="Not offered";
+            htmlpol+=licencias;
             htmlpol += "</td>";
-
-
             html += "<tr style=\"height=20px;\">";
-
             html += "<td> <strong>" + labelAsset + "</strong></td>";
 
             html += "<td> <a href=\"" + servicio + "\">" + color + "</a></td>";
