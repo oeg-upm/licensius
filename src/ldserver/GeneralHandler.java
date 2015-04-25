@@ -11,6 +11,7 @@ import handlers.HandlerManager;
 import handlers.HandlerPolicy;
 import handlers.HandlerPortal;
 import handlers.HandlerResource;
+import handlers.HandlerSPARQL;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -212,7 +213,11 @@ public class GeneralHandler extends AbstractHandler {
                     return true;
                 }
             }
-
+            if (requestUri.contains("query")) {
+                HandlerSPARQL sparql = new HandlerSPARQL();
+                sparql.handle(sdataset, baseRequest, request, response);
+                return true;
+            }
 
             // PAGINA PRINCIPAL TENEMOS /geo/index.html
             // CASE 4. MAIN PAGE OF A DATASET
