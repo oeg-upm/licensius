@@ -130,13 +130,13 @@ public class GeneralHandler extends AbstractHandler {
             }
 
             if (requestUri.endsWith(".png")) {
-                sLocalfile = "./htdocs/" + requestUri;
+                sLocalfile = "./htdocs" + requestUri;
             }
             if (requestUri.endsWith(".css")) {
-                sLocalfile = "./htdocs/" + requestUri;
+                sLocalfile = "./htdocs" + requestUri;
             }
             if (requestUri.endsWith(".js")) {
-                sLocalfile = "./htdocs/" + requestUri;
+                sLocalfile = "./htdocs" + requestUri;
             }
 
             if (requestUri.startsWith("/oauth2callback")) {
