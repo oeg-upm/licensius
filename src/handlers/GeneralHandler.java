@@ -146,7 +146,7 @@ public class GeneralHandler extends AbstractHandler {
                 token = FileUtils.readFileToString(new File("./htdocs/template_accountability.html"));
                 String html = Evento.getEventosHTML();
                 token=token.replaceAll("<!--TEMPLATEHERE1-->", html);
-                String footer = FileUtils.readFileToString(new File("../htdocs/en/footer.html"));
+                String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
                 html=html.replace("<!--TEMPLATEFOOTER-->", footer);
                 response.setStatus(HttpServletResponse.SC_OK);
                 response.setContentType("text/html;charset=utf-8");

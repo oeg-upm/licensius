@@ -1,0 +1,11 @@
+.ldrheading p
+{
+	font-size:175%;
+	color:#0B479D;
+}
+
+.ldrheading p:first-letter
+{ 
+font-size:120%;
+color:#FF212C;
+}
