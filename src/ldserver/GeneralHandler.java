@@ -420,7 +420,29 @@ public class GeneralHandler extends AbstractHandler {
 
     }
 
-
+    /**
+     * Determina si la petición ha de ser servida a un humano o directamente el RDF
+     * @param request HTTP request
+     */
+    public static boolean isRDFXML(HttpServletRequest request) {
+        String uri = request.getRequestURI();
+        boolean human = true;
+        Enumeration enume = request.getHeaderNames();
+        while (enume.hasMoreElements()) {
+            String hname = (String) enume.nextElement();
+            Enumeration<String> enum2 = request.getHeaders(hname);
+            //      System.out.print(hname + "\t");
+            while (enum2.hasMoreElements()) {
+                String valor = enum2.nextElement();
+                if (hname.equals("Accept")) {
+                    if (valor.equals("application/rdf+xml")) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Determina si la petición ha de ser servida a un humano o directamente el RDF

@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
@@ -44,6 +45,7 @@ import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
+import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 import org.eclipse.jetty.http.HttpURI;
@@ -57,22 +59,30 @@ import org.json.simple.JSONValue;
  * @author vroddon
  */
 public class HandlerResource {
+
     public void serveResource(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
         String recurso = baseRequest.getRootURL().toString() + request.getRequestURI();
         ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
-        List<LicensedTriple> llt = cd.getLicensedTriples(recurso);
+        List<LicensedTriple> llt = cd.getDatasetDump().getLicensedTriples(recurso);
 
         Portfolio p = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
-        if (p==null) p = new Portfolio();
-        request.getSession().setAttribute("portfolio",p);
+        if (p == null) {
+            p = new Portfolio();
+        }
+        request.getSession().setAttribute("portfolio", p);
         llt = LicensedTriple.Authorize2(cd, llt, p);
 
-
         String label = cd.getDatasetDump().getFirstObject(recurso, "http://www.w3.org/2000/01/rdf-schema#label");
-        String body ="";
+        String body = "";
         if (!GeneralHandler.isHuman(request)) {
-            body = LDRServer.formatTTLTriples(label, llt);
-            response.setContentType("text/turtle");
+
+            if (GeneralHandler.isRDFXML(request)) {
+                body = formatRDFXMLTriples(label, llt);
+                response.setContentType("application/rdf+xml");
+            } else {
+                body = formatTTLTriples(label, llt);
+                response.setContentType("text/turtle");
+            }
         } else {
             body = formatHTMLTriplesNew(recurso, cd, label, llt);
             response.setContentType("text/html;charset=utf-8");
@@ -83,12 +93,37 @@ public class HandlerResource {
         } catch (Exception e) {
         }
         baseRequest.setHandled(true);
-        Evento.addEvento("Resource " +request.getRequestURI() + " served", 0.0);
+        Evento.addEvento("Resource " + request.getRequestURI() + " served", 0.0);
 
     }
 
+    public static String formatTTLTriples(String label, List<LicensedTriple> lst) {
+        String s = "";
+        Model model = ModelFactory.createDefaultModel();
+        for (LicensedTriple lt : lst) {
+            model.add(lt.stmt);
+        }
+        StringWriter sw = new StringWriter();
+        RDFDataMgr.write(sw, model, Lang.TTL);
+        s = sw.toString();
+        return s;
+    }
+    public static String formatRDFXMLTriples(String label, List<LicensedTriple> lst) {
+        String s = "";
+        Model model = ModelFactory.createDefaultModel();
+        for (LicensedTriple lt : lst) {
+            model.add(lt.stmt);
+            System.out.println(lt.stmt.toString());
+        }
+        StringWriter sw = new StringWriter();
+        RDFDataMgr.write(sw, model, Lang.RDFXML);
+        s = sw.toString();
+        System.out.println(s);
+        return s;
+    }
     /**
      * Formats in HTML the triples to be shown.
+     *
      * @param label
      * @param ls List of licensed triples
      * @param lan Language
@@ -130,31 +165,30 @@ public class HandlerResource {
         }
         tabla += "</table>\n";
 
-
         html = html.replace("<!--TEMPLATEHERE2-->", tabla);
 
         return html;
     }
 
-    public static String getHTMLMenu(String recurso)
-    {
+    public static String getHTMLMenu(String recurso) {
         String ruta = "../";
         int index = recurso.indexOf("resource/");
-        if (index!=-1)
+        if (index != -1) {
             ruta = recurso.substring(0, index);
+        }
 
         String html = "<div id=\"nav\" class=\"menu_div\"> <ul>";
-        html+= "<li class=\"titulomenu\">What is this?</li>";
-        html+= "<li><a href=\"" + ruta + "index.html\">Introduction</a></li>";
-        html+= "<li ><a href=\"" + ruta + "infotecnica.html\">Technical details</a></li>";
-        html+="<li class=\"titulomenu\">User's view (demo)</li>";
-        html+= "<li id=\"active\"><a href=\""+ ruta+ "linkeddata.html\">Browse dataset</a></li>";
-        html += "<li><a href=\""+ruta+"offers.html\">Offers</a></li>";
-        html += "<li><a href=\""+ruta+"account.html\">Account</a></li>";
-        html+= "<li class=\"titulomenu\">Admin's view (demo)</li>";
-        html += "<li><a href=\""+ ruta  +"manageren\">Control panel</a></li>";
-        html += "<li><a href=\""+ ruta  +"accountability.html\">Accountability</a></li>";
-        html+= "</ul></div>";
+        html += "<li class=\"titulomenu\">What is this?</li>";
+        html += "<li><a href=\"" + ruta + "index.html\">Introduction</a></li>";
+        html += "<li ><a href=\"" + ruta + "infotecnica.html\">Technical details</a></li>";
+        html += "<li class=\"titulomenu\">User's view (demo)</li>";
+        html += "<li id=\"active\"><a href=\"" + ruta + "linkeddata.html\">Browse dataset</a></li>";
+        html += "<li><a href=\"" + ruta + "offers.html\">Offers</a></li>";
+        html += "<li><a href=\"" + ruta + "account.html\">Account</a></li>";
+        html += "<li class=\"titulomenu\">Admin's view (demo)</li>";
+        html += "<li><a href=\"" + ruta + "manageren\">Control panel</a></li>";
+        html += "<li><a href=\"" + ruta + "accountability.html\">Accountability</a></li>";
+        html += "</ul></div>";
         return html;
     }
 
@@ -163,39 +197,47 @@ public class HandlerResource {
         List<LicensedTriple> lop = new ArrayList();
         for (LicensedTriple lt : ls) {
             Grafo g = getGrafo(lg, lt.g);
-            if (g==null)     //Si no tiene ningun grafo, ni siquiera se muestra como cerrado
+            if (g == null) //Si no tiene ningun grafo, ni siquiera se muestra como cerrado
+            {
                 continue;
-            if (lt.hasPolicyAsObject())
+            }
+            if (lt.hasPolicyAsObject()) {
                 lop.add(lt);
+            }
 //            if (g.isOpen())
 //                continue;
 //            List<LicensedTriple> llt = LicensedTriple.concealInformation(lt, g.getPolicies());
- //           lop.addAll(llt);
+            //           lop.addAll(llt);
         }
         return lop;
     }
-    
+
     public static List<LicensedTriple> getOpenTriples(ConditionalDataset cd, List<LicensedTriple> ls) {
         List<Grafo> lg = cd.getGrafos();
         List<LicensedTriple> lop = new ArrayList();
         for (LicensedTriple lt : ls) {
             System.out.println(lt);
             Grafo g = getGrafo(lg, lt.g);
-            if (g==null)     //Si no tiene ningun grafo, la politica por defecto es NO mostrar
+            if (g == null) //Si no tiene ningun grafo, la politica por defecto es NO mostrar
+            {
                 continue;
+            }
 
-            if (!lt.hasPolicyAsObject())
+            if (!lt.hasPolicyAsObject()) {
                 lop.add(lt);
+            }
 //            if (g.isOpen())
 //                lop.add(lt);
         }
         return lop;
     }
-        public static Grafo getGrafo(List<Grafo> lg, String s)
-    {
-        for(Grafo g : lg)
-            if (g.getURI().equals(s))
+
+    public static Grafo getGrafo(List<Grafo> lg, String s) {
+        for (Grafo g : lg) {
+            if (g.getURI().equals(s)) {
                 return g;
+            }
+        }
         return null;
     }
 }

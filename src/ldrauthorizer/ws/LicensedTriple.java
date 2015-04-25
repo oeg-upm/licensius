@@ -29,7 +29,7 @@ import odrlmodel.rdf.RDFUtils;
  */
 public class LicensedTriple {
 
-    Statement stmt;
+    public Statement stmt;
     public String g;
 
     public LicensedTriple() {
@@ -43,7 +43,8 @@ public class LicensedTriple {
     public LicensedTriple(String s, String p, String o, String g) {
         Model m = ModelFactory.createDefaultModel();
         RDFNode n = null;
-        if (RDFUtils.isURI(o)) {
+//        if (RDFUtils.isURI(o)) {
+        if (o.startsWith("http")) {
             n = m.createResource(o);
         } else {
             n = m.createLiteral(o);
@@ -263,6 +264,14 @@ public class LicensedTriple {
             //If the object is a policy, consider the following
             if (hasPolicyAsObject()) {
                 Policy policy = PolicyManagerOld.getPolicy(sobjetooriginal);
+                if (policy==null)
+                {
+                    System.out.println("La politica " + sobjetooriginal+ " no se ha encontrado");
+                    System.out.println("Y mira que teníamos...");
+                    for(Policy px : PolicyManagerOld.getPolicies())
+                        System.out.print(" "+ px.getURI());
+                    return texto;
+                }
                 boolean bperunit = policy.isPerTriple();
                 String euri = "";
                 String sg = "";

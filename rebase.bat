@@ -12,3 +12,4 @@ echo Reemplazando la cadena "%2" con la cadena "%3" para el dataset "%1"
 
 fart --c-style datasets\%1\data.nq "%2" "%3"
 fart --c-style datasets\%1\void.ttl "%2" "%3"
+fart --c-style ldr.config "%2" "%3"

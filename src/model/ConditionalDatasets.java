@@ -26,6 +26,8 @@ public class ConditionalDatasets {
                 logger.info("Dataset " + file.getName() + " is being been loaded");
                 try {
                     ConditionalDataset dataset = new ConditionalDataset(file.getName());
+                    if (dataset.name==null)
+                        continue;
                     datasets.add(dataset);
                     logger.info("Dataset " + file.getName() + " has been loaded");
                 } catch (Exception e) {

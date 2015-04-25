@@ -44,6 +44,7 @@ public class ConditionalDataset {
             dsDump = new DatasetDump(name);
         }catch(Exception e)
         {
+            name=null;
             logger.error("Error processing " + _name + ". "+ e.getMessage());
         }
     }
