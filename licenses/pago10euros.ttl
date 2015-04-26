@@ -12,7 +12,7 @@
 <http://localhost/policy/10euro>
         a                odrl:Set , odrl:Policy ;
         rdfs:comment     "This license gives access to the resource for the price of 10 euros. No other rights are granted, being forbidden the creation of derived works and the redistribution in any manner." ;
-        rdfs:label        "License10euro" ;
+        rdfs:label        "10 eur" ;
         odrl:permission  [ a            odrl:Permission ;
                            odrl:action  odrl:reproduce ;
                            odrl:duty    [ a            odrl:Duty ;

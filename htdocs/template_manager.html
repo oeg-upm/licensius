@@ -1,23 +1,31 @@
 <html>
-    <head>
-        <title>Conditional Access to Linked Data</title>
-        <meta content="text/html; charset=iso-8859-1" http-equiv=Content-Type/>
-        <meta name="description" content="Demo del OEG-UPM"/>
-        <meta name="author" content="Victor Rodriguez Doncel "/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <meta name="DC.title" content="Acceso condicional a datos enlazados" />
-        <link rel="stylesheet" type="text/css" href="/css/buttons.css">
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <script type="text/javascript">
-            function selectGrafo(grafo) {
-                var form = document.createElement('form');
-                form.setAttribute('method', 'post');
-                form.setAttribute('action', 'http://salonica.dia.fi.upm.es/ldr/manager/selectGrafo?grafo='+grafo);
-                form.style.display = 'hidden';
-                document.body.appendChild(form)
-                form.submit();
-            }
-        </script>
+<head>
+<title>Conditional access to Linked Data</title>
+<meta content="text/html; charset=iso-8859-1" http-equiv=Content-Type/>
+<meta name="description" content="Demo del OEG-UPM"/>
+<meta name="author" content="Victor Rodriguez Doncel "/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="content-type" content="Mime-Type; charset=iso-8859-1" />  
+
+<!--  <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+  <link rel="stylesheet" href="/css/vroddon.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  
+	<!-- Include the plugin's CSS and JS: 
+	<script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"/>  -->
+  
+ <!-- Initialize the plugin: -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example-getting-started').multiselect();
+    });
+</script>
+
+
+ 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -26,67 +34,104 @@
   ga('create', 'UA-49063507-1', 'linkeddata.es');
   ga('send', 'pageview');
 </script>
-    </head> 
-    <body>
+</head>
+    <body style="background:#EEEEEE !important;">
+
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+	  <img src="/img/rdf-condicional.png" width="24" style="float:left;margin:0px"/ > Conditional Linked Data
+	  </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/user">Demo User</a></li>
+        <li><a href="/admin">Demo Manager</a></li> 
+        <li><a href="/develop.html">Develop</a></li> 
+      </ul>
+	   <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	
         <div class="container"> 
+		 <div class="jumbotron">
+	<center><h1>Conditional Linked Data</h1> 
+    <p>Administer the data, policies and their assingment</p></center>
+ </div>		
+ 
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-8">
 		
-<!-- ENCABEZADO -->
-<div class="sixteen columns">
-<a href="/en/index.html"><img src="/img/rdf-condicional.png" style="width:70px;float:left;margin:8px;"/></a>
-<h1 style="vertical-align:bottom">Conditional access to Linked Data</h1>
-<h2 style="vertical-align:bottom">Control panel</h2>
-<p class="vbottommini"></p>
-</div>		
-<!-- MENU DE NAVEGACION -->
-<div class="three columns alpha">
-<div id="nav" class="menu_div"> 
-<ul>
-<li class="titulomenu">What is this?</li>
-<li><a href="../index.html">Introduction</a></li>
-<li ><a href="../infotecnica.html">Technical details</a></li>
-<li class="titulomenu">User's view (demo)</li>
-<li ><a href="../linkeddata.html">Browse dataset</a></li>
-<li><a href="../offers.html">Offers</a></li>
-<li><a href="../query.html">SPARQL</a></li>
-<li><a href="../account.html">Account</a></li>
-<li class="titulomenu">Admin's view (demo)</li>
-<li id="active"><a href=".">Control panel</a></li>
-<li ><a href="../accountability.html">Accountability</a></li>
-</ul>
-</div>
-</div>
-
-<!-- SEPARACION EXTRA MENU-CONTENIDO -->
-<div class="one column omega" style="visibility:hidden;">
-.
-</div>
-
-<!-- CONTENIDO -->
-<div class="twelve columns omega" >		
 
 			<div class="ldrheading"><p>Assignment of policies to resources</p></div>
 			<div class="bigger">Choose licenses/policies for each pre-defined dataset</div>
 				<br/>
-                <div class="three columns alpha">
 
-                    <center><big><strong>Datasets</strong></big></center>
+					
+                    <!--TEMPLATETABLA-->
+	
+    <!--  <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Add license</a> -->
+	  <p id="demo">.</p>
+  
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Choose license</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Choose a license</h3>
+		  <select id="example-getting-started">
+		  <!--TEMPLATELICENSES-->
+		</select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" onclick="myFunction1()" data-dismiss="modal" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>	
+	<script>
+function myFunction1() {
+		var e = document.getElementById("example-getting-started");
+		var strUser = e.options[e.selectedIndex].value;
+		var strOculto = "licencia" + 2;
+    //    document.getElementById("demo").innerHTML = "Chosen: " + strUser;
+		document.getElementById("licencia2").value=strUser;
+		document.forms["input2"].submit();
+//		window.location.replace("http://localhost/manageren/");
+}
+</script>	
 
                     <!--TEMPLATEHERE1-->
 
 
-                </div>
-                <div class="eight columns omega" style="border:2px solid; border-radius:25px; margin:10px; padding: 8px 8px 8px 8px;">
-                    <center><big><strong>Dataset management</strong></big></center>
                     <!--TEMPLATEHERE2-->
 					
 					
-					
+			<div class="ldrheading"><p>Events</p></div>
+			<p>Relevant administration events (up to 10)</p>
+			<div class="panel panel-default">					
+				<!--TEMPLATEACCOUNTABILITY-->					
                 </div>
             </div>
+	</div>
 
-			<!--TEMPLATEFOOTER-->
-			
+  
 
-        </div>
+
+<div class="footer">
+<!--<div class="container"><div class="panel panel-default"><div class="panel-body">  -->
+	<!--TEMPLATEFOOTER-->
+<!-- </div></div></div> -->
+  </div>		
     </body>
 </html>

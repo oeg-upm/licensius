@@ -186,7 +186,10 @@ public class LicensedTriple {
                 if (bperunit) {
                     link = sobjetooriginal + "?target=" + toChurroURI();
                 }
-                o = "<font color=\"red\">" + texto + "</font> (<a target=\"_blank\" href=\"" + link + "\">Offer";
+
+                o = "<a href=\"" + link + "\"><span class=\"label label-default\">Offer</span> </a>";
+
+//                o = "<font color=\"red\">" + texto + "</font> (<a target=\"_blank\" href=\"" + link + "\">Offer";
                 if (bperunit) {
                     o += " -- Per RDF Statement";
                 }
@@ -264,12 +267,12 @@ public class LicensedTriple {
             //If the object is a policy, consider the following
             if (hasPolicyAsObject()) {
                 Policy policy = PolicyManagerOld.getPolicy(sobjetooriginal);
-                if (policy==null)
-                {
-                    System.out.println("La politica " + sobjetooriginal+ " no se ha encontrado");
+                if (policy == null) {
+                    System.out.println("La politica " + sobjetooriginal + " no se ha encontrado");
                     System.out.println("Y mira que teníamos...");
-                    for(Policy px : PolicyManagerOld.getPolicies())
-                        System.out.print(" "+ px.getURI());
+                    for (Policy px : PolicyManagerOld.getPolicies()) {
+                        System.out.print(" " + px.getURI());
+                    }
                     return texto;
                 }
                 boolean bperunit = policy.isPerTriple();
@@ -296,17 +299,22 @@ public class LicensedTriple {
                     link = sobjetooriginal + "?target=" + toChurroURI();
                 }
                 link += "&target=" + sg;
+                o = "<a href=\"" + link + "\"><span class=\"label label-danger\">Offer</span> </a>";
 
-                o = "<font color=\"red\">" + texto + "</font> (<a target=\"_blank\" href=\"" + link + "\">Offer";
+//                o = "<font color=\"red\">" + texto + "</font> (<a target=\"_blank\" href=\"" + link + "\">Offer";
                 if (bperunit) {
                     o += " -- Per RDF Statement";
                 }
-                o += "</a>)";
+                o += "</a>";
             } else if (isForbidden()) {
                 o = "<font color=\"red\">Información de pago</font>";
             } else {
                 if (stmt.getObject().asResource().getURI().startsWith("http")) {
-                    o = "<a href=\"" + stmt.getObject().asResource().getURI() + "\">" + sobjeto + "</a>";
+                    String uri = stmt.getObject().asResource().getURI();
+                    boolean isExternal = !uri.startsWith(LDRConfig.getServer());
+                    o = "<a href=\"" + uri + "\">" + sobjeto + "</a>";
+                    if (isExternal)
+                        o+="<span class=\"glyphicon glyphicon-share-alt\"></span>";
                 } else {
                     o = sobjeto;
                 }
@@ -329,14 +337,8 @@ public class LicensedTriple {
                 if (language != null && !language.isEmpty()) {
                     LanguageManager lmgr = new LanguageManager();
                     String lan2 = lmgr.mapa32.get(language);
-                    //       if (lan2==null)
                     sobjeto += " (" + language + ")";
-                    //     else
-                    //     {
-                    //         sobjeto+=" <img src=\"./img/"+lan2+".png\"> \n";
-                    //     }
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -344,8 +346,13 @@ public class LicensedTriple {
             o = sobjeto;
         }
 
-
-        str += "<tr><td>" + p + "</td><td>" + o + "</td></tr>\n";
+        String tipo = "info";
+        if (hasPolicyAsObject()) {
+            tipo = "danger";
+        }
+        if (pagado==true)
+            tipo = "primary";
+        str += "<tr class=\"" + tipo + "\"><td>" + p + "</td><td>" + o + "</td></tr>\n";
 
         return str;
     }
@@ -420,7 +427,7 @@ public class LicensedTriple {
 
         return validos;
     }
-
+    public boolean pagado = false;
     public static List<LicensedTriple> Authorize2(ConditionalDataset cd, List<LicensedTriple> lst, Portfolio portfolio) {
         List<LicensedTriple> validos = new ArrayList();
 
@@ -428,27 +435,26 @@ public class LicensedTriple {
 
         for (LicensedTriple lt : lst) {
             Grafo grafo = HandlerResource.getGrafo(lg, lt.g);
-            if (grafo==null)
+            if (grafo == null) {
                 continue;
+            }
             if (grafo.isOpen()) {
                 validos.add(lt);
                 continue;
             }
             AuthorizationResponse ar = new AuthorizationResponse();
-            ar.ok=false;
+            ar.ok = false;
             ar.policies.clear();
-            for (Policy policy : portfolio.policies)
-            {
-                if (policy.hasPlay() && policy.hasFirstTarget(lt.g))
-                {
-                    ar.ok=true;
+            for (Policy policy : portfolio.policies) {
+                if (policy.hasPlay() && policy.hasFirstTarget(lt.g)) {
+                    ar.ok = true;
                     ar.policies.add(policy);
+                    lt.pagado=true;
                     validos.add(lt);
                     continue;
                 }
             }
-            if (ar.ok==false)
-            {
+            if (ar.ok == false) {
                 List<LicensedTriple> llt = LicensedTriple.concealInformation(lt, grafo.getPolicies());
                 validos.addAll(llt);
             }

@@ -11,7 +11,7 @@
 <http://localhost/policy/onecent>
         a                odrl:Policy , odrl:Set ;
         rdfs:comment     "Individual triples are available upon payment of 1 euro cent" ;
-        rdfs:label       "License1Cent" ;
+        rdfs:label       "0,01 eur" ;
         odrl:permission  [ a            odrl:Permission ;
                            odrl:action  odrl:reproduce ;
                            odrl:duty    [ a                     odrl:Duty ;

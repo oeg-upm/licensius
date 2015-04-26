@@ -29,6 +29,7 @@ import ldrauthorizer.ws.ODRLAuthorizer;
 import ldrauthorizer.ws.Portfolio;
 import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
+import ldconditional.LDRConfig;
 import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.WebPolicyManager;
 import model.DatasetVoid;
@@ -53,7 +54,7 @@ import org.json.simple.JSONValue;
 public class HandlerPortal {
     static final Logger logger = Logger.getLogger(HandlerIndex.class);
 
-    public void serve(HttpServletRequest request, HttpServletResponse response) {
+    public void serve(HttpServletRequest request, HttpServletResponse response, String sdataset) {
         String body = "";
         try {
             String token = "";
@@ -61,7 +62,8 @@ public class HandlerPortal {
             token = FileUtils.readFileToString(f);
             String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
             token = token.replace("<!--TEMPLATEFOOTER-->", footer);
-            token = token.replace("<!--TEMPLATEDATASETS-->", getHTMLDatasets());
+            
+            token = token.replace("<!--TEMPLATEDATASETS-->", getHTMLDatasets(sdataset));
 
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType("text/html;charset=utf-8");
@@ -74,15 +76,54 @@ public class HandlerPortal {
         }
     }
 
-    public static String getHTMLDatasets()
+    public static String getHTMLDatasets(String sdat)
     {
         String html="";
 
+        if (sdat==null || sdat.isEmpty())
+            sdat="geo";
+
         for(ConditionalDataset cd : ConditionalDatasets.datasets)
         {
+            String row="";
             String name = cd.name;
+            String title = cd.getDatasetVoid().getTitle();
             String comment = cd.getDatasetVoid().getComment();
 
+            row+="<tr>";
+
+
+            /*
+            String color= "btn-default";
+            String texto="select";
+            if (name.equals(sdat))
+            {
+                color = "btn-info";
+                texto = "default";
+            }
+            row += "<td><a class=\"btn " + color+ " \" href=\"/service/chooseDataset?dataset="+name+"\" role=\"button\">"+texto+"</a></td>";
+            */
+
+            row+="<td>";
+            row += name;
+            row +="</td>";
+
+            row+="<td>";
+            row+=""+cd.getDatasetVoid().getGrafos().size();
+//            row += "Triples: " + cd.getDatasetVoid().getNumTriples(row) + "<br/>";
+//            row += "Datasets: " + cd.getDatasetVoid().getGrafos().size() + "<br/>";
+            row +="</td>";
+
+            row+="<td>";
+            row += "<img src=\"/img/"+ name +".png\" height=\"128\" style=\"float:right;\"/>";
+            row+=  "<p class=\"lead\"><a href=\""+LDRConfig.getServer()+name+  "/linkeddata.html\">"+ title+"</a></p>";
+            row += comment;
+            row +="</td>";
+
+
+            row +="</tr>";
+
+            html+=row;
         }
 
         return html;

@@ -51,7 +51,7 @@ public class HandlerSPARQL {
     /**
      * http://stackoverflow.com/questions/15328666/run-a-sparql-query-against-two-graphs
      */
-    public void handle(String string, Request baseRequest, HttpServletRequest request, HttpServletResponse response, String xdataset) throws IOException, ServletException {
+    public void handle(ConditionalDataset cd, Request baseRequest, HttpServletRequest request, HttpServletResponse response, String xdataset) throws IOException, ServletException {
         String squery = request.getParameter("query");
         String superuser = request.getParameter("superuser");
         Portfolio p = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
@@ -75,7 +75,7 @@ public class HandlerSPARQL {
         logger.info("Procesando una QUERY de verdad!");
         
 
-        ConditionalDataset cd = ConditionalDatasets.getDataset(xdataset);
+
         List<String> grafos = p.getGrafos(cd);         //GRAFOS A LOS CUALES PODEMOS ACCEDER
         for (String grafo : grafos) {
             System.out.println("Comprado: " + grafo);
@@ -91,14 +91,14 @@ public class HandlerSPARQL {
         ResultSet results = qdataset.execSelect();
         int vez=0;
         
-        String html="<table>";
+        String html="<table class=\"table table-condensed\">";
         List<String> headers = new ArrayList();
         while(results.hasNext())
         {
-            html+="<tr>";
             QuerySolution qs = results.next();
             if (vez==0)
             {
+                html+="<thead><tr>";
                 Iterator<String> is = qs.varNames();
                 while (is.hasNext())
                 {
@@ -108,7 +108,7 @@ public class HandlerSPARQL {
                         continue;
                     html+="<td>"+head+"</td>";
                 }
-                html+="</tr>";
+                html+="</tr></thead>";
                 vez++;
             }
             String row = "";
@@ -126,31 +126,12 @@ public class HandlerSPARQL {
                 html+=row;
         }
         html+="</table>";
-
-/*
-        //String salida = ResultSetFormatter.asXMLString(results);
-        String salida = ResultSetFormatter.asText(results);
-        salida = escapeHtml(salida);
-        salida = salida.replaceAll("\n", "<br>");
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ResultSetFormatter.out(os, results, query);
-//            String salida = new String(os.toByteArray(),"UTF-8");
-//            qmodel.close();
-
-        List<QuerySolution> lqs = ResultSetFormatter.toList(results);
-        for (QuerySolution qs : lqs) {
-            System.out.println(qs.toString());
-        }
-
-        qdataset.close();
-*/
         String sr = "";
-
         sr += html;
         sr+="<p>The original query was:</p>";
-        sr+="<pre>"+ escapeHtml(squery) + "/<pre>";
+        sr+="<pre>"+ escapeHtml(squery) + "</pre>";
         sr+="<p>The modified query was:</p>";
-        sr+="<pre>"+ escapeHtml(querymodificada) + "/<pre>";
+        sr+="<pre>"+ escapeHtml(querymodificada) + "</pre>";
 
         body = body.replace("<!--TEMPLATERESULTS-->",sr);
         response.getWriter().print(body);

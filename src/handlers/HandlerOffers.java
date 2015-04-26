@@ -1,4 +1,3 @@
-
 package handlers;
 
 import com.hp.hpl.jena.rdf.model.Model;
@@ -32,7 +31,6 @@ import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
 import ldrauthorizer.ws.CLDHandlerManager;
 import ldrauthorizer.ws.WebPolicyManager;
-import ldserver.GeneralHandler;
 import ldserver.Oferta;
 import ldserver.Recurso;
 import model.DatasetVoid;
@@ -109,6 +107,7 @@ public class HandlerOffers {
             logger.error("Error serving dataset.html " + e.getMessage());
         }
     }
+
     private static String getServicioGetDatabaseURL(String asset) {
         String datasetEncoded = asset;
         try {
@@ -118,6 +117,7 @@ public class HandlerOffers {
         }
         return "service/getDataset?dataset=" + datasetEncoded;
     }
+
     private static String getHTMLForOffers(ConditionalDataset cd, List<Policy> pPagadas) {
         String html = "";
         html += "<div style=\"color:#AA2222 !important;\"><tr style=\"height=10px;font-weight: bold;color:#AA2222 !important;\"><td>Dataset";
@@ -133,13 +133,18 @@ public class HandlerOffers {
             boolean bPolicies = !grafo.getPoliciesForMoney().isEmpty();
             String sopena = "<img src=\"/img/arrowdown32green.png\">";
             String scloseda = "<img src=\"/img/arrowdown32red.png\">";
-            String sopen = "<button class=\"cupid-green\" onclick=\"location.href='linkeddata'\">Download</button>";
+//            String sopen = "<button class=\"cupid-green\" onclick=\"location.href='linkeddata'\">Download</button>"; //style=\"color:black\"
+            String sopen = "<button  class=\"btn btn-success btn-block\"><span class=\"glyphicon glyphicon-download-alt\" ></span> Download</button>";
+
+            String sclosed = "<button type=\"button\" class=\"btn btn-danger btn-block\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Buy</button>";
+
 //            String sclosed = "<button class=\"cupid-blue\" onclick=\"location.href='linkeddata'\">Buy</button>";
-            String sclosed = "<button class=\"cupid-red\" onclick=\"location.href='linkeddata'\">Buy</button>";
-            String shidden ="";
+//            String sclosed = "<button class=\"cupid-red\" onclick=\"location.href='linkeddata'\">Buy</button>";
+            String shidden = "";
             String color = bOpen ? sopen : sclosed;
-            if (!bPolicies && !bOpen)
-                color=shidden;
+            if (!bPolicies && !bOpen) {
+                color = shidden;
+            }
             AuthorizationResponse r = GeneralHandler.AuthorizeResource(grafo, pPagadas);
             if (r.ok == true) {
                 color = sopen;
@@ -148,6 +153,9 @@ public class HandlerOffers {
             List<Policy> policies = cd.getPoliciesForGraph(grafo.getURI());
             int conta = 0;
             String htmlpol = "<td>";
+
+            String licencias = "";
+            int contador = 0;
             for (Policy p : policies) {
                 String nombre = p.getTitle();
                 if (nombre.isEmpty()) {
@@ -160,6 +168,11 @@ public class HandlerOffers {
                 if (policy2 == null) {
                     continue;
                 }
+                contador++;
+
+                String slicencia = getPolicyHTMLTag(policy2, grafo);
+
+                //
                 String uri = policy2.getURI();
                 String target = "";
                 try {
@@ -169,23 +182,26 @@ public class HandlerOffers {
                 }
                 uri += "?target=" + target;
                 conta++;
-
-                htmlpol += conta + "- ";
-                htmlpol += "<a href=\"" + uri + "\"/>";
+//                htmlpol += conta + "- ";
+                licencias += "<a href=\"" + uri + "\"/>";
+                String slav = p.getLabel("en");
                 if (policy2.isOpen()) {
-                    htmlpol += "<span>" + p.getLabel("en") + "<br/></span>";
+                    licencias += "<span class=\"label label-success\">" + slav + " </span><br/>";
 //                    htmlpol += "<img src=\"/ldr/img/license32green.png\">";
                 } else {
-                    htmlpol += "<span>" + p.getLabel("en") + "<br/></span>";
+                    licencias += "<span class=\"label label-danger\">" + slav + " </span><br/>";
 //                    htmlpol += "<img src=\"/ldr/img/license32red.png\">";
                 }
-                htmlpol += "</a>";
+                licencias += "</a>";
+                //
             }
+
+            if (licencias.isEmpty()) {
+                licencias = "<span class=\"label label-default\">Not offered</span>";
+            }
+            htmlpol += licencias;
             htmlpol += "</td>";
-
-
             html += "<tr style=\"height=20px;\">";
-
             html += "<td> <strong>" + labelAsset + "</strong></td>";
 
             html += "<td> <a href=\"" + servicio + "\">" + color + "</a></td>";
@@ -197,5 +213,27 @@ public class HandlerOffers {
         return html;
     }
 
-
+    public static String getPolicyHTMLTag(Policy policy2, Grafo grafo) {
+        String str = "";
+        String uri = policy2.getURI();
+        String target = "";
+        if (grafo!=null)
+        {
+            try {
+                target = URLEncoder.encode(grafo.getURI(), "UTF-8");
+            } catch (UnsupportedEncodingException ex) {
+                ex.printStackTrace();
+            }
+            uri += "?target=" + target;
+        }
+        str += "<a href=\"" + uri + "\"/>";
+        String slav = policy2.getLabel("en");
+        if (policy2.isOpen()) {
+            str += "<span class=\"label label-success\">" + slav + " </span><br/>";
+        } else {
+            str += "<span class=\"label label-danger\">" + slav + " </span><br/>";
+        }
+        str += "</a>";
+        return str;
+    }
 }

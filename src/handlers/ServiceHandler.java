@@ -1,4 +1,4 @@
-package ldserver;
+package handlers;
 
 import ldserver.ws.GetOffers;
 import ldserver.ws.GetResources;
@@ -42,6 +42,16 @@ public class ServiceHandler extends AbstractHandler {
         String uri = request.getRequestURI();
         int index=uri.indexOf('/',1);
         String sdataset = uri.substring(1,index);
+
+        if (string.contains("/service/chooseDataset"))
+        {
+            String datas = request.getParameter("dataset");
+            ConditionalDatasets.setSelectedDataset(datas);
+            response.setStatus(HttpServletResponse.SC_OK);
+            HandlerPortal hp = new HandlerPortal();
+            hp.serve(request, response, datas);
+            return;
+        }
 
 
         if (string.contains("/service/getOffers"))
@@ -94,13 +104,6 @@ public class ServiceHandler extends AbstractHandler {
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
-
-        //****************** GET DATASET2 (NO IMPLEMENTADO)
-        /*if (string.contains("dataset/")) {
-            LDRServices.getDataset2(baseRequest, request, response);
-            response.setStatus(HttpServletResponse.SC_OK);
-            return;
-        }*/
 
 
         //****************** GET DATASET

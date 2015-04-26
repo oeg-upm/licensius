@@ -80,7 +80,13 @@ public class DatasetVoid {
         policies = loadPolicies();
     }
 
+    public void removeAllLicenses(String selectedGrafo) {
+        List<Policy> licencias = policies.get(selectedGrafo);
+        for(Policy licencia : licencias)
+            removeLicense(selectedGrafo, licencia.getLabel("en"));
+    }
     /**
+     * @param licencia label
      * Removes a license
      */
     public void removeLicense(String selectedGrafo, String licencia) {
@@ -362,7 +368,11 @@ public class DatasetVoid {
     }
 
     public int getNumTriples(String s) {
-        return 0;
+        String nt=getMetadata("http://rdfs.org/ns/void#triples");
+        int i=0;
+        if (nt!=null && !nt.isEmpty())
+            i=Integer.valueOf(nt);
+        return i;
     }
 
     public String getHTMLMainResources() {
