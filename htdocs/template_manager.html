@@ -12,6 +12,20 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  
+	<!-- Include the plugin's CSS and JS: -->
+	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+	<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>  
+  
+ <!-- Initialize the plugin: -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example-getting-started').multiselect();
+    });
+</script>
+
+
+ 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,7 +35,18 @@
   ga('send', 'pageview');
 </script>
 </head>
-    <body>
+    <body style="background:#EEEEEE !important;">
+	
+<select id="example-getting-started" multiple="multiple">
+    <option value="cheese">Cheese</option>
+    <option value="tomatoes">Tomatoes</option>
+    <option value="mozarella">Mozzarella</option>
+    <option value="mushrooms">Mushrooms</option>
+    <option value="pepperoni">Pepperoni</option>
+    <option value="onions">Onions</option>
+</select>	
+	<button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected" aria-expanded="false"><span class="multiselect-selected-text">None selected</span> <b class="caret"></b></button>
+	
 	<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -56,16 +81,15 @@
 			<div class="ldrheading"><p>Assignment of policies to resources</p></div>
 			<div class="bigger">Choose licenses/policies for each pre-defined dataset</div>
 				<br/>
-                <div class="three columns alpha">
 
-                    <center><big><strong>Datasets</strong></big></center>
+            <!--        <center><big><strong>Datasets</strong></big></center> -->
+					
+                    <!--TEMPLATETABLA-->
+					
 
                     <!--TEMPLATEHERE1-->
 
 
-                </div>
-                <div class="eight columns omega" style="border:2px solid; border-radius:25px; margin:10px; padding: 8px 8px 8px 8px;">
-                    <center><big><strong>Dataset management</strong></big></center>
                     <!--TEMPLATEHERE2-->
 					
 					
@@ -74,7 +98,7 @@
             </div>
 	
 
-        </div>
+  
 
 
 <div class="footer">

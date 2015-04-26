@@ -17,6 +17,7 @@ import odrlmodel.managers.AssetManager;
 
 /**
  * This Class handles the calls for managing the account.
+ * https://console.developers.google.com/project/conditionallinkeddata/permissions
  * @author vroddon
  */
 public class HandlerAccount {
@@ -113,7 +114,7 @@ public class HandlerAccount {
                     str += "<p>You have purchased the following permissions:</p><div class=\"well\">";
 
 //                    str += "<table border=\"1\" style=\"width:300px;\" ><tr style=\"font-weight:bold;\"><td >Price</td><td>Asset</td><td>License</td></tr>";
-                    str += "<table class=\"table\"><theader><tr><td>Price</td><td>Asset</td><td>License</td></tr></theader>";
+                    str += "<table class=\"table\"><thead><tr><th>Price</th><th>Asset</th><th>License</th></tr></thead>";
 
                     for (Policy policy : portfolio.policies) {
                         String starget = policy.getFirstTarget();

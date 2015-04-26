@@ -207,15 +207,69 @@ public class HandlerManager {
         } catch (Exception e) {
             return "template not found";
         }
-        String grafos = getHTMLforGrafos(dataset);
+        String tabla= getHTMLforTable(cd);
+        html = html.replace("<!--TEMPLATETABLA-->", tabla);
+
+/*        String grafos = getHTMLforGrafos(dataset);
         html = html.replace("<!--TEMPLATEHERE1-->", grafos);
         Grafo graf = cd.getDatasetVoid().getGrafo(selectedGrafo);
         String grafinfo = (graf==null) ? "" : getHTMLforGrafo(graf);
-        html = html.replace("<!--TEMPLATEHERE2-->", grafinfo);
+        html = html.replace("<!--TEMPLATEHERE2-->", grafinfo);*/
         html = html.replaceAll("<!--TEMPLATEHERE3-->", selectedGrafo);
 
         return html;
     }
+
+    public static String getHTMLforTable(ConditionalDataset cd)
+    {
+        String html="";
+        html+="<table class=\"table table-bordered table-hover table-condensed \">";
+
+        html+="<thead><tr><th>Short</th><th>Comment</th><th>Triples</th><th>Policies</th><th>Actions</th></tr></thead>";
+
+        List<Grafo> grafos = cd.getDatasetVoid().getGrafos();
+        for(Grafo g : grafos)
+        {
+            html+="<tr>";
+
+            html+="<td>"+g.getLabel()+"</td>";
+            html+="<td>"+g.getComment()+"</td>";
+            html+="<td>"+g.getNumTriples()+"</td>";
+
+            html+="<td>";
+            List<Policy> lp = g.getPolicies();
+            for(Policy p : lp)
+            {
+                String label=HandlerOffers.getPolicyHTMLTag(p, g);
+                html+=label;
+            }
+            html+="</td>";
+
+            html+="<td>";
+        String url = LDRConfig.getServer()+cd.name + "/manageren/managePolicy";
+        String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
+        form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"<!--TEMPLATEHERE3-->\">";
+        html+=form;
+            html +="<button type=\"submit\" value=\"View\" class=\"btn btn-default btn-sm\">View</button>";
+            html +="<button type=\"submit\" value=\"Add\" class=\"btn btn-default btn-sm\">Add</button>";
+            html +="<button type=\"submit\" value=\"Remove\" class=\"btn btn-default btn-sm\">Remove</button>";
+            html +="</form>";
+          //  accountInfo += "<a href=\"account.html?action=logout\" class=\"btn btn-default\" role=\"button\" >Logout</a>";
+            html+="</td>";
+
+            html+="</tr>";
+        }
+        html+="</table>";
+
+        String url = LDRConfig.getServer()+cd.name + "/manageren/managePolicy";
+        String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
+        form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"<!--TEMPLATEHERE3-->\">";
+        form += "<input name=\"action\" type=\"submit\" value=\"Restore default\"/>";
+        html+=form;
+        html+="</form>";
+        return html;
+    }
+
     /**
      * Obtiene el HTML que presenta una lista de grafos (como una lista de botones redondeados donde hay uno seleccionado)
      * @param selectedGrafo Idioma: en, es
@@ -273,7 +327,6 @@ public class HandlerManager {
         churro += slicencia;
 
         String url = LDRConfig.getServer()+dataset + "/manageren/managePolicy";
-
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         String opciones = form + "<select name=\"licencia\" id=\"licencia\">";
         String defecto = AssetManager.getPolicyLabelForAssetURI(selectedGrafo);
