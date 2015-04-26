@@ -131,9 +131,9 @@ public class HandlerAccount {
                     }
                     str += "</table></div>";
                     login += str;
-                    login += "<a href=\"service/resetPortfolio\" class=\"btn btn-default\" role=\"button\" >Reset</a>";
-                    login += "<a href=\"service/exportPortfolio?signed=false\" class=\"btn btn-default\" role=\"button\" >View</a>";
-                    login += "<a href=\"service/exportPortfolio?signed=true\" class=\"btn btn-default\" role=\"button\" >View signed</a>";
+                    login += "<a href=\"service/resetPortfolio\" class=\"btn btn-default\" role=\"button\" >Reset portfolio</a>";
+                    login += "<a href=\"service/exportPortfolio?signed=false\" class=\"btn btn-default\" role=\"button\" >View portfolio</a>";
+                    login += "<a href=\"service/exportPortfolio?signed=true\" class=\"btn btn-default\" role=\"button\" >View signed portfolio</a>";
                     //login += "<a href=\"service/resetPortfolio\"><button>Reset portfolio</button> </a>";
                     //login += "<a href=\"service/exportPortfolio?signed=false\"><button>View portfolio</button></a>";
                     //login += "<a href=\"service/exportPortfolio?signed=true\"><button>View signed portfolio</button></a>";

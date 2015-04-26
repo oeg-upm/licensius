@@ -13,9 +13,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   
-	<!-- Include the plugin's CSS and JS: -->
-	<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
-	<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>  
+	<!-- Include the plugin's CSS and JS: 
+	<script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"/>  -->
   
  <!-- Initialize the plugin: -->
 <script type="text/javascript">
@@ -36,16 +36,7 @@
 </script>
 </head>
     <body style="background:#EEEEEE !important;">
-	
-<select id="example-getting-started" multiple="multiple">
-    <option value="cheese">Cheese</option>
-    <option value="tomatoes">Tomatoes</option>
-    <option value="mozarella">Mozzarella</option>
-    <option value="mushrooms">Mushrooms</option>
-    <option value="pepperoni">Pepperoni</option>
-    <option value="onions">Onions</option>
-</select>	
-	<button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="None selected" aria-expanded="false"><span class="multiselect-selected-text">None selected</span> <b class="caret"></b></button>
+
 	
 	<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -82,15 +73,49 @@
 			<div class="bigger">Choose licenses/policies for each pre-defined dataset</div>
 				<br/>
 
-            <!--        <center><big><strong>Datasets</strong></big></center> -->
 					
                     <!--TEMPLATETABLA-->
-					
+	
+    <!--  <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Add license</a> -->
+	  <p id="demo">.</p>
+  
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Choose license</h4>
+      </div>
+      <div class="modal-body">
+        <h3>Choose a license</h3>
+		  <select id="example-getting-started">
+		  <!--TEMPLATELICENSES-->
+		</select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" onclick="myFunction1()" data-dismiss="modal" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>	
+	<script>
+function myFunction1() {
+		var e = document.getElementById("example-getting-started");
+		var strUser = e.options[e.selectedIndex].value;
+		var strOculto = "licencia" + 2;
+    //    document.getElementById("demo").innerHTML = "Chosen: " + strUser;
+		document.getElementById("licencia2").value=strUser;
+		document.forms["input2"].submit();
+//		window.location.replace("http://localhost/manageren/");
+}
+</script>	
 
                     <!--TEMPLATEHERE1-->
 
 
                     <!--TEMPLATEHERE2-->
+					
 					
 					
 					

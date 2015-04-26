@@ -1,6 +1,5 @@
 @prefix :        <http://purl.org/NET/rdflicense/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
-@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
 @prefix xml:     <http://www.w3.org/XML/1998/namespace> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcat:    <http://www.w3.org/ns/dcat#> .
@@ -14,13 +13,14 @@
 @prefix cc:      <http://creativecommons.org/ns#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 
-<http://purl.org/NET/rdflicense/odbc-pddl1.0>
+<http://localhost/policy/private>
       a       odrl:Policy ;
-      rdfs:label "ODC-PDDL" ;
-      rdfs:seeAlso <http://opendatacommons.org/licenses/pddl/> ;
-      cc:legalcode <http://www.opendatacommons.org/wp-content/uploads/2010/01/odc_pddl_1.0_public_text.txt> ;
-      dct:hasVersion "1.0" ;
-      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
-      odrl:permission
-              [ odrl:action cc:Distribution , ldr:extraction , ldr:reutilization , cc:DerivativeWorks , cc:Reproduction
-              ] .
+      rdfs:comment "The information under this policy will not be disclosed"@en ;
+      rdfs:label "Private"@en ;
+      rdfs:seeAlso <http://en.wikipedia.org/wiki/All_rights_reserved> ;
+      odrl:prohibition
+	  [ 
+				odrl:action ldr:IPRRight , ldr:databaseRight ;
+      ] .
+	  
+	  

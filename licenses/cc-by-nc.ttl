@@ -16,7 +16,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nc4.0>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-NC" ;
+      rdfs:label "CC-BY-NC" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc/4.0/> ;
       cc:legalcode <http://creativecommons.org/licenses/by-nc/4.0/legalcode> ;
       dct:alternative "CC BY-NC" ;
