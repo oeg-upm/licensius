@@ -31,6 +31,7 @@ import ldrauthorizerold.GoogleAuthHelper;
 import languages.Multilingual;
 import ldconditional.LDRConfig;
 import ldrauthorizer.ws.CLDHandlerManager;
+import ldrauthorizer.ws.Evento;
 import ldrauthorizer.ws.WebPolicyManager;
 import model.DatasetVoid;
 import model.Grafo;
@@ -234,6 +235,9 @@ public class HandlerManager {
         html = html.replace("<!--TEMPLATEHERE2-->", grafinfo);*/
         html = html.replaceAll("<!--TEMPLATEHERE3-->", selectedGrafo);
         html = html.replaceAll("<!--TEMPLATELICENSES-->", listLicenses());
+        String even = Evento.getEventosHTML();
+
+        html = html.replace("<!--TEMPLATEACCOUNTABILITY-->", even);
 
         return html;
     }
