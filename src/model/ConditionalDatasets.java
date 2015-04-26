@@ -13,6 +13,7 @@ public class ConditionalDatasets {
 
     public static List<ConditionalDataset> datasets = new ArrayList();
     private static final Logger logger = Logger.getLogger(ConditionalDatasets.class);
+    static ConditionalDataset defaultDataset = null;
 
     /**
      * Loads the datasets description
@@ -36,6 +37,28 @@ public class ConditionalDatasets {
             }
         }
     }
+
+    public static void setSelectedDataset(String se)
+    {
+        ConditionalDataset cd = getDataset(se);
+        defaultDataset = cd;
+    }
+
+    /**
+     * Returns the selected dataset
+     */
+    public static ConditionalDataset getSelectedDataset()
+    {
+        if (defaultDataset==null)
+        {
+            for(ConditionalDataset cd : datasets)
+                if (cd.name.equals("geo"))
+                    defaultDataset=cd;
+
+        }
+        return defaultDataset;
+    }
+
 
     /**
      * Obtains one preloaded dataset from its name

@@ -362,7 +362,11 @@ public class DatasetVoid {
     }
 
     public int getNumTriples(String s) {
-        return 0;
+        String nt=getMetadata("http://rdfs.org/ns/void#triples");
+        int i=0;
+        if (nt!=null && !nt.isEmpty())
+            i=Integer.valueOf(nt);
+        return i;
     }
 
     public String getHTMLMainResources() {

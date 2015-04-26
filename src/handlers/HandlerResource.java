@@ -140,28 +140,36 @@ public class HandlerResource {
         } catch (Exception e) {
             return "page not found " + e.getMessage();
         }
-
-        // html = readTextFile("template.html");
         label = "<h2>" + label + "</h2>";
         html = html.replace("<!--TEMPLATEHERE1-->", label);
 
-        tabla += "<h4>Open triples</h4>\n";
-        tabla += "<table><tr><td><strong>Property</strong></td><td><strong>Value</strong></td></tr>\n";
+//        tabla += "<h3>Open triples</h3>\n";
+        tabla += "<table class=\"table table-striped table-condensed\">";
+        tabla += "<thead><tr><td width=\"50%\"><strong>Property</strong></td><td width=\"50%\"><strong>Value</strong></td></tr></thead>\n";
         List<LicensedTriple> open = getOpenTriples(cd, ls);
         Collections.sort(open, LicensedTriple.PREDICATECOMPARATOR);
         for (LicensedTriple lt : open) {
             tabla += lt.toHTMLRowNew(cd) + "\n";
         }
-        tabla += "</table>\n";
 
-        tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
-
-        tabla += "<h4>Limited access triples</h4>\n";
-        tabla += "<table><tr><td><strong>Property</strong></td><td><strong>Value</strong></td></tr>\n";
         List<LicensedTriple> closed = getClosedTriples(cd, ls);
         for (LicensedTriple lt : closed) {
             tabla += lt.toHTMLRowNew(cd) + "\n";
         }
+
+
+        tabla += "</table>\n";
+
+/*        tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
+
+        tabla += "<h3>Limited access triples</h3>\n";
+        tabla += "<table class=\"table table-striped table-condensed\">";
+        tabla += "<thead><tr><td width=\"50%\"><strong>Property</strong></td><td width=\"50%\"><strong>Value</strong></td></tr></thead>\n";
+        List<LicensedTriple> closed = getClosedTriples(cd, ls);
+        for (LicensedTriple lt : closed) {
+            tabla += lt.toHTMLRowNew(cd) + "\n";
+        }
+ */
         tabla += "</table>\n";
 
         html = html.replace("<!--TEMPLATEHERE2-->", tabla);
@@ -179,7 +187,7 @@ public class HandlerResource {
         String html = "<div id=\"nav\" class=\"menu_div\"> <ul>";
         html += "<li class=\"titulomenu\">What is this?</li>";
         html += "<li><a href=\"" + ruta + "index.html\">Introduction</a></li>";
-        html += "<li ><a href=\"" + ruta + "infotecnica.html\">Technical details</a></li>";
+        html += "<li ><a href=\"" + ruta + "develop.html\">Technical details</a></li>";
         html += "<li class=\"titulomenu\">User's view (demo)</li>";
         html += "<li id=\"active\"><a href=\"" + ruta + "linkeddata.html\">Browse dataset</a></li>";
         html += "<li><a href=\"" + ruta + "offers.html\">Offers</a></li>";
@@ -203,10 +211,7 @@ public class HandlerResource {
             if (lt.hasPolicyAsObject()) {
                 lop.add(lt);
             }
-//            if (g.isOpen())
-//                continue;
-//            List<LicensedTriple> llt = LicensedTriple.concealInformation(lt, g.getPolicies());
-            //           lop.addAll(llt);
+
         }
         return lop;
     }

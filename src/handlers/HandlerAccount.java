@@ -24,11 +24,13 @@ public class HandlerAccount {
         try {
             String body = FileUtils.readFileToString(new File("./htdocs/template_account.html"));
             try {
+                String account = generateAccountHTML(request, response);
+                body = body.replace("<!--TEMPLATEACCOUNT-->", account);
+
+
                 String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
                 body = body.replace("<!--TEMPLATEFOOTER-->", footer);
 
-                String account = generateAccountHTML(request, response);
-                body = body.replace("<!--TEMPLATEACCOUNT-->", account);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -75,8 +77,12 @@ public class HandlerAccount {
                     JSONObject jobj = (JSONObject) obj;
                     String email = (String) jobj.get("email");
                     String name = (String) jobj.get("name");
-                    String accountInfo = "Logged in as <strong>" + email + "</strong></br>User: <strong>" + name + "</strong>";
-                    accountInfo += " <a href=\"account.html?action=logout\">logout</a>";
+                    String accountInfo="";
+                    accountInfo+="<div class=\"well\">";
+                    accountInfo += "Logged in as <strong>" + email + "</strong></br>User: <strong>" + name + "</strong>";
+//                    accountInfo += " <a href=\"account.html?action=logout\">logout</a>";
+                    accountInfo += "<br><a href=\"account.html?action=logout\" class=\"btn btn-default\" role=\"button\" >Logout</a>";
+                    accountInfo +="</div>";
                     request.getSession().setAttribute("google", accountInfo);
                     login += accountInfo;
                     Portfolio portfolio = Portfolio.ReadPortfolio(GoogleAuthHelper.getMail(request));
@@ -104,9 +110,10 @@ public class HandlerAccount {
                     //       str+=StringUtils.readTestFile();
                     login += str;
                 } else {
-                    str += "You have purchased the following permissions:<br/>";
+                    str += "<p>You have purchased the following permissions:</p><div class=\"well\">";
 
-                    str += "<table border=\"1\" style=\"width:300px;\" ><tr style=\"font-weight:bold;\"><td >Price</td><td>Asset</td><td>License</td></tr>";
+//                    str += "<table border=\"1\" style=\"width:300px;\" ><tr style=\"font-weight:bold;\"><td >Price</td><td>Asset</td><td>License</td></tr>";
+                    str += "<table class=\"table\"><theader><tr><td>Price</td><td>Asset</td><td>License</td></tr></theader>";
 
                     for (Policy policy : portfolio.policies) {
                         String starget = policy.getFirstTarget();
@@ -114,15 +121,21 @@ public class HandlerAccount {
                         if (a != null) {
                             starget = a.getLabel("en");
                         }
-                        String llic = " <a href=\"" + policy.getURI() + "\">(view)</a>";
+//                        String llic = " <a href=\"" + policy.getURI() + "\">(view)</a>";
+
+                        String llic = HandlerOffers.getPolicyHTMLTag(policy, null);
+
                         String precio = String.format("%.02f %s", policy.getFirstPrice(), policy.getFirstCurrency());
-                        str += "<tr><td>" + precio + "</td><td>" + starget + "</td><td>" + policy.getLabel("en") + llic + "</td></tr>";
+                        str += "<tr><td>" + precio + "</td><td>" + starget + "</td><td>" + llic + "</td></tr>";
                     }
-                    str += "</table>";
+                    str += "</table></div>";
                     login += str;
-                    login += "<a href=\"service/resetPortfolio\"><button>Reset portfolio</button> </a>";
-                    login += "<a href=\"service/exportPortfolio?signed=false\"><button>View portfolio</button></a>";
-                    login += "<a href=\"service/exportPortfolio?signed=true\"><button>View signed portfolio</button></a>";
+                    login += "<a href=\"service/resetPortfolio\" class=\"btn btn-default\" role=\"button\" >Reset</a>";
+                    login += "<a href=\"service/exportPortfolio?signed=false\" class=\"btn btn-default\" role=\"button\" >View</a>";
+                    login += "<a href=\"service/exportPortfolio?signed=true\" class=\"btn btn-default\" role=\"button\" >View signed</a>";
+                    //login += "<a href=\"service/resetPortfolio\"><button>Reset portfolio</button> </a>";
+                    //login += "<a href=\"service/exportPortfolio?signed=false\"><button>View portfolio</button></a>";
+                    //login += "<a href=\"service/exportPortfolio?signed=true\"><button>View signed portfolio</button></a>";
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -85,7 +85,7 @@ public class Portfolio {
     public static Portfolio ReadPortfolio(String mail)
     {
         mail=mail.replaceAll("mailto:", "");
-        String filename = "../data/portfolios/"+mail;
+        String filename = "./portfolios/"+mail;
         Model model = ModelFactory.createDefaultModel();
         RDFDataMgr.read(model, filename, Lang.TTL);
         List<Resource> ls = PolicyManagerOld.findPolicies(model);

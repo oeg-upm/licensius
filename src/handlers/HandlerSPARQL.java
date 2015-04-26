@@ -51,7 +51,7 @@ public class HandlerSPARQL {
     /**
      * http://stackoverflow.com/questions/15328666/run-a-sparql-query-against-two-graphs
      */
-    public void handle(String string, Request baseRequest, HttpServletRequest request, HttpServletResponse response, String xdataset) throws IOException, ServletException {
+    public void handle(ConditionalDataset cd, Request baseRequest, HttpServletRequest request, HttpServletResponse response, String xdataset) throws IOException, ServletException {
         String squery = request.getParameter("query");
         String superuser = request.getParameter("superuser");
         Portfolio p = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
@@ -75,7 +75,7 @@ public class HandlerSPARQL {
         logger.info("Procesando una QUERY de verdad!");
         
 
-        ConditionalDataset cd = ConditionalDatasets.getDataset(xdataset);
+
         List<String> grafos = p.getGrafos(cd);         //GRAFOS A LOS CUALES PODEMOS ACCEDER
         for (String grafo : grafos) {
             System.out.println("Comprado: " + grafo);

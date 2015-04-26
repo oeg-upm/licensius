@@ -113,32 +113,48 @@ public class GeneralHandler extends AbstractHandler {
      * Sirve un ana query estándar
      */
     private boolean sortQuery(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String folder) {
-        response.setContentType("text/html;charset=utf-8");
-        response.setStatus(HttpServletResponse.SC_OK);
+//        response.setContentType("text/html;charset=utf-8");
+//        response.setStatus(HttpServletResponse.SC_OK);
         try {
             String requestUri = request.getRequestURI(); //por ejemplo, /geo/service?getOffers o /img/logo.png
-            String sLocalfile = requestUri;
-            String sdataset = "";
-
+            String sLocalfile = requestUri;              //Local path for the resource
+            ConditionalDataset cd = null;                //Dataset on which we operate
+            String resto ="";
             int ixndex = requestUri.indexOf("/", 1);
             if (ixndex != -1) {
-                String sx = requestUri.substring(ixndex, requestUri.length());
-                if (!sx.equals("img") & !sx.equals("css") && !sx.equals("js")&& !sx.equals("themes") ) {
-                    sdataset = sx;
+                String sx = requestUri.substring(1, ixndex);
+                cd = ConditionalDatasets.getDataset(sx);
+                if (cd==null)
+                {
+                    sLocalfile = "htdocs"+ requestUri;
                 }
-                sLocalfile = "htdocs" + sdataset;
-            } else if (requestUri.equals("/404.html")) {
-                sLocalfile = "./htdocs" + requestUri;
+                else
+                {
+                    resto = requestUri.substring(ixndex, requestUri.length());
+                    sLocalfile = "htdocs" + resto;
+                }
+            }else
+            {
+                sLocalfile = "htdocs"+requestUri;
             }
 
-            if (requestUri.endsWith(".png")) {
-                sLocalfile = "./htdocs" + requestUri;
+            if (requestUri.contains("/service"))
+            {
+                return true;
             }
-            if (requestUri.endsWith(".css")) {
-                sLocalfile = "./htdocs" + requestUri;
-            }
-            if (requestUri.endsWith(".js")) {
-                sLocalfile = "./htdocs" + requestUri;
+
+            if (requestUri.equals("/user"))
+            {
+                cd = ConditionalDatasets.getSelectedDataset();
+                if (cd==null)
+                {
+                    response.sendRedirect("/404.html");
+                    return false;
+                }
+                String inituser = "/"+cd.name+"/linkeddata.html";
+//                requestUri = inituser;
+                response.sendRedirect(inituser);
+                return true;
             }
 
             if (requestUri.endsWith("/accountability.html")) {
@@ -158,7 +174,6 @@ public class GeneralHandler extends AbstractHandler {
             if (requestUri.startsWith("/oauth2callback")) {
                 System.out.println("Recibida una autenticación en Google");
                 String nuevaurl = "account.html";
-
                 URIBuilder builder = new URIBuilder();
                 builder.setPath("account.html");
                 Enumeration<String> enume = request.getParameterNames();
@@ -184,7 +199,6 @@ public class GeneralHandler extends AbstractHandler {
             }
 
             if (requestUri.equals("/favicon.ico")) {
-                response.setContentType("image/x-icon");
                 ServletOutputStream output = response.getOutputStream();
                 InputStream input = new FileInputStream("./htdocs/favicon.ico");
                 byte[] buffer = new byte[2048];
@@ -192,6 +206,8 @@ public class GeneralHandler extends AbstractHandler {
                 while ((bytesRead = input.read(buffer)) != -1) {
                     output.write(buffer, 0, bytesRead);
                 }
+                response.setContentType("image/x-icon");
+                return true;
             }
 
 
@@ -213,7 +229,7 @@ public class GeneralHandler extends AbstractHandler {
             if (requestUri.equals("/index.html"))
             {
                 HandlerPortal hp = new HandlerPortal();
-                hp.serve(request, response);
+                hp.serve(request, response, "");
                 return true;
             }
 
@@ -229,11 +245,20 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
             if (requestUri.contains("query")) {
+                if (cd==null)
+                    cd = ConditionalDatasets.getSelectedDataset();
+
+                if  (requestUri.startsWith("/query"))
+                {
+                    requestUri = cd.name+requestUri;
+                    response.sendRedirect(requestUri);
+                    return true;
+                }
                  int index = requestUri.indexOf("/", 1);
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
                     HandlerSPARQL sparql = new HandlerSPARQL();
-                    sparql.handle(sdataset, baseRequest, request, response, dataset);
+                    sparql.handle(cd, baseRequest, request, response, dataset);
                 }
                 return true;
             }
@@ -254,6 +279,20 @@ public class GeneralHandler extends AbstractHandler {
             //CASE 5
             if (requestUri.endsWith("linkeddata.html")) {
                 logger.info("Serving the main resources " + request.getRequestURI());
+                cd = ConditionalDatasets.getSelectedDataset();
+                if (cd==null)
+                {
+                    response.sendRedirect("/404.html");
+                    return false;
+                }
+                if  (requestUri.startsWith("/linkeddata.html"))
+                {
+                    requestUri = cd.name+requestUri;
+                    response.sendRedirect(requestUri);
+                    return true;
+                }
+
+
                 int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
@@ -266,6 +305,21 @@ public class GeneralHandler extends AbstractHandler {
             //CASE 6 - DATASETS
             if (requestUri.endsWith("offers.html")) {
                 logger.info("Serving the main offers " + request.getRequestURI());
+
+                cd = ConditionalDatasets.getSelectedDataset();
+                if (cd==null)
+                {
+                    response.sendRedirect("/404.html");
+                    return false;
+                }
+                if  (requestUri.startsWith("/offers.html"))
+                {
+                    requestUri = cd.name+requestUri;
+                    response.sendRedirect(requestUri);
+                    return true;
+                }
+
+
                 int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
@@ -275,22 +329,28 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
-            if (requestUri.endsWith("account.html")) {
+            if (requestUri.endsWith("account.html") || requestUri.endsWith("account")) {
                 logger.info("Serving the account " + request.getRequestURI());
                 HandlerAccount ha = new HandlerAccount();
                 ha.serveAccount(baseRequest, request, response);
                 return true;
             }
 
-            if (requestUri.contains("manageren")) {
+            if (requestUri.contains("manageren") || (requestUri.equals("/admin"))) {
                 logger.info("Serving the manager " + request.getRequestURI());
                 int index = requestUri.indexOf("/", 1);
+                String dataset="";
                 if (index != -1 && index != 0) {
-                    String dataset = requestUri.substring(1, index);
-                    HandlerManager hm = new HandlerManager();
-                    hm.serveManager(baseRequest, request, response, dataset);
-                    return true;
+                    dataset = requestUri.substring(1, index);
+                    cd = ConditionalDatasets.getDataset(dataset);
                 }
+                if (cd==null)
+                    cd = ConditionalDatasets.getSelectedDataset();
+                if (dataset.isEmpty())
+                    dataset= cd.name;
+                HandlerManager hm = new HandlerManager();
+                hm.serveManager(baseRequest, request, response, dataset);
+                    return true;
             }
 
             if (requestUri.startsWith("/policy/") || requestUri.startsWith("/license/")) {
@@ -321,8 +381,10 @@ public class GeneralHandler extends AbstractHandler {
                 }
             }
 
-            serveGeneralFile(f, requestUri, baseRequest, request, response);
-
+            if (f.exists())
+                serveGeneralFile(f, requestUri, baseRequest, request, response);
+            else
+                response.sendRedirect("/404.html");
         } catch (Exception e) {
             logger.warn(e.getMessage());
             return false;
