@@ -78,7 +78,7 @@ public class HandlerResource {
 
             if (GeneralHandler.isRDFXML(request)) {
                 body = formatRDFXMLTriples(label, llt);
-                response.setContentType("application/rdf+xml");
+                response.setContentType("application/rdf+xml"); 
             } else {
                 body = formatTTLTriples(label, llt);
                 response.setContentType("text/turtle");
