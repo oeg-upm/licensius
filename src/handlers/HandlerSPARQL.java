@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import static org.apache.commons.lang.StringEscapeUtils.escapeHtml;
 
 ///JETTY
-import ldrauthorizerold.GoogleAuthHelper;
+import auth.GoogleAuthHelper;
 import ldconditional.LDRConfig;
 import ldconditional.Main;
 import ldrauthorizer.ws.Portfolio;

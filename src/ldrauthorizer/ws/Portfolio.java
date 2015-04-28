@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ldrauthorizerold.GoogleAuthHelper;
+import auth.GoogleAuthHelper;
 import model.ConditionalDataset;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;

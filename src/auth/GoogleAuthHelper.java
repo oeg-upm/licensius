@@ -1,4 +1,4 @@
-package ldrauthorizerold;
+package auth;
 
 //JAVA
 import java.io.IOException;

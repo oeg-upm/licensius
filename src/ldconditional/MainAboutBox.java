@@ -1,4 +1,4 @@
-package ldrauthorizerold;
+package ldconditional;
 
 import org.jdesktop.application.Action;
 
@@ -8,9 +8,9 @@ import org.jdesktop.application.Action;
  * Botones de: http://tympanus.net/Tutorials/AnimatedButtons/index2.html y de http://hellohappy.org/css3-buttons/ y de http://www.hongkiat.com/blog/css3-button-tutorials/
  *
  */
-public class LDRAuthorizerAboutBox extends javax.swing.JDialog {
+public class MainAboutBox extends javax.swing.JDialog {
 
-    public LDRAuthorizerAboutBox(java.awt.Frame parent) {
+    public MainAboutBox(java.awt.Frame parent) {
         super(parent);
         initComponents();
         getRootPane().setDefaultButton(closeButton);
@@ -41,13 +41,13 @@ public class LDRAuthorizerAboutBox extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(ldrauthorizerold.LDRAuthorizerApp.class).getContext().getResourceMap(LDRAuthorizerAboutBox.class);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(ldconditional.MainApp.class).getContext().getResourceMap(MainAboutBox.class);
         setTitle(resourceMap.getString("title")); // NOI18N
         setModal(true);
         setName("aboutBox"); // NOI18N
         setResizable(false);
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(ldrauthorizerold.LDRAuthorizerApp.class).getContext().getActionMap(LDRAuthorizerAboutBox.class, this);
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(ldconditional.MainApp.class).getContext().getActionMap(MainAboutBox.class, this);
         closeButton.setAction(actionMap.get("closeAboutBox")); // NOI18N
         closeButton.setName("closeButton"); // NOI18N
 

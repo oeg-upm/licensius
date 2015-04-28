@@ -10,7 +10,7 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletResponse;
 
 //LDRAUTHORIZER
-import ldrauthorizerold.LDRAuthorizerApp;
+import ldconditional.MainApp;
 
 //LOG4J
 import ldconditional.LDRConfig;
@@ -21,7 +21,7 @@ public class ODRLAuthorizerSampleClient {
     private final String USER_AGENT = "Mozilla/5.0";
 
     public static void main(String[] args) throws Exception {
-        LDRAuthorizerApp.initLogger();
+        MainApp.initLogger();
 
         Demo1();
         

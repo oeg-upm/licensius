@@ -12,7 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 import ldrauthorizer.ws.Portfolio;
-import ldrauthorizerold.GoogleAuthHelper;
+import auth.GoogleAuthHelper;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;

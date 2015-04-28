@@ -1,5 +1,6 @@
 package ldrauthorizer.ws;
 
+import auth.AuthorizationResponse;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -23,7 +24,7 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ldconditional.LDRConfig;
-import ldrauthorizerold.GoogleAuthHelper;
+import auth.GoogleAuthHelper;
 import model.ConditionalDataset;
 import model.Grafo;
 import odrlmodel.Asset;

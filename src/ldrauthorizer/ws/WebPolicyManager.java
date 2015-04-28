@@ -24,41 +24,6 @@ public class WebPolicyManager {
 
 
 
-    /**
-     * Obtiene el HTML que presenta una lista de grafos (como una lista de botones redondeados donde hay uno seleccionado)
-     * @param selectedGrafo Idioma: en, es
-     * @param lan Idioma: en, es
-     */
-    public static String getHTMLforGrafos(String lan) {
-        List<String> labelGrafos = AssetManager.getGrafosLabels();
-        List<String> uriGrafos = AssetManager.getGrafosURIs();
-        int total = uriGrafos.size();
-        String churro = "";
-        for (int i = 0; i < total; i++) {
-
-            try {
-                String grafo = uriGrafos.get(i);
-                String label = labelGrafos.get(i);
-                String urigrafo = URLEncoder.encode(grafo, "UTF-8");
-                String enlace = "";
-                if (lan.equals("en")) {
-                    enlace = "/ldr/manageren/selectGraph?grafo=" + urigrafo;
-                    enlace = "<a href=\"" + enlace + "\">" + label + "</a>";
-                } else {
-                    enlace = "/ldr/manager/selectGraph?grafo=" + urigrafo;
-                    enlace = "<a href=\"" + enlace + "\">" + label + "</a>";
-                }
-                if (grafo.equals(CLDHandlerManager.selectedGrafo)) {
-                    churro += "<div style=\"border:2px solid; border-radius:25px; margin:10px; padding: 8px 8px 8px 8px; background:#0A0;\"><center>" + enlace + "</center></div>\n";
-                } else {
-                    churro += "<div style=\"border:2px solid; border-radius:25px; margin:10px; padding: 8px 8px 8px 8px; \"><center>" + enlace + "</center></div>\n";
-                }
-            } catch (Exception e) {
-                Logger.getLogger("ldr").debug("Problema formateando un grafo");
-            }
-        }
-        return churro;
-    }
 
     /**
      * Obtiene el HTML que presenta los detalles de un grafo (qué políticas aplican etc.)

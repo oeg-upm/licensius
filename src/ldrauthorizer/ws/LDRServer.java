@@ -37,7 +37,7 @@ import java.util.List;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ldrauthorizerold.GoogleAuthHelper;
+import auth.GoogleAuthHelper;
 import languages.Multilingual;
 
 import odrlmodel.Asset;
