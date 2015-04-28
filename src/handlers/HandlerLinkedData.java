@@ -57,6 +57,7 @@ public class HandlerLinkedData {
         String body = "";
         try {
             ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
+            ConditionalDatasets.setSelectedDataset(dataset);
             String comment = cd.getDatasetVoid().getComment();
             body = FileUtils.readFileToString(new File("./htdocs/template_linkeddata.html"));
             String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));

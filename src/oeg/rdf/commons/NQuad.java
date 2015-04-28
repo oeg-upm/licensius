@@ -112,5 +112,19 @@ public class NQuad {
         }
         return model;
     }
+
+    static String getObjectLangTag(String line) {
+        String lan="";
+        try{
+            int i0= line.lastIndexOf("\"");
+            int i1= line.lastIndexOf("<");
+            if (i0!=-1 && i1!=-1)
+                lan=line.substring(i0+2,i1-1);
+        }catch(Exception e)
+        {
+          return "";
+        }
+        return lan;
+    }
     
 }
