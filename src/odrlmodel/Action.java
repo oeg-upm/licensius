@@ -65,6 +65,8 @@ public class Action extends MetadataObject {
         boolean containsPlay = false;
         if (uri.equals("http://creativecommons.org/ns#Reproduction")) 
             containsPlay = true;
+        if (uri.contains("ns#Reproduction"))
+            containsPlay = true;
         if (uri.equals("http://www.w3.org/ns/odrl/2/reproduce")) 
             containsPlay = true;
 	if (uri.equals("http://www.w3.org/ns/odrl/2/display"))
