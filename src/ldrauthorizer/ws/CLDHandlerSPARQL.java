@@ -23,6 +23,7 @@ import static org.apache.commons.lang.StringEscapeUtils.escapeHtml;
 ///JETTY
 import ldrauthorizerold.GoogleAuthHelper;
 import ldconditional.LDRConfig;
+import odrlmodel.Asset;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.rdf.Authorization;
 import org.apache.commons.io.IOUtils;
@@ -63,7 +64,7 @@ public class CLDHandlerSPARQL extends AbstractHandler {
             
             
             
-            List<String> grafos = Authorization.PolicyMatcher(p);
+            List<String> grafos = CLDHandlerSPARQL.PolicyMatcher(p);
 
             String squeryold = squery;
             if (superuser == null) {
@@ -119,5 +120,24 @@ public class CLDHandlerSPARQL extends AbstractHandler {
 
 
 
+    }
+
+    public static List<String> PolicyMatcher(Portfolio p)
+    {
+        List<String> grafos = new ArrayList();
+
+
+        List<Asset> assets = AssetManager.readAssets();
+        for (Asset asset : assets)
+        {
+            AuthorizationResponse r = ODRLAuthorizer.AuthorizeResource(asset.getURI(), p.policies);
+            if (r.ok)
+                grafos.add(asset.getURI());
+        }
+
+    //        grafos.add("http://salonica.dia.fi.upm.es/ldr/dataset/default");
+    //        grafos.add("http://salonica.dia.fi.upm.es/ldr/dataset/Geo");
+
+        return grafos;
     }
 }

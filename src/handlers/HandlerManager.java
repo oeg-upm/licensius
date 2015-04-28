@@ -128,10 +128,12 @@ public class HandlerManager {
      */
     public static String managePolicy(ConditionalDataset cd, HttpServletRequest request, HttpServletResponse response, String dataset) {
         selectedGrafo = request.getParameter("selectedGrafo");
-        try {
-            selectedGrafo = URLDecoder.decode(selectedGrafo, "UTF-8");
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (selectedGrafo != null && !selectedGrafo.isEmpty()) {
+            try {
+                selectedGrafo = URLDecoder.decode(selectedGrafo, "UTF-8");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         String licencia = request.getParameter("licencia");
@@ -150,6 +152,10 @@ public class HandlerManager {
                 e.printStackTrace();
             }
         }
+        if (action==null)
+            action = request.getParameter("xaction");
+        if (action==null)
+            action = request.getParameter("xaction2");
 
         if (action != null && selectedGrafo != null && licencia != null) {
             logger.info("Accion " + action + " sobre " + selectedGrafo + "  licencia " + licencia);
@@ -177,19 +183,18 @@ public class HandlerManager {
                 logger.info("Action remove");
                 cd.getDatasetVoid().removeLicense(selectedGrafo, licencia);
             } 
-            else if (action.equals("Restore default")) {
-                logger.info("Action restore default");
-                cd.getDatasetVoid().restoreDefault();
-            } else {
-                //AssetManager.setPolicyByLabel(selectedGrafo, licencia);
-            }
         }
 
-            if (action!=null && action.equals("RemoveAll"))
-            {
-                logger.info("Action remove all");
-                cd.getDatasetVoid().removeAllLicenses(selectedGrafo);
-            }
+        if (action != null && action.equals("RemoveAll")) {
+            logger.info("Action remove all");
+            cd.getDatasetVoid().removeAllLicenses(selectedGrafo);
+        }
+
+        if (action != null && action.equals("Restore default")) {
+            logger.info("Action restore default");
+            cd.getDatasetVoid().restoreDefault();
+        }
+
 
         return "";
     }
@@ -249,7 +254,7 @@ public class HandlerManager {
         html += "<thead><tr><th>Short</th><th>Comment</th><th>Triples</th><th>Policies</th><th>Actions</th></tr></thead>";
 
         List<Grafo> grafos = cd.getDatasetVoid().getGrafos();
-        int cona=-1;
+        int cona = -1;
         for (Grafo g : grafos) {
             cona++;
             html += "<tr>";
@@ -270,30 +275,31 @@ public class HandlerManager {
             String selg = g.getURI();
 
             String url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
-            String form = "<form name=\"input"+cona + "\" action=\"" + url + "\" method=\"get\">";
+            String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
             form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
             html += form;
             //   html +="<button type=\"submit\" value=\"View\" class=\"btn btn-default btn-sm\">View</button>";
 //            html += "<button type=\"submit\" value=\"Add\" class=\"btn btn-default btn-sm\">Add</button>";
 
-            html += "<a href=\"#\" class=\"btn btn-sm btn-default\" data-toggle=\"modal\" data-target=\"#largeModal\">Add policy</a>";
+            html += "<a href=\"#\" onclick=\"recipient='"+cona+"'\" class=\"btn btn-sm btn-default btn-block\" data-toggle=\"modal\" data-target=\"#largeModal\" data-miid=\""+ cona+"\">Add policy</a>";
             //html += "<input name=\"action\" type=\"submit\" value=\"RemoveAll\"/>";
-            html += "<button name=\"action\" type=\"submit\" value=\"RemoveAll\" class=\"btn btn-default btn-sm\">Remove all</button>";
-            html += "<input type=\"hidden\" name=\"licencia\" id=\"licencia"+cona+"\"></input>";
+            html += "<button  name=\"action\" type=\"submit\" value=\"RemoveAll\" class=\"btn btn-default btn-sm btn-block\">Remove all</button>";
+            html += "<input type=\"hidden\" name=\"licencia\" id=\"licencia" + cona + "\"></input>";
+            html += "<input type=\"hidden\" name=\"xaction\" id=\"xaction" + cona + "\"></input>";
 
-/*            List<Policy> policies = PolicyManagerOld.getPolicies();
+            /*            List<Policy> policies = PolicyManagerOld.getPolicies(); id=\"action"+cona+"\"
             for (Policy policy : policies) {
-                String opcion = policy.getLabel("en");
-                html += "<option value=\"" + opcion + "\">" + opcion + "</option>";
+            String opcion = policy.getLabel("en");
+            html += "<option value=\"" + opcion + "\">" + opcion + "</option>";
             }
             html += "</select>";
-*/
+             */
 
             html += "</form>";
             //  accountInfo += "<a href=\"account.html?action=logout\" class=\"btn btn-default\" role=\"button\" >Logout</a>";
             html += "</td>";
 
-            html += "</tr>";
+            html += "</tr>\n";
         }
         html += "</table>";
 

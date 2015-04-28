@@ -88,7 +88,7 @@
       </div>
       <div class="modal-body">
         <h3>Choose a license</h3>
-		  <select id="example-getting-started">
+		  <select id="example-getting-started" class="form-control" >
 		  <!--TEMPLATELICENSES-->
 		</select>
       </div>
@@ -99,14 +99,29 @@
     </div>
   </div>
 </div>	
-	<script>
+<script>
+var recipient = -1;
+$('#largeModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+//  recipient = button.data('data-miid') // Extract info from data-* attributes
+//  alert("Hello! I am an alert box!!"+recipient+" - "+button.id);
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+//  var modal = $(this)
+//  modal.find('.modal-title').text('New message to ' + recipient)
+//  modal.find('.modal-body input').val(recipient) //
+})
 function myFunction1() {
+//		alert("ye"+recipient);
 		var e = document.getElementById("example-getting-started");
 		var strUser = e.options[e.selectedIndex].value;
-		var strOculto = "licencia" + 2;
+		var strOculto = "licencia" + recipient;
+		var strOculto2 = "xaction" + recipient;
+		var strOculto3 = "input" + recipient;
     //    document.getElementById("demo").innerHTML = "Chosen: " + strUser;
-		document.getElementById("licencia2").value=strUser;
-		document.forms["input2"].submit();
+		document.getElementById(strOculto).value=strUser;
+		document.getElementById(strOculto2).value="Add";
+		document.forms[strOculto3].submit();
 //		window.location.replace("http://localhost/manageren/");
 }
 </script>	

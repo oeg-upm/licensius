@@ -14,13 +14,14 @@
 @prefix cc:      <http://creativecommons.org/ns#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 
-<http://purl.org/NET/rdflicense/odbc-pddl1.0>
+<http://localhost/policy/odbc-pddl1.0>
       a       odrl:Policy ;
       rdfs:label "ODC-PDDL" ;
+	  rdfs:seeAlso <http://purl.org/NET/rdflicense/odbc-pddl1.0> ;
       rdfs:seeAlso <http://opendatacommons.org/licenses/pddl/> ;
       cc:legalcode <http://www.opendatacommons.org/wp-content/uploads/2010/01/odc_pddl_1.0_public_text.txt> ;
       dct:hasVersion "1.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       odrl:permission
-              [ odrl:action cc:Distribution , ldr:extraction , ldr:reutilization , cc:DerivativeWorks , cc:Reproduction
+              [ odrl:action cc:Distribution , ldr:extraction , ldr:reutilization , cc:DerivativeWorks , cc:Reproduction, odrl:play
               ] .

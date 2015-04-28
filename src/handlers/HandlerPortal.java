@@ -72,7 +72,7 @@ public class HandlerPortal {
 
         }catch(Exception e)
         {
-
+            logger.warn("Error sirviendo un dataset");
         }
     }
 
@@ -87,8 +87,14 @@ public class HandlerPortal {
         {
             String row="";
             String name = cd.name;
-            String title = cd.getDatasetVoid().getTitle();
-            String comment = cd.getDatasetVoid().getComment();
+            String title = "";
+            String comment = "";
+
+            if (cd.getDatasetDump()==null)
+                continue;
+
+            title = cd.getDatasetVoid().getTitle();
+            comment = cd.getDatasetVoid().getComment();
 
             row+="<tr>";
 

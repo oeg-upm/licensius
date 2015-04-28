@@ -205,17 +205,21 @@ public class Policy extends MetadataObject {
             boolean hasPlay = false;
             for (Action action : actions) {
                 if (action.hasPlay()) {
-                    hasPlay = true;
+                    if (r.getKindOfRule()==Rule.RULE_PERMISSION)
+                        hasPlay = true;
+                    if (r.getKindOfRule()==Rule.RULE_PROHIBITION)
+                        hasPlay = false;
+               //     return hasPlay;
                 }
             }
             if (hasPlay == false) {
                 continue;
             }
+            open=true;
             List<Constraint> lc = r.getConstraints();
             for (Constraint constraint : lc) {
-                if (constraint.isOpen()) {
-                    return true;
-                }
+                if (constraint.getClass().equals(ConstraintPay.class))
+                    open=false;
             }
         }
         return open;
