@@ -1,10 +1,10 @@
-package ldserver.ws;
+package ldconditional.ldserver.ws;
 
 
 import java.io.IOException;
 import javax.servlet.http.*;
 import java.util.List;
-import model.ConditionalDataset;
+import ldconditional.model.ConditionalDataset;
 import ldconditional.Main;
 import odrlmodel.Policy;
 
@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import ldconditional.test.*;
-import ldserver.Oferta;
-import ldserver.Recurso;
+import ldconditional.ldserver.Oferta;
+import ldconditional.ldserver.Recurso;
 
 
 /**

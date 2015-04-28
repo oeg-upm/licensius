@@ -1,4 +1,4 @@
-package ldserver.ws;
+package ldconditional.ldserver.ws;
 
 import javax.servlet.http.HttpServlet;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import model.ConditionalDataset;
+import ldconditional.model.ConditionalDataset;
 import ldconditional.Main;
 import odrlmodel.Policy;
 
@@ -14,9 +14,9 @@ import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import ldconditional.test.*;
-import ldserver.Recurso;
-import ldserver.ServerUtils;
-import model.Grafo;
+import ldconditional.ldserver.Recurso;
+import ldconditional.ldserver.ServerUtils;
+import ldconditional.model.Grafo;
 
 /**
  * @api {get} /{dataset}/service/getResources getResources

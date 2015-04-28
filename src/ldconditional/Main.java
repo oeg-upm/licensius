@@ -1,9 +1,9 @@
 package ldconditional;
 
-import model.ConditionalDatasets;
-import handlers.GeneralHandler;
-import handlers.ServiceHandler;
-import ldserver.MainHandler;
+import ldconditional.model.ConditionalDatasets;
+import ldconditional.handlers.GeneralHandler;
+import ldconditional.handlers.ServiceHandler;
+import ldconditional.ldserver.MainHandler;
 
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;

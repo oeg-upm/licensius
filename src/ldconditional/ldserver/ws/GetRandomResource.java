@@ -1,4 +1,4 @@
-package ldserver.ws;
+package ldconditional.ldserver.ws;
 
 /**
  *

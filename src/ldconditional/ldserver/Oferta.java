@@ -1,4 +1,4 @@
-package ldserver;
+package ldconditional.ldserver;
 
 import ldconditional.Main;
 import org.json.simple.JSONObject;
