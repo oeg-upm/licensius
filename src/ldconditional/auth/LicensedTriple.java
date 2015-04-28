@@ -38,14 +38,17 @@ public class LicensedTriple {
         g = lt.g;
     }
 
-    public LicensedTriple(String s, String p, String o, String g) {
+    public LicensedTriple(String s, String p, String o, String l, String g) {
         Model m = ModelFactory.createDefaultModel();
         RDFNode n = null;
 //        if (RDFUtils.isURI(o)) {
         if (o.startsWith("http")) {
             n = m.createResource(o);
         } else {
-            n = m.createLiteral(o);
+            if (l.isEmpty())
+                n = m.createLiteral(o);
+            else
+                n = m.createLiteral(o, l);
         }
         stmt = m.createStatement(m.createResource(s), m.createProperty(p), n);
         this.g = g;
@@ -323,7 +326,7 @@ public class LicensedTriple {
             String sobjeto = stmt.getObject().asLiteral().getString();
             String language = stmt.getObject().asLiteral().getLanguage();
 
-            try {
+/*            try {
                 sobjeto = URLDecoder.decode(sobjeto, "UTF-8");
                 int index1 = sobjeto.lastIndexOf("/");
                 int index2 = sobjeto.lastIndexOf("#");
@@ -339,9 +342,12 @@ public class LicensedTriple {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            } */
 
             o = sobjeto;
+            if (!language.isEmpty())
+                o+="<span class=\"lang-xs\" lang=\""+ language+"\"></span>";
+
         }
 
         String tipo = "info";

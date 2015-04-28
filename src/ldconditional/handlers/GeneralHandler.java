@@ -112,7 +112,10 @@ public class GeneralHandler extends AbstractHandler {
             {
                 sLocalfile = "htdocs"+requestUri;
             }
-
+            if (request.getRequestURI().endsWith("languages.png"))
+            {
+      //          sLocalfile = "htdocs"+requestUri;
+            }
             if (requestUri.contains("/service"))
             {
                 return true;
@@ -189,6 +192,12 @@ public class GeneralHandler extends AbstractHandler {
             //CASE 1: LOGO OF A DATASET
             if (requestUri.startsWith("/datasets/") && requestUri.endsWith("logo.png")) {
                 sLocalfile = requestUri.substring(1, requestUri.length());
+            }
+            else if (requestUri.endsWith("languages.png"))
+            {
+//                sLocalfile = LDRConfig.getServer()+requestUri;
+ //               System.out.println("repx ");
+
             }
 
 

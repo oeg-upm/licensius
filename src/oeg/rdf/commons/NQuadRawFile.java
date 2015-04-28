@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
  */
 public class NQuadRawFile {
 
-    private String filename;
+    protected String filename;
     private static final Logger logger = Logger.getLogger(NQuadRawFile.class);
 
     public NQuadRawFile(String _filename) {
@@ -64,6 +64,17 @@ public class NQuadRawFile {
         }
     }
 
+    String getName(String uri)
+    {
+        int i1 = uri.lastIndexOf("#");
+        int i2 = uri.lastIndexOf("/");
+        int i = Math.max(i1, i2);
+        if (i==-1)
+            return "";
+        String label = uri.substring(i + 1, uri.length());
+        return label;
+    }
+
     public void quitarHash()
     {
       try {
@@ -71,7 +82,9 @@ public class NQuadRawFile {
             BufferedReader br = new BufferedReader(new FileReader(filename));
             String line = null;
             while ((line = br.readLine()) != null) {
-                 String s=NQuad.getSubject(line);
+                Model m = NQuad.getStatement(line);
+
+                String s=NQuad.getSubject(line);
                 String p=NQuad.getPredicate(line);
                 String o=NQuad.getObject(line);
                 String g=NQuad.getGraph(line);
@@ -285,7 +298,8 @@ public class NQuadRawFile {
                 String o = NQuad.getObject(line);
                 String p = NQuad.getPredicate(line);
                 String g = NQuad.getGraph(line);
-                LicensedTriple lt = new LicensedTriple(s,p,o,g);
+                String l = NQuad.getObjectLangTag(line);
+                LicensedTriple lt = new LicensedTriple(s,p,o,l,g);
                 llt.add(lt);
             }
         }catch(Exception e)

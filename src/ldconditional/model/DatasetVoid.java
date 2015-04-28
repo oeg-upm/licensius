@@ -59,9 +59,9 @@ public class DatasetVoid {
      * The constructor loads the policy found in the given file 
      * @param _filename: Name of the metadata of the dataset. For example, datasets/geo/void.ttl
      */
-    public DatasetVoid(ConditionalDataset cd, String _name) {
+    public DatasetVoid(ConditionalDataset cd) {
         conditionalDataset = cd;
-        name = _name;
+        name = cd.name;
         uri = LDRConfig.getServer() + name;
         String filename = "datasets/" + name + "/void.ttl";
         File f = new File(filename);

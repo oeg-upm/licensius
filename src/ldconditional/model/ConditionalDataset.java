@@ -23,10 +23,10 @@ import org.apache.log4j.Logger;
  */
 public class ConditionalDataset {
     private static final Logger logger = Logger.getLogger(ConditionalDataset.class);
-    String BASE="http://conditional.linkeddata.es/";
     
     DatasetVoid dsVoid = null;
     DatasetDump dsDump = null;
+    DatasetIndex dsIndex = null;
 
     //1 word name
     public String name = "";
@@ -38,10 +38,10 @@ public class ConditionalDataset {
     public ConditionalDataset(String _name)
     {
         name = _name;
-        BASE = LDRConfig.getServer();
         try{
-            dsVoid = new DatasetVoid(this, name);
-            dsDump = new DatasetDump(name);
+            dsVoid = new DatasetVoid(this);
+            dsDump = new DatasetDump(this);
+            dsIndex = new DatasetIndex(this);
         }catch(Exception e)
         {
             name=null;
@@ -58,7 +58,7 @@ public class ConditionalDataset {
         return dsDump;
     }
     public String getUri() {
-        return BASE+name;
+        return LDRConfig.getServer()+name;
     }
 
 

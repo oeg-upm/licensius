@@ -108,6 +108,9 @@ public class HandlerResource {
         } catch (Exception e) {
             return "page not found " + e.getMessage();
         }
+        if (label.isEmpty())
+            label =
+
         label = "<h2>" + label + "</h2>";
         html = html.replace("<!--TEMPLATEHERE1-->", label);
 
