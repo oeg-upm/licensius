@@ -15,7 +15,7 @@
             <definitions>.\lib\nblibraries.properties</definitions>
         </libraries>
         <swingapp xmlns="http://www.netbeans.org/ns/form-swingapp/1">
-            <application-class name="ldrauthorizerold.LDRAuthorizerApp"/>
+            <application-class name="ldconditional.MainApp"/>
         </swingapp>
     </configuration>
 </project>

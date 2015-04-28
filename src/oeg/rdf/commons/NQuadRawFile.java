@@ -13,8 +13,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import ldconditional.Main;
-import ldrauthorizer.ws.LicensedTriple;
-import ldserver.Recurso;
+import ldconditional.auth.LicensedTriple;
+import ldconditional.ldserver.Recurso;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 

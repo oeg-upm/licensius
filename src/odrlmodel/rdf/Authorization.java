@@ -1,6 +1,7 @@
 package odrlmodel.rdf;
 
-import com.hp.hpl.jena.sparql.algebra.Op;
+import java.util.ArrayList;
+import java.util.List;
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.mem.GraphMem;
 import com.hp.hpl.jena.query.Dataset;
@@ -10,32 +11,17 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.sparql.algebra.Algebra;
 import com.hp.hpl.jena.sparql.core.DatasetGraphFactory;
 import com.hp.hpl.jena.sparql.core.DatasetGraphMaker;
 import com.hp.hpl.jena.sparql.core.DatasetImpl;
 import com.hp.hpl.jena.sparql.syntax.Element;
-import com.hp.hpl.jena.sparql.syntax.ElementGroup;
 import com.hp.hpl.jena.vocabulary.RDF;
-import java.util.ArrayList;
-import java.util.List;
-import auth.GoogleAuthHelper;
-import auth.AuthorizationResponse;
-import ldrauthorizer.ws.ODRLAuthorizer;
-import ldrauthorizer.ws.Portfolio;
-import model.ConditionalDataset;
-import odrlmodel.Asset;
-import odrlmodel.Policy;
-import odrlmodel.managers.AssetManager;
 import org.apache.jena.riot.RDFDataMgr;
-
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.woden.internal.util.StringUtils;
 
 /**
- *
+ * This class has no other dependency
  * @author Victor
  */
 public class Authorization {
@@ -218,23 +204,6 @@ public class Authorization {
 
 
 
-    public static List<String> PolicyMatcher(Portfolio p)
-    {
-        List<String> grafos = new ArrayList();
-        
-        
-        List<Asset> assets = AssetManager.readAssets();
-        for (Asset asset : assets)
-        {       
-            AuthorizationResponse r = ODRLAuthorizer.AuthorizeResource(asset.getURI(), p.policies);        
-            if (r.ok)
-                grafos.add(asset.getURI());
-        }
-        
-    //        grafos.add("http://salonica.dia.fi.upm.es/ldr/dataset/default");
-    //        grafos.add("http://salonica.dia.fi.upm.es/ldr/dataset/Geo");
 
-        return grafos;
-    }
 }
 
