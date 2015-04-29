@@ -16,6 +16,7 @@ import ldconditional.auth.Portfolio;
 import ldconditional.auth.GoogleAuthHelper;
 import ldconditional.auth.Evento;
 import ldconditional.model.Grafo;
+import odrlmodel.rdf.RDFUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
@@ -30,6 +31,7 @@ public class HandlerResource {
     public void serveResource(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
         String recurso = baseRequest.getRootURL().toString() + request.getRequestURI();
         ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
+        ConditionalDatasets.setSelectedDataset(cd.name);
         List<LicensedTriple> llt = cd.getDatasetDump().getLicensedTriples(recurso);
 
         Portfolio p = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
@@ -44,10 +46,10 @@ public class HandlerResource {
         if (!GeneralHandler.isHuman(request)) {
 
             if (GeneralHandler.isRDFXML(request)) {
-                body = formatRDFXMLTriples(label, llt);
+                body = formatRDFXMLTriples(llt);
                 response.setContentType("application/rdf+xml");
             } else {
-                body = formatTTLTriples(label, llt);
+                body = formatTTLTriples(llt);
                 response.setContentType("text/turtle");
             }
         } else {
@@ -64,9 +66,10 @@ public class HandlerResource {
 
     }
 
-    public static String formatTTLTriples(String label, List<LicensedTriple> lst) {
+    public static String formatTTLTriples( List<LicensedTriple> lst) {
         String s = "";
         Model model = ModelFactory.createDefaultModel();
+        RDFUtils.addPrefixesToModel(model);
         for (LicensedTriple lt : lst) {
             model.add(lt.stmt);
         }
@@ -75,7 +78,8 @@ public class HandlerResource {
         s = sw.toString();
         return s;
     }
-    public static String formatRDFXMLTriples(String label, List<LicensedTriple> lst) {
+
+    public static String formatRDFXMLTriples(List<LicensedTriple> lst) {
         String s = "";
         Model model = ModelFactory.createDefaultModel();
         for (LicensedTriple lt : lst) {
@@ -88,6 +92,7 @@ public class HandlerResource {
         System.out.println(s);
         return s;
     }
+
     /**
      * Formats in HTML the triples to be shown.
      *
@@ -108,10 +113,15 @@ public class HandlerResource {
         } catch (Exception e) {
             return "page not found " + e.getMessage();
         }
-        if (label.isEmpty())
-            label =
+        if (label.isEmpty()) {
+            label = recurso;
+        }
 
-        label = "<h2>" + label + "</h2>";
+        if (label.length() < 10) {
+            label = "<h2>" + label + "</h2>";
+        } else {
+            label = "<h4>" + label + "</h4>";
+        }
         html = html.replace("<!--TEMPLATEHERE1-->", label);
 
 //        tabla += "<h3>Open triples</h3>\n";
@@ -131,21 +141,54 @@ public class HandlerResource {
 
         tabla += "</table>\n";
 
-/*        tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
+        /*        tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
 
         tabla += "<h3>Limited access triples</h3>\n";
         tabla += "<table class=\"table table-striped table-condensed\">";
         tabla += "<thead><tr><td width=\"50%\"><strong>Property</strong></td><td width=\"50%\"><strong>Value</strong></td></tr></thead>\n";
         List<LicensedTriple> closed = getClosedTriples(cd, ls);
         for (LicensedTriple lt : closed) {
-            tabla += lt.toHTMLRowNew(cd) + "\n";
+        tabla += lt.toHTMLRowNew(cd) + "\n";
         }
- */
+         */
         tabla += "</table>\n";
+
+        String id="verrdf";
+     //   tabla+="<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#"+id +"\">RDF</button>";
+        tabla+="<div class=\"pull-right\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#"+id+"\"><img src=\"/img/rdf24.png\"/></a></div>";
+        
+        String ttl = formatTTLTriples(ls);
+        ttl=ttl.replaceAll("<", "&lt;");
+        ttl=ttl.replaceAll(">", "&gt;");
+        ttl = "<div class=\"panel panel-default\"><pre>"+ttl+"</pre></div>";
+        tabla+=getHTMLModal(id, "RDF", ttl);
+
+
 
         html = html.replace("<!--TEMPLATEHERE2-->", tabla);
 
         return html;
+    }
+
+
+    public static String getHTMLModal(String id, String titulo, String contenido) {
+
+        String s = "";
+        s += "<div class=\"modal fade\" id=\""+id+"\">";
+        s += "<div class=\"modal-dialog modal-lg\">";
+        s += "<div class=\"modal-content\">";
+        s += "<div class=\"modal-header\">";
+        s += " <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>";
+        s += "<h4 class=\"modal-title\">" + titulo + "</h4>";
+        s += "</div><div class=\"modal-body\">";
+        s += contenido;
+        s += "</div>";
+        s += "<div class=\"modal-footer\">";
+//        s += "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>";
+        s += "<button type=\"button\" data-dismiss=\"modal\" class=\"btn btn-primary\">OK</button>";
+        s += "</div></div></div></div>";
+
+        return s;
     }
 
     public static String getHTMLMenu(String recurso) {

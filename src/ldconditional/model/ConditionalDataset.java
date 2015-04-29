@@ -60,6 +60,10 @@ public class ConditionalDataset {
     public String getUri() {
         return LDRConfig.getServer()+name;
     }
+    public DatasetIndex getDatasetIndex()
+    {
+        return dsIndex;
+    }
 
 
 

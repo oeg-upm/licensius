@@ -125,8 +125,10 @@ public class NQuad {
             int i1= line.lastIndexOf("<");
             if (i0!=-1 && i1!=-1)
             {
-                lan=line.substring(i0+2,i1-1);
-                lan = lan.trim();
+                String lan2=line.substring(i0+1,i1-1);
+                int i2 = lan2.indexOf("@");
+                if (i2!=-1)
+                    lan = lan2.substring(1,3);
             }
         }catch(Exception e)
         {

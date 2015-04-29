@@ -29,9 +29,13 @@ public class DatasetDump extends NQuadRawFile {
             int i=-1;
             String line = null;
             while ((line = br.readLine()) != null) {
+
                 String s = NQuad.getSubject(line);
                 set.add(s);
-            //    StringUtils.
+                String slocal=oeg.utils.StringUtils.getLocalName(s);
+                if (!slocal.isEmpty())
+                    set.add(s);
+
                 String p=NQuad.getPredicate(line);
                 set.add(p);
                 String o=NQuad.getObject(line);

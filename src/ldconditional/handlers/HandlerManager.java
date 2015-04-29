@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.logging.Level;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -118,17 +119,19 @@ public class HandlerManager {
                 e.printStackTrace();
             }
         }
-        if (action != null) {
-            try {
-                action = URLDecoder.decode(action, "UTF-8");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        /*   if (action != null) {
+        try {
+        action = URLDecoder.decode(action, "UTF-8");
+        } catch (Exception e) {
+        e.printStackTrace();
         }
-        if (action==null)
+        }*/
+        if (action == null) {
             action = request.getParameter("xaction");
-        if (action==null)
+        }
+        if (action == null) {
             action = request.getParameter("xaction2");
+        }
 
         if (action != null && selectedGrafo != null && licencia != null) {
             logger.info("Accion " + action + " sobre " + selectedGrafo + "  licencia " + licencia);
@@ -150,22 +153,51 @@ public class HandlerManager {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return "View";
+                    return "ok";
                 }
             } else if (action.equals("Remove")) {
                 logger.info("Action remove");
                 cd.getDatasetVoid().removeLicense(selectedGrafo, licencia);
-            } 
+            }
         }
 
         if (action != null && action.equals("RemoveAll")) {
             logger.info("Action remove all");
             cd.getDatasetVoid().removeAllLicenses(selectedGrafo);
         }
+        if (action != null && action.equals("downloadData")) {
+            logger.info("Action downloadData");
+            File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq");
+            try {
+                String token = FileUtils.readFileToString(f);
+                response.getWriter().print(token);
+                response.setStatus(HttpServletResponse.SC_FOUND);
+                return "ok";
+            } catch (Exception e) {
+                logger.warn(e.getMessage());
+            }
+        }
+        if (action != null && action.equals("downloadMetadata")) {
+            logger.info("Action downloadData");
 
+            File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl");
+            try {
+                String token = FileUtils.readFileToString(f);
+                response.getWriter().print(token);
+                response.setStatus(HttpServletResponse.SC_FOUND);
+                return "ok";
+            } catch (Exception e) {
+                logger.warn(e.getMessage());
+            }
+        }
         if (action != null && action.equals("Restore default")) {
             logger.info("Action restore default");
             cd.getDatasetVoid().restoreDefault();
+            try {
+                response.sendRedirect("manageren");
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(HandlerManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
 
@@ -189,7 +221,7 @@ public class HandlerManager {
         }//function to selecte a different license for the given license
         else if (uri.contains("managePolicy")) {
             String res = managePolicy(cd, request, response, dataset);
-            if (res.equals("View")) {
+            if (res.equals("ok")) {
                 return "";
             }
         }
@@ -254,7 +286,7 @@ public class HandlerManager {
             //   html +="<button type=\"submit\" value=\"View\" class=\"btn btn-default btn-sm\">View</button>";
 //            html += "<button type=\"submit\" value=\"Add\" class=\"btn btn-default btn-sm\">Add</button>";
 
-            html += "<a href=\"#\" onclick=\"recipient='"+cona+"'\" class=\"btn btn-sm btn-default btn-block\" data-toggle=\"modal\" data-target=\"#largeModal\" data-miid=\""+ cona+"\">Add policy</a>";
+            html += "<a href=\"#\" onclick=\"recipient='" + cona + "'\" class=\"btn btn-sm btn-default btn-block\" data-toggle=\"modal\" data-target=\"#largeModal\" data-miid=\"" + cona + "\">Add policy</a>";
             //html += "<input name=\"action\" type=\"submit\" value=\"RemoveAll\"/>";
             html += "<button  name=\"action\" type=\"submit\" value=\"RemoveAll\" class=\"btn btn-default btn-sm btn-block\">Remove all</button>";
             html += "<input type=\"hidden\" name=\"licencia\" id=\"licencia" + cona + "\"></input>";
@@ -281,7 +313,7 @@ public class HandlerManager {
 
         String url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
-        form += "<input name=\"action\" type=\"submit\" value=\"Restore default\"/>";
+        form += "<input class=\"btn btn-default\"  name=\"action\" type=\"submit\" value=\"Restore default\"/>";
         html += form;
         html += "</form><!-- -->";
         return html;

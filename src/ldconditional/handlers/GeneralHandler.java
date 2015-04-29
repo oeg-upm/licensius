@@ -250,6 +250,7 @@ public class GeneralHandler extends AbstractHandler {
             // PAGINA PRINCIPAL TENEMOS /geo/index.html
             // CASE 4. MAIN PAGE OF A DATASET
             if (requestUri.endsWith("index.html")) {
+                /*
                 logger.info("Serving the index " + request.getRequestURI());
                 int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
@@ -257,7 +258,7 @@ public class GeneralHandler extends AbstractHandler {
                     HandlerIndex hi = new HandlerIndex();
                     hi.serveIndex(baseRequest, response, dataset);
                     return true;
-                }
+                }*/
             }
 
             //CASE 5
@@ -366,7 +367,7 @@ public class GeneralHandler extends AbstractHandler {
             }
 
             if (f.exists())
-                serveGeneralFile(f, requestUri, baseRequest, request, response);
+                serveGeneralFile(f, requestUri, request, response);
             else
                 response.sendRedirect("/404.html");
         } catch (Exception e) {
@@ -382,7 +383,7 @@ public class GeneralHandler extends AbstractHandler {
 
     }
 
-    public boolean serveGeneralFile(File f, String requestUri, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
+    public boolean serveGeneralFile(File f, String requestUri, HttpServletRequest request, HttpServletResponse response) {
         if (!f.exists()) {
             logger.warn("The requested file "+f.getPath()+"does not exist");
             return false;

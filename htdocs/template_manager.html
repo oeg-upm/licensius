@@ -61,7 +61,7 @@
         <div class="container"> 
 		 <div class="jumbotron">
 	<center><h1>Conditional Linked Data</h1> 
-    <p>Administer the data, policies and their assingment</p></center>
+    <p>Administer the data, policies and their assignment</p></center>
  </div>		
  
 	<div class="col-md-1">
@@ -69,7 +69,7 @@
 	<div class="col-md-8">
 		
 
-			<div class="ldrheading"><p>Assignment of policies to resources</p></div>
+			<div class="ldrheading"><p>Dataset management</p></div>
 			<div class="bigger">Choose licenses/policies for each pre-defined dataset</div>
 				<br/>
 
@@ -137,6 +137,28 @@ function myFunction1() {
 			<div class="panel panel-default">					
 				<!--TEMPLATEACCOUNTABILITY-->					
                 </div>
+				
+			<div class="ldrheading"><p>Raw files</p></div>
+		<div class="well"> 
+			<form action="manageren/managePolicy">
+				Download data: 
+				<center><button class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download data</button></center>
+				<input name="action" type="hidden" value="downloadData"></input>
+			</form>			
+			</div>
+		<div class="well"> 
+			<form action="manageren/managePolicy">
+				Download metadata: 
+				<center><button class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download metadata</button></center>
+				<input name="action" type="hidden" value="downloadMetadata"></input>
+			</form>			
+			</div>  
+			</div>
+			
+
+				
+				
+				
             </div>
 	</div>
 
