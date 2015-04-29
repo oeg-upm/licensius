@@ -3,22 +3,18 @@ package oeg.rdf.commons;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import model.ConditionalDataset;
-import model.ConditionalDatasets;
 import ldconditional.Main;
-import ldrauthorizer.ws.LicensedTriple;
-import ldserver.Recurso;
+import ldconditional.auth.LicensedTriple;
+import ldconditional.ldserver.Recurso;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 
@@ -29,7 +25,7 @@ import org.apache.log4j.Logger;
  */
 public class NQuadRawFile {
 
-    private String filename;
+    protected String filename;
     private static final Logger logger = Logger.getLogger(NQuadRawFile.class);
 
     public NQuadRawFile(String _filename) {
@@ -43,6 +39,75 @@ public class NQuadRawFile {
 
         return RDFDataMgr.loadModel(filename);
     }
+
+    public void writeModel()
+    {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename + "_rebased"));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String s=NQuad.getSubject(line);
+                String p=NQuad.getPredicate(line);
+                String o=NQuad.getObject(line);
+                String g=NQuad.getGraph(line);
+                String lan = NQuad.getObjectLangTag(line);
+                o = o.startsWith("http") ? ("<"+o+">") : ("\""+o+"\"");
+                if (!lan.isEmpty())
+                    o+="@"+lan;
+                bw.write("<"+s+"> <" + p + "> " + o + " <"+g+"> .\n");
+            }
+            bw.close();
+            br.close();
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
+        }
+    }
+
+    String getName(String uri)
+    {
+        int i1 = uri.lastIndexOf("#");
+        int i2 = uri.lastIndexOf("/");
+        int i = Math.max(i1, i2);
+        if (i==-1)
+            return "";
+        String label = uri.substring(i + 1, uri.length());
+        return label;
+    }
+
+    public void quitarHash()
+    {
+      try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename + "_rebased"));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                Model m = NQuad.getStatement(line);
+
+                String s=NQuad.getSubject(line);
+                String p=NQuad.getPredicate(line);
+                String o=NQuad.getObject(line);
+                String g=NQuad.getGraph(line);
+                String lan = NQuad.getObjectLangTag(line);
+
+                s = s.replace("#", "/");
+                if (o.startsWith("http://localhost"))
+                {
+                    o = o.replace("#", "/");
+                }
+                o = o.startsWith("http") ? ("<"+o+">") : ("\""+o+"\"");
+                if (!lan.isEmpty())
+                    o+="@"+lan;
+                bw.write("<"+s+"> <" + p + "> " + o + " <"+g+"> .\n");
+            }
+            bw.close();
+            br.close();
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
+        }
+    }
+
+
     /**
      * Gets a list with the graphs in the raw file.
      */
@@ -162,7 +227,10 @@ public class NQuadRawFile {
 
     public static void main(String[] args) throws Exception {
         Main.initLogger();
-        NQuadRawFile raw = new NQuadRawFile("datasets/geo/data.nq");
+        NQuadRawFile raw = new NQuadRawFile("datasets/emn/mini.nq");
+        raw.quitarHash();
+//        raw.writeModel();
+
      //   raw.rebase("http://conditional.linkeddata.es/ldr/", "http://salonica.dia.fi.upm.es/geo/");
 
     }
@@ -230,7 +298,8 @@ public class NQuadRawFile {
                 String o = NQuad.getObject(line);
                 String p = NQuad.getPredicate(line);
                 String g = NQuad.getGraph(line);
-                LicensedTriple lt = new LicensedTriple(s,p,o,g);
+                String l = NQuad.getObjectLangTag(line);
+                LicensedTriple lt = new LicensedTriple(s,p,o,l,g);
                 llt.add(lt);
             }
         }catch(Exception e)

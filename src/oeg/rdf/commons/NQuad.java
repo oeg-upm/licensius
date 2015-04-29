@@ -38,7 +38,7 @@ public class NQuad {
         return nquad.substring(i+1,j);
     }
 
-    static RDFNode getObjectRDFNode(String nquad)
+    public static RDFNode getObjectRDFNode(String nquad)
     {
         Model m = ModelFactory.createDefaultModel();
         nquad = nquad.trim();
@@ -64,7 +64,7 @@ public class NQuad {
     }
 
 
-    static String getObject(String nquad) {
+    public static String getObject(String nquad) {
         nquad = nquad.trim();
         int i0 = nquad.indexOf("<");   
         int i1 = nquad.indexOf("<", i0+1);
@@ -82,7 +82,7 @@ public class NQuad {
         return o;
     }
 
-    static String getPredicate(String nquad) {
+    public static String getPredicate(String nquad) {
         nquad = nquad.trim();
         int i0 = nquad.indexOf("<");   
         int i1 = nquad.indexOf("<", i0+1);
@@ -94,6 +94,7 @@ public class NQuad {
         String s= getSubject(nquad);
         String p= getPredicate(nquad);
         String o= getObject(nquad);
+        String lan = NQuad.getObjectLangTag(nquad);
         
         Model model = ModelFactory.createDefaultModel();
         Resource js = model.createResource(s);
@@ -105,12 +106,35 @@ public class NQuad {
         }
         else
         {
-            int index = o.lastIndexOf("\"");
-            o = o.substring(1,index);
-            Literal jo = model.createLiteral(o);
+       //     int index = o.lastIndexOf("\"");
+       //     o = o.substring(1,index);
+            Literal jo = null;
+            if (lan.isEmpty())
+                jo=model.createLiteral(o);
+            else
+                jo = model.createLiteral(o, lan);
             js.addProperty(jp, jo);
         }
         return model;
+    }
+
+    public static String getObjectLangTag(String line) {
+        String lan="";
+        try{
+            int i0= line.lastIndexOf("\"");
+            int i1= line.lastIndexOf("<");
+            if (i0!=-1 && i1!=-1)
+            {
+                String lan2=line.substring(i0+1,i1-1);
+                int i2 = lan2.indexOf("@");
+                if (i2!=-1)
+                    lan = lan2.substring(1,3);
+            }
+        }catch(Exception e)
+        {
+          return "";
+        }
+        return lan;
     }
     
 }

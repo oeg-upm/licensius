@@ -1,7 +1,7 @@
 package ldconditional.test;
 
-import model.ConditionalDataset;
-import model.ConditionalDatasets;
+import ldconditional.model.ConditionalDataset;
+import ldconditional.model.ConditionalDatasets;
 import ldconditional.LDRConfig;
 import ldconditional.Main;
 

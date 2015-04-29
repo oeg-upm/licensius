@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 
 /**
  * Hace de mapa de idiomas
+ * http://usrz.github.io/bootstrap-languages/
  * @author Victor Rodriguez Doncel
  */
 public class LanguageManager {
@@ -35,4 +36,6 @@ public class LanguageManager {
         } catch (Exception e) {
         }
     }
+
+
 }

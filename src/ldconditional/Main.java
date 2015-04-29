@@ -1,9 +1,9 @@
 package ldconditional;
 
-import model.ConditionalDatasets;
-import handlers.GeneralHandler;
-import handlers.ServiceHandler;
-import ldserver.MainHandler;
+import ldconditional.model.ConditionalDatasets;
+import ldconditional.handlers.GeneralHandler;
+import ldconditional.handlers.ServiceHandler;
+import ldconditional.ldserver.MainHandler;
 
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
@@ -29,6 +29,7 @@ import org.eclipse.jetty.server.session.SessionHandler;
 public class Main {
 
     static final Logger logger = Logger.getLogger(Main.class);
+    public static Server server = null;
 
     public static void main(String[] args) throws Exception {
 
@@ -80,7 +81,7 @@ public class Main {
         int port = Integer.parseInt(LDRConfig.getPort());
         logger.info("Starting the server in " + port);
         int puerto = Integer.parseInt(LDRConfig.getPort());
-        Server server = new Server(puerto);
+        server = new Server(puerto);
         RequestLogHandler requestLogHandler = new RequestLogHandler();
         HandlerCollection handlers = new HandlerCollection();
         HashSessionManager manager = new HashSessionManager();
@@ -111,3 +112,21 @@ public class Main {
 
     
 }
+
+
+/**
+
+ http://es.dbpedia.org/sparql
+
+SELECT *  WHERE {
+      ?uri geo:lat ?lat .
+      ?uri geo:long ?lon .
+      ?uri rdf:type ?thetype .
+      FILTER ( regex(?thetype,'^http://schema.org'))
+
+}
+http://oeg-dev.dia.fi.upm.es/nor2o/
+ *
+ *
+ *
+ */
