@@ -14,10 +14,13 @@
 <meta name="description" content="This is a collection of licenses written in RDF">
 <meta name="author" content="Victor Rodriguez Doncel ">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
 <meta name="dc.title" content="Licenses in RDF">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="icon" href="http://rdflicense.linkeddata.es/dataset/img/favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
 <script async="" src="./analytics.js"></script><script>
@@ -30,15 +33,30 @@
 </script><style type="text/css"></style>
 </head>
 
-
-  <body>
 <body> 
+    
+ <div class="container">
+ <div class="jumbotron">
+	<center><h1>RDFLicense dataset</h1> 
+        <p>A set of licenses represented in RDF</p></center>
+ </div>
+    
+	<div class="col-md-1">
+
+	</div>     
+	<div class="col-md-8">
+        <p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
+
+	</div>     
+     
+ </div> <!-- end of bootstrap container -->
+    
 <div class="container"> 
 <div class="sixteen columns">
 <div class="sixteen columns alpha">
-<h1>RDF License dataset</h1>
+<!--<h1>RDF License dataset</h1>
 <p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
-
+-->
 
 <center><img src="./fig2.png" width="300px"></center>
 
@@ -52,8 +70,8 @@
 
 
 
-<div class="CSSTableGenerator">
-                <table>
+
+                <table class="table table-striped">
 				<colgroup>
                                 <col width="40%">
 				<col width="40%">
@@ -78,7 +96,7 @@
             <%= TestRDFLicense.getTable() %>
             
                 </tbody></table>
-            </div>
+            
 <p></p>			
 <center>
 <a href="https://github.com/oeg-upm/rdflicense"><img src="./github.png"></a>

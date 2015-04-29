@@ -2,7 +2,6 @@ package oeg.rdflicense;
 
 //GAGAWA https://code.google.com/p/gagawa/
 import com.hp.gagawa.java.elements.Body;
-import com.hp.gagawa.java.elements.H1;
 import com.hp.gagawa.java.elements.Head;
 import com.hp.gagawa.java.elements.Html;
 import com.hp.gagawa.java.elements.Text;

@@ -1,19 +1,16 @@
 package oeg.rdflicense;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.StringWriter;
-import java.util.List;
 import odrlmodel.ODRLRDF;
 import odrlmodel.Policy;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
 
 //JSONSIMPLE
 import org.json.simple.JSONObject;
 
 /**
- * This class represents a license in RDF
+ * This class represents a license in RDF.
+ * This project will online compile under Java SDK 7. Fix both the PATH environment variable and the JAVA_HOME to point to the Java 7 SDK.
  * @author Victor
  */
 public class RDFLicense {

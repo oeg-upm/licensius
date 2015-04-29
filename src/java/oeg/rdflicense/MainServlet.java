@@ -3,21 +3,12 @@ package oeg.rdflicense;
 //JAVA
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.*;
 
 //LOG4J
-import odrlmodel.ODRLRDF;
 import odrlmodel.Policy;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
