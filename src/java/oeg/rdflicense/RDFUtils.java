@@ -120,6 +120,7 @@ public class RDFUtils {
         s += "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n";
         s += "@prefix provo: <http://purl.org/net/provenance/ns#> .\n";
         s += "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+        s += "@prefix ms: <http://purl.org/NET/ms-rights#> .\n";
         s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
         return s;
     }
