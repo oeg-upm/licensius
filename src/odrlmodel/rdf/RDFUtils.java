@@ -283,7 +283,7 @@ public class RDFUtils {
     public static String browseSemanticWeb(String url) {
         String document = "";
         String acceptHeaderValue = StrUtils.strjoin(",","application/rdf+xml","application/turtle;q=0.9","application/x-turtle;q=0.9","text/n3;q=0.8","text/turtle;q=0.8","text/rdf+n3;q=0.7","application/xml;q=0.5","text/xml;q=0.5","text/plain;q=0.4","*/*;q=0.2");
-        boolean redirect = false;
+        boolean redirect = false; 
         try {
             URL obj = new URL(url);
             HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
