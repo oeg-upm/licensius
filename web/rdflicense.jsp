@@ -41,22 +41,15 @@
         <p>A set of licenses represented in RDF</p></center>
  </div>
     
-	<div class="col-md-1">
+	<div class="col-md-2">
 
 	</div>     
 	<div class="col-md-8">
         <p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
 
-	</div>     
-     
- </div> <!-- end of bootstrap container -->
+
     
-<div class="container"> 
-<div class="sixteen columns">
-<div class="sixteen columns alpha">
-<!--<h1>RDF License dataset</h1>
-<p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
--->
+
 
 <center><img src="./fig2.png" width="300px"></center>
 
@@ -65,12 +58,6 @@
 
 <p>Complete dataset for download: <big><a href="http://purl.org/NET/rdflicense/">rdflicense.ttl</a></big> </p>
 <p>This is the VoID description <a href="http://rdflicense.linkeddata.es/dataset/void.ttl">void.ttl</a> and this is a sample license <a href="http://rdflicense.linkeddata.es/dataset/example.ttl">example.ttl</a>  </p>	
-
-
-
-
-
-
                 <table class="table table-striped">
 				<colgroup>
                                 <col width="40%">
@@ -131,8 +118,15 @@ You may also want to cite our research work:</p><p>
 </footer>
 </div>
 </div>
-</div>
-</div>
+    
+	<div class="col-md-2">
+
+	</div> 
+   
+     
+ </div> <!-- end of bootstrap container -->
+ 
+ 
 <script type="text/javascript" id="cookiebanner" src="./cookiebanner.min.js" data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies."></script>
 
 <!-- Start of StatCounter Code for Default Guide -->

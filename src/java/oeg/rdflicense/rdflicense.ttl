@@ -12,6 +12,7 @@
 @prefix provo: <http://purl.org/net/provenance/ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix l4lod: <http://ns.inria.fr/l4lod/> .
+@prefix ms: <http://purl.org/NET/ms-rights#> .
 @prefix : <http://purl.org/NET/rdflicense/> .
 
 
@@ -2376,9 +2377,6 @@
             odrl:action cc:ShareAlike, cc:Attribution, cc:SourceCode ;
 	] 		   
    ] .
-
-
- 
 	   
 <http://purl.org/NET/rdflicense/GOVTRACK1.0>
  a odrl:Policy;
@@ -2522,7 +2520,7 @@
         odrl:prohibition [
             odrl:action "noDRM" ;
 	] ;
-    ] . 
+  ] . 
 
 	
 <http://purl.org/NET/rdflicense/GNU-LGPL3.0>
@@ -2538,7 +2536,7 @@
         odrl:action cc:Reproduction, cc:Distribution, cc:DerivativeWorks ;
         odrl:duty [
             odrl:action cc:Attribution , cc:Notice, cc:SourceCode, cc:LesserCopyleft
-	] ;
+		] ;
     ] . 
 
 <http://purl.org/NET/rdflicense/GNU-AGPL3.0>
@@ -2566,7 +2564,7 @@
 		dct:title   "META-SHARE Commercial NoRedistribution For-A-Fee" ;
 		dct:alternative   "MS C-NoReD-FF" ;
 	    dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
-		ms:restrictionsOfUse ms:noRedistribution, cc:Attribution, cc:CommercialUse, ms:languageEngineeringResearch;
+		ms:conditionsOfUse ms:noRedistribution, cc:Attribution, cc:CommercialUse, ms:languageEngineeringResearch;
 		ms:licenseCategory ms:PUB ;
 		odrl:permission [
 			odrl:action cc:Reproduction, cc:DerivativeWorks , odrl:extract, odrl:aggregate, cc:CommercialUse ;
@@ -2581,7 +2579,7 @@
 				a odrl:Constraint ;
 				odrl:operator odrl:eq ;
 				odrl:purpose ms:languageEngineeringResearch 
-				]
+				] ;
 			odrl:constraint [
 				a odrl:Constraint ;
 				odrl:operator odrl:eq ;
@@ -2595,6 +2593,210 @@
 
 		cc:legalcode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20%20NoRedistribution_v0%207.pdf> ;
 		rdfs:seeAlso <http://www.meta-net.eu/meta-share/meta-share-licenses/Tabular%20Presentation%20of%20No%20redistribution%20Licences.pdf> . 
+
+<http://purl.org/NET/rdflicense/ms-c-nored> 
+    a                odrl:Policy ;
+    dct:hasVersion   "1.0" ;
+	dct:title "META-SHARE Commercial NoRedistribution";
+    rdfs:label   "META-SHARE Commercial NoRedistribution" ;
+    dct:alternative   "MS C-NoReD" ;
+    dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+    ms:conditionsOfUse ms:noRedistribution ;
+    ms:conditionsOfUse cc:Attribution ; 
+    ms:conditionsOfUse cc:CommercialUse;
+    ms:conditionsOfUse ms:languageEngineeringResearch ;
+    ms:licenseCategory ms:PUB ;
+    odrl:permission [
+        odrl:action cc:Reproduction, cc:DerivativeWorks , odrl:extract, odrl:aggregate, cc:CommercialUse ;
+	odrl:duty [
+		odrl:action cc:Attribution ;
+		] ;
+	odrl:constraint [
+		a odrl:Constraint ;
+	    odrl:operator odrl:eq ;
+	    odrl:purpose ms:languageEngineeringResearch 
+		] ;
+	odrl:constraint [
+	a odrl:Constraint ;
+	odrl:operator odrl:eq ;
+	odrl:spatial "only at assignee's site"  
+		]
+	];
+	 odrl:prohibition [
+	   odrl:action cc:Distribution 
+	];
+
+    cc:legalcode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20%20NoRedistribution_v0%207.pdf> ;
+    rdfs:seeAlso <http://www.meta-net.eu/meta-share/meta-share-licenses/Tabular%20Presentation%20of%20No%20redistribution%20Licences.pdf> . 
+	
+<http://purl.org/NET/rdflicense/ms-commons-byncnd> 
+        a      odrl:Policy ;
+		dct:hasVersion "1.0" ;
+		rdfs:label   "META-SHARE Commons BYNCND" ;
+		   dct:alternative   "MS Commons BYNCND" ;
+	         dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+		   ms:conditionsOfUse ms:onlyMSMembers, cc:Attribution, ms:academic-nonCommercialUse, ms:noDerivatives, ms:languageEngineeringResearch ;
+		   ms:licenseCategory ms:ACA ;
+		   odrl:permission [
+			odrl:action cc:Reproduction, odrl:extract, odrl:aggregate ;
+			odrl:assignee <http://example.com/MetaShareMembers> ; 
+			odrl:duty [
+				odrl:action cc:Attribution ;
+				] ;
+			odrl:constraint [
+				a odrl:Constraint ;
+				odrl:operator odrl:eq ;
+				odrl:purpose ms:languageEngineeringResearch 
+				] ;
+			odrl:constraint [
+				a odrl:Constraint ;
+				odrl:operator odrl:eq ;
+				odrl:spatial "only at assignee's site"
+				]
+
+			];
+		   odrl:prohibition [
+			odrl:action cc:DerivativeWorks, cc:CommercialUse ;
+			];
+
+		cc:legalcode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BYNCND%20v1.0.pdf> ;
+		rdfs:seeAlso <http://www.meta-net.eu/meta-share/meta-share-licenses/Tabular%20presentation%20of%20MS%20Commons%20Licences.pdf> . 
+		<http://example.com/MetaShareMembers> a odrl:Group .	
+		
+<http://purl.org/NET/rdflicense/clarin_aca_by> 
+        a      odrl:Policy ;
+	       dct:hasVersion "1.0" ;
+	       rdfs:label   "CLARIN ACAdemic BY" ;
+	       dct:alternative   "CLARIN ACA BY" ;
+	       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+		   ms:conditionsOfUse cc:Attribution, ms:academicUser ;
+		   ms:licenseClarinCategory ms:ACA ;
+		   odrl:permission [
+			odrl:action cc:Reproduction, odrl:extract, odrl:aggregate ;
+			odrl:duty [
+				odrl:action cc:Attribution ;
+		        ] ;
+		        odrl:constraint [
+			       odrl:operator odrl:eq ;
+			       odrl:industry ms:publicInstitution ;
+		        ] ;
+		    ] ;
+		rdfs:seeAlso <https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinEULA> .		
+		
+<http://purl.org/ms-lod/rdflicense/elra-end-user> 
+	a                odrl:Policy ;
+	rdfs:label   "LANGUAGE RESOURCES END-USER AGREEMENT" ;
+	dct:alternative   "ELRA-END-USER" ;
+	dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+	ms:conditionsOfUse cc:Attribution, ms:noDerivatives, ms:noRedistribution, ms:languageEngineeringResearch, ms:spatialConstraint, ms:forAFee ;
+	ms:licenseCategory ms:RES ;
+	odrl:permission [
+		odrl:action cc:Reproduction, odrl:modify, odrl:translate ;
+		odrl:duty [
+			odrl:action cc:Attribution ;
+			odrl:attributedParty ms:distributionRightsHolder
+			] ;
+		odrl:duty [
+			odrl:action odrl:compensate
+			] ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:purpose ms:languageEngineeringResearch
+			] ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:spatial "only at assignee's site"
+			]
+		];
+	odrl:prohibition [
+		odrl:action cc:Distribution, cc:DerivativeWorks
+	];
+	cc:legalcode <http://www.elda.org/media/filer_public/2014/08/01/enduser_140312.pdf> ;
+	rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> .		
+	
+<http://purl.org/ms-lod/rdflicense/elra-var> 
+	a                odrl:Policy ;
+	rdfs:label   "LANGUAGE RESOURCES VALUE-ADDED-RESELLER AGREEMENT" ;
+	dct:alternative   "ELRA-VAR" ;
+	dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+	ms:conditionsOfUse cc:Attribution, ms:noRedistribution, ms:languageEngineeringResearch, ms:spatialConstraint, ms:forAFee ;
+	ms:licenseCategory ms:RES ;
+	odrl:permission [
+		odrl:action cc:Reproduction, odrl:modify, odrl:translate, cc:DerivativeWorks ;
+		odrl:duty [
+			odrl:action cc:Attribution ;
+			odrl:attributedParty ms:distributionRightsHolder
+			] ;
+		odrl:duty [
+			odrl:action odrl:compensate
+			] ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:purpose ms:languageEngineeringResearch 
+			] ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:spatial "only at assignee's site"  
+			]
+		];
+	odrl:prohibition [
+		odrl:action cc:Distribution  
+	];
+	cc:legalcode <http://www.elda.org/media/filer_public/2014/08/01/var_140312.pdf> ;
+	rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> . 	
+	
+<http://purl.org/ms-lod/rdflicense/elra-var> 
+	a                odrl:Policy ;
+	rdfs:label   "EVALUATION PACKAGES END-USER AGREEMENT" ;
+	dct:alternative   "ELRA-EVALUATION" ;
+	dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+	ms:conditionsOfUse cc:Attribution, ms:noRedistribution, ms:languageEngineeringResearch, ms:evaluation, ms:academic-nonCommercialUse, ms:forAFee ;
+	ms:licenseCategory ms:RES ;
+	odrl:permission [
+		odrl:action cc:Reproduction, odrl:modify, odrl:translate ;
+		odrl:duty [
+			odrl:action cc:Attribution ;
+			odrl:attributedParty ms:distributionRightsHolder
+			] ;
+		odrl:duty [
+			odrl:action odrl:compensate
+			] ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:purpose ms:languageEngineeringResearch
+			] ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:purpose ms:evaluation
+			] ;
+		] ;
+	odrl:permission [
+		odrl:action odrl:copy ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:count 1 ;
+			] ;
+		odrl:constraint [
+			a odrl:Constraint ;
+			odrl:operator odrl:eq ;
+			odrl:purpose odrl:archive
+			] 
+		];
+	odrl:prohibition [
+		odrl:action cc:Distribution, cc:CommercialUse  
+	];
+	cc:legalcode <http://www.elda.org/media/filer_public/2014/08/01/enduser_140312.pdf> ;
+	rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> . 		
+		
+		
+		
 		
 #PSEUDO-LICENSES (THEY ARE NOT LICENSES BUT STILL USEFUL)
 	   

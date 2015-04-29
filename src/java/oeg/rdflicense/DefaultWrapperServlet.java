@@ -15,7 +15,7 @@ public class DefaultWrapperServlet extends HttpServlet
     	throws ServletException, IOException
     {
     	RequestDispatcher rd = getServletContext().getNamedDispatcher("default");
-        logger.info("GRAPER siendo ejecutado por alguna razón misteriosa");
+        logger.info("GRAPER siendo ejecutado por alguna razón misteriosa " + req.getRequestURI());
 
     	HttpServletRequest wrapped = new HttpServletRequestWrapper(req) {
     		public String getServletPath() { return ""; }
