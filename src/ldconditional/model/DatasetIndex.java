@@ -1,5 +1,6 @@
 package ldconditional.model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,6 +28,8 @@ import org.apache.log4j.Logger;
 public class DatasetIndex {
     private static final Logger logger = Logger.getLogger(DatasetIndex.class);
     private ConditionalDataset cd = null;
+
+    Map<String, List<Integer>> mapGrafos, mapSujetos;
 
     public DatasetIndex(ConditionalDataset _cd) {
         cd = _cd;
@@ -140,13 +143,39 @@ public Map<String, List<Integer>> readIndexGrafos()
     public static void main(String[] args) {
         Main.standardInit();
         ConditionalDataset cd = ConditionalDatasets.getDataset("geo");
-        DatasetIndex di = cd.getDatasetIndex();
-        Map<String, List<Integer>> mapGrafos = di.createIndexGrafos();
-        di.writeIndexGrafos(mapGrafos);
-
-        ExternalSort.ordenar("data.nq");
-        Map<String, List<Integer>> mapSujetos = di.createIndexSubjects();
-        di.writeIndexSujetos(mapSujetos);
-
+//        cd.getDatasetIndex().indexar();
+        cd.getDatasetIndex().leerIndice();
+        String st = cd.getDatasetIndex().buscarSujeto("http://localhost/geo/resource/Municipio/Oviedo");
+        System.out.println(st);
     }
+
+    public String buscarSujeto(String term)
+    {
+        List<Integer> li = mapSujetos.get(term);
+        if (li==null || li.isEmpty())
+            return "";
+        String str="";
+
+        str = cd.getDatasetDump().getTextBetweenLines(li.get(0), li.get(1));
+        logger.info("Buscando de la " + li.get(0) + " " + li.get(1));
+        System.out.println(str);
+        return str;
+    }
+
+    public void indexar()
+    {
+        DatasetIndex di = cd.getDatasetIndex();
+        mapGrafos = di.createIndexGrafos();
+        di.writeIndexGrafos(mapGrafos);
+        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
+        mapSujetos = di.createIndexSubjects();
+        di.writeIndexSujetos(mapSujetos);
+    }
+    public void leerIndice()
+    {
+        DatasetIndex di = cd.getDatasetIndex();
+         mapGrafos = di.readIndexGrafos();
+        mapSujetos = di.readIndexSujetos();
+    }
+
 }

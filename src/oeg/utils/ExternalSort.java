@@ -22,6 +22,7 @@ import java.util.PriorityQueue;
 import java.util.zip.Deflater;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
+import org.apache.log4j.Logger;
 
 /**
  * Goal: offer a generic external-memory sorting program in Java.
@@ -47,12 +48,14 @@ import java.util.zip.GZIPOutputStream;
  * http://lemire.me/blog/archives/2010/04/01/external-memory-sorting-in-java/
  */
 public class ExternalSort {
-    public static void Ordenar(String filename)
+     private static final Logger logger = Logger.getLogger(ExternalSort.class);
+    public static void ordenar(String filename)
     {
         String args2[]={filename, filename};
         try {
             ExternalSort.main(args2);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
+            logger.error("Error ordering big file " + ex.getMessage());
         }
     }
 
