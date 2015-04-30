@@ -1,3 +1,4 @@
+<%@page import="oeg.rdflicense.MainServlet"%>
 <%@page import="oeg.rdflicense.TestRDFLicense"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
@@ -21,8 +22,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-
+<!--  <script type="text/javascript" src="js/jquery.latest.js"></script>
+  <script type="text/javascript" src="js/jquery.tablesorter.js"></script> -->
 <script async="" src="./analytics.js"></script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -45,42 +46,56 @@
 
 	</div>     
 	<div class="col-md-8">
+	
+	<div class="panel panel-default">
+	<div class="panel-heading"><h2 class="panel-title">What is this?</h2></div>
+	<div class="panel-body">
         <p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
-
-
-    
-
-
-<center><img src="./fig2.png" width="300px"></center>
+		<center><img src="./fig2.png" width="200px"></center>
+</div>
+		</div>
 
 <!--<span style="color:red">UNDER MAINTENANCE (18.11.2014)</span> -->
 
 
-<p>Complete dataset for download: <big><a href="http://purl.org/NET/rdflicense/">rdflicense.ttl</a></big> </p>
-<p>This is the VoID description <a href="http://rdflicense.linkeddata.es/dataset/void.ttl">void.ttl</a> and this is a sample license <a href="http://rdflicense.linkeddata.es/dataset/example.ttl">example.ttl</a>  </p>	
-                <table class="table table-striped">
-				<colgroup>
+	<div class="panel panel-default">
+	<div class="panel-heading"><h2 class="panel-title">Download complete dataset</h2></div>
+	<div class="panel-body">
+<center><a href="http://purl.org/NET/rdflicense/" class="btn btn-success btn-large" download="rdflicense.ttl"><span class="glyphicon glyphicon-download-alt"></span>Download</a></center>
+<center><p><a href="http://rdflicense.linkeddata.es/dataset/void.ttl">VoID description</a> </p>	</center>
+
+</div>
+</div>
+
+<!--<script>
+$(function(){
+  $("#myTable").tablesorter();
+});
+</script>-->
+
+<!--<a href="http://purl.org/NET/rdflicense/" download>rdflicense.ttl</a>--->
+                <table id = "#myTable" class="table table-striped table-hoover table-condensed tablesorter">
+		<!--		<colgroup>
                                 <col width="40%">
 				<col width="40%">
 				<col width="10%">
 				<col width="10%">
-                    </colgroup><tbody><tr>
-                        <td>
-                            License
-                        </td>
-                        <td>
-                            URI
-                        </td>
-                        <td>
+                    </colgroup> -->
+                    <thead><tr>
+					<th>Publisher </th>
+                    <th>License </th>
+					<th>URI</th>
+                        <th>
                             Version
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Links
-                        </td>
-                    </tr>
-<tr><td>Open Government Licence</td><td>http://purl.org/NET/rdflicense/ukogl1.0</td><td>1.0</td><td><a href="http://purl.org/NET/rdflicense/ukogl1.0"><img src="./rdflicense32.png"></a><a href="http://purl.org/NET/rdflicense/ukogl1.0.ttl"><img src="./rdf32.png"></a></td></tr>
+                        </th>
+                        </th>
+                    </thead><tbody>
+<!-- <tr><td>Open Government Licence</td><td>http://purl.org/NET/rdflicense/ukogl1.0</td><td>1.0</td><td><a href="http://purl.org/NET/rdflicense/ukogl1.0"><img src="./rdflicense32.png"></a><a href="http://purl.org/NET/rdflicense/ukogl1.0.ttl"><img src="./rdf32.png"></a></td></tr> -->
 
-            <%= TestRDFLicense.getTable() %>
+            <%= MainServlet.getTable() %>
             
                 </tbody></table>
             

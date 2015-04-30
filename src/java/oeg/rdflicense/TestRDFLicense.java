@@ -17,7 +17,7 @@ public class TestRDFLicense {
 //        RDFLicense lic = dataset.getRDFLicense("http://purl.org/NET/rdflicense/cc-by-nc-nd3.0es");
 //        System.out.println(lic.getLabel());
         
-        String s= getTable();
+        String s= MainServlet.getTable();
         System.out.println(s);
         
 
@@ -33,24 +33,7 @@ public class TestRDFLicense {
         }
     }
     
-    public static String getTable()
-    {
-        RDFLicenseDataset dataset = new RDFLicenseDataset();
-        List<RDFLicense> licenses = dataset.getRDFLicenses();
-        String s="";
-        for (RDFLicense license : licenses) {
 
-            s+= "<tr>";
-            s+= "<td>"+license.getLabel()+"</td>";
-            s+= "<td>"+license.getURI()+"</td>";
-            s+= "<td>"+license.getVersion()+"</td>";
-            s+= "<td><a href=\""+  license.getURI() +"\"><img src=\"img/rdflicense32.png\"/></a>"; 
-            s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a></td>"; 
-            s+="</tr>\n";
-//            System.out.println(s);
-        }      
-        return s;
-    }
     
     public static void testhtml()
     {
