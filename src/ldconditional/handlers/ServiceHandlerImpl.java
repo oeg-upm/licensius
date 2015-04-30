@@ -273,7 +273,7 @@ public class ServiceHandlerImpl {
         }
     }
 
-    private static void addPrefixes(Model model) {
+    /*private static void addPrefixes(Model model) {
         model.setNsPrefix("odrl", "http://www.w3.org/ns/odrl/2/"); //http://w3.org/ns/odrl/2/
         model.setNsPrefix("dct", "http://purl.org/dc/terms/");
         model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
@@ -285,7 +285,7 @@ public class ServiceHandlerImpl {
         model.setNsPrefix("ldp", "http://www.w3.org/ns/ldp#");
         model.setNsPrefix("foaf", "http://xmlns.com/foaf/spec/");
         model.setNsPrefix("schema", "http://schema.org/");
-    }
+    }*/
     
     public static void getDataset2(ConditionalDataset cd, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         Portfolio portfolio = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
@@ -361,12 +361,12 @@ public class ServiceHandlerImpl {
             return;
         } else { //the authorization was fine!
             
-            List<Statement> lst = cd.getDatasetDump().getTriplesInGrafo(grafo.getURI());
+            List<Statement> lst = cd.getDatasetDump().getTriplesInGrafoSinIndexar(grafo.getURI());
             Model model = ModelFactory.createDefaultModel();
             for (Statement st : lst) {
                 model.add(st);
             }
-            addPrefixes(model);
+            RDFUtils.addPrefixesToModel(model);
 
             //ADD LICENSE INFORMATION
             Resource rdataset = model.createResource(datasetName);

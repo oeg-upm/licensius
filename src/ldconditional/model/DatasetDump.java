@@ -34,26 +34,15 @@ public class DatasetDump extends NQuadRawFile {
             int i = -1;
             String line = null;
             while ((line = br.readLine()) != null) {
-
-                //            String s = NQuad.getSubject(line);
-                //            set.add(s);
-                //            String slocal=oeg.utils.StringUtils.getLocalName(s);
-                //            if (!slocal.isEmpty())
-                //                set.add(s);
-
-                //         String p=NQuad.getPredicate(line);
-                //         set.add(p);
-                //       String o=NQuad.getObject(line);
-                //       set.add(o);
                 String g = NQuad.getGraph(line);
                 set.add(g);
-//                String lan = NQuad.getObjectLangTag(line);
-
             }
         } catch (Exception e) {
         }
         return set;
     }
+
+
     //Devuelve las entradas para el indice
     // REQUIERE QUE EL DUMP ESTE ORDENADO ALFABETICAMENTE. OJO....
 
@@ -72,14 +61,16 @@ public class DatasetDump extends NQuadRawFile {
                     continue;
                 }
                 if (i == 0) {
+                    lasts=s;
                     continue;
                 }
                 List<Integer> li = new ArrayList();
                 li.add(ini);
                 li.add(i - 1);
+                map.put(lasts, li);
                 lasts = s;
                 ini = i;
-                map.put(s, li);
+                
             }
         } catch (Exception e) {
         }
@@ -143,6 +134,27 @@ public class DatasetDump extends NQuadRawFile {
                 }
                 if (i >= g0) {
                     str += line + "\n";
+                }
+            }
+        } catch (Exception e) {
+            logger.debug("mal");
+        }
+        return str;
+    }
+    List<String> getNQuadsBetweenLines(Integer g0, Integer g1) {
+        List<String> str = new ArrayList();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i = -1;
+            String line = null;
+
+            while ((line = br.readLine()) != null) {
+                i++;
+                if (i > g1) {
+                    return str;
+                }
+                if (i >= g0) {
+                    str.add(line);
                 }
             }
         } catch (Exception e) {

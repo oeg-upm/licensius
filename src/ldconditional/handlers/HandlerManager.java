@@ -170,6 +170,8 @@ public class HandlerManager {
             File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq");
             try {
                 String token = FileUtils.readFileToString(f);
+                response.setHeader("Content-Disposition","attachment;filename=data.nq");
+                response.setContentType("application/n-quads");
                 response.getWriter().print(token);
                 response.setStatus(HttpServletResponse.SC_FOUND);
                 return "ok";
@@ -178,11 +180,11 @@ public class HandlerManager {
             }
         }
         if (action != null && action.equals("downloadMetadata")) {
-            logger.info("Action downloadData");
-
+            logger.info("Action downloadMetadata");
             File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl");
             try {
                 String token = FileUtils.readFileToString(f);
+                response.setHeader("Content-Disposition","attachment;filename=void.ttl");
                 response.getWriter().print(token);
                 response.setStatus(HttpServletResponse.SC_FOUND);
                 return "ok";
@@ -196,10 +198,16 @@ public class HandlerManager {
             try {
                 response.sendRedirect("manageren");
             } catch (IOException ex) {
-                java.util.logging.Logger.getLogger(HandlerManager.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
+        if (action != null && action.equals("Index")) {
+            cd.getDatasetIndex().indexar();
+            cd.getDatasetVoid().recalcularTriples();
+            try {
+                response.sendRedirect("manageren");
+            } catch (IOException ex) {
+            }
+        }
 
         return "";
     }
@@ -314,8 +322,13 @@ public class HandlerManager {
         String url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         form += "<input class=\"btn btn-default\"  name=\"action\" type=\"submit\" value=\"Restore default\"/>";
-        html += form;
-        html += "</form><!-- -->";
+        html += form+"</form>";
+
+        url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
+        form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
+        form += "<input class=\"btn btn-default\"  name=\"action\" type=\"submit\" value=\"Index\"/>";
+        html += form+"</form>";
+
         return html;
     }
 

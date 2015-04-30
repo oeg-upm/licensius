@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta http-equiv="content-type" content="Mime-Type; charset=iso-8859-1" />  
 
-  <link rel="stylesheet" href="/css/languages.min.css">
+<!--  <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
   <link rel="stylesheet" href="/css/vroddon.css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -20,8 +20,9 @@
   ga('create', 'UA-49063507-1', 'linkeddata.es');
   ga('send', 'pageview');
 </script>
-    </head>
-  <body>
+</head>
+
+<body>
 	
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
@@ -35,7 +36,7 @@
         <li><a href="/user">Demo User</a></li>
         <li><a href="/admin">Demo Manager</a></li> 
         <li><a href="/develop.html">Develop</a></li> 
-        <li><a href="/about.html">About</a></li> 		
+        <li><a href="/about.html">About</a></li> 
       </ul>
 	   <ul class="nav navbar-nav navbar-right">
         <li><a href="/account"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
@@ -48,50 +49,56 @@
 <div class="container">
  <div class="jumbotron">
 	<center><h1>Conditional Linked Data</h1> 
-    <p>Browse the linked data resources</p></center>
+    <p>Search resources</p></center>
  </div>		
 	
 	<div class="col-md-1">
-
 	</div>
-	
-		<div class="col-md-2">
+
+	<div class="col-md-2">
 		
       <ul class="nav nav-pills nav-stacked">
-	    <li><a href="search.html"><span class="glyphicon glyphicon-search"></span> Search</a></li>
-        <li class="active"><a href="/linkeddata.html">Browse</a></li>
-        <li><a href="/offers.html">Offers</a></li>
-        <li><a href="/query.html">Query</a></li>
+        <li><a class="active" href="search.html"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+        <li ><a href="linkeddata.html"><span class="glyphicon glyphicon-home"></span> Browse</a></li>
+        <li><a href="offers.html"><span class="glyphicon glyphicon-shopping-cart"></span> Offers</a></li>
+        <li><a href="query.html"><span class="glyphicon glyphicon-asterisk"></span> Query</a></li>
       </ul>
 	  </div> 
+
+
+
+	<div class="col-md-8">
+	
+<div class="row">
+<center>
+	<form name="search" action="search" method="get">
+    <div class="input-group col-md-8">
+
+      <input type="search" class="form-control" name="search" placeholder="Search for..."></input>
+      <span class="input-group-btn"><button class="btn btn-default" type="submit">Go <span class=" glyphicon glyphicon-search"></span></button>
+      </span>
 	  
-	  
-	  	<div class="col-md-7">
+    </div><!-- /input-group -->
+	  </form>
+	</center>
+</div><!-- /.row -->
 
-<!--    <a href="popupex.html" onclick="return popitup('popupex.html')">Link to popup</a> -->
+<div class="well">
 
-
-<!-- CONTENIDO -->
-
-	<!-- DEMO STAMP -->
-	<div style="position:relative;height=100px;">
-		<span class="outerText">		<a href="#" class="tooltip"><img src="/img/demo.png" alt="Demo data"/><span>
-			<strong>Demo data</strong><br>Find real data online</span></a></span>
-	</div>
-                <!--TEMPLATEHERE1-->
-                
-                <!--TEMPLATEHERE2-->
-				
-				
-				
-        </div>
-        <hr/>
-<div class="col-md-2"></div>
+<!--TEMPLATERESULT-->
 </div>
+
+	</div>
+<div class="col-md-1"></div>
+
+
+</div>
+
 
 <footer style="margin-top: 30px">
 	<p><center><small> <a href="http://www.oeg-upm.net">2015 Ontology Engineering Group</a> - Universidad Politecnica de Madrid - All Rights Reserved. Attribution of data shown in this page is given in the <a href="about.html">about</a> page</small></center></p>
 </footer>
-		
+
+       
     </body>
 </html>

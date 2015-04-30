@@ -31,7 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import ldconditional.LDRConfig;
-import ldconditional.Main;
 import ldconditional.ldserver.Recurso;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.Policy;
@@ -448,5 +447,27 @@ public class DatasetVoid {
             }
         }
         return grafos;
+    }
+
+    public void recalcularTriples() {
+        int triples = conditionalDataset.dsDump.getNumTriples();
+        Statement st = model.getProperty(getDatasetRes(), model.createProperty("http://rdfs.org/ns/void#triples"));
+        model.remove(st);
+        model.add(getDatasetRes(), model.createProperty("http://rdfs.org/ns/void#triples"), ""+triples);
+
+        List<String> grafos = conditionalDataset.dsIndex.getIndexedGrafos();
+        for(String grafo : grafos)
+        {
+            triples=conditionalDataset.dsIndex.getIndexedTriplesPerGrafo(grafo);
+            if (triples==-1)
+                continue;
+            st = model.getProperty(model.createResource(grafo), model.createProperty("http://rdfs.org/ns/void#triples"));
+            model.remove(st);
+            model.add(model.createResource(grafo), model.createProperty("http://rdfs.org/ns/void#triples"), ""+triples);
+
+        }
+
+
+        write();
     }
 }

@@ -120,6 +120,16 @@ public class GeneralHandler extends AbstractHandler {
             {
                 return true;
             }
+            if (requestUri.contains("/search.html") || requestUri.contains("search"))
+            {
+                cd = ConditionalDatasets.getSelectedDataset();
+                HandlerSearch hm = new HandlerSearch();
+                String token=hm.serveSearch(cd, request, response);
+                response.getWriter().print(token);
+                baseRequest.setHandled(true);
+                return true;
+
+            }
 
             if (requestUri.equals("/user"))
             {
@@ -142,9 +152,9 @@ public class GeneralHandler extends AbstractHandler {
                 token=token.replaceAll("<!--TEMPLATEHERE1-->", html);
                 String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
                 html=html.replace("<!--TEMPLATEFOOTER-->", footer);
-                response.setStatus(HttpServletResponse.SC_OK);
                 response.setContentType("text/html;charset=utf-8");
                 response.getWriter().print(token);
+                response.setStatus(HttpServletResponse.SC_OK);
                 baseRequest.setHandled(true);
                 return true;
             }

@@ -1,49 +1,29 @@
 <html>
 <head>
-<title>Conditional access to Linked Data</title>
-<meta content="text/html; charset=iso-8859-1" http-equiv=Content-Type/>
-<meta name="description" content="Demo del OEG-UPM"/>
-<meta name="author" content="Victor Rodriguez Doncel "/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta http-equiv="content-type" content="Mime-Type; charset=iso-8859-1" />  
-
-<!--  <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
-  <link rel="stylesheet" href="/css/vroddon.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  
-	<!-- Include the plugin's CSS and JS: 
-	<script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
-	<link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"/>  -->
-  
- <!-- Initialize the plugin: -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example-getting-started').multiselect();
-    });
-</script>
-
-
- 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-49063507-1', 'linkeddata.es');
-  ga('send', 'pageview');
-</script>
+	<title>Conditional access to Linked Data</title>
+	<meta content="text/html; charset=iso-8859-1" http-equiv=Content-Type/>
+	<meta name="description" content="Demo del OEG-UPM"/>
+	<meta name="author" content="Victor Rodriguez Doncel "/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta http-equiv="content-type" content="Mime-Type; charset=iso-8859-1" />  
+	<link rel="stylesheet" href="/css/vroddon.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-49063507-1', 'linkeddata.es');
+	  ga('send', 'pageview');
+	</script>
 </head>
-    <body style="background:#EEEEEE !important;">
-
-	
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+<body style="background:#EEEEEE !important;">
+ <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-	  <img src="/img/rdf-condicional.png" width="24" style="float:left;margin:0px"/ > Conditional Linked Data
-	  </a>
+      <a class="navbar-brand" href="/"><img src="/img/rdf-condicional.png" width="24" style="float:left;margin:0px"/> Conditional Linked Data</a>
     </div>
     <div>
       <ul class="nav navbar-nav">
@@ -58,26 +38,25 @@
   </div>
 </nav>
 	
-        <div class="container"> 
-		 <div class="jumbotron">
-	<center><h1>Conditional Linked Data</h1> 
-    <p>Administer the data, policies and their assignment</p></center>
- </div>		
+<div class="container"> 
+	<div class="jumbotron">
+		<center><h1>Conditional Linked Data</h1> 
+		<p>Administer the data, policies and their assignment</p></center>
+	</div>		
  
 	<div class="col-md-1">
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-10">
 		
 
 			<div class="ldrheading"><p>Dataset management</p></div>
 			<div class="bigger">Choose licenses/policies for each pre-defined dataset</div>
 				<br/>
-
-					
                     <!--TEMPLATETABLA-->
-	
+					
+					
     <!--  <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Add license</a> -->
-	  <p id="demo">.</p>
+<p id="demo">.</p>
   
 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
   <div class="modal-dialog modal-md">
@@ -141,34 +120,26 @@ function myFunction1() {
 			<div class="ldrheading"><p>Raw files</p></div>
 		<div class="well"> 
 			<form action="manageren/managePolicy">
-				Download data: 
+				Data can be downloaded in a raw nquads files: 
 				<center><button class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download data</button></center>
 				<input name="action" type="hidden" value="downloadData"></input>
 			</form>			
 			</div>
 		<div class="well"> 
 			<form action="manageren/managePolicy">
-				Download metadata: 
+				Metadata can be downloaded as a simple VoID file: 
 				<center><button class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download metadata</button></center>
 				<input name="action" type="hidden" value="downloadMetadata"></input>
 			</form>			
 			</div>  
 			</div>
-			
-
-				
-				
-				
+	<div class="col-md-1">
+	</div>			
             </div>
-	</div>
 
-  
-
-
-<div class="footer">
-<!--<div class="container"><div class="panel panel-default"><div class="panel-body">  -->
-	<!--TEMPLATEFOOTER-->
-<!-- </div></div></div> -->
-  </div>		
-    </body>
+<footer style="margin-top: 30px">
+	<p><center><small> <a href="http://www.oeg-upm.net">2015 Ontology Engineering Group</a> - Universidad Politecnica de Madrid - All Rights Reserved. Attribution of data shown in this page is given in the <a href="about.html">about</a> page</small></center></p>
+</footer>
+	
+ </body>
 </html>

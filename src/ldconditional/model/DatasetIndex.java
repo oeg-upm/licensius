@@ -58,10 +58,8 @@ public class DatasetIndex {
         int i=0;
         for (String clave : claves) {
             i++;
-            if (i%100==0)
-                logger.info(i + " keys have been indexed");
-
             List<Integer> li = dump.getLineas(clave);
+    //        System.out.println(clave+" "+li);
             map.put(clave, li);
         }
         return map;
@@ -149,6 +147,42 @@ public Map<String, List<Integer>> readIndexGrafos()
         System.out.println(st);
     }
 
+    public List<String> matchSujetos(String term)
+    {
+        List<String> ls = new ArrayList();
+        List<String> sujetos = getIndexedSujetos();
+        for(String sujeto : sujetos)
+        {
+            if (sujeto.contains(term))
+                ls.add(sujeto);
+        }
+        return ls;
+
+    }
+
+    public List<String> getIndexedSujetos()
+    {
+        List<String> li = new ArrayList();
+        if (mapSujetos==null)
+            mapSujetos = readIndexSujetos();
+        Iterator it = mapSujetos.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry) it.next();
+            String clave = (String) e.getKey();
+            li.add(clave);
+        }
+        return li;
+    }
+
+    public List<String> getNQuadsForSujeto(String sujeto)
+    {
+        List<String> out = new ArrayList();
+        List<Integer> li = mapSujetos.get(sujeto);
+        if (li==null || li.isEmpty())
+            return out;
+        List<String> ls =cd.getDatasetDump().getNQuadsBetweenLines(li.get(0), li.get(1));
+        return ls;
+    }
     public String buscarSujeto(String term)
     {
         List<Integer> li = mapSujetos.get(term);
@@ -165,9 +199,9 @@ public Map<String, List<Integer>> readIndexGrafos()
     public void indexar()
     {
         DatasetIndex di = cd.getDatasetIndex();
+        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
         mapGrafos = di.createIndexGrafos();
         di.writeIndexGrafos(mapGrafos);
-        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
         mapSujetos = di.createIndexSubjects();
         di.writeIndexSujetos(mapSujetos);
     }
@@ -176,6 +210,34 @@ public Map<String, List<Integer>> readIndexGrafos()
         DatasetIndex di = cd.getDatasetIndex();
          mapGrafos = di.readIndexGrafos();
         mapSujetos = di.readIndexSujetos();
+    }
+
+    public int getIndexedTriplesPerGrafo(String grafo)
+    {
+        List<Integer> li =  mapGrafos.get(grafo);
+        if (li==null || li.isEmpty())
+            return 0;
+        else
+            return li.size();
+    }
+    public int getIndexedTriplesPerSubject(String su)
+    {
+        List<Integer> li =  mapSujetos.get(su);
+        if (li==null || li.isEmpty())
+            return 0;
+        else
+            return li.get(1)-li.get(0)+1;
+    }
+
+    List<String> getIndexedGrafos() {
+        List<String> li = new ArrayList();
+        Iterator it = mapGrafos.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry) it.next();
+            String clave = (String) e.getKey();
+            li.add(clave);
+        }
+        return li;
     }
 
 }

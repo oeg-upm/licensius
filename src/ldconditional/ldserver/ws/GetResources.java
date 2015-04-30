@@ -85,7 +85,6 @@ public class GetResources extends HttpServlet {
         int ini = (page-1)*size;
         int fin = (page-1)*size+size-1;
         List<Recurso> lr=dataset.getResourcesInDataset(ini, fin);
-        List<Grafo> grafos = dataset.getDatasetVoid().getGrafos();
         for(Recurso r : lr)
         {
             JSONObject obj = new JSONObject();

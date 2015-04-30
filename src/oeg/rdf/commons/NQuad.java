@@ -90,7 +90,7 @@ public class NQuad {
         return nquad.substring(i1+1,i2);
     }
 
-    static Model getStatement(String nquad) {
+    public static Model getStatement(String nquad) {
         String s= getSubject(nquad);
         String p= getPredicate(nquad);
         String o= getObject(nquad);
