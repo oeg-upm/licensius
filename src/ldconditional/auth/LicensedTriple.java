@@ -165,7 +165,7 @@ public class LicensedTriple {
                 sobjeto = sobjeto.substring(index + 1);
             } catch (Exception e) {
             }
-            String texto = "Limited access";//limited access
+    //        String texto = "Limited access";//limited access
 
             //If the object is a policy, consider the following
             if (hasPolicyAsObject()) {

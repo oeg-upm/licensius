@@ -12,6 +12,7 @@ echo Reemplazando la cadena "%2" con la cadena "%3" para el dataset "%1"
 
 fart --c-style datasets\%1\data.nq "%2" "%3"
 fart --c-style datasets\%1\void.ttl "%2" "%3"
+fart --c-style datasets\%1\voidoriginal.ttl "%2" "%3"
 fart --c-style licenses\onecent.ttl "%2" "%3"
 fart --c-style licenses\pago10euros.ttl "%2" "%3"
 fart --c-style licenses\pago15euros.ttl "%2" "%3"
