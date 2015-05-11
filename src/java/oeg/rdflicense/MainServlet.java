@@ -3,21 +3,14 @@ package oeg.rdflicense;
 //JAVA
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.List;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.*;
 
 //LOG4J
-import odrlmodel.ODRLRDF;
 import odrlmodel.Policy;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -100,7 +93,7 @@ public class MainServlet extends HttpServlet {
                     resp.setContentType("text/html;charset=utf-8");
                     resp.getWriter().println(html.toString());
                 } else {
-                    resp.sendRedirect(license.getSeeAlso());
+                    resp.sendRedirect(license.getLegalCode());
                 }
             } else if (bTurtle || isTurtle(req)) {
                 resp.setContentType("text/turtle");
@@ -109,7 +102,7 @@ public class MainServlet extends HttpServlet {
                 resp.setContentType("application/rdf+xml");
                 resp.getWriter().println(license.toRDFXML());
             } else {
-                resp.sendRedirect(license.getSeeAlso());
+                resp.sendRedirect(license.getLegalCode());
             }
             resp.setStatus(HttpServletResponse.SC_OK);
         } else {
@@ -128,18 +121,6 @@ public class MainServlet extends HttpServlet {
             {
                 String token = FileUtils.readFileToString(f);
                 resp.getWriter().print(token);
-                
-                /*
-                response.setContentType("application/octet-stream");
-                ServletOutputStream output = resp.getOutputStream();
-                InputStream input = new FileInputStream(f);
-                byte[] buffer = new byte[2048];
-                int bytesRead;
-                while ((bytesRead = input.read(buffer)) != -1) {
-                    output.write(buffer, 0, bytesRead);
-                }
-                output.close();
-                */
                 resp.setContentType("text/html;charset=utf-8");
                 resp.setStatus(HttpServletResponse.SC_OK);
             }
@@ -219,4 +200,25 @@ public class MainServlet extends HttpServlet {
         }
 
     }
+    
+    public static String getTable()
+    {
+        RDFLicenseDataset dataset = new RDFLicenseDataset();
+        List<RDFLicense> licenses = dataset.getRDFLicenses();
+        Collections.sort(licenses, RDFLicense.COMPARE_PUBLISHER);
+        String s="";
+        for (RDFLicense license : licenses) {
+
+            s+= "<tr>";
+            s+= "<td>"+license.getPublisher()+"</td>";
+            s+= "<td>"+license.getLabel()+"</td>";
+            s+= "<td>"+license.getURI()+"</td>";
+            s+= "<td>"+license.getVersion()+"</td>";
+            s+= "<td><a href=\""+  license.getURI() +"\"><img src=\"img/rdflicense32.png\"/></a>"; 
+            s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a></td>"; 
+            s+="</tr>\n";
+//            System.out.println(s);
+        }      
+        return s;
+    }    
 }

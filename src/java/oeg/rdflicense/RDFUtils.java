@@ -78,12 +78,16 @@ public class RDFUtils {
         Model model = ModelFactory.createDefaultModel();
         InputStream is = new ByteArrayInputStream(txt.getBytes());
         logger.info("Size: " + txt.length());
+        String head = "";
+        int index = txt.indexOf("\n");
+        if (index!=-1)
+            head=txt.substring(0,index);
         try {
             model.read(is, null, "TURTLE");
-            logger.info("Read as TURTLE");
+            logger.info("Read as TURTLE: "+ head);
             return model;
         } catch (Exception e) {
-            logger.warn("Failed as RDF/XML. " + e.getMessage());
+            logger.warn("Failed as TURTLE " + head +" -- " + e.getMessage());
             try {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes());
@@ -91,7 +95,7 @@ public class RDFUtils {
                 logger.info("Read as RDF/XML");
                 return model;
             } catch (Exception e2) {
-                logger.warn("Failed as TURTLE. " + e2.getMessage());
+                logger.warn("Failed as RDF/XML: " + head+  " -- " + e2.getMessage());
             }
             return null;
         }
@@ -116,6 +120,7 @@ public class RDFUtils {
         s += "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n";
         s += "@prefix provo: <http://purl.org/net/provenance/ns#> .\n";
         s += "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+        s += "@prefix ms: <http://purl.org/NET/ms-rights#> .\n";
         s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
         return s;
     }

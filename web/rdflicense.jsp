@@ -1,3 +1,4 @@
+<%@page import="oeg.rdflicense.MainServlet"%>
 <%@page import="oeg.rdflicense.TestRDFLicense"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
@@ -14,12 +15,15 @@
 <meta name="description" content="This is a collection of licenses written in RDF">
 <meta name="author" content="Victor Rodriguez Doncel ">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
 <meta name="dc.title" content="Licenses in RDF">
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="icon" href="http://rdflicense.linkeddata.es/dataset/img/favicon.png" type="image/png">
 
-
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!--  <script type="text/javascript" src="js/jquery.latest.js"></script>
+  <script type="text/javascript" src="js/jquery.tablesorter.js"></script> -->
 <script async="" src="./analytics.js"></script><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -30,55 +34,71 @@
 </script><style type="text/css"></style>
 </head>
 
-
-  <body>
 <body> 
-<div class="container"> 
-<div class="sixteen columns">
-<div class="sixteen columns alpha">
-<h1>RDF License dataset</h1>
-<p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
+    
+ <div class="container">
+ <div class="jumbotron">
+	<center><h1>RDFLicense dataset</h1> 
+        <p>A set of licenses represented in RDF</p></center>
+ </div>
+    
+	<div class="col-md-2">
 
-
-<center><img src="./fig2.png" width="300px"></center>
+	</div>     
+	<div class="col-md-8">
+	
+	<div class="panel panel-default">
+	<div class="panel-heading"><h2 class="panel-title">What is this?</h2></div>
+	<div class="panel-body">
+        <p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
+		<center><img src="./fig2.png" width="200px"></center>
+</div>
+		</div>
 
 <!--<span style="color:red">UNDER MAINTENANCE (18.11.2014)</span> -->
 
 
-<p>Complete dataset for download: <big><a href="http://purl.org/NET/rdflicense/">rdflicense.ttl</a></big> </p>
-<p>This is the VoID description <a href="http://rdflicense.linkeddata.es/dataset/void.ttl">void.ttl</a> and this is a sample license <a href="http://rdflicense.linkeddata.es/dataset/example.ttl">example.ttl</a>  </p>	
+	<div class="panel panel-default">
+	<div class="panel-heading"><h2 class="panel-title">Download complete dataset</h2></div>
+	<div class="panel-body">
+<center><a href="http://purl.org/NET/rdflicense/" class="btn btn-success btn-large" download="rdflicense.ttl"><span class="glyphicon glyphicon-download-alt"></span>Download</a></center>
+<center><p><a href="http://rdflicense.linkeddata.es/dataset/void.ttl">VoID description</a> </p>	</center>
 
+</div>
+</div>
 
+<!--<script>
+$(function(){
+  $("#myTable").tablesorter();
+});
+</script>-->
 
-
-
-<div class="CSSTableGenerator">
-                <table>
-				<colgroup>
+<!--<a href="http://purl.org/NET/rdflicense/" download>rdflicense.ttl</a>--->
+                <table id = "#myTable" class="table table-striped table-hoover table-condensed tablesorter">
+		<!--		<colgroup>
                                 <col width="40%">
 				<col width="40%">
 				<col width="10%">
 				<col width="10%">
-                    </colgroup><tbody><tr>
-                        <td>
-                            License
-                        </td>
-                        <td>
-                            URI
-                        </td>
-                        <td>
+                    </colgroup> -->
+                    <thead><tr>
+					<th>Publisher </th>
+                    <th>License </th>
+					<th>URI</th>
+                        <th>
                             Version
-                        </td>
-                        <td>
+                        </th>
+                        <th>
                             Links
-                        </td>
-                    </tr>
-<tr><td>Open Government Licence</td><td>http://purl.org/NET/rdflicense/ukogl1.0</td><td>1.0</td><td><a href="http://purl.org/NET/rdflicense/ukogl1.0"><img src="./rdflicense32.png"></a><a href="http://purl.org/NET/rdflicense/ukogl1.0.ttl"><img src="./rdf32.png"></a></td></tr>
+                        </th>
+                        </th>
+                    </thead><tbody>
+<!-- <tr><td>Open Government Licence</td><td>http://purl.org/NET/rdflicense/ukogl1.0</td><td>1.0</td><td><a href="http://purl.org/NET/rdflicense/ukogl1.0"><img src="./rdflicense32.png"></a><a href="http://purl.org/NET/rdflicense/ukogl1.0.ttl"><img src="./rdf32.png"></a></td></tr> -->
 
-            <%= TestRDFLicense.getTable() %>
+            <%= MainServlet.getTable() %>
             
                 </tbody></table>
-            </div>
+            
 <p></p>			
 <center>
 <a href="https://github.com/oeg-upm/rdflicense"><img src="./github.png"></a>
@@ -113,8 +133,15 @@ You may also want to cite our research work:</p><p>
 </footer>
 </div>
 </div>
-</div>
-</div>
+    
+	<div class="col-md-2">
+
+	</div> 
+   
+     
+ </div> <!-- end of bootstrap container -->
+ 
+ 
 <script type="text/javascript" id="cookiebanner" src="./cookiebanner.min.js" data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies."></script>
 
 <!-- Start of StatCounter Code for Default Guide -->

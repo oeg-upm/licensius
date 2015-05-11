@@ -1,19 +1,17 @@
 package oeg.rdflicense;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.StringWriter;
-import java.util.List;
+import java.util.Comparator;
 import odrlmodel.ODRLRDF;
 import odrlmodel.Policy;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
 
 //JSONSIMPLE
 import org.json.simple.JSONObject;
 
 /**
- * This class represents a license in RDF
+ * This class represents a license in RDF.
+ * This project will online compile under Java SDK 7. Fix both the PATH environment variable and the JAVA_HOME to point to the Java 7 SDK.
  * @author Victor
  */
 public class RDFLicense {
@@ -44,6 +42,15 @@ public class RDFLicense {
         if (model==null)
             return "";
         return RDFUtils.getFirstValue(model, uri, "http://www.w3.org/2000/01/rdf-schema#label");
+    }
+    public String getPublisher()
+    {
+        if (model==null)
+            return "";
+        String s= RDFUtils.getFirstValue(model, uri, "http://purl.org/dc/terms/publisher");
+        if (s.isEmpty())
+            s="Unknown";
+        return s;
     }
     
     String getVersion() {
@@ -100,7 +107,7 @@ public class RDFLicense {
         try {
             JSONObject obj = new JSONObject();
             obj.put("rdf", uri);
-            obj.put("uri", getSeeAlso());
+            obj.put("uri", getLegalCode());
             obj.put("title", getLabel());
             json = obj.toString();
         } catch (Exception e) {
@@ -131,6 +138,24 @@ public class RDFLicense {
 //        RDFDataMgr.write(sw, model, Lang.RDFXML); //does not work in APPEngine
         return sw.toString();
     }
+    public static Comparator<RDFLicense> COMPARE_PUBLISHER = new Comparator<RDFLicense>() {
+        public int compare(RDFLicense o1, RDFLicense o2) {
+            String s1 = o1.getPublisher();
+            if (s1.isEmpty()) s1=o1.uri;
+            String s2 = o2.getPublisher();
+            if (s2.isEmpty()) s2=o2.uri;
+            return s1.compareTo(s2);
+        }
+    };    
 
-    
+    public static Comparator<RDFLicense> COMPARE_LABEL = new Comparator<RDFLicense>() {
+        public int compare(RDFLicense o1, RDFLicense o2) {
+            String s1 = o1.getLabel();
+            if (s1.isEmpty()) s1=o1.uri;
+            String s2 = o2.getLabel();
+            if (s2.isEmpty()) s2=o2.uri;
+            return s1.compareTo(s2);
+        }
+    };    
+
 }
