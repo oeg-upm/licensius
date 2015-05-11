@@ -1,1 +1,0 @@
-This folder contains the required software to serve the dataset as Linked Data
