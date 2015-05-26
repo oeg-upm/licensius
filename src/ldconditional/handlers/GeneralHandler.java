@@ -252,6 +252,31 @@ public class GeneralHandler extends AbstractHandler {
             if (requestUri.endsWith("index.html")) {
                 
                 logger.info("Serving the index " + request.getRequestURI());
+                
+                //lo siguiente hasta el final del brace es copypaste de linkeddata.html
+                logger.info("Serving the main resources " + request.getRequestURI());
+                cd = ConditionalDatasets.getSelectedDataset();          //esto lo hace requetefatal
+                if (cd==null)
+                {
+                    response.sendRedirect("/404.html");
+                    return false;
+                }
+                if  (requestUri.startsWith("/linkeddata.html"))
+                {
+                    requestUri = cd.name+requestUri;
+                    response.sendRedirect(requestUri);
+                    return true;
+                }
+
+
+                int index = requestUri.lastIndexOf("/");
+                if (index != -1 && index != 0) {
+                    String dataset = requestUri.substring(1, index);
+                    HandlerLinkedData hld = new HandlerLinkedData();
+                    hld.serveLinkeddata(baseRequest, response, dataset);
+                    return true;
+                }                
+                
                 /*int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
