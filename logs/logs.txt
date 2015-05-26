@@ -1764,3 +1764,114 @@
 12:42:02,662 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
 12:42:02,666 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
 12:42:02,675  INFO DatasetPolicy:109 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 8 statements
+08:39:03,396  INFO ConditionalDatasets:28 - Dataset geo is being been loaded
+08:39:03,526 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+08:39:03,631 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+08:39:03,632 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+08:39:03,633 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+08:39:03,633 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+08:39:04,733 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+08:39:04,817 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+08:39:04,818 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+08:39:04,818 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+08:39:04,818 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+08:39:04,818 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+08:39:04,819 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+08:39:04,819 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+08:39:04,819 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+08:39:04,819 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+08:39:04,820 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+08:39:04,820 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+08:39:04,821 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+08:39:04,821 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+08:39:04,821 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+08:39:04,821 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+08:39:04,821 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+08:39:04,821 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+08:39:04,822 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+08:39:04,825 DEBUG FileManager:179 - Add location: LocatorFile
+08:39:04,826 DEBUG FileManager:179 - Add location: LocatorURL
+08:39:04,826 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+08:39:04,827 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+08:39:04,849 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+08:39:04,849 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+08:39:04,850 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+08:39:04,850 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+08:39:04,856 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+08:39:04,866  INFO DatasetPolicy:109 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 8 statements
+08:39:04,867  INFO ConditionalDatasets:32 - Dataset geo has been loaded
+08:39:04,867  INFO ConditionalDatasets:28 - Dataset intro is being been loaded
+08:39:04,867 DEBUG StreamManager:93 - open(datasets/intro/void.ttl)
+08:39:04,867 DEBUG StreamManager:112 - Not mapped: datasets/intro/void.ttl
+08:39:04,867 DEBUG StreamManager:142 - Found: datasets/intro/void.ttl (LocatorFile)
+08:39:04,867 DEBUG RDFDataMgr:836 - Found: datasets/intro/void.ttl
+09:29:10,538  WARN TestClient:68 - Connection refused: connect
+05:40:47,000  WARN TestClient:68 - Connection refused: connect
+05:42:23,768 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+05:42:23,939 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+05:42:23,940 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+05:42:23,941 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+05:42:23,941 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+05:42:24,993 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+05:42:25,120 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+05:42:25,120 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+05:42:25,121 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+05:42:25,121 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+05:42:25,122 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:25,122 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:25,122 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:25,122 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+05:42:25,123 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+05:42:25,123 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+05:42:25,124 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+05:42:25,124 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+05:42:25,124 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+05:42:25,125 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+05:42:25,125 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+05:42:25,125 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+05:42:25,125 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+05:42:25,126 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:25,129 DEBUG FileManager:179 - Add location: LocatorFile
+05:42:25,130 DEBUG FileManager:179 - Add location: LocatorURL
+05:42:25,130 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+05:42:25,131 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+05:42:25,153 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+05:42:25,153 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+05:42:25,154 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+05:42:25,154 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+05:42:25,165 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+05:42:25,174  INFO DatasetPolicy:109 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 8 statements
+05:42:43,116 DEBUG JenaIOEnvironment:181 - Failed to find configuration: location-mapping.ttl;location-mapping.rdf;location-mapping.n3;etc/location-mapping.rdf;etc/location-mapping.n3;etc/location-mapping.ttl
+05:42:43,219 DEBUG StreamManager:93 - open(datasets/geo/void.ttl)
+05:42:43,240 DEBUG StreamManager:112 - Not mapped: datasets/geo/void.ttl
+05:42:43,241 DEBUG StreamManager:142 - Found: datasets/geo/void.ttl (LocatorFile)
+05:42:43,242 DEBUG RDFDataMgr:836 - Found: datasets/geo/void.ttl
+05:42:44,070 ERROR ErrorHandlerFactory$ErrorLogger:84 - [line: 1, col: 1 ] Content is not allowed in prolog.
+05:42:44,146 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+05:42:44,146 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?y rdf:type rdf:List) ]
+05:42:44,146 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:label ?y) -> (?y rdf:type rdfs:Literal) ]
+05:42:44,146 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:comment ?y) -> (?y rdf:type rdfs:Literal) ]
+05:42:44,146 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:44,147 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:44,147 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:44,147 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?y rdf:type rdf:Property) ]
+05:42:44,147 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:rest ?y) -> (?x rdf:type rdf:List) ]
+05:42:44,147 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:first ?y) -> (?x rdf:type rdf:List) ]
+05:42:44,149 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:object ?y) -> (?x rdf:type rdf:Statement) ]
+05:42:44,149 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:predicate ?y) -> (?x rdf:type rdf:Statement) ]
+05:42:44,149 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:subject ?y) -> (?x rdf:type rdf:Statement) ]
+05:42:44,149 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:range ?y) -> (?x rdf:type rdf:Property) ]
+05:42:44,149 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:domain ?y) -> (?x rdf:type rdf:Property) ]
+05:42:44,149 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subClassOf ?y) -> (?x rdf:type rdfs:Class) ]
+05:42:44,150 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdfs:subPropertyOf ?y) -> (?x rdf:type rdf:Property) ]
+05:42:44,150 DEBUG FBRuleInfGraph:260 - Adding rule [ (?x rdf:type ?y) -> (?y rdf:type rdfs:Class) ]
+05:42:44,154 DEBUG FileManager:179 - Add location: LocatorFile
+05:42:44,154 DEBUG FileManager:179 - Add location: LocatorURL
+05:42:44,155 DEBUG FileManager:179 - Add location: ClassLoaderLocator
+05:42:44,155 DEBUG FileManager:567 - Found: ont-policy.rdf (ClassLoaderLocator)
+05:42:44,178 DEBUG StreamManager:93 - open(../schemas/ODRL20.rdf)
+05:42:44,178 DEBUG StreamManager:112 - Not mapped: ../schemas/ODRL20.rdf
+05:42:44,178 DEBUG StreamManager:93 - open(../schemas/ccrel.rdf)
+05:42:44,179 DEBUG StreamManager:112 - Not mapped: ../schemas/ccrel.rdf
+05:42:44,183 DEBUG FBRuleInfGraph:260 - Adding rule [ (?a rdfs:isDefinedBy ?b) -> (?a rdfs:seeAlso ?b) ]
+05:42:44,192  INFO DatasetPolicy:109 - Remotely loaded policy http://purl.org/NET/rdflicense/cc-by4.0 with 8 statements
