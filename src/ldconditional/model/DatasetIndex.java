@@ -17,6 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import ldconditional.LDRConfig;
 import ldconditional.Main;
 import oeg.utils.ExternalSort;
 import org.apache.log4j.Logger;
@@ -68,7 +69,16 @@ public class DatasetIndex {
     }
 public Map<String, List<Integer>> readIndexGrafos()
     {
-        String filename = "datasets/" + cd.name + "/indexgrafos.idx";
+//        String filename = "datasets/" + cd.name + "/indexgrafos.idx";
+
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + cd.name + "/indexgrafos.idx";
+//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
+            File f = new File(filename);
+        
+        
+        
         HashMap<String, List<Integer>> map = null;
         try
         {
@@ -86,7 +96,14 @@ public Map<String, List<Integer>> readIndexGrafos()
     }
     public Map<String, List<Integer>> readIndexSujetos()
     {
-        String filename = "datasets/" + cd.name + "/indexsujetos.idx";
+//        String filename = "datasets/" + cd.name + "/indexsujetos.idx";
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + cd.name + "/indexsujetos.idx";
+//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
+        
+        
+        
         HashMap<String, List<Integer>> map = null;
         try
         {
@@ -104,7 +121,11 @@ public Map<String, List<Integer>> readIndexGrafos()
     }
 
     public void writeIndexGrafos(Map<String, List<Integer>> map) {
-        String filename = "datasets/" + cd.name + "/indexgrafos.idx";
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + cd.name + "/indexgrafos.idx";
+        
+        
         try {
             FileOutputStream fos = new FileOutputStream(filename);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -115,7 +136,12 @@ public Map<String, List<Integer>> readIndexGrafos()
         }
     }
     public void writeIndexSujetos(Map<String, List<Integer>> map) {
-        String filename = "datasets/" + cd.name + "/indexsujetos.idx";
+//        String filename = "datasets/" + cd.name + "/indexsujetos.idx";
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + cd.name + "/indexsujetos.idx";
+        
+        
         try {
             FileOutputStream fos = new FileOutputStream(filename);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -167,7 +193,12 @@ public Map<String, List<Integer>> readIndexGrafos()
         DatasetIndex di = cd.getDatasetIndex();
         mapGrafos = di.createIndexGrafos();
         di.writeIndexGrafos(mapGrafos);
-        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
+//        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + cd.name + "/data.nq";
+        
+        
         mapSujetos = di.createIndexSubjects();
         di.writeIndexSujetos(mapSujetos);
     }

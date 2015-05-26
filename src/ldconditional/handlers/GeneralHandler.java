@@ -250,9 +250,9 @@ public class GeneralHandler extends AbstractHandler {
             // PAGINA PRINCIPAL TENEMOS /geo/index.html
             // CASE 4. MAIN PAGE OF A DATASET
             if (requestUri.endsWith("index.html")) {
-                /*
+                
                 logger.info("Serving the index " + request.getRequestURI());
-                int index = requestUri.lastIndexOf("/");
+                /*int index = requestUri.lastIndexOf("/");
                 if (index != -1 && index != 0) {
                     String dataset = requestUri.substring(1, index);
                     HandlerIndex hi = new HandlerIndex();

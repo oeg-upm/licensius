@@ -167,7 +167,12 @@ public class HandlerManager {
         }
         if (action != null && action.equals("downloadData")) {
             logger.info("Action downloadData");
-            File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq");
+
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
+//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
+            File f = new File(filename);
             try {
                 String token = FileUtils.readFileToString(f);
                 response.getWriter().print(token);
@@ -180,7 +185,11 @@ public class HandlerManager {
         if (action != null && action.equals("downloadMetadata")) {
             logger.info("Action downloadData");
 
-            File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl");
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
+//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
+            File f = new File(filename);
             try {
                 String token = FileUtils.readFileToString(f);
                 response.getWriter().print(token);
