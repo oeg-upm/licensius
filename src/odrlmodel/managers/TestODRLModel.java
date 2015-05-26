@@ -203,7 +203,7 @@ public class TestODRLModel {
             System.out.println(ODRLRDF.getRDF(policy));
             System.out.println("Open: " + policy.isOpen());
             System.out.println("Per triple: " + policy.isPerTriple());
-            System.out.println("Offer: " + policy.isInOffer());
+            System.out.println("Offer: " + policy.hasPlay());
         }
     }
     
@@ -216,7 +216,7 @@ public class TestODRLModel {
             System.out.println(ODRLRDF.getRDF(policy));
             System.out.println("Open: " + policy.isOpen());
             System.out.println("Per triple: " + policy.isPerTriple());
-            System.out.println("Offer: " + policy.isInOffer());
+            System.out.println("Offer: " + policy.hasPlay());
         }
     }    
     
@@ -229,7 +229,7 @@ public class TestODRLModel {
             System.out.println(ODRLRDF.getRDF(policy));
             System.out.println("Open: " + policy.isOpen());
             System.out.println("Per triple: " + policy.isPerTriple());
-            System.out.println("Offer: " + policy.isInOffer());
+            System.out.println("Offer: " + policy.hasPlay());
         }
     }
     
@@ -243,7 +243,7 @@ public class TestODRLModel {
             System.out.println(ODRLRDF.getRDF(policy));
             System.out.println("Open: " + policy.isOpen());
             System.out.println("Per triple: " + policy.isPerTriple());
-            System.out.println("Offer: " + policy.isInOffer());
+            System.out.println("Offer: " + policy.hasPlay());
         }
     }
     
@@ -256,7 +256,7 @@ public class TestODRLModel {
             System.out.println(ODRLRDF.getRDF(policy));
             System.out.println("Open: " + policy.isOpen());
             System.out.println("Per triple: " + policy.isPerTriple());
-            System.out.println("Offer: " + policy.isInOffer());
+            System.out.println("Offer: " + policy.hasPlay());
         }
     }
 

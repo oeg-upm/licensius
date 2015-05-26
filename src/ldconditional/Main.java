@@ -1,8 +1,10 @@
 package ldconditional;
 
-import ldserver.GeneralHandler;
-import ldserver.ServiceHandler;
-import ldserver.MainHandler;
+import ldconditional.model.ConditionalDatasets;
+import ldconditional.handlers.GeneralHandler;
+import ldconditional.handlers.ServiceHandler;
+import ldconditional.ldserver.MainHandler;
+
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -19,20 +21,29 @@ import org.eclipse.jetty.server.session.SessionHandler;
 
 /**
  * Main class, entry point of the Linked Data Web Server.
- * This project is documented making use of 
- *  
+ * APIs are documented making use of apidoc http://apidocjs.com/
+ *  Most requests are processed by the GeneralHandler class
+ *
  * @author Victor
  */
 public class Main {
 
     static final Logger logger = Logger.getLogger(Main.class);
+    public static Server server = null;
 
     public static void main(String[] args) throws Exception {
-        initLogger();
-        
-        initDatasets();
-        
+
+        standardInit();
         initServer();
+    }
+
+    public static void standardInit()
+    {
+        initLogger();
+
+        LDRConfig.Load();
+
+        ConditionalDatasets.loadDatasets();
 
     }
 
@@ -63,18 +74,14 @@ public class Main {
     }
     
     /**
-<<<<<<< HEAD
      * Initializes the server and enters in wait state
-=======
-     * Initializes the web server
->>>>>>> 0981c2eee2c2f70aba2ba64e7747551c51447e8a
      */
     public static void initServer() throws Exception
     {
         int port = Integer.parseInt(LDRConfig.getPort());
         logger.info("Starting the server in " + port);
         int puerto = Integer.parseInt(LDRConfig.getPort());
-        Server server = new Server(puerto);
+        server = new Server(puerto);
         RequestLogHandler requestLogHandler = new RequestLogHandler();
         HandlerCollection handlers = new HandlerCollection();
         HashSessionManager manager = new HashSessionManager();
@@ -101,11 +108,25 @@ public class Main {
         server.start();
         server.join();        
     }
-    
-    
-    public static void initDatasets()
-    {
-        ConditionalDatasets.loadDatasets();
-    }
+
+
     
 }
+
+
+/**
+
+ http://es.dbpedia.org/sparql
+
+SELECT *  WHERE {
+      ?uri geo:lat ?lat .
+      ?uri geo:long ?lon .
+      ?uri rdf:type ?thetype .
+      FILTER ( regex(?thetype,'^http://schema.org'))
+
+}
+http://oeg-dev.dia.fi.upm.es/nor2o/
+ *
+ *
+ *
+ */

@@ -109,13 +109,13 @@ public class Asset extends MetadataObject {
     }
 
     /**
-     * Returns true if it has at least one Policy which isInOffer
+     * Returns true if it has at least one Policy which hasPlay
      * @return true if in offer
      */
     public boolean isInOffer() {
         List<Policy> _policies = getPolicies();
         for(Policy policy : _policies)
-            if (policy.isInOffer())
+            if (policy.hasPlay())
                 return true;
         return false;
     }

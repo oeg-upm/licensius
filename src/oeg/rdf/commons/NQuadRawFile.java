@@ -2,7 +2,7 @@ package oeg.rdf.commons;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import ldconditional.ConditionalDataset;
-import ldconditional.ConditionalDatasets;
 import ldconditional.Main;
-import ldserver.Recurso;
+import ldconditional.auth.LicensedTriple;
+import ldconditional.ldserver.Recurso;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 
 /**
@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
  */
 public class NQuadRawFile {
 
-    private String filename;
+    protected String filename;
     private static final Logger logger = Logger.getLogger(NQuadRawFile.class);
 
     public NQuadRawFile(String _filename) {
@@ -33,7 +33,83 @@ public class NQuadRawFile {
     }
 
     /**
-     * Gets a list with the graphs in the raw file
+     * POTENCIALMENTE COSTOSÍSIMO!!
+     */
+    public Model loadModel() {
+
+        return RDFDataMgr.loadModel(filename);
+    }
+
+    public void writeModel()
+    {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename + "_rebased"));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String s=NQuad.getSubject(line);
+                String p=NQuad.getPredicate(line);
+                String o=NQuad.getObject(line);
+                String g=NQuad.getGraph(line);
+                String lan = NQuad.getObjectLangTag(line);
+                o = o.startsWith("http") ? ("<"+o+">") : ("\""+o+"\"");
+                if (!lan.isEmpty())
+                    o+="@"+lan;
+                bw.write("<"+s+"> <" + p + "> " + o + " <"+g+"> .\n");
+            }
+            bw.close();
+            br.close();
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
+        }
+    }
+
+    String getName(String uri)
+    {
+        int i1 = uri.lastIndexOf("#");
+        int i2 = uri.lastIndexOf("/");
+        int i = Math.max(i1, i2);
+        if (i==-1)
+            return "";
+        String label = uri.substring(i + 1, uri.length());
+        return label;
+    }
+
+    public void quitarHash()
+    {
+      try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filename + "_rebased"));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                Model m = NQuad.getStatement(line);
+
+                String s=NQuad.getSubject(line);
+                String p=NQuad.getPredicate(line);
+                String o=NQuad.getObject(line);
+                String g=NQuad.getGraph(line);
+                String lan = NQuad.getObjectLangTag(line);
+
+                s = s.replace("#", "/");
+                if (o.startsWith("http://localhost"))
+                {
+                    o = o.replace("#", "/");
+                }
+                o = o.startsWith("http") ? ("<"+o+">") : ("\""+o+"\"");
+                if (!lan.isEmpty())
+                    o+="@"+lan;
+                bw.write("<"+s+"> <" + p + "> " + o + " <"+g+"> .\n");
+            }
+            bw.close();
+            br.close();
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
+        }
+    }
+
+
+    /**
+     * Gets a list with the graphs in the raw file.
      */
     public List<String> getGraphs() {
         List<String> lgrafos = new ArrayList();
@@ -54,6 +130,26 @@ public class NQuadRawFile {
             lgrafos.add(grafo);
         }
         return lgrafos;
+    }
+    
+    public int getNumTriples(String recurso)
+    {
+    int contador=0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {        
+                String nqs = NQuad.getSubject(line);
+                if (!nqs.equals(recurso))
+                    continue;
+                contador++;
+            }
+        }catch(Exception e)
+        {
+            contador=-1;
+        }
+        return contador;
     }
 
     /**
@@ -131,7 +227,10 @@ public class NQuadRawFile {
 
     public static void main(String[] args) throws Exception {
         Main.initLogger();
-        NQuadRawFile raw = new NQuadRawFile("datasets/geo/data.nq");
+        NQuadRawFile raw = new NQuadRawFile("datasets/emn/mini.nq");
+        raw.quitarHash();
+//        raw.writeModel();
+
      //   raw.rebase("http://conditional.linkeddata.es/ldr/", "http://salonica.dia.fi.upm.es/geo/");
 
     }
@@ -155,5 +254,82 @@ public class NQuadRawFile {
         return modelo;
     }
 
+    /**
+     * Gets the graphs in which the given URI appears as object.
+     */
+    public Set<String> getGraphsForSubject(String uri) {
+        Set<String> ls = new HashSet();
+      
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String s= NQuad.getSubject(line);
+                if (!s.equals(uri))
+                    continue;
+                ls.add(NQuad.getGraph(line));
+            }
+        }catch(Exception e)
+        {
+            logger.warn(e.getMessage());
+        }
+        
+        return ls;
+    }
+
+    public String getFileName()
+    {
+        return filename;
+    }
+
+    /**
+     * Obtains the licensed triples
+     */
+    public List<LicensedTriple> getLicensedTriples(String recurso) {
+        List<LicensedTriple> llt = new ArrayList();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String s = NQuad.getSubject(line);
+                if (!s.equals(recurso))
+                    continue;
+                String o = NQuad.getObject(line);
+                String p = NQuad.getPredicate(line);
+                String g = NQuad.getGraph(line);
+                String l = NQuad.getObjectLangTag(line);
+                LicensedTriple lt = new LicensedTriple(s,p,o,l,g);
+                llt.add(lt);
+            }
+        }catch(Exception e)
+        {
+
+        }
+        return llt;
+    }
+    public List<Statement> getTriplesInGrafo(String uri) {
+    List<Statement> llt = new ArrayList();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i=-1;
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String g = NQuad.getGraph(line);
+                if (!g.equals(uri))
+                    continue;
+                String s = NQuad.getSubject(line);
+                RDFNode o = NQuad.getObjectRDFNode(line);
+                String p = NQuad.getPredicate(line);
+                Model m = ModelFactory.createDefaultModel();
+                Statement stmt =m.createStatement(m.createResource(s), m.createProperty(p), o);
+                llt.add(stmt);
+            }
+        }catch(Exception e)
+        {
+
+        }
+        return llt;
+    }
 
 }

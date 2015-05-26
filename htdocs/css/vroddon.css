@@ -1,0 +1,34 @@
+h1 {
+  font-size: 50px !important; 
+  color:#0B479D !important;
+}
+
+h1:first-letter{
+color:#FF212C !important;
+}
+
+.ldrheading p
+{
+	font-size:175%;
+	color:#0B479D;
+}
+
+.ldrheading p:first-letter
+{ 
+font-size:120%;
+color:#FF212C;
+}
+
+.bigger 
+{
+font-size:18px;
+}
+
+.table-striped tbody tr:nth-child(odd) td {
+    background-color: green;
+}
+
+.table-striped tbody tr.highlight td {
+    background-color: red;
+}
+

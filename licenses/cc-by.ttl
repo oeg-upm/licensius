@@ -1,0 +1,32 @@
+@prefix :        <http://purl.org/NET/rdflicense/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix provo:   <http://purl.org/net/provenance/ns#> .
+@prefix ldr:     <http://purl.org/NET/ldr/ns#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/cc-by4.0>
+      a       odrl:Policy ;
+      rdfs:label "CC-BY" ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by/4.0/> ;
+      cc:legalcode <http://creativecommons.org/licenses/by/4.0/legalcode> ;
+      dct:alternative "CC BY" ;
+      dct:hasVersion "4.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:title "Creative Commons - Attribution 4.0 International - CC BY 4.0"@en ;
+      odrl:permission
+              [ odrl:action cc:Distribution , ldr:extraction , ldr:reutilization , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:duty
+                        [ odrl:action cc:Attribution , cc:Notice
+                        ]
+              ] ;
+      foaf:logo <http://i.creativecommons.org/l/by/4.0/88x31.png> .

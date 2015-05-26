@@ -59,6 +59,7 @@ public class RDFUtils {
     public static Property PLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
     public static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
     public static Property SEEALSO= ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
+    public static Property PMAKESOFFER= ModelFactory.createDefaultModel().createProperty("http://schema.org/makesOffer");
 
     public static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
     public static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");
@@ -270,6 +271,7 @@ public class RDFUtils {
         model.setNsPrefix("dcat", "http://www.w3.org/ns/dcat#");
         model.setNsPrefix("gr", "http://purl.org/goodrelations/");
         model.setNsPrefix("prov", "http://www.w3.org/ns/prov#");
+        model.setNsPrefix("schema", "http://schema.org/");
     }    
 
     /**
@@ -281,7 +283,7 @@ public class RDFUtils {
     public static String browseSemanticWeb(String url) {
         String document = "";
         String acceptHeaderValue = StrUtils.strjoin(",","application/rdf+xml","application/turtle;q=0.9","application/x-turtle;q=0.9","text/n3;q=0.8","text/turtle;q=0.8","text/rdf+n3;q=0.7","application/xml;q=0.5","text/xml;q=0.5","text/plain;q=0.4","*/*;q=0.2");
-        boolean redirect = false;
+        boolean redirect = false; 
         try {
             URL obj = new URL(url);
             HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
@@ -321,13 +323,13 @@ public class RDFUtils {
         Model model = ModelFactory.createDefaultModel();
         InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
         try {
-            model.read(is, null, "RDF/XML");
+            model.read(is, null, "TURTLE");
             return model;
         } catch (Exception e) {
             try {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
-                model.read(is, null, "TURTLE");
+                model.read(is, null, "RDF/XML");
                 return model;
             } catch (Exception e2) {
             }

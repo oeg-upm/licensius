@@ -1,0 +1,1 @@
+This folder contains some RDF schemas that will be loaded faster if locally

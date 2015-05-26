@@ -106,8 +106,8 @@ public class ODRLModel {
             }
             else
             {
-                in1 = FileManager.get().open("../schemas/ODRL20.rdf");
-                in2 = FileManager.get().open("../schemas/ccrel.rdf");
+                in1 = FileManager.get().open("schemas/ODRL20.rdf");
+                in2 = FileManager.get().open("schemas/ccrel.rdf");
             }
             coreModel.read(in1, "");
             coreModel.read(in2, "");

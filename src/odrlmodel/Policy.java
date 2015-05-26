@@ -18,6 +18,7 @@ public class Policy extends MetadataObject {
 
     public String fileName = "";
     public String legalCode ="";
+    public boolean inOffer=false;
     
     //A policy is made of one or more rules
     public List<Rule> rules = new ArrayList();
@@ -204,17 +205,21 @@ public class Policy extends MetadataObject {
             boolean hasPlay = false;
             for (Action action : actions) {
                 if (action.hasPlay()) {
-                    hasPlay = true;
+                    if (r.getKindOfRule()==Rule.RULE_PERMISSION)
+                        hasPlay = true;
+                    if (r.getKindOfRule()==Rule.RULE_PROHIBITION)
+                        hasPlay = false;
+               //     return hasPlay;
                 }
             }
             if (hasPlay == false) {
                 continue;
             }
+            open=true;
             List<Constraint> lc = r.getConstraints();
             for (Constraint constraint : lc) {
-                if (constraint.isOpen()) {
-                    return true;
-                }
+                if (constraint.getClass().equals(ConstraintPay.class))
+                    open=false;
             }
         }
         return open;
@@ -247,7 +252,7 @@ public class Policy extends MetadataObject {
     /**
      * Decides whether there is a play at least in a one of the rules
      */
-    public boolean isInOffer() {
+    public boolean hasPlay() {
         for (Rule r : rules) {
             List<Action> actions = r.getActions();
             boolean hasPlay = false;
@@ -323,5 +328,11 @@ public class Policy extends MetadataObject {
     {
         return legalCode;
     }
+
+    public void setInOffer(boolean b) {
+        inOffer=b;
+    }
+
+
     
 }

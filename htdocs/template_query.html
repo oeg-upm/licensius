@@ -1,0 +1,114 @@
+<html>
+<!-- Victor Rodriguez Doncel - Ontology Engineering Group - Universidad Politecnica de Madrid (Spain) - 2014 -->
+<head>
+<title>Conditional access to Linked Data</title>
+<meta content="text/html; charset=iso-8859-1" http-equiv=Content-Type/>
+<meta name="description" content="Demo del OEG-UPM"/>
+<meta name="author" content="Victor Rodriguez Doncel "/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="content-type" content="Mime-Type; charset=iso-8859-1" />  
+
+<!--  <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+  <link rel="stylesheet" href="css/vroddon.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49063507-1', 'linkeddata.es');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+	
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+	  <img src="/img/rdf-condicional.png" width="24" style="float:left;margin:0px"/ > Conditional Linked Data
+	  </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/user">Demo User</a></li>
+        <li><a href="/admin">Demo Manager</a></li> 
+        <li><a href="/develop.html">Develop</a></li> 
+      </ul>
+	   <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	
+	
+<div class="container">
+ <div class="jumbotron">
+	<center><h1>Conditional Linked Data</h1> 
+    <p>Make SPARQL queries</p></center>
+ </div>		
+	
+	<div class="col-md-1">
+	</div>
+
+	<div class="col-md-2">
+      <ul class="nav nav-pills nav-stacked">
+        <li ><a href="linkeddata.html"><span class="glyphicon glyphicon-home"></span> Browse</a></li>
+        <li><a href="offers.html"><span class="glyphicon glyphicon-shopping-cart"></span> Offers</a></li>
+        <li class="active"><a href="query.html"><span class="glyphicon glyphicon-asterisk"></span> Query</a></li>
+      </ul>
+	  </div> 
+	
+<div class="col-md-8">
+
+	
+<div class="ldrheading"><p>SPARQL endpoint</p></div>
+<p class="bigger">This <strong>SPARQL endpoint</strong> provides access to the limited subset of RDF triples you are allowed to see</p>
+
+<form action="query" method="GET" accept-charset="UTF-8">
+        <textarea  class="form-contlro" name="query" cols="700" rows="10" style="width:700px;"></textarea>
+        <br>
+
+<!--        Output: <select name="output">
+          <option value="text">Text</option>
+          <option value="json">JSON</option>
+          <option value="xml">XML</option>
+          <option value="csv">CSV</option>
+          <option value="tsv">TSV</option>
+        </select> 
+		Superuser: <input type="checkbox" name="superuser" value="superuser" checked>  -->
+	    <br>
+	    <input type="submit" value="Get Results">
+      </form>
+	  <p>
+
+	  Example:	 <br/> 
+	  <code>
+	  select * where {&lt;http://localhost/geo/resource/Provincia/Barcelona&gt; ?p ?o}
+	  </code></p>
+	  
+	  
+	  <div class="panel panel-default">
+	  <div class="panel-heading">Results</div>
+	  <div class="panel-body">
+	  <!--TEMPLATERESULTS-->
+	  </div>
+	  </div>
+</div>
+	  <div class="col-md-1"></div>
+</div>
+
+
+<div class="footer">
+<!--<div class="container"><div class="panel panel-default"><div class="panel-body">  -->
+	<!--TEMPLATEFOOTER-->
+<!-- </div></div></div> -->
+  </div>
+  
+<script type="text/javascript" id="cookiebanner" src="http://cookiebanner.eu/js/cookiebanner.min.js" data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies."></script>
+
+</body>
+</html>
