@@ -118,6 +118,7 @@ public class GeneralHandler extends AbstractHandler {
             }
             if (requestUri.contains("/service"))
             {
+                System.out.println("Pirata service");
                 return true;
             }
 

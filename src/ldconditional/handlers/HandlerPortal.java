@@ -64,43 +64,27 @@ public class HandlerPortal {
 
             if (cd.getDatasetDump()==null)
                 continue;
-
-            
             try{title = cd.getDatasetVoid().getTitle();}catch(Exception e){}
             try{comment = cd.getDatasetVoid().getComment();}catch(Exception e){}
             try{ngrafos = cd.getDatasetVoid().getGrafos().size();}catch(Exception e){}            
             
             row+="<tr>";
-
-
-            /*
-            String color= "btn-default";
-            String texto="select";
-            if (name.equals(sdat))
-            {
-                color = "btn-info";
-                texto = "default";
-            }
-            row += "<td><a class=\"btn " + color+ " \" href=\"/service/chooseDataset?dataset="+name+"\" role=\"button\">"+texto+"</a></td>";
-            */
-
-            row+="<td>";
-            row += name;
-            row +="</td>";
-
-            row+="<td>";
-            row+=""+ngrafos;
-//            row += "Triples: " + cd.getDatasetVoid().getNumTriples(row) + "<br/>";
-//            row += "Datasets: " + cd.getDatasetVoid().getGrafos().size() + "<br/>";
-            row +="</td>";
-
-            row+="<td>";
-//            row += "<img src=\"/img/"+ name +".png\" height=\"128\" style=\"float:right;\"/>";
-            row += getLogo(name);
+            
+            row+="<td>"+ name+"</td>";
+            row+="<td>"+ngrafos+"</td>";
+            row+="<td>"+ getLogo(name);
             row+=  "<p class=\"lead\"><a href=\""+LDRConfig.getServer()+name+  "/linkeddata.html\">"+ title+"</a></p>";
             row += comment;
             row +="</td>";
 
+            //accion
+            row+="<td>"; 
+            row+="<a id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitform1(45)\"><span class=\"glyphicon glyphicon-remove\"></span></a>"; 
+            row+="</td>";
+            
+            
+            
+            //endaccion
 
             row +="</tr>";
 

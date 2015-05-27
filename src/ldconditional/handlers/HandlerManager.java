@@ -262,6 +262,10 @@ public class HandlerManager {
     }
 
     public static String getHTMLforTable(ConditionalDataset cd) {
+        String servidor = LDRConfig.getServer();
+        if (!servidor.endsWith("/"))
+            servidor+="/";
+
         String html = "";
         html += "<table class=\"table table-bordered table-hover table-condensed \">";
 
@@ -288,7 +292,7 @@ public class HandlerManager {
             html += "<td>";
             String selg = g.getURI();
 
-            String url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
+            String url = servidor + cd.name + "/manageren/managePolicy";
             String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
             form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
             html += form;
@@ -320,7 +324,7 @@ public class HandlerManager {
 
 
 
-        String url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
+        String url = servidor + cd.name + "/manageren/managePolicy";
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         form += "<input class=\"btn btn-default\"  name=\"action\" type=\"submit\" value=\"Restore default\"/>";
         html += form;
