@@ -167,7 +167,12 @@ public class HandlerManager {
         }
         if (action != null && action.equals("downloadData")) {
             logger.info("Action downloadData");
-            File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq");
+
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
+//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
+            File f = new File(filename);
             try {
                 String token = FileUtils.readFileToString(f);
                 response.setHeader("Content-Disposition","attachment;filename=data.nq");
@@ -181,7 +186,11 @@ public class HandlerManager {
         }
         if (action != null && action.equals("downloadMetadata")) {
             logger.info("Action downloadMetadata");
-            File f = new File("datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl");
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
+//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
+            File f = new File(filename);
             try {
                 String token = FileUtils.readFileToString(f);
                 response.setHeader("Content-Disposition","attachment;filename=void.ttl");
@@ -261,6 +270,10 @@ public class HandlerManager {
     }
 
     public static String getHTMLforTable(ConditionalDataset cd) {
+        String servidor = LDRConfig.getServer();
+        if (!servidor.endsWith("/"))
+            servidor+="/";
+
         String html = "";
         html += "<table class=\"table table-bordered table-hover table-condensed \">";
 
@@ -287,7 +300,7 @@ public class HandlerManager {
             html += "<td>";
             String selg = g.getURI();
 
-            String url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
+            String url = servidor + cd.name + "/manageren/managePolicy";
             String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
             form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
             html += form;
@@ -319,7 +332,7 @@ public class HandlerManager {
 
 
 
-        String url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
+        String url = servidor + cd.name + "/manageren/managePolicy";
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         form += "<input class=\"btn btn-default\"  name=\"action\" type=\"submit\" value=\"Restore default\"/>";
         html += form+"</form>";

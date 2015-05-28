@@ -117,7 +117,7 @@ public class LDRConfig {
     }
    
     public static String getServer() {
-        return prop.getProperty("server", "http://salonica.dia.fi.upm.es");
+        return prop.getProperty("server", "http://salonica.dia.fi.upm.es/");
     }
     
     public static void setPort(String str) {

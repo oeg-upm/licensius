@@ -62,7 +62,9 @@ public class DatasetVoid {
         conditionalDataset = cd;
         name = cd.name;
         uri = LDRConfig.getServer() + name;
-        String filename = "datasets/" + name + "/void.ttl";
+        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+        if (!sfolder.endsWith("/")) sfolder+="/";
+        String filename = sfolder + name + "/void.ttl";
         File f = new File(filename);
         if (f.exists()) {
             model = RDFDataMgr.loadModel(filename);
@@ -126,7 +128,11 @@ public class DatasetVoid {
             StringWriter sw = new StringWriter();
             RDFDataMgr.write(sw, model, Lang.TTL);
             String s = sw.toString();
-            PrintWriter writer = new PrintWriter("datasets/" + name + "/void.ttl", "UTF-8");
+            
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + name + "/void.ttl";
+            PrintWriter writer = new PrintWriter(filename, "UTF-8");
             writer.write(s);
             writer.close();
         } catch (Exception e) {
@@ -405,7 +411,13 @@ public class DatasetVoid {
 
     public void restoreDefault() {
         try {
-            copyFileUsingStream(new File("datasets/" + this.getConditionalDataset().name + "/voidoriginal.ttl"), new File("datasets/" + this.getConditionalDataset().name + "/void.ttl"));
+            
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename1 = sfolder + this.getConditionalDataset().name + "/voidoriginal.ttl";
+            String filename2 = sfolder + this.getConditionalDataset().name + "/void.ttl";
+            
+            copyFileUsingStream(new File(filename1), new File(filename2));
         } catch (IOException ex) {
             java.util.logging.Logger.getLogger(DatasetVoid.class.getName()).log(Level.SEVERE, null, ex);
         }

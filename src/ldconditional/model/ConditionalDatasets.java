@@ -3,6 +3,7 @@ package ldconditional.model;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import ldconditional.LDRConfig;
 import org.apache.log4j.Logger;
 
 /**
@@ -16,11 +17,13 @@ public class ConditionalDatasets {
     static ConditionalDataset defaultDataset = null;
 
     /**
-     * Loads the datasets description
+     * Loads the datasets description. 
+     * The location is extracted from a configurable parameter.
      */
     public static void loadDatasets() {
         datasets.clear();
-        File folder = new File("datasets");
+        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+        File folder = new File(sfolder);
         File[] listOfFiles = folder.listFiles();
         for (File file : listOfFiles) {
             if (file.isDirectory()) {

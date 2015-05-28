@@ -73,13 +73,16 @@ public class HandlerSearch {
         tabla += "<thead><th>Resource</th><th>Type</th><th>#triples</th></thead>";
 
         List<String> ls = di.matchSujetos(term);
+        int i=-1;
         for (String s : ls) {
+            i++;
+            if (i>=20)
+                break;
             List<String> triples = di.getNQuadsForSujeto(s);
             System.out.println(triples);
             int ntriples = triples.size();
             Model m = NQuadRawFile.getModel(triples);
-
-            RDFDataMgr.write(System.out, m, Lang.TURTLE);
+//            RDFDataMgr.write(System.out, m, Lang.TURTLE);
 
             String label = s;
             label = oeg.utils.StringUtils.getLocalName(label);
