@@ -109,7 +109,7 @@ public class HandlerPortal {
             try {
                 bi = ImageIO.read(new File(filename));
                 String churro = getImage64(bi);
-                img = "<img style=\"float:right;\" src=\"data:image/png;base64," + churro + "\">";
+                img = "<img style=\"float:right;max-width:192px;max-height:192px;\" src=\"data:image/png;base64," + churro + "\">";
             } catch (IOException e) {}            
             return img;
     }
