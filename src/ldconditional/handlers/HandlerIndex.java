@@ -5,10 +5,9 @@ import java.io.ByteArrayOutputStream;
 import ldconditional.handlers.HandlerIndex;
 import java.io.File;
 import java.io.IOException;
-import java.util.Base64;
-import java.util.Base64.Encoder;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.DatatypeConverter;
 import ldconditional.LDRConfig;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
@@ -16,6 +15,10 @@ import ldconditional.model.DatasetVoid;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.eclipse.jetty.server.Request;
+
+//import java.util.Base64;
+//import java.util.Base64.Encoder;
+
 
 /**
  * THIS CLASS SHOULD BE DEPRECATED!!!
@@ -66,13 +69,14 @@ public class HandlerIndex {
         baseRequest.setHandled(true);
     }
 
-public static String getImage64(final BufferedImage img) {
+    public static String getImage64(final BufferedImage img) {
         String encodedImage = "";
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write(img, "png", baos);
             baos.flush();
-            encodedImage = Base64.getEncoder().encodeToString(baos.toByteArray());
+         //   encodedImage = Base64.getEncoder().encodeToString(baos.toByteArray());
+            encodedImage = DatatypeConverter.printBase64Binary(baos.toByteArray());
             baos.close();
             encodedImage = java.net.URLEncoder.encode(encodedImage, "ISO-8859-1");
         } catch (Exception e) {
