@@ -2,19 +2,23 @@ package ldconditional.handlers;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import ldconditional.LDRConfig;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
 import ldconditional.auth.LicensedTriple;
 import ldconditional.auth.Portfolio;
 import ldconditional.auth.GoogleAuthHelper;
 import ldconditional.auth.Evento;
+import static ldconditional.handlers.HandlerIndex.getImage64;
 import ldconditional.model.Grafo;
 import odrlmodel.rdf.RDFUtils;
 import org.apache.commons.io.FileUtils;
@@ -66,7 +70,7 @@ public class HandlerResource {
 
     }
 
-    public static String formatTTLTriples( List<LicensedTriple> lst) {
+    public static String formatTTLTriples(List<LicensedTriple> lst) {
         String s = "";
         Model model = ModelFactory.createDefaultModel();
         RDFUtils.addPrefixesToModel(model);
@@ -94,6 +98,30 @@ public class HandlerResource {
     }
 
     /**
+     * http://datos.gob.es/recurso/Provincia/Santander
+     */
+    public static String getJumbotron(ConditionalDataset cd) {
+        String titulo = cd.name;
+        String subtitulo = cd.getDatasetVoid().getTitle();
+        String jumbo = " <div class=\"jumbotron\">\n"
+                + "	<center><h1>" + titulo + "</h1> \n"
+                + "    <p>" + subtitulo + "\n";
+        try{
+                String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+                if (!sfolder.endsWith("/")) sfolder+="/";
+                String filename = sfolder + cd.name + "/logo.png";
+                BufferedImage bi = ImageIO.read(new File(filename));
+                String churro = getImage64(bi);
+                String img = "<img style=\"vertical-align:middle;width:100px;float:right;margin:8px;\" src=\"data:image/png;base64," + churro + "\">";
+                jumbo+=img;
+        }catch(Exception e){}
+        
+        jumbo+="</p></center></div>";
+        
+        return jumbo;
+    }
+
+    /**
      * Formats in HTML the triples to be shown.
      *
      * @param label
@@ -110,6 +138,7 @@ public class HandlerResource {
             String footer = FileUtils.readFileToString(new File("htdocs/footer.html"));
             html = html.replace("<!--TEMPLATEFOOTER-->", footer);
             html = html.replace("<!--TEMPLATEMENU-->", getHTMLMenu(recurso));
+            html = html.replace("<!--TEMPLATEJUMBOTRON-->", getJumbotron(cd));
         } catch (Exception e) {
             return "page not found " + e.getMessage();
         }
@@ -138,43 +167,39 @@ public class HandlerResource {
             tabla += lt.toHTMLRowNew(cd) + "\n";
         }
 
-
         tabla += "</table>\n";
 
         /*        tabla += "<p style=\"margin-bottom: 2cm;\"></p>";
 
-        tabla += "<h3>Limited access triples</h3>\n";
-        tabla += "<table class=\"table table-striped table-condensed\">";
-        tabla += "<thead><tr><td width=\"50%\"><strong>Property</strong></td><td width=\"50%\"><strong>Value</strong></td></tr></thead>\n";
-        List<LicensedTriple> closed = getClosedTriples(cd, ls);
-        for (LicensedTriple lt : closed) {
-        tabla += lt.toHTMLRowNew(cd) + "\n";
-        }
+         tabla += "<h3>Limited access triples</h3>\n";
+         tabla += "<table class=\"table table-striped table-condensed\">";
+         tabla += "<thead><tr><td width=\"50%\"><strong>Property</strong></td><td width=\"50%\"><strong>Value</strong></td></tr></thead>\n";
+         List<LicensedTriple> closed = getClosedTriples(cd, ls);
+         for (LicensedTriple lt : closed) {
+         tabla += lt.toHTMLRowNew(cd) + "\n";
+         }
          */
         tabla += "</table>\n";
 
-        String id="verrdf";
-     //   tabla+="<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#"+id +"\">RDF</button>";
-        tabla+="<div class=\"pull-right\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#"+id+"\"><img src=\"/img/rdf24.png\"/></a></div>";
-        
+        String id = "verrdf";
+        //   tabla+="<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#"+id +"\">RDF</button>";
+        tabla += "<div class=\"pull-right\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#" + id + "\"><img src=\"/img/rdf24.png\"/></a></div>";
+
         String ttl = formatTTLTriples(ls);
-        ttl=ttl.replaceAll("<", "&lt;");
-        ttl=ttl.replaceAll(">", "&gt;");
-        ttl = "<div class=\"panel panel-default\"><pre>"+ttl+"</pre></div>";
-        tabla+=getHTMLModal(id, "RDF", ttl);
-
-
+        ttl = ttl.replaceAll("<", "&lt;");
+        ttl = ttl.replaceAll(">", "&gt;");
+        ttl = "<div class=\"panel panel-default\"><pre>" + ttl + "</pre></div>";
+        tabla += getHTMLModal(id, "RDF", ttl);
 
         html = html.replace("<!--TEMPLATEHERE2-->", tabla);
 
         return html;
     }
 
-
     public static String getHTMLModal(String id, String titulo, String contenido) {
 
         String s = "";
-        s += "<div class=\"modal fade\" id=\""+id+"\">";
+        s += "<div class=\"modal fade\" id=\"" + id + "\">";
         s += "<div class=\"modal-dialog modal-lg\">";
         s += "<div class=\"modal-content\">";
         s += "<div class=\"modal-header\">";

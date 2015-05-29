@@ -347,12 +347,13 @@ public class LicensedTriple {
 
                     LanguageManager lmgr = new LanguageManager();
                     String lan2 = lmgr.mapa32.get(language);
-                    sobjeto += " (" + language + ")"; //languaje
-            o = sobjeto;
+                    if (!language.isEmpty())
+                        sobjeto += " (" + language + ")"; //languaje
+                    o = sobjeto;
           
             
-            if (!language.isEmpty())
-                o+="<span class=\"lang-xs\" lang=\""+ language+"\"></span>";
+//            if (!language.isEmpty())
+//                o+="<span class=\"lang-xs\" lang=\""+ lan2+"\"></span>";
 
         }
 

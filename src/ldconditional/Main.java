@@ -23,7 +23,8 @@ import org.eclipse.jetty.server.session.SessionHandler;
  * Main class, entry point of the Linked Data Web Server.
  * APIs are documented making use of apidoc http://apidocjs.com/
  *  Most requests are processed by the GeneralHandler class
- *
+ * MUY INTERESANTE:
+ * https://wiki.eclipse.org/Jetty/Tutorial/Embedding_Jetty#Setting_a_Web_Application_Context
  * @author Victor
  */
 public class Main {
