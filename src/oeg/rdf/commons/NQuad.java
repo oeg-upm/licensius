@@ -128,7 +128,13 @@ public class NQuad {
                 String lan2=line.substring(i0+1,i1-1);
                 int i2 = lan2.indexOf("@");
                 if (i2!=-1)
-                    lan = lan2.substring(1,3);
+                {
+                    lan = lan2.substring(1, lan2.length());
+ /*                   int ix=lan2.indexOf(" ",i2);
+                    if (ix!=-1)
+                        lan=lan2.substring(1,ix);
+                    lan = lan2.substring(1,3);*/
+                }
             }
         }catch(Exception e)
         {

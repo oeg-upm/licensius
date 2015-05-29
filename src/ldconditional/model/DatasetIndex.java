@@ -225,7 +225,8 @@ public Map<String, List<Integer>> readIndexGrafos()
     public void indexar()
     {
         DatasetIndex di = cd.getDatasetIndex();
-        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
+//        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
+        ExternalSort.ordenar(LDRConfig.get("datasetsfolder", "datasets").endsWith("/") ? LDRConfig.get("datasetsfolder", "datasets") : (LDRConfig.get("datasetsfolder", "datasets")+"/")+cd.name+"/data.nq");
         mapGrafos = di.createIndexGrafos();
         di.writeIndexGrafos(mapGrafos);
             String sfolder = LDRConfig.get("datasetsfolder", "datasets");

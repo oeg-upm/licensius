@@ -148,7 +148,7 @@ public class LicensedTriple {
      * Writes a formatted LDR triple
      * @param lan The language
      */
-    public String toHTMLRow(String lan) {
+/*    public String toHTMLRow(String lan) {
         String str = "";
 
         String p = stmt.getPredicate().getLocalName();
@@ -242,7 +242,7 @@ public class LicensedTriple {
 
         return str;
     }
-
+*/
     /**
      * Writes a formatted LDR triple
      * @param lan The language
@@ -323,6 +323,7 @@ public class LicensedTriple {
             }
         }
         if (stmt.getObject().isLiteral()) {
+            String oliteral=stmt.getObject().asLiteral().toString();
             String sobjeto = stmt.getObject().asLiteral().getString();
             String language = stmt.getObject().asLiteral().getLanguage();
 
@@ -344,7 +345,12 @@ public class LicensedTriple {
                 e.printStackTrace();
             } */
 
+                    LanguageManager lmgr = new LanguageManager();
+                    String lan2 = lmgr.mapa32.get(language);
+                    sobjeto += " (" + language + ")"; //languaje
             o = sobjeto;
+          
+            
             if (!language.isEmpty())
                 o+="<span class=\"lang-xs\" lang=\""+ language+"\"></span>";
 

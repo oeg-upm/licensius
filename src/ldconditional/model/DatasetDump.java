@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import ldconditional.LDRConfig;
 import oeg.rdf.commons.NQuad;
 import oeg.rdf.commons.NQuadRawFile;
 import org.apache.log4j.Logger;
@@ -23,7 +24,7 @@ public class DatasetDump extends NQuadRawFile {
     private static final Logger logger = Logger.getLogger(NQuadRawFile.class);
 
     public DatasetDump(ConditionalDataset cd) {
-        super("datasets/" + cd.name + "/data.nq");
+        super(LDRConfig.get("datasetsfolder", "datasets").endsWith("/") ? LDRConfig.get("datasetsfolder", "datasets") : (LDRConfig.get("datasetsfolder", "datasets")+"/") + cd.name + "/data.nq");
     }
     //Devuelve las entradas para el indice
 
