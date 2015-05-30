@@ -79,7 +79,7 @@
 <!--TEMPLATEDATASETS-->	
     </tbody>
   </table>
-  
+<!--TEMPLATEADDITIONALPORTALBUTTONS-->  
   
   
   </div>
@@ -107,7 +107,7 @@
 
 
 <script type="text/javascript">
-function submitform1(number)
+function submitform1(number, texto)
 {
     var http = new XMLHttpRequest();
   //  var pgn = document.getElementById("pgn").value;
@@ -115,8 +115,8 @@ function submitform1(number)
   //  console.info(pgn);
   //  var params = "pgn=" + pgnencoded+"&action=enrich";
     var params="";
-	console.info("Hola " +number);
-    http.open("POST", "/service/accion", true); //true
+	console.info("Accion sobre: " +number+ " Accion: "+texto);
+    http.open("POST", "/service/portal", true); //true
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
     http.setRequestHeader("Content-length", params.length);    
     http.setRequestHeader("Connection", "close");

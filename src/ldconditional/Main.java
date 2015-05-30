@@ -95,10 +95,11 @@ public class Main {
         ContextHandler contextGeneral = new ContextHandler("/");
         contextGeneral.setHandler(sessions);
         sessions.setHandler(mainHandler);
-        handlers.addHandler(requestLogHandler);
+//        handlers.addHandler(requestLogHandler);
         handlers.addHandler(contextGeneral);
         handlers.addHandler(serviceHandler);
         handlers.addHandler(generalHandler);
+        handlers.addHandler(requestLogHandler);
         NCSARequestLog requestLog = new NCSARequestLog("./logs/jetty-yyyy_mm_dd.request.log");
         requestLog.setRetainDays(90);
         requestLog.setAppend(true);

@@ -25,7 +25,8 @@ public class MainHandler extends AbstractHandler {
 
     
     /**
-     * Stores a query
+     * Stores a query.
+     * @param request A HttpServletRequest
      */
     private void logQuery(HttpServletRequest request)
     {
@@ -39,7 +40,6 @@ public class MainHandler extends AbstractHandler {
             logger.warn(e.getMessage());
         }
         logger.info(sinfo);
-        
     }
     
 }

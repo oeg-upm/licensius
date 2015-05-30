@@ -10,7 +10,6 @@ import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
 import ldconditional.LDRConfig;
 import static ldconditional.handlers.HandlerIndex.getImage64;
-import static ldconditional.handlers.HandlerIndex.logger;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
@@ -27,10 +26,12 @@ public class HandlerPortal {
             String token = "";
             File f = new File("./htdocs/template_portal.html");
             token = FileUtils.readFileToString(f);
-            String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
-            token = token.replace("<!--TEMPLATEFOOTER-->", footer);
+            
+            token = token.replace("<!--TEMPLATEFOOTER-->", FileUtils.readFileToString(new File("./htdocs/footer.html")));
             
             token = token.replace("<!--TEMPLATEDATASETS-->", getHTMLDatasets(sdataset));
+            
+            token = token.replace("<!--TEMPLATEADDITIONALPORTALBUTTONS-->", getHTMLAdditionalPortalButtons());
 
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType("text/html;charset=utf-8");
@@ -79,7 +80,8 @@ public class HandlerPortal {
 
             //accion
             row+="<td>"; 
-            row+="<a id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitform1(45)\"><span class=\"glyphicon glyphicon-remove\"></span></a>"; 
+            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Removes this dataset from the server\" id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitform1('"+name+"', 'remove')\"><span class=\"glyphicon glyphicon-remove\"></span></a>"; 
+            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Edits this dataset in the server\" id=\"boton2\" class=\"btn btn-primary\" href=\"javascript: submitform1('"+name+"', 'edit')\"><span class=\"glyphicon glyphicon-edit\"></span></a>"; 
             row+="</td>";
             
             
@@ -112,6 +114,16 @@ public class HandlerPortal {
                 img = "<img style=\"float:right;max-width:192px;max-height:192px;\" src=\"data:image/png;base64," + churro + "\">";
             } catch (IOException e) {}            
             return img;
+    }
+
+    /**
+     * Botones generales sobre los datasets
+     */
+    private String getHTMLAdditionalPortalButtons() {
+            
+        String html="";
+        html+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Adds a new dataset to the server\" id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitform1('', 'add')\"><span class=\"glyphicon glyphicon-plus\"></span></a>"; 
+        return html;
     }
     
 }

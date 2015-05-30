@@ -4,6 +4,7 @@ import ldconditional.ldserver.ws.GetOffers;
 import ldconditional.ldserver.ws.GetResources;
 import ldconditional.ldserver.ws.GetOpenResource;
 import java.io.IOException;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +32,7 @@ public class ServiceHandler extends AbstractHandler {
         if (baseRequest.isHandled() || !string.contains("/service")) {
             return;
         }
-        logger.info("Service handler");
+        logger.info("Service handler processing this URI " + request.getRequestURI());
         
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
@@ -44,6 +45,7 @@ public class ServiceHandler extends AbstractHandler {
 
         if (string.contains("/service/chooseDataset"))
         {
+            logger.info("chooseDataset");
             String datas = request.getParameter("dataset");
             ConditionalDatasets.setSelectedDataset(datas);
             response.setStatus(HttpServletResponse.SC_OK);
@@ -55,6 +57,7 @@ public class ServiceHandler extends AbstractHandler {
 
         if (string.contains("/service/getOffers"))
         {
+            logger.info("getOffers");
             GetOffers go = new GetOffers();
             go.doGet(request, response);
             baseRequest.setHandled(true);
@@ -64,6 +67,7 @@ public class ServiceHandler extends AbstractHandler {
         }
         if (string.contains("/service/getResources"))
         {
+            logger.info("getResources");
             GetResources go = new GetResources();
             go.doGet(request, response);
             baseRequest.setHandled(true);
@@ -75,6 +79,7 @@ public class ServiceHandler extends AbstractHandler {
         //****************** GET RESOURCE
         if (string.contains("/service/getResource"))
         {
+            logger.info("getResource");
             GetOpenResource go = new GetOpenResource();
             go.doGet(request, response);
             baseRequest.setHandled(true);
@@ -85,6 +90,7 @@ public class ServiceHandler extends AbstractHandler {
 
         //****************** RESET PORTFOLIO
         if (string.contains("/service/resetPortfolio")) {
+            logger.info("resetPortfolio");
             ServiceHandlerImpl.resetPortfolio(baseRequest, request, response);
             response.setStatus(HttpServletResponse.SC_OK);
             return;
@@ -92,6 +98,7 @@ public class ServiceHandler extends AbstractHandler {
         
         //****************** FAKE PAYMENT
         if (string.contains("/service/fakePayment")) {
+            logger.info("fakePayment");
             ServiceHandlerImpl.fakePayment(baseRequest, request, response);
             response.setStatus(HttpServletResponse.SC_OK);
             return;
@@ -99,6 +106,7 @@ public class ServiceHandler extends AbstractHandler {
 
         //****************** SHOW PAYMENT
         if (string.contains("/service/showPayment")) {
+            logger.info("showPayment");
             ServiceHandlerImpl.showPayment(baseRequest, request, response);
             response.setStatus(HttpServletResponse.SC_OK);
             return;
@@ -107,6 +115,7 @@ public class ServiceHandler extends AbstractHandler {
 
         //****************** GET DATASET
         if (string.contains("/service/getDataset")) {
+            logger.info("getDataset");
             ConditionalDataset cd = ConditionalDatasets.getDataset(sdataset);
             if (cd==null)
                 return;
@@ -117,11 +126,19 @@ public class ServiceHandler extends AbstractHandler {
 
         //****************** EXPORT PORTFOLIO
         if (string.contains("/service/exportPortfolio")) {
+            logger.info("exportPortfolio");
             ServiceHandlerImpl.exportPortfolio(baseRequest, request, response);
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
 
+        //****************** 
+        if (string.contains("/service/portal")) {
+            logger.info("portal");
+            Enumeration e = request.getParameterNames();
+            while(e.hasMoreElements())
+                System.out.println(e.nextElement());
+        }
 
 
         response.setContentType("text/html;charset=utf-8");
