@@ -56,8 +56,22 @@ public class ServiceHandler extends AbstractHandler {
             logger.info("describeDataset");
             String datas = request.getParameter("dataset");
             ConditionalDataset ds=ConditionalDatasets.setSelectedDataset(datas);
-            String json = ds.getDatasetVoid().getJSON();
             response.setContentType("application/json;charset=utf-8");
+            response.getWriter().print(ds.getDatasetVoid().getJSON());
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }        
+
+        if (string.contains("/service/setDatasetMetadata"))
+        {
+            logger.info("describeDataset");
+            String datas = request.getParameter("dataset");
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
+            ConditionalDataset ds=ConditionalDatasets.setSelectedDataset(datas);
+            ds.getDatasetVoid().setDescription(description);
+            response.setContentType("application/json;charset=utf-8");
+            String json=ds.getDatasetVoid().getJSON();
             response.getWriter().print(json);
             response.setStatus(HttpServletResponse.SC_OK);
             return;

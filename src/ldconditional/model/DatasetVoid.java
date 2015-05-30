@@ -22,6 +22,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -42,15 +43,19 @@ import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
 /**
- * This class represets the policies applying to the different graphs in a a dataset.
+ * This class represents the policies applying to the different graphs in a a dataset.
  * @author Victor
  */
 public class DatasetVoid {
 
     private static final Logger logger = Logger.getLogger(DatasetVoid.class);
+
+    //link back to the container
     ConditionalDataset conditionalDataset = null;
-    ///Maps graphs and policies
+    
+    //politicas aplicando a cada grafo
     Map<String, List<Policy>> policies = new HashMap();
+
     String name = "";
     String uri = "";
     Model model = null;
@@ -63,6 +68,11 @@ public class DatasetVoid {
         conditionalDataset = cd;
         name = cd.name;
         uri = LDRConfig.getServer() + name;
+        load();
+    }
+
+    public void load()
+    {
         String sfolder = LDRConfig.get("datasetsfolder", "datasets");
         if (!sfolder.endsWith("/")) sfolder+="/";
         String filename = sfolder + name + "/void.ttl";
@@ -73,7 +83,7 @@ public class DatasetVoid {
             policies = loadPolicies();
         }
     }
-
+    
     public ConditionalDataset getConditionalDataset() {
         return conditionalDataset;
     }
@@ -164,6 +174,16 @@ public class DatasetVoid {
         Property prop = model.createProperty(sprop);
         model.add(getDatasetRes(), prop, val);
     }
+    
+    public void setMetadataLiteral(String sprop, String val)
+    {
+        Property prop = model.createProperty(sprop);
+        Statement st=model.getProperty(getDatasetRes(), prop);
+        if (st!=null)
+            model.remove(st);
+        model.add(getDatasetRes(), prop, val);
+    }
+    
 
     /**
      * Examnple:
@@ -487,10 +507,19 @@ public class DatasetVoid {
     public String getJSON()
     {
             JSONObject obj = new JSONObject();
-            obj.put("uri", conditionalDataset.getUri());
+            String suri = "";
+            try{suri=URLEncoder.encode(conditionalDataset.getUri(), "UTF-8");}catch(Exception e){}
+            obj.put("uri",suri);
             obj.put("label", conditionalDataset.name);
             obj.put("title", getTitle());
+            obj.put("description", getComment());
             return obj.toJSONString();
+    }
+
+    public void setDescription(String description) {
+        setMetadataLiteral("http://www.w3.org/2000/01/rdf-schema#comment", description);
+        write();
+        load();
     }
     
 }
