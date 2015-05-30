@@ -38,4 +38,24 @@ public class LanguageManager {
     }
 
 
+    /**
+     * @param lan2 2-letters language code of the language
+     * sa by bg cz dk de gr us es ee fi fr ie in hr hu id is it il jp kr lt lv mk my mt nl no pl pt ro ru sk si al rs se th tr ua vn cn
+     * @return HTML code to be inserted to have a flag.
+     */
+    public static String getHTMLFlag(String lan2)
+    {
+        return "<span class=\"lang-xs\" lang=\""+ lan2+"\"></span>";        
+    }
+
+    /**
+     * @param lan2 2-letters language code of the language
+     * @return HTML code to be inserted to have a flag.
+     */
+    public static String getHTMLHeader(String lan2)
+    {
+        return "<link rel=\"stylesheet\" href=\"/css/languages.min.css\">";        
+    }
+    
+
 }

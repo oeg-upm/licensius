@@ -3,7 +3,7 @@ package ldconditional;
 import ldconditional.model.ConditionalDatasets;
 import ldconditional.handlers.GeneralHandler;
 import ldconditional.handlers.ServiceHandler;
-import ldconditional.ldserver.MainHandler;
+import ldconditional.handlers.MainHandler;
 
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
