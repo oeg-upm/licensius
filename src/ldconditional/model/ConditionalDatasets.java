@@ -41,10 +41,11 @@ public class ConditionalDatasets {
         }
     }
 
-    public static void setSelectedDataset(String se)
+    public static ConditionalDataset setSelectedDataset(String se)
     {
         ConditionalDataset cd = getDataset(se);
         defaultDataset = cd;
+        return cd;
     }
 
     /**

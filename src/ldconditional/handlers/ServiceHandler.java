@@ -32,7 +32,14 @@ public class ServiceHandler extends AbstractHandler {
         if (baseRequest.isHandled() || !string.contains("/service")) {
             return;
         }
-        logger.info("Service handler processing this URI " + request.getRequestURI());
+        
+        String slog ="Service handler processing this URI "; 
+        slog+=request.getRequestURI();
+        Enumeration e = request.getParameterNames();
+        while(e.hasMoreElements())
+            slog+=e.nextElement()+" ";
+        logger.info(slog);
+        
         
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
@@ -42,6 +49,19 @@ public class ServiceHandler extends AbstractHandler {
         String uri = request.getRequestURI();
         int index=uri.indexOf('/',1);
         String sdataset = uri.substring(1,index);
+        
+        
+        if (string.contains("/service/describeDataset"))
+        {
+            logger.info("describeDataset");
+            String datas = request.getParameter("dataset");
+            ConditionalDataset ds=ConditionalDatasets.setSelectedDataset(datas);
+            String json = ds.getDatasetVoid().getJSON();
+            response.setContentType("application/json;charset=utf-8");
+            response.getWriter().print(json);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }        
 
         if (string.contains("/service/chooseDataset"))
         {
@@ -133,11 +153,15 @@ public class ServiceHandler extends AbstractHandler {
         }
 
         //****************** 
-        if (string.contains("/service/portal")) {
+        if (string.contains("/service/portalAction")) {
             logger.info("portal");
-            Enumeration e = request.getParameterNames();
-            while(e.hasMoreElements())
-                System.out.println(e.nextElement());
+            String rdataset = request.getParameter("dataset");
+            String raction = request.getParameter("action");
+            logger.info(rdataset+" "+raction);
+            if (raction.equals("edit"))
+                ServiceHandlerImpl.editDataset(rdataset);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
         }
 
 

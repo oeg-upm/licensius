@@ -273,20 +273,6 @@ public class ServiceHandlerImpl {
         }
     }
 
-    /*private static void addPrefixes(Model model) {
-        model.setNsPrefix("odrl", "http://www.w3.org/ns/odrl/2/"); //http://w3.org/ns/odrl/2/
-        model.setNsPrefix("dct", "http://purl.org/dc/terms/");
-        model.setNsPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-        model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-        model.setNsPrefix("cc", "http://creativecommons.org/ns#");
-        model.setNsPrefix("ldr", "http://purl.oclc.org/NET/ldr/ns#");
-        model.setNsPrefix("void", "http://rdfs.org/ns/void#");
-        model.setNsPrefix("dcat", "http://www.w3.org/ns/dcat#");
-        model.setNsPrefix("ldp", "http://www.w3.org/ns/ldp#");
-        model.setNsPrefix("foaf", "http://xmlns.com/foaf/spec/");
-        model.setNsPrefix("schema", "http://schema.org/");
-    }*/
-    
     public static void getDataset2(ConditionalDataset cd, Request baseRequest, HttpServletRequest request, HttpServletResponse response) {
         Portfolio portfolio = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
         if (portfolio == null) {
@@ -462,6 +448,10 @@ public class ServiceHandlerImpl {
         }
         baseRequest.setHandled(true);
 
+    }
+
+    static void editDataset(String rdataset) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -39,6 +39,7 @@ import odrlmodel.rdf.RDFUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
+import org.json.simple.JSONObject;
 
 /**
  * This class represets the policies applying to the different graphs in a a dataset.
@@ -482,4 +483,14 @@ public class DatasetVoid {
 
         write();
     }
+    
+    public String getJSON()
+    {
+            JSONObject obj = new JSONObject();
+            obj.put("uri", conditionalDataset.getUri());
+            obj.put("label", conditionalDataset.name);
+            obj.put("title", getTitle());
+            return obj.toJSONString();
+    }
+    
 }

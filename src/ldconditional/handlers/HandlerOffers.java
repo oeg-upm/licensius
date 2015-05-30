@@ -198,7 +198,7 @@ public class HandlerOffers {
             }
             uri += "?target=" + target;
         }
-        str += "<a href=\"" + uri + "\"/>";
+        str += "<a style=\"padding:.5em;\" href=\"" + uri + "\"/>";
         String slav = policy2.getLabel("en");
         if (policy2.isOpen()) {
             str += "<span class=\"label label-success\">" + slav + " </span><br/>";
