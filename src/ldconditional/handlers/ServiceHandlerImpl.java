@@ -535,13 +535,27 @@ public class ServiceHandlerImpl {
         return true;
     }
 
-    static String getResourceJSON(int i) {
-        String json = "";
+    /**
+     * Devuelve un fragmento de json con el elemento i-esimo
+     */
+    static String getResourceJSON(ConditionalDataset ds, int i) {
         int id = (int)(Math.random()*1000);
+
+        String json = "";
+        
+        DatasetIndex dsi = ds.getDatasetIndex();
+        
+        String sujeto = dsi.getIndexedSujetos().get(i);
+        int triples = dsi.getIndexedTriplesPerSubject(sujeto);
+        
+        
+        sujeto = "<a href='"+sujeto+ "'>"+sujeto+"</a>";
+//        sujeto="<b>"+sujeto+"<b>";
+        
         json+=  "    {\n" +
                 "      \"id\":" +i+",\n" +
-                "      \"uno\": \"  "+ id +"\",\n" + //sender
-                "      \"dos\": \"2014-05-30T22:15:00\"\n" + //receiver
+                "      \"uno\": \"  "+ sujeto +"\",\n" + //sender
+                "      \"dos\": \""+ triples +"\"\n" + //receiver
                 "    }";
         
         return json;

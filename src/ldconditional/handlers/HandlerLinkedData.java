@@ -28,10 +28,10 @@ public class HandlerLinkedData {
             body = body.replace("<!--TEMPLATEDATASETCOMMENT-->", comment);
 
 //            String mainres = cd.getDatasetVoid().getHTMLMainResources();
-            String mainres = getHTMLResources(cd);
+//            String mainres = getHTMLResources(cd);
             
             
-            body = body.replace("<!--TEMPLATEMAINRESOURCES-->", mainres);
+ //           body = body.replace("<!--TEMPLATEMAINRESOURCES-->", mainres);
 
 
             response.setStatus(HttpServletResponse.SC_OK);

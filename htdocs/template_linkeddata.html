@@ -22,6 +22,13 @@
   ga('create', 'UA-49063507-1', 'linkeddata.es');
   ga('send', 'pageview');
 </script>
+<style type="text/css">
+    .shortColumn
+    {
+        width: 50px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -89,13 +96,13 @@
 		<p class="vbottom"></p>
 		
 
-<table id="grid-data" class="table table-condensed table-hover table-striped">
+<table id="grid-data" class="table table-condensed table-hover "> <!--table-striped-->
     <thead>
         <tr>
-            <th data-column-id="id" data-type="numeric">ID</th>
-            <th data-column-id="uno">URI</th>
-            <th data-column-id="dos"  data-order="desc">Label</th>
-            <th data-column-id="link" data-formatter="link" data-sortable="false">Link</th>
+            <th data-column-id="id" data-type="numeric" data-visible="false">ID</th>
+            <th data-column-id="uno" data-order="desc">URI</th>
+            <th data-column-id="dos" data-type="numeric"  data-header-css-class="shortColumn">#</th>
+<!--            <th data-column-id="link" data-formatter="link" data-sortable="false">Link</th> -->
         </tr>
     </thead>
 </table>
