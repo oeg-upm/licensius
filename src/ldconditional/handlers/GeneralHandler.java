@@ -118,7 +118,7 @@ public class GeneralHandler extends AbstractHandler {
             }
             if (requestUri.contains("/service"))
             {
-                System.out.println("Pirata service");
+             //   System.out.println("Pirata service");
                 return true;
             }
             if (requestUri.contains("/search.html") || requestUri.contains("search"))

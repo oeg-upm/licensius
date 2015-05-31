@@ -168,9 +168,11 @@ public class HandlerManager {
         if (action != null && action.equals("downloadData")) {
             logger.info("Action downloadData");
 
-            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-            if (!sfolder.endsWith("/")) sfolder+="/";
-            String filename = sfolder + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
+            String filename = ConditionalDatasets.getSelectedDataset().getDumpPath();
+            
+//            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+//            if (!sfolder.endsWith("/")) sfolder+="/";
+//            String filename = sfolder + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
 //            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
             File f = new File(filename);
             try {

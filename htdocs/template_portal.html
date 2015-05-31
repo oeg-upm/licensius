@@ -6,12 +6,11 @@
   <meta name="author" content="Victor Rodriguez Doncel, Daniel Vila Suero"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/vroddon.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   
-  <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-  <script src="js/fileinput.min.js" type="text/javascript"></script  
+
   
  </head>
 <body>
@@ -111,7 +110,7 @@ function submitform1(dataset, action)
 }
 </script>  
   
-<!-- probando... -->
+
 
 <!-- DIALOGO PARA EDITAR EL DATASET -->
 <div class="modal fade" id="editDataset" tabindex="-1" role="dialog" aria-labelledby="editDataset" aria-hidden="true">
@@ -135,8 +134,26 @@ function submitform1(dataset, action)
 			<label for="description">Description</label>
 			<textarea id="description" class="form-control" rows="3" placeholder="This dataset describes lore ipsum.." ></textarea>
 		  </div>		
+
+		  <div class="form-group">
+			<label for="logo">Logo</label>
+			<form id="file-form" action="service/logoUpload" method="POST" enctype="multipart/form-data">
+			  <input type="file" id="file-select" name="photos" />
+			  <button class="btn btn-default" type="submit" id="upload-button">Upload</button>
+			</form>			
+			<div id="response"></div>
+			<ul id="image-list">    </ul>	
+			
+			
+			<input type="file" name="afile" id="afile" accept="image/*"/>
+			<div id="progreso"></div>
+			
+		  </div>
+			
+			
+			
 		  
-		  <input id="input-1a" type="file" class="file" data-show-preview="false">
+		  
 		  
       </div>
       <div class="modal-footer">
@@ -146,10 +163,133 @@ function submitform1(dataset, action)
     </div>
   </div>
 </div>
-
-
-
 <!-- FIN DEL DIALOGO PARA EL DATASET -->
+
+
+
+
+
+
+
+ 
+<script>
+document.querySelector('#afile').addEventListener('change', function(e) {
+  var file = this.files[0];
+  var fd = new FormData();
+  fd.append("dataset", seldataset);
+  fd.append("afile", file);
+  // These extra params aren't necessary but show that you can include other data.
+//  fd.append("username", "Groucho");
+//  fd.append("accountnum", 123456);
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'service/logoUpload', true);
+  xhr.upload.onprogress = function(e) {
+    if (e.lengthComputable) {
+      var percentComplete = (e.loaded / e.total) * 100;
+	  document.getElementById('progreso').innerHTML = percentComplete + '% uploaded';
+      console.log(percentComplete + '% uploaded');
+    }
+  };
+
+  xhr.onload = function() {
+    if (this.status == 200) {
+//      var resp = JSON.parse(this.response);
+      console.log('finished');
+	  document.getElementById('progreso').innerHTML = '';
+	  
+
+   //   var image = document.createElement('img');
+   //   image.src = resp.dataUrl;
+   //   document.body.appendChild(image);
+    };
+  };
+
+  xhr.send(fd);
+}, false);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+//AJAX http://code.tutsplus.com/tutorials/uploading-files-with-ajax--net-21077
+//JAVASCRIPT https://developer.tizen.org/dev-guide/2.2.1/org.tizen.web.appprogramming/html/tutorials/w3c_tutorial/comm_tutorial/upload_ajax.htm
+(function () {
+	var input = document.getElementById("file-select"), 
+		formdata = false;
+
+	function showUploadedItem (source) {
+  	//	var list = document.getElementById("image-list"),
+	//  		li   = document.createElement("li"),
+	//  		img  = document.createElement("img");
+  	//	img.src = source;
+  	//	li.appendChild(img);
+	//	list.appendChild(li);
+	}   
+
+	if (window.FormData) {
+  		formdata = new FormData();
+  formdata.append("username", "Groucho");
+  formdata.append("accountnum", 123456);		
+		formdata.append("dataset", seldataset);
+  		document.getElementById("upload-button").style.display = "none";
+	}
+	
+ 	input.addEventListener("change", function (evt) {
+ 		document.getElementById("response").innerHTML = "Uploading . . ."
+ 		var i = 0, len = this.files.length, img, reader, file;
+	
+		for ( ; i < len; i++ ) {
+			file = this.files[i];
+	
+	//		if (!!file.type.match(/image.*/)) {
+				if ( window.FileReader ) {
+					reader = new FileReader();
+					reader.onloadend = function (e) { 
+	//					showUploadedItem(e.target.result, file.fileName);
+					};
+					reader.readAsDataURL(file);
+				}
+				if (formdata) {
+					formdata.append("images[]", file);
+				}
+	//		}	
+		}
+	
+		if (formdata) {
+			$.ajax({
+				url: "service/logoUpload",
+				type: "POST",
+				data: formdata,
+				processData: false,
+				contentType: false,
+				success: function (res) {
+					document.getElementById("response").innerHTML = res; 
+				}
+			});
+		}
+	}, false);
+}());
+
+</script>
+
+
+
+
 	
 <script> <!-- Este codigo se ejecuta cuando se abre el dialogo modal -->
 var recipient = -1;
@@ -201,24 +341,22 @@ function myFunction1() {
 			location.reload();
 		}		
 		http.open("POST", "/service/setDatasetMetadata", true); //true		
-		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+//		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
 		http.setRequestHeader("Content-length", params.length);    
+		
+		http.setRequestHeader("Cache-Control", "no-cache");
+		http.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+		http.setRequestHeader("Content-Type", "multipart/form-data;charset=UTF-8");		
+		
 		http.setRequestHeader("Connection", "close");
 		http.send(params);
 		
-		$("#input-1a").fileinput({
-			uploadUrl: "http://www.google.es", // server upload action
-			uploadAsync: true,
-			maxFileCount: 5
-		});		
+
 		
 		
 }
 </script>	
 
-<!-- fin de probando -->  
-  
-  
   
 </body>
 </html>

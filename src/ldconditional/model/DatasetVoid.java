@@ -389,7 +389,6 @@ public class DatasetVoid {
 
     public String getComment() {
         String tmp = this.toRDF();
-        System.out.println(tmp);
         return getMetadata("http://www.w3.org/2000/01/rdf-schema#comment");
     }
 

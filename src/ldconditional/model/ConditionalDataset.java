@@ -218,6 +218,19 @@ public class ConditionalDataset {
         System.out.println(cd.getDatasetVoid().toRDF());
     }
 
+    public String getDumpPath() {
+        String sfolder=getFolder();
+        String filename = sfolder + "/data.nq";
+        return filename;
+    }
+    public String getFolder() {
+        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+        if (!sfolder.endsWith("/")) sfolder+="/";
+        sfolder=sfolder+name;
+        return sfolder;
+        
+    }
+
 
 
     
