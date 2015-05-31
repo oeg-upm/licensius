@@ -261,8 +261,9 @@ public class HandlerResource {
         for (LicensedTriple lt : ls) {
             System.out.println(lt);
             Grafo g = getGrafo(lg, lt.g);
-            if (g == null) //Si no tiene ningun grafo, la politica por defecto es NO mostrar
+            if (g == null) 
             {
+                lop.add(lt); //Si no tiene ningun grafo, la politica por defecto es mostrar. borrar esto para NO mostrar
                 continue;
             }
 

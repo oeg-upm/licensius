@@ -13,9 +13,11 @@ import com.hp.hpl.jena.rdf.model.Statement;
 //JAVA
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -534,6 +536,40 @@ public class DatasetVoid {
         setMetadataLiteral("http://purl.org/dc/terms/title", description);
         write();
         load();
+    }
+
+    public boolean rebase(String datasuri) {
+     try {
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            sfolder=sfolder+conditionalDataset.name;
+            String filename=sfolder+"/void.ttl";
+            
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            File dest=new File(filename+"tmp");
+            if(!dest.exists()) {
+                dest.createNewFile();
+            }            
+            OutputStream os = new FileOutputStream(dest);
+            int i = -1;
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                line = line.replace(datasuri, "http://localhost");
+                line+="\n";
+                os.write(line.getBytes("UTF-8"));
+            }
+            os.close();
+            br.close();
+            File fin = new File(filename);
+            fin.delete();
+            fin = new File(filename);
+            dest.renameTo(fin);
+            return true;
+            
+        } catch (Exception e) {
+            logger.warn("Error mientras se hacia rebase " + e.getMessage());
+            return false;
+        }              
     }
 
     

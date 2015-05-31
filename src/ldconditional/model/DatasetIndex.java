@@ -94,14 +94,9 @@ public Map<String, List<Integer>> readIndexGrafos()
     }
     public Map<String, List<Integer>> readIndexSujetos()
     {
-//        String filename = "datasets/" + cd.name + "/indexsujetos.idx";
             String sfolder = LDRConfig.get("datasetsfolder", "datasets");
             if (!sfolder.endsWith("/")) sfolder+="/";
             String filename = sfolder + cd.name + "/indexsujetos.idx";
-//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
-        
-        
-        
         HashMap<String, List<Integer>> map = null;
         try
         {

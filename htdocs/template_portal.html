@@ -56,8 +56,8 @@
 <table class="table ">
   <col width="10%">
   <col width="10%">
-  <col width="60%">
-  <col width="20%">
+  <col width="65%">
+  <col width="15%">
     <thead>
       <tr>
         <th>Short</th>
@@ -144,28 +144,29 @@ function submitRemove(dataset)
 		http.setRequestHeader("Content-length", params.length);    
 		http.setRequestHeader("Connection", "close");
 		http.send(params);
-	}); 	
-	
-	
-/*	var r = confirm("Do you really want to delete " + dataset +"?");
-	if (r != true) {
-		return;
-	}	
-	
-	$("body").css("cursor", "progress");	
-    var params="&dataset="+dataset;
-    var http = new XMLHttpRequest();
-    http.open("POST", "/service/datasetRemove", true); //true
-	http.onreadystatechange=function()
-	{
-		location.reload();
-		$("body").css("cursor", "default");	
-	}		
-    http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
-    http.setRequestHeader("Content-length", params.length);    
-    http.setRequestHeader("Connection", "close");
-    http.send(params);
-	*/
+	}); 		
+}
+function submitIndex(dataset)
+{
+	console.info("Indexing dataset: " +dataset);
+	bootbox.confirm("You are going to index the dataset " + dataset + "<br>This may be a lengthy operation. <b>Are you sure?</b>", function(result) {
+		console.info('el resultado ha sido ' + result);
+		if (result=='false' || result==false)
+			return;
+		$("body").css("cursor", "progress");	
+		var params="&dataset="+dataset;
+		var http = new XMLHttpRequest();
+		http.open("POST", "/service/datasetIndex", true); //true
+		http.onreadystatechange=function()
+		{
+			location.reload();
+			$("body").css("cursor", "default");	
+		}		
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+		http.setRequestHeader("Content-length", params.length);    
+		http.setRequestHeader("Connection", "close");
+		http.send(params);
+	}); 		
 }
 
 </script>  
@@ -207,8 +208,6 @@ function submitRemove(dataset)
 			<input type="file" name="afile2" id="afile2"/>
 			<div id="progreso2"></div>
 		  </div>
-			
-			
 		  
 		  
 		  
@@ -254,8 +253,8 @@ document.querySelector('#afile').addEventListener('change', function(e) {
 //      var resp = JSON.parse(this.response);
       console.log('finished');
 	  document.getElementById('progreso').innerHTML = '';
+  
 	  
-
    //   var image = document.createElement('img');
    //   image.src = resp.dataUrl;
    //   document.body.appendChild(image);
@@ -289,7 +288,23 @@ document.querySelector('#afile2').addEventListener('change', function(e) {
     if (this.status == 200) {
       console.log('finished');
 	  document.getElementById('progreso2').innerHTML = '';
-    };
+    }
+	else
+	{
+		bootbox.dialog({
+		  message: "Conversion could not be made",
+		  title: "Error",
+		  buttons: {
+			danger: {
+			  label: "OK",
+			  className: "btn-danger",
+			  callback: function() {
+				Example.show("OK");
+			  }
+			}
+		  }
+		});	  	
+	}
   };
   xhr.send(fd);
 }, false);

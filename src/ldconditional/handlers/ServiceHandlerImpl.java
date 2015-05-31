@@ -20,7 +20,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 //import java.util.logging.Level;
 //import java.util.logging.Logger;
 import java.util.logging.Level;
@@ -34,6 +36,7 @@ import ldconditional.auth.GoogleAuthHelper;
 import ldconditional.auth.Portfolio;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
+import ldconditional.model.DatasetIndex;
 import ldconditional.model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
@@ -42,6 +45,7 @@ import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.ODRLModel;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.rdf.RDFUtils;
+import oeg.rdftools.Transcoder;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -467,7 +471,7 @@ public class ServiceHandlerImpl {
     static boolean uploadFile(HttpServletRequest request, String namedest) {
             try {
                 List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
-                System.out.println("Se ha subido " + items.size());
+                logger.info("Se ha subido " + items.size());
                 ConditionalDataset ds = null;
                 for (FileItem fi : items) {
                     if (fi.isFormField()) {
@@ -502,6 +506,18 @@ public class ServiceHandlerImpl {
                         }
                         IOUtils.closeQuietly(os);
                         uploadedStream.close();
+                        
+                        if (namedest.endsWith("data.nq") && !fileName.endsWith(".nq"))
+                        {                
+                            Transcoder t = new Transcoder();
+                            String s = t.toNQuads(folder + namedest);
+                            if (s.startsWith("Transco"))
+                            {
+                                return false;
+                            }
+                        }
+                        
+                        
                     }
                 }
                 return true;
@@ -510,6 +526,13 @@ public class ServiceHandlerImpl {
                 java.util.logging.Logger.getLogger(ServiceHandler.class.getName()).log(Level.SEVERE, null, ex);
                 return false;
             }        
+    }
+
+    static boolean datasetIndex(ConditionalDataset ds) {
+        DatasetIndex dsi=ds.getDatasetIndex();
+        if (dsi!=null)
+             dsi.indexar();
+        return true;
     }
 
 }

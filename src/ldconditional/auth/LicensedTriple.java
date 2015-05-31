@@ -424,6 +424,7 @@ public class LicensedTriple {
         for (LicensedTriple lt : lst) {
             Grafo grafo = HandlerResource.getGrafo(lg, lt.g);
             if (grafo == null) {
+                validos.add(lt);    //POLITICA POR DEFECTO: INCLUIR LOS QUE NO ESTAN EN NINGUN GRAFO DENTRO DE LA SOLCUION O NO. BORRAR ESTA LINEA O NO.
                 continue;
             }
             if (grafo.isOpen()) {

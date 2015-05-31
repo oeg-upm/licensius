@@ -173,7 +173,7 @@ public class DatasetDump extends NQuadRawFile {
     /**
      * Hace un replaceAll
      */
-    void rebase(String datasuri) {
+    public boolean rebase(String datasuri) {
         try {
             
             if (filename==null || filename.isEmpty())
@@ -194,6 +194,7 @@ public class DatasetDump extends NQuadRawFile {
             String line = null;
             while ((line = br.readLine()) != null) {
                 line = line.replace(datasuri, "http://localhost");
+                line+="\n";
                 os.write(line.getBytes("UTF-8"));
             }
             os.close();
@@ -202,10 +203,10 @@ public class DatasetDump extends NQuadRawFile {
             fin.delete();
             fin = new File(filename);
             dest.renameTo(fin);
-            
-            
+            return true;
         } catch (Exception e) {
             logger.warn("Error mientras se hacia rebase " + e.getMessage());
+            return false;
         }        
     }
 }

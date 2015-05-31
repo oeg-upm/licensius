@@ -65,10 +65,22 @@ public class ServiceHandler extends AbstractHandler {
         if (string.contains("/service/datasetUpload")) {
             logger.info("logoUpload");
             boolean ok = ServiceHandlerImpl.uploadFile(request, "/data.nq");
+            if (!ok)
+            {
+                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                 baseRequest.setHandled(true);
+            }
             return;
         }
         
-
+        if (string.contains("/service/datasetIndex")) {
+            logger.info("datasetIndex");
+            String datas = request.getParameter("dataset");
+            ConditionalDataset ds = ConditionalDatasets.setSelectedDataset(datas);
+            boolean ok = ServiceHandlerImpl.datasetIndex(ds);
+            return;
+        }
+        
         if (string.contains("/service/logoUpload")) {
             logger.info("logoUpload");
             boolean ok = ServiceHandlerImpl.uploadFile(request, "/logo.png");
@@ -78,8 +90,8 @@ public class ServiceHandler extends AbstractHandler {
         if (string.contains("/service/describeDataset")) {
             logger.info("describeDataset");
             String datas = request.getParameter("dataset");
-            ConditionalDataset ds = ConditionalDatasets.setSelectedDataset(datas);
             response.setContentType("application/json;charset=utf-8");
+            ConditionalDataset ds = ConditionalDatasets.setSelectedDataset(datas);
             if (ds!=null)
             {
                 response.getWriter().print(ds.getDatasetVoid().getJSON());
@@ -107,7 +119,7 @@ public class ServiceHandler extends AbstractHandler {
             ConditionalDataset ds = ConditionalDatasets.setSelectedDataset(datas);
             if (ds==null)
                 return;
-            ds.rebase(datasuri);
+            boolean ok = ds.rebase(datasuri);
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
