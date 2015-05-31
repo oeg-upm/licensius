@@ -520,5 +520,10 @@ public class DatasetVoid {
         write();
         load();
     }
+    public void setTitle(String description) {
+        setMetadataLiteral("http://purl.org/dc/terms/title", description);
+        write();
+        load();
+    }
     
 }

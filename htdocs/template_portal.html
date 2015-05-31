@@ -57,7 +57,7 @@
         <th>Short</th>
         <th>Datasets</th>
         <th>Description</th>
-        <th>Actions</th>
+        <th><div style="width: 15px" >Actions</div></th>
       </tr>
     </thead>
     <tbody>
@@ -137,17 +137,8 @@ function submitform1(dataset, action)
 
 		  <div class="form-group">
 			<label for="logo">Logo</label>
-			<form id="file-form" action="service/logoUpload" method="POST" enctype="multipart/form-data">
-			  <input type="file" id="file-select" name="photos" />
-			  <button class="btn btn-default" type="submit" id="upload-button">Upload</button>
-			</form>			
-			<div id="response"></div>
-			<ul id="image-list">    </ul>	
-			
-			
 			<input type="file" name="afile" id="afile" accept="image/*"/>
 			<div id="progreso"></div>
-			
 		  </div>
 			
 			
@@ -158,7 +149,7 @@ function submitform1(dataset, action)
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" onclick="myFunction1()" data-dismiss="modal" class="btn btn-primary">OK</button>
+        <button type="button" onclick="enviarDataset()" data-dismiss="modal" class="btn btn-primary">OK</button>
       </div>
     </div>
   </div>
@@ -173,6 +164,9 @@ function submitform1(dataset, action)
 
  
 <script>
+//AJAX http://code.tutsplus.com/tutorials/uploading-files-with-ajax--net-21077
+//JAVASCRIPT https://developer.tizen.org/dev-guide/2.2.1/org.tizen.web.appprogramming/html/tutorials/w3c_tutorial/comm_tutorial/upload_ajax.htm
+
 document.querySelector('#afile').addEventListener('change', function(e) {
   var file = this.files[0];
   var fd = new FormData();
@@ -186,7 +180,7 @@ document.querySelector('#afile').addEventListener('change', function(e) {
   xhr.upload.onprogress = function(e) {
     if (e.lengthComputable) {
       var percentComplete = (e.loaded / e.total) * 100;
-	  document.getElementById('progreso').innerHTML = percentComplete + '% uploaded';
+	  document.getElementById('progreso').innerHTML = Math.round(percentComplete) + '% uploaded';
       console.log(percentComplete + '% uploaded');
     }
   };
@@ -212,96 +206,12 @@ document.querySelector('#afile').addEventListener('change', function(e) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-//AJAX http://code.tutsplus.com/tutorials/uploading-files-with-ajax--net-21077
-//JAVASCRIPT https://developer.tizen.org/dev-guide/2.2.1/org.tizen.web.appprogramming/html/tutorials/w3c_tutorial/comm_tutorial/upload_ajax.htm
-(function () {
-	var input = document.getElementById("file-select"), 
-		formdata = false;
-
-	function showUploadedItem (source) {
-  	//	var list = document.getElementById("image-list"),
-	//  		li   = document.createElement("li"),
-	//  		img  = document.createElement("img");
-  	//	img.src = source;
-  	//	li.appendChild(img);
-	//	list.appendChild(li);
-	}   
-
-	if (window.FormData) {
-  		formdata = new FormData();
-  formdata.append("username", "Groucho");
-  formdata.append("accountnum", 123456);		
-		formdata.append("dataset", seldataset);
-  		document.getElementById("upload-button").style.display = "none";
-	}
-	
- 	input.addEventListener("change", function (evt) {
- 		document.getElementById("response").innerHTML = "Uploading . . ."
- 		var i = 0, len = this.files.length, img, reader, file;
-	
-		for ( ; i < len; i++ ) {
-			file = this.files[i];
-	
-	//		if (!!file.type.match(/image.*/)) {
-				if ( window.FileReader ) {
-					reader = new FileReader();
-					reader.onloadend = function (e) { 
-	//					showUploadedItem(e.target.result, file.fileName);
-					};
-					reader.readAsDataURL(file);
-				}
-				if (formdata) {
-					formdata.append("images[]", file);
-				}
-	//		}	
-		}
-	
-		if (formdata) {
-			$.ajax({
-				url: "service/logoUpload",
-				type: "POST",
-				data: formdata,
-				processData: false,
-				contentType: false,
-				success: function (res) {
-					document.getElementById("response").innerHTML = res; 
-				}
-			});
-		}
-	}, false);
-}());
-
-</script>
-
-
-
-
 	
 <script> <!-- Este codigo se ejecuta cuando se abre el dialogo modal -->
 var recipient = -1;
 $('#editDataset').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-//  recipient = button.data('data-miid') // Extract info from data-* attributes
-//  alert("Hello! I am an alert box!!"+recipient+" - "+button.id);
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-//  var modal = $(this)
-//  modal.find('shortTitle').text('asdf');
-
+	var button = $(event.relatedTarget) // Button that triggered the modal
+	//http://stackoverflow.com/questions/28774571/retrieving-table-row-information-using-ajax-and-pdo-to-display-in-bootstrap-moda
 	var xmlhttp=new XMLHttpRequest(); 
 	xmlhttp.onreadystatechange=function()
 	{
@@ -317,43 +227,27 @@ $('#editDataset').on('show.bs.modal', function (event) {
 	xmlhttp.open("GET","/service/describeDataset?dataset="+seldataset,true);
 	xmlhttp.setRequestHeader( 'Content-Type', 'application/json' );	
 	xmlhttp.send();	
-
-
-//  modal.find('.modal-title').text('New message to ' + recipient)
-//  modal.find('.modal-body input').val(recipient) //
 })
-//este codigo se ejecuta cuando se ha dado al OK
-function myFunction1() {
+function enviarDataset() {
+		//este codigo se ejecuta cuando se ha dado al OK
 		var label = document.getElementById("shortTitle").value;
 		var description = document.getElementById("description").value;
 		var title = document.getElementById("title").value;
-
 		console.info(description);
-		
 		var params="dataset="+seldataset;
 		params+="&title="+title;
 		params+="&description="+description;
 		params+="&newlabel="+label;
-
 		var http = new XMLHttpRequest();
 		http.onreadystatechange=function()
 		{
 			location.reload();
 		}		
 		http.open("POST", "/service/setDatasetMetadata", true); //true		
-//		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
 		http.setRequestHeader("Content-length", params.length);    
-		
-		http.setRequestHeader("Cache-Control", "no-cache");
-		http.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-		http.setRequestHeader("Content-Type", "multipart/form-data;charset=UTF-8");		
-		
 		http.setRequestHeader("Connection", "close");
 		http.send(params);
-		
-
-		
-		
 }
 </script>	
 

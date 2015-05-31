@@ -82,6 +82,7 @@ public class HandlerPortal {
             row+="<td>"; 
             row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Removes this dataset from the server\" id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitform1('"+name+"', 'remove')\"><span class=\"glyphicon glyphicon-remove\"></span></a>"; 
             row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Edits this dataset in the server\" id=\"boton2\" class=\"btn btn-primary\" href=\"javascript: submitform1('"+name+"', 'edit')\"><span class=\"glyphicon glyphicon-edit\"></span></a>"; 
+            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Browse dataset\" id=\"boton3\" class=\"btn btn-primary\" href=\"/"+name+"\"><span class=\"glyphicon glyphicon-play\"></span></a>"; 
             row+="</td>";
             
             

@@ -123,6 +123,8 @@ public class ServiceHandler extends AbstractHandler {
             response.setContentType("application/json;charset=utf-8");
             if (ds != null) {
                 ds.getDatasetVoid().setDescription(description);
+                ds.getDatasetVoid().setTitle(title);
+                
                 String json = ds.getDatasetVoid().getJSON();
                 response.getWriter().print(json);
             }
@@ -222,6 +224,9 @@ public class ServiceHandler extends AbstractHandler {
             logger.info(rdataset + " " + raction);
             if (raction.equals("edit")) {
                 ServiceHandlerImpl.editDataset(rdataset);
+            }
+            if (raction.equals("browse")) {
+                System.out.println("xxxxx\n\n\n");
             }
             response.setStatus(HttpServletResponse.SC_OK);
             return;
