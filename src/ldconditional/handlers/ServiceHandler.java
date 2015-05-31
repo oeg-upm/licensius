@@ -37,7 +37,7 @@ import org.apache.commons.io.IOUtils;
  */
 public class ServiceHandler extends AbstractHandler {
 
-    static final Logger logger = Logger.getLogger(Main.class);
+    static final Logger logger = Logger.getLogger(ServiceHandler.class);
 
     public void handle(String string, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (baseRequest.isHandled() || !string.contains("/service")) {
@@ -47,6 +47,7 @@ public class ServiceHandler extends AbstractHandler {
         String slog = "Service handler processing this URI ";
         slog += request.getRequestURI();
         Enumeration e = request.getParameterNames();
+        slog+=" with parameters ";
         while (e.hasMoreElements()) {
             slog += e.nextElement() + " ";
         }
@@ -60,48 +61,18 @@ public class ServiceHandler extends AbstractHandler {
         String uri = request.getRequestURI();
         int index = uri.indexOf('/', 1);
         String sdataset = uri.substring(1, index);
+        
+        if (string.contains("/service/datasetUpload")) {
+            logger.info("logoUpload");
+            boolean ok = ServiceHandlerImpl.uploadFile(request, "/data.nq");
+            return;
+        }
+        
 
         if (string.contains("/service/logoUpload")) {
             logger.info("logoUpload");
-            try {
-                List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
-                System.out.println("Se ha subido " + items.size());
-                ConditionalDataset ds = null;
-                for (FileItem fi : items) {
-                    if (fi.isFormField()) {
-                        String name = fi.getFieldName();
-                        String value = fi.getString();
-                        logger.info(name + " " + value);
-                        if (name.equals("dataset")) {
-                            ds = ConditionalDatasets.getDataset(value);
-                        }
-                    } else {
-                        String fieldName = fi.getFieldName();
-                        String fileName = fi.getName();
-                        String contentType = fi.getContentType();
-                        boolean isInMemory = fi.isInMemory();
-                        long sizeInBytes = fi.getSize();
-                        logger.info("Uploading file of " + sizeInBytes / (1024 * 1024) + " Mb, titled " + fileName);
-                        InputStream uploadedStream = fi.getInputStream();
-                        String folder = ".";
-                        if (ds != null) {
-                            folder = ds.getFolder();
-                        }
-                        File flogo = new File(folder + "/logo.png");
-                        OutputStream os = new FileOutputStream(flogo);
-                        byte[] buffer = new byte[8 * 1024];
-                        int bytesRead;
-                        while ((bytesRead = uploadedStream.read(buffer)) != -1) {
-                            os.write(buffer, 0, bytesRead);
-                        }
-                        IOUtils.closeQuietly(os);
-                        uploadedStream.close();
-                    }
-                }
-            } catch (FileUploadException ex) {
-                System.out.println("Error " + ex.getLocalizedMessage());
-                java.util.logging.Logger.getLogger(ServiceHandler.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            boolean ok = ServiceHandlerImpl.uploadFile(request, "/logo.png");
+            return;
         }
 
         if (string.contains("/service/describeDataset")) {
@@ -109,17 +80,53 @@ public class ServiceHandler extends AbstractHandler {
             String datas = request.getParameter("dataset");
             ConditionalDataset ds = ConditionalDatasets.setSelectedDataset(datas);
             response.setContentType("application/json;charset=utf-8");
-            response.getWriter().print(ds.getDatasetVoid().getJSON());
+            if (ds!=null)
+            {
+                response.getWriter().print(ds.getDatasetVoid().getJSON());
+                response.setStatus(HttpServletResponse.SC_OK);
+            }
+            else
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            baseRequest.setHandled(true);
+            return;
+        }
+        
+        if (string.contains("/service/datasetRemove")) {
+            logger.info("datasetRemove");
+            String datas = request.getParameter("dataset");
+            ConditionalDatasets.deleteDataset(datas);
+            response.setContentType("application/json;charset=utf-8");
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
+        
+        if (string.contains("/service/datasetRebase")) {
+            logger.info("datasetRebase");
+            String datas = request.getParameter("dataset");
+            String datasuri = request.getParameter("uri");
+            ConditionalDataset ds = ConditionalDatasets.setSelectedDataset(datas);
+            if (ds==null)
+                return;
+            ds.rebase(datasuri);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+        
 
         if (string.contains("/service/setDatasetMetadata")) {
             logger.info("setDatasetMetadata");
             String datas = request.getParameter("dataset");
             String title = request.getParameter("title");
             String description = request.getParameter("description");
+            String newlabel = request.getParameter("newlabel");
             ConditionalDataset ds = ConditionalDatasets.setSelectedDataset(datas);
+            if(ds==null)
+            {
+                ds = ConditionalDatasets.addDataset(newlabel);
+                ds.getDatasetVoid().init();
+            }
+            
+            
             response.setContentType("application/json;charset=utf-8");
             if (ds != null) {
                 ds.getDatasetVoid().setDescription(description);

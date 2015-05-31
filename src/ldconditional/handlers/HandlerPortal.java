@@ -80,9 +80,10 @@ public class HandlerPortal {
 
             //accion
             row+="<td>"; 
-            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Removes this dataset from the server\" id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitform1('"+name+"', 'remove')\"><span class=\"glyphicon glyphicon-remove\"></span></a>"; 
-            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Edits this dataset in the server\" id=\"boton2\" class=\"btn btn-primary\" href=\"javascript: submitform1('"+name+"', 'edit')\"><span class=\"glyphicon glyphicon-edit\"></span></a>"; 
+            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Removes this dataset from the server\" id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitRemove('"+name+"')\"><span class=\"glyphicon glyphicon-remove\"></span></a>"; 
+            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Edits this dataset in the server\" id=\"boton2\" class=\"btn btn-primary\" href=\"javascript: submitEdit('"+name+"', 'edit')\"><span class=\"glyphicon glyphicon-edit\"></span></a>"; 
             row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Browse dataset\" id=\"boton3\" class=\"btn btn-primary\" href=\"/"+name+"\"><span class=\"glyphicon glyphicon-play\"></span></a>"; 
+            row+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Rebases this dataset\" id=\"boton4\" class=\"btn btn-primary\" href=\"javascript: submitRebase('"+name+"', 'rebase')\"><span class=\"glyphicon glyphicon-link\"></span></a>"; 
             row+="</td>";
             
             
@@ -123,7 +124,7 @@ public class HandlerPortal {
     private String getHTMLAdditionalPortalButtons() {
             
         String html="";
-        html+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Adds a new dataset to the server\" id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitform1('', 'add')\"><span class=\"glyphicon glyphicon-plus\"></span></a>"; 
+        html+="<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Adds a new dataset to the server\" id=\"boton1\" class=\"btn btn-primary\" href=\"javascript: submitEdit('', 'new')\"><span class=\"glyphicon glyphicon-plus\"></span></a>"; 
         return html;
     }
     

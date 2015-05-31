@@ -112,6 +112,22 @@ public class GeneralHandler extends AbstractHandler {
             {
                 sLocalfile = "htdocs"+requestUri;
             }
+
+            for(ConditionalDataset con : ConditionalDatasets.datasets)
+            {
+                String s1="/"+con.name;
+                String s2=request.getRequestURI();
+                if (s1.equals(s2))
+                {
+                    logger.info("Root page of dataset " + con.name);
+                    cd=ConditionalDatasets.setSelectedDataset(con.name);
+                    String inituser = "/"+cd.name+"/linkeddata.html";
+                    response.sendRedirect(inituser);
+                    return true;
+                }
+            }
+            
+            
             if (request.getRequestURI().endsWith("languages.png"))
             {
       //          sLocalfile = "htdocs"+requestUri;
@@ -187,7 +203,7 @@ public class GeneralHandler extends AbstractHandler {
                 return true;
             }
 
-            if (requestUri.equals("/favicon.ico")) {
+          /*  if (requestUri.equals("/favicon.ico")) {
                 ServletOutputStream output = response.getOutputStream();
                 InputStream input = new FileInputStream("./htdocs/favicon.ico");
                 byte[] buffer = new byte[2048];
@@ -197,7 +213,7 @@ public class GeneralHandler extends AbstractHandler {
                 }
                 response.setContentType("image/x-icon");
                 return true;
-            }
+            }*/
 
 
             //CASE 1: LOGO OF A DATASET

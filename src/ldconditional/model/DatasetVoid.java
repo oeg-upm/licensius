@@ -2,6 +2,7 @@ package ldconditional.model;
 
 //JENA
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
@@ -83,6 +84,13 @@ public class DatasetVoid {
             policies = loadPolicies();
         }
     }
+    
+    public void init() {
+        model = ModelFactory.createDefaultModel();
+        model.add(model.createResource(uri), RDF.type, model.createResource("http://www.w3.org/ns/dcat#Catalog"));
+        write();
+    }
+    
     
     public ConditionalDataset getConditionalDataset() {
         return conditionalDataset;
@@ -177,6 +185,8 @@ public class DatasetVoid {
     
     public void setMetadataLiteral(String sprop, String val)
     {
+        if (model==null)
+            this.init();
         Property prop = model.createProperty(sprop);
         Statement st=model.getProperty(getDatasetRes(), prop);
         if (st!=null)
@@ -525,5 +535,6 @@ public class DatasetVoid {
         write();
         load();
     }
+
     
 }

@@ -3,7 +3,10 @@ package ldconditional.model;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,9 +25,12 @@ import org.apache.log4j.Logger;
 public class DatasetDump extends NQuadRawFile {
 
     private static final Logger logger = Logger.getLogger(NQuadRawFile.class);
-
+    //link back to the container
+    ConditionalDataset conditionalDataset = null;
+    
     public DatasetDump(ConditionalDataset cd) {
         super(LDRConfig.get("datasetsfolder", "datasets").endsWith("/") ? LDRConfig.get("datasetsfolder", "datasets") : (LDRConfig.get("datasetsfolder", "datasets")+"/") + cd.name + "/data.nq");
+        conditionalDataset = cd;
     }
     //Devuelve las entradas para el indice
 
@@ -145,7 +151,7 @@ public class DatasetDump extends NQuadRawFile {
     List<String> getNQuadsBetweenLines(Integer g0, Integer g1) {
         List<String> str = new ArrayList();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(filename));
+            BufferedReader br = new BufferedReader(new FileReader(filename));                
             int i = -1;
             String line = null;
 
@@ -162,5 +168,44 @@ public class DatasetDump extends NQuadRawFile {
             logger.debug("mal");
         }
         return str;
+    }
+
+    /**
+     * Hace un replaceAll
+     */
+    void rebase(String datasuri) {
+        try {
+            
+            if (filename==null || filename.isEmpty())
+            {
+                String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+                if (!sfolder.endsWith("/")) sfolder+="/";
+                sfolder=sfolder+conditionalDataset.name;
+                filename=sfolder+"/data.nq";
+            }
+            
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            File dest=new File(filename+"tmp");
+            if(!dest.exists()) {
+                dest.createNewFile();
+            }            
+            OutputStream os = new FileOutputStream(dest);
+            int i = -1;
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                line = line.replace(datasuri, "http://localhost");
+                os.write(line.getBytes("UTF-8"));
+            }
+            os.close();
+            br.close();
+            File fin = new File(filename);
+            fin.delete();
+            fin = new File(filename);
+            dest.renameTo(fin);
+            
+            
+        } catch (Exception e) {
+            logger.warn("Error mientras se hacia rebase " + e.getMessage());
+        }        
     }
 }

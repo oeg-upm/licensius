@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  
+  <script src="/js/bootbox.min.js"></script>
 
   
  </head>
@@ -44,20 +44,26 @@
   <div class="col-md-2">
   </div>
   <div class="col-md-9">
+<!--
 <div class="ldrheading"><p>What is Conditional Linked Data?</p></div>
 <p class="lead"><strong>Conditional Linked Data</strong> serves conditional Linked Data with access control based on ODRL policies. These pages demonstrate the <strong>conditional access to Linked Data</strong> </p>
+-->
 
-<div class="ldrheading"><p>Choose a dataset to be served</p></div>
+<div class="ldrheading"><p>Manage datasets</p></div>
 
 <div class="panel panel-default">
 <div class="panel-body">
 <table class="table ">
+  <col width="10%">
+  <col width="10%">
+  <col width="60%">
+  <col width="20%">
     <thead>
       <tr>
         <th>Short</th>
         <th>Datasets</th>
         <th>Description</th>
-        <th><div style="width: 15px" >Actions</div></th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -83,31 +89,85 @@
 
 
 <script type="text/javascript">
-
 var seldataset = '';
-
-function submitform1(dataset, action)
+function submitRebase(dataset)
 {
-  //  var pgn = document.getElementById("pgn").value;
-  //  var pgnencoded = encodeURI(pgn);
-  //  console.info(pgn);
-  //  var params = "pgn=" + pgnencoded+"&action=enrich";
-    var params="action="+action;
-	params+="&dataset="+dataset;
+	console.info('Rebase dataset');
+	bootbox.prompt({
+		title: "What is the original URL to be rebased?",
+		value: "http://",
+		callback: function(result) {
+		if (result === null) {
+//			Example.show("Prompt dismissed");
+		} else {
+		var params="&dataset="+dataset;
+		params+="&uri="+result;
+		$("body").css("cursor", "progress");
+		var http = new XMLHttpRequest();
+		http.open("POST", "/service/datasetRebase", true); //true
+		http.onreadystatechange=function()
+		{
+			location.reload();
+			$("body").css("cursor", "default");	
+		}		
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+		http.setRequestHeader("Content-length", params.length);    
+		http.setRequestHeader("Connection", "close");
+		http.send(params);
+		}
+  }
+});
+}
+function submitEdit(dataset, action)
+{
+	console.info('Edit dataset');
 	seldataset=dataset;
+	$('#editDataset').modal('show');
+}
+function submitRemove(dataset)
+{
+	console.info("Removing dataset: " +dataset);
+	bootbox.confirm("You are going to delete the dataset " + dataset + "<br>Are you sure?", function(result) {
+		console.info('el resultado ha sido ' + result);
+		if (result=='false' || result==false)
+			return;
+		$("body").css("cursor", "progress");	
+		var params="&dataset="+dataset;
+		var http = new XMLHttpRequest();
+		http.open("POST", "/service/datasetRemove", true); //true
+		http.onreadystatechange=function()
+		{
+			location.reload();
+			$("body").css("cursor", "default");	
+		}		
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+		http.setRequestHeader("Content-length", params.length);    
+		http.setRequestHeader("Connection", "close");
+		http.send(params);
+	}); 	
 	
-/*	
-	console.info("Accion sobre: " +dataset+ " Accion: "+action);
+	
+/*	var r = confirm("Do you really want to delete " + dataset +"?");
+	if (r != true) {
+		return;
+	}	
+	
+	$("body").css("cursor", "progress");	
+    var params="&dataset="+dataset;
     var http = new XMLHttpRequest();
-    http.open("POST", "/service/portalAction", true); //true
+    http.open("POST", "/service/datasetRemove", true); //true
+	http.onreadystatechange=function()
+	{
+		location.reload();
+		$("body").css("cursor", "default");	
+	}		
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
     http.setRequestHeader("Content-length", params.length);    
     http.setRequestHeader("Connection", "close");
     http.send(params);
-*/	
-	
-	$('#editDataset').modal('show');
+	*/
 }
+
 </script>  
   
 
@@ -122,6 +182,7 @@ function submitform1(dataset, action)
       </div>
       <div class="modal-body">
         <h3>Edit Dataset</h3>
+
 		  <div class="form-group">
 			<label for="shortTitle">Short label</label>
 			<input id="shortTitle" class="form-control" placeholder="Examples: 'geo', 'iate', 'apertium'" required>
@@ -141,6 +202,11 @@ function submitform1(dataset, action)
 			<div id="progreso"></div>
 		  </div>
 			
+		  <div class="form-group">
+			<label for="rdfdump">RDF Dump</label>
+			<input type="file" name="afile2" id="afile2"/>
+			<div id="progreso2"></div>
+		  </div>
 			
 			
 		  
@@ -170,11 +236,10 @@ function submitform1(dataset, action)
 document.querySelector('#afile').addEventListener('change', function(e) {
   var file = this.files[0];
   var fd = new FormData();
+  seldataset = document.getElementById('shortTitle').value;
+  console.info(seldataset);
   fd.append("dataset", seldataset);
   fd.append("afile", file);
-  // These extra params aren't necessary but show that you can include other data.
-//  fd.append("username", "Groucho");
-//  fd.append("accountnum", 123456);
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'service/logoUpload', true);
   xhr.upload.onprogress = function(e) {
@@ -184,7 +249,6 @@ document.querySelector('#afile').addEventListener('change', function(e) {
       console.log(percentComplete + '% uploaded');
     }
   };
-
   xhr.onload = function() {
     if (this.status == 200) {
 //      var resp = JSON.parse(this.response);
@@ -203,7 +267,33 @@ document.querySelector('#afile').addEventListener('change', function(e) {
 </script>
 
 
-
+<script>
+document.querySelector('#afile2').addEventListener('change', function(e) {
+  var file = this.files[0];
+  var fd = new FormData();
+  seldataset = document.getElementById('shortTitle').value;
+  console.info(seldataset);
+  
+  fd.append("dataset", seldataset);
+  fd.append("afile2", file);
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'service/datasetUpload', true);
+  xhr.upload.onprogress = function(e) {
+    if (e.lengthComputable) {
+      var percentComplete = (e.loaded / e.total) * 100;
+	  document.getElementById('progreso2').innerHTML = Math.round(percentComplete) + '% uploaded';
+      console.log(percentComplete + '% uploaded');
+    }
+  };
+  xhr.onload = function() {
+    if (this.status == 200) {
+      console.log('finished');
+	  document.getElementById('progreso2').innerHTML = '';
+    };
+  };
+  xhr.send(fd);
+}, false);
+</script>
 
 
 	
@@ -215,8 +305,10 @@ $('#editDataset').on('show.bs.modal', function (event) {
 	var xmlhttp=new XMLHttpRequest(); 
 	xmlhttp.onreadystatechange=function()
 	{
+		console.info('Received response from describeDataset');
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
+			console.info('found');
 			//document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
 			var json = JSON.parse( xmlhttp.responseText );
 			document.getElementById('shortTitle').value=json.label;

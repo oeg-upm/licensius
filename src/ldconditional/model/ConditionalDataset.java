@@ -231,6 +231,11 @@ public class ConditionalDataset {
         
     }
 
+    public void rebase(String datasuri) {
+        //This operation can be terrible ong
+        getDatasetDump().rebase(datasuri);
+    }
+
 
 
     

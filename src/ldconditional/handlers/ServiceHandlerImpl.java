@@ -11,7 +11,10 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.vocabulary.RDF;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -30,6 +33,7 @@ import ldconditional.auth.GoogleAuthHelper;
 
 import ldconditional.auth.Portfolio;
 import ldconditional.model.ConditionalDataset;
+import ldconditional.model.ConditionalDatasets;
 import ldconditional.model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
@@ -38,7 +42,12 @@ import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.ODRLModel;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.rdf.RDFUtils;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
@@ -49,6 +58,7 @@ import org.eclipse.jetty.server.Request;
  * @author Victor
  */
 public class ServiceHandlerImpl {
+    static final Logger logger = Logger.getLogger(ServiceHandlerImpl.class);
 
 
  /**
@@ -452,6 +462,54 @@ public class ServiceHandlerImpl {
 
     static void editDataset(String rdataset) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    static boolean uploadFile(HttpServletRequest request, String namedest) {
+            try {
+                List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
+                System.out.println("Se ha subido " + items.size());
+                ConditionalDataset ds = null;
+                for (FileItem fi : items) {
+                    if (fi.isFormField()) {
+                        String name = fi.getFieldName();
+                        String value = fi.getString();
+                        logger.info(name + " " + value);
+                        if (name.equals("dataset")) {
+                            ds = ConditionalDatasets.getDataset(value);
+                            if (ds==null)
+                            {
+                                ds = ConditionalDatasets.addDataset(value);
+                            }
+                        }
+                    } else {
+                        String fieldName = fi.getFieldName();
+                        String fileName = fi.getName();
+                        String contentType = fi.getContentType();
+                        boolean isInMemory = fi.isInMemory();
+                        long sizeInBytes = fi.getSize();
+                        logger.info("Uploading file of " + sizeInBytes / (1024 * 1024) + " Mb, titled " + fileName);
+                        InputStream uploadedStream = fi.getInputStream();
+                        String folder = ".";
+                        if (ds != null) {
+                            folder = ds.getFolder();
+                        }
+                        File flogo = new File(folder + namedest);
+                        OutputStream os = new FileOutputStream(flogo);
+                        byte[] buffer = new byte[8 * 1024];
+                        int bytesRead;
+                        while ((bytesRead = uploadedStream.read(buffer)) != -1) {
+                            os.write(buffer, 0, bytesRead);
+                        }
+                        IOUtils.closeQuietly(os);
+                        uploadedStream.close();
+                    }
+                }
+                return true;
+            } catch (Exception ex) {
+                System.out.println("Error " + ex.getLocalizedMessage());
+                java.util.logging.Logger.getLogger(ServiceHandler.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }        
     }
 
 }
