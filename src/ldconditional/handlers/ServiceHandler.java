@@ -47,9 +47,11 @@ public class ServiceHandler extends AbstractHandler {
         String slog = "Service handler processing this URI ";
         slog += request.getRequestURI();
         Enumeration e = request.getParameterNames();
-        slog+=" with parameters ";
+        slog+=" with parameters:\n";
         while (e.hasMoreElements()) {
-            slog += e.nextElement() + " ";
+            String param = (String)e.nextElement();
+            String value = request.getParameterValues(param).length==1 ? request.getParameterValues(param)[0] : "";
+            slog += param + " " + value + "\n";
         }
         logger.info(slog);
 
@@ -61,6 +63,67 @@ public class ServiceHandler extends AbstractHandler {
         String uri = request.getRequestURI();
         int index = uri.indexOf('/', 1);
         String sdataset = uri.substring(1, index);
+        
+        if (string.contains("/service/datasetGetResources"))
+        {
+            logger.info("datasetGetResources");
+            String datas = request.getParameter("dataset");
+            String rowCount = request.getParameter("rowCount");
+            String current = request.getParameter("current");
+            int icurrent=Integer.valueOf(current);
+            int irowcount=Integer.valueOf(rowCount);
+            int total =1000;
+            response.setContentType("application/json;charset=utf-8");
+            ConditionalDataset ds = ConditionalDatasets.setSelectedDataset("geo");
+            if (ds!=null)
+            {
+       /*         String s="{\n" +
+"  \"current\": 1,\n" +
+"  \"rowCount\": 10,\n" +
+"  \"rows\": [\n" +
+"    {\n" +
+"      \"id\": 19,\n" +
+"      \"sender\": \"123@test.de\",\n" +
+"      \"received\": \"2014-05-30T22:15:00\"\n" +
+"    },\n" +
+"    {\n" +
+"      \"id\": 14,\n" +
+"      \"sender\": \"123@test.de\",\n" +
+"      \"received\": \"2014-05-30T20:15:00\"\n" +
+"    }\n" +
+"  ],\n" +
+"  \"total\": 1123\n" +
+"}";*/
+                
+                
+                String s = "{\n" +
+                "  \"current\": "+icurrent+ ",\n" +
+                "  \"rowCount\": "+  irowcount  +",\n" +
+                "  \"rows\": [\n";
+                for(int i=0;i<irowcount;i++)
+                {
+                    s+= ServiceHandlerImpl.getResourceJSON((icurrent-1)*irowcount+i);
+                    if (i==(irowcount-1))
+                        s+="\n";
+                    else
+                        s+=",\n";
+                }
+//                s+= ServiceHandlerImpl.getResourceJSON() +",\n";
+//                s+= ServiceHandlerImpl.getResourceJSON() +"\n";
+                s+= "  ],\n" +
+                "  \"total\": "+total+"\n" +
+                "}";
+                
+                
+                System.out.println(s);
+                response.getWriter().print(s);
+            response.setStatus(HttpServletResponse.SC_OK);
+            baseRequest.setHandled(true);
+            return;                
+            }
+            
+        }
+        
         
         if (string.contains("/service/datasetUpload")) {
             logger.info("logoUpload");

@@ -535,4 +535,16 @@ public class ServiceHandlerImpl {
         return true;
     }
 
+    static String getResourceJSON(int i) {
+        String json = "";
+        int id = (int)(Math.random()*1000);
+        json+=  "    {\n" +
+                "      \"id\":" +i+",\n" +
+                "      \"uno\": \"  "+ id +"\",\n" + //sender
+                "      \"dos\": \"2014-05-30T22:15:00\"\n" + //receiver
+                "    }";
+        
+        return json;
+    }
+
 }
