@@ -192,8 +192,14 @@ public class DatasetDump extends NQuadRawFile {
             OutputStream os = new FileOutputStream(dest);
             int i = -1;
             String line = null;
+            String newbase = LDRConfig.get("server", "http://localhost/");
+            if (!newbase.endsWith("/"))
+                newbase+="/";
+            newbase+=conditionalDataset.name+"/resource";
+            
             while ((line = br.readLine()) != null) {
-                line = line.replace(datasuri, "http://localhost");
+                line = line.replace(datasuri, newbase);
+                
                 line+="\n";
                 os.write(line.getBytes("UTF-8"));
             }

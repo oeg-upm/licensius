@@ -419,7 +419,6 @@ public class DatasetVoid {
         while (it.hasNext()) {
             RDFNode rdf = it.next();
             Resource res = rdf.asResource();
-
             int i1 = res.getURI().lastIndexOf("#");
             int i2 = res.getURI().lastIndexOf("/");
             int i = Math.max(i1, i2);
@@ -545,6 +544,8 @@ public class DatasetVoid {
             sfolder=sfolder+conditionalDataset.name;
             String filename=sfolder+"/void.ttl";
             
+            
+            
             BufferedReader br = new BufferedReader(new FileReader(filename));
             File dest=new File(filename+"tmp");
             if(!dest.exists()) {
@@ -553,8 +554,12 @@ public class DatasetVoid {
             OutputStream os = new FileOutputStream(dest);
             int i = -1;
             String line = null;
+            String newbase = LDRConfig.get("server", "http://localhost/");
+            if (!newbase.endsWith("/"))
+                newbase+="/";
+            newbase+=conditionalDataset.name+"/resource";
             while ((line = br.readLine()) != null) {
-                line = line.replace(datasuri, "http://localhost");
+                line = line.replace(datasuri, newbase);
                 line+="\n";
                 os.write(line.getBytes("UTF-8"));
             }

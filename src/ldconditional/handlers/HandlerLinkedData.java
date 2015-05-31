@@ -1,6 +1,7 @@
 package ldconditional.handlers;
 
 import java.io.File;
+import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
@@ -26,7 +27,10 @@ public class HandlerLinkedData {
             body = body.replace("<!--TEMPLATEFOOTER-->", footer);
             body = body.replace("<!--TEMPLATEDATASETCOMMENT-->", comment);
 
-            String mainres = cd.getDatasetVoid().getHTMLMainResources();
+//            String mainres = cd.getDatasetVoid().getHTMLMainResources();
+            String mainres = getHTMLResources(cd);
+            
+            
             body = body.replace("<!--TEMPLATEMAINRESOURCES-->", mainres);
 
 
@@ -37,5 +41,15 @@ public class HandlerLinkedData {
         } catch (Exception e) {
             logger.error("Error serving index.html " + e.getMessage());
         }
+    }
+
+    private String getHTMLResources(ConditionalDataset cd) {
+        String html="";
+        List<String> ls = cd.getDatasetIndex().getIndexedSujetos();      
+        for(String s : ls)
+        {
+            html += "<a href=\"" + s + "\">" + s + "</a>";
+        }
+        return html;
     }
 }

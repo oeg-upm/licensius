@@ -510,7 +510,7 @@ public class ServiceHandlerImpl {
                         if (namedest.endsWith("data.nq") && !fileName.endsWith(".nq"))
                         {                
                             Transcoder t = new Transcoder();
-                            String s = t.toNQuads(folder + namedest);
+                            String s = t.toNQuads(folder + namedest, "default");
                             if (s.startsWith("Transco"))
                             {
                                 return false;

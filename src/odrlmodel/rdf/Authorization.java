@@ -31,7 +31,6 @@ public class Authorization {
 
         //WE CREATE THE DATASET
         DatasetGraphFactory.GraphMaker maker = new DatasetGraphFactory.GraphMaker() {
-
             public Graph create() {
                 return new GraphMem();
             }
