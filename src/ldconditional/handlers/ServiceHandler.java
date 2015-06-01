@@ -70,7 +70,14 @@ public class ServiceHandler extends AbstractHandler {
             logger.info("datasetGetResources");
 
             String currenturl = request.getParameter("currenturl");
-            currenturl = currenturl.replace("linkeddata.html", "");
+            if (currenturl==null)
+                return;
+            
+            int ind=currenturl.indexOf("linkeddata.html");
+            if (ind!=-1)
+            {
+                currenturl=currenturl.substring(0, ind-1);
+            }
             if (currenturl.endsWith("/"))
                 currenturl = currenturl.substring(0, currenturl.length()-1);
             int ultimabarra = currenturl.lastIndexOf("/");

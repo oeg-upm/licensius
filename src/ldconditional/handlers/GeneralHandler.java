@@ -75,6 +75,16 @@ public class GeneralHandler extends AbstractHandler {
         }
     }
 
+    // Adivina el dataset de algo como : /geo/resource/municipio...
+    public String guessDataset(String requestUri)
+    {
+        String sdataset="";
+        int index = requestUri.indexOf("/", 1);
+        if (index != -1 && index != 0) 
+            sdataset = requestUri.substring(1, index);
+        return sdataset;
+    }
+    
     /**
      * Sirve un ana query estándar
      */
@@ -364,6 +374,22 @@ public class GeneralHandler extends AbstractHandler {
                 return true;
             }
 
+            if (requestUri.endsWith("/admin"))
+            {
+                logger.info("Serving the new manager " + request.getRequestURI());
+                String sdataset = guessDataset(requestUri);
+                if (!sdataset.isEmpty())
+                {
+                    cd = ConditionalDatasets.getDataset(sdataset);
+                }
+                if (cd==null)
+                    cd = ConditionalDatasets.getSelectedDataset();
+                HandlerManager hm = new HandlerManager();
+                hm.serveManager(baseRequest, request, response, sdataset);
+                return true;
+                
+            }
+            
             if (requestUri.contains("manageren") || (requestUri.equals("/admin"))) {
                 logger.info("Serving the manager " + request.getRequestURI());
                 int index = requestUri.indexOf("/", 1);

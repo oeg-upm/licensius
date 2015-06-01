@@ -19,6 +19,7 @@ import ldconditional.model.ConditionalDataset;
 import ldconditional.model.Grafo;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
+import odrlmodel.rdf.RDFUtils;
 
 /**
  * This class represents a RDF statement that has been licensed.
@@ -144,111 +145,13 @@ public class LicensedTriple {
 
     }
 
+    
+    
     /**
-     * Writes a formatted LDR triple
-     * @param lan The language
-     */
-/*    public String toHTMLRow(String lan) {
-        String str = "";
-
-        String p = stmt.getPredicate().getLocalName();
-        String o = "";
-
-        if (stmt.getObject().isResource()) {
-            String sobjetooriginal = stmt.getObject().asResource().getURI();
-            String sobjeto = stmt.getObject().asResource().getURI();
-            try {
-                sobjeto = URLDecoder.decode(sobjeto, "UTF-8");
-                int index1 = sobjeto.lastIndexOf("/");
-                int index2 = sobjeto.lastIndexOf("#");
-                int index = Math.max(index1, index2);
-                sobjeto = sobjeto.substring(index + 1);
-            } catch (Exception e) {
-            }
-    //        String texto = "Limited access";//limited access
-
-            //If the object is a policy, consider the following
-            if (hasPolicyAsObject()) {
-                Policy policy = PolicyManagerOld.getPolicy(sobjetooriginal);
-                boolean bperunit = policy.isPerTriple();
-                String euri = "";
-                try {
-                    euri = URLEncoder.encode(policy.getURI(), "UTF-8");
-                } catch (Exception e) {
-                }
-
-                String link = sobjetooriginal;
-                String starget = policy.getFirstTarget();
-                link = "/service/managePolicy?action=View&licencia=" + euri;
-                if (!starget.isEmpty()) {
-                    link += "?target=" + starget;
-                }
-
-                if (bperunit) {
-                    link = sobjetooriginal + "?target=" + toChurroURI();
-                }
-
-                o = "<a href=\"" + link + "\"><span class=\"label label-default\">Offer</span> </a>";
-
-//                o = "<font color=\"red\">" + texto + "</font> (<a target=\"_blank\" href=\"" + link + "\">Offer";
-                if (bperunit) {
-                    o += " -- Per RDF Statement";
-                }
-                o += "</a>)";
-            } else if (isForbidden()) {
-                o = "<font color=\"red\">Información de pago</font>";
-            } else {
-                if (stmt.getObject().asResource().getURI().startsWith("http")) {
-                    o = "<a href=\"" + stmt.getObject().asResource().getURI() + "\">" + sobjeto + "</a>";
-                } else {
-                    o = sobjeto;
-                }
-
-            }
-        }
-        if (stmt.getObject().isLiteral()) {
-            String sobjeto = stmt.getObject().asLiteral().getString();
-            String language = stmt.getObject().asLiteral().getLanguage();
-
-            try {
-                sobjeto = URLDecoder.decode(sobjeto, "UTF-8");
-                int index1 = sobjeto.lastIndexOf("/");
-                int index2 = sobjeto.lastIndexOf("#");
-                int index = Math.max(index1, index2);
-                if (index != -1) {
-                    sobjeto = sobjeto.substring(index);
-                }
-
-                if (language != null && !language.isEmpty()) {
-                    LanguageManager lmgr = new LanguageManager();
-                    String lan2 = lmgr.mapa32.get(language);
-                    //       if (lan2==null)
-                    sobjeto += " (" + language + ")";
-                    //     else
-                    //     {
-                    //         sobjeto+=" <img src=\"./img/"+lan2+".png\"> \n";
-                    //     }
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            o = sobjeto;
-        }
-
-
-        str += "<tr><td>" + p + "</td><td>" + o + "</td></tr>\n";
-
-        return str;
-    }
-*/
-    /**
-     * Writes a formatted LDR triple
+     * Writes a HTML line with a formatted LDR triple
      * @param lan The language
      */
     public String toHTMLRowNew(ConditionalDataset cd) {
-        String str = "";
         String p = stmt.getPredicate().getLocalName();
         String o = "";
 
@@ -326,35 +229,11 @@ public class LicensedTriple {
             String oliteral=stmt.getObject().asLiteral().toString();
             String sobjeto = stmt.getObject().asLiteral().getString();
             String language = stmt.getObject().asLiteral().getLanguage();
-
-/*            try {
-                sobjeto = URLDecoder.decode(sobjeto, "UTF-8");
-                int index1 = sobjeto.lastIndexOf("/");
-                int index2 = sobjeto.lastIndexOf("#");
-                int index = Math.max(index1, index2);
-                if (index != -1) {
-                    sobjeto = sobjeto.substring(index);
-                }
-
-                if (language != null && !language.isEmpty()) {
-                    LanguageManager lmgr = new LanguageManager();
-                    String lan2 = lmgr.mapa32.get(language);
-                    sobjeto += " (" + language + ")";
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } */
-
-                    LanguageManager lmgr = new LanguageManager();
-                    String lan2 = lmgr.mapa32.get(language);
-                    if (!language.isEmpty())
-                        sobjeto += " (" + language + ")"; //languaje
-                    o = sobjeto;
-          
-            
-//            if (!language.isEmpty())
-//                o+="<span class=\"lang-xs\" lang=\""+ lan2+"\"></span>";
-
+                LanguageManager lmgr = new LanguageManager();
+                String lan2 = lmgr.mapa32.get(language);
+                if (!language.isEmpty())
+                    sobjeto += " (" + language + ")"; //languaje
+                o = sobjeto;
         }
 
         String tipo = "info";
@@ -363,7 +242,56 @@ public class LicensedTriple {
         }
         if (pagado==true)
             tipo = "primary";
+
+        String str = "";
         str += "<tr class=\"" + tipo + "\"><td>" + p + "</td><td>" + o + "</td></tr>\n";
+
+        List<String> expandir = cd.getDatasetVoid().getMetadataValues("http://www.w3.org/ns/ldp#hasMemberRelation"); //http://purl.oclc.org/NET/cld/propertyExpand
+        for(String expandido: expandir)
+        {
+            String predicado=stmt.getPredicate().toString();
+            if (expandido.equals(predicado))
+            {
+                str= "<tr class=\"" + tipo + "\"><td>" + p + "</td><td>";
+                str+=o;
+                String objeto = stmt.getObject().asResource().toString();
+                //obtener triples
+                
+                List<LicensedTriple> subtriples = cd.getLicensedTriples(objeto);
+                if (subtriples.size()>0)
+                {
+                    str+="<table class=\"table table-condensed\">";
+                }
+                for(LicensedTriple subtriple : subtriples)
+                {
+                    String spropi = RDFUtils.replaceWithPrefix(subtriple.stmt.getPredicate().toString());
+                    String svalor = subtriple.stmt.getObject().toString();
+                    if (svalor.startsWith("http://"))
+                    {
+                        svalor="<a href=\""+svalor+"\">"+RDFUtils.replaceWithPrefix(svalor)+"</a>";
+                        if (!svalor.startsWith(LDRConfig.getServer()))
+                            svalor+="<span class=\"glyphicon glyphicon-share-alt\"></span>";
+                    }
+                    else
+                    {
+                        String language = subtriple.stmt.getObject().asLiteral().getLanguage();
+                        if (language!=null && !language.isEmpty())
+                            svalor=subtriple.stmt.getObject().asLiteral().getString()+" ("+language+")";
+                    }
+                    str+="<tr class=\"info\"><td width=\"30%\">"+spropi+"</td><td width=\"70%\">"+svalor+"</td></tr>";
+                }
+                if (subtriples.size()>0)
+                {
+                    str+="</table>";
+                }
+                
+                str += "</td></tr>\n";
+            }
+        }
+        
+					
+					       
+        
 
         return str;
     }

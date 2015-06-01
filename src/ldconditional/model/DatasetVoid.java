@@ -8,7 +8,9 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.SimpleSelector;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 //JAVA
 import com.hp.hpl.jena.vocabulary.RDF;
@@ -111,20 +113,22 @@ public class DatasetVoid {
      * @param licencia label
      * Removes a license
      */
-    public void removeLicense(String selectedGrafo, String licencia) {
+    public boolean removeLicense(String selectedGrafo, String licencia) {
         List<Policy> lp = policies.get(selectedGrafo);
         Policy p = PolicyManagerOld.findPolicyByLabel(licencia);
-        System.out.println("Quitando " + selectedGrafo + " y " + p.uri);
-        System.out.println("Tenemos ahora mismo " + lp.size() + " licencias, que son");
+        if (p==null)
+            return false;
+        logger.info("Quitando " + selectedGrafo + " y " + p.uri);
+        logger.info("Tenemos ahora mismo " + lp.size() + " licencias, que son");
         for (Policy px : lp) {
-            System.out.println(px.getURI());
+            logger.info(px.getURI());
         }
         model.remove(model.createResource(selectedGrafo), RDFUtils.PLICENSE, model.createResource(p.uri));
         write();
         reloadPolicies();
         lp = policies.get(selectedGrafo);
         System.out.println("Tenemos ahora mismo " + lp.size() + " licencias");
-
+        return true;
     }
 
     /**
@@ -381,6 +385,20 @@ public class DatasetVoid {
         return model.createResource(uri);
     }
 
+    public List<String> getMetadataValues(String sprop) {
+        List<String> ls = new ArrayList();
+        Property prop = model.createProperty(sprop);
+        StmtIterator list = model.listStatements(new SimpleSelector(getDatasetRes(), prop, (RDFNode)null));
+        while(list.hasNext())
+        {
+            Statement st = list.next();
+            Resource res=st.getObject().asResource();
+            ls.add(res.toString());
+        }
+        return ls;
+    }
+    
+    
     /**
      * The first model field
      */
@@ -576,6 +594,7 @@ public class DatasetVoid {
             return false;
         }              
     }
+
 
     
 }

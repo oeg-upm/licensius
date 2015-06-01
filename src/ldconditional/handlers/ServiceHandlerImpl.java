@@ -541,19 +541,14 @@ public class ServiceHandlerImpl {
      * Devuelve un fragmento de json con el elemento i-esimo
      */
     static String getResourceJSON(ConditionalDataset ds, int i) {
-        int id = (int)(Math.random()*1000);
-
         String json = "";
-        
         DatasetIndex dsi = ds.getDatasetIndex();
-        
         String sujeto = dsi.getIndexedSujetos().get(i);
         int triples = dsi.getIndexedTriplesPerSubject(sujeto);
         
         
+        try{sujeto=URLDecoder.decode(sujeto, "UTF-8");}catch(Exception e){e.printStackTrace();}
         sujeto = "<a href='"+sujeto+ "'>"+sujeto+"</a>";
-//        sujeto="<b>"+sujeto+"<b>";
-        
         json+=  "    {\n" +
                 "      \"id\":" +i+",\n" +
                 "      \"uno\": \"  "+ sujeto +"\",\n" + //sender

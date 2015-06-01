@@ -5,6 +5,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.StringWriter;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -144,6 +145,10 @@ public class HandlerResource {
         if (label.isEmpty()) {
             label = recurso;
         }
+        
+        try{
+        label = URLDecoder.decode(label, "UTF-8");
+        }catch(Exception e){}
 
         if (label.length() < 10) {
             label = "<h2>" + label + "</h2>";
@@ -154,7 +159,7 @@ public class HandlerResource {
 
 //        tabla += "<h3>Open triples</h3>\n";
         tabla += "<table class=\"table table-condensed\">"; //table-striped 
-        tabla += "<thead><tr><td width=\"50%\"><strong>Property</strong></td><td width=\"50%\"><strong>Value</strong></td></tr></thead>\n";
+        tabla += "<thead><tr><td width=\"30%\"><strong>Property</strong></td><td width=\"70%\"><strong>Value</strong></td></tr></thead>\n";
         List<LicensedTriple> open = getOpenTriples(cd, ls);
         Collections.sort(open, LicensedTriple.PREDICATECOMPARATOR);
         for (LicensedTriple lt : open) {

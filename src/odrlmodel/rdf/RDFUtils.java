@@ -27,7 +27,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import org.apache.jena.atlas.lib.StrUtils;
 import org.apache.jena.riot.RDFDataMgr;
@@ -243,6 +246,27 @@ public class RDFUtils {
         return cadenas;
     }
 
+    public static Map<String, String> prefijos = initprefijos();
+    public static Map<String, String> initprefijos()
+    {
+         Map<String, String> mapa = new HashMap();
+        mapa.put("odrl", "http://www.w3.org/ns/odrl/2/"); //http://w3.org/ns/odrl/2/
+        mapa.put("dct", "http://purl.org/dc/terms/");
+        mapa.put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+        mapa.put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+        mapa.put("cc", "http://creativecommons.org/ns#");
+        mapa.put("ldr", "http://purl.oclc.org/NET/ldr/ns#");
+        mapa.put("void", "http://rdfs.org/ns/void#");
+        mapa.put("dcat", "http://www.w3.org/ns/dcat#");
+        mapa.put("gr", "http://purl.org/goodrelations/");
+        mapa.put("prov", "http://www.w3.org/ns/prov#");
+        mapa.put("schema", "http://schema.org/");     
+        mapa.put("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#");
+        mapa.put("lemon", "http://lemon-model.net/lemon#");
+
+         return mapa;
+    }
+    
     /**
      * Adds the most common prefixes to the generated model
      *
@@ -260,6 +284,22 @@ public class RDFUtils {
         model.setNsPrefix("prov", "http://www.w3.org/ns/prov#");
         model.setNsPrefix("schema", "http://schema.org/");
     }
+    
+    public static String replaceWithPrefix(String uri)
+    {
+        String prefixed=uri;
+        Iterator it = prefijos.entrySet().iterator();
+        while (it.hasNext()) {
+            if (uri.startsWith("http://www.w3.org/1999/02/22-rdf-syntax-ns#"))
+                    uri=uri;
+            Map.Entry e = (Map.Entry)it.next();
+            String prefijo = (String)e.getKey();
+            String namespace= (String)e.getValue();
+            uri=uri.replace(namespace, prefijo+":");
+        }
+        return uri;
+    }
+    
 
     /**
      * Downloads a file making its best: - following redirects - implementing
@@ -357,7 +397,7 @@ public class RDFUtils {
             logger.info("Parseado correctamente como Turtle!!");
             return model;
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.warn(e.getMessage());
             logger.error("error" + e.getMessage());
             System.err.println(e.getMessage());
             try {
