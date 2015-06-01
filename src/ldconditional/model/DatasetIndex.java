@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.RandomAccessFile;
 import java.io.StringReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,6 +20,8 @@ import java.util.List;
 import java.util.Map;
 import ldconditional.LDRConfig;
 import oeg.rdf.commons.NQuad;
+import oeg.rdftools.NT2NQ;
+import static oeg.rdftools.NT2NQ.replaceall;
 import oeg.utils.ExternalSort;
 import org.apache.log4j.Logger;
 
@@ -51,6 +54,8 @@ public class DatasetIndex {
 
     public void indexar() {
         ExternalSort.ordenar(cd.getDatasetDump().getDataFileName());
+        NT2NQ.replaceall(cd.getDatasetDump().getFileName(),cd.getDatasetDump().getFileName(),  "", "");
+        
         //SE CALCULA EL MAPA
         indexarSujetosStream(cd.getDatasetDump().getDataFileName(), getIndexFileName());
     }
@@ -118,9 +123,20 @@ public class DatasetIndex {
             long i = -1;
             long contador = 0;
             long inicontador = 0;
+            char separador=10; //0a
             while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
-                contador += line.length() + separator;
-                long ltest = fis.getChannel().position();
+                
+                
+                
+                byte[] b = line.getBytes(Charset.forName("UTF-8"));
+                long btest = b.length+1;
+                contador += btest; //line.length()
+                
+                //if (line.length()!=btest)
+                //    System.err.println("error error error");
+                
+                
+                
                 i++;
                 if (i % 1000000 == 0) {
                     System.out.println("Millones de lineas cargadas: " + i / 1000000);
@@ -157,7 +173,7 @@ public class DatasetIndex {
         return bytes;
     }
  
-    public List<String> getNQuadsForSujetoFAST(String search) {
+    public List<String> getNQuadsForSujeto(String search) {
         List<String> res = new ArrayList();
         if (mapas.isEmpty()) {
             cargarIndice();
@@ -172,7 +188,7 @@ public class DatasetIndex {
         try {
             String search2 = "<" + search + ">";
             
-            byte chunk[]=readFromFile(cd.getDatasetDump().getDataFileName(), k, 1024*1024);
+            byte chunk[]=readFromFile(cd.getDatasetDump().getDataFileName(), k, 1024*256); //maximo 256kb
             String schunk = new String(chunk, "UTF-8");
             StringReader sr= new StringReader(schunk);
             BufferedReader br2= new BufferedReader(sr); 
@@ -183,13 +199,17 @@ public class DatasetIndex {
             
             
             String line = "";
-            while ((line = br2.readLine()) != null) {    
+            while ((line = br2.readLine()) != null) {  
+                if(line.isEmpty())
+                    continue;
                 if (line.startsWith(search2)) {
                     res.add(line);
                 } else {
                     break;
                 }
             }
+            br2.close();
+            
 
         } catch (Exception e) {
             logger.info("error " + e.getMessage());
@@ -199,7 +219,7 @@ public class DatasetIndex {
     }    
     
     
-    public List<String> getNQuadsForSujeto(String search) {
+    public List<String> getNQuadsForSujetoOLD(String search) {
         List<String> res = new ArrayList();
         if (mapas.isEmpty()) {
             cargarIndice();

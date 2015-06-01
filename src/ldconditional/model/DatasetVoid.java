@@ -559,8 +559,6 @@ public class DatasetVoid {
             sfolder=sfolder+conditionalDataset.name;
             String filename=sfolder+"/void.ttl";
             
-            
-            
             BufferedReader br = new BufferedReader(new FileReader(filename));
             File dest=new File(filename+"tmp");
             if(!dest.exists()) {

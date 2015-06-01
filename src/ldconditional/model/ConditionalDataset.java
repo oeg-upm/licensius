@@ -228,7 +228,7 @@ public class ConditionalDataset {
     }
 
     public boolean rebase(String datasuri) {
-        //This operation can be terrible ong
+        //This operation can be terrible long
 
         boolean ok = getDatasetDump().rebase(datasuri);
         if (!ok) {
