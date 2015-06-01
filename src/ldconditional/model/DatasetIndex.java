@@ -3,9 +3,14 @@ package ldconditional.model;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.RandomAccessFile;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -102,7 +107,10 @@ public class DatasetIndex {
     public static void indexarSujetosStream(String nquadsFile, String indexFile) {
         int separator = 1;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(nquadsFile));
+//            FileReader fr=new FileReader(nquadsFile);
+            FileInputStream fis = new FileInputStream(nquadsFile);
+            InputStreamReader isr=new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
             FileOutputStream fos = new FileOutputStream(new File(indexFile));
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
             String line = null;
@@ -112,6 +120,7 @@ public class DatasetIndex {
             long inicontador = 0;
             while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
                 contador += line.length() + separator;
+                long ltest = fis.getChannel().position();
                 i++;
                 if (i % 1000000 == 0) {
                     System.out.println("Millones de lineas cargadas: " + i / 1000000);
@@ -124,13 +133,6 @@ public class DatasetIndex {
                     lasts = s;
                     continue;
                 }
-//                String abreviado = lasts.replace("http://salonica.dia.fi.upm.es/geo/resource/", "oeg-geo:");
-//                abreviado = lasts.replace("http://salonica.dia.fi.upm.es/iate/resource/", "oeg-iate:");
-
-/*                try {
-                    abreviado = URLDecoder.decode(abreviado, "UTF-8");
-                } catch (Exception e) {
-                }*/
                 bw.write(lasts + " " + inicontador + "\n");
                 lasts = s;
                 inicontador = contador - line.length() - separator;
@@ -144,14 +146,22 @@ public class DatasetIndex {
         }
     }
 
-    public List<String> getNQuadsForSujeto(String search) {
+    
+    
+     private static byte[] readFromFile(String filePath, long position, int size) throws IOException {
+        RandomAccessFile file = new RandomAccessFile(filePath, "r");
+        file.seek(position);
+        byte[] bytes = new byte[size];
+        file.read(bytes);
+        file.close();
+        return bytes;
+    }
+ 
+    public List<String> getNQuadsForSujetoFAST(String search) {
         List<String> res = new ArrayList();
         if (mapas.isEmpty()) {
             cargarIndice();
         }
-//        String searchi = search.replace("http://salonica.dia.fi.upm.es/iate/resource/", "oeg-iate:");
-//        searchi=searchi.replace("http://salonica.dia.fi.upm.es/geo/resource/", "oeg-geo:");
-
         int iesimo = Collections.binarySearch(mapas, search);
         if (iesimo<0)
             return res;
@@ -160,17 +170,62 @@ public class DatasetIndex {
         if (k==null)
             return res;
         try {
-//            String search2 = search;
-//            search = search2.replace("oeg-iate:", "http://salonica.dia.fi.upm.es/iate/resource/");
             String search2 = "<" + search + ">";
             
-            FileReader fr = new FileReader(cd.getDatasetDump().getDataFileName());
-            BufferedReader br2 = new BufferedReader(fr);
+            byte chunk[]=readFromFile(cd.getDatasetDump().getDataFileName(), k, 1024*1024);
+            String schunk = new String(chunk, "UTF-8");
+            StringReader sr= new StringReader(schunk);
+            BufferedReader br2= new BufferedReader(sr); 
+            
+//            FileReader fr = new FileReader(cd.getDatasetDump().getDataFileName());
+//            BufferedReader br2 = new BufferedReader(fr);
+//            br2.skip(k);        //SLOW. THIS OPERATION IS SLOW BECAUSE THE WHOLE FILE IS PARSED BEFORE REACHING THE END
+            
+            
+            String line = "";
+            while ((line = br2.readLine()) != null) {    
+                if (line.startsWith(search2)) {
+                    res.add(line);
+                } else {
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            logger.info("error " + e.getMessage());
+        }
+        return res;
+
+    }    
+    
+    
+    public List<String> getNQuadsForSujeto(String search) {
+        List<String> res = new ArrayList();
+        if (mapas.isEmpty()) {
+            cargarIndice();
+        }
+        int iesimo = Collections.binarySearch(mapas, search);
+        if (iesimo<0)
+            return res;
+        Long k = mapai.get(iesimo);
+        
+        if (k==null)
+            return res;
+        try {
+            String search2 = "<" + search + ">";
+
+            FileInputStream fis = new FileInputStream(cd.getDatasetDump().getDataFileName());
+            InputStreamReader isr=new InputStreamReader(fis);
+            BufferedReader br2 = new BufferedReader(isr);
+            
+            
+//            FileReader fr = new FileReader(cd.getDatasetDump().getDataFileName());
+//            BufferedReader br2 = new BufferedReader(fr);
             br2.skip(k);        //SLOW. THIS OPERATION IS SLOW BECAUSE THE WHOLE FILE IS PARSED BEFORE REACHING THE END
             
             
             String line = "";
-            while ((line = br2.readLine()) != null) {    ///potencialmente, 100M de lineas
+            while ((line = br2.readLine()) != null) {    
                 if (line.startsWith(search2)) {
                     res.add(line);
                 } else {
