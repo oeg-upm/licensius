@@ -42,6 +42,14 @@ public class DatasetDump extends NQuadRawFile {
     }
     //Devuelve las entradas para el indice
 
+    public String getDataFileName()
+    {
+        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+        if (!sfolder.endsWith("/")) sfolder+="/";
+        String filename2 = sfolder + conditionalDataset.name + "/data.nq";
+        return filename2;
+    }    
+    
     public Set<String> getGrafos() {
         Set set = new HashSet<String>();
         try {

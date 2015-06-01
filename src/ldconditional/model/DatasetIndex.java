@@ -5,11 +5,15 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.lang.Integer;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,151 +23,49 @@ import java.util.Map;
 import java.util.Set;
 import ldconditional.LDRConfig;
 import ldconditional.Main;
+import oeg.rdf.commons.NQuad;
 import oeg.utils.ExternalSort;
 import org.apache.log4j.Logger;
 
 /**
- * https://github.com/rgl/elasticsearch-setup/releases
- * @author vroddon
+ *
+ * @author Victor
  */
 public class DatasetIndex {
-    private static final Logger logger = Logger.getLogger(DatasetIndex.class);
+    private static final Logger logger = Logger.getLogger(DatasetIndexOld.class);
     private ConditionalDataset cd = null;
-
-    Map<String, List<Integer>> mapGrafos, mapSujetos;
+    Map<String, Integer> mapaOffset = new HashMap<String, Integer>();
 
     public DatasetIndex(ConditionalDataset _cd) {
         cd = _cd;
-    }
-
-    // "Sujeto1" --> 1, 10
-    // "Sugjet2" --> 11, 14
-    public Map<String, List<Integer>> createIndexSubjects() {
-        logger.info("Creating graph index of dataset: " + cd.name);
-        DatasetDump dump = cd.getDatasetDump();
-        Map<String, List<Integer>> map  = dump.createIndiceSujetos();
-        return map;
-    }
-
-    // No usando elasticsearch
-    // "Grafo1" --> 12, 122,241,2142,11231
-    public Map<String, List<Integer>> createIndexGrafos() {
-        logger.info("Creating graph index of dataset: " + cd.name);
-        Map<String, List<Integer>> map = new HashMap();
-        DatasetDump dump = cd.getDatasetDump();
-        Set<String> ls = dump.getGrafos();
-        List<String> claves = new ArrayList();
-        logger.info(ls.size()+" keys have been found");
-        claves.addAll(ls);
-        Collections.sort(claves);
-        int i=0;
-        for (String clave : claves) {
-            i++;
-            List<Integer> li = dump.getLineas(clave);
-    //        System.out.println(clave+" "+li);
-            map.put(clave, li);
-        }
-        return map;
-    }
-public Map<String, List<Integer>> readIndexGrafos()
-    {
-//        String filename = "datasets/" + cd.name + "/indexgrafos.idx";
-
-            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-            if (!sfolder.endsWith("/")) sfolder+="/";
-            String filename = sfolder + cd.name + "/indexgrafos.idx";
-//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";
-            File f = new File(filename);
-        
-        
-        
-        HashMap<String, List<Integer>> map = null;
-        try
-        {
-            FileInputStream fis = new FileInputStream(filename);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            map = (HashMap) ois.readObject();
-            ois.close();
-            fis.close();
-      }catch(Exception ioe)
-      {
-         ioe.printStackTrace();
-         return map;
-      }
-        return map;
-    }
-    public Map<String, List<Integer>> readIndexSujetos()
+    }    
+    
+    public String getIndexFileName()
     {
         String sfolder = LDRConfig.get("datasetsfolder", "datasets");
         if (!sfolder.endsWith("/")) sfolder+="/";
         String filename = sfolder + cd.name + "/indexsujetos.idx";
-        HashMap<String, List<Integer>> map = null;
-        if (!(new File(filename)).exists())
-            return map;
-        try
-        {
-            FileInputStream fis = new FileInputStream(filename);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            map = (HashMap) ois.readObject();
-            ois.close();
-            fis.close();
-      }catch(Exception ioe)
-      {
-         ioe.printStackTrace();
-         return map;
-      }
-        return map;
+        return filename;
     }
 
-    public void writeIndexGrafos(Map<String, List<Integer>> map) {
-            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-            if (!sfolder.endsWith("/")) sfolder+="/";
-            String filename = sfolder + cd.name + "/indexgrafos.idx";
-        
-        
-        try {
-            FileOutputStream fos = new FileOutputStream(filename);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(map);
-            oos.close();
-            fos.close();
-        } catch (Exception e) {
-        }
+    public void indexar() {
+        ExternalSort.ordenar(cd.getDatasetDump().getDataFileName());
+        indexarSujetosStream(cd.getDatasetDump().getDataFileName(), getIndexFileName());
     }
-    public void writeIndexSujetos(String filename, Map<String, List<Integer>> map) {
-        try {
-            FileOutputStream fos = new FileOutputStream(filename);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(map);
-            oos.close();
-            fos.close();
-        } catch (Exception e) {
-        }
-    }
-
-    public List<Integer> getIndices(Map<String, List<Integer>> map, String term) {
-        Iterator it = map.entrySet().iterator();
+    
+   //todo
+   public List<String> getIndexedSujetos() {
+        List<String> li = new ArrayList();
+        Iterator it = mapaOffset.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry) it.next();
-            String clave = (String) e.getKey();
-            if (clave.equals(term)) {
-                List<Integer> li = (List<Integer>) e.getValue();
-                return li;
-            }
+            String s =(String)e.getKey(); 
+            s = s.replace("oeg-iate:", "http://salonica.dia.fi.upm.es/iate/resource/");
+            li.add(s);
         }
-        return new ArrayList();
-
-    }
-
-    public static void main(String[] args) {
-        Main.standardInit();
-        ConditionalDataset cd = ConditionalDatasets.getDataset("geo");
-//        cd.getDatasetIndex().indexar();
-        cd.getDatasetIndex().leerIndice();
-        String st = cd.getDatasetIndex().buscarSujeto("http://localhost/geo/resource/Municipio/Oviedo");
-        System.out.println(st);
-    }
-
+        return li;
+   }
+     
     public List<String> matchSujetos(String term)
     {
         List<String> ls = new ArrayList();
@@ -175,101 +77,121 @@ public Map<String, List<Integer>> readIndexGrafos()
         }
         return ls;
 
-    }
-
-    public List<String> getIndexedSujetos()
+    }    
+    
+    private void cargarIndice()
     {
-        List<String> li = new ArrayList();
-        if (mapSujetos==null)
-            mapSujetos = readIndexSujetos();
-        if (mapSujetos==null)
-            return li;
-            
-        Iterator it = mapSujetos.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry) it.next();
-            String clave = (String) e.getKey();
-            li.add(clave);
+        String res="";
+        logger.info("Cargando indice");
+        try{
+            String line="";
+            mapaOffset.clear();
+            BufferedReader br = new BufferedReader(new FileReader(getIndexFileName()));
+            System.out.println("Cargando diccionario");
+            int i=0;
+            while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
+                int ind=line.lastIndexOf(" ");
+                String s1=line.substring(0, ind);
+                String s2=line.substring(ind+1, line.length());
+                if (s2.isEmpty())
+                    break;
+                int indice = Integer.parseInt(s2);
+                mapaOffset.put(s1, indice);
+            }
+            br.close();
+            System.out.println("Diccionario cargado");    
+        }catch(Exception e){
+            logger.warn(e.getMessage());
         }
-        return li;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /**************************************************************************/
+    /**
+     * Indexa volcando el mapa en stream
+     */
+    private static void indexarSujetosStream(String nquadsFile, String indexFile) {
+        int separator = 1;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(nquadsFile));
+            FileOutputStream fos = new FileOutputStream(new File(indexFile));
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+            int i = -1;
+            String line = null;
+            String lasts = "";
+            int ini = 0;
+            int contador = 0;
+            int inicontador = 0;
+            while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
+                contador += line.length() + separator;
+                i++;
+                if (i % 1000000 == 0) {
+                    System.out.println("Millones de lineas cargadas: " + i/1000000);
+                }
+                String s = NQuad.getSubject(line);      //rapido
+                if (s.equals(lasts)) {
+                    continue;
+                }
+                if (i == 0) {
+                    lasts = s;
+                    continue;
+                }
+                String abreviado = lasts.replace("http://salonica.dia.fi.upm.es/geo/resource/", "oeg-geo:");
+                abreviado = lasts.replace("http://salonica.dia.fi.upm.es/iate/resource/", "oeg-iate:");
+                
+                try{abreviado = URLDecoder.decode(abreviado,"UTF-8");}catch(Exception e){}                
+                bw.write(abreviado + " " + inicontador + "\n");
+                lasts = s;
+                ini = i;
+                inicontador = contador - line.length() - separator;
+            }
+            bw.close();
+            fos.close();
+            br.close();
 
-    public List<String> getNQuadsForSujeto(String sujeto)
-    {
-        List<String> out = new ArrayList();
-        List<Integer> li = mapSujetos.get(sujeto);
-        if (li==null || li.isEmpty())
-            return out;
-        List<String> ls =cd.getDatasetDump().getNQuadsBetweenLines(li.get(0), li.get(1));
-        return ls;
-    }
-    public String buscarSujeto(String term)
-    {
-        List<Integer> li = mapSujetos.get(term);
-        if (li==null || li.isEmpty())
-            return "";
-        String str="";
-
-        str = cd.getDatasetDump().getTextBetweenLines(li.get(0), li.get(1));
-        logger.info("Buscando de la " + li.get(0) + " " + li.get(1));
-        System.out.println(str);
-        return str;
-    }
-
-    public void indexar()
-    {
-        DatasetIndex di = cd.getDatasetIndex();
-//        ExternalSort.ordenar("datasets/"+cd.name+"/data.nq");
-        ExternalSort.ordenar(LDRConfig.get("datasetsfolder", "datasets").endsWith("/") ? LDRConfig.get("datasetsfolder", "datasets") : (LDRConfig.get("datasetsfolder", "datasets")+"/")+cd.name+"/data.nq");
-        mapGrafos = di.createIndexGrafos();
-        di.writeIndexGrafos(mapGrafos);
-        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-        if (!sfolder.endsWith("/")) sfolder+="/";
-        String filename = sfolder + cd.name + "/data.nq";
-        ExternalSort.ordenar(filename);
-        
-        
-        mapSujetos = di.createIndexSubjects();
-        
-        
-        String sfolder2 = LDRConfig.get("datasetsfolder", "datasets");
-        if (!sfolder2.endsWith("/")) sfolder2+="/";
-        String filename2 = sfolder2 + cd.name + "/indexsujetos.idx";
-        di.writeIndexSujetos(filename2, mapSujetos);
-    }
-    public void leerIndice()
-    {
-        DatasetIndex di = cd.getDatasetIndex();
-         mapGrafos = di.readIndexGrafos();
-        mapSujetos = di.readIndexSujetos();
-    }
-
-    public int getIndexedTriplesPerGrafo(String grafo)
-    {
-        List<Integer> li =  mapGrafos.get(grafo);
-        if (li==null || li.isEmpty())
-            return 0;
-        else
-            return li.size();
-    }
-    public int getIndexedTriplesPerSubject(String su)
-    {
-        List<Integer> li =  mapSujetos.get(su);
-        if (li==null || li.isEmpty())
-            return 0;
-        else
-            return li.get(1)-li.get(0)+1;
-    }
-
-    List<String> getIndexedGrafos() {
-        List<String> li = new ArrayList();
-        Iterator it = mapGrafos.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry) it.next();
-            String clave = (String) e.getKey();
-            li.add(clave);
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
         }
-        return li;
     }
 
+    public List<String> getNQuadsForSujeto(String search) {
+        if (mapaOffset.isEmpty())
+            cargarIndice();
+           Integer k=mapaOffset.get(search);
+            List<String> res =new ArrayList();
+           try{
+           String search2=URLEncoder.encode(search, "UTF-8");
+            search2 = search2.replace("oeg-iate%3A", "http://salonica.dia.fi.upm.es/iate/resource/");
+            search2 = "<"+search2+">";
+            System.out.println("Descodificado: " + search2);
+            BufferedReader br2 = new BufferedReader(new FileReader(cd.getDatasetDump().getDataFileName()));
+            br2.skip(k);
+            String line="";
+            while ((line = br2.readLine()) != null) {    ///potencialmente, 100M de lineas
+                System.out.println(line);
+                if (line.startsWith(search2))
+                    res.add(line);
+                else
+                    break;
+            }           
+         
+           }catch(Exception e)
+           {
+               logger.info("error " + e.getMessage());
+           }
+        return res;
+        
+    }
+
+    
+    
 }

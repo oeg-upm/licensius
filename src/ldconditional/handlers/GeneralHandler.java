@@ -374,21 +374,6 @@ public class GeneralHandler extends AbstractHandler {
                 return true;
             }
 
-            if (requestUri.endsWith("/admin"))
-            {
-                logger.info("Serving the new manager " + request.getRequestURI());
-                String sdataset = guessDataset(requestUri);
-                if (!sdataset.isEmpty())
-                {
-                    cd = ConditionalDatasets.getDataset(sdataset);
-                }
-                if (cd==null)
-                    cd = ConditionalDatasets.getSelectedDataset();
-                HandlerManager hm = new HandlerManager();
-                hm.serveManager(baseRequest, request, response, sdataset);
-                return true;
-                
-            }
             
             if (requestUri.contains("manageren") || (requestUri.equals("/admin"))) {
                 logger.info("Serving the manager " + request.getRequestURI());
@@ -406,6 +391,22 @@ public class GeneralHandler extends AbstractHandler {
                 hm.serveManager(baseRequest, request, response, dataset);
                     return true;
             }
+            else if (requestUri.endsWith("/admin"))
+            {
+                logger.info("Serving the new manager " + request.getRequestURI());
+                String sdataset = guessDataset(requestUri);
+                if (!sdataset.isEmpty())
+                {
+                    cd = ConditionalDatasets.getDataset(sdataset);
+                }
+                if (cd==null)
+                    cd = ConditionalDatasets.getSelectedDataset();
+                HandlerManager hm = new HandlerManager();
+                hm.serveManager(baseRequest, request, response, sdataset);
+                return true;
+            }
+            
+            
 
             if (requestUri.startsWith("/policy/") || requestUri.startsWith("/license/")) {
                 logger.info("Serving a policy offer " + request.getRequestURI());

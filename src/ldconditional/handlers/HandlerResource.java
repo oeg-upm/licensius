@@ -220,13 +220,15 @@ public class HandlerResource {
         return s;
     }
 
+    /**
+     * Obtains the HTML menu for the
+     */
     public static String getHTMLMenu(String recurso) {
         String ruta = "../";
         int index = recurso.indexOf("resource/");
         if (index != -1) {
             ruta = recurso.substring(0, index);
         }
-
         String html = "<div id=\"nav\" class=\"menu_div\"> <ul>";
         html += "<li class=\"titulomenu\">What is this?</li>";
         html += "<li><a href=\"" + ruta + "index.html\">Introduction</a></li>";

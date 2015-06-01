@@ -213,7 +213,7 @@ public class HandlerManager {
         }
         if (action != null && action.equals("Index")) {
             cd.getDatasetIndex().indexar();
-            cd.getDatasetVoid().recalcularTriples();
+//            cd.getDatasetVoid().recalcularTriples();
             try {
                 response.sendRedirect("manageren");
             } catch (IOException ex) {

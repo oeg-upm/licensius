@@ -37,6 +37,7 @@ import ldconditional.auth.Portfolio;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
 import ldconditional.model.DatasetIndex;
+import ldconditional.model.DatasetIndexOld;
 import ldconditional.model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
@@ -52,6 +53,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
@@ -544,8 +546,8 @@ public class ServiceHandlerImpl {
         String json = "";
         DatasetIndex dsi = ds.getDatasetIndex();
         String sujeto = dsi.getIndexedSujetos().get(i);
-        int triples = dsi.getIndexedTriplesPerSubject(sujeto);
-        
+//        int triples = dsi.getIndexedTriplesPerSubject(sujeto);
+        int triples = dsi.getNQuadsForSujeto(sujeto).size();
         
         try{sujeto=URLDecoder.decode(sujeto, "UTF-8");}catch(Exception e){e.printStackTrace();}
         sujeto = "<a href='"+sujeto+ "'>"+sujeto+"</a>";

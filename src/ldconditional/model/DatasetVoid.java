@@ -515,7 +515,7 @@ public class DatasetVoid {
         Statement st = model.getProperty(getDatasetRes(), model.createProperty("http://rdfs.org/ns/void#triples"));
         model.remove(st);
         model.add(getDatasetRes(), model.createProperty("http://rdfs.org/ns/void#triples"), ""+triples);
-
+        /*
         List<String> grafos = conditionalDataset.dsIndex.getIndexedGrafos();
         for(String grafo : grafos)
         {
@@ -525,10 +525,7 @@ public class DatasetVoid {
             st = model.getProperty(model.createResource(grafo), model.createProperty("http://rdfs.org/ns/void#triples"));
             model.remove(st);
             model.add(model.createResource(grafo), model.createProperty("http://rdfs.org/ns/void#triples"), ""+triples);
-
-        }
-
-
+        }*/
         write();
     }
     
