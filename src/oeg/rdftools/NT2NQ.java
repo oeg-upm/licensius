@@ -60,8 +60,9 @@ public class NT2NQ {
 //          indexarSujetosStream("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx");
 //        rebasear("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data-salonica.nq", "http://tbx2rdf.lider-project.eu/data/iate", "http://salonica.dia.fi.upm.es/iate/resource");
 //          unicodizar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\datau.nq");
+          cortar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data2.nq", 10000000);
 
-        ultraFastAccess("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx", "oeg-iate:\"\"\"πράσινο\"\" κτήριο\"-el" );
+//        ultraFastAccess("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx", "oeg-iate:\"\"\"πράσινο\"\" κτήριο\"-el" );
         
         System.out.println(dateFormat.format(new Date()));
 
@@ -90,6 +91,30 @@ public class NT2NQ {
         }
     }
 
+    public static void cortar(String sfile1, String sfile2, int lineas) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(sfile1));
+            FileOutputStream fos = new FileOutputStream(new File(sfile2));
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+            String line;
+            int count = 0;
+            while ((line = br.readLine()) != null) {
+                count++;
+                if (count>lineas)
+                    break;
+                if (count % 1000000 == 0) {
+                    System.out.println("Lineas cargadas: " + count);
+                }
+                bw.write(line+"\n");
+            }
+            bw.close();
+            fos.close();
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }    
+    
     public static void unicodizar(String sfile1, String sfile2) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(sfile1));

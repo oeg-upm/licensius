@@ -38,13 +38,5 @@ public class HandlerLinkedData {
         }
     }
 
-    private String getHTMLResources(ConditionalDataset cd) {
-        String html="";
-        List<String> ls = cd.getDatasetIndex().getIndexedSujetos();      
-        for(String s : ls)
-        {
-            html += "<a href=\"" + s + "\">" + s + "</a>";
-        }
-        return html;
-    }
+
 }

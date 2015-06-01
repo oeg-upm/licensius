@@ -69,7 +69,7 @@ public class HandlerPortal {
             try{title = cd.getDatasetVoid().getTitle();}catch(Exception e){}
             try{comment = cd.getDatasetVoid().getComment();}catch(Exception e){}
             try{ngrafos = cd.getDatasetVoid().getGrafos().size();}catch(Exception e){}            
-            try{irecursos=cd.getDatasetIndex().getIndexedSujetos().size();}catch(Exception e){}
+            try{irecursos=cd.getDatasetIndex().getIndexedSujetosSize();}catch(Exception e){}
             
             row+="<tr>";
             

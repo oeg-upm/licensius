@@ -90,13 +90,6 @@ public class ServiceHandler extends AbstractHandler {
             int irowcount=Integer.valueOf(rowCount);
             int total =1000;
 
-            /*
-            int ixndex = request.getRequestURI().indexOf("/", 1);
-            if (ixndex!=-1)
-            {
-                String sx = request.getRequestURI().substring(1, ixndex);
-                ds = ConditionalDatasets.getDataset(sx);
-            }*/
             if (ds==null)
             {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -105,7 +98,11 @@ public class ServiceHandler extends AbstractHandler {
             }
                 
             
-            total = ds.getDatasetIndex().getIndexedSujetos().size();
+            total = ds.getDatasetIndex().getIndexedSujetosSize();
+            
+            logger.info("Ya tenemos el total... " + total);
+            
+            
             response.setContentType("application/json;charset=utf-8");
             if (ds!=null)
             {
@@ -113,12 +110,18 @@ public class ServiceHandler extends AbstractHandler {
                 "  \"current\": "+icurrent+ ",\n" +
                 "  \"rowCount\": "+  irowcount  +",\n" +
                 "  \"rows\": [\n";
+                
+//                List<String> jsons = ServiceHandlerImpl.getResourcesJSON(ds, (icurrent-1)*irowcount, irowcount);
+//                int conta=-1;
+                
                 for(int i=0;i<irowcount;i++)
                 {
+                    logger.info("Serving " + i + " out of " + irowcount);
                     int indice=(icurrent-1)*irowcount+i;
                     if (indice>=total)
                         continue;
-                    s+= ServiceHandlerImpl.getResourceJSON(ds, indice);
+                   s+= ServiceHandlerImpl.getResourceJSON(ds, indice);
+//                    s+= jsons.get(++conta);
                     if (i==(irowcount-1) || indice==(total-1))
                         s+="\n";
                     else
@@ -130,9 +133,10 @@ public class ServiceHandler extends AbstractHandler {
                 
                 
                 //System.out.println(s);
-                response.getWriter().print(s);
+            response.getWriter().print(s);
             response.setStatus(HttpServletResponse.SC_OK);
             baseRequest.setHandled(true);
+            logger.info("Served all");
             return;                
             }
             

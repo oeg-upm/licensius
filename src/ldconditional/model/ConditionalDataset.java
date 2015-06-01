@@ -2,6 +2,8 @@ package ldconditional.model;
 
 //JENA
 import com.hp.hpl.jena.rdf.model.Model;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,6 +16,7 @@ import ldconditional.Main;
 import ldconditional.auth.LicensedTriple;
 import ldconditional.ldserver.Recurso;
 import odrlmodel.Policy;
+import oeg.rdf.commons.NQuad;
 import oeg.utils.ExternalSort;
 import org.apache.log4j.Logger;
 
@@ -178,8 +181,23 @@ public class ConditionalDataset {
     }
 
     public List<LicensedTriple> getLicensedTriples(String recurso) {
-        return dsDump.getLicensedTriples(recurso);
-
+        
+        List<LicensedTriple> llt = new ArrayList();
+        List<String> ls = dsIndex.getNQuadsForSujeto(recurso);
+        for(String line:ls)
+        {
+                String s = NQuad.getSubject(line);
+                if (!s.equals(recurso)) {
+                    continue;
+                }
+                String o = NQuad.getObject(line);
+                String p = NQuad.getPredicate(line);
+                String g = NQuad.getGraph(line);
+                String l = NQuad.getObjectLangTag(line);
+                LicensedTriple lt = new LicensedTriple(s, p, o, l, g);
+                llt.add(lt);
+            }
+        return llt;        
     }
 
     public static void main(String[] args) {

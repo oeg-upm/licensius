@@ -25,6 +25,7 @@ import odrlmodel.rdf.RDFUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.log4j.Logger;
 import org.eclipse.jetty.server.Request;
 
 /**
@@ -32,12 +33,16 @@ import org.eclipse.jetty.server.Request;
  * @author vroddon
  */
 public class HandlerResource {
+    static final Logger logger = Logger.getLogger(HandlerResource.class);
 
     public void serveResource(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
         String recurso = baseRequest.getRootURL().toString() + request.getRequestURI();
         ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
         ConditionalDatasets.setSelectedDataset(cd.name);
-        List<LicensedTriple> llt = cd.getDatasetDump().getLicensedTriples(recurso);
+        
+        logger.info("Fetching triples for " + recurso);
+        List<LicensedTriple> llt = cd.getLicensedTriples(recurso);
+        logger.info("Fetching triples");
 
         Portfolio p = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
         if (p == null) {

@@ -19,6 +19,7 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +35,7 @@ import ldconditional.LDRConfig;
 import ldconditional.auth.GoogleAuthHelper;
 
 import ldconditional.auth.Portfolio;
+import static ldconditional.handlers.ServiceHandler.logger;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
 import ldconditional.model.DatasetIndex;
@@ -540,24 +542,108 @@ public class ServiceHandlerImpl {
 
     /**
      * Devuelve un fragmento de json con el elemento i-esimo
+     * http://salonica.dia.fi.upm.es/iate/resource/Elektroprothese-de
      */
     static String getResourceJSON(ConditionalDataset ds, int i) {
         String json = "";
         DatasetIndex dsi = ds.getDatasetIndex();
-        List<String> sujetos = dsi.getIndexedSujetos();
-        String sujeto = sujetos.get(i);
-//        int triples = dsi.getIndexedTriplesPerSubject(sujeto);
+  //      List<String> sujetos = dsi.getIndexedSujetos();
+        String sujeto = dsi.getIndexedSujetos().get(i);
         int triples = dsi.getNQuadsForSujeto(sujeto).size();
         
         try{sujeto=URLDecoder.decode(sujeto, "UTF-8");}catch(Exception e){e.printStackTrace();}
         sujeto = "<a href='"+sujeto+ "'>"+sujeto+"</a>";
+        
+        sujeto = quote(sujeto);
+        
         json+=  "    {\n" +
                 "      \"id\":" +i+",\n" +
-                "      \"uno\": \"  "+ sujeto +"\",\n" + //sender
+//                "      \"uno\": \"  "+ sujeto +"\",\n" + //sender
+                "      \"uno\": "+ sujeto +",\n" + //sender
                 "      \"dos\": \""+ triples +"\"\n" + //receiver
                 "    }";
         
         return json;
     }
+    
+    static List<String> getResourcesJSON(ConditionalDataset ds, int i, int num) {
+        List<String> ls = new ArrayList();
+        String json = "";
+        DatasetIndex dsi = ds.getDatasetIndex();
+        
+        for(int k=i;k<i+num;k++)
+        {
+            String sujeto = dsi.getIndexedSujetos().get(k);
+            int triples = dsi.getNQuadsForSujeto(sujeto).size();
+            try{sujeto=URLDecoder.decode(sujeto, "UTF-8");}catch(Exception e){e.printStackTrace();}
+            sujeto = "<a href='"+sujeto+ "'>"+sujeto+"</a>";
+            sujeto = quote(sujeto);
 
+            json+=  "    {\n" +
+                    "      \"id\":" +k+",\n" +
+    //                "      \"uno\": \"  "+ sujeto +"\",\n" + //sender
+                    "      \"uno\": "+ sujeto +",\n" + //sender
+                    "      \"dos\": \""+ triples +"\"\n" + //receiver
+                    "    }";
+            ls.add(json);
+            logger.info("cargando... " + k);
+        }
+        
+        return ls;
+    }
+
+    
+public static String quote(String string) {
+         if (string == null || string.length() == 0) {
+             return "\"\"";
+         }
+
+         char         c = 0;
+         int          i;
+         int          len = string.length();
+         StringBuilder sb = new StringBuilder(len + 4);
+         String       t;
+
+         sb.append('"');
+         for (i = 0; i < len; i += 1) {
+             c = string.charAt(i);
+             switch (c) {
+             case '\\':
+             case '"':
+                 sb.append('\\');
+                 sb.append(c);
+                 break;
+             case '/':
+ //                if (b == '<') {
+                     sb.append('\\');
+ //                }
+                 sb.append(c);
+                 break;
+             case '\b':
+                 sb.append("\\b");
+                 break;
+             case '\t':
+                 sb.append("\\t");
+                 break;
+             case '\n':
+                 sb.append("\\n");
+                 break;
+             case '\f':
+                 sb.append("\\f");
+                 break;
+             case '\r':
+                sb.append("\\r");
+                break;
+             default:
+                 if (c < ' ') {
+                     t = "000" + Integer.toHexString(c);
+                     sb.append("\\u" + t.substring(t.length() - 4));
+                 } else {
+                     sb.append(c);
+                 }
+             }
+         }
+         sb.append('"');
+         return sb.toString();
+     }    
 }

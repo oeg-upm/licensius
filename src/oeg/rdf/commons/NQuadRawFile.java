@@ -287,7 +287,7 @@ public class NQuadRawFile {
     /**
      * Obtains the licensed triples
      */
-    public List<LicensedTriple> getLicensedTriples(String recurso) {
+   /*private List<LicensedTriple> getLicensedTriplesLENTA(String recurso) {
         List<LicensedTriple> llt = new ArrayList();
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -308,7 +308,7 @@ public class NQuadRawFile {
         } catch (Exception e) {
         }
         return llt;
-    }
+    }*/
 
     public List<Statement> getTriplesInGrafoSinIndexar(String uri) {
         List<Statement> llt = new ArrayList();
