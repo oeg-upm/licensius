@@ -223,7 +223,6 @@ public class DatasetIndex {
 //            BufferedReader br2 = new BufferedReader(fr);
             br2.skip(k);        //SLOW. THIS OPERATION IS SLOW BECAUSE THE WHOLE FILE IS PARSED BEFORE REACHING THE END
             
-            
             String line = "";
             while ((line = br2.readLine()) != null) {    
                 if (line.startsWith(search2)) {
