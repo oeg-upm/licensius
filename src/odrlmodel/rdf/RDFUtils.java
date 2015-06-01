@@ -354,7 +354,7 @@ public class RDFUtils {
         InputStream is = new ByteArrayInputStream(bytes); //
         try {
             model.read(is, null, "TURTLE");
-            logger.info("PERFECTO!!");
+            logger.info("Parseado correctamente como Turtle!!");
             return model;
         } catch (Exception e) {
             e.printStackTrace();
@@ -364,6 +364,7 @@ public class RDFUtils {
                 is.close();
                 is = new ByteArrayInputStream(bytes);
                 model.read(is, null, "RDF/XML");
+                logger.info("Parseado correctamente como RDF/XML!!");
                 return model;
             } catch (Exception e2) {
                 try{

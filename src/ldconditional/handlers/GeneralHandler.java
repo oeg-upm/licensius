@@ -1,14 +1,5 @@
 package ldconditional.handlers;
 
-import ldconditional.handlers.HandlerAccount;
-import ldconditional.handlers.HandlerOffers;
-import ldconditional.handlers.HandlerIndex;
-import ldconditional.handlers.HandlerLinkedData;
-import ldconditional.handlers.HandlerManager;
-import ldconditional.handlers.HandlerPolicy;
-import ldconditional.handlers.HandlerPortal;
-import ldconditional.handlers.HandlerResource;
-import ldconditional.handlers.HandlerSPARQL;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

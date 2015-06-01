@@ -14,8 +14,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import ldconditional.LDRConfig;
+
+//
 import oeg.rdf.commons.NQuad;
 import oeg.rdf.commons.NQuadRawFile;
+
+//LOG4J
 import org.apache.log4j.Logger;
 
 /**

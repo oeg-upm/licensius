@@ -7,8 +7,9 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
+
 /**
- *
+ * Gestor de tipos MIME
  * @author vroddon
  */
 public class MimeManager {

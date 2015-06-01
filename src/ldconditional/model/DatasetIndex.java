@@ -94,10 +94,12 @@ public Map<String, List<Integer>> readIndexGrafos()
     }
     public Map<String, List<Integer>> readIndexSujetos()
     {
-            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-            if (!sfolder.endsWith("/")) sfolder+="/";
-            String filename = sfolder + cd.name + "/indexsujetos.idx";
+        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+        if (!sfolder.endsWith("/")) sfolder+="/";
+        String filename = sfolder + cd.name + "/indexsujetos.idx";
         HashMap<String, List<Integer>> map = null;
+        if (!(new File(filename)).exists())
+            return map;
         try
         {
             FileInputStream fis = new FileInputStream(filename);
@@ -186,6 +188,9 @@ public Map<String, List<Integer>> readIndexGrafos()
         List<String> li = new ArrayList();
         if (mapSujetos==null)
             mapSujetos = readIndexSujetos();
+        if (mapSujetos==null)
+            return li;
+            
         Iterator it = mapSujetos.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry) it.next();

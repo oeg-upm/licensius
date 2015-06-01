@@ -39,6 +39,7 @@ public class ServiceHandler extends AbstractHandler {
 
     static final Logger logger = Logger.getLogger(ServiceHandler.class);
 
+    
     public void handle(String string, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (baseRequest.isHandled() || !string.contains("/service")) {
             return;
@@ -67,18 +68,40 @@ public class ServiceHandler extends AbstractHandler {
         if (string.contains("/service/datasetGetResources"))
         {
             logger.info("datasetGetResources");
-            String datas = request.getParameter("dataset");
+
+            String currenturl = request.getParameter("currenturl");
+            currenturl = currenturl.replace("linkeddata.html", "");
+            if (currenturl.endsWith("/"))
+                currenturl = currenturl.substring(0, currenturl.length()-1);
+            int ultimabarra = currenturl.lastIndexOf("/");
+            String datan = currenturl.substring(ultimabarra+1, currenturl.length());
+            ConditionalDataset ds = ConditionalDatasets.getDataset(datan);
+            
             String rowCount = request.getParameter("rowCount");
-            String current = request.getParameter("current");
+            String current = request.getParameter("current");            
             int icurrent=Integer.valueOf(current);
             int irowcount=Integer.valueOf(rowCount);
             int total =1000;
-            ConditionalDataset ds = ConditionalDatasets.setSelectedDataset("geo");
+
+            /*
+            int ixndex = request.getRequestURI().indexOf("/", 1);
+            if (ixndex!=-1)
+            {
+                String sx = request.getRequestURI().substring(1, ixndex);
+                ds = ConditionalDatasets.getDataset(sx);
+            }*/
+            if (ds==null)
+            {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                baseRequest.setHandled(true);
+                return;                      
+            }
+                
+            
             total = ds.getDatasetIndex().getIndexedSujetos().size();
             response.setContentType("application/json;charset=utf-8");
             if (ds!=null)
             {
-
                 String s = "{\n" +
                 "  \"current\": "+icurrent+ ",\n" +
                 "  \"rowCount\": "+  irowcount  +",\n" +

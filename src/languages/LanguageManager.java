@@ -8,14 +8,14 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
- * Hace de mapa de idiomas
- * http://usrz.github.io/bootstrap-languages/
+ * Hace de mapa de idiomas ISO 639
+ * Banderitas de idiomas: http://usrz.github.io/bootstrap-languages/
  * @author Victor Rodriguez Doncel
  */
 public class LanguageManager {
     
-    public Map<String,String> mapa32 = new HashMap();
-    public Map<String,String> mapa3n = new HashMap();
+    public static Map<String,String> mapa32 = new HashMap();
+    public static Map<String,String> mapa3n = new HashMap();
 
     /**
      * The constructor reads the name together with the iso2 and iso3 representation

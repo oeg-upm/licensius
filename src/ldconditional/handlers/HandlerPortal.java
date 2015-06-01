@@ -61,6 +61,7 @@ public class HandlerPortal {
             String name = cd.name;
             String title = "untitled";
             String comment = "not commented";
+            int irecursos = 0;
             int ngrafos = 0;
 
             if (cd.getDatasetDump()==null)
@@ -68,11 +69,12 @@ public class HandlerPortal {
             try{title = cd.getDatasetVoid().getTitle();}catch(Exception e){}
             try{comment = cd.getDatasetVoid().getComment();}catch(Exception e){}
             try{ngrafos = cd.getDatasetVoid().getGrafos().size();}catch(Exception e){}            
+            try{irecursos=cd.getDatasetIndex().getIndexedSujetos().size();}catch(Exception e){}
             
             row+="<tr>";
             
             row+="<td>"+ name+"</td>";
-            row+="<td>"+ngrafos+"</td>";
+            row+="<td>"+ irecursos +"</td>"; //ngrafos
             row+="<td>"+ getLogo(name);
             row+=  "<p class=\"lead\"><a href=\""+LDRConfig.getServer()+name+  "/linkeddata.html\">"+ title+"</a></p>";
             row += comment;

@@ -3,13 +3,15 @@ package ldconditional.handlers;
 import java.io.File;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+import static ldconditional.handlers.HandlerResource.getJumbotron;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.eclipse.jetty.server.Request;
+
 /**
- *
+ * This class serves the table with the Linked Data resources
  * @author vroddon
  */
 public class HandlerLinkedData {
@@ -26,14 +28,7 @@ public class HandlerLinkedData {
             String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
             body = body.replace("<!--TEMPLATEFOOTER-->", footer);
             body = body.replace("<!--TEMPLATEDATASETCOMMENT-->", comment);
-
-//            String mainres = cd.getDatasetVoid().getHTMLMainResources();
-//            String mainres = getHTMLResources(cd);
-            
-            
- //           body = body.replace("<!--TEMPLATEMAINRESOURCES-->", mainres);
-
-
+            body = body.replace("<!--TEMPLATEJUMBOTRON-->", getJumbotron(cd));
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType("text/html;charset=utf-8");
             response.getWriter().print(body);
