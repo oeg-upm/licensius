@@ -131,17 +131,16 @@ public class HandlerResource {
     public static String formatHTMLTriplesNew(String recurso, ConditionalDataset cd, String label, List<LicensedTriple> ls) {
         String html = "";
         String tabla = "";
-
         String templatefile = "htdocs/template_resource.html";
         try {
             html = FileUtils.readFileToString(new File(templatefile));
-            String footer = FileUtils.readFileToString(new File("htdocs/footer.html"));
-            html = html.replace("<!--TEMPLATEFOOTER-->", footer);
-            html = html.replace("<!--TEMPLATEMENU-->", getHTMLMenu(recurso));
+            html = html.replace("<!--TEMPLATEFOOTER-->",    FileUtils.readFileToString(new File("htdocs/footer.html")));
+            html = html.replace("<!--TEMPLATEMENU-->",      getHTMLMenu(recurso));
             html = html.replace("<!--TEMPLATEJUMBOTRON-->", getJumbotron(cd));
         } catch (Exception e) {
-            return "page not found " + e.getMessage();
+            return "Internal component is missing " + e.getMessage();
         }
+
         if (label.isEmpty()) {
             label = recurso;
         }
@@ -151,10 +150,10 @@ public class HandlerResource {
         } else {
             label = "<h4>" + label + "</h4>";
         }
-        html = html.replace("<!--TEMPLATEHERE1-->", label);
+        html = html.replace("<!--TEMPLATERESOURCETITLE-->", label);
 
 //        tabla += "<h3>Open triples</h3>\n";
-        tabla += "<table class=\"table table-striped table-condensed\">";
+        tabla += "<table class=\"table table-condensed\">"; //table-striped 
         tabla += "<thead><tr><td width=\"50%\"><strong>Property</strong></td><td width=\"50%\"><strong>Value</strong></td></tr></thead>\n";
         List<LicensedTriple> open = getOpenTriples(cd, ls);
         Collections.sort(open, LicensedTriple.PREDICATECOMPARATOR);
@@ -191,7 +190,7 @@ public class HandlerResource {
         ttl = "<div class=\"panel panel-default\"><pre>" + ttl + "</pre></div>";
         tabla += getHTMLModal(id, "RDF", ttl);
 
-        html = html.replace("<!--TEMPLATEHERE2-->", tabla);
+        html = html.replace("<!--TEMPLATETABLERESOURCES-->", tabla);
 
         return html;
     }

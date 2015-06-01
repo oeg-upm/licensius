@@ -333,7 +333,7 @@ public class NQuadRawFile {
         return llt;
     }
 
-    public int getNumTriples() {
+    public int countNumTriples() {
         int i = 0;
 
         try {

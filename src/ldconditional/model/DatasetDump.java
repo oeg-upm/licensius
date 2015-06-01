@@ -3,10 +3,13 @@ package ldconditional.model;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,6 +34,7 @@ public class DatasetDump extends NQuadRawFile {
     private static final Logger logger = Logger.getLogger(NQuadRawFile.class);
     //link back to the container
     ConditionalDataset conditionalDataset = null;
+    public int ntriples=0;
     
     public DatasetDump(ConditionalDataset cd) {
         super(LDRConfig.get("datasetsfolder", "datasets").endsWith("/") ? LDRConfig.get("datasetsfolder", "datasets") : (LDRConfig.get("datasetsfolder", "datasets")+"/") + cd.name + "/data.nq");
@@ -53,21 +57,24 @@ public class DatasetDump extends NQuadRawFile {
         return set;
     }
 
-
-    //Devuelve las entradas para el indice
-    // REQUIERE QUE EL DUMP ESTE ORDENADO ALFABETICAMENTE. OJO....
-
-    public Map<String, List<Integer>> getSujetos() {
+    
+    /**
+     * ASUME QUE EL ARCHIVO DE NQUADS ESTÁ ORDENADO POR SUJETO
+     */
+    public static boolean crearIndiceSujetos(String nquadsFilename, String indexFilename) {
         Map<String, List<Integer>> map = new HashMap();
         try {
-            BufferedReader br = new BufferedReader(new FileReader(filename));
+            FileOutputStream fos = new FileOutputStream(indexFilename);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));            
+            BufferedReader br = new BufferedReader(new FileReader(nquadsFilename));
+            
             int i = -1;
             String line = null;
             String lasts = "";
             int ini = 0;
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
                 i++;
-                String s = NQuad.getSubject(line);
+                String s = NQuad.getSubject(line);      //rapido
                 if (s.equals(lasts)) {
                     continue;
                 }
@@ -83,6 +90,44 @@ public class DatasetDump extends NQuadRawFile {
                 ini = i;
                 
             }
+        } catch (Exception e) {
+            logger.warn("Error. " + e.getMessage());
+            return false;
+        }
+        return true;
+    }    
+    
+
+    //Devuelve las entradas para el indice
+    // REQUIERE QUE EL DUMP ESTE ORDENADO ALFABETICAMENTE. OJO....
+    public Map<String, List<Integer>> createIndiceSujetos() {
+        
+        Map<String, List<Integer>> map = new HashMap();
+        try {
+            ntriples=0;
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int i = -1;
+            String line = null;
+            String lasts = "";
+            int ini = 0;
+            while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
+                i++;
+                String s = NQuad.getSubject(line);      //rapido
+                if (s.equals(lasts)) {
+                    continue;
+                }
+                if (i == 0) {
+                    lasts=s;
+                    continue;
+                }
+                List<Integer> li = new ArrayList();
+                li.add(ini);
+                li.add(i - 1);
+                map.put(lasts, li);
+                lasts = s;
+                ini = i;
+            }
+            ntriples=i+1;
         } catch (Exception e) {
         }
         return map;

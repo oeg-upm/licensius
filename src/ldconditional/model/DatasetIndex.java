@@ -41,7 +41,7 @@ public class DatasetIndex {
     public Map<String, List<Integer>> createIndexSubjects() {
         logger.info("Creating graph index of dataset: " + cd.name);
         DatasetDump dump = cd.getDatasetDump();
-        Map<String, List<Integer>> map  = dump.getSujetos();
+        Map<String, List<Integer>> map  = dump.createIndiceSujetos();
         return map;
     }
 
@@ -130,13 +130,7 @@ public Map<String, List<Integer>> readIndexGrafos()
         } catch (Exception e) {
         }
     }
-    public void writeIndexSujetos(Map<String, List<Integer>> map) {
-//        String filename = "datasets/" + cd.name + "/indexsujetos.idx";
-            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-            if (!sfolder.endsWith("/")) sfolder+="/";
-            String filename = sfolder + cd.name + "/indexsujetos.idx";
-        
-        
+    public void writeIndexSujetos(String filename, Map<String, List<Integer>> map) {
         try {
             FileOutputStream fos = new FileOutputStream(filename);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -229,14 +223,19 @@ public Map<String, List<Integer>> readIndexGrafos()
         ExternalSort.ordenar(LDRConfig.get("datasetsfolder", "datasets").endsWith("/") ? LDRConfig.get("datasetsfolder", "datasets") : (LDRConfig.get("datasetsfolder", "datasets")+"/")+cd.name+"/data.nq");
         mapGrafos = di.createIndexGrafos();
         di.writeIndexGrafos(mapGrafos);
-            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-            if (!sfolder.endsWith("/")) sfolder+="/";
-            String filename = sfolder + cd.name + "/data.nq";
+        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+        if (!sfolder.endsWith("/")) sfolder+="/";
+        String filename = sfolder + cd.name + "/data.nq";
         ExternalSort.ordenar(filename);
         
         
         mapSujetos = di.createIndexSubjects();
-        di.writeIndexSujetos(mapSujetos);
+        
+        
+        String sfolder2 = LDRConfig.get("datasetsfolder", "datasets");
+        if (!sfolder2.endsWith("/")) sfolder2+="/";
+        String filename2 = sfolder2 + cd.name + "/indexsujetos.idx";
+        di.writeIndexSujetos(filename2, mapSujetos);
     }
     public void leerIndice()
     {

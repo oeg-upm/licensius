@@ -532,6 +532,8 @@ public class ServiceHandlerImpl {
         DatasetIndex dsi=ds.getDatasetIndex();
         if (dsi!=null)
              dsi.indexar();
+        ds.getDatasetVoid().setMetadataLiteral("http://rdfs.org/ns/void#triples",""+ds.getDatasetDump().ntriples);
+        ds.getDatasetVoid().write();
         return true;
     }
 

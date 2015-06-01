@@ -493,7 +493,7 @@ public class DatasetVoid {
     }
 
     public void recalcularTriples() {
-        int triples = conditionalDataset.dsDump.getNumTriples();
+        int triples = conditionalDataset.dsDump.countNumTriples();
         Statement st = model.getProperty(getDatasetRes(), model.createProperty("http://rdfs.org/ns/void#triples"));
         model.remove(st);
         model.add(getDatasetRes(), model.createProperty("http://rdfs.org/ns/void#triples"), ""+triples);
