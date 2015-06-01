@@ -21,6 +21,8 @@ import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import ldconditional.Main;
+import ldconditional.model.ConditionalDataset;
+import ldconditional.model.ConditionalDatasets;
 import oeg.rdf.commons.NQuad;
 import oeg.utils.ExternalSort;
 import org.apache.commons.cli.BasicParser;
@@ -52,7 +54,7 @@ public class NT2NQ {
         String sfile2 = "E:\\data\\iate\\iate.nq";
         String grafo = "<default> .";
 
-        Main.initLogger();
+        Main.standardInit();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         System.out.println(dateFormat.format(new Date()));
 
@@ -60,15 +62,32 @@ public class NT2NQ {
 //          indexarSujetosStream("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx");
 //        rebasear("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data-salonica.nq", "http://tbx2rdf.lider-project.eu/data/iate", "http://salonica.dia.fi.upm.es/iate/resource");
 //          unicodizar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\datau.nq");
-          cortar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data2.nq", 10000000);
-
+//          cortar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data2.nq", 10000000);
 //        ultraFastAccess("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx", "oeg-iate:\"\"\"πράσινο\"\" κτήριο\"-el" );
-        
+        limpiarSaltoLinea();
         System.out.println(dateFormat.format(new Date()));
 
     }
 
-    public static void rebasear(String sfile1, String sfile2, String cad1, String cad2) {
+    public static void limpiarSaltoLinea()
+    {
+        for(ConditionalDataset cd : ConditionalDatasets.datasets)
+        {
+            System.out.println("Limpiando " + cd.name);
+            String f=cd.getDatasetDump().getFileName();
+            replaceall(f,f,  "", "");
+            
+        }
+    }
+    
+    
+    public static void replaceall(String sfile1, String sfile2, String cad1, String cad2) {
+        boolean same=false;
+            if (sfile1.equals(sfile2))
+            {
+                same=true;
+                sfile2=sfile1+"TMP";
+            }
         try {
             BufferedReader br = new BufferedReader(new FileReader(sfile1));
             FileOutputStream fos = new FileOutputStream(new File(sfile2));
@@ -81,17 +100,28 @@ public class NT2NQ {
                     System.out.println("Lineas cargadas: " + count);
                 }
                 line=line.replace(cad1, cad2);
-                bw.write(line+"\n");
+                char separador=10; //0a
+                bw.write(line+separador);
             }
             bw.close();
             fos.close();
             br.close();
+            if (same)
+            {
+                File f1=new File(sfile1);
+                f1.delete();
+                File f2=new File(sfile2);
+                f2.renameTo(new File(sfile1));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void cortar(String sfile1, String sfile2, int lineas) {
+            if (sfile1.equals(sfile2))
+                return;
+        
         try {
             BufferedReader br = new BufferedReader(new FileReader(sfile1));
             FileOutputStream fos = new FileOutputStream(new File(sfile2));
@@ -116,6 +146,9 @@ public class NT2NQ {
     }    
     
     public static void unicodizar(String sfile1, String sfile2) {
+            if (sfile1.equals(sfile2))
+                return;
+        
         try {
             BufferedReader br = new BufferedReader(new FileReader(sfile1));
             FileOutputStream fos = new FileOutputStream(new File(sfile2));

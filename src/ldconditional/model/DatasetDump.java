@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -235,10 +236,7 @@ public class DatasetDump extends NQuadRawFile {
             
             if (filename==null || filename.isEmpty())
             {
-                String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-                if (!sfolder.endsWith("/")) sfolder+="/";
-                sfolder=sfolder+conditionalDataset.name;
-                filename=sfolder+"/data.nq";
+                filename=getDataFileName();
             }
             
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -246,7 +244,9 @@ public class DatasetDump extends NQuadRawFile {
             if(!dest.exists()) {
                 dest.createNewFile();
             }            
-            OutputStream os = new FileOutputStream(dest);
+            FileOutputStream fos = new FileOutputStream(dest);
+            Writer out = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));           
+            
             int i = -1;
             String line = null;
             String newbase = LDRConfig.get("server", "http://localhost/");
@@ -256,11 +256,14 @@ public class DatasetDump extends NQuadRawFile {
             
             while ((line = br.readLine()) != null) {
                 line = line.replace(datasuri, newbase);
-                
-                line+="\n";
-                os.write(line.getBytes("UTF-8"));
+                char separador = 10; //0A, \n, separador unix.
+//                line+="\n";
+                line+=separador;
+                out.write(line);
+//                out.write(line.getBytes("UTF-8"));
             }
-            os.close();
+//            os.close();
+            out.close();
             br.close();
             File fin = new File(filename);
             fin.delete();

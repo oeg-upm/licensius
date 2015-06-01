@@ -2,6 +2,7 @@ package oeg.rdf.commons;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Statement;
 import java.io.BufferedReader;
@@ -150,8 +151,20 @@ public class NQuadRawFile {
         return contador;
     }
 
+    public String getFirstObject(Model minimodel,String s, String p) {
+        String sol="";
+        NodeIterator nit =minimodel.listObjectsOfProperty(ModelFactory.createDefaultModel().createResource(s), ModelFactory.createDefaultModel().createProperty(p));
+        while(nit.hasNext())
+        {
+            RDFNode n = nit.next();
+            return n.asLiteral().getString();
+        }
+        return sol;
+    }
+     
+    
     /**
-     * 
+     * PROHIBIDO HACER ESTO. ES INCREIBLEMENTE LENGO PARA ARCHIVOS GRANDES.
      */
     public String getFirstObject(String s, String p) {
         String o = "";

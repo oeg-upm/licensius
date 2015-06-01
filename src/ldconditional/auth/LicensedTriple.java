@@ -5,6 +5,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import java.io.StringWriter;
 import ldconditional.handlers.HandlerResource;
 
 import java.net.URLDecoder;
@@ -20,6 +21,8 @@ import ldconditional.model.Grafo;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.RDFUtils;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 
 /**
  * This class represents a RDF statement that has been licensed.
@@ -27,6 +30,7 @@ import odrlmodel.rdf.RDFUtils;
  * @author Victor
  */
 public class LicensedTriple {
+
 
     public Statement stmt;
     public String g;
@@ -379,6 +383,26 @@ public class LicensedTriple {
 
         return validos;
     }
+    
+    public static String getNTriples(List<LicensedTriple> llt) {
+        Model minimodel = ModelFactory.createDefaultModel();
+        for(LicensedTriple lt : llt)
+        {
+            minimodel.add(lt.stmt);
+        }
+        StringWriter sw = new StringWriter();
+        RDFDataMgr.write(sw, minimodel, Lang.NTRIPLES);;
+        return sw.toString();
+    }
+    public static Model getModel(List<LicensedTriple> llt) {
+        Model minimodel = ModelFactory.createDefaultModel();
+        for(LicensedTriple lt : llt)
+        {
+            minimodel.add(lt.stmt);
+        }
+        return minimodel;
+    }    
+    
     public static Comparator<LicensedTriple> PREDICATECOMPARATOR = new Comparator<LicensedTriple>() {
 
         public int compare(LicensedTriple o1, LicensedTriple o2) {

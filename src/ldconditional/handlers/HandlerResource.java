@@ -42,6 +42,8 @@ public class HandlerResource {
         
         logger.info("Fetching triples for " + recurso);
         List<LicensedTriple> llt = cd.getLicensedTriples(recurso);
+        Model minimodel = LicensedTriple.getModel(llt);
+        
         logger.info("Fetching triples");
 
         Portfolio p = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
@@ -50,8 +52,8 @@ public class HandlerResource {
         }
         request.getSession().setAttribute("portfolio", p);
         llt = LicensedTriple.Authorize2(cd, llt, p);
-
-        String label = cd.getDatasetDump().getFirstObject(recurso, "http://www.w3.org/2000/01/rdf-schema#label");
+        
+        String label = cd.getDatasetDump().getFirstObject(minimodel, recurso, "http://www.w3.org/2000/01/rdf-schema#label");
         String body = "";
         if (!GeneralHandler.isHuman(request)) {
 
