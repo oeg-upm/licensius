@@ -28,94 +28,89 @@ import oeg.utils.ExternalSort;
 import org.apache.log4j.Logger;
 
 /**
+ * https://github.com/rgl/elasticsearch-setup/releases
  *
  * @author Victor
  */
 public class DatasetIndex {
-    private static final Logger logger = Logger.getLogger(DatasetIndexOld.class);
+
+    private static final Logger logger = Logger.getLogger(DatasetIndex.class);
     private ConditionalDataset cd = null;
+    
     Map<String, Integer> mapaOffset = new HashMap<String, Integer>();
+    List<String> sujetosindexados = new ArrayList();
 
     public DatasetIndex(ConditionalDataset _cd) {
         cd = _cd;
-    }    
-    
-    public String getIndexFileName()
-    {
+    }
+
+    public String getIndexFileName() {
         String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-        if (!sfolder.endsWith("/")) sfolder+="/";
+        if (!sfolder.endsWith("/")) {
+            sfolder += "/";
+        }
         String filename = sfolder + cd.name + "/indexsujetos.idx";
         return filename;
     }
 
     public void indexar() {
         ExternalSort.ordenar(cd.getDatasetDump().getDataFileName());
+        //SE CALCULA EL MAPA
         indexarSujetosStream(cd.getDatasetDump().getDataFileName(), getIndexFileName());
     }
-    
-   //todo
-   public List<String> getIndexedSujetos() {
-        List<String> li = new ArrayList();
-        Iterator it = mapaOffset.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry e = (Map.Entry) it.next();
-            String s =(String)e.getKey(); 
-            s = s.replace("oeg-iate:", "http://salonica.dia.fi.upm.es/iate/resource/");
-            li.add(s);
-        }
-        return li;
-   }
-     
-    public List<String> matchSujetos(String term)
-    {
+
+    public List<String> matchSujetos(String term) {
         List<String> ls = new ArrayList();
         List<String> sujetos = getIndexedSujetos();
-        for(String sujeto : sujetos)
-        {
-            if (sujeto.contains(term))
+        for (String sujeto : sujetos) {
+            if (sujeto.contains(term)) {
                 ls.add(sujeto);
+            }
         }
         return ls;
 
-    }    
-    
-    private void cargarIndice()
-    {
-        String res="";
-        logger.info("Cargando indice");
-        try{
-            String line="";
+    }
+
+    private void cargarIndice() {
+        String res = "";
+        logger.info("Cargando indice de " + cd.name);
+        try {
+            String line = "";
             mapaOffset.clear();
             BufferedReader br = new BufferedReader(new FileReader(getIndexFileName()));
-            System.out.println("Cargando diccionario");
-            int i=0;
+            int i = 0;
             while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
-                int ind=line.lastIndexOf(" ");
-                String s1=line.substring(0, ind);
-                String s2=line.substring(ind+1, line.length());
-                if (s2.isEmpty())
+                int ind = line.lastIndexOf(" ");
+                String s1 = line.substring(0, ind);
+                String s2 = line.substring(ind + 1, line.length());
+                if (s2.isEmpty()) {
                     break;
+                }
                 int indice = Integer.parseInt(s2);
                 mapaOffset.put(s1, indice);
             }
             br.close();
-            System.out.println("Diccionario cargado");    
-        }catch(Exception e){
+            logger.info("Cargado diccionario de " + cd.name);
+            
+            //SE CALCULA LA LISTA
+            sujetosindexados.clear();
+            Iterator it = mapaOffset.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry) it.next();
+                String s = (String) e.getKey();
+                s = s.replace("oeg-iate:", "http://salonica.dia.fi.upm.es/iate/resource/");
+                sujetosindexados.add(s);
+            }
+            
+            
+        } catch (Exception e) {
             logger.warn(e.getMessage());
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /**************************************************************************/
+
+    /**
+     * ***********************************************************************
+     */
     /**
      * Indexa volcando el mapa en stream
      */
@@ -135,7 +130,7 @@ public class DatasetIndex {
                 contador += line.length() + separator;
                 i++;
                 if (i % 1000000 == 0) {
-                    System.out.println("Millones de lineas cargadas: " + i/1000000);
+                    System.out.println("Millones de lineas cargadas: " + i / 1000000);
                 }
                 String s = NQuad.getSubject(line);      //rapido
                 if (s.equals(lasts)) {
@@ -147,8 +142,11 @@ public class DatasetIndex {
                 }
                 String abreviado = lasts.replace("http://salonica.dia.fi.upm.es/geo/resource/", "oeg-geo:");
                 abreviado = lasts.replace("http://salonica.dia.fi.upm.es/iate/resource/", "oeg-iate:");
-                
-                try{abreviado = URLDecoder.decode(abreviado,"UTF-8");}catch(Exception e){}                
+
+                try {
+                    abreviado = URLDecoder.decode(abreviado, "UTF-8");
+                } catch (Exception e) {
+                }
                 bw.write(abreviado + " " + inicontador + "\n");
                 lasts = s;
                 ini = i;
@@ -164,34 +162,44 @@ public class DatasetIndex {
     }
 
     public List<String> getNQuadsForSujeto(String search) {
-        if (mapaOffset.isEmpty())
+        List<String> res = new ArrayList();
+        if (mapaOffset.isEmpty()) {
             cargarIndice();
-           Integer k=mapaOffset.get(search);
-            List<String> res =new ArrayList();
-           try{
-           String search2=URLEncoder.encode(search, "UTF-8");
+        }
+        String searchi = search.replace("http://salonica.dia.fi.upm.es/iate/resource/", "oeg-iate:");
+        
+        System.out.println("Searching for " + search); 
+        
+        
+        Integer k = mapaOffset.get(searchi);
+        if (k==null)
+            return res;
+        try {
+            String search2 = URLEncoder.encode(searchi, "UTF-8");
             search2 = search2.replace("oeg-iate%3A", "http://salonica.dia.fi.upm.es/iate/resource/");
-            search2 = "<"+search2+">";
-            System.out.println("Descodificado: " + search2);
+            search2 = "<" + search2 + ">";
             BufferedReader br2 = new BufferedReader(new FileReader(cd.getDatasetDump().getDataFileName()));
             br2.skip(k);
-            String line="";
+            String line = "";
             while ((line = br2.readLine()) != null) {    ///potencialmente, 100M de lineas
-                System.out.println(line);
-                if (line.startsWith(search2))
+                if (line.startsWith(search2)) {
                     res.add(line);
-                else
+                } else {
                     break;
-            }           
-         
-           }catch(Exception e)
-           {
-               logger.info("error " + e.getMessage());
-           }
+                }
+            }
+
+        } catch (Exception e) {
+            logger.info("error " + e.getMessage());
+        }
         return res;
-        
+
     }
 
-    
-    
+    public List<String> getIndexedSujetos() {
+        if (sujetosindexados.isEmpty())
+            cargarIndice();
+        return sujetosindexados;
+    }
+
 }

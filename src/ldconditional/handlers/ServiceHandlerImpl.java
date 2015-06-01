@@ -37,7 +37,6 @@ import ldconditional.auth.Portfolio;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
 import ldconditional.model.DatasetIndex;
-import ldconditional.model.DatasetIndexOld;
 import ldconditional.model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
@@ -545,7 +544,8 @@ public class ServiceHandlerImpl {
     static String getResourceJSON(ConditionalDataset ds, int i) {
         String json = "";
         DatasetIndex dsi = ds.getDatasetIndex();
-        String sujeto = dsi.getIndexedSujetos().get(i);
+        List<String> sujetos = dsi.getIndexedSujetos();
+        String sujeto = sujetos.get(i);
 //        int triples = dsi.getIndexedTriplesPerSubject(sujeto);
         int triples = dsi.getNQuadsForSujeto(sujeto).size();
         
