@@ -52,7 +52,7 @@ public class NT2NQ {
     public static void main(String[] args) {
         String sfile1 = "E:\\data\\iate\\iate.nt";
         String sfile2 = "E:\\data\\iate\\iate.nq";
-        String grafo = "<default> .";
+        String grafo = "<http://localhost/datasets/default> .";
 
         Main.standardInit();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

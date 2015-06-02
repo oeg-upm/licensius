@@ -513,7 +513,7 @@ public class ServiceHandlerImpl {
                         if (namedest.endsWith("data.nq") && !fileName.endsWith(".nq"))
                         {                
                             Transcoder t = new Transcoder();
-                            String s = t.toNQuads(folder + namedest, "default");
+                            String s = t.toNQuads(folder + namedest, "http://localhost/datasets/default");
                             if (s.startsWith("Transco"))
                             {
                                 return false;
@@ -534,25 +534,20 @@ public class ServiceHandlerImpl {
     static boolean datasetIndex(ConditionalDataset ds) {
         DatasetIndex dsi=ds.getDatasetIndex();
         dsi.indexar();
-        
         File f = new File(ds.getDumpPath());
         if (f.length()<100000000) //100Mb
         {
             Map<String, List<Integer>> map=dsi.createIndexGrafos();
             dsi.writeIndexGrafos(map);
         }
-        
         List<String> grafos = dsi.getIndexedGrafos();        
         for(String grafo : grafos)
         {
-            
             ds.getDatasetVoid().ensureGrafo(grafo);
         }
-      
-        
-        
         ds.getDatasetVoid().setMetadataLiteral("http://rdfs.org/ns/void#triples",""+ds.getDatasetDump().ntriples);
         ds.getDatasetVoid().write();
+        ConditionalDatasets.loadDatasets();
         return true;
     }
 

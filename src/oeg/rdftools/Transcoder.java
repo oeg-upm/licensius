@@ -93,7 +93,7 @@ public class Transcoder {
                 }
             };
             Dataset dataset = DatasetImpl.wrap(new DatasetGraphMaker(maker));
-            dataset.addNamedModel("default", model);
+            dataset.addNamedModel("http://localhost/datasets/default", model);
             OutputStream out = new FileOutputStream(filename);
             RDFDataMgr.write(out, dataset, Lang.NQUADS) ;
             out.close();
