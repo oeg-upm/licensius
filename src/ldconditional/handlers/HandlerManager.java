@@ -284,14 +284,15 @@ public class HandlerManager {
             String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
             form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
             html += form;
-            html += "<a href=\"#\" onclick=\"recipient='" + cona + "'\" class=\"btn btn-sm btn-default btn-block\" data-toggle=\"modal\" data-target=\"#largeModal\" data-miid=\"" + cona + "\">Add policy</a>";
-            html += "<button  name=\"action\" type=\"submit\" value=\"RemoveAll\" class=\"btn btn-default btn-sm btn-block\">Remove all</button>";
+            html += "<a href=\"#\" onclick=\"recipient='" + cona + "'\" class=\"btn btn-sm btn-default\" data-toggle=\"modal\" data-target=\"#largeModal\" data-miid=\"" + cona + "\"><span class=\"glyphicon glyphicon-plus-sign\"></span>Add policy</a>";
+            html += "<button  name=\"action\" type=\"submit\" value=\"RemoveAll\" class=\"btn btn-default btn-sm\"><span class=\"glyphicon glyphicon-remove-sign\"></span> Remove all</button>";
             html += "<input type=\"hidden\" name=\"licencia\" id=\"licencia" + cona + "\"></input>";
             html += "<input type=\"hidden\" name=\"xaction\" id=\"xaction" + cona + "\"></input>";
 
             
             html += "</form>";
             html += "<button class=\"btn btn-default btn-sm\" name=\"setDescription\" onclick=\"setDescription('"+cd.name+"','"+ g.getLabel() +"')\"><span class=\"glyphicon glyphicon-tags\"></span> Describe</button> "; 
+            html += "<button class=\"btn btn-default btn-sm\" name=\"setDescription\" onclick=\"setDescription('"+cd.name+"','"+ g.getLabel() +"')\"><span class=\"glyphicon glyphicon-scissors\"></span> Partition</button> "; 
             
             
             html += "</td>";
