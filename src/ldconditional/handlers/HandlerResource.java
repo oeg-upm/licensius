@@ -36,7 +36,9 @@ public class HandlerResource {
     static final Logger logger = Logger.getLogger(HandlerResource.class);
 
     public void serveResource(Request baseRequest, HttpServletRequest request, HttpServletResponse response, String dataset) {
-        String recurso = baseRequest.getRootURL().toString() + request.getRequestURI();
+        String base0 = baseRequest.getRootURL().toString();
+        String parte2 = request.getRequestURI();
+        String recurso = base0 + parte2;
         ConditionalDataset cd = ConditionalDatasets.getDataset(dataset);
         ConditionalDatasets.setSelectedDataset(cd.name);
         

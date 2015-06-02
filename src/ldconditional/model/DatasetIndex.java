@@ -185,6 +185,7 @@ public class DatasetIndex {
         
         if (k==null)
             return res;
+        logger.info("Index hit: " + k);
         try {
             String search2 = "<" + search + ">";
             
