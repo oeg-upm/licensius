@@ -1,5 +1,6 @@
 package ldconditional.handlers;
 
+import com.hp.hpl.jena.vocabulary.RDFS;
 import java.io.File;
 import java.io.FileOutputStream;
 import ldconditional.ldserver.ws.GetOffers;
@@ -141,6 +142,23 @@ public class ServiceHandler extends AbstractHandler {
             }
             
         }
+        
+        
+        if (string.contains("/service/graphDescribe")) {
+            logger.info("graphDescribe");
+            String datas = request.getParameter("dataset");
+            String grafo = request.getParameter("grafo");
+            String description = request.getParameter("description");
+            ConditionalDataset ds = ConditionalDatasets.getDataset(datas);
+            if (ds==null)
+                return;
+            try{
+                ds.getDatasetVoid().describeGrafo(grafo,RDFS.comment.getURI(), description);
+//                ds.getDatasetVoid().setMetadataLiteral(grafo, description);
+            }catch(Exception eas){}
+            ds.getDatasetVoid().write();
+        }
+                
         
         
         if (string.contains("/service/datasetUpload")) {

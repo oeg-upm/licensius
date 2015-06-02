@@ -69,86 +69,56 @@ public class NT2NQ {
 
     }
 
-    public static void limpiarSaltoLinea()
-    {
-        for(ConditionalDataset cd : ConditionalDatasets.datasets)
-        {
+    public static void limpiarSaltoLinea() {
+        for (ConditionalDataset cd : ConditionalDatasets.datasets) {
             System.out.println("Limpiando " + cd.name);
-            String f=cd.getDatasetDump().getFileName();
-            replaceall(f,f,  "", "");
-            
+            String f = cd.getDatasetDump().getFileName();
+            replaceall(f, f, "", "");
+
         }
     }
-    
-    
-    public static void replaceall(String sfile1, String sfile2, String cad1, String cad2) {
-        boolean same=false;
-            if (sfile1.equals(sfile2))
-            {
-                same=true;
-                sfile2=sfile1+"TMP";
-            }
+
+    public static int replaceall(String sfile1, String sfile2, String cad1, String cad2) {
+        boolean same = false;
+        int count = 0;
+        if (sfile1.equals(sfile2)) {
+            same = true;
+            sfile2 = sfile1 + "TMP";
+        }
         try {
             BufferedReader br = new BufferedReader(new FileReader(sfile1));
             FileOutputStream fos = new FileOutputStream(new File(sfile2));
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
             String line;
-            int count = 0;
             while ((line = br.readLine()) != null) {
                 count++;
                 if (count % 1000000 == 0) {
                     System.out.println("Lineas cargadas: " + count);
                 }
-                line=line.replace(cad1, cad2);
-                char separador=10; //0a
-                bw.write(line+separador);
+                line = line.replace(cad1, cad2);
+                char separador = 10; //0a
+                bw.write(line + separador);
             }
             bw.close();
             fos.close();
             br.close();
-            if (same)
-            {
-                File f1=new File(sfile1);
+            if (same) {
+                File f1 = new File(sfile1);
                 f1.delete();
-                File f2=new File(sfile2);
+                File f2 = new File(sfile2);
                 f2.renameTo(new File(sfile1));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return count;
     }
 
     public static void cortar(String sfile1, String sfile2, int lineas) {
-            if (sfile1.equals(sfile2))
-                return;
-        
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(sfile1));
-            FileOutputStream fos = new FileOutputStream(new File(sfile2));
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-            String line;
-            int count = 0;
-            while ((line = br.readLine()) != null) {
-                count++;
-                if (count>lineas)
-                    break;
-                if (count % 1000000 == 0) {
-                    System.out.println("Lineas cargadas: " + count);
-                }
-                bw.write(line+"\n");
-            }
-            bw.close();
-            fos.close();
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (sfile1.equals(sfile2)) {
+            return;
         }
-    }    
-    
-    public static void unicodizar(String sfile1, String sfile2) {
-            if (sfile1.equals(sfile2))
-                return;
-        
+
         try {
             BufferedReader br = new BufferedReader(new FileReader(sfile1));
             FileOutputStream fos = new FileOutputStream(new File(sfile2));
@@ -157,11 +127,13 @@ public class NT2NQ {
             int count = 0;
             while ((line = br.readLine()) != null) {
                 count++;
+                if (count > lineas) {
+                    break;
+                }
                 if (count % 1000000 == 0) {
                     System.out.println("Lineas cargadas: " + count);
                 }
-                try{line = URLDecoder.decode(line,"UTF-8");}catch(Exception e){}
-                bw.write(line+"\n");
+                bw.write(line + "\n");
             }
             bw.close();
             fos.close();
@@ -170,54 +142,85 @@ public class NT2NQ {
             e.printStackTrace();
         }
     }
-    
-    
-    public static String ultraFastAccess(String nquadsfile, String indexFile, String search)
-    {
-        String res="";
+
+    public static void unicodizar(String sfile1, String sfile2) {
+        if (sfile1.equals(sfile2)) {
+            return;
+        }
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(sfile1));
+            FileOutputStream fos = new FileOutputStream(new File(sfile2));
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+            String line;
+            int count = 0;
+            while ((line = br.readLine()) != null) {
+                count++;
+                if (count % 1000000 == 0) {
+                    System.out.println("Lineas cargadas: " + count);
+                }
+                try {
+                    line = URLDecoder.decode(line, "UTF-8");
+                } catch (Exception e) {
+                }
+                bw.write(line + "\n");
+            }
+            bw.close();
+            fos.close();
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String ultraFastAccess(String nquadsfile, String indexFile, String search) {
+        String res = "";
         Map<String, Integer> mapaOffset = new HashMap<String, Integer>();
-        try{
-            String line="";
+        try {
+            String line = "";
             BufferedReader br = new BufferedReader(new FileReader(indexFile));
             System.out.println("Cargando diccionario");
-            int i=0;
+            int i = 0;
             while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
-                int ind=line.lastIndexOf(" ");
-                String s1=line.substring(0, ind);
-                String s2=line.substring(ind+1, line.length());
-                if (s2.isEmpty())
+                int ind = line.lastIndexOf(" ");
+                String s1 = line.substring(0, ind);
+                String s2 = line.substring(ind + 1, line.length());
+                if (s2.isEmpty()) {
                     break;
+                }
                 int indice = Integer.parseInt(s2);
                 mapaOffset.put(s1, indice);
             }
             br.close();
             System.out.println("Diccionario cargado");
-            Integer k=mapaOffset.get(search);
-            
-            String search2=URLEncoder.encode(search, "UTF-8");
+            Integer k = mapaOffset.get(search);
+
+            String search2 = URLEncoder.encode(search, "UTF-8");
             search2 = search2.replace("oeg-iate%3A", "http://salonica.dia.fi.upm.es/iate/resource/");
-            search2 = "<"+search2+">";
-            
+            search2 = "<" + search2 + ">";
+
             System.out.println("Descodificado: " + search2);
             BufferedReader br2 = new BufferedReader(new FileReader(nquadsfile));
             br2.skip(k);
             while ((line = br2.readLine()) != null) {    ///potencialmente, 100M de lineas
                 System.out.println(line);
-                if (line.startsWith(search2))
-                    res+=line+"\n";
-                else
+                if (line.startsWith(search2)) {
+                    res += line + "\n";
+                } else {
                     break;
+                }
             }
-            
+
 //            System.out.println("Encontrado aqui: " + k);
-        }catch(Exception e){e.printStackTrace();}
-        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         System.out.println("--\nres\n--");
-        
+
         return res;
     }
-    
-    
+
     /**
      * Indexa volcando el mapa en stream
      */
@@ -238,7 +241,7 @@ public class NT2NQ {
                 contador += line.length() + separator;
                 i++;
                 if (i % 1000000 == 0) {
-                    System.out.println("Millones de lineas cargadas: " + i/1000000);
+                    System.out.println("Millones de lineas cargadas: " + i / 1000000);
                 }
 
                 String s = NQuad.getSubject(line);      //rapido
@@ -255,7 +258,10 @@ public class NT2NQ {
 
 //                String abreviado = lasts.replace("http://salonica.dia.fi.upm.es/geo/resource/", "local:");
                 String abreviado = lasts.replace("http://salonica.dia.fi.upm.es/iate/resource/", "oeg-iate:");
-                try{abreviado = URLDecoder.decode(abreviado,"UTF-8");}catch(Exception e){}                
+                try {
+                    abreviado = URLDecoder.decode(abreviado, "UTF-8");
+                } catch (Exception e) {
+                }
 //                bw.write(abreviado+" "+ini+" "+(i-1)+"\n");
                 bw.write(abreviado + " " + inicontador + "\n");
                 lasts = s;

@@ -119,13 +119,6 @@ public class HandlerManager {
                 e.printStackTrace();
             }
         }
-        /*   if (action != null) {
-        try {
-        action = URLDecoder.decode(action, "UTF-8");
-        } catch (Exception e) {
-        e.printStackTrace();
-        }
-        }*/
         if (action == null) {
             action = request.getParameter("xaction");
         }
@@ -167,13 +160,7 @@ public class HandlerManager {
         }
         if (action != null && action.equals("downloadData")) {
             logger.info("Action downloadData");
-
             String filename = ConditionalDatasets.getSelectedDataset().getDumpPath();
-            
-//            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
-//            if (!sfolder.endsWith("/")) sfolder+="/";
-//            String filename = sfolder + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
-//            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/data.nq";
             File f = new File(filename);
             try {
                 String token = FileUtils.readFileToString(f);
@@ -211,14 +198,14 @@ public class HandlerManager {
             } catch (IOException ex) {
             }
         }
-        if (action != null && action.equals("Index")) {
+        /*if (action != null && action.equals("Index")) {
             cd.getDatasetIndex().indexar();
 //            cd.getDatasetVoid().recalcularTriples();
             try {
                 response.sendRedirect("manageren");
             } catch (IOException ex) {
             }
-        }
+        }*/
 
         return "";
     }
@@ -249,25 +236,16 @@ public class HandlerManager {
         String templatefile = "./htdocs/template_manager.html";
         try {
             html = FileUtils.readFileToString(new File(templatefile));
-            String footer = FileUtils.readFileToString(new File("./htdocs/footer.html"));
-            html = html.replace("<!--TEMPLATEFOOTER-->", footer);
+            html = html.replace("<!--TEMPLATEFOOTER-->", FileUtils.readFileToString(new File("./htdocs/footer.html")));
         } catch (Exception e) {
             return "template not found";
         }
         String tabla = getHTMLforTable(cd);
         html = html.replace("<!--TEMPLATETABLA-->", tabla);
-
-        /*        String grafos = getHTMLforGrafos(dataset);
-        html = html.replace("<!--TEMPLATEHERE1-->", grafos);
-        Grafo graf = cd.getDatasetVoid().getGrafo(selectedGrafo);
-        String grafinfo = (graf==null) ? "" : getHTMLforGrafo(graf);
-        html = html.replace("<!--TEMPLATEHERE2-->", grafinfo);*/
         html = html.replaceAll("<!--TEMPLATEHERE3-->", selectedGrafo);
         html = html.replaceAll("<!--TEMPLATELICENSES-->", listLicenses());
         String even = Evento.getEventosHTML();
-
         html = html.replace("<!--TEMPLATEACCOUNTABILITY-->", even);
-
         return html;
     }
 
@@ -306,27 +284,17 @@ public class HandlerManager {
             String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
             form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
             html += form;
-            //   html +="<button type=\"submit\" value=\"View\" class=\"btn btn-default btn-sm\">View</button>";
-//            html += "<button type=\"submit\" value=\"Add\" class=\"btn btn-default btn-sm\">Add</button>";
-
             html += "<a href=\"#\" onclick=\"recipient='" + cona + "'\" class=\"btn btn-sm btn-default btn-block\" data-toggle=\"modal\" data-target=\"#largeModal\" data-miid=\"" + cona + "\">Add policy</a>";
-            //html += "<input name=\"action\" type=\"submit\" value=\"RemoveAll\"/>";
             html += "<button  name=\"action\" type=\"submit\" value=\"RemoveAll\" class=\"btn btn-default btn-sm btn-block\">Remove all</button>";
             html += "<input type=\"hidden\" name=\"licencia\" id=\"licencia" + cona + "\"></input>";
             html += "<input type=\"hidden\" name=\"xaction\" id=\"xaction" + cona + "\"></input>";
 
-            /*            List<Policy> policies = PolicyManagerOld.getPolicies(); id=\"action"+cona+"\"
-            for (Policy policy : policies) {
-            String opcion = policy.getLabel("en");
-            html += "<option value=\"" + opcion + "\">" + opcion + "</option>";
-            }
-            html += "</select>";
-             */
-
+            
             html += "</form>";
-            //  accountInfo += "<a href=\"account.html?action=logout\" class=\"btn btn-default\" role=\"button\" >Logout</a>";
+            html += "<button class=\"btn btn-default btn-sm\" name=\"setDescription\" onclick=\"setDescription('"+cd.name+"','"+ g.getLabel() +"')\"><span class=\"glyphicon glyphicon-tags\"></span> Describe</button> "; 
+            
+            
             html += "</td>";
-
             html += "</tr>\n";
         }
         html += "</table>";
@@ -334,15 +302,18 @@ public class HandlerManager {
 
 
 
+        //Restore default
         String url = servidor + cd.name + "/manageren/managePolicy";
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         form += "<input class=\"btn btn-default\"  name=\"action\" type=\"submit\" value=\"Restore default\"/>";
         html += form+"</form>";
 
-        url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
+        //INDEXAR
+/*        url = LDRConfig.getServer() + cd.name + "/manageren/managePolicy";
         form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         form += "<input class=\"btn btn-default\"  name=\"action\" type=\"submit\" value=\"Index\"/>";
         html += form+"</form>";
+        */
 
         return html;
     }

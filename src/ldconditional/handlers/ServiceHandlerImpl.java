@@ -533,8 +533,24 @@ public class ServiceHandlerImpl {
 
     static boolean datasetIndex(ConditionalDataset ds) {
         DatasetIndex dsi=ds.getDatasetIndex();
-        if (dsi!=null)
-             dsi.indexar();
+        dsi.indexar();
+        
+        File f = new File(ds.getDumpPath());
+        if (f.length()<100000000) //100Mb
+        {
+            Map<String, List<Integer>> map=dsi.createIndexGrafos();
+            dsi.writeIndexGrafos(map);
+        }
+        
+        List<String> grafos = dsi.getIndexedGrafos();        
+        for(String grafo : grafos)
+        {
+            
+            ds.getDatasetVoid().ensureGrafo(grafo);
+        }
+      
+        
+        
         ds.getDatasetVoid().setMetadataLiteral("http://rdfs.org/ns/void#triples",""+ds.getDatasetDump().ntriples);
         ds.getDatasetVoid().write();
         return true;

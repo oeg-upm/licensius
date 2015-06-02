@@ -48,7 +48,8 @@ public class HandlerResource {
         
         logger.info("Fetching triples");
 
-        Portfolio p = Portfolio.getPortfolio(GoogleAuthHelper.getMail(request));
+        String mail = GoogleAuthHelper.getMail(request);
+        Portfolio p = Portfolio.getPortfolio(mail);
         if (p == null) {
             p = new Portfolio();
         }

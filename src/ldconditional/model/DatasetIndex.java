@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.RandomAccessFile;
 import java.io.StringReader;
@@ -18,6 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import ldconditional.LDRConfig;
 import oeg.rdf.commons.NQuad;
 import oeg.rdftools.NT2NQ;
@@ -34,10 +37,12 @@ public class DatasetIndex {
 
     private static final Logger logger = Logger.getLogger(DatasetIndex.class);
     private ConditionalDataset cd = null;
-    
+
 //    Map<String, Integer> mapaOffset = new HashMap<String, Integer>();
     List<String> mapas = new ArrayList();
     List<Long> mapai = new ArrayList();
+    public Map<String, List<Integer>> indexGrafos = new HashMap();
+    
 
     public DatasetIndex(ConditionalDataset _cd) {
         cd = _cd;
@@ -54,8 +59,8 @@ public class DatasetIndex {
 
     public void indexar() {
         ExternalSort.ordenar(cd.getDatasetDump().getDataFileName());
-        NT2NQ.replaceall(cd.getDatasetDump().getFileName(),cd.getDatasetDump().getFileName(),  "", "");
-        
+        cd.getDatasetDump().ntriples = NT2NQ.replaceall(cd.getDatasetDump().getFileName(), cd.getDatasetDump().getFileName(), "", "");
+
         //SE CALCULA EL MAPA
         indexarSujetosStream(cd.getDatasetDump().getDataFileName(), getIndexFileName());
     }
@@ -81,8 +86,9 @@ public class DatasetIndex {
             BufferedReader br = new BufferedReader(new FileReader(getIndexFileName()));
             long i = 0;
             while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
-                if (i%1000000==0)
-                    logger.info("Millones: "+ i/1000000);
+                if (i % 1000000 == 0) {
+                    logger.info("Millones: " + i / 1000000);
+                }
                 i++;
                 int ind = line.lastIndexOf(" ");
                 String s1 = line.substring(0, ind);
@@ -114,7 +120,7 @@ public class DatasetIndex {
         try {
 //            FileReader fr=new FileReader(nquadsFile);
             FileInputStream fis = new FileInputStream(nquadsFile);
-            InputStreamReader isr=new InputStreamReader(fis);
+            InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             FileOutputStream fos = new FileOutputStream(new File(indexFile));
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
@@ -123,20 +129,15 @@ public class DatasetIndex {
             long i = -1;
             long contador = 0;
             long inicontador = 0;
-            char separador=10; //0a
+            char separador = 10; //0a
             while ((line = br.readLine()) != null) {    ///potencialmente, 100M de lineas
-                
-                
-                
+
                 byte[] b = line.getBytes(Charset.forName("UTF-8"));
-                long btest = b.length+1;
+                long btest = b.length + 1;
                 contador += btest; //line.length()
-                
+
                 //if (line.length()!=btest)
                 //    System.err.println("error error error");
-                
-                
-                
                 i++;
                 if (i % 1000000 == 0) {
                     System.out.println("Millones de lineas cargadas: " + i / 1000000);
@@ -162,9 +163,7 @@ public class DatasetIndex {
         }
     }
 
-    
-    
-     private static byte[] readFromFile(String filePath, long position, int size) throws IOException {
+    private static byte[] readFromFile(String filePath, long position, int size) throws IOException {
         RandomAccessFile file = new RandomAccessFile(filePath, "r");
         file.seek(position);
         byte[] bytes = new byte[size];
@@ -172,37 +171,38 @@ public class DatasetIndex {
         file.close();
         return bytes;
     }
- 
+
     public List<String> getNQuadsForSujeto(String search) {
         List<String> res = new ArrayList();
         if (mapas.isEmpty()) {
             cargarIndice();
         }
         int iesimo = Collections.binarySearch(mapas, search);
-        if (iesimo<0)
+        if (iesimo < 0) {
             return res;
+        }
         Long k = mapai.get(iesimo);
-        
-        if (k==null)
+
+        if (k == null) {
             return res;
+        }
         logger.info("Index hit: " + k);
         try {
             String search2 = "<" + search + ">";
-            
-            byte chunk[]=readFromFile(cd.getDatasetDump().getDataFileName(), k, 1024*256); //maximo 256kb
+
+            byte chunk[] = readFromFile(cd.getDatasetDump().getDataFileName(), k, 1024 * 256); //maximo 256kb
             String schunk = new String(chunk, "UTF-8");
-            StringReader sr= new StringReader(schunk);
-            BufferedReader br2= new BufferedReader(sr); 
-            
+            StringReader sr = new StringReader(schunk);
+            BufferedReader br2 = new BufferedReader(sr);
+
 //            FileReader fr = new FileReader(cd.getDatasetDump().getDataFileName());
 //            BufferedReader br2 = new BufferedReader(fr);
 //            br2.skip(k);        //SLOW. THIS OPERATION IS SLOW BECAUSE THE WHOLE FILE IS PARSED BEFORE REACHING THE END
-            
-            
             String line = "";
-            while ((line = br2.readLine()) != null) {  
-                if(line.isEmpty())
+            while ((line = br2.readLine()) != null) {
+                if (line.isEmpty()) {
                     continue;
+                }
                 if (line.startsWith(search2)) {
                     res.add(line);
                 } else {
@@ -210,42 +210,41 @@ public class DatasetIndex {
                 }
             }
             br2.close();
-            
 
         } catch (Exception e) {
             logger.info("error " + e.getMessage());
         }
         return res;
 
-    }    
-    
-    
+    }
+
     public List<String> getNQuadsForSujetoOLD(String search) {
         List<String> res = new ArrayList();
         if (mapas.isEmpty()) {
             cargarIndice();
         }
         int iesimo = Collections.binarySearch(mapas, search);
-        if (iesimo<0)
+        if (iesimo < 0) {
             return res;
+        }
         Long k = mapai.get(iesimo);
-        
-        if (k==null)
+
+        if (k == null) {
             return res;
+        }
         try {
             String search2 = "<" + search + ">";
 
             FileInputStream fis = new FileInputStream(cd.getDatasetDump().getDataFileName());
-            InputStreamReader isr=new InputStreamReader(fis);
+            InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br2 = new BufferedReader(isr);
-            
-            
+
 //            FileReader fr = new FileReader(cd.getDatasetDump().getDataFileName());
 //            BufferedReader br2 = new BufferedReader(fr);
             br2.skip(k);        //SLOW. THIS OPERATION IS SLOW BECAUSE THE WHOLE FILE IS PARSED BEFORE REACHING THE END
-            
+
             String line = "";
-            while ((line = br2.readLine()) != null) {    
+            while ((line = br2.readLine()) != null) {
                 if (line.startsWith(search2)) {
                     res.add(line);
                 } else {
@@ -261,14 +260,95 @@ public class DatasetIndex {
     }
 
     public List<String> getIndexedSujetos() {
-        if (mapas.isEmpty())
+        if (mapas.isEmpty()) {
             cargarIndice();
+        }
         return mapas;
     }
+
     public int getIndexedSujetosSize() {
-        if (mapas.isEmpty())
+        if (mapas.isEmpty()) {
             cargarIndice();
+        }
         return mapas.size();
     }
 
+    
+    public Map<String, List<Integer>> createIndexGrafos() {
+        logger.info("Creating graph index of dataset: " + cd.name);
+//        Map<String, List<Integer>> map = new HashMap();
+        DatasetDump dump = cd.getDatasetDump();
+        Set<String> ls = dump.getGrafos();
+        List<String> claves = new ArrayList();
+        logger.info(ls.size() + " keys have been found");
+        claves.addAll(ls);
+        Collections.sort(claves);
+        int i = 0;
+        indexGrafos.clear();
+        for (String clave : claves) {
+            i++;
+            List<Integer> li = dump.getLineas(clave);
+            indexGrafos.put(clave, li);
+        }
+        return indexGrafos;
+    }
+
+    public Map<String, List<Integer>> readIndexGrafos() {
+        if (!indexGrafos.isEmpty())
+            return indexGrafos;
+        
+        String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+        if (!sfolder.endsWith("/")) {
+            sfolder += "/";
+        }
+        String filename = sfolder + cd.name + "/indexgrafos.idx";
+        File f = new File(filename);
+        try {
+            FileInputStream fis = new FileInputStream(filename);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            indexGrafos = (HashMap) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (Exception ioe) {
+            ioe.printStackTrace();
+            return indexGrafos;
+        }
+        return indexGrafos;
+    }
+    public void writeIndexGrafos(Map<String, List<Integer>> map) {
+            String sfolder = LDRConfig.get("datasetsfolder", "datasets");
+            if (!sfolder.endsWith("/")) sfolder+="/";
+            String filename = sfolder + cd.name + "/indexgrafos.idx";
+        try {
+            FileOutputStream fos = new FileOutputStream(filename);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(map);
+            oos.close();
+            fos.close();
+        } catch (Exception e) {
+        }
+    }    
+    public List<String> getIndexedGrafos() {
+        if (indexGrafos.isEmpty())
+            indexGrafos = readIndexGrafos();
+        List<String> li = new ArrayList();
+        Iterator it = indexGrafos.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry e = (Map.Entry) it.next();
+            String clave = (String) e.getKey();
+            li.add(clave);
+        }
+        return li;
+    }    
+    public int getIndexedTriplesPerGrafo(String grafo)
+    {
+        if (indexGrafos.isEmpty())
+            indexGrafos = readIndexGrafos();
+        List<Integer> li =  indexGrafos.get(grafo);
+        if (li==null || li.isEmpty())
+            return 0;
+        else
+            return li.size();
+    }    
+    
 }

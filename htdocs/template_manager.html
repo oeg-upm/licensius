@@ -18,6 +18,8 @@
 	  ga('create', 'UA-49063507-1', 'linkeddata.es');
 	  ga('send', 'pageview');
 	</script>
+  <script src="/js/bootbox.min.js"></script>
+	
 </head>
 <body style="background:#EEEEEE !important;">
  <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -27,8 +29,8 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="/user">Demo User</a></li>
-        <li><a href="/admin">Demo Manager</a></li> 
+<!--        <li><a href="/user">Demo User</a></li>
+        <li><a href="/admin">Demo Manager</a></li>  -->
         <li><a href="/develop.html">Develop</a></li> 
       </ul>
 	   <ul class="nav navbar-nav navbar-right">
@@ -78,6 +80,41 @@
     </div>
   </div>
 </div>	
+
+<script>
+function setDescription(pdataset, pgrafo) {
+console.info(pdataset);
+console.info(pgrafo);
+bootbox.prompt({
+  title: "Enter a description for this dataset",
+  value: "description",
+  callback: function(result) {
+    if (result === null) {
+    } else {
+	  console.info(result);
+		var params="&dataset="+pdataset;
+		params+="&grafo="+pgrafo;
+		params+="&description="+result;
+		var http = new XMLHttpRequest();
+		http.open("POST", "/service/graphDescribe", true); //true
+		http.onreadystatechange=function()
+		{
+			location.reload();
+			$("body").css("cursor", "default");	
+		}		
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+		http.setRequestHeader("Content-length", params.length);    
+		http.setRequestHeader("Connection", "close");
+		http.send(params);
+	  
+	  
+    }
+	
+  }
+});
+}
+</script>
+
 <script>
 var recipient = -1;
 $('#largeModal').on('show.bs.modal', function (event) {

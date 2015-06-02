@@ -200,6 +200,26 @@ public class DatasetVoid {
         model.add(getDatasetRes(), prop, val);
     }
     
+    public void describeGrafo(String grafo, String sprop, String description) {
+        if (model==null)
+            this.init();
+        String urigrafo="";
+        List<String> grafos = conditionalDataset.getDatasetIndex().getIndexedGrafos();
+        for(String gra : grafos)
+        {
+            if (gra.endsWith(grafo))
+                urigrafo=gra;
+        }
+        if (urigrafo.isEmpty())
+            return;
+        Property prop = model.createProperty(sprop);
+        Statement st=model.getProperty(model.createResource(urigrafo), prop);
+        if (st!=null)
+            model.remove(st);
+        model.add(model.createResource(urigrafo), prop, description);
+    }
+    
+    
 
     /**
      * Examnple:
@@ -589,6 +609,28 @@ public class DatasetVoid {
             return false;
         }              
     }
+
+    public void ensureGrafo(String grafo) {
+        Resource rgrafo = model.getResource(grafo);
+        Resource dcatds = model.getResource("http://www.w3.org/ns/dcat#Dataset");
+        model.add(rgrafo, RDF.type,dcatds );
+        long nt=conditionalDataset.getDatasetIndex().getIndexedTriplesPerGrafo(grafo);
+        model.add(rgrafo, model.createProperty("http://rdfs.org/ns/void#triples"), ""+nt);
+        
+        NodeIterator nit = model.listObjectsOfProperty(rgrafo, RDFS.label);
+        if (!nit.hasNext())
+        {
+            int i0=-1;
+            int i1=grafo.lastIndexOf("/");
+            int i2=grafo.lastIndexOf("#");
+            int i = Math.max(i0, i1);
+            i = Math.max(i+1, i2);
+            
+            String lastpart = grafo.substring(i, grafo.length());
+            model.add(rgrafo, RDFS.label, lastpart);
+        }
+    }
+
 
 
     
