@@ -2,6 +2,7 @@ package odrlmodel.rdf;
 
 
 //JAVA
+import oeg.rdf.commons.RDFUtils;
 import java.io.StringWriter;
 import java.text.NumberFormat;
 import java.util.List;

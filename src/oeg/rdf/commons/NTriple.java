@@ -1,7 +1,8 @@
 package oeg.rdf.commons;
 
 /**
- *
+ * Class with some methods that very efficiently manipulate NT files. 
+ * No RDF models are loaded in memory whatsoever.
  * @author Victor
  */
 public class NTriple {
@@ -12,5 +13,7 @@ public class NTriple {
             return "";
         return ntriple.substring(i+2,ntriple.length()-1);
     }
+    
+    
     
 }

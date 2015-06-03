@@ -1,6 +1,6 @@
 package odrlmodel.rdf;
 
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;

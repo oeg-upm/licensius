@@ -42,7 +42,7 @@ import odrlmodel.Policy;
 
 //APACHE COMMONS
 import odrlmodel.Policy;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;

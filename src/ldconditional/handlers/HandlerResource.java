@@ -21,7 +21,7 @@ import ldconditional.auth.GoogleAuthHelper;
 import ldconditional.auth.Evento;
 import static ldconditional.handlers.HandlerIndex.getImage64;
 import ldconditional.model.Grafo;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;

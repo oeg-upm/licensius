@@ -41,7 +41,7 @@ import ldconditional.ldserver.Recurso;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;

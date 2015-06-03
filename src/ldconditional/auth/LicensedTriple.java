@@ -20,7 +20,7 @@ import ldconditional.model.ConditionalDataset;
 import ldconditional.model.Grafo;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 

@@ -5,7 +5,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.Logger;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 
 /**
  * A Linked Data Resource is anything identifiable with an URI, 

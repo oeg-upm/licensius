@@ -25,7 +25,7 @@ import ldconditional.model.Grafo;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.PolicyManagerOld;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import oeg.rdf.commons.NQuadRawFile;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.riot.RDFDataMgr;

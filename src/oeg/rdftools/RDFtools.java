@@ -27,7 +27,6 @@ public class RDFtools {
      */
     public static void main(String[] args) {
         initLogger();
-
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {

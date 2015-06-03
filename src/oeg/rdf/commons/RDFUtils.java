@@ -1,4 +1,4 @@
-package odrlmodel.rdf;
+package oeg.rdf.commons;
 
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
@@ -32,6 +32,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
+import odrlmodel.rdf.ODRLModel;
 import org.apache.jena.atlas.lib.StrUtils;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
@@ -98,7 +99,7 @@ public class RDFUtils {
         return true;
     }
 
-    static boolean isOfKind(Resource rrule, String uri) {
+    public static boolean isOfKind(Resource rrule, String uri) {
         if (rrule == null || uri == null || uri.isEmpty() || rrule.getURI() == null) {
             return false;
         }
@@ -408,13 +409,14 @@ public class RDFUtils {
                 return model;
             } catch (Exception e2) {
                 try{
-                is.close();
-                is = new ByteArrayInputStream(bytes);
-                model.read(is, null, "NT");
-                return model;
+                    is.close();
+                    is = new ByteArrayInputStream(bytes);
+                    model.read(is, null, "NT");
+                    logger.info("Parseado correctamente como NT!!");
+                    return model;
                 }catch(Exception e3)
                 {
-                    
+                    logger.info("No se ha podido parsear de ninguna de la maneras!!");
                 }
         }
             return null;

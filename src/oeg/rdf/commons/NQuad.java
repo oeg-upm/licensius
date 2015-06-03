@@ -7,17 +7,54 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
-import odrlmodel.rdf.RDFUtils;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import org.apache.log4j.Logger;
 
 /**
- * Class representing a NQuad. 
- * It is very fast.
+ * Class with static methods for handling NQuads efficiently
  * @author Victor
  */
 public class NQuad {
 
+    static final Logger logger = Logger.getLogger(NQuad.class);
+
+    
     /**
-     * Gets the graph of a NQUAD
+     * Determines if, by looking at the first line, the file contains nquads. 
+     * It does not exclude further errrors.
+     */
+    public static boolean isNQuad(String filename)
+    {
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            if (br==null)
+                return false;
+            String nquad = br.readLine();
+            if (nquad==null || nquad.isEmpty())
+                return false;
+            nquad = nquad.trim();
+            String s = getSubject(nquad);
+            if (s.isEmpty())
+                return false;
+            String o = getObject(nquad);
+            if (o.isEmpty())
+                return false;
+        }catch(Exception e)
+        {
+            logger.warn(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    
+    /**
+     * Gets the graph in a NQuad
+     * @param nquad String with a nquad. For example: 
+     * <http://salonica.dia.fi.upm.es/geo/resource/ComunidadAut%C3%B3noma/Castilla-La%20Mancha> <http://salonica.dia.fi.upm.es/geo/ontology/formadoPor> <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Albacete> <http://salonica.dia.fi.upm.es/geo/dataset/default> .
+     * @return Gets the graph of a NQUAD. In the example before, it would return "http://salonica.dia.fi.upm.es/geo/dataset/default".
      */
     public static String getGraph(String nquad)
     {
@@ -29,6 +66,12 @@ public class NQuad {
         return nquad.substring(i+2,j);
     }
 
+    /**
+     * Gets the subject in a NQuad
+     * @param nquad String with a nquad. For example: 
+     * <http://salonica.dia.fi.upm.es/geo/resource/ComunidadAut%C3%B3noma/Castilla-La%20Mancha> <http://salonica.dia.fi.upm.es/geo/ontology/formadoPor> <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Albacete> <http://salonica.dia.fi.upm.es/geo/dataset/default> .
+     * @return The subject: in the example before, http://salonica.dia.fi.upm.es/geo/resource/ComunidadAut%C3%B3noma/Castilla-La%20Mancha
+     */
     public static String getSubject(String nquad) {
         nquad = nquad.trim();
         int i = nquad.indexOf("<");   
@@ -64,12 +107,18 @@ public class NQuad {
     }
 
 
+    /**
+     * Gets the object in a NQuad
+     * @param nquad String with a nquad. For example: 
+     * <http://salonica.dia.fi.upm.es/geo/resource/ComunidadAut%C3%B3noma/Castilla-La%20Mancha> <http://salonica.dia.fi.upm.es/geo/ontology/formadoPor> <http://salonica.dia.fi.upm.es/geo/resource/Provincia/Albacete> <http://salonica.dia.fi.upm.es/geo/dataset/default> .
+     * @return Gets the objectof a NQUAD. 
+     */
     public static String getObject(String nquad) {
         nquad = nquad.trim();
-        int i0 = nquad.indexOf("<");   
-        int i1 = nquad.indexOf("<", i0+1);
-        int i2 = nquad.indexOf(">", i1+1);
-        int i3 = nquad.lastIndexOf("<");   
+        int i0 = nquad.indexOf("<");            //inicio del sujeto
+        int i1 = nquad.indexOf("<", i0+1);      //inicio de la propiedad
+        int i2 = nquad.indexOf(">", i1+1);      //fin de la propiedad
+        int i3 = nquad.lastIndexOf("<");        //inicio del grafo
         String o = nquad.substring(i2+2,i3-1);
         if (o.startsWith("<"))
             return o.substring(1, o.length()-1);
@@ -106,8 +155,6 @@ public class NQuad {
         }
         else
         {
-       //     int index = o.lastIndexOf("\"");
-       //     o = o.substring(1,index);
             Literal jo = null;
             if (lan.isEmpty())
                 jo=model.createLiteral(o);
@@ -130,10 +177,6 @@ public class NQuad {
                 if (i2!=-1)
                 {
                     lan = lan2.substring(1, lan2.length());
- /*                   int ix=lan2.indexOf(" ",i2);
-                    if (ix!=-1)
-                        lan=lan2.substring(1,ix);
-                    lan = lan2.substring(1,3);*/
                 }
             }
         }catch(Exception e)

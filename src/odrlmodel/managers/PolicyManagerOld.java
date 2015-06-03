@@ -16,7 +16,7 @@ import ldconditional.LDRConfig;
 import odrlmodel.rdf.ODRLModel;
 import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.Policy;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 

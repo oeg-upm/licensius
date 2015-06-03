@@ -46,7 +46,7 @@ import odrlmodel.managers.AssetManager;
 import odrlmodel.managers.PolicyManagerOld;
 import odrlmodel.rdf.ODRLModel;
 import odrlmodel.rdf.ODRLRDF;
-import odrlmodel.rdf.RDFUtils;
+import oeg.rdf.commons.RDFUtils;
 import oeg.rdftools.Transcoder;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
