@@ -49,6 +49,9 @@ public class NT2NQ {
 
     static final Logger logger = Logger.getLogger(NT2NQ.class);
 
+    /** 
+     * Test class
+     */
     public static void main(String[] args) {
         String sfile1 = "E:\\data\\iate\\iate.nt";
         String sfile2 = "E:\\data\\iate\\iate.nq";
@@ -69,16 +72,21 @@ public class NT2NQ {
 
     }
 
+    /**
+     */
     public static void limpiarSaltoLinea() {
         for (ConditionalDataset cd : ConditionalDatasets.datasets) {
             System.out.println("Limpiando " + cd.name);
             String f = cd.getDatasetDump().getFileName();
-            replaceall(f, f, "", "");
-
+            replaceInStreamFile(f, f, "", "");
         }
     }
 
-    public static int replaceall(String sfile1, String sfile2, String cad1, String cad2) {
+    /**
+     * Replaces a string in file1 by another producing file2
+     * It can handle large files, as it is done in a stream.
+     */
+    public static int replaceInStreamFile(String sfile1, String sfile2, String cad1, String cad2) {
         boolean same = false;
         int count = 0;
         if (sfile1.equals(sfile2)) {
