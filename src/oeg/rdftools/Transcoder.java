@@ -23,13 +23,21 @@ import org.rdfhdt.hdt.hdt.HDTManager;
 import org.rdfhdt.hdt.options.HDTSpecification;
 
 /**
- *
+ * This class transcodes files from one serialization to another serialization
  * @author vroddon
  */
 public class Transcoder {
 
     static final Logger logger = Logger.getLogger(Transcoder.class);
 
+    /** 
+     * Converts a RDF file into the TTL format.
+     * It relies on Jena for loading the model, guessing its input serialization form.
+     * It cannot handle huge file, as the whole memory is read.
+     * It will not work if the file is not correct.
+     * @param filename
+     * @return A string with the Turtle
+     */
     public String toTTL(String filename) {
         Validator v = new Validator();
         try {
@@ -54,6 +62,9 @@ public class Transcoder {
         }
     }
 
+    /**
+     * 
+     */
     public String toNTriples(String filename) {
         Validator v = new Validator();
         try {

@@ -24,7 +24,6 @@ import java.util.Set;
 import ldconditional.LDRConfig;
 import oeg.rdf.commons.NQuad;
 import oeg.rdftools.NT2NQ;
-import static oeg.rdftools.NT2NQ.replaceall;
 import oeg.utils.ExternalSort;
 import org.apache.log4j.Logger;
 
@@ -59,7 +58,7 @@ public class DatasetIndex {
 
     public void indexar() {
         ExternalSort.ordenar(cd.getDatasetDump().getDataFileName());
-        cd.getDatasetDump().ntriples = NT2NQ.replaceall(cd.getDatasetDump().getFileName(), cd.getDatasetDump().getFileName(), "", "");
+        cd.getDatasetDump().ntriples = NT2NQ.replaceInStreamFile(cd.getDatasetDump().getFileName(), cd.getDatasetDump().getFileName(), "", "");
 
         //SE CALCULA EL MAPA
         indexarSujetosStream(cd.getDatasetDump().getDataFileName(), getIndexFileName());

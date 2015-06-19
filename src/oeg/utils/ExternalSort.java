@@ -1,6 +1,5 @@
 package oeg.utils;
 
-// filename: ExternalSort.java
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.EOFException;
