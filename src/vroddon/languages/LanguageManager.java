@@ -1,4 +1,4 @@
-package languages;
+package vroddon.languages;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

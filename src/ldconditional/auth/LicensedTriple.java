@@ -13,7 +13,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import languages.LanguageManager;
+import vroddon.languages.LanguageManager;
 
 import ldconditional.LDRConfig;
 import ldconditional.model.ConditionalDataset;
