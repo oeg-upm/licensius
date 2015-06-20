@@ -76,7 +76,7 @@ public class HandlerSPARQL {
         
 
 
-        List<String> grafos = p.getGrafos(cd);         //GRAFOS A LOS CUALES PODEMOS ACCEDER
+        List<String> grafos = p.getNamedGraphsFromDataset(cd);         //GRAFOS A LOS CUALES PODEMOS ACCEDER
         for (String grafo : grafos) {
             System.out.println("Comprado: " + grafo);
         }

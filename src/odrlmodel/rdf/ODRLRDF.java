@@ -276,6 +276,7 @@ public class ODRLRDF {
         return s;
     }   
     
+    
     public static Resource getResourceFromPolicy(Policy policy)
     {
         String s = "";

@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -18,25 +17,12 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import ldconditional.Main;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.ConditionalDatasets;
 import oeg.rdf.commons.NQuad;
 import oeg.utils.ExternalSort;
-import org.apache.commons.cli.BasicParser;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.Option;
-
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
-import org.apache.log4j.RollingFileAppender;
 
 /**
  * Class with the methods for the fast transformation of a .NT file into a
@@ -49,38 +35,17 @@ public class NT2NQ {
 
     static final Logger logger = Logger.getLogger(NT2NQ.class);
 
-    /** 
-     * Test class
-     */
-    public static void main(String[] args) {
-        String sfile1 = "E:\\data\\iate\\iate.nt";
-        String sfile2 = "E:\\data\\iate\\iate.nq";
-        String grafo = "<http://localhost/datasets/default> .";
-
-        Main.standardInit();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        System.out.println(dateFormat.format(new Date()));
-
-//        ordenar("E:\\data\\ldconditional\\iate\\data.nq");
-//          indexarSujetosStream("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx");
-//        rebasear("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data-salonica.nq", "http://tbx2rdf.lider-project.eu/data/iate", "http://salonica.dia.fi.upm.es/iate/resource");
-//          unicodizar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\datau.nq");
-//          cortar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data2.nq", 10000000);
-//        ultraFastAccess("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx", "oeg-iate:\"\"\"πράσινο\"\" κτήριο\"-el" );
-        limpiarSaltoLinea();
-        System.out.println(dateFormat.format(new Date()));
-
-    }
 
     /**
+     * Limpia los saltos de linea de todos dumps de todos los datasets
      */
-    public static void limpiarSaltoLinea() {
+   /* public static void limpiarSaltoLinea() {
         for (ConditionalDataset cd : ConditionalDatasets.datasets) {
-            System.out.println("Limpiando " + cd.name);
+            logger.info("Limpiando " + cd.name);
             String f = cd.getDatasetDump().getFileName();
             replaceInStreamFile(f, f, "", "");
         }
-    }
+    }*/
 
     /**
      * Replaces a string in file1 by another producing file2
@@ -368,5 +333,26 @@ public class NT2NQ {
             System.err.println("Error. " + e.getMessage());
         }
     }
+    /** 
+     * Test class
+     */
+    public static void main(String[] args) {
+        String sfile1 = "E:\\data\\iate\\iate.nt";
+        String sfile2 = "E:\\data\\iate\\iate.nq";
+        String grafo = "<http://localhost/datasets/default> .";
 
+        Main.standardInit();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        System.out.println(dateFormat.format(new Date()));
+
+//        ordenar("E:\\data\\ldconditional\\iate\\data.nq");
+//          indexarSujetosStream("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx");
+//        rebasear("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data-salonica.nq", "http://tbx2rdf.lider-project.eu/data/iate", "http://salonica.dia.fi.upm.es/iate/resource");
+//          unicodizar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\datau.nq");
+//          cortar("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\data2.nq", 10000000);
+//        ultraFastAccess("E:\\data\\ldconditional\\iate\\data.nq", "E:\\data\\ldconditional\\iate\\indexsujetos2.idx", "oeg-iate:\"\"\"πράσινο\"\" κτήριο\"-el" );
+//        limpiarSaltoLinea();
+        System.out.println(dateFormat.format(new Date()));
+
+    }
 }

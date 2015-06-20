@@ -4,8 +4,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -14,12 +12,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import ldconditional.auth.GoogleAuthHelper;
 import ldconditional.model.ConditionalDataset;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
@@ -47,7 +43,7 @@ public class Portfolio {
         return policies;
     }
 
-    public List<String> getGrafos(ConditionalDataset cd)
+    public List<String> getNamedGraphsFromDataset(ConditionalDataset cd)
     {
         List<String> ls = new ArrayList();
         List<Policy> lp = getPolicies();
@@ -61,6 +57,7 @@ public class Portfolio {
 
     /**
      * Stores the portfolios for a given user
+     * @param mail Mail of the user
      */
     public static void StorePortfolio(String mail)
     {
@@ -68,7 +65,6 @@ public class Portfolio {
             return;
         try{
             Portfolio p = Portfolio.getPortfolio(mail);
-            
             mail=mail.replaceAll("mailto:", "");
             String filename = "./portfolios/"+mail;
             Path path = Paths.get(filename);
@@ -80,7 +76,8 @@ public class Portfolio {
     }
     
     /**
-     * Reads a portfolio from a given user
+     * Reads a portfolio from a given user.
+     * @param mail Mail of the user
      */
     public static Portfolio ReadPortfolio(String mail)
     {

@@ -1,23 +1,13 @@
 package ldconditional.auth;
 import ldconditional.auth.AuthorizationResponse;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import ldconditional.handlers.HandlerResource;
 import java.util.ArrayList;
 import java.util.List;
 import ldconditional.model.ConditionalDataset;
 import ldconditional.model.Grafo;
-import odrlmodel.Action;
 import odrlmodel.Asset;
 import odrlmodel.managers.AssetManager;
-import odrlmodel.Constraint;
-import odrlmodel.rdf.ODRLRDF;
 import odrlmodel.Policy;
-import odrlmodel.Rule;
-import odrlmodel.managers.PolicyManagerOld;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
-import org.apache.log4j.Logger;
 /**
  *
  * @author vroddon
