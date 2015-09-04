@@ -68,6 +68,15 @@
     nbproject/build-impl.xml file. 
 
     -->
+<path id="catalina-ant-classpath">
+    <fileset dir="lib">
+        <include name="catalina-ant.jar"/>
+        <include name="tomcat-coyote.jar"/>
+        <include name="tomcat-util.jar"/>
+        <include name="tomcat-juli.jar"/>
+    </fileset>
+</path>	
+	
 <taskdef name="start" classname="org.apache.catalina.ant.StartTask" />
 <taskdef name="stop" classname="org.apache.catalina.ant.StopTask" />
 <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
