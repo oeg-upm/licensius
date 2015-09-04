@@ -68,4 +68,21 @@
     nbproject/build-impl.xml file. 
 
     -->
+	
+<property name="tomcat-manager-url" value="http://localhost:8080/manager" />
+<property name="tomcat-manager-username" value="admin" />
+<property name="tomcat-manager-password" value="prueba@77" />
+<property name="project-name" value="ldc" />
+	
+<target name="victordeploy" description="deploy to tomcat">
+		<echo>Deploying from client</echo>
+		<deploy 
+			url="${tomcat-manager-url}"
+			username="${tomcat-manager-username}"
+			password="${tomcat-manager-password}"
+			path="/${project-name}"
+			war="file:/./dist/ldc.war"
+		/>
+</target>	
+	
 </project>
