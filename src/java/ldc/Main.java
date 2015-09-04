@@ -118,6 +118,9 @@ public class Main {
         logger.info("LDC Started. Version: " + d.toString() );
     }
     
+    /**
+     * Starts the logger
+     */
     public static void startLogger()
     {
         try {
@@ -131,7 +134,8 @@ public class Main {
             PatternLayout layout = new PatternLayout("%d{ABSOLUTE} %5p %C{1}:%L - %m%n");
             FileAppender appender = null;
             try {
-                appender = new FileAppender(layout, "logs.txt", false);
+                String sfile=LdcConfig.getDataFolder()+"/logs.txt";
+                appender = new FileAppender(layout, sfile, false);
             } catch (Exception e) {
                 e.printStackTrace();
             }
