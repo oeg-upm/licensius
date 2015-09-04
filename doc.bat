@@ -1,1 +1,0 @@
-apidoc -i . apidoc/

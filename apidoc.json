@@ -1,8 +1,0 @@
-{
-  "name": "ConditionalLinkedData",
-  "version": "1.0.0",
-  "description": "Services to handle conditional access to linked data. Check: <a href=\"http://conditional.linkeddata.es\">demo Conditional Linked Data portal</a> ",
-  "title": "Conditional Linked DAta services",
-  "url" : "http://conditional.linkeddata.es"
- 
-}
