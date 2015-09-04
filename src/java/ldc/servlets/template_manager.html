@@ -145,20 +145,17 @@
 
                 <div class="ldrheading"><h3>Raw files</h3></div>
                 <div class="well"> 
-<!--                    <form action="api/managePolicy"> -->
-                        Dataset can be downloaded in a raw nquads files: 
-                        <center>
-                            <button onclick="downloadDataset()" class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download data</button>
-                        </center>
-                        <input name="action" type="hidden" value="downloadData"></input>
-  <!--                      <input id="dataset" name="dataset" type="hidden" value="..."></input>
-<!--                    </form>		-->	
+                    Dataset can be downloaded in a raw nquads files: 
+                    <center>
+                        <button onclick="downloadDataset()" class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download data</button>
+                    </center>
+                    <input name="action" type="hidden" value="downloadData"></input>
+                </div>
                 <div class="well"> 
-                    <form action="api/managePolicy">
                         Metadata can be downloaded as a simple VoID file: 
-                        <center><button class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download metadata</button></center>
-                        <input name="action" type="hidden" value="downloadMetadata"></input>
-                    </form>			
+                    <center>
+                        <button onclick="downloadVoid()" class="btn btn-default" type="submit" aria-label="left-align"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download metadata</button>
+                    </center>
                 </div>  
             </div>
             <div class="col-md-1">
@@ -357,6 +354,11 @@
         function downloadDataset()
         {
             var url = '/ldc/api/downloadDataset?dataset='+gdataset;
+            window.location.href = url;
+        }
+        function downloadVoid()
+        {
+            var url = '/ldc/api/downloadVoid?dataset='+gdataset;
             window.location.href = url;
         }
         

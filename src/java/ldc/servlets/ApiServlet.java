@@ -19,6 +19,7 @@ import ldc.auth.GoogleAuthHelper;
 import ldc.auth.Portfolio;
 import ldc.model.ConditionalDataset;
 import ldc.auth.SQLite;
+import static ldc.servlets.ManagerServlet.logger;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
@@ -290,6 +291,41 @@ public class ApiServlet extends HttpServlet {
             response.setContentType("text/html");
         }
         
+        if (uri.endsWith("/api/downloadDataset")) {
+            String DATASET = request.getParameter("dataset");
+            logger.info(DATASET);
+            cd = Ldc.getDataset(DATASET);
+            String filename =cd.getDumpPath();
+            File f = new File(filename);
+            try {
+                String token = FileUtils.readFileToString(f);
+                response.setHeader("Content-Disposition","attachment;filename=data.nq");
+                response.setContentType("application/n-quads");
+                response.getWriter().print(token);
+                response.setStatus(HttpServletResponse.SC_FOUND);
+            } catch (Exception e) {
+                logger.warn(e.getMessage());
+            }
+            return;
+        }
+        if (uri.endsWith("/api/downloadVoid")) {
+            String DATASET = request.getParameter("dataset");
+            logger.info(DATASET);
+            cd = Ldc.getDataset(DATASET);
+            String filename =cd.getVoidPath();
+            File f = new File(filename);
+            try {
+                String token = FileUtils.readFileToString(f);
+                response.setHeader("Content-Disposition","attachment;filename=void.ttl");
+                response.setContentType("application/n-quads");
+                response.getWriter().print(token);
+                response.setStatus(HttpServletResponse.SC_FOUND);
+            } catch (Exception e) {
+                logger.warn(e.getMessage());
+            }
+            return;
+        }
+                
         
         
         if (uri.contains("managePolicy")) {

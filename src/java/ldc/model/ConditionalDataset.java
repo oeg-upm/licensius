@@ -106,6 +106,11 @@ public class ConditionalDataset {
         String filename = sfolder + "/data.nq";
         return filename;
     }
+    public String getVoidPath() {
+        String sfolder = getFolder();
+        String filename = sfolder + "/void.ttl";
+        return filename;
+    }
 
     public DatasetIndex getDatasetIndex() {
         return dsIndex;
