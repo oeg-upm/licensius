@@ -298,6 +298,7 @@ public class ApiServlet extends HttpServlet {
             
         }
         if (uri.endsWith("/api/getSystemInfo")) {
+            logger.info("getSystemInfo");
             String html = "";
             html+=System.getenv("COMPUTERNAME") + "<br>";
             html+=System.getProperty("user.name")+"<br>";
@@ -308,6 +309,7 @@ public class ApiServlet extends HttpServlet {
             response.getWriter().print(html);
             response.setStatus(HttpServletResponse.SC_OK);
             response.setContentType("text/html");
+            return;
         }
         
         
