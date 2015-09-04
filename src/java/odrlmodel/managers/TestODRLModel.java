@@ -196,7 +196,7 @@ public class TestODRLModel {
      */
     private void loadCC() {
             String sfolder = LdcConfig.getDataFolder();
-            String folder=sfolder+"\\licenses";
+            String folder=sfolder+"/licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/cc-by.ttl");
         for(Policy policy : policies)
         {
@@ -209,7 +209,7 @@ public class TestODRLModel {
     
     private void loadMetashare(){
             String sfolder = LdcConfig.getDataFolder();
-            String folder=sfolder+"\\licenses";
+            String folder=sfolder+"/licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/C-NoReD.ttl");
         for(Policy policy : policies)
         {
@@ -222,7 +222,7 @@ public class TestODRLModel {
     
     private void loadComplex(){
             String sfolder = LdcConfig.getDataFolder();
-            String folder=sfolder+"\\licenses";
+            String folder=sfolder+"/licenses";
        List<Policy> policies = PolicyManagerOld.load(folder+"/research.ttl");
         for(Policy policy : policies)
         {
@@ -236,7 +236,7 @@ public class TestODRLModel {
     
     private void loadODRLPolicyWithPayment(){
             String sfolder = LdcConfig.getDataFolder();
-            String folder=sfolder+"\\licenses";
+            String folder=sfolder+"/licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/pago15euros.ttl");
         for(Policy policy : policies)
         {
@@ -249,7 +249,7 @@ public class TestODRLModel {
     
     private void loadODRLPolicyWithPaymentPerTriple(){
             String sfolder = LdcConfig.getDataFolder();
-            String folder=sfolder+"\\licenses";
+            String folder=sfolder+"/licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/onecent.ttl");
         for(Policy policy : policies)
         {

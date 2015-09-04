@@ -64,15 +64,11 @@ public class LdcConfig {
 
     public static String getDataFolder() {
         String folder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
-        
         String s=System.getenv("COMPUTERNAME");
         if (s==null)
             s=System.getenv("HOSTNAME");
-        
         if (s!=null && s.equals("ALLEN"))
             folder="F:\\data\\ldc";
-
-        
         return folder;
     }
 

@@ -114,7 +114,7 @@ public class Api {
                         if (ds != null) {
                                     String sfolder = LdcConfig.getDataFolder();
 
-                            folder = sfolder  + "\\"+ds.name;
+                            folder = sfolder  + "/"+ds.name;
                         }
                         File flogo = new File(folder + namedest);
                         OutputStream os = new FileOutputStream(flogo);
