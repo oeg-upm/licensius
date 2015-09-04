@@ -195,7 +195,7 @@ public class TestODRLModel {
      * Loads a CreativeCommons license. 
      */
     private void loadCC() {
-        String folder=LdcConfig.get("licensesfolder", "./licenses");
+            String folder=LdcConfig.get("datasetsfolder","")+"\\licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/cc-by.ttl");
         for(Policy policy : policies)
         {
@@ -207,7 +207,7 @@ public class TestODRLModel {
     }
     
     private void loadMetashare(){
-        String folder=LdcConfig.get("licensesfolder", "./licenses");
+            String folder=LdcConfig.get("datasetsfolder","")+"\\licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/C-NoReD.ttl");
         for(Policy policy : policies)
         {
@@ -219,8 +219,8 @@ public class TestODRLModel {
     }    
     
     private void loadComplex(){
-        String folder=LdcConfig.get("licensesfolder", "./licenses");
-        List<Policy> policies = PolicyManagerOld.load(folder+"/research.ttl");
+             String folder=LdcConfig.get("datasetsfolder","")+"\\licenses";
+       List<Policy> policies = PolicyManagerOld.load(folder+"/research.ttl");
         for(Policy policy : policies)
         {
             System.out.println(ODRLRDF.getRDF(policy));
@@ -232,7 +232,7 @@ public class TestODRLModel {
     
     
     private void loadODRLPolicyWithPayment(){
-        String folder=LdcConfig.get("licensesfolder", "./licenses");
+            String folder=LdcConfig.get("datasetsfolder","")+"\\licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/pago15euros.ttl");
         for(Policy policy : policies)
         {
@@ -244,7 +244,7 @@ public class TestODRLModel {
     }
     
     private void loadODRLPolicyWithPaymentPerTriple(){
-        String folder=LdcConfig.get("licensesfolder", "./licenses");
+            String folder=LdcConfig.get("datasetsfolder","")+"\\licenses";
         List<Policy> policies = PolicyManagerOld.load(folder+"/onecent.ttl");
         for(Policy policy : policies)
         {

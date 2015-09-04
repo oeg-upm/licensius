@@ -67,7 +67,7 @@ public class Portfolio {
         try{
             Portfolio p = Portfolio.getPortfolio(mail);
             mail=mail.replaceAll("mailto:", "");
-            String folder = LdcConfig.get("portfoliosfolder", "F:\\data\\ldc\\portfolios");
+            String folder=LdcConfig.get("datasetsfolder","")+"\\portfolios";
             String filename = folder+"/"+mail;
             Path path = Paths.get(filename);
             Charset ENCODING = StandardCharsets.UTF_8;

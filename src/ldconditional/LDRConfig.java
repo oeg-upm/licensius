@@ -153,6 +153,7 @@ public class LDRConfig {
             Logger.getLogger("ldr").info("Config file read from " + CONFIGFILE);
             return true;
         } catch (Exception ex) {
+            
             ex.printStackTrace(); //todavía no está el logger
             return false;
         }
