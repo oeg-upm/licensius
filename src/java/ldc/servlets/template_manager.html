@@ -46,10 +46,7 @@
                 <br/>
                 <!--TEMPLATETABLA-->
 
-
-                <!--  <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Add license</a> -->
-                <p id="demo">.</p>
-
+                <p id="demo"></p>
                 <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -107,6 +104,7 @@
 
                 <script>
                     var recipient = -1;
+                    var glicencia = '';
                     $('#largeModal').on('show.bs.modal', function (event) {
                         var button = $(event.relatedTarget) // Button that triggered the modal
                         //  recipient = button.data('data-miid') // Extract info from data-* attributes
@@ -119,7 +117,10 @@
                     })
                     function myFunction1() {
                         var e = document.getElementById("example-getting-started");
-                        var strUser = e.options[e.selectedIndex].value;
+                        glicencia = e.value;
+                        addPolicy2();
+
+                        /*var strUser = e.options[e.selectedIndex].value;
                         var strOculto = "licencia" + recipient;
                         var strOculto2 = "xaction" + recipient;
                         var strOculto3 = "input" + recipient;
@@ -128,6 +129,7 @@
                         document.getElementById(strOculto2).value = "Add";
                         document.forms[strOculto3].submit();
                         //		window.location.replace("http://localhost/api/");
+                        */
                     }
                 </script>	
 
@@ -351,6 +353,48 @@
                 console.log("Dataset: " + gdataset);
             }
         }
+        
+        //before the user has chosen
+        var ggrafo='';
+        function addPolicy(grafo)
+        {
+            ggrafo = grafo;
+            $('#largeModal').modal('show');            
+        }
+        
+        //After the user has chosen
+        function addPolicy2()
+        {
+            console.log(gdataset+" " +ggrafo+" "+glicencia);
+            var params = "dataset=" + gdataset;
+            params += "&grafo=" + encodeURI(ggrafo);
+            params += "&policy=" + encodeURI(glicencia);
+            var http = new XMLHttpRequest();
+            http.onreadystatechange = function ()
+            {
+                location.reload();
+            }            
+            http.open("POST", "/ldc/api/addPolicy", true); //true		
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+            http.send(params);
+        }
+        
+        function removePolicies(grafo)
+        {
+            console.log("Remove policies from " + grafo + " in " + gdataset);
+            var params = "dataset=" + gdataset;
+            params += "&grafo=" + encodeURI(grafo);
+            var http = new XMLHttpRequest();
+            http.onreadystatechange = function ()
+            {
+                location.reload();
+            }            
+            http.open("POST", "/ldc/api/removePolicies", true); //true		
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+            http.send(params);
+        }
+        
+        
         function downloadDataset()
         {
             var url = '/ldc/api/downloadDataset?dataset='+gdataset;

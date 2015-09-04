@@ -21,6 +21,7 @@ import ldc.auth.Portfolio;
 import ldc.model.ConditionalDataset;
 import ldc.auth.SQLite;
 import static ldc.servlets.ManagerServlet.logger;
+import static ldc.servlets.ManagerServlet.selectedGrafo;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
@@ -132,6 +133,25 @@ public class ApiServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_OK);
             return;
 
+        }
+        if (uri.endsWith("/api/removePolicies")) {
+            String datas = request.getParameter("dataset");
+            String grafo = request.getParameter("grafo");
+            cd=Ldc.getDataset(datas);
+            cd.getDatasetVoid().removeAllLicenses(grafo);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
+        
+        //Adds a policy to a graph
+        if (uri.endsWith("/api/addPolicy")) {
+            String datas = request.getParameter("dataset");
+            String grafo = request.getParameter("grafo");
+            String policy = request.getParameter("policy");
+            cd=Ldc.getDataset(datas);
+            cd.getDatasetVoid().addLicense(grafo, policy);
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
         }
 
         if (uri.endsWith("/api/datasetRemove")) {
@@ -309,7 +329,7 @@ public class ApiServlet extends HttpServlet {
             html+=System.getProperty("user.name")+"<br>";
             html+=System.getenv("PROCESSOR_IDENTIFIER")+"<br>";
             html+=System.getProperty("os.name")+"<br>";
-            html+=System.getProperty("java.version")+"<br>";
+            html+="Java " + System.getProperty("java.version")+"<br>";
             html+=System.getProperty("user.dir")+"<br>";
             response.getWriter().print(html);
             response.setStatus(HttpServletResponse.SC_OK);
