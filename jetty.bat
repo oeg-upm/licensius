@@ -1,1 +1,1 @@
-java -jar jetty-runner.jar --port 9090 --path /ldc dist/ldc.war
+java -jar jetty-runner.jar --path /ldc dist/ldc.war

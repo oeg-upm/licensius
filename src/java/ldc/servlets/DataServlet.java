@@ -60,7 +60,7 @@ public class DataServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Enumeration appenders = logger.getAllAppenders();
-        if (!appenders.hasMoreElements())
+        if (appenders==null || !appenders.hasMoreElements())
             Main.startLogger();
        
         String peticion = request.getRequestURI();

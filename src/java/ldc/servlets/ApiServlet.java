@@ -49,7 +49,7 @@ public class ApiServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Enumeration appenders = logger.getAllAppenders();
-        if (!appenders.hasMoreElements())
+        if (appenders==null || !appenders.hasMoreElements())
             Main.startLogger();
         
         response.setContentType("text/html;charset=UTF-8");

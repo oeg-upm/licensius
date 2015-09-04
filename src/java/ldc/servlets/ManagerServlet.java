@@ -46,7 +46,7 @@ public class ManagerServlet extends HttpServlet {
 
         request.getSession().setAttribute("lasturi", request.getRequestURI());
 
-        if (!appenders.hasMoreElements())
+        if (appenders==null ||  !appenders.hasMoreElements())
             Main.startLogger(); 
         logger.info("Manager Servlet sirviendo: " + uri);
         String contexto = LdcConfig.get("context", "");
