@@ -84,7 +84,7 @@ public class LdcConfig {
     }
 
     static String getPort() {
-        String sport = LdcConfig.get("port", "8080");
+        String sport = LdcConfig.get("port", "9090");
         String s=System.getenv("COMPUTERNAME");
         if (s==null)
             sport="9090";
