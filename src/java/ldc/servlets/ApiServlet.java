@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.util.Enumeration;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -140,6 +141,19 @@ public class ApiServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
+        
+        if (uri.endsWith("/api/getLicenses")) {
+            List<Policy> lp = PolicyManagerOld.getPolicies();
+            String html = "";
+            for(Policy p : lp)
+            {
+                html+=p.uri+"<br>";
+            }
+            out.write(html);
+            response.setContentType("text/html");
+            response.setStatus(HttpServletResponse.SC_OK);
+        }
+        
 
         if (uri.endsWith("/api/datasetUpload")) {
             boolean ok = Api.uploadFile(request, "/data.nq");
@@ -195,7 +209,7 @@ public class ApiServlet extends HttpServlet {
             String target = request.getParameter("target");
             String s2 = request.getRequestURI();
             String context = LdcConfig.get("context", "/ldc");
-            String server = LdcConfig.get("server","");
+            String server = LdcConfig.getServer();
             String urlcompleta = server + s2;
             String user = getUser(request);
             Policy policy = PolicyManagerOld.findPolicyByLabel(licencia);
@@ -283,6 +297,20 @@ public class ApiServlet extends HttpServlet {
             return;
             
         }
+        if (uri.endsWith("/api/getSystemInfo")) {
+            String html = "";
+            html+=System.getenv("COMPUTERNAME") + "<br>";
+            html+=System.getProperty("user.name")+"<br>";
+            html+=System.getenv("PROCESSOR_IDENTIFIER")+"br>";
+            html+=System.getProperty("os.name")+"<br>";
+            html+=System.getProperty("java.version")+"<br>";
+            html+=System.getProperty("user.dir")+"<br>";
+            response.getWriter().print(html);
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.setContentType("text/html");
+        }
+        
+        
         if (uri.endsWith("/api/signup")) {
             String u = request.getParameter("user");
             String p = request.getParameter("password");
@@ -314,18 +342,18 @@ public class ApiServlet extends HttpServlet {
             cd = Ldc.getDataset(DATASET);
             String filename =cd.getVoidPath();
             File f = new File(filename);
+            logger.info("Trying to serve " + filename);
             try {
                 String token = FileUtils.readFileToString(f);
                 response.setHeader("Content-Disposition","attachment;filename=void.ttl");
-                response.setContentType("application/n-quads");
+                response.setContentType("text/turtle");
                 response.getWriter().print(token);
-                response.setStatus(HttpServletResponse.SC_FOUND);
+                response.setStatus(HttpServletResponse.SC_OK);
             } catch (Exception e) {
                 logger.warn(e.getMessage());
             }
             return;
         }
-                
         
         
         if (uri.contains("managePolicy")) {

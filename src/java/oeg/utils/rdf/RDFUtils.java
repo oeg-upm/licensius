@@ -342,9 +342,10 @@ public class RDFUtils {
     }
 
     public static Map<String, String> prefijos = initprefijos();
+
     public static Map<String, String> initprefijos()
     {
-         Map<String, String> mapa = new HashMap();
+        Map<String, String> mapa = new HashMap();
         mapa.put("odrl", "http://www.w3.org/ns/odrl/2/"); //http://w3.org/ns/odrl/2/
         mapa.put("dct", "http://purl.org/dc/terms/");
         mapa.put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
@@ -358,13 +359,12 @@ public class RDFUtils {
         mapa.put("schema", "http://schema.org/");     
         mapa.put("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#");
         mapa.put("lemon", "http://lemon-model.net/lemon#");
-
-         return mapa;
+        return mapa;
     }
     
     /**
      * Adds the most common prefixes to the generated model
-     *
+     * @deprecated
      */
     public static void addPrefixesToModel(Model model) {
         model.setNsPrefix("odrl", "http://www.w3.org/ns/odrl/2/"); //http://w3.org/ns/odrl/2/

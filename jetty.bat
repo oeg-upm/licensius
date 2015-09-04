@@ -1,1 +1,1 @@
-java -jar jetty-runner.jar --path /ldc dist/ldc.war
+sudo java -jar jetty-runner.jar --path /ldc dist/ldc.war

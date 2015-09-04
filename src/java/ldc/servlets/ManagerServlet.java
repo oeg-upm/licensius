@@ -277,7 +277,7 @@ public class ManagerServlet extends HttpServlet {
             
             //cd.name
             String context = LdcConfig.get("context","");
-            String url = LdcConfig.get("server","") + context + "/api/managePolicy";
+            String url =LdcConfig.getServer()+ context + "/api/managePolicy";
             String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
             form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
             html += form;
@@ -350,7 +350,7 @@ public class ManagerServlet extends HttpServlet {
         ConditionalDataset cd = Ldc.getDataset(dataset);
         String churro = "";
         List<Grafo> lg = cd.getDatasetVoid().getGrafos();
-        String base = LdcConfig.get("server", "") + dataset;
+        String base = LdcConfig.getServer()+ dataset;
         for (Grafo g : lg) {
             try {
                 String urigrafo = URLEncoder.encode(g.getURI(), "UTF-8");
@@ -397,7 +397,7 @@ public class ManagerServlet extends HttpServlet {
         churro += slicencia;
 
         //dataset
-        String url = LdcConfig.get("server","") + LdcConfig.get("context","") + "/api/managePolicy";
+        String url = LdcConfig.getServer() + LdcConfig.get("context","") + "/api/managePolicy";
         String form = "<form name=\"input\" action=\"" + url + "\" method=\"get\">";
         String opciones = form + "<select name=\"licencia\" id=\"licencia\">";
         String defecto = AssetManager.getPolicyLabelForAssetURI(selectedGrafo);

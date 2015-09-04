@@ -71,6 +71,7 @@ public class PolicyManagerOld {
         {
             String sfolder = LdcConfig.getDataFolder();
             String folder=sfolder+"\\licenses";
+            logger.info("Obteniendo políticas de " + folder);
             PolicyManagerOld.setPolicies(PolicyManagerOld.readPolicies(folder));            
         }
         return policies;

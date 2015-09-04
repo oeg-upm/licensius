@@ -85,7 +85,7 @@ public class DatasetVoid {
     }
     public String getURI()
     {
-        String s = LdcConfig.get("server", "http://localhost:8080");
+        String s = LdcConfig.getServer();
         String c = LdcConfig.get("context", "/ldc");
         return s+c+"/data/"+name;
     }
@@ -184,8 +184,8 @@ public class DatasetVoid {
             String line = null;
 
             
+            String newbase = LdcConfig.getServer();
             String context = LdcConfig.get("context", "/ldc");
-            String newbase = LdcConfig.get("server", "http://localhost:8080/");
             if (!newbase.endsWith("/"))
                 newbase+="/";
             newbase+=context+"/data/"+conditionalDataset.name+"/";

@@ -54,7 +54,7 @@ public class ConditionalDataset {
     }
 
     public String getURI() {
-        String s = LdcConfig.get("server", "http://localhost:8080");
+        String s = LdcConfig.getServer();
         String c = LdcConfig.get("context", "/ldc");
         return s + c + "/data/" + name;
     }

@@ -197,7 +197,7 @@ public class LicensedTriple {
 
                 String link = sobjetooriginal;
                 String starget = policy.getFirstTarget();
-                String ser = LdcConfig.get("server","");
+                String ser = LdcConfig.getServer();
                 String context = LdcConfig.get("context","");
                 
                 link = ser + context + "/api/viewPolicy?policy=" + euri;
@@ -225,7 +225,7 @@ public class LicensedTriple {
             } else {
                 if (stmt.getObject().asResource().getURI().startsWith("http")) {
                     String uri = stmt.getObject().asResource().getURI();
-                    boolean isExternal = !uri.startsWith(LdcConfig.get("server",""));
+                    boolean isExternal = !uri.startsWith(LdcConfig.getServer());
                     o = "<a href=\"" + uri + "\">" + sobjeto + "</a>";
                     if (isExternal)
                         o+="<span class=\"glyphicon glyphicon-share-alt\"></span>";
@@ -279,7 +279,7 @@ public class LicensedTriple {
                     if (svalor.startsWith("http://"))
                     {
                         svalor="<a href=\""+svalor+"\">"+RDFUtils.replaceWithPrefix(svalor)+"</a>";
-                        if (!svalor.startsWith(LdcConfig.get("server","asdf")))
+                        if (!svalor.startsWith(LdcConfig.getServer()))
                             svalor+="<span class=\"glyphicon glyphicon-share-alt\"></span>";
                     }
                     else

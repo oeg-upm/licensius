@@ -90,7 +90,7 @@ public class DataServlet extends HttpServlet {
             return;
         }
         
-        String server = LdcConfig.get("server", "http://localhost:8080");
+        String server = LdcConfig.getServer();
         String context = LdcConfig.get("context","/ldc");
         String base = server + context + "/data/";
         int inidataset = peticion.lastIndexOf("data/")+5;

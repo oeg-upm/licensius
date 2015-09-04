@@ -258,7 +258,7 @@ public class DatasetDump extends NQuadRawFile {
             String line = null;
             
             String context = LdcConfig.get("context", "/ldc");
-            String newbase = LdcConfig.get("server", "http://localhost:8080/");
+            String newbase = LdcConfig.getServer();
             if (!newbase.endsWith("/"))
                 newbase+="/";
             newbase+=context+"/data/"+conditionalDataset.name+"/";

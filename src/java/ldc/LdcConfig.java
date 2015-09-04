@@ -64,7 +64,24 @@ public class LdcConfig {
 
     public static String getDataFolder() {
         String folder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        
+        String s=System.getenv("COMPUTERNAME");
+        if (s.equals("ALLEN"))
+            folder="F:\\data\\ldc";
+
+        
         return folder;
+    }
+
+    public static String getServer() {
+        String server=LdcConfig.get("server","");
+        
+        String s=System.getenv("COMPUTERNAME");
+        if (s.equals("ALLEN"))
+            server="http://localhost:8080";
+        
+        
+        return server;
     }
 
 }

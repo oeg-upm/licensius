@@ -37,7 +37,7 @@ public class HandlerPolicy {
         }
         String s2 = request.getRequestURI();
         String context = LdcConfig.get("context", "/ldc");
-        String SERVER = LdcConfig.get("server","");
+        String SERVER = LdcConfig.getServer();
         String urlcompleta = SERVER + s2;
         if (urlcompleta.endsWith(".ttl")) {
             urlcompleta = urlcompleta.substring(0, urlcompleta.length() - 4);
