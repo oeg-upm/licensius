@@ -71,7 +71,7 @@
 <taskdef name="start" classname="org.apache.catalina.ant.StartTask" />
 <taskdef name="stop" classname="org.apache.catalina.ant.StopTask" />
 <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
-
+<property name="appserver.home" value="/opt/apache-tomcat-8.0.12/" />
 <property name="tomcat-manager-url" value="http://localhost:8080/manager" />
 <property name="tomcat-manager-username" value="admin" />
 <property name="tomcat-manager-password" value="prueba@77" />
