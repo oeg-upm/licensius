@@ -68,6 +68,11 @@
     nbproject/build-impl.xml file. 
 
     -->
+<property name="tomcat.home" location="/opt/apache-tomcat-8.0.12"/>
+<target name="desplegarlider">
+	<copy file="dist/ldc.war" tofile="${tomcat.home}/webapps/ldc.war"/>
+</target>
+	
 
 	
 </project>
