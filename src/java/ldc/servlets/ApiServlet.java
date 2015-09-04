@@ -384,6 +384,7 @@ public class ApiServlet extends HttpServlet {
         
         
         if (uri.contains("managePolicy")) {
+            logger.error("MALLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
             String dataset = request.getParameter("dataset");
             dataset = URLDecoder.decode(dataset,"UTF-8");
 //            ConditionalDataset cd = Ldc.getDataset(dataset);

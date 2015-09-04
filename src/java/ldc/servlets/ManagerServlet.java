@@ -278,20 +278,20 @@ public class ManagerServlet extends HttpServlet {
             //cd.name
             String context = LdcConfig.get("context","");
             String url =LdcConfig.getServer()+ context + "/api/managePolicy";
-            String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
-            form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
-            html += form;
+//            String form = "<form name=\"input" + cona + "\" action=\"" + url + "\" method=\"get\">";
+//            form += "<input type=\"hidden\" id=\"selectedGrafo\" name=\"selectedGrafo\" value=\"" + selg + "\">";
+//            html += form;
 //            html += "<a href=\"#\" onclick=\"recipient='" + cona + "'\" class=\"btn btn-sm btn-default\" data-toggle=\"modal\" data-target=\"#largeModal\" data-miid=\"" + cona + "\"><span class=\"glyphicon glyphicon-plus-sign\"></span>Add policy</a>";
 //            html += "<button  name=\"action\" type=\"submit\" value=\"RemoveAll\" class=\"btn btn-default btn-sm\"><span class=\"glyphicon glyphicon-remove-sign\"></span> Remove policies</button>";
-            html += "<input type=\"hidden\" name=\"licencia\" id=\"licencia" + cona + "\"></input>";
-            html += "<input type=\"hidden\" name=\"xaction\" id=\"xaction" + cona + "\"></input>";
-            String encouri="";
-            try {
-                encouri=URLEncoder.encode(cd.getURI(), "UTF-8");
-            } catch (UnsupportedEncodingException ex) {
-            }
-            html += "<input type=\"hidden\" name=\"dataset\" id=\"dataset\" value=\"" +  encouri + "\"></input>";
-            html += "</form>";
+  //          html += "<input type=\"hidden\" name=\"licencia\" id=\"licencia" + cona + "\"></input>";
+//            html += "<input type=\"hidden\" name=\"xaction\" id=\"xaction" + cona + "\"></input>";
+ //           String encouri="";
+  //          try {
+   //             encouri=URLEncoder.encode(cd.getURI(), "UTF-8");
+   //         } catch (UnsupportedEncodingException ex) {
+    //        }
+    //        html += "<input type=\"hidden\" name=\"dataset\" id=\"dataset\" value=\"" +  encouri + "\"></input>";
+    //        html += "</form>";
             html += "<button onclick=\"addPolicy('"+ g.getURI() +"')\" value=\"AddPolicy\" class=\"btn btn-default btn-sm\"><span class=\"glyphicon glyphicon-plus-sign\"></span> Add Policy</button>";
             html += "<button onclick=\"removePolicies('"+ g.getURI() +"')\" value=\"RemoveAll\" class=\"btn btn-default btn-sm\"><span class=\"glyphicon glyphicon-remove-sign\"></span> Remove policies</button>";
             html += "<button onclick=\"setDescription('"+cd.getURI()+"','"+ g.getURI() +"')\" class=\"btn btn-default btn-sm\" name=\"setDescription\" ><span class=\"glyphicon glyphicon-tags\"></span> Describe</button> "; 
