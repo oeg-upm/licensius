@@ -436,7 +436,10 @@ public class DatasetVoid {
         return RDFUtils.getFirstLiteral(model, getURI(), propiedad);        
     }
 
-    void resetDataset(String uri) {
+    /**
+     * 
+     */
+    public void resetDataset(String uri) {
         load();
         List<Statement> sts = new ArrayList();
         ResIterator it = model.listSubjectsWithProperty(RDF.type, model.createResource("http://www.w3.org/ns/dcat#Catalog"));
