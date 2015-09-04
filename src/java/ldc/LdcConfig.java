@@ -66,7 +66,10 @@ public class LdcConfig {
         String folder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
         
         String s=System.getenv("COMPUTERNAME");
-        if (s.equals("ALLEN"))
+        if (s==null)
+            s=System.getenv("HOSTNAME");
+        
+        if (s!=null && s.equals("ALLEN"))
             folder="F:\\data\\ldc";
 
         
@@ -77,7 +80,7 @@ public class LdcConfig {
         String server=LdcConfig.get("server","");
         
         String s=System.getenv("COMPUTERNAME");
-        if (s.equals("ALLEN"))
+        if (s!=null && s.equals("ALLEN"))
             server="http://localhost:8080";
         
         
@@ -86,7 +89,8 @@ public class LdcConfig {
 
     static String getPort() {
         String sport = LdcConfig.get("port", "8080");
-        if (!sport.equals("ALLEN"))
+        String s=System.getenv("COMPUTERNAME");
+        if (s==null)
             sport="9090";
         return sport;
     }

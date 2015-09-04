@@ -300,9 +300,14 @@ public class ApiServlet extends HttpServlet {
         if (uri.endsWith("/api/getSystemInfo")) {
             logger.info("getSystemInfo");
             String html = "";
-            html+=System.getenv("COMPUTERNAME") + "<br>";
+            
+            String s = System.getenv("COMPUTERNAME");
+            if (s==null)
+                s=System.getenv("HOSTNAME");
+            html+=s + "<br>";
+            
             html+=System.getProperty("user.name")+"<br>";
-            html+=System.getenv("PROCESSOR_IDENTIFIER")+"br>";
+            html+=System.getenv("PROCESSOR_IDENTIFIER")+"<br>";
             html+=System.getProperty("os.name")+"<br>";
             html+=System.getProperty("java.version")+"<br>";
             html+=System.getProperty("user.dir")+"<br>";
