@@ -1,0 +1,111 @@
+11:30:24,278  INFO DataServlet:67 - Data servlet: /ldc/data/geo/Provincia/Huesca
+11:30:24,280  INFO DataServlet:70 - User: null
+11:30:24,281  INFO DataServlet:104 - Se cree que el dataset es geo
+11:30:24,281  INFO DataServlet:105 - Se cree que el recurso es http://localhost:8080/ldc/data/geo/Provincia/Huesca
+11:30:24,282  INFO DataServlet:106 - Se cree que el usuario es null
+11:30:24,598  INFO RDFFileStore:32 - Dataset geo has been loaded
+11:30:24,602  INFO RDFFileStore:32 - Dataset lexvo has been loaded
+11:30:24,602  INFO RDFFileStore:32 - Dataset licenses has been loaded
+11:30:24,608  INFO RDFFileStore:32 - Dataset rdflicense has been loaded
+11:30:24,633  INFO Ldc:58 - Dataset 'geo' has been loaded http://localhost:8080/ldc/data/geo
+11:30:24,636  INFO Ldc:58 - Dataset 'lexvo' has been loaded http://localhost:8080/ldc/data/lexvo
+11:30:24,641  INFO Ldc:58 - Dataset 'rdflicense' has been loaded http://localhost:8080/ldc/data/rdflicense
+11:30:24,641  INFO DataServlet:110 - Fetching triples for http://localhost:8080/ldc/data/geo/Provincia/Huesca
+11:30:24,642  INFO DatasetIndex:97 - Cargando indice de geo
+11:30:24,642  INFO DatasetIndex:106 - Millones: 0
+11:30:24,643  INFO DatasetIndex:120 - Cargado diccionario de geo
+11:30:24,643  INFO DatasetIndex:215 - Index hit from line of dump: 128332
+11:30:24,651  INFO DataServlet:112 - Hay 7 triples para ese sujeto
+11:30:24,669  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/default que tiene 0 ofertas
+11:30:24,764  INFO ApiServlet:57 - Api servlet procesando: /ldc/api/getUser
+11:30:24,764  INFO ApiServlet:57 - Api servlet procesando: /ldc/api/getDatasets
+11:30:24,767  INFO ApiServlet:88 - Dataset loaded: geo
+11:30:24,767  INFO ApiServlet:88 - Dataset loaded: geo
+11:30:24,768  INFO ApiServlet:90 - /ldc/api/getDatasets
+11:30:24,769  INFO ApiServlet:90 - /ldc/api/getUser
+11:30:24,769  INFO ApiServlet:402 - no ha iniciado sesión pero sí goole mailto:noname@tmp.com
+11:30:24,809  INFO RDFFileStore:32 - Dataset geo has been loaded
+11:30:24,811  INFO RDFFileStore:32 - Dataset lexvo has been loaded
+11:30:24,812  INFO RDFFileStore:32 - Dataset licenses has been loaded
+11:30:24,819  INFO RDFFileStore:32 - Dataset rdflicense has been loaded
+11:30:24,849  INFO Ldc:58 - Dataset 'geo' has been loaded http://localhost:8080/ldc/data/geo
+11:30:24,853  INFO Ldc:58 - Dataset 'lexvo' has been loaded http://localhost:8080/ldc/data/lexvo
+11:30:24,858  INFO Ldc:58 - Dataset 'rdflicense' has been loaded http://localhost:8080/ldc/data/rdflicense
+11:30:24,863 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:24,900  INFO DatasetVoid:299 - Parsed locally policy http://purl.org/NET/rdflicense/cc-by4.0
+11:30:24,901  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Huesca que tiene 0 ofertas
+11:30:24,901  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/10euro
+11:30:24,901  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Canarias que tiene 0 ofertas
+11:30:24,902  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/private
+11:30:24,902  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/default que tiene 0 ofertas
+11:30:24,902  INFO DatasetVoid:299 - Parsed locally policy http://purl.org/NET/rdflicense/cc-by4.0
+11:30:24,902  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Huesca que tiene 0 ofertas
+11:30:24,903  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/10euro
+11:30:24,903  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Canarias que tiene 0 ofertas
+11:30:24,903  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/private
+11:30:24,903  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/default que tiene 0 ofertas
+11:30:24,903  INFO DatasetVoid:299 - Parsed locally policy http://purl.org/NET/rdflicense/cc-by4.0
+11:30:24,904  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Huesca que tiene 0 ofertas
+11:30:24,904  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/10euro
+11:30:24,904  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Canarias que tiene 0 ofertas
+11:30:24,904  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/private
+11:30:24,905  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/default que tiene 0 ofertas
+11:30:24,905  INFO DatasetVoid:299 - Parsed locally policy http://purl.org/NET/rdflicense/cc-by4.0
+11:30:24,905  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Huesca que tiene 0 ofertas
+11:30:24,905  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/10euro
+11:30:24,905  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Canarias que tiene 0 ofertas
+11:30:24,906  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/private
+11:30:24,906  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/default que tiene 0 ofertas
+11:30:24,906  INFO DatasetVoid:299 - Parsed locally policy http://purl.org/NET/rdflicense/cc-by4.0
+11:30:24,906  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Huesca que tiene 0 ofertas
+11:30:24,907  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/10euro
+11:30:24,907  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Canarias que tiene 0 ofertas
+11:30:24,907  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/private
+11:30:24,908  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/default que tiene 0 ofertas
+11:30:24,908  INFO DatasetVoid:299 - Parsed locally policy http://purl.org/NET/rdflicense/cc-by4.0
+11:30:24,908  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Huesca que tiene 0 ofertas
+11:30:24,908  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/10euro
+11:30:24,909  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Canarias que tiene 0 ofertas
+11:30:24,909  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/private
+11:30:24,909  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/default que tiene 0 ofertas
+11:30:24,909  INFO DatasetVoid:299 - Parsed locally policy http://purl.org/NET/rdflicense/cc-by4.0
+11:30:24,909  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Huesca que tiene 0 ofertas
+11:30:24,910  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/10euro
+11:30:24,910  INFO DatasetVoid:281 - Parseando http://localhost:8080/ldc/data/geo/Canarias que tiene 0 ofertas
+11:30:24,910  INFO DatasetVoid:299 - Parsed locally policy http://localhost/policy/private
+11:30:24,953 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:24,958 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:26,324  INFO ApiServlet:57 - Api servlet procesando: /ldc/api/getUser
+11:30:26,325  INFO ApiServlet:88 - Dataset loaded: geo
+11:30:26,325  INFO ApiServlet:90 - /ldc/api/getUser
+11:30:26,326  INFO ApiServlet:402 - no ha iniciado sesión pero sí goole mailto:noname@tmp.com
+11:30:26,328  INFO ApiServlet:57 - Api servlet procesando: /ldc/api/getDatasets
+11:30:26,328  INFO ApiServlet:88 - Dataset loaded: geo
+11:30:26,328  INFO ApiServlet:90 - /ldc/api/getDatasets
+11:30:26,352  INFO RDFFileStore:32 - Dataset geo has been loaded
+11:30:26,354  INFO RDFFileStore:32 - Dataset lexvo has been loaded
+11:30:26,355  INFO RDFFileStore:32 - Dataset licenses has been loaded
+11:30:26,359  INFO RDFFileStore:32 - Dataset rdflicense has been loaded
+11:30:26,381  INFO Ldc:58 - Dataset 'geo' has been loaded http://localhost:8080/ldc/data/geo
+11:30:26,383  INFO Ldc:58 - Dataset 'lexvo' has been loaded http://localhost:8080/ldc/data/lexvo
+11:30:26,388  INFO Ldc:58 - Dataset 'rdflicense' has been loaded http://localhost:8080/ldc/data/rdflicense
+11:30:26,389 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:26,412 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:26,416 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:40,140  INFO ApiServlet:57 - Api servlet procesando: /ldc/api/getUser
+11:30:40,141  INFO ApiServlet:57 - Api servlet procesando: /ldc/api/getDatasets
+11:30:40,141  INFO ApiServlet:88 - Dataset loaded: geo
+11:30:40,141  INFO ApiServlet:88 - Dataset loaded: geo
+11:30:40,141  INFO ApiServlet:90 - /ldc/api/getUser
+11:30:40,141  INFO ApiServlet:90 - /ldc/api/getDatasets
+11:30:40,141  INFO ApiServlet:402 - no ha iniciado sesión pero sí goole mailto:noname@tmp.com
+11:30:40,174  INFO RDFFileStore:32 - Dataset geo has been loaded
+11:30:40,175  INFO RDFFileStore:32 - Dataset lexvo has been loaded
+11:30:40,176  INFO RDFFileStore:32 - Dataset licenses has been loaded
+11:30:40,179  INFO RDFFileStore:32 - Dataset rdflicense has been loaded
+11:30:40,201  INFO Ldc:58 - Dataset 'geo' has been loaded http://localhost:8080/ldc/data/geo
+11:30:40,203  INFO Ldc:58 - Dataset 'lexvo' has been loaded http://localhost:8080/ldc/data/lexvo
+11:30:40,207  INFO Ldc:58 - Dataset 'rdflicense' has been loaded http://localhost:8080/ldc/data/rdflicense
+11:30:40,208 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:40,231 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
+11:30:40,234 DEBUG SQLite:33 - Cadena de consexión SQLite: jdbc:sqlite:F:\data\ldc/db
