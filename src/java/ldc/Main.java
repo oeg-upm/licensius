@@ -33,6 +33,9 @@ import org.eclipse.jetty.webapp.WebAppContext;
  * If this class is placed in a Tomcat, it will run therem
  * The war file is expected to be deployed as ldc.war 
  * 
+ * FINALMENTE ESTO ESTA DESPLEGADO AQUI
+ * http://lider2.dia.fi.upm.es:9090/ldc/manage/geo
+ * 
  * TO LAUNCH FUSEKI:
  * - go to lider2, opt/fuseki
  * - execute sudo nohup java -jar ./fuseki-server.jar --update --loc=data --port 3031 /tbx&
