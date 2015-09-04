@@ -215,7 +215,8 @@ public class ManagerServlet extends HttpServlet {
         }
         if (action != null && action.equals("downloadMetadata")) {
             logger.info("Action downloadMetadata");
-            String sfolder = LdcConfig.get("datasetsfolder", "datasets");
+                    String sfolder = LdcConfig.getDataFolder();
+
             if (!sfolder.endsWith("/")) sfolder+="/";
             String filename = sfolder + Ldc.getSelectedDataset() + "/void.ttl";
 //            String filename="datasets/" + ConditionalDatasets.getSelectedDataset().name + "/void.ttl";

@@ -40,14 +40,14 @@ public class DatasetDump extends NQuadRawFile {
     char separador = 10; //0A, \n, separador unix.
     
     public DatasetDump(ConditionalDataset cd) {
-        super(LdcConfig.get("datasetsfolder", "D:\\data\\ldc").endsWith("/") ? LdcConfig.get("datasetsfolder", "D:\\data\\ldc") : (LdcConfig.get("datasetsfolder", "D:\\data\\ldc")+"/") + cd.name + "/data.nq");
+        super(LdcConfig.getDataFolder().endsWith("/") ? LdcConfig.getDataFolder() : (LdcConfig.getDataFolder()+"/") + cd.name + "/data.nq");
         conditionalDataset = cd;
     }
     //Devuelve las entradas para el indice
 
     public String getDataFileName()
     {
-        String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
         if (!sfolder.endsWith("/")) sfolder+="/";
         String filename2 = sfolder + conditionalDataset.name + "/data.nq";
         return filename2;

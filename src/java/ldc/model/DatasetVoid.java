@@ -127,11 +127,12 @@ public class DatasetVoid {
     
     public void load()
     {
-        String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
         if (!sfolder.endsWith("/")) sfolder+="/";
         String filename = sfolder + name + "/void.ttl";
         File f = new File(filename);
         if (f.exists()) {
+            logger.debug("Loading " + filename);
             model = RDFDataMgr.loadModel(filename);
             model = RDFPrefixes.addPrefixesIfNeeded(model);
         }
@@ -153,7 +154,8 @@ public class DatasetVoid {
             model = RDFPrefixes.addPrefixesIfNeeded(model);
             RDFDataMgr.write(sw, model, Lang.TTL);
             String s = sw.toString();
-            String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
+
             if (!sfolder.endsWith("/")) sfolder+="/";
             String filename = sfolder + name + "/void.ttl";
             PrintWriter writer = new PrintWriter(filename, "UTF-8");
@@ -166,7 +168,8 @@ public class DatasetVoid {
     }    
     public boolean rebase(String datasuri) {
      try {
-            String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
+
             if (!sfolder.endsWith("/")) sfolder+="/";
             sfolder=sfolder + name;
             String filename=sfolder+"/void.ttl";

@@ -60,7 +60,7 @@ public class Ldc {
     }
     public static boolean deleteDataset(String datas)
     {
-        String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
         if (!sfolder.endsWith("/")) {
             sfolder += "/";
         }

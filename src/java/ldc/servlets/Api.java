@@ -112,7 +112,9 @@ public class Api {
                         InputStream uploadedStream = fi.getInputStream();
                         String folder = ".";
                         if (ds != null) {
-                            folder = LdcConfig.get("datasetsfolder","D:\\data\\ldc")  + "\\"+ds.name;
+                                    String sfolder = LdcConfig.getDataFolder();
+
+                            folder = sfolder  + "\\"+ds.name;
                         }
                         File flogo = new File(folder + namedest);
                         OutputStream os = new FileOutputStream(flogo);

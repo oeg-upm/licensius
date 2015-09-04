@@ -117,7 +117,7 @@ public class ConditionalDataset {
     }
 
     public String getFolder() {
-        String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
         if (!sfolder.endsWith("/")) {
             sfolder += "/";
         }

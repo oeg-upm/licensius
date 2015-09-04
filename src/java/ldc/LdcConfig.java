@@ -62,4 +62,9 @@ public class LdcConfig {
         }
     }
 
+    public static String getDataFolder() {
+        String folder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        return folder;
+    }
+
 }

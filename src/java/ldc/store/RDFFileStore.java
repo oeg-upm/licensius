@@ -17,7 +17,8 @@ public class RDFFileStore implements RDFStore {
 
     @Override
     public List<String> getDatasets() {
-        String sfolder = LdcConfig.get("datasetsfolder", "d:\\data\\ldc");
+                String sfolder = LdcConfig.getDataFolder();
+
         List<String> datasets = new ArrayList();
         File folder = new File(sfolder);
         File[] listOfFiles = folder.listFiles();
@@ -38,7 +39,8 @@ public class RDFFileStore implements RDFStore {
     @Override
     public ConditionalDataset addDataset(String datas) {
         ConditionalDataset existente = Ldc.getDataset(datas);
-        String sfolder = LdcConfig.get("datasetsfolder", "d:\\data\\ldc");
+                String sfolder = LdcConfig.getDataFolder();
+
         if (!sfolder.endsWith("/")) {
             sfolder += "/";
         }

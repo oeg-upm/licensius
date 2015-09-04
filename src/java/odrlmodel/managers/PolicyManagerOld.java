@@ -69,7 +69,8 @@ public class PolicyManagerOld {
     public static List<Policy> getPolicies() {
         if (policies.isEmpty())
         {
-            String folder=LdcConfig.get("datasetsfolder","")+"\\licenses";
+            String sfolder = LdcConfig.getDataFolder();
+            String folder=sfolder+"\\licenses";
             PolicyManagerOld.setPolicies(PolicyManagerOld.readPolicies(folder));            
         }
         return policies;

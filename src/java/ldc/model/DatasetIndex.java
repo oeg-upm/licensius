@@ -53,7 +53,7 @@ public class DatasetIndex {
      * Nombre de archivo del índice. Por ejemplo indexsujetos.idx
      */
     public String getIndexFileName() {
-        String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
         if (!sfolder.endsWith("/")) {
             sfolder += "/";
         }
@@ -344,7 +344,7 @@ public class DatasetIndex {
         if (!indexGrafos.isEmpty())
             return indexGrafos;
         
-        String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String sfolder = LdcConfig.getDataFolder();
         if (!sfolder.endsWith("/")) {
             sfolder += "/";
         }
@@ -363,7 +363,7 @@ public class DatasetIndex {
         return indexGrafos;
     }
     public void writeIndexGrafos(Map<String, List<Integer>> map) {
-            String sfolder = LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+            String sfolder = LdcConfig.getDataFolder();
             if (!sfolder.endsWith("/")) sfolder+="/";
             String filename = sfolder + cd.name + "/indexgrafos.idx";
         try {

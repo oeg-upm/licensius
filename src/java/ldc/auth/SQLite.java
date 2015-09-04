@@ -28,7 +28,7 @@ public class SQLite {
     
     public static String getCadena()
     {
-        String d=LdcConfig.get("datasetsfolder", "D:\\data\\ldc");
+        String d = LdcConfig.getDataFolder();
         String cadena = "jdbc:sqlite:"+d+"/db";
         logger.debug("Cadena de consexión SQLite: " + cadena);
         return cadena;
