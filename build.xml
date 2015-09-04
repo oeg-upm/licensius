@@ -68,53 +68,6 @@
     nbproject/build-impl.xml file. 
 
     -->
-<path id="catalina-ant-classpath">
-    <fileset dir="lib">
-        <include name="catalina-ant.jar"/>
-        <include name="tomcat-coyote.jar"/>
-        <include name="tomcat-util.jar"/>
-        <include name="tomcat-juli.jar"/>
-    </fileset>
-</path>	
-	
-<taskdef name="start" classname="org.apache.catalina.ant.StartTask" />
-<taskdef name="stop" classname="org.apache.catalina.ant.StopTask" />
-<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" />
-<property name="appserver.home" value="/opt/apache-tomcat-8.0.12/" />
-<property name="tomcat-manager-url" value="http://localhost:8080/manager" />
-<property name="tomcat-manager-username" value="admin" />
-<property name="tomcat-manager-password" value="prueba@77" />
-<property name="project-name" value="ldc" />
-	
-	<target name="stop" description="stop application in tomcat">
-		<stop url="${tomcat-manager-url}" username="${tomcat-manager-username}"
-			password="${tomcat-manager-password}" path="/${project-name}" />
-	</target>
 
-	<target name="start" description="start application in tomcat">
-		<start url="${tomcat-manager-url}" username="${tomcat-manager-username}"
-			password="${tomcat-manager-password}" path="/${project-name}" />
-	</target>
-	
-	<target name="undeploy" description="undeploy from tomcat">
-		<undeploy 
-			failonerror="no"
-			url="${tomcat-manager-url}"
-			username="${tomcat-manager-username}"
-			password="${tomcat-manager-password}"
-			path="/${project-name}"
-		/>
-	</target>	
-	
-<target name="deploy" description="deploy to tomcat">
-		<echo>Deploying from client</echo>
-		<deploy 
-			url="${tomcat-manager-url}"
-			username="${tomcat-manager-username}"
-			password="${tomcat-manager-password}"
-			path="/${project-name}"
-			war="file:/./dist/ldc.war"
-		/>
-</target>	
 	
 </project>
