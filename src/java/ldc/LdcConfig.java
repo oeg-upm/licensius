@@ -84,4 +84,11 @@ public class LdcConfig {
         return server;
     }
 
+    static String getPort() {
+        String sport = LdcConfig.get("port", "8080");
+        if (!sport.equals("ALLEN"))
+            sport="9090";
+        return sport;
+    }
+
 }

@@ -155,7 +155,7 @@ public class Main {
         File f = new File(war);
         if (!f.exists())
             logger.error("Server not found");
-        String sport = LdcConfig.get("port", "8080");
+        String sport = LdcConfig.getPort();
         Server server = new Server(Integer.parseInt(sport));
         WebAppContext webapp = new WebAppContext();
         String context = LdcConfig.get("context", "/ldc");
