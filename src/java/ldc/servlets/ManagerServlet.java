@@ -307,6 +307,7 @@ public class ManagerServlet extends HttpServlet {
         html += "<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Creates a new partition\" id=\"boton4\" class=\"btn btn-primary\" href=\"javascript: showPartitionDlg('"+ cd.getURI() +"');\"><span class=\"glyphicon glyphicon-scissors\"></span> New Partition</a>";
         html += "<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Indexes this dataset\" id=\"boton4\" class=\"btn btn-primary\" href=\"javascript: indexDataset('"+     cd.getURI() +"');\"><span class=\"glyphicon glyphicon-refresh\"></span> Index</a>";
         html += "<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Resets the graphs assignment\" id=\"boton4\" class=\"btn btn-primary\" href=\"javascript: resetDataset('"+     cd.getURI() +"');\"><span class=\"glyphicon glyphicon-flash\"></span> Reset</a>";
+        html += "<a style=\"margin:2px;\" data-toggle=\"tooltip\" title=\"Browse this dataset\" id=\"boton4\" class=\"btn btn-primary\" href=\"/ldc/data/" +    cd.name +"\"><span class=\"glyphicon glyphicon-blackboard\"></span> Browse</a>";
         
         
         
