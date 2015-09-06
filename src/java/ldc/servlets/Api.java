@@ -17,12 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 import ldc.Ldc;
 import ldc.LdcConfig;
 import ldc.Main;
+import ldc.auth.AuthorizationResponse;
 import ldc.auth.Evento;
 import ldc.auth.GoogleAuthHelper;
 import ldc.auth.Portfolio;
 import ldc.auth.SQLite;
 import ldc.model.ConditionalDataset;
 import ldc.model.DatasetIndex;
+import ldc.model.Grafo;
 import odrlmodel.Asset;
 import odrlmodel.Policy;
 import odrlmodel.managers.AssetManager;
@@ -413,7 +415,7 @@ public class Api {
                         }
 //                        String llic = " <a href=\"" + policy.getURI() + "\">(view)</a>";
 
-                        String llic = HandlerOffers.getPolicyHTMLTag(policy, null);
+                        String llic = Api.getPolicyHTMLTag(policy, null);
 
                         String precio = String.format("%.02f %s", policy.getFirstPrice(), policy.getFirstCurrency());
                         str += "<tr><td>" + precio + "</td><td>" + starget + "</td><td>" + llic + "</td></tr>";
@@ -432,4 +434,69 @@ public class Api {
         }
         return body;
     }    
+    
+    public static String getPolicyHTMLTag(Policy policy2, Grafo grafo) {
+        String str = "";
+        String uri = policy2.getURI();
+        String target = "";
+        if (grafo!=null)
+        {
+            try {
+                target = URLEncoder.encode(grafo.getURI(), "UTF-8");
+            } catch (UnsupportedEncodingException ex) {
+                ex.printStackTrace();
+            }
+            uri += "?target=" + target;
+        }
+        str += "<a style=\"padding:.5em;\" href=\"" + uri + "\"/>";
+        String slav = policy2.getLabel("en");
+        if (policy2.isOpen()) {
+            str += "<span class=\"label label-success\">" + slav + " </span><br/>";
+        } else {
+            str += "<span class=\"label label-danger\">" + slav + " </span><br/>";
+        }
+        str += "</a>";
+        return str;
+    }    
+   /**
+     * Autoriza un recurso, dado un conjunto de políticas compradas en el portfolio
+     */
+    public static AuthorizationResponse AuthorizeResource(Grafo grafo, List<Policy> portfolioPolicies) {
+        AuthorizationResponse ar = new AuthorizationResponse();
+        ar.ok = false;
+        ar.policies.clear();
+        //y si no, miramos ALGUNA DEL PORTFOLIO
+        for (Policy policy : portfolioPolicies) {
+            if (policy.hasPlay() && policy.hasFirstTarget(grafo.getURI())) {
+                ar.ok = true;
+                ar.policies.add(policy);
+                return ar;
+            }
+        }
+
+        List<Policy> policies = grafo.getPolicies();
+        if (policies.isEmpty()) {
+            return ar;
+        }
+
+        //SI HAY ALGUNA POLITICA ABIRTA, PERFECTO
+        for (Policy policy : policies) {
+            Policy policyFromStore = PolicyManagerOld.getPolicy(policy.getURI());
+            if (policyFromStore == null) {
+                continue;
+            }
+            if (policyFromStore.hasPlay() && policyFromStore.isOpen()) {
+                ar.ok = true;
+                ar.policies.add(policyFromStore);
+                return ar;
+            } else if (policyFromStore.hasPlay()) {
+                ar.policies.add(policyFromStore);
+            }
+        }
+
+
+
+        return ar;
+
+    }       
 }

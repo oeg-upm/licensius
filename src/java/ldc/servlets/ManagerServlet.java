@@ -266,7 +266,7 @@ public class ManagerServlet extends HttpServlet {
             html += "<td>";
             List<Policy> lp = g.getPolicies();
             for (Policy p : lp) {
-                String label = HandlerOffers.getPolicyHTMLTag(p, g);
+                String label = Api.getPolicyHTMLTag(p, g);
                 html += label;
             }
             html += "</td>";

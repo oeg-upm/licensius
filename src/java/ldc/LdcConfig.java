@@ -69,6 +69,9 @@ public class LdcConfig {
             s=System.getenv("HOSTNAME");
         if (s!=null && s.equals("ALLEN"))
             folder="F:\\data\\ldc";
+        if (s!=null && s.equals("VRODDON-I7HOME"))
+            folder="D:\\data\\ldc";
+        
         return folder;
     }
 
