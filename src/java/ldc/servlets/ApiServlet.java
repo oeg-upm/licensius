@@ -1,10 +1,8 @@
 package ldc.servlets;
 
 import com.hp.hpl.jena.vocabulary.RDFS;
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.util.Enumeration;
@@ -20,19 +18,15 @@ import ldc.auth.GoogleAuthHelper;
 import ldc.auth.Portfolio;
 import ldc.model.ConditionalDataset;
 import ldc.auth.SQLite;
-import static ldc.servlets.ManagerServlet.logger;
-import static ldc.servlets.ManagerServlet.selectedGrafo;
 import odrlmodel.Policy;
 import odrlmodel.managers.PolicyManagerOld;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 
 //LOG4J
 import org.apache.log4j.Logger;
-import org.eclipse.jetty.server.Request;
 
 /**
- *
+ * Serves the API calls
  * @author vroddon
  */
 public class ApiServlet extends HttpServlet {
