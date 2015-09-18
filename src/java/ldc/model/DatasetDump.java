@@ -266,7 +266,7 @@ public class DatasetDump extends NQuadRawFile {
             newbase = newbase.replace("http:/", "http://");
             
             
-            if (!datasuri.endsWith("/"))
+            if (!datasuri.endsWith("/") && !datasuri.endsWith("#"))
                 datasuri+="/";
             
             logger.info("Rebasing " + datasuri + " por " + newbase);
