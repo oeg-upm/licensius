@@ -109,6 +109,6 @@
         <div style="text-align: center">
             <a href="http://www.oeg-upm.net"><img src="oeg100.png" width="100" /></a>
         </div>        
-        <p><small><strong>Disclaimer</strong>: This is an experimental service. The results given are merely informative and cannot be trusted to correspond to the actual license of the queried ontologies or datasets.</small></p>
+        <p><small><strong>Disclaimer</strong>__: This is an experimental service. The results given are merely informative and cannot be trusted to correspond to the actual license of the queried ontologies or datasets.</small></p>
     </body>
 </html>
