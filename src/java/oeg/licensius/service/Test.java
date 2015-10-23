@@ -14,7 +14,7 @@ import oeg.license.LicenseFinderWeb;
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
 
-/**
+/** 
  * Test service to be docummented by swagger, deployed in Tomcat and running at www.licensius.com
  * @author vrodriguez
  */

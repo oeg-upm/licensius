@@ -38,7 +38,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>test</servlet-name>
-        <url-pattern>test</url-pattern>
+        <url-pattern>/test</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>licensefinder</servlet-name>
