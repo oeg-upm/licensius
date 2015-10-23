@@ -1,4 +1,4 @@
-package main;
+package oeg.licensius.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
