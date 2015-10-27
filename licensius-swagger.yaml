@@ -46,7 +46,7 @@ paths:
       parameters:
         - name: uri
           in: query
-          description: Identifier of a well-known license. For example, http://rdflicense.appspot.com/rdflicense/cc-by3.0
+          description: Identifier of a well-known license. For example, http://purl.org/NET/rdflicense/gpl2.0
           type: string
       responses:
         '200':
@@ -70,7 +70,7 @@ paths:
       parameters:
         - name: uri
           in: query
-          description: URI to the RDF document where the license will be scanned
+          description: URI to the RDF document where the license will be scanned. For example, http://www.geonames.org/ontology/ontology_v3.1.rdf or http://purl.org/goodrelations/v1.owl
           type: string
       responses:
         '200':
@@ -79,8 +79,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/licenseguess'
-        default:
-          description: Unexpected error
+        '500':
+          description: Server error
           schema:
             $ref: '#/definitions/Error'
   /license/findlicenseintxt:
@@ -90,7 +90,7 @@ paths:
       parameters:
         - name: uri
           in: query
-          description: URI to the textdocument where the license will be scanned
+          description: URI to the text document where the license will be scanned
           type: string
       tags:
         - license
@@ -101,8 +101,8 @@ paths:
             type: array
             items:
               $ref: '#/definitions/licenseguess'
-        default:
-          description: Unexpected error
+        '500':
+          description: Server error
           schema:
             $ref: '#/definitions/Error'
   /odrl/validate:
@@ -135,6 +135,9 @@ definitions:
       version:
         type: string
         description: Version of the License
+      legalcode:
+        type: string
+        description: Pointer to the legal code (URI)
   licenseguess:
     type: object
     properties:

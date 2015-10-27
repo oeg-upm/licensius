@@ -30,9 +30,8 @@ public class LicensesFound implements LicensiusResponse {
         String license = licenses.get(i);
         String confidence = confidences.get(i);
         String evidence = evidences.get(i);
-        
         String found ="  {\n" +
-        "    \"license\": {},\n" +
+        "    \"license\": \""+license+ "\",\n" +
         "    \"evidence\": \""+evidence+ "\",\n" +
         "    \"confidence\": \""+confidence+"\"\n" +
         "  }\n" +
@@ -41,5 +40,11 @@ public class LicensesFound implements LicensiusResponse {
     }
     json+="]";
     return json;
+    }
+
+    public void add(String licencia, String evidencia, String prob) {
+        licenses.add(licencia);
+        evidences.add(evidencia);
+        confidences.add(prob);
     }
 }

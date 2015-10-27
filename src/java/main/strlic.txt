@@ -158,10 +158,16 @@ http://creativecommons.org/licenses/by/3.0/ec	Creative Commons CC-BY 3.0 Ecuador
 http://creativecommons.org/licenses/by-nc-nd/3.0/ro	Creative Commons CC-BY-NC-ND 3.0 Romania
 http://creativecommons.org/licenses/by-sa/3.0/br	Creative Commons CC-BY-SA 3.0 Brazil 
 http://creativecommons.org/licenses/by-sa/4.0/	CC-BY-SA
+http://creativecommons.org/licenses/by-sa/3.0/	CC-BY-SA
 http://creativecommons.org/licenses/by-nc-nd/4.0/	CC-BY-NC-ND
 http://creativecommons.org/licenses/by-nc-nd/4.0/	CC-BY-ND
 http://creativecommons.org/licenses/by-nc-sa/4.0/	CC-BY-NC-SA
+http://creativecommons.org/licenses/by-nc-nd/3.0/	CC-BY-NC-ND
+http://creativecommons.org/licenses/by-nc-nd/3.0/	CC-BY-ND
+http://creativecommons.org/licenses/by-nc-sa/3.0/	CC-BY-NC-SA
 http://creativecommons.org/licenses/by/4.0/	CC-BY
+http://creativecommons.org/licenses/by/3.0/	CC-BY
+http://creativecommons.org/licenses/by/2.0/	CC-BY
 http://creativecommons.org/publicdomain/zero/1.0/	CC0
 http://creativecommons.org/publicdomain/zero/1.0/	CC ZERO
 http://creativecommons.org/publicdomain/zero/1.0/	CCZERO
@@ -169,6 +175,7 @@ http://opendatacommons.org/licenses/pddl/	PDDL
 http://opendatacommons.org/licenses/odc-by/	ODC-BY
 http://opendatacommons.org/licenses/odbl/	ODBL
 http://creativecommons.org/licenses/by/4.0/	Creative Commons BY
+http://creativecommons.org/licenses/by/3.0/	Creative Commons BY
 http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/re-use-and-licensing/ukglf/	http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/re-use-and-licensing/ukglf/
 http://creativecommons.org/licenses/by-nc/3.0/	http://creativecommons.org/licenses/by-nc/3.0/
 http://creativecommons.org/licenses/by/2.0/	http://creativecommons.org/licenses/by/2.0/

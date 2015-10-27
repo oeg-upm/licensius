@@ -9,6 +9,10 @@
         <servlet-class>oeg.licensius.service.LicenseFindlicenseinrdf</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>licensefindlicenseintxt</servlet-name>
+        <servlet-class>oeg.licensius.service.LicenseFindlicenseintxt</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>licenselist</servlet-name>
         <servlet-class>oeg.licensius.service.LicenseList</servlet-class>
     </servlet>
@@ -100,6 +104,10 @@
     <servlet-mapping>
         <servlet-name>licensefindlicenseinrdf</servlet-name>
         <url-pattern>/api/license/findlicenseinrdf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>licensefindlicenseintxt</servlet-name>
+        <url-pattern>/api/license/findlicenseintxt</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>licensefinder.jsp</welcome-file>

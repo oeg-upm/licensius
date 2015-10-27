@@ -30,7 +30,6 @@ public class LicenseGetlicenseinfo extends HttpServlet {
             if(rdf==null)
             {
                 resp.setStatus(404);
-                resp.setContentType("text/html");
                 return;
             }
             else

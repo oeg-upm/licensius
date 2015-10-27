@@ -17,7 +17,9 @@ import oeg.rdflicense.RDFLicenseDataset;
 import oeg.rdflicense.RDFUtils;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import java.util.List;
 
+import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
 /**
@@ -42,19 +44,19 @@ public class LicenseGuess extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(LicenseGuess.class.getName());
 
+    static Map<String, String> mapa = null ;
 
     /**
      * Gets a license given a fragment of a text
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String content = req.getParameter("txt");
         if (mapa == null) 
             mapa = loadMap();
         String out = "unknown";
         if (mapa==null) {
             out = "Could not load the info";
         }
-        String content = req.getParameter("txt");
-        
         String license = guessLicense(content);
         if (license.isEmpty())
             out = "unknown";
@@ -96,7 +98,6 @@ public class LicenseGuess extends HttpServlet {
     }
     
 
-    static Map<String, String> mapa = null ;
     /**
      * Guesses the license from an uncertain text
      * @param unknownText A text. For example "CC", "CCZero" etc.
@@ -178,6 +179,110 @@ public class LicenseGuess extends HttpServlet {
         }
         return out;
     }
+    
+    /**
+     * Guesses the license from an uncertain text
+     * @param unknownText A text. For example "CC", "CCZero" etc.
+     * @return Uri of a well-known license
+     */
+    public static LicensiusResponse guessLicense2(String unknownText)
+    {
+        LicensesFound lf = new LicensesFound();
+
+        
+           LicensiusError error = new LicensiusError(-7, "Not found");
+         
+        
+        if (mapa == null) 
+            mapa = loadMap();
+        if (mapa == null)
+            return error;
+        
+        String out = "";
+        unknownText = unknownText.trim();
+        unknownText = unknownText.replace("\"", "");
+        unknownText = unknownText.replace("\"", "");
+        unknownText = unknownText.toLowerCase();
+        
+        
+        //FIRST we check if they are totally equivalent
+
+        int n = l1.size();
+        for(int i=0;i<n;i++)
+        {
+            String licenseText = (String) l1.get(i);
+            String lic = (String)l2.get(i);
+            licenseText = licenseText.trim();
+            licenseText = licenseText.toLowerCase();
+            if (licenseText.equalsIgnoreCase(unknownText)) {
+                out = lic;
+
+                String rdf = RDFLicenseDataset.getRDFLicenseByLicense(out);
+            if (rdf!=null && !rdf.isEmpty())
+                lf.add(rdf,"","90");
+            }
+        }
+         
+        //SECOND iteration, with and without empty spaces
+        for(int i=0;i<n;i++)
+        {
+            String licenseText = (String) l1.get(i);
+            String lic = (String)l2.get(i);
+            String cmp2=unknownText;
+            licenseText = licenseText.trim();
+            licenseText = licenseText.toLowerCase();
+            licenseText = licenseText.replace(" ", "");
+            cmp2 = cmp2.replace(" ", "");
+            if (licenseText.equalsIgnoreCase(cmp2)) {
+                out = lic;
+                
+            String rdf = RDFLicenseDataset.getRDFLicenseByLicense(out);
+            if (rdf!=null && !rdf.isEmpty())
+                lf.add(rdf,"","70");
+                
+                
+            }
+        }
+
+        // FINALLY, WE CHECK IF ONE STRING CONTAINS THE OTHER OR VICEVERSA
+        if (unknownText.length()<5)
+        {
+            return lf;
+        }
+         for(int i=0;i<n;i++)
+        {
+            String licenseText = (String) l1.get(i);
+            String lic = (String)l2.get(i);
+            String cmp2 = unknownText;
+            cmp2 = cmp2.toLowerCase();
+            
+            if (licenseText.length()>5 && cmp2.length()<6)
+                continue;
+            
+            
+            licenseText = licenseText.trim();
+            licenseText = licenseText.toLowerCase();
+
+            licenseText = licenseText.replace(" ", "");
+            cmp2 = cmp2.replace(" ", "");
+            licenseText = licenseText.replace("-", "");
+            cmp2 = cmp2.replace("-", "");
+            licenseText = licenseText.replace(".", "");
+            cmp2 = cmp2.replace(".", "");
+            licenseText = licenseText.replace("/", "");
+            cmp2 = cmp2.replace("/", "");
+            
+            if (licenseText.contains(unknownText) || cmp2.contains(licenseText)) {
+                out = lic;
+
+                String rdf = RDFLicenseDataset.getRDFLicenseByLicense(out);
+            if (rdf!=null && !rdf.isEmpty())
+                lf.add(rdf,"","50");
+                
+            }
+        }
+        return lf;
+    }    
 
     /**
      * Obtiene el título
@@ -192,6 +297,9 @@ public class LicenseGuess extends HttpServlet {
     /***************************************************************************/
     /***************************************************************************/
     
+    
+    static List<String> l1 = new ArrayList(); 
+    static List<String> l2 = new ArrayList();
     /**
      * Loads the map from the given file
      * @return A map with two strings: candidate string and license to which it belongs to
@@ -210,6 +318,8 @@ public class LicenseGuess extends HttpServlet {
                 String s0 = linea.substring(0, i);
                 String s1 = linea.substring(i + 1, linea.length());
                 mapa.put(s1, s0);
+                l1.add(s1);
+                l2.add(s0);
             }
             return mapa;
         } catch (Exception e) {

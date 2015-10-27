@@ -2,17 +2,23 @@ package oeg.license;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.Exception;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 //JENA
 import java.util.List;
+import java.util.Map;
+import main.LicenseGuess;
 import main.LicensesFound;
 import main.LicensiusError;
 import main.LicensiusResponse;
+import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
 import oeg.rdflicense.RDFUtils;
 import org.apache.log4j.Logger;
@@ -262,12 +268,10 @@ public class LicenseFinder {
      * Busca una licencia a partir de una URI
      * @param uri String URI resoluble
      */
-    public LicensiusResponse findLicenseEx(String uri) {
+    public LicensiusResponse findLicenseInRDF(String uri) {
         LicensesFound lf = new LicensesFound();
-        String salida = "";
         Logger.getLogger("licenser").info("Finding license in " + uri);
         boolean ok = false;
-
         ok = parseFromJena(uri);
         if (!ok) {
             ok = this.parseAfterDownload(uri);
@@ -279,15 +283,58 @@ public class LicenseFinder {
         }
         List<String> predicados = getRightsPredicates();
         for (String predicado : predicados) {
-//            logger.info("Testing "+predicado);
             String licencia = getLicense(predicado);
             if (!licencia.isEmpty()) {
-                salida += licencia;
-                break;
+
+                String urix = licencia;
+                RDFLicense rdfl = RDFLicenseDataset.getRDFLicenseByURI(licencia);
+                if (rdfl==null)
+                    urix="";
+                lf.add(urix, predicado+" "+licencia, "100");
             }
         }
-        if (salida.isEmpty())
-            salida = "unknown";
         return lf;
     }    
+    
+    
+    static Map<String, String> mapa = null ;
+    
+    /**
+     * Busca una licencia a partir de una URI
+     * @param uri String URI resoluble
+     */
+    public LicensiusResponse findLicenseInText(String uri) {
+        LicensesFound lf = new LicensesFound();
+
+        String s = LicenseGuess.guessLicense(uri);
+        if (s == null || s.isEmpty())
+        {
+            LicensiusError error = new LicensiusError(-7, "Internal error");
+            return error;
+        }
+        
+        String rdf = RDFLicenseDataset.getRDFLicenseByLicense(s);
+        if (rdf!=null && !rdf.isEmpty())
+            lf.add(rdf,"","100");
+        else
+            lf.add("",s,"100");
+        
+        /*List<String> predicados = getRightsPredicates();
+        for (String predicado : predicados) {
+            String licencia = getLicense(predicado);
+            if (!licencia.isEmpty()) {
+
+                String urix = licencia;
+                RDFLicense rdfl = RDFLicenseDataset.getRDFLicenseByURI(licencia);
+                if (rdfl==null)
+                    urix="";
+                lf.add(urix, predicado+" "+licencia, "100");
+            }
+        }*/
+        return lf;
+    }        
+    
+    
+    
+    
 }
