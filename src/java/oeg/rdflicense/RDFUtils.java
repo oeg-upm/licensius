@@ -288,18 +288,18 @@ public class RDFUtils {
         logger.info("Size: " + txt.length());
         try {
             model.read(is, null, "RDF/XML");
-            logger.warn("Read as RDF/XML");
+            logger.debug("Read as RDF/XML");
             return model;
         } catch (Exception e) {
-            logger.warn("Failed as RDF/XML. " + e.getMessage());
+            logger.debug("Failed as RDF/XML. " + e.getMessage());
             try {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
                 model.read(is, null, "TURTLE");
-                logger.warn("Read as TURTLE");
+                logger.debug("Read as TURTLE");
                 return model;
             } catch (Exception e2) {
-                logger.warn("Failed as TURTLE. " + e2.getMessage());
+                logger.debug("Failed as TURTLE. " + e2.getMessage());
             }
             return null;
         }

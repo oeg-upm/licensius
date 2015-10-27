@@ -45,7 +45,7 @@ public class Licensius {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Logger.getRootLogger().setLevel((Level) Level.DEBUG);
+        Logger.getRootLogger().setLevel((Level) Level.INFO);
         Logger.getRootLogger().info("Ejecutado: " + new Date().toString() + " - Iniciando logger");
         Logger.getRootLogger().info("=========================================================");
         Logger.getLogger("com.hp.hpl.jena.rdf.model.impl.RDFDefaultErrorHandler").setLevel(Level.OFF);

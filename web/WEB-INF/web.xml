@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
+        <servlet-name>licensefindlicenseinrdf</servlet-name>
+        <servlet-class>oeg.licensius.service.LicenseFindlicenseinrdf</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>licenselist</servlet-name>
         <servlet-class>oeg.licensius.service.LicenseList</servlet-class>
     </servlet>
@@ -83,15 +87,15 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>licenselist</servlet-name>
-        <url-pattern>/license/list</url-pattern>
+        <url-pattern>/api/license/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>licensefindinrdf</servlet-name>
+        <url-pattern>/api/license/findinrdf</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>licensefinder.jsp</welcome-file>
     </welcome-file-list>
-  <filter>
-    <filter-name>ApiOriginFilter</filter-name>
-    <filter-class>io.swagger.api.ApiOriginFilter</filter-class>
-  </filter>
     <filter>
         <filter-name>CorsFilter</filter-name>
         <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
@@ -100,8 +104,4 @@
         <filter-name>CorsFilter</filter-name>
         <url-pattern>/api/*</url-pattern>
     </filter-mapping>
-  <filter-mapping>
-    <filter-name>ApiOriginFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
 </web-app>

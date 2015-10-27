@@ -57,6 +57,22 @@ public class RDFLicense {
         return uri;
     }
     
+    public String toMicroJSON()
+    {
+        String json ="";
+        try {
+            JSONObject obj = new JSONObject();
+            obj.put("uri", uri);
+            obj.put("title", getLabel());
+            obj.put("source", getSeeAlso());
+            json = obj.toString();
+        } catch (Exception e) {
+            json = "error";
+        }
+        return json;
+        
+    }
+    
     public String toJSON()
     {
         String json ="";

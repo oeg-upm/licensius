@@ -54,7 +54,7 @@ public class RDFLicenseDataset {
     
     
     /**
-     * Retrieves a list of all the RDFLicenses
+     * Retrieves a list of all the RDFLicenses present in http://rdflicense.appspot.com/
      */
     public List<RDFLicense> listRDFLicenses()
     {
