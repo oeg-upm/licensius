@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 //JENA
 import java.util.List;
+import main.LicensesFound;
+import main.LicensiusError;
+import main.LicensiusResponse;
 import oeg.rdflicense.RDFLicenseDataset;
 import oeg.rdflicense.RDFUtils;
 import org.apache.log4j.Logger;
@@ -253,4 +256,38 @@ public class LicenseFinder {
         predicados.add("http://purl.org/dc/elements/1.1/rights");
         return predicados;
     }
+    
+    
+    /**
+     * Busca una licencia a partir de una URI
+     * @param uri String URI resoluble
+     */
+    public LicensiusResponse findLicenseEx(String uri) {
+        LicensesFound lf = new LicensesFound();
+        String salida = "";
+        Logger.getLogger("licenser").info("Finding license in " + uri);
+        boolean ok = false;
+
+        ok = parseFromJena(uri);
+        if (!ok) {
+            ok = this.parseAfterDownload(uri);
+        }
+        if (!ok) {
+            Logger.getLogger("licenser").info("Jena has failed to load the model");
+            LicensiusError error = new LicensiusError(-5, "The model could not be loaded. The ontology is not valid");
+            return error;
+        }
+        List<String> predicados = getRightsPredicates();
+        for (String predicado : predicados) {
+//            logger.info("Testing "+predicado);
+            String licencia = getLicense(predicado);
+            if (!licencia.isEmpty()) {
+                salida += licencia;
+                break;
+            }
+        }
+        if (salida.isEmpty())
+            salida = "unknown";
+        return lf;
+    }    
 }

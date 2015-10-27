@@ -1,12 +1,12 @@
 swagger: '2.0'
 info:
   title: Licensius
-  description: Licensing related services
-  version: 2.1.0
+  description: 'Licensing related services.  These services provide additional information on common licenses (e.g. Creative Commons, Open Data Commons, etc.), their compatibility and their meaning.'
+  version: 2.1.1
   license:
     name: cc-by-4.0
     url: 'http://purl.org/NET/rdflicense/cc-by3.0'
-host: licensius.com
+host: www.licensius.com
 schemes:
   - http
 basePath: /api
@@ -18,39 +18,61 @@ paths:
       summary: A test
       description: Nothing more than a test call.
       responses:
-        '200': 
+        '200':
           description: A hello world string to test the service availability
-          
   /license/list:
-    get: 
-      summary: Obtains a list of licenses
-      description: Obtains a list of well-known licenses to be used for general works and data, together with the RDF equivalent.
+    get:
+      summary: Obtains a list of unique license identifiers
+      description: Obtains a list of unique identifiers of well-known licenses to be used for general works and data. This identifier can be further queried in order to obtain advanced information.  The license identifiers are dereferenceable and further information can be obtained by simply resolving the URI
       tags:
         - license
-      responses: 
+      responses:
         '200':
-          description: An array of licenses
+          description: An array of license identifiers
           schema:
             type: array
             items:
-              $ref: '#/definitions/license'
-        default:
-          description: Unexpected error
+              type: "string"
+        '500':
+          description: Server error
           schema:
             $ref: '#/definitions/Error'
-
-  /license/findlicenseinrdf:
-    get: 
-      summary: Guesses the license in an ontology or dataset. 
-      description: Obtains a list guessed licenses in the Linked Data resource. Triples with the property dct:license etc. are scanned.
+  /license/getlicenseinfo:
+    get:
+      summary: Retrieves info about a particular license
+      description: Obtains a list of properties related to a certain license. 
       tags:
         - license
-      parameters: 
+      parameters:
+        - name: uri
+          in: query
+          description: Identifier of a well-known license. For example, http://rdflicense.appspot.com/rdflicense/cc-by3.0
+          type: string
+      responses:
+        '200':
+          description: A list of properties about the license
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/licenseinfo'
+        '404':
+          description: License not found
+        '500':
+          description: Server error
+          schema:
+            $ref: '#/definitions/Error'
+  /license/findlicenseinrdf:
+    get:
+      summary: Guesses the license in an ontology or dataset.
+      description: 'Obtains a list guessed licenses in the Linked Data resource. Triples with the property dct:license etc. are scanned.'
+      tags:
+        - license
+      parameters:
         - name: uri
           in: query
           description: URI to the RDF document where the license will be scanned
           type: string
-      responses: 
+      responses:
         '200':
           description: An array of licenses guesses
           schema:
@@ -61,19 +83,18 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-
   /license/findlicenseintxt:
-    get: 
-      summary: Guesses the license in a text fragment. 
+    get:
+      summary: Guesses the license in a text fragment.
       description: Obtains a list guessed licenses in a text document. Known text fragments are searched.
-      parameters: 
+      parameters:
         - name: uri
           in: query
           description: URI to the textdocument where the license will be scanned
           type: string
       tags:
         - license
-      responses: 
+      responses:
         '200':
           description: An array of licenses guesses
           schema:
@@ -84,56 +105,52 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
-
-
   /odrl/validate:
     get:
       summary: Validates a ODRL fragment
       description: Determines whether an RDF document conforms or not to the ODRL specification
-      parameters: 
-          - name: odrl
-            in: query
-            description: Fragment of RDF to be parsed
-            type: string
+      parameters:
+        - name: odrl
+          in: query
+          description: Fragment of RDF to be parsed
+          type: string
       tags:
-          - odrl
-      responses: 
+        - odrl
+      responses:
         '200':
           description: True or false
-
-
 definitions:
-  license:
+  licenseinfo:
     type: object
     properties:
       uri:
         type: string
-        description: URI of the RDFlicense.
+        description: Identifier of the license
       title:
         type: string
         description: Common name of a License
       source:
         type: string
-        description: URI of the original text (if any).
+        description: Source of the original text (URI if any).
+      version:
+        type: string
+        description: Version of the License
   licenseguess:
     type: object
     properties:
       license:
-        type: object
-        description: ''
+        type: string
+        description: Identifier of the license
       evidence:
         type: string
-        description: 'Evidence of the result'
+        description: Evidence of the result
       confidence:
         type: string
-        description: 'Confidence value in the range 0-100'
+        description: Confidence value in the range 0-100
   Error:
     type: object
     properties:
       code:
         type: integer
-        format: int32
       message:
-        type: string
-      fields:
         type: string

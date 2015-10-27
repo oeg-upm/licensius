@@ -26,6 +26,12 @@ public class RDFLicense {
     {
         
     }
+    public String getTitle()
+    {
+        if (model==null)
+            return "error";
+        return RDFUtils.getFirstValue(model, uri, "http://www.w3.org/2000/01/rdf-schema#label");
+    }
     
     public String getLabel()
     {
@@ -73,6 +79,7 @@ public class RDFLicense {
         
     }
     
+    
     public String toJSON()
     {
         String json ="";
@@ -98,5 +105,23 @@ public class RDFLicense {
         model.write(sw, "TURTLE");
         return sw.toString();
     }
-        
+ 
+    public String toLongJSON()
+    {
+        String json ="";
+        try {
+            JSONObject obj = new JSONObject();
+            obj.put("uri", uri);
+            obj.put("seeAlso", getSeeAlso());
+            obj.put("label", getLabel());
+            obj.put("title", getTitle());
+            obj.put("legalcode", getLegalCode());
+            json = obj.toString();
+        } catch (Exception e) {
+            json = "error";
+        }
+        return json;
+    }    
+    
+    
 }

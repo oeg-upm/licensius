@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import main.LicensiusResponse;
+import oeg.license.LicenseFinder;
 
 /**
  *
@@ -13,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LicenseFindlicenseinrdf extends HttpServlet {
     
-    private static final Logger logger = Logger.getLogger(Test.class.getName());
+    private static final Logger logger = Logger.getLogger(LicenseFindlicenseinrdf.class.getName());
 
     /**
      * Sirve una cadena de prueba.
@@ -21,11 +23,13 @@ public class LicenseFindlicenseinrdf extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             resp.setStatus(200);
             resp.setContentType("application/json");
+            String uri = req.getParameter("uri");
             
+            LicenseFinder lf = new LicenseFinder();
+            LicensiusResponse le = lf.findLicenseEx(uri);
             
-            String content = req.getParameter("uri");
             PrintWriter w = resp.getWriter();
-            w.println(content);
+            w.println(le.getJSON());
             return;
         }
     

@@ -73,7 +73,8 @@ public class RDFLicenseDataset {
         for(Resource res : rdflicenses)
         {
             RDFLicense rdflicense=getRDFLicense(res.getURI());
-            licenses.add(rdflicense);
+            if (rdflicense!=null)
+                licenses.add(rdflicense);
         }
         return licenses;
     }

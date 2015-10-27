@@ -1,4 +1,4 @@
-package main;
+package oeg.licensius.test;
 
 import java.io.IOException;
 import java.io.BufferedReader;

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
+        <servlet-name>licensegetlicenseinfo</servlet-name>
+        <servlet-class>oeg.licensius.service.LicenseGetlicenseinfo</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>licensefindlicenseinrdf</servlet-name>
         <servlet-class>oeg.licensius.service.LicenseFindlicenseinrdf</servlet-class>
     </servlet>
@@ -90,8 +94,12 @@
         <url-pattern>/api/license/list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>licensefindinrdf</servlet-name>
-        <url-pattern>/api/license/findinrdf</url-pattern>
+        <servlet-name>licensegetlicenseinfo</servlet-name>
+        <url-pattern>/api/license/getlicenseinfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>licensefindlicenseinrdf</servlet-name>
+        <url-pattern>/api/license/findlicenseinrdf</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>licensefinder.jsp</welcome-file>
