@@ -1,17 +1,20 @@
 package oeg.rdflicense;
 
-import com.hp.hpl.jena.rdf.model.Model;
 import java.io.StringWriter;
 import java.util.Comparator;
 import odrlmodel.ODRLRDF;
 import odrlmodel.Policy;
+
+//JENA
+import com.hp.hpl.jena.rdf.model.Model;
 
 //JSONSIMPLE
 import org.json.simple.JSONObject;
 
 /**
  * This class represents a license in RDF.
- * This project will online compile under Java SDK 7. Fix both the PATH environment variable and the JAVA_HOME to point to the Java 7 SDK.
+ * If this project is to be deployed in google app engine, then it will have to be compiled with Java SDK 7.
+ * Fix both the PATH environment variable and the JAVA_HOME to point to the Java 7 SDK.
  * @author Victor
  */
 public class RDFLicense {
