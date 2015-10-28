@@ -37,10 +37,10 @@
 <body> 
     
  <div class="container">
- <div class="jumbotron">
+ <!-- <div class="jumbotron"> -->
 	<center><h1>RDFLicense dataset</h1> 
-        <p>A set of licenses represented in RDF</p></center>
- </div>
+        <p>A dataset of licenses represented in RDF</p></center>
+<!-- </div> -->
     
 	<div class="col-md-2">
 
@@ -113,7 +113,7 @@ $(function(){
 
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="./80x15.png"></a>This dataset is published under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.
 You may also want to cite our research work:</p><p>
-</p><blockquote><a href="http://delicias.dia.fi.upm.es/~vrodriguez/pdf/2014.11.jurix.dataset.pdf">A Dataset of RDF Licenses</a>, V. Rodriguez-Doncel, S. Villata, A. Gomez-Perez, in Proc. of the 27th Int. Conf. on Legal Knowledge and Information System (JURIX), R. Hoekstra (Ed.), ISBN 978-1-61499-467-1, pp. 187-189, IOS Press, 2014 </blockquote>
+</p><blockquote><a href="http://delicias.dia.fi.upm.es/~vrodriguez/pdf/2014.11.jurix.dataset.pdf">A Dataset of RDF Licenses</a>, V. Rodriguez-Doncel, S. Villata, A. Gomez-Perez, in Proc. of the 27th Int. Conf. on Legal Knowledge and Information System (JURIX), R. Hoekstra (Ed.), ISBN 978-1-61499-467-1, pp. 187-189, IOS Press, (2014) </blockquote>
 
 
 
