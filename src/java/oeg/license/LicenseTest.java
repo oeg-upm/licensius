@@ -42,7 +42,7 @@ public class LicenseTest {
             logger.info("Size: " + s.length());
             LicenseFinder lf = new LicenseFinder();
 //          String resultado = lf.findLicense("C:///desktop///lemonTranslation.owl");
-            String resultado = lf.findLicenseFromText(s);
+            String resultado = lf.findLicenseFromRDFText(s);
             System.out.println(resultado);
         } catch (Exception e) {
             e.printStackTrace();

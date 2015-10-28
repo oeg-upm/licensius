@@ -8,7 +8,9 @@ http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231	W3C Software
 http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231	W3C License
 https://www.gnu.org/licenses/lgpl.html	GNU LESSER GENERAL PUBLIC LICENSE
 https://www.gnu.org/licenses/lgpl.html	LGPL
+http://gnu.org/licenses/gpl-1.0.html	GNU General Public License
 http://gnu.org/licenses/gpl-2.0.html	GNU General Public License
+http://gnu.org/licenses/gpl-3.0.html	GNU General Public License
 http://gnu.org/licenses/gpl-2.0.html	GPL 2
 http://gnu.org/licenses/gpl-2.0.html	GPL2
 http://gnu.org/licenses/gpl-2.0.html	GPLv2
@@ -19,6 +21,8 @@ http://gnu.org/licenses/gpl-3.0.html	GPL v3
 http://gnu.org/licenses/gpl-3.0.html	GPL 3
 http://gnu.org/licenses/gpl-3.0.html	GPL3
 http://gnu.org/licenses/gpl-3.0.html	GNU GPL
+http://gnu.org/licenses/gpl-2.0.html	GNU GPL
+http://gnu.org/licenses/gpl-1.0.html	GNU GPL
 http://opensource.org/licenses/MIT	MIT LICENSE
 https://www.mozilla.org/MPL/2.0/	MOZILLA PUBLIC LICENSE 2.0
 https://www.mozilla.org/MPL/2.0/	MOZILLA

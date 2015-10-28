@@ -61,7 +61,7 @@ public class GetLicenseServlet extends HttpServlet {
         if (isURI) {
             resultado = lf.findLicense(content);
         } else {
-            resultado = lf.findLicenseFromText(content);
+            resultado = lf.findLicenseFromRDFText(content);
             resp.setStatus(200);
             resp.setContentType("text/html");
             PrintWriter w = resp.getWriter();

@@ -1,4 +1,4 @@
-package main;
+package oeg.licensius.model;
 
 import java.util.ArrayList;
 import java.util.List;

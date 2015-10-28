@@ -57,14 +57,6 @@ public class LicenseFinderWeb {
     }
 
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        final String PAGINA = "http://creativecommons.org/ns";
-        System.out.println(checkForLicenseHint(PAGINA));
-//        WebLicenseAnalyzer.analyzeWeb(PAGINA);
-    }
     
     
     /**
@@ -233,4 +225,14 @@ public class LicenseFinderWeb {
         }
         return null;
     }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        final String PAGINA = "http://wiki.dbpedia.org/data-set-20";
+        System.out.println(checkForLicenseHint(PAGINA));
+//        WebLicenseAnalyzer.analyzeWeb(PAGINA);
+    }
+    
 }

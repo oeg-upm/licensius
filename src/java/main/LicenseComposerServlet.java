@@ -25,17 +25,10 @@ public class LicenseComposerServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        
         String lic1 = request.getParameter("lic1");
         String lic2 = request.getParameter("lic2");
-
-            
-        
         String result=LicenseComposer.compose(lic1, lic2);
-        
         request.setAttribute("message3", "<strong>Result:</strong> " + result);
-
         request.getRequestDispatcher("/licensefinder.jsp").forward(request, response);        
         
         try {

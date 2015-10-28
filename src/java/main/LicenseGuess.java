@@ -1,5 +1,8 @@
 package main;
 
+import oeg.licensius.model.LicensiusResponse;
+import oeg.licensius.model.LicensiusError;
+import oeg.licensius.model.LicensesFound;
 import java.io.IOException;
 import javax.servlet.http.*;
 import java.io.BufferedReader;
@@ -15,11 +18,12 @@ import javax.servlet.ServletException;
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
 import oeg.rdflicense.RDFUtils;
-
 import com.hp.hpl.jena.rdf.model.Model;
 import java.util.List;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import org.apache.log4j.Logger;
 
 /**
@@ -182,21 +186,20 @@ public class LicenseGuess extends HttpServlet {
     
     /**
      * Guesses the license from an uncertain text
-     * @param unknownText A text. For example "CC", "CCZero" etc.
+     * @param unknownText A text. For example "CC", "CCZero", "This document is licensed under a GNU GDL" etc.
      * @return Uri of a well-known license
      */
     public static LicensiusResponse guessLicense2(String unknownText)
     {
         LicensesFound lf = new LicensesFound();
-
-        
-           LicensiusError error = new LicensiusError(-7, "Not found");
          
-        
         if (mapa == null) 
             mapa = loadMap();
         if (mapa == null)
+        {
+            LicensiusError error = new LicensiusError(404, "Not found");
             return error;
+        }
         
         String out = "";
         unknownText = unknownText.trim();
@@ -205,8 +208,11 @@ public class LicenseGuess extends HttpServlet {
         unknownText = unknownText.toLowerCase();
         
         
+        //para evitar duplicados
+        Set<String> encontradas = new HashSet();
+        
+        
         //FIRST we check if they are totally equivalent
-
         int n = l1.size();
         for(int i=0;i<n;i++)
         {
@@ -216,10 +222,13 @@ public class LicenseGuess extends HttpServlet {
             licenseText = licenseText.toLowerCase();
             if (licenseText.equalsIgnoreCase(unknownText)) {
                 out = lic;
-
                 String rdf = RDFLicenseDataset.getRDFLicenseByLicense(out);
             if (rdf!=null && !rdf.isEmpty())
-                lf.add(rdf,"","90");
+                if (!encontradas.contains(rdf))
+                {
+                    encontradas.add(rdf);
+                    lf.add(rdf,"","90");
+                }
             }
         }
          
@@ -238,7 +247,13 @@ public class LicenseGuess extends HttpServlet {
                 
             String rdf = RDFLicenseDataset.getRDFLicenseByLicense(out);
             if (rdf!=null && !rdf.isEmpty())
+            {
+                if (!encontradas.contains(rdf))
+                {
+                    encontradas.add(rdf);
                 lf.add(rdf,"","70");
+                }
+            }
                 
                 
             }
@@ -277,22 +292,20 @@ public class LicenseGuess extends HttpServlet {
 
                 String rdf = RDFLicenseDataset.getRDFLicenseByLicense(out);
             if (rdf!=null && !rdf.isEmpty())
-                lf.add(rdf,"","50");
+            {
+                if (!encontradas.contains(rdf))
+                {
+                    encontradas.add(rdf);
+                    lf.add(rdf,"","50");
+                }
+            }
                 
             }
         }
         return lf;
     }    
 
-    /**
-     * Obtiene el título
-     */
-    public String getTitle(Model model, String uri) {
-        String rdflicense = RDFLicenseDataset.getRDFLicenseByLicense(uri);
-        String title = RDFUtils.getLabel(model, rdflicense);
-        return title;
-    }
-
+ 
     /***************************************************************************/
     /***************************************************************************/
     /***************************************************************************/

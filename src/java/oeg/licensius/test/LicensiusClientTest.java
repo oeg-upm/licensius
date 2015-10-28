@@ -31,7 +31,7 @@ public class LicensiusClientTest {
      */
     public static void main(String[] args) {
         String s ="";
-        testRaw();
+        getLicense2("https://www.gnu.org/licenses/gpl.txt");
     }
 
     /**
@@ -144,6 +144,42 @@ public class LicensiusClientTest {
         }
         return output;
     }
+
+
+    /**
+     * Invokes the getLicense method of the Licensius service, so that
+     * the license in a RDF resource is found.
+     * @param uriToScan URI to scan, for example http://purl.org/goodrelations/v1.owl
+     */
+    public static String getLicense2(String uriToScan) {
+        String output = "unknown";
+        try {
+            String uri = "http://licensius.com/api/license/findlicenseintxt?txt=";
+            String encodedData = URLEncoder.encode(uriToScan);
+            uri += encodedData;
+            System.out.println(uri);
+            URL url = new URL(uri);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("HTTP error code : " + conn.getResponseCode());
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String linea = "";
+            while ((linea = br.readLine()) != null) {
+                output = linea;
+            }
+            conn.disconnect();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return output;
+    }
+
 
     /**
      * Invokes the getLicense method of the Licensius service, so that
