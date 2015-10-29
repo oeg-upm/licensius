@@ -1,8 +1,10 @@
 odrlapi
 =======
 
-API to manipulate ODRL expressions
+Java API to manipulate ODRL2 expressions.
 
-For more info, see http://vroddon.github.io/odrlapi/
+This API permits creating ODRL expressions in its RDF serialization by using simple Java methods.
 
-Víctor Rodríguez Doncel - August 2014
+For more info, see http://oeg-upm.github.io/odrlapi/
+
+Víctor Rodríguez Doncel 
