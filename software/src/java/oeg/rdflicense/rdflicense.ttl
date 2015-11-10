@@ -2167,7 +2167,7 @@
 <http://purl.org/NET/rdflicense/ukogl-nc2.0>
     a   odrl:Policy ;
     dct:hasVersion "2.0" ;
-    rdfs:label   "Open Government Licence Non Commercial";
+    rdfs:label   "Open Government Licence Non-Commercial";
     cc:jurisdiction <http://dbpedia.org/page/United_Kingdom>;
     dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		  	dct:publisher "The National Archives";
@@ -2176,10 +2176,10 @@
         odrl:duty [
             odrl:action cc:Attribution , cc:Notice
 	] ;
-        odrl:prohibition [
-                odrl:action cc:CommercialUse ;
-        ] ;
     ];
+    odrl:prohibition [
+            odrl:action cc:CommercialUse ;
+    ] ;
     rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> ;					
     cc:legalcode <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> . 						
 			
