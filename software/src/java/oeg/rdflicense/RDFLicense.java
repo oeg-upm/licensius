@@ -13,8 +13,12 @@ import org.json.simple.JSONObject;
 
 /**
  * This class represents a license in RDF.
+ * 
+ * HOW TO DEPLOY IN GOOGLE APP ENGINE
+ * ==================================
  * If this project is to be deployed in google app engine, then it will have to be compiled with Java SDK 7.
  * Fix both the PATH environment variable and the JAVA_HOME to point to the Java 7 SDK.
+ * Use the gcloud command, or upload the app by using the plugin in Netbeans7
  * @author Victor
  */
 public class RDFLicense {
