@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
+        <servlet-name>licenseiscompatible</servlet-name>
+        <servlet-class>oeg.licensius.service.LicenseIscompatible</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>licenseisopen</servlet-name>
         <servlet-class>oeg.licensius.service.LicenseIsopen</servlet-class>
     </servlet>
@@ -24,6 +28,10 @@
         <servlet-name>test</servlet-name>
         <servlet-class>oeg.licensius.service.Test</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>licenseiscompatible</servlet-name>
+        <url-pattern>/api/license/iscompatible</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>licenseisopen</servlet-name>
         <url-pattern>/api/license/isopen</url-pattern>

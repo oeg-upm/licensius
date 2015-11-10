@@ -5,9 +5,9 @@ package oeg.licensius.model;
  * @author vrodriguez
  */
 public class LicensiusError implements LicensiusResponse {
-    
-    int code = -1;
-    String  message = "unknown";
+      
+    public int code = -1;
+    public String  message = "unknown";
 
     public LicensiusError()
     {
