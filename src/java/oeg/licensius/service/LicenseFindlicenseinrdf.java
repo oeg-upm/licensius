@@ -35,7 +35,8 @@ public class LicenseFindlicenseinrdf extends HttpServlet {
                 return;
             }
             resp.setStatus(200);
-            resp.setContentType("application/json");
+            //resp.setContentType("application/json");
+            resp.setContentType("text/html");
             PrintWriter w = resp.getWriter();
             w.println(le.getJSON());
             return;

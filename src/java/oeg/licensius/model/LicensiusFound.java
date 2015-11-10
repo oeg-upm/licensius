@@ -2,18 +2,19 @@ package oeg.licensius.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.json.simple.JSONObject;
 
 /**
  *
  * @author vrodriguez
  */
-public class LicensesFound implements LicensiusResponse {
+public class LicensiusFound implements LicensiusResponse {
 
     List<String> licenses = new ArrayList();
     List<String> confidences = new ArrayList();
     List<String> evidences = new ArrayList();
     
-    public LicensesFound()
+    public LicensiusFound()
     {
         
     }
@@ -21,15 +22,14 @@ public class LicensesFound implements LicensiusResponse {
     @Override
     public String getJSON() {
 
-        
     String json ="[";    
     
     int n = licenses.size();
     for(int i =0;i<n;i++)
     {
-        String license = licenses.get(i);
-        String confidence = confidences.get(i);
-        String evidence = evidences.get(i);
+        String license = JSONObject.escape(licenses.get(i));
+        String confidence = JSONObject.escape(confidences.get(i));
+        String evidence = JSONObject.escape(evidences.get(i));
         String found ="  {\n" +
         "    \"license\": \""+license+ "\",\n" +
         "    \"evidence\": \""+evidence+ "\",\n" +

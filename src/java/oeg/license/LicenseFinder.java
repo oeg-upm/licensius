@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import main.LicenseGuess;
-import oeg.licensius.model.LicensesFound;
+import oeg.licensius.model.LicensiusFound;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 import oeg.rdflicense.RDFLicense;
@@ -252,7 +252,7 @@ public class LicenseFinder {
      * @param uri String URI resoluble
      */
     public LicensiusResponse findLicenseInRDF(String uri) {
-        LicensesFound lf = new LicensesFound();
+        LicensiusFound lf = new LicensiusFound();
         Logger.getLogger("licenser").info("Finding license in " + uri);
         boolean ok = false;
         ok = parseFromJena(uri);
@@ -284,7 +284,7 @@ public class LicenseFinder {
      * @return A string with the URI of the famous license.
      */
     public LicensiusResponse findLicenseFromRDFText2(String txt) {
-        LicensesFound lf = new LicensesFound();
+        LicensiusFound lf = new LicensiusFound();
         String salida = "";
         boolean ok = parseFromText(txt);
         if (!ok) {
@@ -313,7 +313,7 @@ public class LicenseFinder {
      * @param txt Texto en el cual ha de buscarse.
      */
     public LicensiusResponse findLicenseInText(String txt) {
-        LicensesFound lf = new LicensesFound();
+        LicensiusFound lf = new LicensiusFound();
         String s = LicenseGuess.guessLicense(txt);
         if (s == null || s.isEmpty())
         {

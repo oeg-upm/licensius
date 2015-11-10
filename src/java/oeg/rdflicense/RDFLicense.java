@@ -33,6 +33,13 @@ public class RDFLicense {
         return RDFUtils.getFirstValue(model, uri, "http://www.w3.org/2000/01/rdf-schema#label");
     }
 
+    public String getPublisher()
+    {
+        if (model==null)
+            return "error";
+        return RDFUtils.getFirstValue(model, uri, "http://purl.org/dc/terms/publisher");
+    }
+
     public String getVersion()
     {
         if (model==null)

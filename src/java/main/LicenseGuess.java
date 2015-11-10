@@ -2,7 +2,7 @@ package main;
 
 import oeg.licensius.model.LicensiusResponse;
 import oeg.licensius.model.LicensiusError;
-import oeg.licensius.model.LicensesFound;
+import oeg.licensius.model.LicensiusFound;
 import java.io.IOException;
 import javax.servlet.http.*;
 import java.io.BufferedReader;
@@ -191,7 +191,7 @@ public class LicenseGuess extends HttpServlet {
      */
     public static LicensiusResponse guessLicense2(String unknownText)
     {
-        LicensesFound lf = new LicensesFound();
+        LicensiusFound lf = new LicensiusFound();
          
         if (mapa == null) 
             mapa = loadMap();
