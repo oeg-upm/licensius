@@ -14,12 +14,13 @@ import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 import oeg.licensius.model.LicensiusSimple;
 import oeg.rdflicense.RDFLicense;
+import oeg.rdflicense.RDFLicenseCheck;
 import oeg.rdflicense.RDFLicenseDataset;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
 /**
- * Returns a list of licenses
+ * Determines if a license is open or not
  * @author vrodriguez
  */
 public class LicenseIsopen extends HttpServlet {
@@ -50,8 +51,6 @@ public class LicenseIsopen extends HttpServlet {
             return;             
         }
     
-    /**
-     */
     public LicensiusResponse get(String uri)
     {
         JSONArray array = new JSONArray();
@@ -61,8 +60,10 @@ public class LicenseIsopen extends HttpServlet {
             LicensiusError error = new LicensiusError(404, "License not found.");
             return error;
         }
+        
         LicensiusSimple ls = new LicensiusSimple();
-        ls.text="yes";
+        RDFLicenseCheck check = new RDFLicenseCheck(lic);
+        ls.text=""+check.isOpen();
         return ls;
 
     }

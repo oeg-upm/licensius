@@ -49,7 +49,7 @@
         <url-pattern>/api/license/findlicenseintxt</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>http://www.licensius.com</welcome-file>
+        <welcome-file>http://licensius.com</welcome-file>
     </welcome-file-list>
     <filter>
         <filter-name>CorsFilter</filter-name>
