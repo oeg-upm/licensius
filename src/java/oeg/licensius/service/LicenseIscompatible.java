@@ -55,15 +55,14 @@ public class LicenseIscompatible extends HttpServlet {
     {
         JSONArray array = new JSONArray();
         RDFLicense lic1 = RDFLicenseDataset.getRDFLicense(uri1);
-        RDFLicense lic2 = RDFLicenseDataset.getRDFLicense(uri1);
+        RDFLicense lic2 = RDFLicenseDataset.getRDFLicense(uri2);
         if (lic1==null || lic2==null)
         {
             LicensiusError error = new LicensiusError(404, "License not found.");
             return error;
         }
-        
         LicensiusSimple ls = new LicensiusSimple();
-        ls.text="";
+        ls.text=RDFLicenseCheck.compose(lic1, lic2);
         return ls;
 
     }

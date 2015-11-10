@@ -324,4 +324,37 @@ public class RDFUtils {
         s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
         return s;
     }
+    public static String getLicensePrefixes(String f) {
+        String s ="";
+        s += "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
+        s += "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+        s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
+
+        
+        if (f.contains("cc:"))
+            s += "@prefix cc: <http://creativecommons.org/ns#> . \n";
+        if (f.contains("dct:"))
+            s += "@prefix dct: <http://purl.org/dc/terms/> . \n";
+        if (f.contains("owl:"))
+            s += "@prefix owl: <http://www.w3.org/2002/07/owl#> .\n";
+        if (f.contains("dcat:"))
+            s += "@prefix dcat:  <http://www.w3.org/ns/dcat#> .\n";
+        if (f.contains("xml:"))
+            s += "@prefix xml: <http://www.w3.org/XML/1998/namespace> .\n";
+        if (f.contains("xsd:"))
+            s += "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
+        if (f.contains("foaf:"))
+            s += "@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n";
+        if (f.contains("l4lod:"))
+            s += "@prefix l4lod: <http://ns.inria.fr/l4lod/> .\n";
+        if (f.contains("odrl:"))
+            s += "@prefix odrl: <http://www.w3.org/ns/odrl/2/> .\n";
+        if (f.contains("ldr:"))
+            s += "@prefix ldr: <http://purl.org/NET/ldr/ns#> .\n";
+        if (f.contains("skos:"))
+            s += "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n";
+        if (f.contains("provo:"))
+            s += "@prefix provo: <http://purl.org/net/provenance/ns#> .\n";
+        return s;
+    }    
 }

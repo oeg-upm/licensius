@@ -2,6 +2,7 @@ package oeg.rdflicense;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.NsIterator;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
@@ -12,6 +13,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import main.Licensius;
 import org.apache.log4j.Logger;
@@ -109,8 +111,9 @@ public class RDFLicenseDataset {
             logger.warn("License " + rdfuri +" end is not found");
             return null;
         }
+        //fragmento is the fragment in the raw file.
         String fragmento=raw.substring(index, index2+1);
-        fragmento = RDFUtils.getLicensePrefixes() + fragmento;
+        fragmento = RDFUtils.getLicensePrefixes(fragmento) + fragmento;
         
         RDFLicense rdflicense = new RDFLicense();
         rdflicense.model = RDFUtils.parseFromText(fragmento); 
