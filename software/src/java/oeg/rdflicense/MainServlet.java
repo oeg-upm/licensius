@@ -124,10 +124,7 @@ public class MainServlet extends HttpServlet {
                 resp.setContentType("text/html;charset=utf-8");
                 resp.setStatus(HttpServletResponse.SC_OK);
             }
-            
-
         }
-
     }
 
     /**
@@ -198,7 +195,6 @@ public class MainServlet extends HttpServlet {
         } catch (Exception e) {
             logger.warn(e.getMessage());
         }
-
     }
     
     public static String getTable()
@@ -208,7 +204,6 @@ public class MainServlet extends HttpServlet {
         Collections.sort(licenses, RDFLicense.COMPARE_PUBLISHER);
         String s="";
         for (RDFLicense license : licenses) {
-
             s+= "<tr>";
             s+= "<td>"+license.getPublisher()+"</td>";
             s+= "<td>"+license.getLabel()+"</td>";
@@ -217,7 +212,6 @@ public class MainServlet extends HttpServlet {
             s+= "<td><a href=\""+  license.getURI() +"\"><img src=\"img/rdflicense32.png\"/></a>"; 
             s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a></td>"; 
             s+="</tr>\n";
-//            System.out.println(s);
         }      
         return s;
     }    

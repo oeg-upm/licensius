@@ -25,22 +25,23 @@
 	rdfs:label   "Creative Commons CC-BY";
 	dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	odrl:permission [
-		odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
-        odrl:duty [
-			odrl:action cc:Attribution , cc:Notice 
-		]
+            odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
+            odrl:duty [
+                odrl:action cc:Attribution , cc:Notice 
+        ]
     ];
     dct:title "Creative Commons - Attribution 4.0 International - CC BY 4.0"@en ;
     dct:alternative "CC BY";
-	dct:publisher "Creative Commons";
+    dct:publisher "Creative Commons";
     foaf:logo <http://i.creativecommons.org/l/by/4.0/88x31.png> ;
-	rdfs:seeAlso <http://creativecommons.org/licenses/by/4.0/legalcode> ;
-	cc:legalcode <http://creativecommons.org/licenses/by/4.0/> . 
+    dct:source <http://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:seeAlso <http://creativecommons.org/licenses/by/4.0/legalcode> ;
+    cc:legalcode <http://creativecommons.org/licenses/by/4.0/> . 
 		
 <http://purl.org/NET/rdflicense/cc-by-nc4.0>
         a          odrl:Policy ;
         dct:hasVersion "4.0" ;
-		rdfs:label   "Creative Commons CC-BY-NC";
+        rdfs:label   "Creative Commons CC-BY-NC";
         dct:title "Creative Commons - Attribution-NonCommercial 4.0 International - CC BY-NC 4.0"@en ;
         dct:alternative "CC BY-NC";
 			dct:publisher "Creative Commons";
@@ -3009,7 +3010,41 @@ dct:publisher "European Commission";
 	rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> . 		
 		
 		
-		
+<http://purl.org/NET/rdflicense/gpl1.0>
+        a	odrl:Policy ;
+		dct:hasVersion "1.0" ;
+		dct:creator <http://fsf.org/> ;
+                dct:publisher "Free Software Foundation";
+		rdfs:seeAlso <http://gnu.org/licenses/gpl-1.0.html> ;
+		foaf:logo <http://www.gnu.org/graphics/gplv3-127x51.png>;
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "GNU General Public License";
+		odrl:permission [
+			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction ;
+			odrl:duty [
+				odrl:action cc:SourceCode , cc:Notice, cc:Copyleft ;
+				]
+			];
+		owl:sameAs <http://www.gnu.org/licenses/gpl-1.0.rdf>;
+		cc:legalcode <http://gnu.org/licenses/gpl-1.0.html> .
+
+<http://purl.org/NET/rdflicense/againstdrm2.0>
+        a	odrl:Policy ;
+		dct:hasVersion "2.0" ;
+                dct:publisher "freecreations.org";
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		rdfs:label   "Against DRM";
+                dct:alternative "AGAINSTDRM";
+                dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+                odrl:permission [
+                    odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction ;
+                    odrl:duty [
+                    odrl:action cc:Attribution , cc:Notice , cc:ShareAlike ;
+                    ] ;
+                ] ;
+                foaf:logo <http://www.freecreations.org/images/red_logo.png> ;
+		cc:legalcode <http://www.freecreations.org/Against_DRM2.html> .
+
 		
 #PSEUDO-LICENSES (THEY ARE NOT LICENSES BUT STILL USEFUL)
 	   
@@ -3026,7 +3061,7 @@ dct:publisher "European Commission";
 <http://purl.org/NET/rdflicense/publicdomain>
         a       odrl:Policy ;
 		rdfs:label   "Public domain";
-							dct:publisher " None" ;
+                dct:publisher " None" ;
 		cc:legalcode <http://en.wikipedia.org/wiki/Public_domain> ;
 		rdfs:comment "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable)." ;
 		odrl:permission [
@@ -3034,3 +3069,4 @@ dct:publisher "European Commission";
 		] . 	
 	   
 #END OF FILE. This file should be available under: http://rdflicense.appspot.com/rdflicense/
+

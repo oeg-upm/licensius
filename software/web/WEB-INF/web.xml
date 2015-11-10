@@ -5,9 +5,19 @@
         <servlet-class>oeg.rdflicense.MainServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>list</servlet-name>
+        <servlet-class>oeg.rdflicense.ListServlet</servlet-class>
+    </servlet> 
+    
+<!-- UNCOMMENT THIS IF USING IT IN APPSPOT. comment it if in tomcat    -->
+    <servlet>
         <servlet-name>default</servlet-name>
         <servlet-class>oeg.rdflicense.DefaultWrapperServlet</servlet-class>
-    </servlet>
+    </servlet> 
+    <servlet-mapping>
+        <servlet-name>list</servlet-name>
+        <url-pattern>/rdflicense/list</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>rdflicense</servlet-name>
         <url-pattern>/rdflicense</url-pattern>
@@ -16,6 +26,7 @@
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
+        <url-pattern>*.html</url-pattern>
         <url-pattern>*.css</url-pattern>
         <url-pattern>*.ico</url-pattern>
         <url-pattern>*.png</url-pattern>
