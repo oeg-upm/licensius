@@ -62,7 +62,7 @@ public class LicenseIscompatible extends HttpServlet {
             return error;
         }
         LicensiusSimple ls = new LicensiusSimple();
-        ls.text=RDFLicenseCheck.compose(lic1, lic2);
+        ls.json=RDFLicenseCheck.compose(lic1, lic2);
         return ls;
 
     }
