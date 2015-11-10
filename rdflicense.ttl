@@ -3008,7 +3008,28 @@ dct:publisher "European Commission";
 	cc:legalcode <http://www.elda.org/media/filer_public/2014/08/01/enduser_140312.pdf> ;
 	rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> . 		
 		
-		
+
+<http://purl.org/NET/rdflicense/cc-by-nc-sa2.0>
+        a          odrl:Policy ;
+		dct:hasVersion "2.0" ;
+			dct:publisher "Creative Commons";
+
+		rdfs:label   "Creative Commons CC-BY-NC-SA";
+        dct:title "Creative Commons - Attribution-NonCommercial-ShareAlike 4.0 International - CC BY-NC-SA 2.0"@en ;
+        dct:alternative "CC BY-NC-SA";
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+			odrl:action cc:DerivativeWorks ,cc:Reproduction ;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice , cc:ShareAlike
+				]
+			];
+		odrl:prohibition [
+			odrl:action cc:CommercialUse ;
+		];			
+                foaf:logo <http://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png> ;
+		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode> ;				
+		cc:legalcode <http://creativecommons.org/licenses/by-nc-sa/2.0/> . 			
 		
 		
 #PSEUDO-LICENSES (THEY ARE NOT LICENSES BUT STILL USEFUL)
