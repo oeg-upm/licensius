@@ -105,7 +105,7 @@ public class RDFLicenseCheck {
         List<String> dut2 = RDFLicenseCheck.getDuties(lic2);
         
 
-        System.out.print("Per1: ");
+        /*System.out.print("Per1: ");
         for(String p : per1)
             System.out.print(p+" ");
         System.out.print("\nPro1: ");
@@ -117,7 +117,7 @@ public class RDFLicenseCheck {
         System.out.print("\nPro2: ");
         for(String p : pro2)
             System.out.print(p+" ");
-        System.out.print("\n");
+        System.out.print("\n");*/
         
         
         
@@ -142,17 +142,18 @@ public class RDFLicenseCheck {
         }
         
         RDFLicense lic3 = RDFLicenseFactory.createLicense(per3, dut3, pro3);
-        
-        
+
+        resulting = lic3.toTTL();
+//        System.out.println(lic3.toTTL());
         
         
         String json ="";
         try {
             JSONObject obj = new JSONObject();
-            obj.put("compatible", compatible);
-            obj.put("reason", reason);
-            obj.put("source", source);
-            obj.put("resulting", resulting);
+            obj.put("compatible", JSONObject.escape(compatible));
+            obj.put("reason", JSONObject.escape(reason));
+            obj.put("source", JSONObject.escape(source));
+            obj.put("resulting", JSONObject.escape(resulting));
             json = obj.toString();
         } catch (Exception e) {
             json = "error";
