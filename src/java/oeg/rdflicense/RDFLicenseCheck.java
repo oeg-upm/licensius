@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import main.Licensius;
 import oeg.odrl.Odrl;
+import org.apache.commons.collections.ListUtils;
 import org.json.simple.JSONObject;
 
 /**
@@ -91,15 +92,57 @@ public class RDFLicenseCheck {
         String compatible = "";
         String reason = "";
         String source = "";
+        String resulting ="";
 
+        reason ="A computation has been made on the basis of the main permissions, prohibitions. The result has been computed automatically and no warranty exists on its reliability. Please check the legal text.";
+        source="computed";
+        
         List<String> per1 = RDFLicenseCheck.getPermissions(lic1);
         List<String> pro1 = RDFLicenseCheck.getProhibitions(lic1);
         List<String> dut1 = RDFLicenseCheck.getDuties(lic1);
+        List<String> per2 = RDFLicenseCheck.getPermissions(lic2);
+        List<String> pro2 = RDFLicenseCheck.getProhibitions(lic2);
+        List<String> dut2 = RDFLicenseCheck.getDuties(lic2);
         
 
+        System.out.print("Per1: ");
+        for(String p : per1)
+            System.out.print(p+" ");
+        System.out.print("\nPro1: ");
+        for(String p : pro1)
+            System.out.print(p+" ");
+        System.out.print("\nPer2: ");
+        for(String p : per2)
+            System.out.print(p+" ");
+        System.out.print("\nPro2: ");
+        for(String p : pro2)
+            System.out.print(p+" ");
+        System.out.print("\n");
         
-        reason ="A computation has been made on the basis of the main permissions, prohibitions. The result has been computed automatically and no warranty exists on its reliability. Please check the legal text.";
-        source="computed";
+        
+        
+        if (lic1.getURI().equals(lic2.getURI()))
+        {
+            compatible="compatible";
+            reason = "The licenses are the same.";
+        }
+
+        List<String> per3 = ListUtils.union(per1, per2);
+        List<String> pro3 = ListUtils.union(pro1, pro2);
+        List<String> dut3 = ListUtils.union(dut1, dut2);
+        
+        List<String> em1=ListUtils.intersection(pro3, per3);
+        if (!em1.isEmpty() )
+        {
+            compatible = "not compatible";
+        }
+        else
+        {
+            compatible ="compatible";
+        }
+        
+        RDFLicense lic3 = RDFLicenseFactory.createLicense(per3, dut3, pro3);
+        
         
         
         
@@ -109,6 +152,7 @@ public class RDFLicenseCheck {
             obj.put("compatible", compatible);
             obj.put("reason", reason);
             obj.put("source", source);
+            obj.put("resulting", resulting);
             json = obj.toString();
         } catch (Exception e) {
             json = "error";
@@ -131,7 +175,7 @@ public class RDFLicenseCheck {
                 {
                     Statement st=sit.next();
                     RDFNode n2 = st.getObject();
-                    String s = n2.asResource().getLocalName();
+                    String s = n2.asResource().getURI();
                     list.add(s);
                 }
             }
@@ -152,7 +196,7 @@ public class RDFLicenseCheck {
                 {
                     Statement st=sit.next();
                     RDFNode n2 = st.getObject();
-                    String s = n2.asResource().getLocalName();
+                    String s = n2.asResource().getURI();
                     list.add(s);
                 }
             }
@@ -173,7 +217,7 @@ public class RDFLicenseCheck {
                 {
                     Statement st=sit.next();
                     RDFNode n2 = st.getObject();
-                    String s = n2.asResource().getLocalName();
+                    String s = n2.asResource().getURI();
                     list.add(s);
                 }
             }
