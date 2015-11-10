@@ -40,7 +40,6 @@ public class TestRDFLicense {
         RDFLicenseDataset dataset = new RDFLicenseDataset();
         List<RDFLicense> licenses = dataset.getRDFLicenses();
         for (RDFLicense license : licenses) {
-
             String s = "<tr>";
             s+= "<td>"+license.getLabel()+"</td>";
             s+= "<td>"+license.getURI()+"</td>";

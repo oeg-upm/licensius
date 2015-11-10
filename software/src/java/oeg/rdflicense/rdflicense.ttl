@@ -74,6 +74,10 @@
 				odrl:action cc:Attribution , cc:Notice 
 				]
 			];	
+		odrl:prohibition [
+			odrl:action cc:DerivativeWorks ;
+		];
+
                 foaf:logo <http://i.creativecommons.org/l/by-nd/2.0/88x31.png> ;
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/4.0/legalcode> ;			
 		cc:legalcode <http://creativecommons.org/licenses/by-nd/4.0/> . 
@@ -135,7 +139,7 @@
 				]
 			];
 		odrl:prohibition [
-			odrl:action cc:CommercialUse ;
+			odrl:action cc:CommercialUse, cc:DerivativeWorks ;
 		];			
                 foaf:logo <http://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png> ;
                 rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode> ;				
@@ -204,6 +208,9 @@
 				odrl:action cc:Attribution , cc:Notice 
 				]
 			];	
+		odrl:prohibition [
+			odrl:action cc:DerivativeWorks ;
+		];
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/legalcode> ;			
 		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/> . 
 		
@@ -256,7 +263,7 @@
 				]
 			];
 		odrl:prohibition [
-			odrl:action cc:CommercialUse ;
+			odrl:action cc:CommercialUse, cc:DerivativeWorks ;
 		];			
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/legalcode> ;				
 		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/> . 		
