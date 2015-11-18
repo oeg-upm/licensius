@@ -272,6 +272,8 @@ public class LicenseFinder {
                 RDFLicense rdfl = RDFLicenseDataset.getRDFLicenseByURI(licencia);
                 if (rdfl==null)
                     urix="";
+                else
+                    urix=rdfl.getURI();
                 lf.add(urix, predicado+" "+licencia, "100");
             }
         }
