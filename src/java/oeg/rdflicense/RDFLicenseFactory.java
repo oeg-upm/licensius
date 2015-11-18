@@ -35,6 +35,7 @@ public class RDFLicenseFactory {
         {
             Resource rp = ModelFactory.createDefaultModel().createResource(AnonId.create());
             st = ResourceFactory.createStatement(rp, RDF.type, Odrl.RPROHIBITION);
+            lic.model.add(st);
             for(String p : pro)
             {
                 Resource px = lic.model.createResource(p);
@@ -50,6 +51,7 @@ public class RDFLicenseFactory {
         {
             Resource rp = ModelFactory.createDefaultModel().createResource(AnonId.create());
             st = ResourceFactory.createStatement(rp, RDF.type, Odrl.RPERMISSION);
+            lic.model.add(st);
             for(String p : per)
             {
                 Resource px = lic.model.createResource(p);
@@ -58,22 +60,31 @@ public class RDFLicenseFactory {
             }
             st = ResourceFactory.createStatement(rlic, Odrl.PPERMISSION, rp);
             lic.model.add(st);
+            
+            
+            //WE ADD THE DUTIES
+           if (!dut.isEmpty())
+           {
+               Resource rpx = ModelFactory.createDefaultModel().createResource(AnonId.create());
+               st = ResourceFactory.createStatement(rpx, RDF.type, Odrl.RDUTY);
+               lic.model.add(st);
+               for(String p : dut)
+               {
+                   Resource px = lic.model.createResource(p);
+                   st = ResourceFactory.createStatement(rpx, Odrl.PACTION, px);
+                   lic.model.add(st);
+               }
+               st = ResourceFactory.createStatement(rp, Odrl.PDUTY, rpx);
+               lic.model.add(st);
+           }           
+            
+            
+            
+            
+            
         }
 
-        //WE ADD THE DUTIES
-        if (!dut.isEmpty())
-        {
-            Resource rp = ModelFactory.createDefaultModel().createResource(AnonId.create());
-            st = ResourceFactory.createStatement(rp, RDF.type, Odrl.RDUTY);
-            for(String p : dut)
-            {
-                Resource px = lic.model.createResource(p);
-                st = ResourceFactory.createStatement(rp, Odrl.PACTION, px);
-                lic.model.add(st);
-            }
-            st = ResourceFactory.createStatement(rlic, Odrl.PDUTY, rp);
-            lic.model.add(st);
-        }
+
         
         lic.model=RDFPrefixes.addPrefixesIfNeeded(lic.model);
         return lic;

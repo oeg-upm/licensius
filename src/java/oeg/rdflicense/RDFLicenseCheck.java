@@ -12,6 +12,7 @@ import main.Licensius;
 import oeg.odrl.Odrl;
 import org.apache.commons.collections.ListUtils;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  *
@@ -127,7 +128,7 @@ public class RDFLicenseCheck {
             reason = "The licenses are the same.";
         }
 
-        List<String> per3 = ListUtils.union(per1, per2);
+        List<String> per3 = ListUtils.intersection(per1, per2);
         List<String> pro3 = ListUtils.union(pro1, pro2);
         List<String> dut3 = ListUtils.union(dut1, dut2);
         
@@ -150,10 +151,10 @@ public class RDFLicenseCheck {
         String json ="";
         try {
             JSONObject obj = new JSONObject();
-            obj.put("compatible", JSONObject.escape(compatible));
-            obj.put("reason", JSONObject.escape(reason));
-            obj.put("source", JSONObject.escape(source));
-            obj.put("resulting", JSONObject.escape(resulting));
+            obj.put("compatible", compatible);
+            obj.put("reason", reason);
+            obj.put("source", source);
+            obj.put("resulting", resulting);
             json = obj.toString();
         } catch (Exception e) {
             json = "error";
@@ -206,7 +207,8 @@ public class RDFLicenseCheck {
     }
     private static List<String> getDuties(RDFLicense lic) {
         List<String> list = new ArrayList();
-        NodeIterator ni = lic.model.listObjectsOfProperty( ModelFactory.createDefaultModel().createResource(lic.getURI()), Odrl.PDUTY);
+//        NodeIterator ni = lic.model.listObjectsOfProperty( ModelFactory.createDefaultModel().createResource(lic.getURI()), Odrl.PDUTY);
+        NodeIterator ni = lic.model.listObjectsOfProperty( Odrl.PDUTY);
         while(ni.hasNext())
         {
             RDFNode n = ni.next();
@@ -228,17 +230,28 @@ public class RDFLicenseCheck {
 
     public static void main(String[] args) {
         Licensius.initLogger();
-        String uri2 ="http://purl.org/NET/rdflicense/cc-by3.0";
+        String uri ="http://purl.org/NET/rdflicense/cc-by-nc3.0";
+        String uri2= "http://purl.org/NET/rdflicense/cc-by-nd3.0";
+        String uri3= "http://purl.org/NET/rdflicense/ukogl-nc2.0";
         String uri4 = "http://purl.org/NET/rdflicense/cc-by-nd3.0cl";
-        String uri= "http://purl.org/NET/rdflicense/ukogl-nc2.0";
         
         RDFLicense lic1 = RDFLicenseDataset.getRDFLicense(uri);
         RDFLicense lic2 = RDFLicenseDataset.getRDFLicense(uri2);
         
         System.out.println(lic1.toTTL());
         System.out.println(lic2.toTTL());
-        System.out.println(RDFLicenseCheck.compose(lic1, lic2));
+        String res = RDFLicenseCheck.compose(lic1, lic2);
+        System.out.println(res);
+        Object obj=JSONValue.parse(res);
+        JSONObject jobj=(JSONObject)obj;
+        
+        Object x = jobj.get("resulting");
+        String sx = (String)x;
+        System.out.println(x);
     }
+
+    
+    
     
 }
 
