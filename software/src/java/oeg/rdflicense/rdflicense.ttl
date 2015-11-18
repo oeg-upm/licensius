@@ -146,6 +146,8 @@
                 rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode> ;				
 		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/4.0/> . 		
 				
+## CCZERO
+
 <http://purl.org/NET/rdflicense/cc-zero1.0>
         a          odrl:Policy ;
 		dct:hasVersion "1.0" ;
@@ -268,6 +270,116 @@
 		];			
 		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/legalcode> ;				
 		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/> . 		
+
+#CREATIVE COMMONS LICENSES VERSION 2.0 Unported
+<http://purl.org/NET/rdflicense/cc-by2.0>
+        a          odrl:Policy ;
+		dct:hasVersion "2.0" ;
+		rdfs:label   "Creative Commons CC-BY";
+ 	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction ;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice 
+				]
+			];
+		rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/legalcode> ;
+		cc:legalcode <http://creativecommons.org/licenses/by/2.0/> . 
+		
+<http://purl.org/NET/rdflicense/cc-by-nc2.0>
+        a       odrl:Policy ;
+		dct:hasVersion "2.0" ;
+		rdfs:label   "Creative Commons CC-BY-NC";
+			dct:publisher "Creative Commons";
+
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice 
+				]
+			];	
+		odrl:prohibition [
+			odrl:action cc:CommercialUse ;
+		];
+		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc/2.0/legalcode> ;
+		cc:legalcode <http://creativecommons.org/licenses/by-nc/2.0/> . 
+
+<http://purl.org/NET/rdflicense/cc-by-nd2.0>
+		a          odrl:Policy ;
+			dct:publisher "Creative Commons";
+
+		dct:hasVersion "2.0" ;
+		rdfs:label   "Creative Commons CC-BY-ND";
+		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+			odrl:action cc:Reproduction;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice 
+				]
+			];	
+		odrl:prohibition [
+			odrl:action cc:DerivativeWorks ;
+		];
+		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode> ;			
+		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/2.0/> . 
+		
+<http://purl.org/NET/rdflicense/cc-by-sa2.0>
+        a          odrl:Policy ;
+		dct:hasVersion "2.0" ;
+		rdfs:label   "Creative Commons CC-BY-SA";
+			dct:publisher "Creative Commons";
+
+		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice , cc:ShareAlike
+				]
+			];
+		rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/2.0/legalcode> ;					
+		cc:legalcode <http://creativecommons.org/licenses/by-sa/2.0/> . 		
+
+<http://purl.org/NET/rdflicense/cc-by-nc-sa2.0>
+        a          odrl:Policy ;
+			dct:publisher "Creative Commons";
+
+		dct:hasVersion "2.0" ;
+		rdfs:label   "Creative Commons CC-BY-NC-SA";
+	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+			odrl:action cc:DerivativeWorks ,cc:Reproduction ;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice , cc:ShareAlike
+				]
+			];
+		odrl:prohibition [
+			odrl:action cc:CommercialUse ;
+		];			
+		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-sa/2.0/legalcode> ;				
+		cc:legalcode <http://creativecommons.org/licenses/by-nc-sa/2.0/> . 		
+		
+<http://purl.org/NET/rdflicense/cc-by-nc-nd2.0>
+        a          odrl:Policy ;
+		dct:hasVersion "2.0" ;
+			dct:publisher "Creative Commons";
+
+		rdfs:label   "Creative Commons CC-BY-NC-ND";
+		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+		odrl:permission [
+			odrl:action cc:Reproduction;
+			odrl:duty [
+				odrl:action cc:Attribution , cc:Notice , cc:ShareAlike
+				]
+			];
+		odrl:prohibition [
+			odrl:action cc:CommercialUse, cc:DerivativeWorks ;
+		];			
+		rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode> ;				
+		cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/2.0/> . 
+
+
+
 
 		
 #OLDER CREATIVE COMMONS LICENSES
