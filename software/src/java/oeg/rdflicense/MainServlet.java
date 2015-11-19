@@ -220,6 +220,7 @@ public class MainServlet extends HttpServlet {
             s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a>";
             
             s+="<span class=\"label label-primary\">CommercialUse</span>";
+            s+="<span class=\"label label-primary\">Deriv</span>";
             
             s+="</td>"; 
             s+="</tr>\n";

@@ -28,11 +28,11 @@
                 border-spacing: 0; }
 
 
-            /* #Basic Styles
+            /* #Basic Styles (ANTES 18 23)
             ================================================== */
             body {
                 background: #fff;
-                font: 18px/23px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font: 19px/23px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 color: #444;
                 -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
                 -webkit-text-size-adjust: 100%;
