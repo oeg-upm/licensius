@@ -2,10 +2,6 @@
 <%@page import="oeg.rdflicense.TestRDFLicense"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="javax.jdo.PersistenceManager" %>
-<%@ page import="com.google.appengine.api.users.User" %>
-<%@ page import="com.google.appengine.api.users.UserService" %>
-<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 
 <html>
     <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,17 +21,10 @@
         <!--  <script type="text/javascript" src="js/jquery.latest.js"></script>
           <script type="text/javascript" src="js/jquery.tablesorter.js"></script> -->
         <script async="" src="./analytics.js"></script><script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
             ga('create', 'UA-49063507-1', 'linkeddata.es');
             ga('send', 'pageview');
         </script><style type="text/css"></style>
@@ -53,6 +42,7 @@
 
             </div>     
             <div class="col-md-8">
+
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2 class="panel-title">What is this?</h2></div>
                     <div class="panel-body">
@@ -60,42 +50,33 @@
                         <center><img src="./fig2.png" width="200px"></center>
                     </div>
                 </div>
-
                 <!--<span style="color:red">UNDER MAINTENANCE (18.11.2014)</span> -->
-
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2 class="panel-title">Download complete dataset</h2></div>
                     <div class="panel-body">
-                        <center><a href="http://purl.org/NET/rdflicense/" class="btn btn-success btn-large" download="rdflicense.ttl" type="text/turtle"><span class="glyphicon glyphicon-download-alt"></span>Download</a></center>
+                        <center><a href="http://purl.org/NET/rdflicense/" class="btn btn-success btn-large" download="rdflicense.ttl"><span class="glyphicon glyphicon-download-alt"></span>Download</a></center>
                         <center><p><a href="http://rdflicense.linkeddata.es/dataset/void.ttl">VoID description</a> </p>	</center>
 
                     </div>
                 </div>
-
-                <!--<a href="http://purl.org/NET/rdflicense/" download>rdflicense.ttl</a>--->
                 <table id = "#myTable" class="table table-striped table-hoover table-condensed tablesorter">
-                    <thead><tr>
+                    <thead><tr> 
                             <th>Publisher </th>
                             <th>License </th>
                             <th>URI</th>
-                            <th>
-                                Version
-                            </th>
-                            <th>
-                                Links
-                            </th>
-                            </th>
+                            <th>Version</th>
+                            <th>Links</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <%= MainServlet.getTable()%>
                     </tbody>
                 </table>
-
+                <p></p>			
                 <center>
                     <a href="https://github.com/oeg-upm/rdflicense"><img src="./github.png"></a>
                     <a href="http://datahub.io/dataset/rdflicense"><img src="./ckan.png"></a>
                 </center>
-
 
                 <!-- <p>The list of referenceable licenses is also provided <a href="licenses.html">here</a></p> -->
                 <p class="vbottom"></p>
@@ -105,8 +86,6 @@
                 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="./80x15.png"></a>This dataset is published under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.
                     You may also want to cite our research work:</p><p>
                 </p><blockquote><a href="http://delicias.dia.fi.upm.es/~vrodriguez/pdf/2014.11.jurix.dataset.pdf">A Dataset of RDF Licenses</a>, V. Rodriguez-Doncel, S. Villata, A. Gomez-Perez, in Proc. of the 27th Int. Conf. on Legal Knowledge and Information System (JURIX), R. Hoekstra (Ed.), ISBN 978-1-61499-467-1, pp. 187-189, IOS Press, (2014) </blockquote>
-
-
 
 
                 <!-- <p>Other related content you may like:</p> -->
@@ -137,14 +116,14 @@
 
         <!-- Start of StatCounter Code for Default Guide -->
         <script type="text/javascript">
-            var sc_project = 10323696;
-            var sc_invisible = 1;
-            var sc_security = "78f26544";
+            var sc_project=10323696; 
+            var sc_invisible=1; 
+            var sc_security="78f26544"; 
             var scJsHost = (("https:" == document.location.protocol) ?
-                    "https://secure." : "http://www.");
-            document.write("<sc" + "ript type='text/javascript' src='" +
-                    scJsHost +
-                    "statcounter.com/counter/counter.js'></" + "script>");
+                "https://secure." : "http://www.");
+            document.write("<sc"+"ript type='text/javascript' src='" +
+                scJsHost+
+                "statcounter.com/counter/counter.js'></"+"script>");
         </script><script type="text/javascript" src="./counter.js"></script>
         <noscript>&lt;div class="statcounter"&gt;&lt;a title="web statistics"
         href="http://statcounter.com/" target="_blank"&gt;&lt;img

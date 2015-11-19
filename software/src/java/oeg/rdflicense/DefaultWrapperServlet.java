@@ -11,18 +11,40 @@ import org.apache.log4j.Logger;
  */
 public class DefaultWrapperServlet extends HttpServlet
 {   private static final Logger logger = Logger.getLogger(DefaultWrapperServlet.class.getName());
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
-    	throws ServletException, IOException
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
     	RequestDispatcher rd = getServletContext().getNamedDispatcher("default");
-        logger.info("GRAPER siendo ejecutado por alguna razón misteriosa " + req.getRequestURI());
-        if (req.getRequestURI().equals("/favicon.ico"))
+        logger.info("GRAPER2 siendo ejecutado por alguna razón misteriosa " + req.getRequestURI());
+        
+        String uri = req.getRequestURI(); 
+        
+        if (uri.equals("/favicon.ico"))
+        {
             return;
+        }
 
+/*        if (uri.endsWith(".png")) {
+            resp.setContentType("image/png");
+            ServletOutputStream output = resp.getOutputStream();
+            String filename = uri.substring("/rdflicense/".length());
+            logger.info("GRAPER3 intentando abrir " + filename);
+            InputStream input = new FileInputStream(filename);
+            if (input==null)
+                return;
+            byte[] buffer = new byte[2048];
+            int bytesRead;
+            while ((bytesRead = input.read(buffer)) != -1) {
+                output.write(buffer, 0, bytesRead);
+            }
+            return;
+        }
+        if (true)
+            return;*/
+        
     	HttpServletRequest wrapped = new HttpServletRequestWrapper(req) {
     		public String getServletPath() { return ""; }
     	};
-
+ 
     	rd.forward(wrapped, resp);
     }
 }    

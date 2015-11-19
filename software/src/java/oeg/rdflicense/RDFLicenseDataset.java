@@ -93,7 +93,7 @@ public class RDFLicenseDataset {
         }
         for(Resource res : rdflicenses)
         {
-            System.out.println("Loading: " + res.getURI());
+//            System.out.println("Loading: " + res.getURI());
             RDFLicense rdflicense=getRDFLicense(res.getURI());
 //            System.out.println(rdflicense.getLabel());
             licenses.add(rdflicense);
@@ -161,6 +161,20 @@ public class RDFLicenseDataset {
             logger.error(e.getMessage());
             return;
         }
+    }
+
+    List<RDFLicense> filterBy(List<RDFLicense> original, String search) {
+        List<RDFLicense> filtradas = new ArrayList();
+        if (search==null || search.isEmpty())
+            return original;
+        for(RDFLicense o : original)
+        {
+            if (o.getLabel()==null)
+                continue;
+            if (o.getLabel().contains(search))
+                filtradas.add(o);
+        }
+        return filtradas;
     }
 
 

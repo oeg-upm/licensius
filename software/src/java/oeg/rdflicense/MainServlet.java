@@ -123,10 +123,7 @@ public class MainServlet extends HttpServlet {
                 resp.setContentType("text/html;charset=utf-8");
                 resp.setStatus(HttpServletResponse.SC_OK);
             }
-            
-
         }
-
     }
 
     /**
@@ -197,7 +194,6 @@ public class MainServlet extends HttpServlet {
         } catch (Exception e) {
             logger.warn(e.getMessage());
         }
-
     }
     
     /**
@@ -210,7 +206,6 @@ public class MainServlet extends HttpServlet {
         Collections.sort(licenses, RDFLicense.COMPARE_PUBLISHER);
         String s="";
         for (RDFLicense license : licenses) {
-
             s+= "<tr>";
             s+= "<td>"+license.getPublisher()+"</td>";
             s+= "<td>"+license.getLabel()+"</td>";
