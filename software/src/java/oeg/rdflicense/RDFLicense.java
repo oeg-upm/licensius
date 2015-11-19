@@ -34,7 +34,10 @@ public class RDFLicense {
         
     }
     
-    
+
+    /**
+     * Obtains a Java policy object
+     */
     public Policy getPolicy()
     {
         String ttl = toTTL();
@@ -50,6 +53,7 @@ public class RDFLicense {
             return "";
         return RDFUtils.getFirstValue(model, uri, "http://www.w3.org/2000/01/rdf-schema#label");
     }
+    
     public String getPublisher()
     {
         if (model==null)
@@ -95,8 +99,6 @@ public class RDFLicense {
         return RDFUtils.getFirstValue(model, uri, "http://www.w3.org/2000/01/rdf-schema#seeAlso");
     }
     
-    
-    
     /**
      * Gets the URI of the license
      */
@@ -129,8 +131,9 @@ public class RDFLicense {
     public String toTTL()
     {
         StringWriter sw = new StringWriter();
+        model = RDFUtils.cleanUnusedPrefixes(model);
         if (model!=null)
-        model.write(sw, "TURTLE");
+            model.write(sw, "TURTLE");
         return sw.toString();
     }
     
