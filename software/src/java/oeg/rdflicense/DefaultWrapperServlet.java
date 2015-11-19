@@ -15,7 +15,7 @@ public class DefaultWrapperServlet extends HttpServlet
 {   private static final Logger logger = Logger.getLogger(DefaultWrapperServlet.class.getName());
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-    	RequestDispatcher rd = getServletContext().getNamedDispatcher("defaultX");
+    	RequestDispatcher rd = getServletContext().getNamedDispatcher("default");
         logger.info("GRAPER2 siendo ejecutado por alguna razón misteriosa " + req.getRequestURI());
         
         String uri = req.getRequestURI(); 

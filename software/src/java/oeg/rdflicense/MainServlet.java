@@ -214,7 +214,7 @@ public class MainServlet extends HttpServlet {
             s+= "<td><a href=\""+  license.getURI() +"\"><img src=\"img/rdflicense32.png\"/></a>"; 
             s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a>";
             
-            s+="<pre><span class=\"label label-primary\">CommercialUse</span><br/>";
+            s+="<pre><span class=\"label label-primary\" margin-top: 10px; margin-left: 10px;>CommercialUse</span><br/>";
             s+="<span class=\"label label-primary\">Deriv</span></pre>";
             
             s+="</td>"; 
