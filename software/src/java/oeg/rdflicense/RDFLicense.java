@@ -19,6 +19,17 @@ import org.json.simple.JSONObject;
  * If this project is to be deployed in google app engine, then it will have to be compiled with Java SDK 7.
  * Fix both the PATH environment variable and the JAVA_HOME to point to the Java 7 SDK.
  * Use the gcloud command, or upload the app by using the plugin in Netbeans7
+ * Also, the following excerpt must be present in the web.xml
+ *     <servlet>
+ *        <servlet-name>default</servlet-name>
+ *       <servlet-class>oeg.rdflicense.DefaultWrapperServlet</servlet-class> 
+ *    </servlet> 
+ * 
+ * 
+ * HOW TO DEPLOY IN TOMCAT
+ * ======================
+ * Make sure that the excerpt above is not in the web.xml
+ * 
  * @author Victor
  */
 public class RDFLicense {
