@@ -38,10 +38,10 @@
                 <p>A dataset of licenses represented in RDF</p></center>
             <!-- </div> -->
 
-            <div class="col-md-2">
+            <div class="col-md-1">
 
             </div>     
-            <div class="col-md-8">
+            <div class="col-md-9">
 
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2 class="panel-title">What is this?</h2></div>
@@ -66,6 +66,7 @@
                             <th>URI</th>
                             <th>Version</th>
                             <th>Links</th>
+                            <th>Summary</th>
                         </tr>
                     </thead>
                     <tbody>

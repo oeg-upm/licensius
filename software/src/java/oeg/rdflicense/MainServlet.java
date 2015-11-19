@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
@@ -196,16 +198,24 @@ public class MainServlet extends HttpServlet {
         }
     }
     
+    public static String getLastBitFromUrl(final String url){
+        return url.replaceFirst(".*/([^/?]+).*", "$1"); 
+    }    
+    
     /**
      * Obtains the HTML table to present the dataset in the webpage
      */
-    public static String getTable()
+    public static String getTable() 
     {
         RDFLicenseDataset dataset = new RDFLicenseDataset();
         List<RDFLicense> licenses = dataset.getRDFLicenses();
         Collections.sort(licenses, RDFLicense.COMPARE_PUBLISHER);
         String s="";
+        
+        
         for (RDFLicense license : licenses) {
+            
+            
             s+= "<tr>";
             s+= "<td>"+license.getPublisher()+"</td>";
             s+= "<td>"+license.getLabel()+"</td>";
@@ -213,11 +223,46 @@ public class MainServlet extends HttpServlet {
             s+= "<td>"+license.getVersion()+"</td>";
             s+= "<td><a href=\""+  license.getURI() +"\"><img src=\"img/rdflicense32.png\"/></a>"; 
             s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a>";
-            
-            s+="<pre><span class=\"label label-primary\" style=\"margin-top: 100px; margin-left: 10px;\">CommercialUse</span><br/>";
-            s+="<span class=\"label label-primary\" style=\"margin-top: 100px; margin-left: 10px;\">Deriv</span></pre>";
-            
             s+="</td>"; 
+            s+="<td><p>";
+            
+            List<String> perm = RDFLicenseCheck.getPermissions(license);
+            for(String p : perm)
+            {
+                p = getLastBitFromUrl(p);
+                int in=p.indexOf("#");
+                if (in!=-1)
+                {
+                    try{   p= p.substring(in+1);}catch(Exception e){}
+                }
+                s+="<span class=\"label label-primary\" style=\"margin: 10px; \">"+p+"</span>";
+            }
+            s+="</p><p>";
+            List<String> pro = RDFLicenseCheck.getProhibitions(license);
+            for(String p : pro)
+            {
+                p = getLastBitFromUrl(p);
+                int in=p.indexOf("#");
+                if (in!=-1)
+                {
+                    try{   p= p.substring(in+1);}catch(Exception e){}
+                }
+                s+="<span class=\"label label-danger\" style=\"margin: 10px; \">"+p+"</span>";
+            }
+            List<String> dut = RDFLicenseCheck.getDuties(license);
+            for(String p : dut)
+            {
+                p = getLastBitFromUrl(p);
+                int in=p.indexOf("#");
+                if (in!=-1)
+                {
+                    try{   p= p.substring(in+1);}catch(Exception e){}
+                }
+                s+="<span class=\"label label-warning\" style=\"margin: 10px; \">"+p+"</span>";
+            }
+
+            
+            s+="</p></td>"; 
             s+="</tr>\n";
         }      
         return s;
