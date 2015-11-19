@@ -214,12 +214,12 @@ public class MainServlet extends HttpServlet {
             s+= "<td><a href=\""+  license.getURI() +"\"><img src=\"img/rdflicense32.png\"/></a>"; 
             s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a>";
             
-            s+="<span class=\"label label-primary\">CommercialUse</span>";
-            s+="<span class=\"label label-primary\">Deriv</span>";
+            s+="<pre><span class=\"label label-primary\">CommercialUse</span>";
+            s+="<span class=\"label label-primary\">Deriv</span></pre>";
             
             s+="</td>"; 
             s+="</tr>\n";
         }      
         return s;
-    }    
+    }     
 }
