@@ -54,7 +54,6 @@ public class MainServlet extends HttpServlet {
                 resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
                 return;
             }
-//        logRequest(rdflicenseuri, req.getRemoteAddr());
             //we have to serve the whole dataset!
             //We should look here at the request, if 
             if (rdflicenseuri.equals("http://purl.org/NET/rdflicense/") || rdflicenseuri.equals("http://purl.org/NET/rdflicense")) {
@@ -201,6 +200,9 @@ public class MainServlet extends HttpServlet {
 
     }
     
+    /**
+     * Obtains the HTML table to present the dataset in the webpage
+     */
     public static String getTable()
     {
         RDFLicenseDataset dataset = new RDFLicenseDataset();
@@ -215,9 +217,12 @@ public class MainServlet extends HttpServlet {
             s+= "<td>"+license.getURI()+"</td>";
             s+= "<td>"+license.getVersion()+"</td>";
             s+= "<td><a href=\""+  license.getURI() +"\"><img src=\"img/rdflicense32.png\"/></a>"; 
-            s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a></td>"; 
+            s+= "<a href=\""+  license.getURI() +".ttl\"><img src=\"img/rdf32.png\"/></a>";
+            
+            s+="<span class=\"label label-primary\">CommercialUse</span>";
+            
+            s+="</td>"; 
             s+="</tr>\n";
-//            System.out.println(s);
         }      
         return s;
     }    

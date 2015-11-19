@@ -218,9 +218,9 @@
         a          odrl:Policy ;
 		dct:hasVersion "3.0" ;
 		rdfs:label   "Creative Commons CC-BY-SA";
-			dct:publisher "Creative Commons";
+                dct:publisher "Creative Commons";
 
-		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+                dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction;
 			odrl:duty [

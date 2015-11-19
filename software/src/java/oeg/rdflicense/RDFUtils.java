@@ -8,11 +8,18 @@ import java.io.InputStream;
 //JENA
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.NsIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.shared.PrefixMapping;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 //LOG4J
 import org.apache.log4j.Logger;
@@ -24,6 +31,7 @@ import org.apache.log4j.Logger;
 public class RDFUtils {
 
     private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
+
     String property = "";
     String value = "";
     public static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
@@ -124,4 +132,30 @@ public class RDFUtils {
         s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
         return s;
     }
+    
+    static Model cleanUnusedPrefixes(Model model) {
+        NsIterator it = model.listNameSpaces();
+        List<String> uris = new ArrayList();
+        List<String> toremove = new ArrayList();
+        while(it.hasNext())
+        {
+            String s = it.next();
+            uris.add(s);
+        }
+        Map<String,String> mapa = model.getNsPrefixMap();
+        Iterator i = mapa.entrySet().iterator();
+        while (i.hasNext()) {
+            Map.Entry e = (Map.Entry)i.next();
+            if (!uris.contains(e.getValue()))
+            {
+                String aq=(String)e.getKey();
+                toremove.add(aq);
+            }
+        }
+        for(String s : toremove)
+            model.removeNsPrefix(s);
+        return model;
+    }
+    
+    
 }
