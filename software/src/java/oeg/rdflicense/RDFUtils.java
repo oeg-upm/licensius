@@ -92,7 +92,7 @@ public class RDFUtils {
             head=txt.substring(0,index);
         try {
             model.read(is, null, "TURTLE");
-            logger.info("Read as TURTLE: "+ head);
+            logger.debug("Read as TURTLE: "+ head);
             return model;
         } catch (Exception e) {
             logger.warn("Failed as TURTLE " + head +" -- " + e.getMessage());
@@ -100,7 +100,7 @@ public class RDFUtils {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes());
                 model.read(is, null, "RDF/XML");
-                logger.info("Read as RDF/XML");
+                logger.debug("Read as RDF/XML");
                 return model;
             } catch (Exception e2) {
                 logger.warn("Failed as RDF/XML: " + head+  " -- " + e2.getMessage());
@@ -157,5 +157,7 @@ public class RDFUtils {
         return model;
     }
     
-    
+    public static String getLastBitFromUrl(final String url){
+        return url.replaceFirst(".*/([^/?]+).*", "$1"); 
+    }        
 }

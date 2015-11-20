@@ -1,0 +1,22 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+<http://purl.org/NET/rdflicense/againstdrm2.0>
+      a       odrl:Policy ;
+      rdfs:label "Against DRM" ;
+      cc:legalcode <http://www.freecreations.org/Against_DRM2.html> ;
+      dct:alternative "AGAINSTDRM" ;
+      dct:hasVersion "2.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "freecreations.org" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:Reproduction , cc:DerivativeWorks ;
+                odrl:duty
+                        [ odrl:action cc:Notice , cc:ShareAlike , cc:Attribution
+                        ]
+              ] ;
+      foaf:logo <http://www.freecreations.org/images/red_logo.png> .

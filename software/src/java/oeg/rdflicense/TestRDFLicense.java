@@ -15,7 +15,17 @@ public class TestRDFLicense {
         RDFLicenseDataset dataset = new RDFLicenseDataset();
 
         RDFLicense lic = dataset.getRDFLicense("http://purl.org/NET/rdflicense/cc-by-nc-nd3.0es");
-        System.out.println(lic.toTTL());
+
+        List<String> ls = RDFLicenseCheck.getPermissions(lic);
+        for(String s : ls)
+        {
+            String f = ODRL.getFirstComment(s);
+            f=f.replace("\n", "");
+            f=f.replace("\t", "");
+            for(int i=0;i<10;i++)
+                f=f.replace("  ", " ");
+        }
+//        System.out.println(lic.toTTL());
         
 //        String s= MainServlet.getTable();
 //        System.out.println(s);

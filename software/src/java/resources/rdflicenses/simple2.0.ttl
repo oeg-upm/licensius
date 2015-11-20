@@ -1,0 +1,21 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/simple2.0>
+      a       odrl:Policy ;
+      rdfs:label "Simple Public License" ;
+      rdfs:seeAlso <http://opensource.org/licenses/SimPL-2.0> ;
+      cc:legalcode <http://opensource.org/licenses/SimPL-2.0> ;
+      dct:creator <http://fsf.org/> ;
+      dct:hasVersion "2.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Free Software Foundation" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:Reproduction , cc:DerivativeWorks ;
+                odrl:duty
+                        [ odrl:action cc:SourceCode , cc:Notice , cc:Copyleft
+                        ]
+              ] .

@@ -198,9 +198,7 @@ public class MainServlet extends HttpServlet {
         }
     }
     
-    public static String getLastBitFromUrl(final String url){
-        return url.replaceFirst(".*/([^/?]+).*", "$1"); 
-    }    
+
     
     /**
      * Obtains the HTML table to present the dataset in the webpage
@@ -229,19 +227,23 @@ public class MainServlet extends HttpServlet {
             List<String> perm = RDFLicenseCheck.getPermissions(license);
             for(String p : perm)
             {
-                p = getLastBitFromUrl(p);
+                String tip=ODRL.getFirstComment(p);
+                for(int i=0;i<10;i++)
+                    tip = tip.replace("\t", "").replace("\n", "").replace("  ", " ");
+                p = RDFUtils.getLastBitFromUrl(p);
                 int in=p.indexOf("#");
-                if (in!=-1)
+                if (in!=-1) 
                 {
-                    try{   p= p.substring(in+1);}catch(Exception e){}
+                    try{p= p.substring(in+1);}catch(Exception e){}
                 }
-                s+="<span class=\"label label-primary\" style=\"margin: 10px; \">"+p+"</span>";
+                
+                s+="<span class=\"label label-primary\" rel=\"tooltip\" style=\"margin: 10px; \" data-toggle=\"tooltip\" title=\""+ tip +"\">"+p+"</span>";
             }
             s+="</p><p>";
             List<String> pro = RDFLicenseCheck.getProhibitions(license);
             for(String p : pro)
             {
-                p = getLastBitFromUrl(p);
+                p = RDFUtils.getLastBitFromUrl(p);
                 int in=p.indexOf("#");
                 if (in!=-1)
                 {
@@ -252,7 +254,7 @@ public class MainServlet extends HttpServlet {
             List<String> dut = RDFLicenseCheck.getDuties(license);
             for(String p : dut)
             {
-                p = getLastBitFromUrl(p);
+                p = RDFUtils.getLastBitFromUrl(p);
                 int in=p.indexOf("#");
                 if (in!=-1)
                 {

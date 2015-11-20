@@ -1,0 +1,18 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/NDL1.0>
+      a       odrl:Policy ;
+      rdfs:label "Web NDL Authority License" ;
+      cc:legalcode <http://iss.ndl.go.jp/ndla/use/> ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Web NDL Authority" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , odrl:Reproduction
+              ] ;
+      odrl:prohibition
+              [ odrl:action odrl:commercialize
+              ] .

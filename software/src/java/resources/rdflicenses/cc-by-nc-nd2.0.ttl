@@ -1,0 +1,23 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/cc-by-nc-nd2.0>
+      a       odrl:Policy ;
+      rdfs:label "Creative Commons CC-BY-NC-ND" ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/2.0/legalcode> ;
+      cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/2.0/> ;
+      dct:hasVersion "2.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Creative Commons" ;
+      odrl:permission
+              [ odrl:action cc:Reproduction ;
+                odrl:duty
+                        [ odrl:action cc:Notice , cc:ShareAlike , cc:Attribution
+                        ]
+              ] ;
+      odrl:prohibition
+              [ odrl:action cc:DerivativeWorks , cc:CommercialUse
+              ] .

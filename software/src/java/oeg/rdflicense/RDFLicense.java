@@ -44,7 +44,11 @@ public class RDFLicense {
     {
         
     }
-    
+
+    public RDFLicense(Model m)
+    {
+        model = m;
+    }
 
     /**
      * Obtains a Java policy object

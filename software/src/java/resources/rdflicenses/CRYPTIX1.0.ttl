@@ -1,0 +1,19 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/CRYPTIX1.0>
+      a       odrl:Policy ;
+      rdfs:label "Cryptix General License" ;
+      rdfs:seeAlso <http://cryptix.org/LICENSE.TXT> ;
+      cc:legalcode <http://cryptix.org/LICENSE.TXT> ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "The Cryptix Foundation Limited" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , odrl:modify ;
+                odrl:duty
+                        [ odrl:action odrl:attachPolicy , cc:ShareAlike
+                        ]
+              ] .

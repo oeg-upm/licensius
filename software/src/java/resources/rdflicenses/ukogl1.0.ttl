@@ -1,0 +1,26 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/ukogl1.0>
+      a       odrl:Policy ;
+      rdfs:label "Open Government Licence" ;
+      rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/> ;
+      cc:jurisdiction <http://dbpedia.org/page/United_Kingdom> ;
+      cc:legalcode <http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/re-use-and-licensing/ukglf/> ;
+      l4lod:licensingTerms
+              <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/> ;
+      dct:hasVersion "1.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "The National Archives" ;
+      skos:related <http://purl.org/NET/rdflicense/cc-by/4.0> ;
+      odrl:permission
+              [ odrl:action cc:Distribution , <http://purl.org/NET/ldr/ns#extraction> , cc:Reproduction , cc:DerivativeWorks , <http://purl.org/NET/ldr/ns#reutilization> ;
+                odrl:duty
+                        [ odrl:action odrl:attachPolicy , cc:Attribution
+                        ]
+              ] .

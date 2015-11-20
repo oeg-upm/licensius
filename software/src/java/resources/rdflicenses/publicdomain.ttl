@@ -1,0 +1,15 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/publicdomain>
+      a       odrl:Policy ;
+      rdfs:comment "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable)." ;
+      rdfs:label "Public domain" ;
+      cc:legalcode <http://en.wikipedia.org/wiki/Public_domain> ;
+      dct:publisher " None" ;
+      odrl:permission
+              [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#databaseRight>
+              ] .

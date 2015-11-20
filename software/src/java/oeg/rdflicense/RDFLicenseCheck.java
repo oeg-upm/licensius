@@ -95,21 +95,6 @@ public class RDFLicenseCheck {
         List<String> per2 = RDFLicenseCheck.getPermissions(lic2);
         List<String> pro2 = RDFLicenseCheck.getProhibitions(lic2);
         List<String> dut2 = RDFLicenseCheck.getDuties(lic2);
-
-
-        /*System.out.print("Per1: ");
-         for(String p : per1)
-         System.out.print(p+" ");
-         System.out.print("\nPro1: ");
-         for(String p : pro1)
-         System.out.print(p+" ");
-         System.out.print("\nPer2: ");
-         for(String p : per2)
-         System.out.print(p+" ");
-         System.out.print("\nPro2: ");
-         for(String p : pro2)
-         System.out.print(p+" ");
-         System.out.print("\n");*/
         if (lic1.getURI().equals(lic2.getURI())) {
             compatible = "compatible";
             reason = "The licenses are the same.";
@@ -145,6 +130,9 @@ public class RDFLicenseCheck {
         return json;
     }
 
+    /**
+     * 
+     */
     public static List<String> getPermissions(RDFLicense lic) {
         List<String> list = new ArrayList();
         NodeIterator ni = lic.model.listObjectsOfProperty(ModelFactory.createDefaultModel().createResource(lic.getURI()), ODRL.PPERMISSION);
@@ -205,7 +193,7 @@ public class RDFLicenseCheck {
                         String s = n2.asResource().getURI();
                         list.add(s);
                     } else if (n2.isLiteral()) {
-                        String s = n2.asLiteral().getLanguage();
+                        String s = n2.asLiteral().getLexicalForm();
                         list.add(s);
                     }
                 }
@@ -214,4 +202,32 @@ public class RDFLicenseCheck {
         return list;
     }
 
+    public static String getLegalCode(RDFLicense lic, String lan)
+    {
+       String legal ="";
+       NodeIterator ni = lic.model.listObjectsOfProperty(ODRL.PLEGALCODE);
+        while (ni.hasNext()) {
+            RDFNode n = ni.next();
+            if (n != null && n.isResource()) {
+                Resource r = n.asResource();
+                StmtIterator sit = r.listProperties(ODRL.PACTION);
+                while (sit.hasNext()) {
+                    Statement st = sit.next();
+                    RDFNode n2 = st.getObject();
+                    if (n2.isResource()) {
+                    } else if (n2.isLiteral()) {
+                        String s = n2.asLiteral().getLanguage();
+                        if (s.equals(lan) || s.isEmpty())
+                        {
+                            legal=n2.asLiteral().getLexicalForm();
+                            return legal;
+                        }
+                    }
+                }
+            }
+        }
+        return legal;        
+        
+    }
+    
 }

@@ -1,0 +1,24 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/W3C1.0>
+      a       odrl:Policy ;
+      rdfs:label "W3C Software Notice and License" ;
+      cc:legalcode <http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231> ;
+      l4lod:licensingTerms
+              <http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231> ;
+      dct:hasVersion "1.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "W3C" ;
+      odrl:duty
+              [ a       odrl:Duty ;
+                odrl:action odrl:attachPolicy , cc:ShareAlike
+              ] ;
+      odrl:permission
+              [ a       odrl:Permission ;
+                odrl:action cc:Distribution , odrl:modify , odrl:copy
+              ] .

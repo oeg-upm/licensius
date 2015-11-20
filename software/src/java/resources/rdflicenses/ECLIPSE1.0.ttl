@@ -1,0 +1,23 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/ECLIPSE1.0>
+      a       odrl:Policy ;
+      rdfs:label "Eclipse Public License" ;
+      cc:legalcode <https://www.eclipse.org/legal/epl-v10.html> ;
+      l4lod:licensingTerms
+              <http://www.eclipse.org/legal/epl-v10.html> ;
+      dct:creator <http://www.eclipse.org/org/foundation/> ;
+      dct:hasVersion "1.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Eclipse" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:DerivativeWorks , cc:Reproduction , odrl:sell ;
+                odrl:duty
+                        [ odrl:action cc:ShareAlike
+                        ]
+              ] .

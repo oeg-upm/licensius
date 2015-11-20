@@ -21,7 +21,6 @@ public class RDFPrefixes {
         map.put("http://www.w3.org/1999/02/22-rdf-syntax-ns#", "rdf");
         map.put("http://www.w3.org/2000/01/rdf-schema#", "rdfs");
         map.put("http://semanticweb.cs.vu.nl/2009/11/sem/", "sem");
-        map.put("http://purl.org/dc/terms/", "dct");
         map.put("http://www.w3.org/2004/02/skos/core#", "skos");
         map.put("http://www.geonames.org/ontology#", "gn");
         map.put("http://xmlns.com/foaf/0.1/", "foaf");
@@ -32,6 +31,7 @@ public class RDFPrefixes {
         map.put("http://creativecommons.org/ns#", "cc");
         map.put("http://www.w3.org/ns/dcat#", "dcat");
         map.put("http://rdfs.org/ns/void#", "void");
+        map.put("http://purl.org/NET/ldr/ns#", "ldr");
     }
     
     public static String reverse(String prefix)

@@ -1,0 +1,23 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/cc-by3.0de>
+      a       odrl:Policy ;
+      rdfs:label "Creative Commons CC-BY 3.0 Germany" ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/de/legalcode> ;
+      cc:jurisdiction <http://dbpedia.org/page/Germany> ;
+      cc:legalcode <http://creativecommons.org/licenses/by/3.0/de> ;
+      dct:hasVersion "3.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/deu> ;
+      dct:publisher "Creative Commons" ;
+      odrl:duty
+              [ a       odrl:Duty ;
+                odrl:action odrl:attachPolicy , cc:Attribution
+              ] ;
+      odrl:permission
+              [ a       odrl:Permission ;
+                odrl:action cc:Distribution , cc:DerivativeWorks , cc:Reproduction
+              ] .

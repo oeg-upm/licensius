@@ -1,0 +1,24 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/GNU-LGPL3.0>
+      a       odrl:Policy ;
+      rdfs:label "GNU Lesser General Public License"@en ;
+      rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.htm> ;
+      cc:legalcode <https://www.gnu.org/licenses/lgpl.html> ;
+      l4lod:licensingTerms
+              <http://www.gnu.org/licenses/lgpl-3.0.html> ;
+      dct:hasVersion "3.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Free Software Foundation" ;
+      dct:title "LGPL" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:duty
+                        [ odrl:action cc:SourceCode , cc:Notice , cc:LesserCopyleft , cc:Attribution
+                        ]
+              ] .

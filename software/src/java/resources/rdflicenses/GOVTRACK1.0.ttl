@@ -1,0 +1,24 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/GOVTRACK1.0>
+      a       odrl:Policy ;
+      rdfs:label "Govtrack License" ;
+      cc:legalcode <https://www.govtrack.us/developers/license> ;
+      l4lod:licensingTerms
+              <https://www.govtrack.us/developers/license> ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "GovTrack" ;
+      odrl:permission
+              [ odrl:action cc:Reproduction , odrl:copy ;
+                odrl:duty
+                        [ odrl:action cc:ShareAlike , cc:Attribution
+                        ]
+              ] ;
+      odrl:prohibition
+              [ odrl:action odrl:commercialize , cc:Distribution
+              ] .

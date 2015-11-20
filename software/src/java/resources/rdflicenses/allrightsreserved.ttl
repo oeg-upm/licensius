@@ -1,0 +1,15 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/allrightsreserved>
+      a       odrl:Policy ;
+      rdfs:comment "This license does not disclose any of the IPR and database rights"@en ;
+      rdfs:label "All rights reserved"@en ;
+      cc:legalcode <http://en.wikipedia.org/wiki/All_rights_reserved> ;
+      dct:publisher " None" ;
+      odrl:prohibition
+              [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#databaseRight>
+              ] .

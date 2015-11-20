@@ -1,0 +1,38 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ms:      <http://purl.org/NET/ms-rights#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/ms-commons-byncnd>
+      a       odrl:Policy ;
+      rdfs:label "META-SHARE Commons BYNCND" ;
+      rdfs:seeAlso <http://www.meta-net.eu/meta-share/meta-share-licenses/Tabular%20presentation%20of%20MS%20Commons%20Licences.pdf> ;
+      cc:legalcode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BYNCND%20v1.0.pdf> ;
+      ms:conditionsOfUse ms:onlyMSMembers , ms:languageEngineeringResearch , cc:Attribution , ms:academic-nonCommercialUse , ms:noDerivatives ;
+      ms:licenseCategory ms:ACA ;
+      dct:alternative "MS Commons BYNCND" ;
+      dct:hasVersion "1.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Meta-Share" ;
+      odrl:permission
+              [ odrl:action odrl:aggregate , odrl:extract , cc:Reproduction ;
+                odrl:assignee <http://example.com/MetaShareMembers> ;
+                odrl:constraint
+                        [ a       odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:purpose ms:languageEngineeringResearch
+                        ] ;
+                odrl:constraint
+                        [ a       odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:spatial "only at assignee's site"
+                        ] ;
+                odrl:duty
+                        [ odrl:action cc:Attribution
+                        ]
+              ] ;
+      odrl:prohibition
+              [ odrl:action cc:DerivativeWorks , cc:CommercialUse
+              ] .

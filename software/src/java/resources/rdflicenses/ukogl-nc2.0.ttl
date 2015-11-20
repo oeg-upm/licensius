@@ -1,0 +1,24 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/ukogl-nc2.0>
+      a       odrl:Policy ;
+      rdfs:label "Open Government Licence Non-Commercial" ;
+      rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> ;
+      cc:jurisdiction <http://dbpedia.org/page/United_Kingdom> ;
+      cc:legalcode <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/> ;
+      dct:hasVersion "2.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "The National Archives" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , <http://purl.org/NET/ldr/ns#extraction> , cc:Reproduction , cc:DerivativeWorks , <http://purl.org/NET/ldr/ns#reutilization> ;
+                odrl:duty
+                        [ odrl:action cc:Notice , cc:Attribution
+                        ]
+              ] ;
+      odrl:prohibition
+              [ odrl:action cc:CommercialUse
+              ] .

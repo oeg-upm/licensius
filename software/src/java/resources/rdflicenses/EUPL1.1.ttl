@@ -1,0 +1,19 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/EUPL1.1>
+      a       odrl:Policy ;
+      rdfs:label "European Union Public License" ;
+      cc:legalcode <https://joinup.ec.europa.eu/software/page/eupl/licence-eupl> ;
+      dct:hasVersion "1.1" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "European Commission" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , odrl:lease , cc:DerivativeWorks , cc:Reproduction , odrl:sell ;
+                odrl:duty
+                        [ odrl:action cc:SourceCode , cc:ShareAlike , cc:Attribution
+                        ]
+              ] .

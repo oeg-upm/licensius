@@ -2743,37 +2743,10 @@ dct:publisher "European Commission";
 			] ;
    	   ] . 
 	  
-<http://purl.org/NET/rdflicense/APACHE2.0>
-    a odrl:Policy;
-        rdfs:label   "Apache License";	
-        dct:hasVersion "2.0" ;
-	cc:legalcode <http://www.apache.org/licenses/LICENSE-2.0> ;
-	    dct:publisher "Apache" ;
-	l4lod:licensingTerms <http://www.apache.org/licenses/LICENSE-2.0> ;
-	rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
-        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	odrl:permission [
-            odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, "patentFree" ;
-            odrl:duty [
-                odrl:action cc:ShareAlike, cc:Attribution
-            ]		   
-        ] .
+
  
 	  
-<http://purl.org/NET/rdflicense/MOZILLA2.0>
-		a odrl:Policy;
-		dct:title "MPL";
-			    dct:publisher "Mozilla" ;
 
-		rdfs:label   "Mozilla Public License";
-		cc:legalcode <https://www.mozilla.org/MPL/2.0/> ;
-		dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-		dct:hasVersion "2.0" ;
-		dct:creator <http://www.mozilla.org/>;
-		l4lod:licensingTerms <http://www.mozilla.org/MPL/2.0/>; 
-		odrl:permission [
-		   odrl:action cc:Reproduction, odrl:modify, cc:Distribution, odrl:sell ;
-   	   ] . 	   
 	   
 <http://purl.org/NET/rdflicense/ECLIPSE1.0>
     a odrl:Policy;

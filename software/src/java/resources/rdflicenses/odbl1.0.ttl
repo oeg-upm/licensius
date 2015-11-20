@@ -1,0 +1,20 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/odbl1.0>
+      a       odrl:Policy ;
+      rdfs:label "Open Data Commons Open Database License" ;
+      rdfs:seeAlso <http://www.opendatacommons.org/wp-content/uploads/2009/06/odbl-10.txt> ;
+      cc:legalcode <http://opendatacommons.org/licenses/odbl/> ;
+      dct:hasVersion "1.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Open Data Commons" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , <http://purl.org/NET/ldr/ns#extraction> , cc:Reproduction , cc:DerivativeWorks , <http://purl.org/NET/ldr/ns#reutilization> ;
+                odrl:duty
+                        [ odrl:action cc:ShareAlike , cc:Attribution
+                        ]
+              ] .

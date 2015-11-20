@@ -2,9 +2,17 @@ package oeg.rdflicense;
 
 //JENA
 import com.hp.hpl.jena.rdf.model.Literal;
+import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.RDFS;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 //JAVA
 import java.util.ArrayList;
@@ -49,18 +57,14 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
     public static Property RDCLICENSEDOC = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/LicenseDocument");
     public static Property PAMOUNTOFTHISGOOD = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/amountOfThisGood");
     public static Property PUNITOFMEASUREMENT = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/UnitOfMeasurement");
-    
     public static Property PDCLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
     public static Property PDCRIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
     public static Property PWASGENERATEDBY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#wasGeneratedBy");
     public static Property PWASASSOCIATEDWITH = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#wasAssociatedWith");
     public static Property PENDEDATTIME = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/prov#endedAtTime");
     public static Property PLEGALCODE = ModelFactory.createDefaultModel().createProperty("http://creativecommons.org/ns#legalcode");
-    
-    
     public static Property PINDUSTRY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/industry");
     public static Property PSPATIAL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/spatial");
- //   public static Property POPERATOR = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/operator");
     public static Literal LEQ = ModelFactory.createDefaultModel().createLiteral("http://www.w3.org/ns/odrl/2/eq");    
     
     
@@ -79,6 +83,89 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
         list.add(RAGREEMENT);
         list.add(RTICKET);
         return list;
+    }
+    
+    public static String getFirstComment(String right)
+    {
+        System.out.println(right);
+        Model model = getStandardModels();
+        Resource rright = model.createResource(right);
+        NodeIterator nit = model.listObjectsOfProperty(rright, RDFS.comment);
+        while(nit.hasNext())
+        {
+            RDFNode nodo = nit.next();
+            if (nodo.isLiteral())
+                return nodo.asLiteral().getLexicalForm();
+        }
+        return "";
+    }
+    
+    public static Model getStandardModels()
+    {
+        Model model = ModelFactory.createDefaultModel();
+        
+        //We load CREATIVE COMMONS
+        InputStream in = ODRL.class.getResourceAsStream("../../resources/owl/creativecommons.rdf");
+        if (in != null) {
+            try{
+                Model parcial = ModelFactory.createDefaultModel();
+                String raw = "";
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                String str = "";
+                while ((str = br.readLine()) != null) {
+                    raw += str + " \n";
+                }
+                InputStream is = new ByteArrayInputStream(raw.getBytes());
+                parcial.read(is,null);
+                model.add(parcial);
+            }catch(Exception e)
+            {
+                System.err.println("Not loaded " + e.getLocalizedMessage());
+            }
+        }
+
+        //We load ODRL
+        in = ODRL.class.getResourceAsStream("../../resources/owl/odrl21.ttl");
+        if (in != null) {
+            try{
+                Model parcial = ModelFactory.createDefaultModel();
+                String raw = "";
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                String str = "";
+                while ((str = br.readLine()) != null) {
+                    raw += str + " \n";
+                }
+                InputStream is = new ByteArrayInputStream(raw.getBytes());
+                parcial.read(is,null);
+                model.add(parcial);
+            }catch(Exception e)
+            {
+                System.err.println("Not loaded " + e.getLocalizedMessage());
+            }
+        }
+        
+        //We load LDR
+        in = ODRL.class.getResourceAsStream("../../resources/owl/ldr.ttl");
+        if (in != null) {
+            try{
+                Model parcial = ModelFactory.createDefaultModel();
+                String raw = "";
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                String str = "";
+                while ((str = br.readLine()) != null) {
+                    raw += str + " \n";
+                }
+                InputStream is = new ByteArrayInputStream(raw.getBytes());
+                parcial.read(is,null);
+                model.add(parcial);
+            }catch(Exception e)
+            {
+                System.err.println("Not loaded " + e.getLocalizedMessage());
+            }
+        }
+
+        
+        return model;
     }
     
     

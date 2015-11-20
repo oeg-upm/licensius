@@ -1,0 +1,40 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/GNU-GFDL1.3>
+      a       odrl:Policy ;
+      rdfs:label "GNU Free Documentation License"@en ;
+      rdfs:seeAlso <https://gnu.org/licenses/fdl.html> ;
+      cc:legalcode <https://gnu.org/licenses/fdl.html> ;
+      l4lod:licensingTerms
+              <http://www.gnu.org/licenses/lgpl-3.0.html> ;
+      dct:hasVersion "1.3" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Free Software Foundation" ;
+      dct:title "GFDL" ;
+      odrl:permission
+              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:constraint
+                        [ odrl:count 100 ;
+                          odrl:operator odrl:lteq
+                        ] ;
+                odrl:duty
+                        [ odrl:action "logChanges" , cc:ShareAlike , cc:Attribution
+                        ] ;
+                odrl:prohibition
+                        [ odrl:action "noDRM"
+                        ]
+              ] ;
+      odrl:permission
+              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:duty
+                        [ odrl:action cc:SourceCode , "logChanges" , cc:ShareAlike , cc:Attribution
+                        ] ;
+                odrl:prohibition
+                        [ odrl:action "noDRM"
+                        ]
+              ] .

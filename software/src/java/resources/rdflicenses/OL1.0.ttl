@@ -1,0 +1,21 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/OL1.0>
+      a       odrl:Policy ;
+      rdfs:label "License Ouverte"@fr ;
+      rdfs:seeAlso <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf> ;
+      cc:legalcode <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf> ;
+      dct:hasVersion "1.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/fra> ;
+      dct:publisher "EtaLab" ;
+      dct:title "OL" ;
+      odrl:permission
+              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction , odrl:modify , odrl:copy ;
+                odrl:duty
+                        [ odrl:action cc:Attribution
+                        ]
+              ] .

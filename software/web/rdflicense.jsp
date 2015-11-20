@@ -28,6 +28,13 @@
             ga('create', 'UA-49063507-1', 'linkeddata.es');
             ga('send', 'pageview');
         </script><style type="text/css"></style>
+        
+        <script type="text/javascript">
+            $(function () {
+                $("[rel='tooltip']").tooltip();
+            });
+        </script>        
+        
     </head>
 
     <body> 
@@ -38,6 +45,7 @@
                 <p>A dataset of licenses represented in RDF</p></center>
             <!-- </div> -->
 
+            
             <div class="col-md-1">
 
             </div>     

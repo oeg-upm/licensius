@@ -1,0 +1,25 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+<http://purl.org/NET/rdflicense/gpl2.0>
+      a       odrl:Policy ;
+      rdfs:label "GNU General Public License" ;
+      rdfs:seeAlso <http://gnu.org/licenses/gpl-2.0.html> ;
+      cc:legalcode <http://gnu.org/licenses/gpl-2.0.html> ;
+      dct:creator <http://fsf.org/> ;
+      dct:hasVersion "2.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Free Software Foundation" ;
+      owl:sameAs <http://www.gnu.org/licenses/gpl-2.0.rdf> ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:Reproduction , cc:DerivativeWorks ;
+                odrl:duty
+                        [ odrl:action cc:SourceCode , cc:Notice , cc:Copyleft
+                        ]
+              ] ;
+      foaf:logo <http://www.gnu.org/graphics/gplv3-127x51.png> .

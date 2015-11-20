@@ -1,0 +1,21 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/MICROSOFT1.0>
+      a       odrl:Policy ;
+      rdfs:label "Microsoft Reference Source License" ;
+      cc:legalcode <http://referencesource.microsoft.com/referencesourcelicensing.aspx> ;
+      l4lod:licensingTerms
+              <http://referencesource.microsoft.com/referencesourcelicensing.aspx> ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Microsoft" ;
+      odrl:permission
+              [ odrl:action odrl:read
+              ] ;
+      odrl:prohibition
+              [ odrl:action cc:Distribution , odrl:modify
+              ] .

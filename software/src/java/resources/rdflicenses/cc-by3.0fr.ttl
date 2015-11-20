@@ -1,0 +1,22 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/cc-by3.0fr>
+      a       odrl:Policy ;
+      rdfs:label "Creative Commons CC-BY 3.0 France" ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/fr/legalcode> ;
+      cc:jurisdiction <http://dbpedia.org/page/France> ;
+      cc:legalcode <http://creativecommons.org/licenses/by/3.0/fr> ;
+      dct:hasVersion "3.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/fra> ;
+      dct:publisher "Creative Commons" ;
+      dct:title "CC-BY 3.0 France" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:duty
+                        [ odrl:action cc:Notice , cc:Attribution
+                        ]
+              ] .
