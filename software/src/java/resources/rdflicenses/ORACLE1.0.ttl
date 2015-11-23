@@ -8,9 +8,7 @@
 <http://purl.org/NET/rdflicense/ORACLE1.0>
       a       odrl:Policy ;
       rdfs:label "Oracle Berkely DB License" ;
-      cc:legalcode <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html> ;
-      l4lod:licensingTerms
-              <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html> ;
+      dct:source <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html> ;
       dct:hasVersion "1.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "Oracle" ;

@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "License Ouverte"@fr ;
       rdfs:seeAlso <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf> ;
-      cc:legalcode <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf> ;
+      dct:source <http://wiki.data.gouv.fr/images/0/05/Open_Licence.pdf> ;
       dct:hasVersion "1.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/fra> ;
       dct:publisher "EtaLab" ;
