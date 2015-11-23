@@ -6,10 +6,11 @@
 
 <http://purl.org/NET/rdflicense/publicdomain>
       a       odrl:Policy ;
-      rdfs:comment "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable)." ;
+      rdfs:comment "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable). This text cannot be deemed as a license -namely, public domain works do not need to be licensed." ;
       rdfs:label "Public domain" ;
-      cc:legalcode <http://en.wikipedia.org/wiki/Public_domain> ;
+      dct:source <http://en.wikipedia.org/wiki/Public_domain> ;
       dct:publisher " None" ;
+      cc:legalcode "This statement can be applied to material truly in the public domain (because rights have expired, forfeited or are innaplicable). This text cannot be deemed as a license -namely, public domain works do not need to be licensed."@en ;
       odrl:permission
               [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#DatabaseRight>
               ] .

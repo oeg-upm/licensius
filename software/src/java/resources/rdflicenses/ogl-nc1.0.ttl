@@ -8,9 +8,7 @@
 <http://purl.org/NET/rdflicense/ogl-nc1.0>
       a       odrl:Policy ;
       rdfs:label "UK NonCommercial Government License" ;
-      cc:legalcode <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/non-commercial-government-licence.htm> ;
-      l4lod:licensingTerms
-              <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/> ;
+      dct:source <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/non-commercial-government-licence.htm> ;
       dct:hasVersion "1.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "The National Archives" ;
@@ -23,4 +21,172 @@
       odrl:prohibition
               [ a       odrl:Prohibition ;
                 odrl:action odrl:commercialize
-              ] .
+              ] ;
+      cc:legalcode """
+You are encouraged to use and re-use the Information that is available under this licence freely and flexibly, with only a few conditions.
+
+Using information under this licence
+
+Use of copyright and database right material expressly made available under this licence (the ‘Information’) indicates your acceptance of the terms and conditions below.
+
+The Licensor grants you a worldwide, royalty-free, perpetual, non-exclusive licence to use the Information for Non-Commercial purposes only subject to the conditions below.
+
+This licence does not affect your freedom under fair dealing or fair use or any other copyright or database right exceptions and limitations.
+
+You are free to:
+
+copy, publish, distribute and transmit the Information;
+adapt the Information;
+combine the Information with other information.
+You are not permitted to:
+
+exercise any of the rights granted to you by this licence in any manner that is primarily intended for or directed toward commercial advantage or private monetary compensation.
+You must, where you do any of the above:
+
+acknowledge the source of the Information by including any attribution statement specified by the Information Provider(s) and, where possible, provide a link to this licence;
+If the Information Provider does not provide a specific attribution statement, or if you are using Information from several Information Providers and multiple attributions are not practical in your product or application, you may use the following:
+
+Contains information licensed under the Non-Commercial Government Licence v1.0.
+
+ensure that any onward licensing of the Information – for example when combined with other information – is for Non-Commercial purposes only.
+ensure that you do not use the Information in a way that suggests any official status or that the Information Provider endorses you or your use of the Information;
+ensure that you do not mislead others or misrepresent the Information or its source;
+ensure that your use of the Information does not breach the Data Protection Act 1998 or the Privacy and Electronic Communications (EC Directive) Regulations 2003.
+These are important conditions of this licence and if you fail to comply with them or use the information other than for Non-Commercial purposes the rights granted to you under this licence, or any similar licence granted by the Licensor, will end automatically.
+
+ Exemptions
+
+This licence does not cover the use of:
+
+personal data in the Information;
+Information that has neither been published nor disclosed under information access legislation (including the Freedom of Information Acts for the UK and Scotland) by or with the consent of the Information Provider;
+departmental or public sector organisation logos, crests, military insignia and the Royal Arms except where they form an integral part of a document or dataset;
+third party rights the Information Provider is not authorised to license;
+Information subject to other intellectual property rights, including patents, trade marks, and design rights; and
+identity documents such as the British Passport.
+No warranty
+
+The Information is licensed ‘as is’ and the Information Provider excludes all representations, warranties, obligations and liabilities in relation to the Information to the maximum extent permitted by law.
+
+The Information Provider is not liable for any errors or omissions in the Information and shall not be liable for any loss, injury or damage of any kind caused by its use. The Information Provider does not guarantee the continued supply of the Information.
+
+Governing Law
+
+This licence is governed by the laws of the jurisdiction in which the Information Provider has its principal place of business, unless otherwise specified by the Information Provider.
+
+Definitions
+
+In this licence the terms below have the following meanings:
+
+‘Information’
+means information protected by copyright or by database right (for example, literary and artistic works, content, data and source code) offered for use under the terms of this licence.
+
+‘Information Provider’
+means the person or organisation providing the Information under this licence.
+
+‘Licensor’
+means any Information Provider which has the authority to offer Information under the terms of this licence or the Controller of Her Majesty’s Stationery Office, who has the authority to offer Information subject to Crown copyright and Crown database rights and Information subject to copyright and database right that has been assigned to or acquired by the Crown, under the terms of this licence.
+
+‘Non-Commercial purposes’
+means not intended for or directed toward commercial advantage or private monetary compensation. For the purposes of this licence, ‘private monetary compensation’ does not include the exchange of the Information for other copyrighted works by means of digital file-sharing or otherwise provided there is no payment of any monetary compensation in connection with the exchange of the Information.
+
+‘Use’
+as a verb, means doing any act which is restricted by copyright or database right, whether in the original medium or in any other medium, and includes without limitation distributing, copying, adapting, modifying as may be technically necessary to use it in a different mode or format.
+
+‘You’
+means the natural or legal person, or body of persons corporate or incorporate, acquiring rights under this licence.
+
+About this Licence
+
+The Controller of Her Majesty’s Stationery Office (HMSO) has developed this licence as a tool to enable Information Providers in the public sector to license the use and re-use of their Information under a common non-commercial licence. The Controller invites public sector bodies owning their own copyright and database rights to permit the use of their Information under this licence where licensing under the default Open Government Licence is not appropriate.
+
+The Controller of HMSO has authority to license Information subject to copyright and database right owned by the Crown.
+
+This is version 1.0 of the Non-Commercial Government Licence. The Controller of HMSO may, from time to time, issue new versions of the Non-Commercial Government Licence. However, you may continue to use Information licensed under this version should you wish to do so.
+
+Further context, best practice and guidance can be found in the UK Government Licensing Framework section on The National Archives website.
+"""@en;
+cc:legalcode """
+Rhoddir anogaeth i chi ddefnyddio ac ailddefnyddio’r Wybodaeth sydd ar gael dan y drwydded hon yn rhydd a hyblyg, gydag ychydig o amodau.
+
+Defnyddio gwybodaeth dan y drwydded hon
+
+Bydd defnyddio deunydd sydd dan hawliau hawlfraint a chronfa ddata sydd ar gael yn benodol dan y drwydded hon (y ‘Wybodaeth’) yn arwydd eich bod yn derbyn y telerau a’r amodau isod.
+
+Mae’r Trwyddedwr yn rhoi trwydded fyd-eang, heb freindal, hyd byth, nad yw’n cau dim allan i chi i ddefnyddio’r Wybodaeth i ddibenion Anfasnachol yn unig yn ddarostyngedig i’r amodau isod.
+
+Nid yw’r drwydded hon yn effeithio ar eich rhyddid dan ddelio teg neu ddefnydd teg neu unrhyw eithriadau a chyfyngiadau hawliau deunydd hawlfraint neu gronfa ddata.
+
+Mae gennych ryddid i:
+
+gopïo, cyhoeddi, dosbarthu a darlledu’r Wybodaeth;
+addasu’r Wybodaeth;
+cyfuno’r Wybodaeth gyda gwybodaeth arall.
+Ni chaniateir i chi:
+
+arfer unrhyw rai o’r hawliau a roddir i chi dan y drwydded hon mewn unrhyw fodd sydd wedi ei bwriadu’n bennaf ar gyfer neu wedi ei chyfeirio tuag at fantais fasnachol neu iawndal ariannol preifat.
+Mae’n rhaid i chi, pan fyddwch yn gwneud unrhyw un o’r uchod:
+
+gydnabod ffynhonnell yr Wybodaeth yn eich cynnyrch neu becyn trwy gynnwys neu gysylltu ag unrhyw ddatganiad priodoli a nodwyd gan Ddarparwr(wyr) yr Wybodaeth a, phan fydd hynny’n bosibl, roi dolen i’r drwydded hon;
+Os nad yw’r Darparwr Gwybodaeth yn darparu datganiad priodoli penodol, neu os ydych chi’n defnyddio Gwybodaeth gan nifer o Ddarparwyr Gwybodaeth ac aml briodoleddau yn ymarferol yn eich cynnyrch neu becyn, gallwch ddefnyddio’r canlynol:
+
+Yn cynnwys gwybodaeth a drwyddedwyd dan Drwydded Llywodraeth Anfasnachol v1.0.
+
+sicrhau bod unrhyw drwyddedu ymlaen o’r Wybodaeth – er enghraifft o gyfuno â gwybodaeth arall – ar gyfer dibenion Anfasnachol yn unig.
+sicrhau nad ydych yn defnyddio’r Wybodaeth mewn modd sy’n awgrymu unrhyw statws swyddogol na bod y Darparwr Gwybodaeth yn eich cefnogi chi na’ch defnydd o’r Wybodaeth;
+sicrhau nad ydych yn camarwain eraill neu’n camddehongli’r Wybodaeth na’i ffynhonnell;
+sicrhau nad yw’ch defnydd o’r Wybodaeth yn mynd yn groes i'r Ddeddf Diogelu Data 1998 na’r Rheoliadau Preifatrwydd a Chyfathrebu Electronig (Cyfarwyddeb CE) 2003.
+Mae’r rhain yn amodau pwysig i’r drwydded hon ac os na fyddwch yn cydymffurfio â nhw neu’n defnyddio’r wybodaeth ar wahân i ar gyfer materion Anfasnachol, bydd yr hawliau a roddir ichi dan y drwydded, neu unrhyw drwydded debyg a roddir gan y Trwyddedwr, yn dod i ben yn awtomatig.
+
+ Eithriadau
+
+Nid yw’r drwydded hon yn cynnwys defnydd o:
+
+ddata personol yn yr Wybodaeth;
+Gwybodaeth sydd heb ei chyhoeddi na’i datgelu dan ddeddfwriaeth mynediad at wybodaeth (gan gynnwys y Deddfau Rhyddid Gwybodaeth i’r Deyrnas Unedig a’r Alban) gan neu gyda chaniatâd y Rhoddwr Gwybodaeth;
+logos adrannol neu sector cyhoeddus, arwyddeiriau, arfbeisiau ac Arfbeisiau Brenhinol ac eithrio pan fyddant yn rhan ganolog o ddogfen neu set o ddata;
+hawliau trydydd parti nad oes gan y Darparwr Gwybodaeth hawl i’w trwyddedu;
+Gwybodaeth sy’n destun hawliau eiddo deallusol eraill, gan gynnwys patentau, nodau masnach, a hawliau dyluniad; a
+dogfennau adnabod fel Pasbort Prydeinig.
+Dim gwarant
+
+Mae’r Wybodaeth yn cael ei thrwyddedu ‘fel y mae’ ac mae’r Darparwr Gwybodaeth yn eithrio pob cyflwyniad, gwarant, rhwymedigaeth ac atebolrwydd yng nghyswllt yr Wybodaeth i’r graddau mwyaf a ganiateir gan y gyfraith.
+
+Nid yw’r Darparwr Gwybodaeth yn atebol am unrhyw wallau neu ddiffygion yn yr Wybodaeth ac ni fydd yn atebol am unrhyw golled, anaf na niwed o unrhyw fath a achosir trwy ei defnyddio. Nid yw’r Darparwr Gwybodaeth yn gwarantu y bydd yr Wybodaeth yn parhau i gael ei chyflenwi.
+
+Cyfraith Lywodraethol
+
+Mae’r drwydded yn cael ei rheoli gan gyfreithiau’r awdurdodaeth lle mae prif fan busnes y Darparwr Gwybodaeth, oni nodir yn wahanol gan y Darparwr Gwybodaeth.
+
+Diffiniadau
+
+Yn y drwydded hon, mae gan y termau isod yr ystyron canlynol:
+
+Mae ‘Gwybodaeth’
+yn golygu gwybodaeth a ddiogelir gan hawlfraint neu gan hawl cronfa ddata (er enghraifft, gweithiau llenyddol a chelfyddydol, cynnwys, data a chod ffynhonnell) a gynigir i’w defnyddio dan delerau’r drwydded hon.
+
+Mae ‘Darparwr Gwybodaeth’
+yn golygu’r unigolyn neu sefydliad sy’n darparu’r Wybodaeth dan y drwydded hon.
+
+Mae ‘Trwyddedwr’
+yn golygu unrhyw Ddarparwr Gwybodaeth sydd â’r awdurdod i gynnig Gwybodaeth dan amodau’r drwydded hon neu Reolwr Llyfrfa Ei Mawrhydi, sydd â’r awdurdod i gynnig Gwybodaeth yn ddarostyngedig i hawlfraint y Goron a hawliau cronfa ddata’r Goron a Gwybodaeth sy’n ddarostyngedig i hawl hawlfraint a chronfa ddata sydd wedi ei aseinio i’r Goron neu wedi ei gaffael gan y goron dan delerau’r drwydded hon.
+
+Mae ‘Dibenion anfasnachol’
+yn golygu nad yw wedi ei fwriadu ar gyfer na’i gyfeirio tuag at fantais fasnachol nac iawndal ariannol preifat. I ddibenion y drwydded hon, nid yw ‘iawndal ariannol preifat’ yn cynnwys cyfnewid Gwybodaeth ar gyfer unrhyw waith hawlfraint arall trwy rannu ffeiliau digidol nac fel arall ar yr amod nad oes taliad o unrhyw iawndal ariannol yng nghyd-destun cyfnewid yr Wybodaeth.
+
+Mae ‘defnydd’
+fel berf yn golygu cyflawni unrhyw weithred a gyfyngir gan hawl hawlfraint neu gronfa ddata, boed yn y cyfrwng gwreiddiol neu yn unrhyw gyfrwng arall, ac yn cynnwys heb gyfyngiad dosbarthu, copïo, addasu, neu gyfaddasu fel gall fod yn angenrheidiol i’w ddefnyddio mewn modd neu fformat gwahanol.
+
+Mae ‘chi’ ac ‘eich’
+yn golygu’r unigolyn naturiol neu gyfreithiol, neu gorff o unigolion trwy gorfforaeth neu ymgorfforaeth, sy’n cael hawliau dan y drwydded hon.
+
+Ynghylch y Drwydded hon
+
+Datblygodd Rheolwr Llyfrfa Ei Mawrhydi (HMSO) y drwydded hon fel offeryn i alluogi Darparwyr Gwybodaeth yn y sector cyhoeddus i drwyddedu’r defnydd ac ailddefnydd o’u Gwybodaeth dan drwydded gyffredin anfasnachol. Mae’r Rheolwr yn gwahodd cyrff sector cyhoeddus sydd â’u hawliau hawlfraint a chronfa ddata eu hunain i ganiatáu’r defnydd o’u Gwybodaeth dan y drwydded hon ble nad yw trwyddedu dan Drwydded Llywodraeth Agored ddiofyn yn briodol.
+
+Mae gan Reolwr HMSO awdurdod i drwyddedu Gwybodaeth sy’n ddarostyngedig i hawl hawlfraint a hawl cronfa ddata sy’n eiddo i’r Goron.
+
+Hon yw fersiwn 1.0 o’r Drwydded Llywodraeth Anfasnachol. Gall Rheolwr HMSO, o dro i dro, gyhoeddi fersiynau newydd o’r Drwydded Llywodraeth Anfasnachol. Fodd bynnag, gallwch ddal i ddefnyddio’r Wybodaeth a drwyddedwyd dan y fersiwn hon os dymunwch.
+
+Gellir gweld rhagor o gyd-destun, yr arfer gorau a chyfarwyddyd yn adran Fframwaith Trwyddedu Llywodraeth y Deyrnas Unedig ar wefan yr Archifau Gwladol.
+"""@cy;

@@ -9,7 +9,7 @@
       a       odrl:Policy ;
       rdfs:label "LANGUAGE RESOURCES VALUE-ADDED-RESELLER AGREEMENT" ;
       rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> ;
-      cc:legalcode <http://www.elda.org/media/filer_public/2014/08/01/var_140312.pdf> ;
+      dct:source <http://www.elda.org/media/filer_public/2014/08/01/var_140312.pdf> ;
       ms:conditionsOfUse ms:noRedistribution , ms:languageEngineeringResearch , ms:spatialConstraint , cc:Attribution , ms:forAFee ;
       ms:licenseCategory ms:RES ;
       dct:alternative "ELRA-VAR" ;
