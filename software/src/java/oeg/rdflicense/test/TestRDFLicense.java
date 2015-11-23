@@ -24,7 +24,23 @@ public class TestRDFLicense {
      * This method (and observing the logs) is enough to test if the dataset is correct
      */
     public static void main(String[] args) {
-     testLicenses();   
+//     testLicenses();   
+        multilingual();
+    }
+    
+    public static void multilingual()
+    {
+        String char1="世界你好";
+        System.out.println(char1);
+        
+        String char2="\u4e16\u754c\u4f60\u597d";
+        System.out.println(char2);
+        
+        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/NDL1.0");
+//        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/gpl2.0");
+        
+        System.out.println(lic.toTTL());
+        
     }
     
     public static void testLicenses()
