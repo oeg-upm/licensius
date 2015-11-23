@@ -79,7 +79,7 @@ public class URLutils {
 	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 	String inputLine;
 	StringBuffer html = new StringBuffer();
-	while ((inputLine = in.readLine()) != null) {html.append(inputLine);}
+	while ((inputLine = in.readLine()) != null) {html.append(inputLine);html.append("\n");}
 	in.close();            
             
         document = html.toString();

@@ -5,11 +5,14 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import main.Licensius;
 import org.json.simple.JSONObject;
 import vroddon.utils.URLutils;
 
@@ -19,13 +22,19 @@ import vroddon.utils.URLutils;
  */
 public class RDFLicense {
 
-    public Model model = null;
+    Model model = null;
     String uri = "";
     
     public RDFLicense()
     {
         
     }
+    public RDFLicense(String _uri)
+    {
+        uri = _uri;
+        model = getModel();
+    }
+    
     public String getTitle()
     {
         if (model==null)
@@ -54,11 +63,17 @@ public class RDFLicense {
         return RDFUtils.getFirstValue(model, uri, "http://www.w3.org/2000/01/rdf-schema#label");
     }
 
-    public String getLegalCode()
+    public String getLegalCodeLanguages()
     {
         if (model==null)
             return "error";
-        return RDFUtils.getFirstValue(model, uri, "http://creativecommons.org/ns#legalcode");
+        return RDFUtils.getAllLanguages(model, uri, "http://creativecommons.org/ns#legalcode");
+    }
+    public String getLegalCode(String lan)
+    {
+        if (model==null)
+            return "error";
+        return RDFUtils.getFirstLiteral(model, uri, "http://creativecommons.org/ns#legalcode", lan);
     }
     public String getSeeAlso()
     {
@@ -116,7 +131,7 @@ public class RDFLicense {
     {
         StringWriter sw = new StringWriter();
         if (model!=null)
-        model.write(sw, "TURTLE");
+            model.write(sw, "TURTLE");
         return sw.toString();
     }
  
@@ -130,14 +145,41 @@ public class RDFLicense {
             obj.put("version", getVersion());
             obj.put("seeAlso", getSeeAlso());
             obj.put("label", getLabel());
-            obj.put("legalcode", getLegalCode());
+            obj.put("legalcode", getLegalCodeLanguages());
             json = obj.toString();
         } catch (Exception e) {
             json = "error";
         }
         return json;
     }    
+
+    public Model getModel() {
+        if (model!=null)
+            return model; 
+        try {
+            String urittl = uri+".ttl";
+            System.out.println("Leyendo " + urittl);
+            String txt = URLutils.browseSemanticWeb(urittl);
+            System.out.println(txt);
+            model = ModelFactory.createDefaultModel();
+            InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
+            model.read(is, null, "TURTLE");
+            //model.read("C:\\Users\\vrodriguez\\Desktop\\a.ttl", null, "TURTLE");
+            is.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return model;
+    }
     
-    
+    public static void main(String[] args) {
+        Licensius.initLogger();
+        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/ukogl-nc2.0");
+        String label = lic.getLegalCodeLanguages();
+        
+//        String label = lic.getLabel();
+//        System.out.println("LABEL: " + label);
+//        System.out.println("=====\n"+lic.toTTL());
+    }
     
 }

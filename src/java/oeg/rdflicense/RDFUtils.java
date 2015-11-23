@@ -57,6 +57,7 @@ import java.util.List;
 public class RDFUtils {
 
     private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
+
     String property = "";
     String value = "";
     public static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
@@ -164,6 +165,8 @@ public class RDFUtils {
         return "";
     }
 
+    
+    
     /**
      * Gets all the values of the given property. It assumes that all the values are strings.
      * @param resource
@@ -244,6 +247,25 @@ public class RDFUtils {
         }
         return cadenas;
     }
+    public static String getFirstLiteral(Model model, String uri, String propiedad, String lan) {
+        Resource res = model.getResource(uri);
+        if (res == null) {
+            return "";
+        }
+        Property prop = ModelFactory.createDefaultModel().createProperty(propiedad);
+        StmtIterator it = res.listProperties(prop);
+        while (it.hasNext()) {
+            Statement stmt2 = it.nextStatement();
+            RDFNode nodo = stmt2.getObject();
+            if (nodo.isLiteral())
+            {
+                Literal l = nodo.asLiteral();
+                if (l.getLanguage().equals(lan))
+                    return l.getLexicalForm();
+            }
+        }
+        return "";
+    }
 
     public static String getFirstValue(Model model, String uri, String propiedad) {
         Resource res = model.getResource(uri);
@@ -260,6 +282,28 @@ public class RDFUtils {
         return "";
     }
 
+    public static String getAllLanguages(Model model, String uri, String propiedad) {
+        String s ="[";
+        Resource res = model.getResource(uri);
+        if (res == null) {
+            return "";
+        }
+        Property prop = ModelFactory.createDefaultModel().createProperty(propiedad);
+        StmtIterator it = res.listProperties(prop);
+        while (it.hasNext()) {
+            Statement stmt2 = it.nextStatement();
+            RDFNode nodo = stmt2.getObject();
+            if (nodo.isLiteral())
+            {
+                Literal l = nodo.asLiteral();
+                s+="\""+l.getLanguage()+"\", ";
+            }
+        }
+        s+="]";
+        return s;
+    }
+    
+    
     public static String getLabel(Model model, String uri) {
         Resource res = model.getResource(uri);
         if (res == null) {

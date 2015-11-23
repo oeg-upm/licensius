@@ -367,7 +367,7 @@ public class LicenseGuess extends HttpServlet {
                         {
                             String oficial = rdflicense.getSeeAlso();
                             if (oficial.isEmpty())
-                                oficial = rdflicense.getLegalCode();
+                                oficial = rdflicense.getLegalCodeLanguages();
                             lic = line+"\t"+rdflicense.getLabel() + "\t" + oficial + "\t" + rdflicense.getURI();
                         }
                     }
