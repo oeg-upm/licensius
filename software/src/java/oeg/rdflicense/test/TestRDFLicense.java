@@ -4,7 +4,10 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
@@ -23,12 +26,12 @@ public class TestRDFLicense {
     /**
      * This method (and observing the logs) is enough to test if the dataset is correct
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //     testLicenses();   
         multilingual();
     }
     
-    public static void multilingual()
+    public static void multilingual() throws IOException
     {
         String char1="世界你好";
         System.out.println(char1);
@@ -36,10 +39,19 @@ public class TestRDFLicense {
         String char2="\u4e16\u754c\u4f60\u597d";
         System.out.println(char2);
         
-        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/NDL1.0");
+//        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/NDL1.0");
 //        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/gpl2.0");
+        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/NDL1.0");
+        
         
         System.out.println(lic.toTTL());
+
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("test.txt"));
+        writer.write(char1);
+        writer.write(char2);
+        writer.write(lic.toTTL());
+        writer.close();        
         
     }
     
