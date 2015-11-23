@@ -7,7 +7,7 @@
     <servlet>
         <servlet-name>list</servlet-name>
         <servlet-class>oeg.rdflicense.ListServlet</servlet-class>
-    </servlet> 
+    </servlet>  
     <!-- UNCOMMENT THIS IF USING IT IN APPSPOT. comment it if in tomcat   -->
        <servlet>
         <servlet-name>default</servlet-name>
