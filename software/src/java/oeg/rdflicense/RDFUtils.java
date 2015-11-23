@@ -15,7 +15,11 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.shared.PrefixMapping;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,6 +27,7 @@ import java.util.Map;
 
 //LOG4J
 import org.apache.log4j.Logger;
+import org.openjena.atlas.lib.StrUtils;
 
 /**
  * Helper class with some useful methods to manipulate RDF
@@ -160,4 +165,50 @@ public class RDFUtils {
     public static String getLastBitFromUrl(final String url){
         return url.replaceFirst(".*/([^/?]+).*", "$1"); 
     }        
+    
+    
+    /**
+     * Downloads a file making its best:
+     * - following redirects
+     * - implementing the best content negotiation
+     * curl -I -L -H "Accept: application/rdf+xml" http://datos.bne.es/resource/XX947766
+     */
+    public static String browseSemanticWeb(String url) {
+        String document = "";
+        String acceptHeaderValue = StrUtils.strjoin(",","application/rdf+xml","application/turtle;q=0.9","application/x-turtle;q=0.9","text/n3;q=0.8","text/turtle;q=0.8","text/rdf+n3;q=0.7","application/xml;q=0.5","text/xml;q=0.5","text/plain;q=0.4","*/*;q=0.2");
+        boolean redirect = false;
+        try {
+            URL obj = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+            conn.setRequestProperty("Accept",acceptHeaderValue);                
+            conn.setReadTimeout(5000);
+            int status = conn.getResponseCode();
+            if (status != HttpURLConnection.HTTP_OK) {
+                if (status == HttpURLConnection.HTTP_MOVED_TEMP
+                        || status == HttpURLConnection.HTTP_MOVED_PERM
+                        || status == HttpURLConnection.HTTP_SEE_OTHER) {
+                    redirect = true;
+                }
+            }
+            
+            if (redirect) {
+		String newUrl = conn.getHeaderField("Location");
+		String cookies = conn.getHeaderField("Set-Cookie");  
+                conn = (HttpURLConnection) new URL(newUrl).openConnection();
+                conn.setRequestProperty("Cookie", cookies);                
+            }
+	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	String inputLine;
+	StringBuffer html = new StringBuffer();
+	while ((inputLine = in.readLine()) != null) {html.append(inputLine);html.append("\n");}
+	in.close();            
+            
+        document = html.toString();
+            
+        } catch (Exception e) {
+            
+        }
+        return document;
+    }
+    
 }
