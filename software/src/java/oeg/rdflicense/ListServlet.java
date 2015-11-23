@@ -16,6 +16,7 @@ import javax.servlet.http.*;
 
 //LOG4J
 import odrlmodel.Policy;
+import oeg.rdflicense.servlet.MainServlet;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
