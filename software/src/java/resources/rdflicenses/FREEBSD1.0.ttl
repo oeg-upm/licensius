@@ -8,9 +8,7 @@
 <http://purl.org/NET/rdflicense/FREEBSD1.0>
       a       odrl:Policy ;
       rdfs:label "Free BSD Documentation License" ;
-      cc:legalcode <http://www.freebsd.org/copyright/freebsd-doc-license.html> ;
-      l4lod:licensingTerms
-              <http://www.freebsd.org/copyright/freebsd-doc-license.html> ;
+      dct:source <http://www.freebsd.org/copyright/freebsd-doc-license.html> ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "The FreeBSD Project" ;
       odrl:permission

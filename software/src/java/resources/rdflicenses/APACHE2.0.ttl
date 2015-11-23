@@ -19,10 +19,9 @@
     a odrl:Policy;
         rdfs:label   "Apache License";	
         dct:hasVersion "2.0" ;
-	cc:legalcode <http://www.apache.org/licenses/LICENSE-2.0> ;
+	dct:source <http://www.apache.org/licenses/LICENSE-2.0> ;
 	dct:publisher "Apache" ;
-	l4lod:licensingTerms <http://www.apache.org/licenses/LICENSE-2.0> ;
-	rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
+	rdfs:legalcode <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
         dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	odrl:permission [
             odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, "patentFree" ;

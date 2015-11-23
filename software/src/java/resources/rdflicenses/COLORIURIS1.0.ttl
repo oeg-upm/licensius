@@ -7,7 +7,7 @@
 <http://purl.org/NET/rdflicense/COLORIURIS1.0>
       a       odrl:Policy ;
       rdfs:label "ColorIURIS Copyright" ;
-      cc:legalcode <http://www.coloriuris.net/en:avisos_legales#copyright_and_industrial_property> ;
+      dct:source <http://www.coloriuris.net/en:avisos_legales#copyright_and_industrial_property> ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "ColorIURIS" ;
       odrl:permission

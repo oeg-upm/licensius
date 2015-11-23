@@ -108,7 +108,13 @@ public class MainServlet extends HttpServlet {
                 resp.setContentType("application/rdf+xml");
                 resp.getWriter().println(license.toRDFXML());
             } else {
-                resp.sendRedirect(license.getLegalCode());
+                String redirect = license.getSource();
+                if (redirect==null || redirect.isEmpty())
+                    redirect = license.getSeeAlso();
+                if (redirect==null || redirect.isEmpty())
+                    redirect = license.getLegalCode();
+                if (redirect!=null && !redirect.isEmpty())
+                    resp.sendRedirect(redirect);
             }
             resp.setStatus(HttpServletResponse.SC_OK);
         } else {

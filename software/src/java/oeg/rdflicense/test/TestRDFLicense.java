@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.rdflicense.test;
 
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -9,6 +9,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.util.List;
+import oeg.rdflicense.ODRL;
+import oeg.rdflicense.RDFLicense;
+import oeg.rdflicense.RDFLicenseCheck;
+import oeg.rdflicense.RDFLicenseDataset;
 
 /**
  * Not JUnit tests, but exemplary tests
@@ -20,7 +24,27 @@ public class TestRDFLicense {
      * This method (and observing the logs) is enough to test if the dataset is correct
      */
     public static void main(String[] args) {
+     testLicenses();   
+    }
+    
+    public static void testLicenses()
+    {
+        RDFLicenseDataset dataset = new RDFLicenseDataset();
+        List<RDFLicense> lics = dataset.getRDFLicenses();
+        for(RDFLicense lic : lics)
+        {
+            if (lic==null)
+            {
+                System.err.println("One license is wrong");
+                continue;
+            }
+            String source=lic.getSource();
+            System.out.println(lic.getURI()+"\t"+lic.getSource());
+        }
         
+    }
+    public static void testx()
+    {
         testODRL();
         
         if(true)

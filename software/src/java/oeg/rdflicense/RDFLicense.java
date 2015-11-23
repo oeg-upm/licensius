@@ -85,6 +85,7 @@ public class RDFLicense {
         return RDFUtils.getFirstValue(model, uri, "http://purl.org/dc/terms/hasVersion");
     }
     
+    
 
     /**
      * Gets the URI for the legal code or an empty string if non-existing
@@ -95,6 +96,13 @@ public class RDFLicense {
             return "";
         return RDFUtils.getFirstValue(model, uri, "http://creativecommons.org/ns#legalcode");
     }
+    
+    public String getSource() {
+        if (model==null)
+            return "";
+        return RDFUtils.getFirstValue(model, uri, "http://purl.org/dc/terms/source");
+    }
+    
     
     
     /**
@@ -186,5 +194,7 @@ public class RDFLicense {
             return s1.compareTo(s2);
         }
     };    
+
+
 
 }

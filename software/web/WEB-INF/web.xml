@@ -9,12 +9,12 @@
         <servlet-class>oeg.rdflicense.ListServlet</servlet-class>
     </servlet>  
     <!-- UNCOMMENT THIS IF USING IT IN APPSPOT. comment it if in tomcat   -->
-       <servlet>
+<!--       <servlet>
         <servlet-name>default</servlet-name>
         <servlet-class>oeg.rdflicense.servlet.DefaultWrapperServlet</servlet-class> 
        </servlet> 
-    
-    <!-- FINISH FROM APPSPOT/COMCAT -->
+    -->
+    <!-- FINISH FROM APPSPOT/COMCAT --> 
     <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/rdflicense/list</url-pattern> 

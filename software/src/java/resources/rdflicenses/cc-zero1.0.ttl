@@ -9,7 +9,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC0" ;
       rdfs:seeAlso <http://creativecommons.org/publicdomain/zero/1.0/legalcode> ;
-      cc:legalcode <http://creativecommons.org/publicdomain/zero/1.0/> ;
+      dct:source <http://creativecommons.org/publicdomain/zero/1.0/> ;
       dct:alternative "CC0" ;
       dct:hasVersion "1.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
