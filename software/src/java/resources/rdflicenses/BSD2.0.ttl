@@ -8,9 +8,7 @@
 <http://purl.org/NET/rdflicense/BSD2.0>
       a       odrl:Policy ;
       rdfs:label "2-clause BSD License" ;
-      cc:legalcode <http://www.linfo.org/bsdlicense.html> ;
-      l4lod:licensingTerms
-              <http://www.linfo.org/bsdlicense.html> ;
+      dct:source <http://www.linfo.org/bsdlicense.html> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "The FreeBSD Project" ;

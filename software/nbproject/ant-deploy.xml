@@ -2,9 +2,10 @@
 <project default="-deploy-ant" basedir=".">
 
     <!-- Google App Engine Properties -->
-    <property name="appengine.location" value="C:\Java\appengine-java-sdk-1.7.5"/>
+    <property name="appengine.location" value="C:\java\appengine-java-sdk-1.9.25"/>
     <property name="appengine.http.port" value="8080"/>
     <property name="appengine.debug.port" value="8765"/>
+    <property name="jvmargs" value=""/>
 
     <!-- Import Google App Engine Macros -->
     <import file="${appengine.location}/config/user/ant-macros.xml" />
@@ -26,7 +27,11 @@
     <!-- Start Google App Engine Development Server -->
     <target name="runserver" depends="datanucleusenhance"
       description="Starts the development server.">
-        <dev_appserver war="${build.web.dir}" port="${appengine.http.port}" />
+        <dev_appserver war="${build.web.dir}" port="${appengine.http.port}" >
+            <options>
+                <arg line="${jvmargs}"/>
+            </options>
+        </dev_appserver>
     </target>
 
     <!-- Start Google App Engine Development Server In Debug Mode -->
@@ -36,6 +41,7 @@
             <options>
                 <arg value="--jvm_flag=-Xdebug"/>
                 <arg value="--jvm_flag=-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=${appengine.debug.port}"/>
+                <arg line="${jvmargs}"/>
             </options>
         </dev_appserver>
     </target>
@@ -45,8 +51,7 @@
       description="Starts the development server.">
         <dev_appserver war="${build.web.dir}" port="${appengine.http.port}" >            
             <options>
-                <arg value="--jvm_flag=${profiler.agentpath}"/>
-                <arg value="--jvm_flag=${profiler.agentid}"/>
+                <arg line="${jvmargs}"/>
             </options>
         </dev_appserver>
     </target>

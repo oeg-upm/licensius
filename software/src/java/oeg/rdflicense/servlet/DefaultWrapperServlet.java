@@ -25,11 +25,8 @@ public class DefaultWrapperServlet extends HttpServlet
             return;
         }
 
-       if (uri.endsWith(".png")) {
+/*       if (uri.endsWith(".png")) {
             resp.setContentType("image/png");
-            
-            
-            
             ServletOutputStream output = resp.getOutputStream();
             String filename = uri.substring("/rdflicense/".length());
             logger.info("GRAPER3 intentando abrir " + filename);
@@ -43,7 +40,7 @@ public class DefaultWrapperServlet extends HttpServlet
                 output.write(buffer, 0, bytesRead);
             }
             return;
-        }
+        }*/
        // if (true)
        //     return; 
         

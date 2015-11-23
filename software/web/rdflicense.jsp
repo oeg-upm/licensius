@@ -55,7 +55,7 @@
                     <div class="panel-heading"><h2 class="panel-title">What is this?</h2></div>
                     <div class="panel-body">
                         <p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
-                        <center><img src="./fig2.png" width="200px"></center>
+                        <center><img src="./img/fig2.png" width="200px"></center>
                     </div>
                 </div>
                 <!--<span style="color:red">UNDER MAINTENANCE (18.11.2014)</span> -->
