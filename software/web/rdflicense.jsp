@@ -83,8 +83,8 @@
                 </table>
                 <p></p>			
                 <center>
-                    <a href="https://github.com/oeg-upm/rdflicense"><img src="./github.png"></a>
-                    <a href="http://datahub.io/dataset/rdflicense"><img src="./ckan.png"></a>
+                    <a href="https://github.com/oeg-upm/rdflicense"><img src="./img/github.png"></a>
+                    <a href="http://datahub.io/dataset/rdflicense"><img src="./img/ckan.png"></a>
                 </center>
 
                 <!-- <p>The list of referenceable licenses is also provided <a href="licenses.html">here</a></p> -->

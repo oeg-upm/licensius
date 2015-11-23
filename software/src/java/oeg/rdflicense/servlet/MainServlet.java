@@ -94,7 +94,8 @@ public class MainServlet extends HttpServlet {
             if (bHTML) {
                 Policy policy = license.getPolicy();
                 if (policy != null) {
-                    String html = HTMLODRLManager.htmlPolicy(policy, "en");
+                    String html="";
+//                    String html = HTMLODRLManager.htmlPolicy(policy, "en");
                     resp.setContentType("text/html;charset=utf-8");
                     resp.getWriter().println(html.toString());
                 } else {
