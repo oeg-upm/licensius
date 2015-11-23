@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringWriter;
 
 //JAVA
 import java.util.ArrayList;
@@ -85,11 +86,17 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
         return list;
     }
     
-    public static String getFirstComment(String right)
+    /**
+     * Gets the first comment found for an element
+     */
+    public static String getFirstComment(String element)
     {
-        System.out.println(right);
-        Model model = getStandardModels();
-        Resource rright = model.createResource(right);
+        System.out.println(element);
+//        Model model = getStandardModels();
+        Model model = ModelFactory.createDefaultModel();
+        Resource rright = model.createResource(element);
+
+        
         NodeIterator nit = model.listObjectsOfProperty(rright, RDFS.comment);
         while(nit.hasNext())
         {
@@ -100,6 +107,10 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
         return "";
     }
     
+    /**
+     * Loads the standard models in a Jena Model
+     * It may take relatively long (too long to be called before serving a web)
+     */
     public static Model getStandardModels()
     {
         Model model = ModelFactory.createDefaultModel();
@@ -125,7 +136,7 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
         }
 
         //We load ODRL
-        in = ODRL.class.getResourceAsStream("../../resources/owl/odrl21.ttl");
+        in = ODRL.class.getResourceAsStream("../../resources/owl/odrl21.rdf");
         if (in != null) {
             try{
                 Model parcial = ModelFactory.createDefaultModel();
@@ -136,7 +147,7 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
                     raw += str + " \n";
                 }
                 InputStream is = new ByteArrayInputStream(raw.getBytes());
-                parcial.read(is,null);
+                parcial.read(is,null, "RDF/XML");
                 model.add(parcial);
             }catch(Exception e)
             {
@@ -156,7 +167,7 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
                     raw += str + " \n";
                 }
                 InputStream is = new ByteArrayInputStream(raw.getBytes());
-                parcial.read(is,null);
+                parcial.read(is,null, "TTL");
                 model.add(parcial);
             }catch(Exception e)
             {

@@ -79,7 +79,7 @@ public class RDFLicense {
         return s;
     }
     
-    String getVersion() {
+    public String getVersion() {
         if (model==null)
             return "";
         return RDFUtils.getFirstValue(model, uri, "http://purl.org/dc/terms/hasVersion");
@@ -165,6 +165,10 @@ public class RDFLicense {
     }
     public static Comparator<RDFLicense> COMPARE_PUBLISHER = new Comparator<RDFLicense>() {
         public int compare(RDFLicense o1, RDFLicense o2) {
+            if (o1==null)
+                return -1;
+            if(o2==null)
+                return 1;
             String s1 = o1.getPublisher();
             if (s1.isEmpty()) s1=o1.uri;
             String s2 = o2.getPublisher();

@@ -11,5 +11,5 @@
       cc:legalcode <http://en.wikipedia.org/wiki/All_rights_reserved> ;
       dct:publisher " None" ;
       odrl:prohibition
-              [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#databaseRight>
+              [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#DatabaseRight>
               ] .

@@ -11,5 +11,5 @@
       cc:legalcode <http://en.wikipedia.org/wiki/Public_domain> ;
       dct:publisher " None" ;
       odrl:permission
-              [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#databaseRight>
+              [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#DatabaseRight>
               ] .

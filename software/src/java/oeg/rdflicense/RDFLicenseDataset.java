@@ -175,7 +175,7 @@ public class RDFLicenseDataset {
             }
             InputStream is = new ByteArrayInputStream(raw.getBytes());
             modelTotal.read(is, null, "TURTLE");
-            logger.info("rdflicense read OK with " + raw.length() + " bytes");
+            logger.info("Global rdflicense read OK with " + raw.length() + " bytes");
 
             //AND NOW ADDITIONAL LICENSE IN THE RESOURCES.RDFLICENSES FOLDER IS BEING READ.
             /*final String path = "resources/rdflicenses";
@@ -188,11 +188,13 @@ public class RDFLicenseDataset {
                 File dir = new File(url.toURI());
                 for (File f : dir.listFiles()) {
                     String ruta = "../../resources/rdflicenses/" + f.getName();
+                    logger.info("About to read"+ruta);
                     try {
                         Model parcial = ModelFactory.createDefaultModel();
                         in = this.getClass().getResourceAsStream(ruta);
                         if (in == null) {
                             logger.error("could not open stream");
+                            continue;
                         }
                         r = "";
                         br = new BufferedReader(new InputStreamReader(in));
@@ -202,8 +204,15 @@ public class RDFLicenseDataset {
                         }
                         is = new ByteArrayInputStream(r.getBytes());
                         parcial.read(is, null, "TURTLE");
+                        if (parcial.size()==0)
+                            continue;
 
                         RDFLicense lic = new RDFLicense(parcial);
+                        if (lic==null)
+                        {
+                            System.out.println("HA FALLADO: " + ruta);
+                            continue;
+                        }
                         String uri = "http://purl.org/NET/rdflicense/" + f.getName();
                         uri = uri.replace(".ttl", "");
                         models.put(uri, parcial);
@@ -237,12 +246,17 @@ public class RDFLicenseDataset {
         return filtradas;
     }
 
+    /**
+     * Exports all the licenses to a folder
+     * Each license, a file
+     * The folder must exist
+     * The format is turtle
+     */
     public static void exportDatasetToFolder(String folderpath) {
         RDFLicenseDataset ds = new RDFLicenseDataset();
         List<RDFLicense> list = ds.getRDFLicenses();
         for (RDFLicense lic : list) {
             try {
-                System.out.println("=============\n" + lic.toTTL() + ".ttl");
                 String corto = RDFUtils.getLastBitFromUrl(lic.getURI());
                 File file = new File(folderpath + "/" + corto+ ".ttl");
                 // if file doesnt exists, then create it
@@ -262,12 +276,14 @@ public class RDFLicenseDataset {
     public static void main(String[] args) {
         RDFLicenseDataset ds = new RDFLicenseDataset();
 
-        RDFLicenseDataset.exportDatasetToFolder("C:\\tmp");
+//        RDFLicenseDataset.exportDatasetToFolder("C:\\tmp");
 
-        /*        RDFLicense lx = ds.getRDFLicense("http://purl.org/NET/rdflicense/APACHE2.0");
-         System.out.println(lx.getLabel());
-         String legal = lx.getLegalCode();
-         System.out.println(legal);*/
+        RDFLicense lx = ds.getRDFLicense("http://purl.org/NET/rdflicense/APACHE2.0");
+        String s =ODRL.getFirstComment("http://purl.oclc.org/NET/ldr/ns#DatabaseRight");
+ //        System.out.println(lx.getLabel());
+ //        String legal = lx.getLegalCode();
+//         System.out.println(legal);
+         System.out.println(s);
     }
 
 }

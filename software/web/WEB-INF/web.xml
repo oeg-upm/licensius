@@ -2,27 +2,23 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
         <servlet-name>rdflicense</servlet-name>
-        <servlet-class>oeg.rdflicense.MainServlet</servlet-class>
+        <servlet-class>oeg.rdflicense.servlet.MainServlet</servlet-class>
     </servlet>
-    <servlet>
+   <!-- <servlet>
         <servlet-name>list</servlet-name>
         <servlet-class>oeg.rdflicense.ListServlet</servlet-class>
-    </servlet> 
-    
-<!-- UNCOMMENT THIS IF USING IT IN APPSPOT. comment it if in tomcat   -->
-<!--    <servlet>
+    </servlet> -->
+    <!-- UNCOMMENT THIS IF USING IT IN APPSPOT. comment it if in tomcat   -->
+    <!--    <servlet>
         <servlet-name>default</servlet-name>
         <servlet-class>oeg.rdflicense.DefaultWrapperServlet</servlet-class> 
     </servlet> 
     -->
-<!-- FINISH FROM APPSPOT/COMCAT -->             
-              
-
-    
-    <servlet-mapping>
+    <!-- FINISH FROM APPSPOT/COMCAT -->
+   <!-- <servlet-mapping>
         <servlet-name>list</servlet-name>
-        <url-pattern>/rdflicense/list</url-pattern>
-    </servlet-mapping>
+        <url-pattern>/rdflicense/list</url-pattern> 
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>rdflicense</servlet-name>
         <url-pattern>/rdflicense</url-pattern>
@@ -38,7 +34,7 @@
         <url-pattern>*.jpg</url-pattern>
         <url-pattern>*.htc</url-pattern>
         <url-pattern>*.gif</url-pattern>
-    </servlet-mapping>       
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>rdflicense.jsp</welcome-file>
     </welcome-file-list>

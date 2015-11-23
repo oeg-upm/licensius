@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.rdflicense.servlet;
 
 //JAVA
 import java.io.BufferedWriter;
@@ -14,6 +14,10 @@ import javax.servlet.http.*;
 
 //LOG4J
 import odrlmodel.Policy;
+import oeg.rdflicense.RDFLicense;
+import oeg.rdflicense.RDFLicenseCheck;
+import oeg.rdflicense.RDFLicenseDataset;
+import oeg.rdflicense.RDFUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
@@ -96,10 +100,10 @@ public class MainServlet extends HttpServlet {
                 } else {
                     resp.sendRedirect(license.getLegalCode());
                 }
-            } else if (bTurtle || isTurtle(req)) {
+            } else if (bTurtle || ServletUtils.isTurtle(req)) {
                 resp.setContentType("text/turtle");
                 resp.getWriter().println(license.toTTL());
-            } else if (bRDF || isRDFXML(req)) {
+            } else if (bRDF || ServletUtils.isRDFXML(req)) {
                 resp.setContentType("application/rdf+xml");
                 resp.getWriter().println(license.toRDFXML());
             } else {
@@ -128,60 +132,6 @@ public class MainServlet extends HttpServlet {
         }
     }
 
-    /**
-     * Determines whether a HTTP Servlet Request is demanding Turtle
-     *
-     * @param request HTTP request
-     * @retur true if demanding turtle
-     */
-    public static boolean isTurtle(HttpServletRequest request) {
-        String uri = request.getRequestURI();
-        if (uri.endsWith(".ttl")) {
-            return true;
-        }
-        Enumeration enume = request.getHeaderNames();
-        while (enume.hasMoreElements()) {
-            String hname = (String) enume.nextElement();
-            Enumeration<String> enum2 = request.getHeaders(hname);
-            while (enum2.hasMoreElements()) {
-                String valor = enum2.nextElement();
-                if (hname.equals("Accept")) {
-                    if (valor.contains("text/turtle") || valor.contains("application/x-turtle")) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Determines whether a HTTP Servlet Request is demanding RDF/XML
-     *
-     * @param request HTTP request
-     * @return true if demanding RDF/XML
-     */
-    public static boolean isRDFXML(HttpServletRequest request) {
-        String uri = request.getRequestURI();
-        if (uri.endsWith(".rdf")) {
-            return true;
-        }
-        Enumeration enume = request.getHeaderNames();
-        while (enume.hasMoreElements()) {
-            String hname = (String) enume.nextElement();
-            Enumeration<String> enum2 = request.getHeaders(hname);
-            while (enum2.hasMoreElements()) {
-                String valor = enum2.nextElement();
-                if (hname.equals("Accept")) {
-                    if (valor.contains("application/rdf+xml")) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
     private void logRequest(String page, String ip) {
         try {
             File file = new File("visitas.txt");
@@ -207,12 +157,18 @@ public class MainServlet extends HttpServlet {
     {
         RDFLicenseDataset dataset = new RDFLicenseDataset();
         List<RDFLicense> licenses = dataset.getRDFLicenses();
+        try{
         Collections.sort(licenses, RDFLicense.COMPARE_PUBLISHER);
+        }catch(Exception e)
+        {
+            logger.warn("Licenses could not be sorted");
+        }
         String s="";
         
         
         for (RDFLicense license : licenses) {
-            
+            if (license==null)
+                continue;
             
             s+= "<tr>";
             s+= "<td>"+license.getPublisher()+"</td>";
@@ -227,7 +183,8 @@ public class MainServlet extends HttpServlet {
             List<String> perm = RDFLicenseCheck.getPermissions(license);
             for(String p : perm)
             {
-                String tip=ODRL.getFirstComment(p);
+                String tip ="";
+//                String tip=ODRL.getFirstComment(p);
                 for(int i=0;i<10;i++)
                     tip = tip.replace("\t", "").replace("\n", "").replace("  ", " ");
                 p = RDFUtils.getLastBitFromUrl(p);
@@ -243,24 +200,28 @@ public class MainServlet extends HttpServlet {
             List<String> pro = RDFLicenseCheck.getProhibitions(license);
             for(String p : pro)
             {
+          //      String tip=ODRL.getFirstComment(p);
+                String tip = "";
                 p = RDFUtils.getLastBitFromUrl(p);
                 int in=p.indexOf("#");
                 if (in!=-1)
                 {
                     try{   p= p.substring(in+1);}catch(Exception e){}
                 }
-                s+="<span class=\"label label-danger\" style=\"margin: 10px; \">"+p+"</span>";
+                s+="<span class=\"label label-danger\" rel=\"tooltip\" style=\"margin: 10px; data-toggle=\"tooltip\" title=\""+ tip +"\">"+p+"</span>";
             }
             List<String> dut = RDFLicenseCheck.getDuties(license);
             for(String p : dut)
             {
+                String tip ="";
+         //       String tip=ODRL.getFirstComment(p);
                 p = RDFUtils.getLastBitFromUrl(p);
                 int in=p.indexOf("#");
                 if (in!=-1)
                 {
                     try{   p= p.substring(in+1);}catch(Exception e){}
                 }
-                s+="<span class=\"label label-warning\" style=\"margin: 10px; \">"+p+"</span>";
+                s+="<span class=\"label label-warning\" rel=\"tooltip\" style=\"margin: 10px; data-toggle=\"tooltip\" title=\""+ tip +"\">"+p+"</span>";
             }
 
             

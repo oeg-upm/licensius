@@ -1,5 +1,13 @@
 package oeg.rdflicense;
 
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.util.List;
 
 /**
@@ -12,6 +20,12 @@ public class TestRDFLicense {
      * This method (and observing the logs) is enough to test if the dataset is correct
      */
     public static void main(String[] args) {
+        
+        testODRL();
+        
+        if(true)
+            return;
+        
         RDFLicenseDataset dataset = new RDFLicenseDataset();
 
         RDFLicense lic = dataset.getRDFLicense("http://purl.org/NET/rdflicense/cc-by-nc-nd3.0es");
@@ -65,5 +79,39 @@ public class TestRDFLicense {
         }
     }
     
+ 
+    public static void testODRL()
+    {
+        //We load ODRL
+        InputStream in = ODRL.class.getResourceAsStream("../../resources/owl/odrl21.rdf");
+        //Model model = ModelFactory.createDefaultModel();
+        OntModel model = ModelFactory.createOntologyModel();
+
+        if (in != null) {
+            try{
+                
+                Model parcial = ModelFactory.createDefaultModel();
+                String raw = "";
+                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                String str = "";
+                while ((str = br.readLine()) != null) {
+                    raw += str + " \n";
+                }
+                InputStream is = new ByteArrayInputStream(raw.getBytes());
+                parcial.read(is,null, "RDF/XML");
+                model.add(parcial);
+            }catch(Exception e)
+            {
+                System.err.println("Not loaded " + e.getLocalizedMessage());
+            }
+        }    
+        StringWriter sw = new StringWriter();
+        model.write(sw, "TTL");
+        System.out.println(sw.toString());
+        
+        System.out.println("==");
+        
+        
+    }
     
 }

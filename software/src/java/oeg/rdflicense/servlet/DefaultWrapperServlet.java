@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.rdflicense.servlet;
 import java.io.*;
 
 import javax.servlet.*;

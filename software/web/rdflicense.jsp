@@ -1,5 +1,4 @@
-<%@page import="oeg.rdflicense.MainServlet"%>
-<%@page import="oeg.rdflicense.TestRDFLicense"%>
+<%@page import="oeg.rdflicense.servlet.MainServlet"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 
@@ -13,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="dc.title" content="Licenses in RDF">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" href="img/favicon.png" type="image/png" />
         <link rel="icon" href="http://rdflicense.linkeddata.es/dataset/img/favicon.png" type="image/png">
 
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
