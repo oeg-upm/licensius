@@ -4,10 +4,10 @@
         <servlet-name>rdflicense</servlet-name>
         <servlet-class>oeg.rdflicense.servlet.MainServlet</servlet-class>
     </servlet>
-   <!-- <servlet>
+    <servlet>
         <servlet-name>list</servlet-name>
         <servlet-class>oeg.rdflicense.ListServlet</servlet-class>
-    </servlet> -->
+    </servlet> 
     <!-- UNCOMMENT THIS IF USING IT IN APPSPOT. comment it if in tomcat   -->
        <servlet>
         <servlet-name>default</servlet-name>
@@ -15,10 +15,10 @@
        </servlet> 
     
     <!-- FINISH FROM APPSPOT/COMCAT -->
-   <!-- <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>list</servlet-name>
         <url-pattern>/rdflicense/list</url-pattern> 
-    </servlet-mapping>-->
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>rdflicense</servlet-name>
         <url-pattern>/rdflicense</url-pattern>
