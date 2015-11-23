@@ -105,7 +105,8 @@ The Controller of HMSO has authority to license Information subject to copyright
 This is version 1.0 of the Non-Commercial Government Licence. The Controller of HMSO may, from time to time, issue new versions of the Non-Commercial Government Licence. However, you may continue to use Information licensed under this version should you wish to do so.
 
 Further context, best practice and guidance can be found in the UK Government Licensing Framework section on The National Archives website.
-"""@en;
+"""@en ;
+
 cc:legalcode """
 Rhoddir anogaeth i chi ddefnyddio ac ailddefnyddio’r Wybodaeth sydd ar gael dan y drwydded hon yn rhydd a hyblyg, gydag ychydig o amodau.
 
@@ -189,4 +190,4 @@ Mae gan Reolwr HMSO awdurdod i drwyddedu Gwybodaeth sy’n ddarostyngedig i hawl
 Hon yw fersiwn 1.0 o’r Drwydded Llywodraeth Anfasnachol. Gall Rheolwr HMSO, o dro i dro, gyhoeddi fersiynau newydd o’r Drwydded Llywodraeth Anfasnachol. Fodd bynnag, gallwch ddal i ddefnyddio’r Wybodaeth a drwyddedwyd dan y fersiwn hon os dymunwch.
 
 Gellir gweld rhagor o gyd-destun, yr arfer gorau a chyfarwyddyd yn adran Fframwaith Trwyddedu Llywodraeth y Deyrnas Unedig ar wefan yr Archifau Gwladol.
-"""@cy;
+"""@cy .
