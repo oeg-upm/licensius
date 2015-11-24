@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 2.0 Canada" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/ca/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Canada> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/2.0/ca> ;
+      dct:source <http://creativecommons.org/licenses/by/2.0/ca> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/eng> ;
       dct:publisher "Creative Commons" ;

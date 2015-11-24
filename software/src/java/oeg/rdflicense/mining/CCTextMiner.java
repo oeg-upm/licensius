@@ -1,8 +1,15 @@
 package oeg.rdflicense.mining;
 
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Collections;
@@ -10,8 +17,10 @@ import java.util.List;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
 import javax.swing.text.html.HTMLEditorKit;
+import oeg.rdflicense.ODRL;
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
+import oeg.rdflicense.RDFUtils;
 
 /**
  *
@@ -39,10 +48,30 @@ public class CCTextMiner {
                 if (tmp=='y')
                 {
                     System.out.println(x);
+                    Model m = lic.getModel();
+                    m.add(ModelFactory.createDefaultModel().createResource(lic.getURI()), ODRL.PLEGALCODE, x);
+                    StringWriter sw = new StringWriter();
+                    m = RDFUtils.cleanUnusedPrefixes(m);
+                    if (m != null) {
+                        m.write(sw, "TURTLE");
+                    }
+                    String ttl = sw.toString();
+                    
+                        FileWriter fw = new FileWriter("sal.txt");
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(ttl);
+			bw.close();
+                    
                 }
             }
         }
     }
+    
+    public static void updateLicense()
+    {
+        
+    }
+    
 
     public static String getText(String uri) {
         try {

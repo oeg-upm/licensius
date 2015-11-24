@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY-NC-ND Ecuador" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/ec/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Ecuador> ;
-      cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/ec> ;
+      dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/ec> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/esp> ;
       dct:publisher "Creative Commons" ;

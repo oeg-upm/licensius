@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY-NC-ND China" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/cn/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/China> ;
-      cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/cn> ;
+      dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/cn> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/zho> ;
       dct:publisher "Creative Commons" ;

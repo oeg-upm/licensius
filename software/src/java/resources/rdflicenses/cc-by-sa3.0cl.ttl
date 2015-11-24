@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY-SA 3.0 Chile" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/cl/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Chile> ;
-      cc:legalcode <http://creativecommons.org/licenses/by-sa/3.0/cl> ;
+      dct:source <http://creativecommons.org/licenses/by-sa/3.0/cl> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/spa> ;
       dct:publisher "Creative Commons" ;

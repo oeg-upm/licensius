@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 3.0 Brazil" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/br/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Brazil> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/3.0/br> ;
+      dct:source <http://creativecommons.org/licenses/by/3.0/br> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/por> ;
       dct:publisher "Creative Commons" ;

@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY-ND 3.0 Portugal" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/pt/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Portugal> ;
-      cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/pt> ;
+      dct:source <http://creativecommons.org/licenses/by-nd/3.0/pt> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/por> ;
       dct:publisher "Creative Commons" ;

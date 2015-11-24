@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/legalcode> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/3.0/> ;
+     dct:source <http://creativecommons.org/licenses/by/3.0/> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       odrl:permission

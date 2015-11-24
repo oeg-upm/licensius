@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 2.0 Belgium" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/be/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Belgium> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/2.0/be> ;
+      dct:source <http://creativecommons.org/licenses/by/2.0/be> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/fra> ;
       odrl:duty

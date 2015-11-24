@@ -9,7 +9,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-SA" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/4.0/legalcode> ;
-      cc:legalcode <http://creativecommons.org/licenses/by-sa/4.0/> ;
+      dct:source <http://creativecommons.org/licenses/by-sa/4.0/> ;
       dct:alternative "CC BY-SA" ;
       dct:hasVersion "4.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;

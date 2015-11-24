@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 2.0 Spain" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/es/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Spain> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/2.0/es> ;
+      dct:source <http://creativecommons.org/licenses/by/2.0/es> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/spa> ;
       dct:publisher "Creative Commons" ;

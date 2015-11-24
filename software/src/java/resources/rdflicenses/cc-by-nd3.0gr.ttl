@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY-ND 3.0 Greece" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/gr/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Greece> ;
-      cc:legalcode <http://creativecommons.org/licenses/by-nd/3.0/gr> ;
+      dct:source <http://creativecommons.org/licenses/by-nd/3.0/gr> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/ell> ;
       dct:publisher "Creative Commons" ;

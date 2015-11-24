@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 2.0 France" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/fr/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/France> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/2.0/fr> ;
+      dct:source <http://creativecommons.org/licenses/by/2.0/fr> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/fra> ;
       dct:publisher "Creative Commons" ;

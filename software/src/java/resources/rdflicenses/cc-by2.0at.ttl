@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 2.0 Austria" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/at/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Austria> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/2.0/at> ;
+      dct:source <http://creativecommons.org/licenses/by/2.0/at> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/deu> ;
       dct:publisher "Creative Commons" ;

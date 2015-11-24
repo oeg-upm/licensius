@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 2.0 Denmark" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/dk/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Denmark> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/2.0/dk> ;
+      dct:source <http://creativecommons.org/licenses/by/2.0/dk> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/dan> ;
       dct:publisher "Creative Commons" ;

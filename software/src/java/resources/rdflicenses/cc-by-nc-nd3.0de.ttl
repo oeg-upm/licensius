@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY-NC-ND Germany" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/de/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Germany> ;
-      cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/de> ;
+      dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/de> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/deu> ;
       dct:publisher "Creative Commons" ;

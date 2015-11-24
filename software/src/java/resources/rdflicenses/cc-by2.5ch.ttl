@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY 2.5 Switzerland" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/ch/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Switzerland> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/2.5/ch> ;
+      dct:source <http://creativecommons.org/licenses/by/2.5/ch> ;
       dct:hasVersion "2.5" ;
       dct:language <http://www.lexvo.org/page/iso629-2/fra> ;
       dct:publisher "Creative Commons" ;
