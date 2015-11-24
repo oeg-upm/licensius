@@ -20,8 +20,8 @@
         rdfs:label   "Apache License";	
         dct:hasVersion "2.0" ;
 	dct:source <http://www.apache.org/licenses/LICENSE-2.0> ;
-	dct:publisher "Apache" ;
-	rdfs:legalcode <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
+	dct:publisher "The Apache Group" ;
+	rdfs:legalcode <http://www.apache.org/licenses/LICENSE-2.0.txt> ;	   
         dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 	odrl:permission [
             odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, "patentFree" ;
@@ -30,7 +30,6 @@
             ]		   
         ] ;
 	cc:legalcode """
-
         Version 2.0, January 2004
 
 http://www.apache.org/licenses/

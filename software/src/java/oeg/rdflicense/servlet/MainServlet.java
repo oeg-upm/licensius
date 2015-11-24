@@ -63,7 +63,7 @@ public class MainServlet extends HttpServlet {
             //we have to serve the whole dataset!
             //We should look here at the request, if 
             if (rdflicenseuri.equals("http://purl.org/NET/rdflicense/") || rdflicenseuri.equals("http://purl.org/NET/rdflicense")) {
-                resp.setContentType("text/turtle");
+                resp.setContentType("text/turtle;charset=utf-8");
                 dataset = new RDFLicenseDataset();
                 resp.getWriter().println(dataset.toTTL());
                 return;
@@ -102,11 +102,12 @@ public class MainServlet extends HttpServlet {
                     resp.sendRedirect(license.getLegalCode());
                 }
             } else if (bTurtle || ServletUtils.isTurtle(req)) {
+                logger.warn("N SE donde se ve esto");
                 resp.setContentType("text/turtle;charset=utf-8");
-                
+                resp.setCharacterEncoding("utf-8");
                 resp.getWriter().println(license.toTTL());
             } else if (bRDF || ServletUtils.isRDFXML(req)) {
-                resp.setContentType("application/rdf+xml");
+                resp.setContentType("application/rdf+xml;charset=utf-8");
                 resp.getWriter().println(license.toRDFXML());
             } else {
                 String redirect = license.getSource();

@@ -212,6 +212,9 @@ public class RDFLicense {
         }
     };
 
+    /**
+     * We load the model by accessing the local files.
+     */
     public Model getModel() {
         if (model != null) {
             return model;

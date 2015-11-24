@@ -22,6 +22,7 @@
               [ a       odrl:Prohibition ;
                 odrl:action odrl:commercialize
               ] ;
+      foaf:logo <http://www.nationalarchives.gov.uk/wp-content/uploads/2014/01/ogl-symbol-41px-retina-black.png> ;
       cc:legalcode """
 You are encouraged to use and re-use the Information that is available under this licence freely and flexibly, with only a few conditions.
 
