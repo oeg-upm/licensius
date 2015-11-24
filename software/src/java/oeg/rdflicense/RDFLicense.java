@@ -11,6 +11,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -153,6 +154,28 @@ public class RDFLicense {
             json = "error";
         }
         return json;
+    }
+    
+    /**
+     * Gets the original text
+     */
+    public String getOriginalText()
+    {
+        String o = "";
+        try{
+        String last = RDFUtils.getLastBitFromUrl(uri);
+        String surl = "../../resources/rdflicenses" + "/" + last + ".ttl";
+        File fileDir = new File(surl);
+        BufferedReader in = new BufferedReader(
+           new InputStreamReader(
+              new FileInputStream(fileDir), "UTF8"));
+		String str;
+		while ((str = in.readLine()) != null) {
+		    o = o + str + "\n";
+		}
+                in.close();        
+        }catch(Exception e){}
+        return o;
     }
 
     /**

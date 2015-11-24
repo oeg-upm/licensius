@@ -102,10 +102,9 @@ public class MainServlet extends HttpServlet {
                     resp.sendRedirect(license.getLegalCode());
                 }
             } else if (bTurtle || ServletUtils.isTurtle(req)) {
-                logger.warn("N SE donde se ve esto");
                 resp.setContentType("text/plain;charset=utf-8");
                 resp.setCharacterEncoding("utf-8");
-                resp.getWriter().println(license.toTTL());
+                resp.getWriter().println(license.getOriginalText());
             } else if (bRDF || ServletUtils.isRDFXML(req)) {
                 resp.setContentType("application/rdf+xml;charset=utf-8");
                 resp.getWriter().println(license.toRDFXML());
