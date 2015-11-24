@@ -103,7 +103,7 @@ public class MainServlet extends HttpServlet {
                 }
             } else if (bTurtle || ServletUtils.isTurtle(req)) {
                 logger.warn("N SE donde se ve esto");
-                resp.setContentType("text/turtle;charset=utf-8");
+                resp.setContentType("text/plain;charset=utf-8");
                 resp.setCharacterEncoding("utf-8");
                 resp.getWriter().println(license.toTTL());
             } else if (bRDF || ServletUtils.isRDFXML(req)) {
