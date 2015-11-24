@@ -155,26 +155,27 @@ public class RDFLicense {
         }
         return json;
     }
-    
+
     /**
      * Gets the original text
      */
-    public String getOriginalText()
-    {
+    public String getOriginalText() {
         String o = "";
-        try{
-        String last = RDFUtils.getLastBitFromUrl(uri);
-        String surl = "../../resources/rdflicenses" + "/" + last + ".ttl";
-        File fileDir = new File(surl);
-        BufferedReader in = new BufferedReader(
-           new InputStreamReader(
-              new FileInputStream(fileDir), "UTF8"));
-		String str;
-		while ((str = in.readLine()) != null) {
-		    o = o + str + "\n";
-		}
-                in.close();        
-        }catch(Exception e){}
+        try {
+            String last = RDFUtils.getLastBitFromUrl(uri);
+            String surl = "../../resources/rdflicenses" + "/" + last + ".ttl";
+            InputStream in = this.getClass().getResourceAsStream(surl);
+            if (in == null) {
+                return "error";
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+            String str = "";
+            while ((str = br.readLine()) != null) {
+                o += str + " \n";
+            }
+        } catch (Exception e) {
+            o = e.getLocalizedMessage();
+        }
         return o;
     }
 
@@ -251,7 +252,7 @@ public class RDFLicense {
                 return model;
             }
             String r = "";
-            BufferedReader br = new BufferedReader(new InputStreamReader(in,"UTF-8") );
+            BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
             String str = "";
             while ((str = br.readLine()) != null) {
                 r += str + " \n";
