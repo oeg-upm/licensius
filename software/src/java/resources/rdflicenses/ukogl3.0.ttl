@@ -6,7 +6,7 @@
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 
-<http://purl.org/NET/rdflicense/ukog3.0>
+<http://purl.org/NET/rdflicense/ukogl3.0>
       a       odrl:Policy ;
       rdfs:label "Open Government Licence" ;
       rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;

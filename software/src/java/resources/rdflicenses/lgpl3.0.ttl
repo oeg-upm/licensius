@@ -5,7 +5,7 @@
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 
-<http://purl.org/NET/rdflicense/GNU-LGPL3.0>
+<http://purl.org/NET/rdflicense/lgpl3.0>
       a       odrl:Policy ;
       rdfs:label "GNU Lesser General Public License"@en ;
       rdfs:seeAlso <https://www.gnu.org/licenses/lgpl.htm> ;

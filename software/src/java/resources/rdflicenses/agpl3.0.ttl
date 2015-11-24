@@ -5,7 +5,7 @@
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 
-<http://purl.org/NET/rdflicense/GNU-AGPL3.0>
+<http://purl.org/NET/rdflicense/agpl3.0>
       a       odrl:Policy ;
       rdfs:label "GNU Affero General Public License"@en ;
       rdfs:seeAlso <http://www.gnu.org/licenses/agpl-3.0.html> ;

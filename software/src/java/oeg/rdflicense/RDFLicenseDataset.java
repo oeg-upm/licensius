@@ -110,7 +110,8 @@ public class RDFLicenseDataset {
 //            System.out.println("Loading: " + res.getURI());
             RDFLicense rdflicense = getRDFLicense(res.getURI());
 //            System.out.println(rdflicense.getLabel());
-            licenses.add(rdflicense);
+            if (rdflicense!=null)
+                licenses.add(rdflicense);
         }
         return licenses;
     }
