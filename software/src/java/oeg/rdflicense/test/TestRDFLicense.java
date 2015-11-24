@@ -27,8 +27,8 @@ public class TestRDFLicense {
      * This method (and observing the logs) is enough to test if the dataset is correct
      */
     public static void main(String[] args) throws IOException {
-//     testLicenses();   
-        multilingual();
+     testLicenses();   
+//        multilingual();
     }
     
     public static void multilingual() throws IOException

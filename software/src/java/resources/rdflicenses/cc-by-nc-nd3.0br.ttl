@@ -58,7 +58,7 @@ Aviso Creative Commons
 O Creative Commons não é uma parte desta Licença e não presta qualquer garantia relacionada à Obra. O Creative Commons não será responsável perante Você ou qualquer outra parte por quaisquer danos, incluindo, sem limitação, danos gerais, especiais, incidentais ou conseqüentes, originados com relação a esta licença. Não obstante as duas frases anteriores, se o Creative Commons tiver expressamente se identificado como o Licenciante, ele deverá ter todos os direitos e obrigações do Licenciante.
 Exceto para o propósito delimitado de indicar ao público que a Obra é licenciada sob a CCPL (Licença Pública Creative Commons), Creative Commons não autoriza nenhuma parte a utilizar a marca \"Creative Commons\" ou qualquer outra marca ou logo relacionado ao Creative Commons sem consentimento prévio e por escrito do Creative Commons. Qualquer uso permitido deverá ser de acordo com as diretrizes do Creative Commons de utilização da marca então válidas, conforme sejam publicadas em seu website ou de outro modo disponibilizadas periodicamente mediante solicitação. De modo a tornar claras estas disposições, essa restrição de marca não constitui parte desta Licença.
 O Creative Commons pode ser contactado pelo endereço: https://creativecommons.org/.
-« Voltar à Licença para Leigos""" ;
+« Voltar à Licença para Leigos"""@pt ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/por> ;
       dct:publisher "Creative Commons" ;

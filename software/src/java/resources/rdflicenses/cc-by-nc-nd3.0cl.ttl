@@ -62,8 +62,7 @@ Esta Licencia refleja el acuerdo pleno entre las partes respecto a la Obra aquí
 Aviso de Creative Commons
 Creative Commons no es parte de esta Licencia y no ofrece ninguna garantía en relación con la Obra. Creative Commons no será responsable frente a Usted o frente a cualquier otra parte respecto a reclamación alguna por daños, incluyendo, sin limitaciones, responsabilidad extracontractual o contractual, objetiva o subjetiva, se trate de daños morales o patrimoniales, directos o indirectos, previstos o imprevistos originados en relación con esta licencia. No obstante lo anterior, si Creative Commons se ha identificado expresamente a sí mismo como Licenciante tendrá los mismos derechos y obligaciones que corresponden a éste.
 Salvo con el propósito limitado de indicar al público que la Obra está licenciada bajo la Licencia Pública de Creative Commons (CCPL), no autoriza la utilización por ninguna de las partes de la marca registrada \"Creative Commons\" o cualquier otra marca registrada relacionada con ella o el logotipo de Creative Commons sin el consentimiento previo por escrito de Creative Commons. Cualquier uso autorizado será en conformidad con las directrices de uso de la marca registrada \"Creative Commons\" vigentes en ese momento, tal como se encuentren publicadas en su sitio web o que por otra forma se hayan puesto a disposición por petición expresa. En caso de duda, esta restricción en el uso de la marca no forma parte de esta Licencia.
-Creative Commons puede ser contactada en https://creativecommons.org/.
-« Volver al Commons Deed""" ;
+Creative Commons puede ser contactada en https://creativecommons.org/."""@es ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/spa> ;
       dct:publisher "Creative Commons" ;
