@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -14,9 +15,11 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import oeg.rdflicense.RDFLicense;
 
 /**
  * Class to demo and test the Licensius getLicense service
+ *
  * @author Victor Rodriguez
  */
 public class LicensiusClientTest {
@@ -24,18 +27,25 @@ public class LicensiusClientTest {
     /**
      * @param args the command line arguments
      * http://www.geonames.org/ontology/ontology_v3.1.rdf
-     * http://purl.org/net/p-plan
-     * http://purl.org/goodrelations/v1.owl
-     * http://datos.bne.es/resource/XX947766
-     * http://purl.org/wf4ever/roevo
+     * http://purl.org/net/p-plan http://purl.org/goodrelations/v1.owl
+     * http://datos.bne.es/resource/XX947766 http://purl.org/wf4ever/roevo
      */
     public static void main(String[] args) {
-        String s ="";
-        getLicense2("https://www.gnu.org/licenses/gpl.txt");
+        String s = "";
+
+        RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/NDL1.0");
+        System.out.println(lic.getOriginalText());
+        try {
+            PrintWriter writer = new PrintWriter("sample.txt", "UTF-8");
+            writer.println(lic.toTTL());
+            writer.close();
+        } catch (Exception e) {
+        }
+
     }
 
     /**
-     * 
+     *
      */
     public static void testLocalPost() {
         try {
@@ -74,8 +84,9 @@ public class LicensiusClientTest {
     }
 
     /**
-     * Invokes the getLicense method of the Licensius service, so that
-     * the license in a RDF resource is found.
+     * Invokes the getLicense method of the Licensius service, so that the
+     * license in a RDF resource is found.
+     *
      * @param txt Raw text of the RDF document to scan
      */
     public static String getLicenseRaw(String txt) {
@@ -96,22 +107,24 @@ public class LicensiusClientTest {
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("HTTP error code : " + conn.getResponseCode());
             }
-            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream()),"UTF-8"));
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream()), "UTF-8"));
             String linea = "";
             while ((linea = br.readLine()) != null) {
-                output += linea +"\n";
+                output += linea + "\n";
             }
             conn.disconnect();
         } catch (Exception e) {
             e.printStackTrace();
-        } 
+        }
         return output;
     }
 
     /**
-     * Invokes the getLicense method of the Licensius service, so that
-     * the license in a RDF resource is found.
-     * @param uriToScan URI to scan, for example http://purl.org/goodrelations/v1.owl
+     * Invokes the getLicense method of the Licensius service, so that the
+     * license in a RDF resource is found.
+     *
+     * @param uriToScan URI to scan, for example
+     * http://purl.org/goodrelations/v1.owl
      */
     public static String getLicenseLocalPost(String txt) {
         String output = "";
@@ -145,11 +158,12 @@ public class LicensiusClientTest {
         return output;
     }
 
-
     /**
-     * Invokes the getLicense method of the Licensius service, so that
-     * the license in a RDF resource is found.
-     * @param uriToScan URI to scan, for example http://purl.org/goodrelations/v1.owl
+     * Invokes the getLicense method of the Licensius service, so that the
+     * license in a RDF resource is found.
+     *
+     * @param uriToScan URI to scan, for example
+     * http://purl.org/goodrelations/v1.owl
      */
     public static String getLicense2(String uriToScan) {
         String output = "unknown";
@@ -180,11 +194,12 @@ public class LicensiusClientTest {
         return output;
     }
 
-
     /**
-     * Invokes the getLicense method of the Licensius service, so that
-     * the license in a RDF resource is found.
-     * @param uriToScan URI to scan, for example http://purl.org/goodrelations/v1.owl
+     * Invokes the getLicense method of the Licensius service, so that the
+     * license in a RDF resource is found.
+     *
+     * @param uriToScan URI to scan, for example
+     * http://purl.org/goodrelations/v1.owl
      */
     public static String getLicense(String uriToScan) {
         String output = "unknown";
@@ -219,9 +234,11 @@ public class LicensiusClientTest {
     }
 
     /**
-     * Invokes the getLicense method of the Licensius service, so that
-     * the license in a RDF resource is found.
-     * @param uriToScan URI to scan, for example http://purl.org/goodrelations/v1.owl
+     * Invokes the getLicense method of the Licensius service, so that the
+     * license in a RDF resource is found.
+     *
+     * @param uriToScan URI to scan, for example
+     * http://purl.org/goodrelations/v1.owl
      */
     public static String getLicenseLocal(String uriToScan) {
         String output = "unknown";
@@ -254,9 +271,11 @@ public class LicensiusClientTest {
     }
 
     /**
-     * Invokes the getLicense method of the Licensius service, so that
-     * the license in a RDF resource is found.
-     * @param uriToScan URI to scan, for example http://purl.org/goodrelations/v1.owl
+     * Invokes the getLicense method of the Licensius service, so that the
+     * license in a RDF resource is found.
+     *
+     * @param uriToScan URI to scan, for example
+     * http://purl.org/goodrelations/v1.owl
      */
     public static String getLicenseTitle(String uriToScan) {
         String output = "unknown";
@@ -287,12 +306,13 @@ public class LicensiusClientTest {
         }
         return output;
     }
-    
-    
+
     /**
      * This is the sample client code to guess a license from an indicative text
+     *
      * @param text Free text, like "CC0, CCZero, CC ZERO" etc.
-     * @return License found (either the URL or a structured answer if JSON is requested). Empty string if no matching license was found
+     * @return License found (either the URL or a structured answer if JSON is
+     * requested). Empty string if no matching license was found
      */
     public static String guessLicense(String text) {
         String output = "unknown";
@@ -304,7 +324,7 @@ public class LicensiusClientTest {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");            
+            conn.setRequestProperty("Accept", "application/json");
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestProperty("Content-Length", String.valueOf(encodedData.length()));
             if (conn.getResponseCode() != 200) {
@@ -323,5 +343,5 @@ public class LicensiusClientTest {
             e.printStackTrace();
         }
         return output;
-    }    
+    }
 }

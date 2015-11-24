@@ -247,6 +247,10 @@ public class RDFUtils {
         }
         return cadenas;
     }
+    
+    /**
+     * Obtains the first literal in the given model for the uri and property given and of the given language
+     */
     public static String getFirstLiteral(Model model, String uri, String propiedad, String lan) {
         Resource res = model.getResource(uri);
         if (res == null) {

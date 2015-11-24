@@ -153,19 +153,26 @@ public class RDFLicense {
         return json;
     }    
 
+    public String getOriginalText() {
+        String urittl = uri+".ttl";
+        String txt = URLutils.browseSemanticWeb(urittl);
+        return txt;
+    }
+    
+    
     public Model getModel() {
         if (model!=null)
             return model; 
         try {
+//            model.read(uri);
             String urittl = uri+".ttl";
-            System.out.println("Leyendo " + urittl);
             String txt = URLutils.browseSemanticWeb(urittl);
-            System.out.println(txt);
             model = ModelFactory.createDefaultModel();
             InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
             model.read(is, null, "TURTLE");
             //model.read("C:\\Users\\vrodriguez\\Desktop\\a.ttl", null, "TURTLE");
             is.close();
+            
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -181,5 +188,6 @@ public class RDFLicense {
 //        System.out.println("LABEL: " + label);
 //        System.out.println("=====\n"+lic.toTTL());
     }
+
     
 }

@@ -45,7 +45,7 @@ public class LicenseIsopen extends HttpServlet {
             }
             resp.setStatus(200);
             //resp.setContentType("application/json");
-            resp.setContentType("text/html");
+            resp.setContentType("text/plain");
             PrintWriter w = resp.getWriter();
             w.println(le.getJSON());
             return;             

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import main.Licensius;
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
-import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
 /**
