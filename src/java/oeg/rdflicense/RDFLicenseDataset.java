@@ -80,7 +80,8 @@ public class RDFLicenseDataset {
     
     
     /**
-     * Obtiene un RDFLicense dado su URI
+     * Obtiene un RDFLicense dado su URI. 
+     * Lo busca en el modelo total pero de una manera muy muy muy chapucera.
      */
     public static RDFLicense getRDFLicense(String rdfuri)
     {
@@ -92,6 +93,15 @@ public class RDFLicenseDataset {
         String abuscar="\n"+"<"+rdfuri+">";
         logger.debug("Searching: " + abuscar);
         int index=raw.indexOf(abuscar);
+        
+        if (index==-1)
+        {
+            String xx=RDFUtils.getLastPart(rdfuri);
+            abuscar = ":"+xx;
+            index=raw.indexOf(abuscar);
+        }
+        
+        
         String extension ="ttl";
         if (abuscar.length()<3)
             return null;
@@ -101,7 +111,7 @@ public class RDFLicenseDataset {
             logger.warn("License " + rdfuri +" not found");
             return null;
         }
-        int index2 = raw.indexOf(". ", index);
+        int index2 = raw.indexOf(". \n", index);
         if (index2==-1)
         {
             logger.warn("License " + rdfuri +" end is not found");

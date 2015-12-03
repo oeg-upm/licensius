@@ -44,6 +44,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 //import org.apache.jena.riot.Lang;
@@ -57,6 +58,7 @@ import java.util.List;
 public class RDFUtils {
 
     private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
+
 
     String property = "";
     String value = "";
@@ -404,5 +406,10 @@ public class RDFUtils {
         if (f.contains("provo:"))
             s += "@prefix provo: <http://purl.org/net/provenance/ns#> .\n";
         return s;
+    }    
+
+    static String getLastPart(String uri) {
+        Resource r = ModelFactory.createDefaultModel().createResource(uri);
+        return r.getLocalName();
     }    
 }
