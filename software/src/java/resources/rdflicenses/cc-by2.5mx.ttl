@@ -7,7 +7,7 @@
 <http://purl.org/NET/rdflicense/cc-by2.5mx>
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY 2.5 Mexico" ;
-      rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/za/legalcode> ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/mx/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Mexico> ;
       cc:legalcode """   
 Licencia
@@ -62,8 +62,8 @@ El que alguna de las disposiciones descritas en la presente Licencia sea declara
 Ninguna de las disposiciones aquí mencionadas se entenderá renunciada ni se presumirá consentimiento otorgado a violación alguna a menos que dicha renuncia o consentimiento se haga por escrito y se firme por la persona con las facultades pertinentes.
 La presente Licencia constituye la totalidad del acuerdo entre las partes en relación a la Obra. No existen acuerdos, convenios ni entendimientos con respecto a la Obra fuera de los aquí especificados. El Licenciante no se considerará obligado por disposiciones adicionales que aparezcan en cualquier comunicación con Usted. La presente Licencia no podrá ser modificada sin el consentimiento mutuo que conste por escrito entre el Licenciante y Usted.
 No será necesario el envío o recepción de la aceptación de las condiciones de la presente licencia para que se considere perfeccionada, por lo que se entiende que cualquier uso de la obra en los términos de la presente licencia constituirá la aceptación de los términos y condiciones contenidos en la misma.
-"""@en ;
-      dct:hasVersion "2.0" ;
+"""@es ;
+      dct:hasVersion "2.5" ;
       dct:language <http://www.lexvo.org/page/iso629-2/esp> ;
       dct:publisher "Creative Commons" ;
       dct:source <http://creativecommons.org/licenses/by/2.5/mx> ;
