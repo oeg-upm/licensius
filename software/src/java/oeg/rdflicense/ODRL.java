@@ -121,7 +121,7 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
             try{
                 Model parcial = ModelFactory.createDefaultModel();
                 String raw = "";
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
                 String str = "";
                 while ((str = br.readLine()) != null) {
                     raw += str + " \n";
@@ -141,7 +141,7 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
             try{
                 Model parcial = ModelFactory.createDefaultModel();
                 String raw = "";
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
                 String str = "";
                 while ((str = br.readLine()) != null) {
                     raw += str + " \n";
@@ -161,7 +161,7 @@ public static final Resource RPOLICY = ModelFactory.createDefaultModel().createR
             try{
                 Model parcial = ModelFactory.createDefaultModel();
                 String raw = "";
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
+                BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
                 String str = "";
                 while ((str = br.readLine()) != null) {
                     raw += str + " \n";

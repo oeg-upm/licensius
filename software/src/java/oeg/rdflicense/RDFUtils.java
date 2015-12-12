@@ -197,7 +197,7 @@ public class RDFUtils {
                 conn = (HttpURLConnection) new URL(newUrl).openConnection();
                 conn.setRequestProperty("Cookie", cookies);                
             }
-	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 	String inputLine;
 	StringBuffer html = new StringBuffer();
 	while ((inputLine = in.readLine()) != null) {html.append(inputLine);html.append("\n");}
