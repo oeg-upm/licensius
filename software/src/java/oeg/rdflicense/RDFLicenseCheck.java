@@ -1,6 +1,5 @@
 package oeg.rdflicense;
 
-import com.google.appengine.repackaged.org.apache.commons.collections.ListUtils;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.RDFNode;
@@ -9,6 +8,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.collections4.ListUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
