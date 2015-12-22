@@ -38,6 +38,7 @@ public class LicenseFinder {
         Logger.getLogger("licenser").info("Parsing " + uri);
         model = ModelFactory.createDefaultModel();
         String txt = URLutils.browseSemanticWeb(uri);
+        logger.info("Se ha descargado una cadena de " + txt.length() +" caracteres");
         return parseFromText(txt);
     }
 
@@ -257,6 +258,7 @@ public class LicenseFinder {
         boolean ok = false;
         ok = parseFromJena(uri);
         if (!ok) {
+            Logger.getLogger("licenser").info("Could not be parsed by jena " + uri +". Instead, lets try to download it...");
             ok = this.parseAfterDownload(uri);
         }
         if (!ok) {

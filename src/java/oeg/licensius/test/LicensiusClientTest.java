@@ -15,6 +15,8 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import oeg.license.LicenseFinder;
+import oeg.licensius.model.LicensiusResponse;
 import oeg.rdflicense.RDFLicense;
 
 /**
@@ -31,8 +33,21 @@ public class LicensiusClientTest {
      * http://datos.bne.es/resource/XX947766 http://purl.org/wf4ever/roevo
      */
     public static void main(String[] args) {
+        testFindLicenseLocal();
+    }
+    
+    public static void testFindLicenseLocal()
+    {
+        String uri="https://w3id.org/games/spec/coil#";
+        LicenseFinder lf = new LicenseFinder();
+        LicensiusResponse le = lf.findLicenseInRDF(uri);
+        System.out.println(le.getJSON());
+        
+    }
+    
+    public static void test0()
+    {
         String s = "";
-
         RDFLicense lic = new RDFLicense("http://purl.org/NET/rdflicense/NDL1.0");
         System.out.println(lic.getOriginalText());
         try {

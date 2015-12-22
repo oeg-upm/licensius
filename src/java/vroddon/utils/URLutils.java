@@ -13,6 +13,7 @@ import java.net.*;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import javax.net.ssl.HttpsURLConnection;
 import org.openjena.atlas.lib.StrUtils;
 
 /**
@@ -58,7 +59,13 @@ public class URLutils {
         boolean redirect = false;
         try {
             URL obj = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+            HttpURLConnection conn = null;
+            
+            if (url.startsWith("https"))
+                conn = (HttpsURLConnection) obj.openConnection();
+            else
+                conn = (HttpURLConnection) obj.openConnection();
+            
             conn.setRequestProperty("Accept",acceptHeaderValue);                
             conn.setReadTimeout(5000);
             int status = conn.getResponseCode();
@@ -73,10 +80,16 @@ public class URLutils {
             if (redirect) {
 		String newUrl = conn.getHeaderField("Location");
 		String cookies = conn.getHeaderField("Set-Cookie");  
-                conn = (HttpURLConnection) new URL(newUrl).openConnection();
-                conn.setRequestProperty("Cookie", cookies);                
+                conn.disconnect();
+                if (newUrl.startsWith("https"))
+                    conn = (HttpsURLConnection) new URL(newUrl).openConnection();
+                else
+                    conn = (HttpURLConnection) new URL(newUrl).openConnection();
+                if (cookies!=null)
+                    conn.setRequestProperty("Cookie", cookies);                
             }
 	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+//	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 	String inputLine;
 	StringBuffer html = new StringBuffer();
 	while ((inputLine = in.readLine()) != null) {html.append(inputLine);html.append("\n");}
@@ -85,7 +98,7 @@ public class URLutils {
         document = html.toString();
             
         } catch (Exception e) {
-            
+            e.printStackTrace();
         }
         return document;
     }
