@@ -18,6 +18,10 @@ import java.nio.file.Paths;
 import oeg.license.LicenseFinder;
 import oeg.licensius.model.LicensiusResponse;
 import oeg.rdflicense.RDFLicense;
+import org.eclipse.jetty.util.ajax.JSON;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  * Class to demo and test the Licensius getLicense service
@@ -33,7 +37,16 @@ public class LicensiusClientTest {
      * http://datos.bne.es/resource/XX947766 http://purl.org/wf4ever/roevo
      */
     public static void main(String[] args) {
-        testFindLicenseLocal();
+        String json = getLicense2("https://w3id.org/games/spec/coil#");
+        System.out.println(json);
+        Object parsed2 = JSONValue.parse(json);
+        JSONArray arr = (JSONArray)parsed2;
+        for(int i=0;i<arr.size();i++)
+        {
+            Object obj = arr.get(i);
+            String s = (String) ((JSONObject)obj).get("license");
+            System.out.println(s);
+        }
     }
     
     public static void testFindLicenseLocal()
@@ -181,9 +194,9 @@ public class LicensiusClientTest {
      * http://purl.org/goodrelations/v1.owl
      */
     public static String getLicense2(String uriToScan) {
-        String output = "unknown";
+        String output = "";
         try {
-            String uri = "http://licensius.com/api/license/findlicenseintxt?txt=";
+            String uri = "http://www.licensius.com/api/license/findlicenseinrdf?uri=";
             String encodedData = URLEncoder.encode(uriToScan);
             uri += encodedData;
             System.out.println(uri);
@@ -198,7 +211,7 @@ public class LicensiusClientTest {
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             String linea = "";
             while ((linea = br.readLine()) != null) {
-                output = linea;
+                output += linea;
             }
             conn.disconnect();
         } catch (MalformedURLException e) {
