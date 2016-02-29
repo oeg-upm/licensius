@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import main.LicenseGuess;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 import main.ServiceCommons;

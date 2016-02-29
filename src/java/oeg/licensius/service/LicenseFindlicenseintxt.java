@@ -11,9 +11,6 @@ import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 import main.ServiceCommons;
 import oeg.license.LicenseFinder;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
-import vroddon.utils.URLutils;
 
 /**
  * 

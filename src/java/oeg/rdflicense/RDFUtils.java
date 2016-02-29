@@ -1,34 +1,11 @@
 package oeg.rdflicense;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.RDFReader;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.util.FileManager;
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.lang.Exception;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Iterator;
-
-//JENA
-import java.util.List;
-import java.util.logging.Level;
-import java.util.zip.GZIPInputStream;
-import oeg.rdflicense.RDFLicenseDataset;
 import oeg.rdflicense.RDFUtils;
-//import org.apache.jena.riot.RDFDataMgr;
-//import org.apache.log4j.varia.NullAppender;
 import org.apache.log4j.Logger;
-import vroddon.utils.URLutils;
-import com.hp.hpl.jena.ontology.Individual;
-import com.hp.hpl.jena.ontology.OntClass;
-import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -39,12 +16,10 @@ import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.vocabulary.RDF;
 import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 //import org.apache.jena.riot.Lang;

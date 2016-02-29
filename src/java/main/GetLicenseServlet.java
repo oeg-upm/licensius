@@ -2,15 +2,9 @@ package main;
 
 //import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import javax.servlet.http.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.PrintWriter;
 import java.net.URI;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
 
 import oeg.license.LicenseFinder;
