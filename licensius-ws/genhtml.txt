@@ -1,0 +1,1 @@
+java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i F:\svn\licensiusgit\licensius\swagger.json -l html -o victor/html
