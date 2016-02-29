@@ -1,5 +1,0 @@
-<!--
-<p>You have to 
-<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">sign in</a>
-to test this application.</p>
--->
