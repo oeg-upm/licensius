@@ -13,7 +13,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
  */
 package oeg.vroddon.util;
 
-import org.apache.jena.rdf.model.Model;
+//import org.apache.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.Model;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Iterator;

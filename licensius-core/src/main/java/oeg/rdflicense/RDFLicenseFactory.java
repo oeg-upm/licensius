@@ -1,11 +1,17 @@
 package oeg.rdflicense;
 
-import org.apache.jena.rdf.model.AnonId;
+/*import org.apache.jena.rdf.model.AnonId;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.rdf.model.Statement;
-import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDF;*/
+import com.hp.hpl.jena.rdf.model.AnonId;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.ResourceFactory;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.vocabulary.RDF;
 import java.util.List;
 import java.util.UUID;
 import oeg.vroddon.util.RDFPrefixes;

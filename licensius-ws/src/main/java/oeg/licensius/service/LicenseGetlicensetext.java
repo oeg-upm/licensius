@@ -1,6 +1,6 @@
 package oeg.licensius.service;
 
-import org.apache.jena.rdf.model.Model;
+//import org.apache.jena.rdf.model.Model;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
