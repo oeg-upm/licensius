@@ -221,15 +221,26 @@ public class RDFLicense {
             return s1.compareTo(s2);
         }
     };
-
+    
+    public static Comparator<RDFLicense> COMPARE_URI = new Comparator<RDFLicense>() {
+        public int compare(RDFLicense o1, RDFLicense o2) {
+            String s1 = o1.uri;
+            String s2 = o2.uri;
+            if (s1==null ||  s2.isEmpty()) {
+                s2 = o2.uri;
+            }
+            return s1.compareTo(s2);
+        }
+    };    
+ 
     public static Comparator<RDFLicense> COMPARE_LABEL = new Comparator<RDFLicense>() {
         public int compare(RDFLicense o1, RDFLicense o2) {
             String s1 = o1.getLabel();
-            if (s1.isEmpty()) {
+            if (s1==null || s1.isEmpty()) {
                 s1 = o1.uri;
             }
             String s2 = o2.getLabel();
-            if (s2.isEmpty()) {
+            if (s1==null ||  s2.isEmpty()) {
                 s2 = o2.uri;
             }
             return s1.compareTo(s2);

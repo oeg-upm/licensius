@@ -1,0 +1,1269 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+<http://purl.org/NET/rdflicense/fal1.3>
+      a       odrl:Policy ;
+      rdfs:label "Free Art License"@en ;
+      dct:source <http://artlibre.org/licence/lal/en/> ;
+      dct:hasVersion "1.3" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "artlibre.org" ;
+      foaf:logo <https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Licence_Art_Libre.svg/367px-Licence_Art_Libre.svg.png> ;
+      dct:title "GFDL" ;
+      odrl:permission [ 
+                odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:duty
+                        [ 
+                            odrl:action cc:ShareAlike , cc:Attribution
+                        ] ;
+              ] ;
+cc:legalcode """
+
+                GNU Free Documentation License
+                 Version 1.3, 3 November 2008
+
+
+ Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+     <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+0. PREAMBLE
+
+The purpose of this License is to make a manual, textbook, or other
+functional and useful document "free" in the sense of freedom: to
+assure everyone the effective freedom to copy and redistribute it,
+with or without modifying it, either commercially or noncommercially.
+Secondarily, this License preserves for the author and publisher a way
+to get credit for their work, while not being considered responsible
+for modifications made by others.
+
+This License is a kind of "copyleft", which means that derivative
+works of the document must themselves be free in the same sense.  It
+complements the GNU General Public License, which is a copyleft
+license designed for free software.
+
+We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free
+program should come with manuals providing the same freedoms that the
+software does.  But this License is not limited to software manuals;
+it can be used for any textual work, regardless of subject matter or
+whether it is published as a printed book.  We recommend this License
+principally for works whose purpose is instruction or reference.
+
+
+1. APPLICABILITY AND DEFINITIONS
+
+This License applies to any manual or other work, in any medium, that
+contains a notice placed by the copyright holder saying it can be
+distributed under the terms of this License.  Such a notice grants a
+world-wide, royalty-free license, unlimited in duration, to use that
+work under the conditions stated herein.  The "Document", below,
+refers to any such manual or work.  Any member of the public is a
+licensee, and is addressed as "you".  You accept the license if you
+copy, modify or distribute the work in a way requiring permission
+under copyright law.
+
+A "Modified Version" of the Document means any work containing the
+Document or a portion of it, either copied verbatim, or with
+modifications and/or translated into another language.
+
+A "Secondary Section" is a named appendix or a front-matter section of
+the Document that deals exclusively with the relationship of the
+publishers or authors of the Document to the Document's overall
+subject (or to related matters) and contains nothing that could fall
+directly within that overall subject.  (Thus, if the Document is in
+part a textbook of mathematics, a Secondary Section may not explain
+any mathematics.)  The relationship could be a matter of historical
+connection with the subject or with related matters, or of legal,
+commercial, philosophical, ethical or political position regarding
+them.
+
+The "Invariant Sections" are certain Secondary Sections whose titles
+are designated, as being those of Invariant Sections, in the notice
+that says that the Document is released under this License.  If a
+section does not fit the above definition of Secondary then it is not
+allowed to be designated as Invariant.  The Document may contain zero
+Invariant Sections.  If the Document does not identify any Invariant
+Sections then there are none.
+
+The "Cover Texts" are certain short passages of text that are listed,
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that
+the Document is released under this License.  A Front-Cover Text may
+be at most 5 words, and a Back-Cover Text may be at most 25 words.
+
+A "Transparent" copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the
+general public, that is suitable for revising the document
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or
+for automatic translation to a variety of formats suitable for input
+to text formatters.  A copy made in an otherwise Transparent file
+format whose markup, or absence of markup, has been arranged to thwart
+or discourage subsequent modification by readers is not Transparent.
+An image format is not Transparent if used for any substantial amount
+of text.  A copy that is not "Transparent" is called "Opaque".
+
+Examples of suitable formats for Transparent copies include plain
+ASCII without markup, Texinfo input format, LaTeX input format, SGML
+or XML using a publicly available DTD, and standard-conforming simple
+HTML, PostScript or PDF designed for human modification.  Examples of
+transparent image formats include PNG, XCF and JPG.  Opaque formats
+include proprietary formats that can be read and edited only by
+proprietary word processors, SGML or XML for which the DTD and/or
+processing tools are not generally available, and the
+machine-generated HTML, PostScript or PDF produced by some word
+processors for output purposes only.
+
+The "Title Page" means, for a printed book, the title page itself,
+plus such following pages as are needed to hold, legibly, the material
+this License requires to appear in the title page.  For works in
+formats which do not have any title page as such, "Title Page" means
+the text near the most prominent appearance of the work's title,
+preceding the beginning of the body of the text.
+
+The "publisher" means any person or entity that distributes copies of
+the Document to the public.
+
+A section "Entitled XYZ" means a named subunit of the Document whose
+title either is precisely XYZ or contains XYZ in parentheses following
+text that translates XYZ in another language.  (Here XYZ stands for a
+specific section name mentioned below, such as "Acknowledgements",
+"Dedications", "Endorsements", or "History".)  To "Preserve the Title"
+of such a section when you modify the Document means that it remains a
+section "Entitled XYZ" according to this definition.
+
+The Document may include Warranty Disclaimers next to the notice which
+states that this License applies to the Document.  These Warranty
+Disclaimers are considered to be included by reference in this
+License, but only as regards disclaiming warranties: any other
+implication that these Warranty Disclaimers may have is void and has
+no effect on the meaning of this License.
+
+2. VERBATIM COPYING
+
+You may copy and distribute the Document in any medium, either
+commercially or noncommercially, provided that this License, the
+copyright notices, and the license notice saying this License applies
+to the Document are reproduced in all copies, and that you add no
+other conditions whatsoever to those of this License.  You may not use
+technical measures to obstruct or control the reading or further
+copying of the copies you make or distribute.  However, you may accept
+compensation in exchange for copies.  If you distribute a large enough
+number of copies you must also follow the conditions in section 3.
+
+You may also lend copies, under the same conditions stated above, and
+you may publicly display copies.
+
+
+3. COPYING IN QUANTITY
+
+If you publish printed copies (or copies in media that commonly have
+printed covers) of the Document, numbering more than 100, and the
+Document's license notice requires Cover Texts, you must enclose the
+copies in covers that carry, clearly and legibly, all these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
+the back cover.  Both covers must also clearly and legibly identify
+you as the publisher of these copies.  The front cover must present
+the full title with all words of the title equally prominent and
+visible.  You may add other material on the covers in addition.
+Copying with changes limited to the covers, as long as they preserve
+the title of the Document and satisfy these conditions, can be treated
+as verbatim copying in other respects.
+
+If the required texts for either cover are too voluminous to fit
+legibly, you should put the first ones listed (as many as fit
+reasonably) on the actual cover, and continue the rest onto adjacent
+pages.
+
+If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy
+a computer-network location from which the general network-using
+public has access to download using public-standard network protocols
+a complete Transparent copy of the Document, free of added material.
+If you use the latter option, you must take reasonably prudent steps,
+when you begin distribution of Opaque copies in quantity, to ensure
+that this Transparent copy will remain thus accessible at the stated
+location until at least one year after the last time you distribute an
+Opaque copy (directly or through your agents or retailers) of that
+edition to the public.
+
+It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to
+give them a chance to provide you with an updated version of the
+Document.
+
+
+4. MODIFICATIONS
+
+You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it.  In addition, you must do these things in the Modified Version:
+
+A. Use in the Title Page (and on the covers, if any) a title distinct
+   from that of the Document, and from those of previous versions
+   (which should, if there were any, be listed in the History section
+   of the Document).  You may use the same title as a previous version
+   if the original publisher of that version gives permission.
+B. List on the Title Page, as authors, one or more persons or entities
+   responsible for authorship of the modifications in the Modified
+   Version, together with at least five of the principal authors of the
+   Document (all of its principal authors, if it has fewer than five),
+   unless they release you from this requirement.
+C. State on the Title page the name of the publisher of the
+   Modified Version, as the publisher.
+D. Preserve all the copyright notices of the Document.
+E. Add an appropriate copyright notice for your modifications
+   adjacent to the other copyright notices.
+F. Include, immediately after the copyright notices, a license notice
+   giving the public permission to use the Modified Version under the
+   terms of this License, in the form shown in the Addendum below.
+G. Preserve in that license notice the full lists of Invariant Sections
+   and required Cover Texts given in the Document's license notice.
+H. Include an unaltered copy of this License.
+I. Preserve the section Entitled "History", Preserve its Title, and add
+   to it an item stating at least the title, year, new authors, and
+   publisher of the Modified Version as given on the Title Page.  If
+   there is no section Entitled "History" in the Document, create one
+   stating the title, year, authors, and publisher of the Document as
+   given on its Title Page, then add an item describing the Modified
+   Version as stated in the previous sentence.
+J. Preserve the network location, if any, given in the Document for
+   public access to a Transparent copy of the Document, and likewise
+   the network locations given in the Document for previous versions
+   it was based on.  These may be placed in the "History" section.
+   You may omit a network location for a work that was published at
+   least four years before the Document itself, or if the original
+   publisher of the version it refers to gives permission.
+K. For any section Entitled "Acknowledgements" or "Dedications",
+   Preserve the Title of the section, and preserve in the section all
+   the substance and tone of each of the contributor acknowledgements
+   and/or dedications given therein.
+L. Preserve all the Invariant Sections of the Document,
+   unaltered in their text and in their titles.  Section numbers
+   or the equivalent are not considered part of the section titles.
+M. Delete any section Entitled "Endorsements".  Such a section
+   may not be included in the Modified Version.
+N. Do not retitle any existing section to be Entitled "Endorsements"
+   or to conflict in title with any Invariant Section.
+O. Preserve any Warranty Disclaimers.
+
+If the Modified Version includes new front-matter sections or
+appendices that qualify as Secondary Sections and contain no material
+copied from the Document, you may at your option designate some or all
+of these sections as invariant.  To do this, add their titles to the
+list of Invariant Sections in the Modified Version's license notice.
+These titles must be distinct from any other section titles.
+
+You may add a section Entitled "Endorsements", provided it contains
+nothing but endorsements of your Modified Version by various
+parties--for example, statements of peer review or that the text has
+been approved by an organization as the authoritative definition of a
+standard.
+
+You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list
+of Cover Texts in the Modified Version.  Only one passage of
+Front-Cover Text and one of Back-Cover Text may be added by (or
+through arrangements made by) any one entity.  If the Document already
+includes a cover text for the same cover, previously added by you or
+by arrangement made by the same entity you are acting on behalf of,
+you may not add another; but you may replace the old one, on explicit
+permission from the previous publisher that added the old one.
+
+The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert or
+imply endorsement of any Modified Version.
+
+
+5. COMBINING DOCUMENTS
+
+You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified
+versions, provided that you include in the combination all of the
+Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its
+license notice, and that you preserve all their Warranty Disclaimers.
+
+The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy.  If there are multiple Invariant Sections with the same name but
+different contents, make the title of each such section unique by
+adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number.
+Make the same adjustment to the section titles in the list of
+Invariant Sections in the license notice of the combined work.
+
+In the combination, you must combine any sections Entitled "History"
+in the various original documents, forming one section Entitled
+"History"; likewise combine any sections Entitled "Acknowledgements",
+and any sections Entitled "Dedications".  You must delete all sections
+Entitled "Endorsements".
+
+
+6. COLLECTIONS OF DOCUMENTS
+
+You may make a collection consisting of the Document and other
+documents released under this License, and replace the individual
+copies of this License in the various documents with a single copy
+that is included in the collection, provided that you follow the rules
+of this License for verbatim copying of each of the documents in all
+other respects.
+
+You may extract a single document from such a collection, and
+distribute it individually under this License, provided you insert a
+copy of this License into the extracted document, and follow this
+License in all other respects regarding verbatim copying of that
+document.
+
+
+7. AGGREGATION WITH INDEPENDENT WORKS
+
+A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, is called an "aggregate" if the copyright
+resulting from the compilation is not used to limit the legal rights
+of the compilation's users beyond what the individual works permit.
+When the Document is included in an aggregate, this License does not
+apply to the other works in the aggregate which are not themselves
+derivative works of the Document.
+
+If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one half of
+the entire aggregate, the Document's Cover Texts may be placed on
+covers that bracket the Document within the aggregate, or the
+electronic equivalent of covers if the Document is in electronic form.
+Otherwise they must appear on printed covers that bracket the whole
+aggregate.
+
+
+8. TRANSLATION
+
+Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
+Replacing Invariant Sections with translations requires special
+permission from their copyright holders, but you may include
+translations of some or all Invariant Sections in addition to the
+original versions of these Invariant Sections.  You may include a
+translation of this License, and all the license notices in the
+Document, and any Warranty Disclaimers, provided that you also include
+the original English version of this License and the original versions
+of those notices and disclaimers.  In case of a disagreement between
+the translation and the original version of this License or a notice
+or disclaimer, the original version will prevail.
+
+If a section in the Document is Entitled "Acknowledgements",
+"Dedications", or "History", the requirement (section 4) to Preserve
+its Title (section 1) will typically require changing the actual
+title.
+
+
+9. TERMINATION
+
+You may not copy, modify, sublicense, or distribute the Document
+except as expressly provided under this License.  Any attempt
+otherwise to copy, modify, sublicense, or distribute it is void, and
+will automatically terminate your rights under this License.
+
+However, if you cease all violation of this License, then your license
+from a particular copyright holder is reinstated (a) provisionally,
+unless and until the copyright holder explicitly and finally
+terminates your license, and (b) permanently, if the copyright holder
+fails to notify you of the violation by some reasonable means prior to
+60 days after the cessation.
+
+Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.
+
+Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, receipt of a copy of some or all of the same material does
+not give you any rights to use it.
+
+
+10. FUTURE REVISIONS OF THIS LICENSE
+
+The Free Software Foundation may publish new, revised versions of the
+GNU Free Documentation License from time to time.  Such new versions
+will be similar in spirit to the present version, but may differ in
+detail to address new problems or concerns.  See
+http://www.gnu.org/copyleft/.
+
+Each version of the License is given a distinguishing version number.
+If the Document specifies that a particular numbered version of this
+License "or any later version" applies to it, you have the option of
+following the terms and conditions either of that specified version or
+of any later version that has been published (not as a draft) by the
+Free Software Foundation.  If the Document does not specify a version
+number of this License, you may choose any version ever published (not
+as a draft) by the Free Software Foundation.  If the Document
+specifies that a proxy can decide which future versions of this
+License can be used, that proxy's public statement of acceptance of a
+version permanently authorizes you to choose that version for the
+Document.
+
+11. RELICENSING
+
+"Massive Multiauthor Collaboration Site" (or "MMC Site") means any
+World Wide Web server that publishes copyrightable works and also
+provides prominent facilities for anybody to edit those works.  A
+public wiki that anybody can edit is an example of such a server.  A
+"Massive Multiauthor Collaboration" (or "MMC") contained in the site
+means any set of copyrightable works thus published on the MMC site.
+
+"CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0 
+license published by Creative Commons Corporation, a not-for-profit 
+corporation with a principal place of business in San Francisco, 
+California, as well as future copyleft versions of that license 
+published by that same organization.
+
+"Incorporate" means to publish or republish a Document, in whole or in 
+part, as part of another Document.
+
+An MMC is "eligible for relicensing" if it is licensed under this 
+License, and if all works that were first published under this License 
+somewhere other than this MMC, and subsequently incorporated in whole or 
+in part into the MMC, (1) had no cover texts or invariant sections, and 
+(2) were thus incorporated prior to November 1, 2008.
+
+The operator of an MMC Site may republish an MMC contained in the site
+under CC-BY-SA on the same site at any time before August 1, 2009,
+provided the MMC is eligible for relicensing.
+
+
+ADDENDUM: How to use this License for your documents
+
+To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and
+license notices just after the title page:
+
+    Copyright (c)  YEAR  YOUR NAME.
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.3
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in the section entitled "GNU
+    Free Documentation License".
+
+If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the "with...Texts." line with this:
+
+    with the Invariant Sections being LIST THEIR TITLES, with the
+    Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST.
+
+If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+
+If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License,
+to permit their use in free software.
+"""@en ;
+cc:legalcode """
+ntroducción:
+
+La Licencia Arte Libre (LAL) le autoriza a copiar, difundir y transformar libremente la obra que protege, dentro del respeto a los derechos de su autor.
+
+La Licencia Arte Libre no ignora los derechos del autor, sino que los reconoce y protege. La reformulación de estos principios permite a los usuarios utilizar con creatividad la obra artística.
+El uso del derecho de propiedad literaria y artística tiende a imponer restricciones de acceso a los usuarios, que la Licencia Arte Libre pretende favorecer.
+Su finalidad es dar acceso abierto a la obra y autorizar el uso de sus recursos por una mayoría, multiplicar las posibilidades de disfrute para multiplicar sus frutos, y fomentar un nuevo marco de creación que posibilite una creación nueva. Todo ello, dentro del respeto, reconocimiento y defensa de los derechos morales de los autores.
+
+Acontecimientos como la tecnología digital, la invención de Internet y el software libre señalan la aparición de un nuevo marco de creación y producción. Estos fenómenos recogen y amplifican muchas de las experiencias llevadas a cabo por artistas contemporáneos.
+
+El saber y la creación son recursos que deben permanecer libres para seguir siendo lo que son: conocimientos y creación, una labor de investigación fundamental, que no está determinada por sus aplicaciones concretas. Crear es descubrir lo desconocido, un acto que crea la realidad sin pretensión realista.
+El fin del arte no se confunde con el objeto artístico ni en su finición, ni en su definición.
+En todo ello radica la razón de ser de la Licencia Arte Libre: promover y proteger prácticas artísticas liberadas de las reglas exclusivistas de la economía de mercado.
+
+——–
+
+DEFINICIONES:
+
+– La obra:
+obra común que incluye tanto la obra original como cualquier contribución posterior (originales consecutivos y copias). El autor original es el iniciador de su creación y, con esta licencia, determina las condiciones de contribución.
+
+– La obra original:
+obra creada por el iniciador de la obra común, cuyas copias son modificables por quién lo desee.
+
+– Las obras consecutivas:
+contribuciones aportadas a la obra en formación, por autores que ejercen el derecho de reproducción, difusión y modificación que les otorga la licencia.
+
+– Original (origen o componente de la obra):
+ejemplar fechado de la obra, definición, partitura o programa que su autor ofrece como referencia para cualquier actualización, interpretación, copia o reproducción posteriores.
+
+– Copia:
+toda reproducción de un original según los términos de esta licencia.
+
+– Autor de la obra original:
+persona que creó la obra de donde nacieron todas las modificaciones. Con esta licencia, el autor determina las condiciones en que se realizará esta labor creativa.
+
+– Contribuidor:
+toda persona que contribuye a la creación de la obra. Es autor de una obra original, fruto a su vez de la modificación de la copia origen, o de una obra consecutiva.
+
+——–
+
+1. FINALIDAD:
+
+El fin de esta licencia es definir las condiciones de libre disfrute de la obra.
+
+2. EXTENSIÓN DEL DERECHO:
+
+Esta obra está protegida por el derecho de autor. Con esta licencia, su autor expone las condiciones que autorizan la libre copia, difusión y modificación de su obra:
+
+2.1 LIBRE COPIA O REPRODUCCIÓN:
+
+Es libre de copiar esta obra para su uso personal, el de sus conocidos o de cualquier otra persona, sin restricción alguna en cuanto al procedimiento empleado.
+
+2.2 LIBRE DIFUSIÓN, INTERPRETACIÓN O REPRESENTACIÓN:
+
+Es libre de difundir copias de esta obra, modificadas o no, en cualquier soporte, en cualquier lugar, con lucro o sin él, siempre y cuando respete cada una de las siguientes condiciones:
+– las copias irán acompañadas de esta misma licencia, o mencionarán la ubicación exacta de la licencia;
+– informará al usuario del nombre del autor de los originales;
+– informará al usuario del lugar donde conseguir la obra original o consecutiva. Si así lo manifiesta, el autor de la obra podrá autorizarle a difundir el original en los mismos términos y condiciones que las copias.
+
+2.3 LIBRE MODIFICACIÓN:
+
+Es libre de modificar copias de la obra original o consecutiva, en parte o en totalidad, de acuerdo con las condiciones de libre difusión o representación de la copia modificada previstas por el artículo 2.2.
+Si así lo manifiesta, el autor del original podrá autorizarle a modificar directamente la obra original en los mismos términos y condiciones que las copias.
+
+3. LIMITACIÓN A LA INCORPORACIÓN DE LA OBRA:
+
+Todos los elementos de esta obra deberán permanecer libres: no le está permitido incorporar los originales (originals, consecutivas) en otra obra que no estuviere sometida a la misma licencia.
+
+4. DERECHOS DE AUTOR:
+
+Esta licencia no le niega sus derechos, como autor de su propia contribución. Al contribuir libremente a la evolución de esta obra, tan sólo se compromete a ofrecer a los demás usuarios los mismos derechos sobre su propia contribución que esta licencia le concedió.
+
+5. VIGENCIA DE LA LICENCIA:
+
+Esta licencia entra en vigor tras su aceptación de las disposiciones contenidas. El ejercicio del derecho de copia, difusión o modificación de la obra implica por su parte la aceptación tácita de las disposiciones de la licencia.
+Esta licencia tiene la misma vigencia que los derechos de autor asociados a la obra. En caso de no respetar los términos de esta licencia, perderá automáticamente los derechos concedidos.
+No podrá valerse de las libertades otorgadas por la licencia en caso de estar sometido a un régimen jurídico que le impida respetar los términos de esta licencia, .
+
+6. VERSIONES DIFERENTES DE LA LICENCIA:
+
+Esta licencia podrá ser modificada regularmente por sus autores (los actores del movimiento » copyleft attitude « ), con el fin de introducir mejoras, mediante nuevas versiones numeradas.
+
+Es libre en todo momento de aplicar las disposiciones de la versión que acompaña la copia recibida, o las de cualquier versión posterior.
+
+7. SUBLICENCIAS:
+
+Esta versión de la licencia no autoriza las sublicencias. Toda persona que desee hacer uso de las libertades concedidas estará directamente vinculada al autor de la obra original.
+
+8. LEY APLICABLE AL CONTRATO:
+
+Esta licencia está sometida al derecho francés.
+
+——–
+
+MODO DE EMPLEO:
+
+– ¿Dónde es posible consultar la licencia?
+
+Puede consultar en todo momento la licencia artelibre en Internet, en la dirección siguiente: http://artlibre.org/licence/lal.html
+La licencia existe en inglés: http://artlibre.org/licence/lalgb.html
+
+– ¿Por qué utilizar la Licencia Arte Libre para su obra?
+
+1/ Para que su obra quede a disposición de una mayoría de personas.
+
+2/ Para permitir su libre difusión.
+
+3/ Para permitir su evolución, al autorizar su transformación por otras personas.
+
+4/ Para poder utilizar uno mismo los recursos de una obra protegida por la Licencia Arte Libre: autorizar su copia, difusión o transformación libres.
+
+5/ Pero eso no es todo.
+Utilizar la Licencia Arte Libre es también una buena solución para librarse del sistema mercantil generado por la economía dominante. La Licencia Arte Libre ofrece un marco jurídico interesante para impedir cualquier apropiación abusiva. No permite reservarse la obra para cortocircuitar la creación y convertirla en un beneficio exclusivo. No permite entrar a saco en la labor colectiva en marcha, ni acaparar los recursos de la creación en movimiento para beneficio de unos pocos.
+
+La Licencia Arte Libre promueve una economía afín con el arte, basada en el reparto, el intercambio y el gasto alegres. Lo importante en el arte también es, y sobre todo es, lo que no se puede contar.
+
+– ¿Cómo utilizar la Licencia Arte Libre?
+
+Para beneficiarse de la Licencia Arte Libre, basta con acompañar su obra de la mención siguiente:
+
+[unas pocas líneas para indicar el nombre de la obra y en su caso comentar en qué consiste.]
+[unas pocas líneas para indicar en su caso una descripción de la obra modificada y el nombre del autor.]
+Copyright (c) [fecha] [autor] (en su caso, indique los autores anteriores)
+Copyleft : Esta obra es libre, puede redistribuirla o modificarla de acuerdo con los términos de la Licencia Arte Libre.
+Encontrará un ejemplar de esta licencia en el sitio Copyleft Attitude ( http://www.artlibre.org/) y otros sitios.
+
+– ¿Cuándo utilizar la Licencia Arte Libre?
+
+No entra dentro del proyecto de la Licencia Arte Libre eliminar el copyright o los derechos de autor. Al contrario, se trata de afianzar su pertinencia dentro del entorno contemporáneo. Su finalidad es concederse la autorización para la circulación libre, la copia libre y la transformación libre de la obra: se trata del derecho al libre ejercicio del arte y de los artistas.
+
+1/ Siempre que desee beneficiarse y hacer que otros se beneficien de este derecho, utilice la Licencia Arte Libre.
+
+2/ Siempre que desee crear obras para que puedan evolucionar, ser copiadas, difundidas y transformadas libremente: utilice la Licencia Arte Libre.
+
+3/ Siempre que desee copiar, distribuir o transformar una obra, compruebe que se encuentra protegida por la Licencia Arte Libre. En otro caso, corre el riesgo de quedar fuera de la Ley.
+
+– ¿A qué categorías de obras conviene la Licencia Arte Libre?
+
+Esta licencia se aplica tanto a las obras electrónicas como a las que no lo son. Nace de la observación del mundo del software libre y de Internet, pero su ámbito de aplicación no está limitado por los soportes electrónicos.
+Puede proteger una pintura, una novela, una escultura, un dibujo, una música, un poema, una instalación, un vídeo, una película, una receta de cocina, un cederón, un sitio Web, una instalación… en resumen, puede proteger todas aquellas creaciones que se reclaman de un determinado arte.
+
+– Esta licencia tiene una historia: nació del encuentro de » Copyleft Attitude « que tuvo lugar en » Accès Local et Public » en Paris a principios de 2000. Por primera vez, permitió el encuentro de informáticos y actores del libre con artistas contemporáneos y gentes del mundo del arte.
+"""@es ;
+cc:legalcode """
+Präambel
+
+Durch die Lizenz « Freie Kunst » wird die Erlaubnis verliehen, Kunstwerke uneingeschränkt zu kopieren, zu verbreiten oder zu verändern- in voller Berücksichtigung der allgemeinen Urheber-rechte. Hierbei handelt es sich nicht um ihre Aufhebung- da ihre Rechtmässigkeit nach wie vor anerkannt und respektiert wird-sondern um die Neuformulierung der Rechtslage, die der Allgemeinheit einen freien und kreativen Umgang mit Kunstwerken ermöglicht.
+Dort, wo die Urheberrechte im Bereich von Kunst und Literatur zu einer Beschränkung der Verwendung ihrer Werke führen, bemüht sich die Lizenz « Freie Kunst » effizient zu intervenieren, um den Zugang zur Kunst zu erleichtern.
+Die Lizenz vertritt folgende Absichten : Vereinfachung des Zuganges zu den Ressourcen eines Kunstwerkes sowie die Ermächtigung der Allgemeinheit zur Weiterverwendung ebensolcher.
+Von Kunst Nutzen zur grösstmöglichen Freude aller zu ziehen, neu Bedingungen des künstlerischen Schaffens zu erstellen, um die Möglichkeiten des Schaffens zu vervielfachen, wobei die Urheberrechte in ihrer Gültigkeit unangetastet bleiben.
+Die rapide Zunahme der Präsenz von elektronischen Medien in unserer Zeit, die Erfindung des Internets und der freien Computerprogramme haben dazu geführt, dass neue Formen des Schaffens und der Produktion aufgekommen sind.
+Die hier präsentierte Lizenz stellt darüberhinaus das Resultat einer Folge
+von Versuchen dar, welche mehrere zeitgenösische Künstler bereits im Vorfeld
+erprobt haben.
+Wissen und künstlerisches Schaffen sind Schätze, welche in jeder Hinsicht frei und frei zugänglich bleiben müssen, um ihrer Definition als universale Güter so nah als möglich zu kommen.
+Diese Schätze sind als Ausgangspunkt von Forschung und Recherche zu verstehen (im kulturellen wie persönlichen Sinne), die nicht zwingend in eine konkrete Anwendung münden müssen.
+Schaffen heisst, das Unbekannte zu entdecken, die Wirklichkeit ohne Rücksicht auf Realität zu erfinden.
+Auf diese Art und Weise soll das Kunstobjekt nicht mit einem fertigen und definiertem Gegenstück verwechselt werden.
+Dies ist zugleich auch der Hauptgrund sowie die Hauptnotwendigkeit der « Freie Kunst »-Lizenz : das Ausüben von Kunst zu unterstützen und vor den scheinbar einzig gültigen Regeln des Marktes zu schützen.
+
+————————————————
+
+Festlegung der Definitionen
+
+Das Kunstwerk
+Es handelt sich hierbei um ein allgemeines Kunstwerk, das das Ursprungswerk samt seiner nachträglichen An- oder Hinzufügungen umfasst (die Folgeoriginale sowie die Kopien ).
+
+Das allgemeine
+Kunstwerk ist auf Initiative des ursprünglichen Urhebers geschaffen worden. Dieser Urheber bestimmt mittels der Lizenz die Bedigungen, gemäss welcher die Hinzufügungen, also Veränderungen erlaubt werden.
+
+Das Ursprungswerk
+Es handelt sich hierbei um das Werk, das der Urheber des allgemeinen Kunstwerkes erschafft und deren Kopie(n) er zur freien Verwendung und Veränderung freigibt.
+
+Die Folgewerke
+Hierbei handelt es sich um Vorschläge Dritter, die zur Veränderung des Werkes beitragen, indem sie von dem Lizenzrecht-uneingeschränkte Wiederverwendung, Verbreitung und Veränderung-Gebrauch machen.
+
+Das Original (Quelle oder Ressource des Kunstwerkes)
+Hierbei handelt es sich um ein datiertes Exemplar des Kunstwerkesgemäss seiner Definition, Partition oder seines Programmes-, welches der Urheber als Quelle für sämtliche seiner Aktualisierungen, Interpretationen, Kopien oder Reproduktionen angibt.
+
+Die Kopie
+Jedwede Reproduktion eines Originales im Sinne dieser Lizenz. Der Urheber des Ursprungswerkes Dies ist die Person, welche das Werk, das sich zu Beginn der Folgemodi-fikationen befindet, geschaffen hat. Durch die Lizenz befähigt bestimmt sie die Bedingungen, nach welchen die Folgemodifikationen durchzuführen sind.
+
+Der Beiträger
+Jedwede Person, welche zur Erschaffung des Kunstwerkes beiträgt. Sie ist entweder Urheber des aus den Veränderungen einer Kopie des Ursprungswerkes hervorgegangenen Originalwerkes oder aber Urheber der Veränderung einer Kopie eines Folgewerkes.
+
+————————————————
+
+1. Absicht
+Diese Lizenz verfolgt die Absicht, die Bedingungen, gemäss welcher Sie frei und uneingeschränkt von einem Kunstwerk Nutzen ziehen können, zu bestimmen.
+2. Ausmass der Nutzniessung
+Das Kunstwerk unterliegt den Urheberrechten ; darüberhinaus gibt der Urheber mittels der Lizenz die Hinweise an, über welche Freiheiten bezüglich des Kopierens, Verbreitens und Veränderns Verfügt werden kann.
+
+2.1. Berechtigung zur Kopie (oder zur Reproduktion)
+Sie haben die Erlaubnis, das Kunstwerk zu ihren persönlichen Zwecken Zu kopieren, sei es für Ihre Freunde, oder für jedwede andere Person -welche Technik Sie auch immer anwenden mögen.
+
+2.2. Berechtigung zur freien Verbreitung, Auslegung ( oder Präsentation )
+Sie haben das Recht, die Kopien dieser Werke frei und uneingeschränkt zu verbreiten und/oder zu modifizieren, welchen Verbreitungsort oder Präsentationsform des Werkes Sie auch immer wählen mögen, ob Sie die Werke gratis oder kostenpflichtig vertreiben.
+Hierbei gilt es, die der Lizenz eigenen Bedingungen zu berücksichtigen und unbedingt anzuwenden :
+Es gilt :
+– den jeweiligen Kopien diese Lizenz in ihrer Reinform anzufügen oder genaue Hinweise zu geben, wo man die Lizenz finden kann
+– dem Empfänger des Werkes den Namen sowie den Urheber der Originale anzugeben
+– dem Empfänger den Zugang zu den Originalen anzugeben (sowie den Ursprungswerken und den Folgewerken) Der Urheber des Originals kann Ihnen gegebenenfalls- wenn er es wünscht- die Erlaubnis erteilen, das Original nach denselben Bedingungen, denen die Kopien unterliegen, zu verbreiten.
+
+2.3. Berechtigung zur Modifikation
+Gemäss den Bedingungen, die in Artikel 2.2. angegeben sind, haben Sie das Recht, die Kopien der Originale (der Ursprungswerke sowie der Folgewerke)- seien sie im vollständigen oder lückenhaften Zustand- frei und uneingeschränkt zu modifizieren, sofern Sie gedenken, die modifizierte Kopie zu verbreiten oder auszustellen.
+Der Urheber des Originals kann Ihnen gegebenenfalls- wenn er es wünschtdie Erlaubnis erteilen, das Original nach denselben Bedingungen zu modifizieren, denen die Kopien unterliegen.
+
+3. Eingliederung des Werkes
+Alle Elemente dieses Werkes müssen frei bleiben ; aus diesem Grunde ist es Ihnen untersagt, die Originale in andere Werke einzufügen, welche der Lizenz nicht obliegen.
+
+4. Ihre Urheberrechte
+Es ist nicht die Absicht dieser Lizenz, Ihre Urheberrechte bezüglich Ihres Beitrages zu bestreiten. Indem sie aber durch Ihren Beitrag zu der Entwicklung eines Werkes beitragen, sind Sie gezwungen, dieselben Rechte, die Ihnen hierbei zugebilligt wurden, auch denjenigen zu gewähren, die Ihren Beitrag modifizieren wollen.
+
+5. Dauer der Lizenz
+Diese Lizenz tritt dann in Kraft, sobald Sie die obigen Artikel zur Kenntnis Genommen und akzeptiert haben. Das alleinige Kopieren, Verbreiten oder Modifizieren des Werkes wird als ein stillschweigendes Einverständnis betrachtet. Diese Lizenz ist solange gültig, wie die Urheberrechte des Werkes gültig sind. Wenn Sie die Festlegungen dieser Lizenz nicht respektieren, verlieren Sie augenblicklich die Rechte, die durch diese Lizenz verliehen werden.
+
+6. Verschiedene Fassungen dieser Lizenz
+Diese Lizenz kann von ihren Verfassern (den Verfassern der « Copyleft »-
+Bewegung ) zu jeder Zeit zum Zwecke ihrer Verbesserung modifiziert werden. Die jeweils verbesserte Fassung wird dementprechend nummeriert werden. Es bleibt allein Ihnen überlassen, ob Sie sich mit den Festlegungen der Fassung begnügen, in welcher die jeweilige Kopie zu Ihnen gelangt, oder aber sich auf die Festlegungen neuerer Fassungen berufen wollen.
+
+7. Sublizenzen
+Sublizenzen sind nicht erlaubt. Jedwede Person, welche von den Rechten der Lizenz zu nutzniessen wünscht, wird direkt an den Urheber des Ursprungswerkes gebunden.
+
+8. Das im Vertrag gültige Gesetz
+Diese Lizenz unterliegt dem französischen Recht.
+
+————————————————
+
+Anwendung
+
+Wie benutzt man diese Lizenz ?
+Um in den Genuss der Lizenz « Freie Kunst » zu gelangen, reicht es, Ihrem Werk folgende Vermerke anzufügen :
+
+[ Namen des Werkes und gegebenenfalls eine kleine Beschreibung]
+[ Im gegebenen Fall eine kleine Beschreibung des modifizierten Werkes
+sowie den Namen des Urhebers ]
+Copyright © [ Datum] [ Name des Urhebers] (im gegebenen Falle auch
+die Namen der vorherigen Urheber angeben )
+Copyleft : Dieses Werk ist frei, Sie können es gemäss den Festlegungen der Lizenz « Art Libre » weiterverbreiten und/oder modifizieren.
+Ein Exemplar dieser Lizenz findet sich auf der Website von « Copyleft Attitude » http://www.artlibre.org sowie auch auf anderen Websites.
+
+Wozu dient die Lizenz « Freie Kunst » ?
+1/ um Ihr Werk einer grösstmöglichen Zahl an Nutzniessern zur Verfügung zu stellen
+
+2/ um es frei und uneingeschränkt verbreiten zu können
+
+3/ um ihm die Möglichkeit zu geben, sich zu entwickeln, indem die Erlaubnis zur Veränderung durch Dritte gegeben ist
+
+4/ damit Sie selbst die Möglichkeit haben, die Ressourcen eines Werkes zu verwenden, sofern jenes der Lizenz « Artlibre » unterliegt : das bedeutet, dass Sie es somit frei und uneingeschränkt kopieren, verbreiten und modifizieren können.
+
+5/ Das ist nocht nicht alles !
+Denn die Verwendung der Lizenz « Artlibre » stellt auch ein gutes Mittel dar, sich Freiheiten im dominierenden Wirtschaftssystem zu verschaffen. Die Lizenz « Artlibre » bietet einen interessanten juristischen Rahmen an, in welchem jegliche unrechtliche Aneignung des Werkes verhindert wird. Dadurch ist es nicht mehr möglich, sich eines Werkes anzueignen, um allgemeines Schaffen « kurz zu schliessen », das heisst zu umgehen und exklusiven Profit aus ihm zu ziehen. Es ist untersagt, sich eine Gemeinschaftsarbeit, die dem Werk angehört, unter den Nagel zu reissen, es ist untersagt, die Ressourcen des aktuellen Schaffens zum Nutzen von Einzelpersonen monopolisieren zu wollen.
+
+Die Lizenz « Artlibre » verteidigt eine der Kunst eigenen Wirtschaft, die auf Teilen basiert, auf Austausch und « fröhliches Freigebigsein ». Was in der Kunst zählt, ist vor allen Dingen das, was sich nicht zählen und kalkulieren lässt.
+
+Wann kann man die Lizenz « Artlibre » verwenden ?
+Es liegt nicht in der Absicht der Lizenz « Artlibre », das Copyright-System oder die Urheberrechte aufzuheben. Ganz im Gegenteil, sie versucht, ihre Sachdienlichkeit neuzuformulieren, indem sie die aktuelle Lage berücksichtigt. Es geht darum, die Erlaubnis zur freien Verbreitung, zum freien Kopieren und zum Verändern der Kunstwerke zu erhalten.
+
+1/ Jedesmal, wenn Sie von diesem Recht Nutzen ziehen oder anderen dieses Recht zukommen lassen wollen, sollten Sie diese Lizenz verwenden.
+
+2/ Jedesmal, wenn Sie gedenken, Werke zu schaffen, die sich entwickeln und uneingeschränkt kopierbar, verbreit – oder modifizierbar sein sollen, verwenden Sie die Lizenz « Artlibre » !
+
+3/ Jedesmal, wenn Sie ein Werk zu kopieren, zu verbreiten oder zu modifizieren wünschen : Vergewissern Sie sich, dass sie unter der Lizenz « Artlibre » steht !
+Im gegenteiligen Falle gehen sie das Risiko ein, illegal zu handeln.
+
+Welchen Typen an Werken entspricht die Lizenz « Artlibre » ?
+Diese Lizenz findet sowohl bei digitalen als auch bei nichtdigitalen Werken ihre Anwendung. Ihre Enstehung lässt sich auf die Domäne der freien Computerprogramme und des Internets zurückverfolgen, was nicht bedeutet, dass sie sich ausschliesslich auf diese Bereiche anwenden lässt. Sie können die Lizenz für ein Gemälde, einen Roman, eine Plastik, eine Musik, ein Gedicht, eine Performance, kurz, für sämtliche Kreationen verwenden, die auf die Bezeichnung « Kunst » Anspruch erheben
+
+Diese Lizenz hat eine Geschichte
+Sie ist das Resultat des Gipfels von « Copyleft Attitude », der in den Räumlichkeiten von « Accès Local et Public » (Anmk.d. Üb.: « örtlicher und öffentlicher Zugang ») 2000 in Paris stattfand.
+Zum ersten Mal führte ein Gipfel Informatiker, freischaffende Künstler, Miwirkende an dieser Lizenz sowie Personen aus dem Bereich der Kunst zusammen.
+"""@de ;
+cc:legalcode """
+Licencja Wolnej Sztuki 1.3 (FAL 1.3)
+
+§ Preambuła
+
+Licencja Wolnej Sztuki przyznaje prawo do swobodnego kopiowania, rozpowszechniania i przekształcania twórczości bez naruszania praw autorskich.
+
+Licencja Wolnej Sztuki uznaje i chroni powyższe prawa. Ich wdrożenie zostało zredagowane w celu umożliwienia wszystkim korzystania z dzieł ludzkiego umysłu w sposób twórczy, niezależnie od ich rodzajów i form wyrazu.
+
+Powszechny dostęp do dzieł ludzkiego umysłu, zwykle ograniczony przez obowiązujące prawa autorskie, jest preferowany przez licencję Wolnej Sztuki. Licencja ta ma na celu umożliwienie wykorzystania dzieła, w celu ustalenia nowych warunków, zwiększających możliwości tworzenia. Licencja Wolnej Sztuki przyznaje prawo do korzystania z utworu; uznaje prawo właściciela praw autorskich oraz prawa i obowiązki użytkownika.
+
+Wynalazek i rozwój technologii cyfrowych, Internetu i Wolnego Oprogramowania zmieniły metody tworzenia. Dzieła ludzkiego umysłu mogą być dystrybuowane, wymieniane, i przekształcane. Pozwala to na tworzenie wspólnych dzieł, do których każdy może wnieść swój wkład z korzyścią dla wszystkich.
+
+Głównym powodem działania Licencji Wolnej Sztuki jest promowanie i ochrona dzieł ludzkiego umysłu, zgodnie z zasadami Copyleft: swoboda używania, kopiowania, rozpowszechniania, przekształcania oraz zakaz wyłącznego asygnowania.
+
+§ Definicje
+
+„Dzieło” oznacza zarówno „dzieło początkowe”, jak i kolejne „dzieła pokrewne” lub „dzieło wspólne”, i tak:
+
+„Dzieło początkowe” oznacza dzieło stworzone przez inicjatora dzieła wspólnego (autora), którego kopie mogą być modyfikowane przez wszystkich chętnych.
+
+„Dzieła pokrewne” oznaczają wkłady wniesione przez autorów, którzy uczestniczą w rozwoju dzieła wspólnego poprzez korzystanie z prawa do kopiowania, rozpowszechniania i przekształcania działa początkowego, przyznanego na podstawie niniejszej licencji.
+
+„Dzieło wspólne” oznacza zarówno „dzieło początkowe”, jak i wszystkie „dzieła pokrewne” (oryginały i kopie).
+
+„Oryginały” (źródła i zasoby dzieła) oznaczają wszystkie kopie dzieła początkowego lub kolejnych dzieł pokrewnych, oznaczone datą i wykorzystywane przez ich autora (autorów) jako odniesienie przy kolejnych aktualizacjach, interpretacjach, kopiach lub reprodukcjach.
+
+„Kopia” oznacza każdą reprodukcję oryginału w rozumieniu niniejszej licencji.
+
+§ 1 PRZEDMIOT
+
+Celem tej licencji jest określenie warunków, na jakich można swobodnie korzystać z tego dzieła.
+
+§ 2 ZAKRES
+
+Niniejsze dzieło podlega prawu autorskiemu. Dzięki tej licencji jej autor określa, w jakim stopniu możliwe jest kopiowanie, rozpowszechnianie i przekształcanie dzieła.
+
+§ 2.1 PRAWO DO SWOBODNEGO KOPIOWANIA
+
+Masz prawo do kopiowania tego dzieła dla siebie, znajomych lub innych osób, niezależnie od zastosowanej techniki.
+
+§ 2.2 PRAWO DO SWOBODNEGO ROZPOWSZECHNIANIA, DO PUBLICZNEGO PREZENTOWANIA
+
+Masz prawo do rozpowszechniania kopii tego dzieła, zmodyfikowanej bądź nie, niezależnie od rodzaju nośnika oraz miejsca, za opłatą lub bez, pod warunkiem, że:
+
+– załączysz tę licencję bez dokonywania żadnych zmian w jej kopii lub wskażesz dokładnie, gdzie licencję można znaleźć;
+
+– przedstawisz odbiorcy nazwiska autora (autorów) oryginałów, w tym siebie jeśli dokonywałeś zmian w dziele;
+
+-poinformujesz odbiorcę, gdzie znajdują się oryginały (w wersji pierwotnej lub późniejszej).
+
+Autorzy oryginałów, jeżeli zechcą, mogą przekazać Ci prawo do rozpowszechniania oryginałów na takich samych warunkach co kopii.
+
+§ 2.3 PRAWO DO SWOBODNEGO PRZEKSZTAŁCANIA
+
+Masz prawo do przekształcania kopii oryginałów (w wersji pierwotnej bądź późniejszej), pod warunkiem, że:
+
+– spełnisz wszystkie warunki określone powyżej w punkcie 2.2, jeżeli rozpowszechniasz przekształcone kopie;
+
+– zaznaczysz, że dzieło zostało przekształcone i, jeśli to możliwe, jakie zmiany zostały dokonane;
+
+– będziesz rozpowszechniać kolejne dzieła na tej samej licencji lub licencji kompatybilnej.
+
+Autor / autorzy dzieła pierwotnego mogą przekazać Ci prawo do modyfikacji tychże dzieł na takich samych warunkach co kopii.
+
+§ 3 PRAWA POKREWNE
+
+Działania podnoszące prawa autorskie i prawa pokrewne nie podważają praw przyznanych przez niniejszą licencję.
+
+Jest to powód, dla którego na przykład występy muszą podlegać tej samej licencji lub licencji kompatybilnej. Również włączenie dzieła do bazy danych, kompilacji lub antologii nie stanowi przeszkody do korzystania z dzieła na takich samych warunkach jak te określone w niniejszej licencji.
+
+§ 4 WŁĄCZENIE DZIEŁA
+
+Włączenie niniejszego dzieła do większego dzieła, które nie podlega licencji Wolnej Sztuki nie podważa praw przyznanych przez tą licencję.
+
+Jeżeli dostęp do dzieła nie jest już możliwy, za wyjątkiem dostępu do większego dzieła, którego jest częścią, wtedy włączenie będzie dozwolone pod warunkiem, że większe dzieło podlega licencji Wolnej Sztuki lub licencji kompatybilnej.
+
+§ 5 ZGODNOŚĆ
+
+Licencja jest kompatybilna z licencją Wolnej Sztuki, pod warunkiem, że:
+
+– daje prawo do kopiowania, rozpowszechniania i przekształcania kopii dzieła, w tym również do celów komercyjnych i bez żadnych innych ograniczeń niż te wymagane przez pozostałe kryteria zgodności;
+
+– zapewnia odpowiednią informacją o autorstwie dzieła i jeśli to możliwe dostęp do poprzednich wersji;
+
+– uznaje licencję Wolnej Sztuki za kompatybilną (jest z nią kompatybilne);
+
+– wymaga, aby zmiany dokonywane w dziele podlegały tej samej licencji lub licencji, która spełnia powyższe kryteria zgodności.
+
+§ 6. PRAWO WŁASNOŚCI INTELEKTUALNEJ
+
+Niniejsza licencja nie ma na celu umniejszenia Twoich praw autorskich lub praw pokrewnych. Decydując się na wspieranie rozwoju wspólnego dzieła, wyrażasz jedynie zgodę na przyznanie innym takich samych praw w odniesieniu do Twojego wkładu, jakie zostały przyznane Tobie przez niniejszą licencję. Przyznanie tych praw nie jest równoznaczne z rezygnacją z prawa własności intelektualnej.
+
+§ 7. ODPOWIEDZIALNOŚĆ
+
+Wolność do korzystania z dzieła zgodnie z założeniami Licencji Wolnej Sztuki (prawo do kopiowania, rozpowszechniania i przekształcanie) zakłada, że każdy jest odpowiedzialny za własne czyny.
+
+§ 8. CZAS TRWANIA LICENCJI
+
+Niniejsza licencja wchodzi w życie z chwilą akceptacji jej warunków. Akt kopiowania, rozpowszechniania lub dystrybucji dzieła jest równoznaczny z wyrażeniem zgody na warunki licencji. Niniejsza licencja pozostaje w mocy dopuki prawo autorskie do tego dzieła nie wygaśnie. Jeśli nie szanujesz warunków niniejszej licencji, automatycznie tracisz prawa, które ona przyznaje.
+
+Jeżeli statusu prawny lub prawo, któremu podlegasz uniemożliwia Ci przestrzeganie warunków niniejszej licencji, nie możesz również korzystać z praw, które ona przynosi.
+
+§ 9. RÓŻNE WERSJE LICENCJI
+
+Niniejsza licencja może przechodzić okresowe zmiany, prowadzające do jej ulepszenia, dokonywane przez jej autorów (inicjatorów ruchu « Copyleft Attitude »), w postaci nowych, ponumerowanych wersji.
+
+Zawsze masz możliwość wyboru: przyjąć warunki, dołączone do kopii dzieła, które otrzymałeś lub skorzystać z przepisów jednej z kolejnych wersji.
+
+§ 10. PODLICENCJE
+
+Niniejsza licencja nie aprobuje żadnych podlicencji. Każda osoba pragnąca skorzystać z praw, które ona przyznaje będzie bezpośrednio związany z autorami wspólnego dzieła.
+
+§ 11. RAMY PRAWNE
+
+Niniejsza licencja została sporządzona zarówno w odniesieniu do prawa francuskiego jak i konwencji berneńskiej o ochronie dzieł literackich i artystycznych.
+
+PODRĘCZNIK UŻYTKOWNIKA
+
+Jak korzystać z Licencji Wolnej Sztuki?
+
+Aby skorzystać z Licencji Wolnej Sztuki, wystarczy opatrzyć swoje dzieło w następującym opisem:
+
+[Nazwa autora, tytuł, data powstania dzieła. Jeśli stosowne, nazwiska autorów wspólnego dzieła oraz, jeżeli to możliwe, gdzie znajdują się oryginały].
+
+Copyleft: To dzieło jest darmowe, możesz je kopiować, rozpowszechniać i przekształcać na warunkach Licencji Wolnej Sztuki http://artlibre.org/licence/lal/pl/
+
+Dlaczego warto korzystać z Licencji Wolnej Sztuki?
+
+1. Aby dać jak największej liczbie ludzi dostęp do Twojego dzieła.
+
+2. Aby pozwolić na jego darmową dystrybucję.
+
+3. Aby pozwolić na jego rozwój, zezwalając na kopiowanie, rozpowszechnianie i przekształcanie przez innych.
+
+4. Abyś mógł korzystać z zasobów dzieła, które jest objęte Licencją Wolnej Sztuki; abyś mógł kopiować, rozpowszechniać lub przekształcić je za darmo.
+
+5. Ale również dlatego, że Licencja Wolnej Sztuki oferuje ramy prawne, które uniemożliwiają jakiekolwiek przywłaszczenie dzieła. Zabrania się bowiem przywłaszczania swojego dzieła z pominięciem procesu twórczego będącego czyjąś wyłączną własnością.
+
+Kiedy korzystać z licencji Wolnej Sztuki?
+
+Za każdym razem, gdy chcesz skorzystać lub dać innym możliwość skorzystania z prawa do kopiowania, rozpowszechniania i przekształcania twórczości bez zastrzegania środków, powinieneś użyć Licencji Wolnej Sztuki. Można na przykład używać jej w projektach naukowych, artystycznych i edukacyjnych.
+
+Jakie prace mogą być przedmiotem Licencji Wolnej Sztuki?
+
+Licencja Wolnej Sztuki może być stosowana zarówno do prac cyfrowych, jak i materialnych.
+
+Możesz zastosować Licencję Wolnej Sztuki do dowolnego tekstu, obrazu, dźwięku, gestu, lub jakiejkolwiek innej rzeczy, do której posiadasz wystarczające prawa autorskie.
+
+Tło historyczne Licencji Wolnej Sztuki:
+
+Licencja Wolnej Sztuki jest wynikiem obserwacji, korzystania i tworzenia technologii cyfrowych, wolnego oprogramowania, Internetu i sztuki. Powstała podczas spotkań Copyleft Attitude, które odbyły się w Paryżu w 2000 roku. Po raz pierwszy w spotkaniach tych wzięli udział członkowie społeczności wolnego oprogramowania, artyści i przedstawiciele świata sztuki. Za cel postawiono sobie dostosowanie zasad Copyleft i Wolnego Oprogramowania do wszystkich rodzajów twórczości.
+
+http://www.artlibre.org
+
+Copyleft Attitude, 2007.
+
+Możesz kopiować i rozpowszechniać niniejszą licencji dosłownie (bez zmian).
+"""@pl ;
+ 
+cc:legalcode """
+Préambule :
+
+Avec cette Licence Art Libre, l’autorisation est donnée de copier, de diffuser et de transformer librement les oeuvres dans le respect des droits de l’auteur.
+
+Loin d’ignorer les droits de l’auteur, cette licence les reconnaît et les protège. Elle en reformule le principe en permettant au public de faire un usage créatif des oeuvres d’art.
+Alors que l’usage fait du droit de la propriété littéraire et artistique conduit à restreindre l’accès du public à l’oeuvre, la Licence Art Libre a pour but de le favoriser.
+L’intention est d’ouvrir l’accès et d’autoriser l’utilisation des ressources d’une oeuvre par le plus grand nombre. En avoir jouissance pour en multiplier les réjouissances, créer de nouvelles conditions de création pour amplifier les possibilités de création. Dans le respect des auteurs avec la reconnaissance et la défense de leur droit moral.
+
+En effet, avec la venue du numérique, l’invention de l’internet et des logiciels libres, un nouveau mode de création et de production est apparu. Il est aussi l’amplification de ce qui a été expérimenté par nombre d’artistes contemporains.
+
+Le savoir et la création sont des ressources qui doivent demeurer libres pour être encore véritablement du savoir et de la création. C’est à dire rester une recherche fondamentale qui ne soit pas directement liée à une application concrète. Créer c’est découvrir l’inconnu, c’est inventer le réel avant tout souci de réalisme.
+Ainsi, l’objet de l’art n’est pas confondu avec l’objet d’art fini et défini comme tel.
+C’est la raison essentielle de cette Licence Art Libre : promouvoir et protéger des pratiques artistiques libérées des seules règles de l’économie de marché.
+
+——–
+
+DÉFINITIONS
+
+– L’oeuvre :
+il s’agit d’une oeuvre commune qui comprend l’oeuvre originelle ainsi que toutes les contributions postérieures (les originaux conséquents et les copies). Elle est créée à l’initiative de l’auteur originel qui par cette licence définit les conditions selon lesquelles les contributions sont faites.
+
+– L’oeuvre originelle :
+c’est-à-dire l’oeuvre créée par l’initiateur de l’oeuvre commune dont les copies vont être modifiées par qui le souhaite.
+
+– Les oeuvres conséquentes :
+c’est-à-dire les propositions des auteurs qui contribuent à la formation de l’oeuvre en faisant usage des droits de reproduction, de diffusion et de modification que leur confère la licence.
+
+– Original (source ou ressource de l’oeuvre) :
+exemplaire daté de l’oeuvre, de sa définition, de sa partition ou de son programme que l’auteur présente comme référence pour toutes actualisations, interprétations, copies ou reproductions ultérieures.
+
+– Copie :
+toute reproduction d’un original au sens de cette licence.
+
+– Auteur de l’oeuvre originelle :
+c’est la personne qui a créé l’oeuvre à l’origine d’une arborescence de cette oeuvre modifiée. Par cette licence, l’auteur détermine les conditions dans lesquelles ce travail se fait.
+
+– Contributeur :
+toute personne qui contribue à la création de l’oeuvre. Il est l’auteur d’une oeuvre originale résultant de la modification d’une copie de l’oeuvre originelle ou de la modification d’une copie d’une oeuvre conséquente.
+
+1. OBJET
+
+Cette licence a pour objet de définir les conditions selon lesquelles vous pouvez jouir librement de cette oeuvre.
+
+2. L’ÉTENDUE DE LA JOUISSANCE
+
+Cette oeuvre est soumise au droit d’auteur, et l’auteur par cette
+licence vous indique quelles sont vos libertés pour la copier, la
+diffuser et la modifier:
+
+2.1 LA LIBERTÉ DE COPIER (OU DE REPRODUCTION)
+
+Vous avez la liberté de copier cette oeuvre pour un usage personnel, pour vos amis, ou toute autre personne et quelque soit la technique employée.
+
+2.2 LA LIBERTÉ DE DIFFUSER, D’INTERPRÉTER (OU DE REPRÉSENTATION)
+
+Vous pouvez diffuser librement les copies de ces oeuvres, modifiées
+ou non, quel que soit le support, quel que soit le lieu, à titre onéreux ou gratuit si vous respectez toutes les conditions suivantes:
+– joindre aux copies, cette licence à l’identique, ou indiquer précisément où se trouve la licence,
+– indiquer au destinataire le nom de l’auteur des originaux,
+– indiquer au destinataire où il pourra avoir accès aux originaux
+(originels et/ou conséquents). L’auteur de l’original pourra, s’il le souhaite, vous autoriser à diffuser l’original dans les mêmes conditions que les copies.
+
+2.3 LA LIBERTÉ DE MODIFIER
+
+Vous avez la liberté de modifier les copies des originaux (originels
+et conséquents), qui peuvent être partielles ou non, dans le respect des conditions prévues à l’article 2.2 en cas de diffusion (ou représentation) de la copie modifiée.
+L’auteur de l’original pourra, s’il le souhaite, vous autoriser à modifier l’original dans les mêmes conditions que les copies.
+
+3. L’INCORPORATION DE L’OEUVRE
+
+Tous les éléments de cette oeuvre doivent demeurer libres, c’est pourquoi il ne vous est pas permis d’intégrer les originaux (originels et conséquents) dans une autre oeuvre qui ne serait pas soumise à cette licence.
+
+4. VOS DROITS D’AUTEUR
+
+Cette licence n’a pas pour objet de nier vos droits d’auteur sur votre contribution. En choisissant de contribuer à l’évolution de cette oeuvre, vous acceptez seulement d’offrir aux autres les mêmes droits sur votre contribution que ceux qui vous ont été accordés par cette licence.
+
+5. LA DURÉE DE LA LICENCE
+
+Cette licence prend effet dès votre acceptation de ses dispositions. Le fait de copier, de diffuser, ou de modifier l’oeuvre constitue une acception tacite.
+Cette licence a pour durée la durée des droits d’auteur attachés à l’oeuvre. Si vous ne respectez pas les termes de cette licence, vous perdez automatiquement les droits qu’elle vous confère.
+Si le régime juridique auquel vous êtes soumis ne vous permet pas de respecter les termes de cette licence, vous ne pouvez pas vous prévaloir des libertés qu’elle confère.
+
+6. LES DIFFÉRENTES VERSIONS DE LA LICENCE
+
+Cette licence pourra être modifiée régulièrement, en vue de son amélioration, par ses auteurs (les acteurs du mouvement « copyleft attitude ») sous la forme de nouvelles versions numérotées.
+
+Vous avez toujours le choix entre vous contenter des dispositions contenues dans la version sous laquelle la copie vous a été communiquée ou alors, vous prévaloir des dispositions d’une des versions ultérieures.
+
+7. LES SOUS-LICENCES
+
+Les sous licences ne sont pas autorisées par la présente. Toute personne qui souhaite bénéficier des libertés qu’elle confère sera liée directement à l’auteur de l’oeuvre originelle.
+
+8. LA LOI APPLICABLE AU CONTRAT
+
+Cette licence est soumise au droit français.
+
+Mode d’emploi :
+
+– Comment utiliser la Licence Art Libre?
+
+Pour bénéficier de la Licence Art Libre il suffit d’accompagner votre oeuvre de cette mention :
+
+[Quelques lignes pour indiquer le nom de l’oeuvre et donner une idée éventuellement de ce que c’est.]
+[Quelques lignes pour indiquer s’il y a lieu, une description de l’oeuvre modifiée et le nom de l’auteur.]
+Copyright Â© [la date] [nom de l’auteur] (si c’est le cas, indiquez les noms des auteurs précédents)
+Copyleft : cette
+oeuvre est libre, vous pouvez la redistribuer et/ou la modifier selon les termes de la Licence Art Libre.
+Vous trouverez un exemplaire de cette Licence sur le site Copyleft Attitude http://www.artlibre.org ainsi que sur d’autres sites.
+
+– Pourquoi utiliser la Licence Art Libre?
+
+1/ Pour mettre à disposition votre oeuvre au plus grand nombre.
+
+2/ Pour la laisser diffuser librement.
+
+3/ Pour lui permettre d’évoluer en autorisant sa transformation par d’autres.
+
+4/ Pour pouvoir vous-même utiliser les ressources d’une oeuvre quand celle-ci est sous Licence Art Libre : la copier, la diffuser ou la transformer librement.
+
+5/ Ce n’est pas tout.
+Car l’utilisation de la Licence Art Libre est aussi un bon moyen pour prendre des libertés avec le système de la marchandise généré par l’économie dominante. La Licence Art Libre offre un cadre juridique intéressant pour empêcher toute appropriation abusive. Il n’est plus possible de s’emparer de votre oeuvre pour en court-circuiter la création et en faire un profit exclusif. Il est interdit de faire main basse sur le travail collectif qui est à l’oeuvre, interdit de s’accaparer les ressources de la création en mouvement pour le seul bénéfice de quelques uns.
+
+La Licence Art Libre défend une économie propre à l’art, basée sur le partage, l’échange et la joyeuse dépense. Ce qui compte en art c’est aussi et surtout ce qui ne se compte pas.
+
+– Quand utiliser la Licence Art Libre?
+
+Il n’est pas dans le projet de la Licence Art Libre d’éliminer le copyright ou les droits d’auteurs. Bien au contraire, il s’agit d’en reformuler la pertinence en tenant compte de l’environnement contemporain. Il est question de s’autoriser le droit à la libre circulation, à la libre copie et la libre transformation des oeuvres. Le droit au libre travail de l’art et des artistes.
+
+1/ A chaque fois que vous voudrez bénéficier et faire bénéficier de ce droit, utilisez la Licence Art Libre.
+
+2/ A chaque fois que vous voudrez créer des oeuvres pour qu’elles évoluent et soient librement copiables, librement diffusables et librement transformables : utilisez la Licence Art Libre.
+
+3/ A chaque fois que vous voudrez avoir la possibilité de copier, distribuer ou transformer une oeuvre : vérifiez bien qu’elle est sous Licence Art Libre. Dans le cas contraire vous risqueriez de vous mettre hors la loi.
+
+– A quels types d’oeuvres convient la Licence Art Libre?
+
+Cette licence s’applique aussi bien aux oeuvres numériques que non numériques. Elle est née de l’observation du monde du logiciel libre et de l’internet, mais son domaine d’application ne se limite pas aux supports numériques.
+Vous pouvez mettre une peinture, un roman, une sculpture, un dessin, une musique, un poème, une installation, une vidéo, un film, une recette de cuisine, un cd-rom, un site web, une performance, enfin bref, toutes créations qui peuvent se réclamer d’un certain art.
+
+– Cette licence a une histoire : elle est née de la rencontre « Copyleft Attitude » http://www.artlibre.org qui a eu lieu à Accès Local et Public à Paris début 2000. Pour la première fois elle faisait se rencontrer des informaticiens et des acteurs du libre avec des artistes contemporains et des gens du monde de l’art.
+"""@fr ;
+cc:legalcode """
+Preambolo
+Con questa licenza Arte Libera è permesso copiare, diffondere e trasformare liberamente le opere rispettando i diritti dell’autore originario.
+Questa licenza non ignora affatto i diritti d’autore, anzi li riconosce e li protegge. Essa ne riformula lo spirito consentendo al pubblico di fare un uso creativo delle opere d’arte.
+Dal momento che l’uso fatto del diritto della proprietà letteraria e artistica conduce a restringere l’accesso del pubblico all’opera, la licenza Arte Libera ha invece lo scopo di favorirlo.
+L’intenzione è di rendere l’opera accessibile e permettere l’utilizzo dei suoi contenuti da parte di più persone possibili: utilizzarla con lo scopo di incrementare il suo utilizzo, porre nuove condizioni per la creazione con lo scopo di moltiplicare le possibilità di creazione, nel rispetto degli autori con il riconoscimento e la difesa del loro diritto morale.
+Infatti, con l’avvento dell’era digitale, con l’invenzione di Internet e del software libero, è comparso un nuovo modo di creare e di produrre. E’ anche il canale d’amplificazione di ciò che è stato sperimentato da numerosi artisti contemporanei. Il sapere e la creatività sono delle risorse che devono rimanere libere per essere davvero ciò che sono; e questo deve rimanere un obbiettivo fondamentale che non è legato direttamente ad un concreta applicazione. Creare è scoprire l’ignoto, è inventare il reale senza preoccuparsi del realismo. Così, l’obbiettivo dell’arte non dev’essere confuso con l’oggetto d’arte fatto e finito.
+La ragione essenziale di questa licenza Arte Libera è promuovere e tutelare l’esercizio dell’arte libero dalle regole imposte dall’economia di mercato.
+
+DEFINIZIONI
+
+– L’opera: si tratta dell’opera condivisa, comprendendo l’opera originale così come tutte le modificazioni successive (gli originali conseguenti e le copie). E’ creata per iniziativa dell’autore originario che attraverso questa licenza definisce le condizioni in base alle quali vengono fatte le modifiche.
+
+– L’opera originale: cioè l’opera creata dall’primo ideatore dell’opera condivisa, le cui copie saranno modificate da chi lo desidera.
+
+– Le opere derivate: cioè i contributi degli autori che partecipano alla formazione dell’opera facendo uso dei diritti di riproduzione, di diffusione e di modificazione che la licenza conferisce loro.
+
+– Originale (forma esteriore o contenuti dell’opera): esemplare datato dell’opera, della sua definizione, della sua suddivisione, o del suo programma che l’autore presenta come riferimento per tutti gli aggiornamenti, interpretazioni, copie o riproduzioni ulteriori.
+
+– Copia: ciascuna riproduzione dell’originale ai sensi di questa licenza.
+
+– Autore dell’opera originale: è la persona che ha creato l’opera all’origine della ramificazione delle modifiche. Attraverso questa licenza, l’autore determina le condizioni nelle quali si possono apportare le modifiche.
+
+– Collaboratore: ciascuna persona che contribuisce alla creazione dell’opera. E’ l’autore di un’opera originale risultante dalla modifica di una copia dell’opera originaria o dall’ulteriore modifica di un’opera derivata.
+
+1. OGGETTO
+Questa licenza ha per oggetto di definire le condizioni secondo le quali potete usufruire liberamente di quest’opera.
+
+2. ESTENSIONE DELL’USO
+Quest’opera è sottoposta al diritto d’autore e l’autore con questa licenza vi indica a quali condizioni potete copiarla, diffonderla e modificarla.
+
+2.1. LIBERTÀ DI COPIARE (O DI RIPRODURRE)
+Avete la libertà di copiare quest’opera per uso personale, per i vostri amici o altre persone usando una qualsiasi tecnica.
+
+2.2. LIBERTÀ DI DIFFONDERE, INTERPRETARE (O DI RAPPRESENTARE)
+Potete liberamente diffondere le copie di queste opere, modificate o no, qualunque sia il supporto, il luogo, a titolo oneroso o gratuito, se rispettate le seguenti condizioni:
+– allegare alle copie questa licenza nella sua integrità, o indicare precisamente dove si può trovare la licenza;
+– indicare al destinatario il nome dell’autore degli originali;
+– indicare al destinatario dove potrà avere accesso agli originali (originari e/o derivati).
+L’autore dell’originale potrà, se lo desidera, autorizzarvi a diffondere l’originale con le stesse condizioni delle copie.
+
+2.3. LIBERTÀ DI MODIFICARE
+Avete la libertà di modificare le copie degli originali (originari e/o derivati), siano esse parziali o no, rispettando le condizioni previste dall’Art. 2.2, in caso di distribuzione (o rappresentazione) della copia modificata. L’autore dell’originale potrà, se lo desidera, autorizzarvi a modificare l’originale alle stesse condizioni delle copie.
+
+
+3. INCORPORAZIONE DELL’OPERA
+Tutti gli elementi di quest’opera devono rimanere liberi, perciò non vi è permesso di integrare gli originali (originari e/o derivati) in un’altra opera che non sia sottoposta a sua volta a questa licenza.
+
+
+4. I VOSTRI DIRITTI D’AUTORE
+Questa licenza non ha per oggetto di negare i vostri diritti d’autore sul vostro contributo. Scegliendo di contribuire all’evoluzione di quest’opera dovete solamente accettare di offrire agli altri sul vostro contributo gli stessi diritti garantiti a voi da questa licenza.
+
+5. DURATA DELLA LICENZA
+Questa licenza prende effetto dalla vostra accettazione delle sue disposizioni. Il fatto di copiare, diffondere o modificare l’opera costituisce una tacita accettazione. Questa licenza rimane in vigore fino a che i diritti d’autore permangono sull’opera. Se non rispettate i termini di questa licenza, perdete automaticamente i diritti che essa vi conferisce.
+Se il regime giuridico al quale siete sottomessi non vi permette di rispettare i termini di questa licenza, non potete usufruire dei diritti che essa conferisce.
+
+6. LE DIFFERENTI VERSIONI DELLA LICENZA
+Questa licenza potrà essere modificata periodicamente in vista di un suo miglioramento da parte dei suoi autori (i promotori del movimento â€˜copyleft attitude’) sotto forma di nuove versioni numerate.
+Voi avrete sempre la scelta di accettare le previsioni contenute nella versione sotto la quale vi è stata comunicata la copia oppure usare le previsioni di una delle successive versioni.
+
+7. SUB-LICENZE
+Le sub-licenze non sono autorizzate dalla presente licenza. Chi desidera beneficiare delle libertà che essa conferisce, sarà legato direttamente all’autore dell’opera originale.
+
+8. LA LEGGE APPLICABILE AL CONTRATTO
+Questa licenza è soggetta al diritto francese.
+
+INDICAZIONI PER L’USO:
+
+– Come usare la licenza Arte Libera ?
+Per usufruire della licenza Art Libre, è sufficiente specificare le seguenti informazioni sulla tua opera creativa:
+[- Alcune righe per indicare il titolo dell’opera e per dare un’idea di che cosa si tratta]
+[- Alcune righe per descrivere, se necessario, l’opera d
+erivata e per fornire il nome dell’autore]
+Copyright Â© [data] [nome dell’autore o artista] (se è il caso, specificare i nomi degli autori o artisti precedenti)
+Copyleft: quest’opera creativa è libera, puoi ridistribuirla e/o modificarla secondo i termini della licenza Arte Libera.
+Puoi trovare un modello di questa licenza sul sito Copyleft Attitude http://artlibre.org così come su altri siti web.
+
+– Perché usare la licenza Arte Libera ?
+1/ per dare al maggior numero di persone la possibilità di accedere alla tua opera.
+2/ per consentire che essa venga distribuita liberamente.
+3/ per consentire che essa si evolva autorizzandone la modifica da parte di altri.
+4/ per potere a tua volta usare le versioni di un’opera che sia sotto licenza Arte Libera : per copiarla, distribuirla e trasformarla liberamente.
+5/ E non è tutto: poiché l’utilizzo della licenza Arte Libera è anche un buon modo per prendere le distanze dal sistema di mercato prodotto dall’economia dominante. La licenza Arte Libera offre un utile protocollo legale per prevenire abusive attribuzioni di paternità. Non sarà più possibile che qualcuno si appropri indebitamente delle tua opera, mandando in corto-circuito il processo creativo per trarne profitto personale. E’ proibito saccheggiare un’opera sviluppata collettivamente, così come accaparrarsi le risorse della creazione in fase di sviluppo a beneficio solo di alcuni.
+La licenza Arte Libera persegue un modello economico più adatto all’arte, basato sulla condivisione, sullo scambio e sul concedere gioiosamente. Ciò che conta nell’arte è anche e soprattutto ciò che non si conta.
+
+– Quando usare la licenza Arte Libera ?
+Non è negli intenti della licenza Arte Libera eliminare il copyright e i diritti d’autore. Al contrario, si tratta di riformularne gli equilibri, tenendo conto dell’ambiente contemporaneo. Si tratta di autorizzare il diritto alla libera circolazione, alla libera copia e alla libera trasformazione delle opere. Il diritto al libero esercizio dell’arte.
+1/ Ogni volta che vorrete beneficiare e far beneficiare di questo diritto, utilizzate la licenza Arte Libera.
+2/ Ogni volta che vorrete creare delle opere che si possano evolvere e siano liberamente copiabili, liberamente distribuibili e liberamente trasformabili, utilizzate la licenza Arte Libera.
+3/ Ogni volta che vorrete avere la possibilità di copiare, distribuire o trasformare un’opera, verificate bene che essa sia sotto licenza Art Libre. In caso contrario rischiereste di mettervi nell’illegalità.
+– A quali tipi di opere si addice la licenza Arte Libera ?
+Questa licenza si applica sia alle opere digitali che a quelle non digitali. E’ nata dall’osservazione del mondo del software libero e di Internet, ma il suo ambito di applicazione non si limita ai media digitali. Potete mettere un dipinto, un romanzo, una scultura, un disegno, una musica, un poema, un progetto tecnico, un video, un film, una ricetta, un CD-ROM, un sito web, una performance, in breve, tutte le creazioni che si possano dichiarare opere d’arte.
+Questa licenza ha una storia: è nata dal meeting « Copyleft Attitudeâ€ che ha avuto luogo al « Accès local et publicâ€ a Parigi all’inizio dell’anno 2000. Per la prima volta ci è stato un incontro fra esperti di computer e informatica libera con artisti contemporanei e personaggi del mondo dell’arte.
+"""@it ;
+cc:legalcode """
+Preâmbulo
+
+A Licença da Arte Livre autoriza você a copiar livremente, distribuir e transformar trabalhos criativos sem infringir os direitos do autor.
+
+A Licença da Arte Livre reconhece e protege estes direitos. Sua implementação foi reformulada no sentido de permitir à todos utilizar-se das criações do intelecto humano de uma maneira criativa, independentemente de seus gêneros e formas de expressão.
+
+Enquanto o acesso do público às criações intelectuais é freqüentemente restringido pela lei do copyright, com a Licença da Arte Livre o acesso é incentivado. Esta licença se propõe a permitir a utilização dos recursos que constituem uma obra; estabelecer novas condições para a criação no sentido de amplificar as possibilidades de e da criação. A Licença da Arte Livre permite o uso das obras e reconhece o direito do autor, os direitos dos receptores e suas responsabilidades.
+
+A invenção e desenvolvimento das tecnologias digitais, a Internet e o Software Livre mudaram a forma de e da criação: criações intelectuais podem obviamente ser compartilhadas, trocadas e transformadas. As novas tecnologias digitais favorecem a produção de obras comuns que todos podem melhorar para o benefício de todos.
+
+A principal justificativa para a Licença da Arte Livre é promover e proteger essas criações intelectuais de acordo com os princípios do copyleft: liberdade para usar, copiar, compartilhar, transformar, e a proibição da apropriação exclusiva.
+
+Definições
+
+« obra » significa tanto a obra inicial, quanto as subseqüentes ou a obra comum, como definidas a seguir:
+
+« obra comum » significa uma obra composta da obra inicial e de todas as subseqüentes contribuições à ela (originais e cópias). O autor inicial é o que, por escolher esta licença, define as condições sob as quais cada contribuição é feita.
+
+« obra inicial » significa o trabalho criado pelo iniciador da obra comum (como definida acima), cujas cópias podem ser modificadas por quem desejar.
+
+« obras subseqüentes » significa as contribuições feitas por autores que participam na evolução da obra comum exercitando seus direitos de reproduzir, distribuir e modificar que são permitidas pela licença.
+
+« originais » (obras fonte ou recursos) significa todas as cópias da obra inicial ou das obras subseqüentes, datadas e usadas por seus autores como referências para quaisquer atualizações, interpretações, cópias ou reproduções subseqüentes.
+
+« cópia » significa qualquer reprodução de um original como definido por esta licença.
+
+1. OBJETO
+O objetivo dessa licença é definir as condições sob as quais se poderá desfrutar livremente da obra licenciada por esta licença.
+
+2. ESCOPO
+A obra licenciada por esta licença está sujeita à lei de copyright. Através desta licença, o autor da obra licenciada especifica uma extensão que permite que você possa copiar, distribuir e modificar a obra.
+
+2.1 LIBERDADE PARA COPIAR (OU PARA REPRODUZIR)
+Você tem o direito de copiar este trabalho para si, para seus amigos ou qualquer outra pessoa, independentemente da técnica utilizada.
+
+2.2 LIBERDADE PARA DISTRIBUIR, APRESENTAR EM PÚBLICO
+Você tem o direito de distribuir cópias desta obra; sejam modificadas ou não, em qualquer mídia ou lugar, com ou sem cobrança de valores, desde que você:
+anexe esta licença sem quaisquer modificações às cópias desta obra ou indique precisamente onde a licença pode ser encontrada,
+especifique para o receptor os nomes dos autores das obras originais, incluindo o seu caso tenha modificado a obra,
+especifique para o receptor onde ele poderá ter acesso aos originais (tanto da obra inicial quanto das subseqüentes).
+
+Os autores dos originais podem, se desejarem, conceder o direito de distribuir os originais nas mesmas condições que as cópias.
+
+2.3 LIBERDADE PARA MODIFICAR
+Você tem o direito de modificar cópias dos originais (inicial ou subseqüentes) contanto que você cumpra com as seguintes condições:
+todas as condições no artigo 2.2 acima, se você distribuir as cópias modificadas;
+indicar que a obra foi modificada e, se possível, que tipo de modificações foram feitas;
+distribuir o trabalho subseqüente sob a mesma licença ou qualquer licença compatível.
+
+Os autores da obra original podem lhe conceder o direito de modificá-la nas mesmas condições que as cópias.
+
+3. DIREITOS RELACIONADOS
+Atividades ou ações relacionadas aos direitos do autor e direitos relacionados não podem interferir com os direitos previstos por esta licença.
+Por exemplo, esta é a razão por que performances devem estar sujeitas à mesma licença ou licença compatível. Similarmente, integrar a obra num banco de dados, compilação ou antologia não pode impedir a utilização da obra sob as mesmas condições definidas por esta licença.
+
+4. INCORPORAÇÃO DA OBRA
+Incorporar a obra numa obra maior não sujeita à Licença da Arte Livre não pode interferir com os direitos previstos por esta licença.
+Se a obra não poder ser acessada à parte da obra maior em que foi incorporada, então esta incorporação só será permitida na condição de que a obra maior esteja licenciada sob a Licença da Arte Livre ou licença compatível.
+
+5. COMPATIBILIDADE
+Uma licença é compatível com a Licença da Arte Livre desde que:
+ela dê o direito da cópia, distribuição e modificação de cópias da obra, incluindo para propósitos comerciais, e sem quaisquer outras restrições que não as impostas pela observância dos outros critérios de compatibilidade;
+ela assegura atribuição da obra aos autores e o acesso a versões anteriores da obra sempre que possível;
+ela reconhece a Licença da Arte Livre como compatível (reciprocidade);
+ela requer que as modificações feitas à obra estão sujeitas à mesma licença ou à alguma licença que também observe este critério de compatibilidade.
+
+6. SEUS DIREITOS AUTORAIS
+O objetivo desta licença não é negar seus direitos enquanto autor na sua contribuição nem quaisquer direitos relacionados. Por escolher contribuir na evolução de uma obra comum, você apenas concorda em ceder a terceiros os mesmos direitos sob sua contribuição em relação aos que lhe foram concedidos por esta licença. Ceder estas permissões não implica em ceder seus direitos autorais.
+
+7. SUAS RESPONSABILIDADES
+A liberdade de uso da obra como definido pela Licença da Arte Livre (direito de cópia, distribuição e modificação) implica que todos são responsáveis por suas próprias ações.
+
+8. DURAÇÃO DA LICENÇA
+Esta licença tem efeito a partir da aceitação de seus termos. O ato de copiar, distribuir ou modificar a obra constitui uma aceitação tácita. Esta licença irá manter-se em efeito no mesmo período que o copyright que está anexado à obra. Se você não respeitar os termos desta licença, irá automaticamente perder os direitos que ela lhe confere.
+
+Se o status legal ou a legislação que você está sujeito tornam impossível respeitar os termos desta licença, então você não poderá fazer uso dos direitos que ela lhe confere.
+
+9. VÁRIAS VERSÕES DA LICENÇA
+Esta licença poderá sofrer modificações periódicas para incorporar melhorias por seus autores (instigadores do movimento « Copyleft Atitude ») através de novas versões numeradas.
+
+Você sempre terá a escolha de aceitar os termos contidos na versão em que a obra está licenciada, ou alternativamente, usar uma das versões subseqüentes.
+
+10. SUB-LICENCIAMENTO
+Sub-licenças não são autorizadas pela presente licença. Qualquer pessoa que deseje fazer uso dos direitos que a licença confere estará diretamente ligada aos autores da obra comum.
+
+11. SUPORTE LEGAL PARA INTERPRETAR ESTA LICENÇA
+Esta licença foi escrita respeitando tanto a lei francesa quanto a Convernção de Berne pela Proteção de Obras Artísticas e Literárias.
+
+GUIA DE USO
+
+Como usar a Licença da Arte Livre?
+
+Para se beneficiar da Licença da Arte Livre, é suficiente aplicar a seguinte menção à sua obra:
+
+[Nome do autor, título, data da obra. Também, se for o caso, nomes dos autores da obra comum e, se possível, onde encontrar os originais].
+« Copyleft: Esta obra é livre, você pode copiar, compartilhar e modificar sob os termos da Licença da Arte Livre http://artlibre.org/licence/lal/pt/ »
+
+Porque usar a Licença da Arte Livre?
+
+1. Para dar a um número maior de pessoas acesso à sua obra.
+
+2. Para permitir que ela seja distribuída livremente.
+
+3. Para permitir que ela desenvolva-se permitindo sua cópia, distribuição e transformação por outros.
+
+4. Para se beneficiar dos originais de uma obra quando esta estiver sob a Licença da Arte Livre: poder copiá-los, distribuí-los ou transformá-los livremente.
+
+5. Mas também porque a Licença da Arte Livre provê um suporte legal para impedir qualquer apropriação abusiva. É proibido tomar posse do seu trabalho e restringir o processo criativo para o usufruto de ou para uma única pessoa ou entidade.
+Quando usar a Licença da Arte Livre?
+
+Sempre que você quiser beneficiar-se e fazer com que outros se beneficiem do direito à cópia, distribuição e transformação de obras criativas, sem qualquer apropriação exclusiva, você deveria usar a Licença da Arte Livre. Você pode por exemplo usá-la para projetos científicos, artísticos ou educacionais.
+
+Para que tipos de obra a Licença da Arte Livre é indicada?
+
+A Licença da Arte Livre pode ser aplicada tanto para obras digitais quanto para obras físicas.
+Você poderá escolher aplicar a Licença da Arte Livre em qualquer texto, imagem, filme, som, gesto, ou qualquer outro tipo de coisas que você tenha suficientes direitos autorais.
+Esta licença tem uma história:
+Ela é o resultado de observações e práticas de tecnologias digitais, Software Livre, Internet e arte. Ela nasceu nos encontros « Copyleft Attitude » que ocorreram em Paris em 2000. Pela primeira vez esses encontros reuniram membros da comunidade do Software Livre com artistas. O objetivo era adaptar os princípios do copyleft e software livre à todos os tipos de criações. http://www.artlibre.org
+"""@pt .
+
+
+

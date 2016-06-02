@@ -4,14 +4,14 @@
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://purl.org/NET/rdflicense/cc-by3.0dk>
+<http://purl.org/NET/rdflicense/cc-by2.0pt>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 3.0 Denmark" ;
-      rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/dk/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Denmark> ;
-      cc:legalcode <http://creativecommons.org/licenses/by/3.0/dk> ;
-      dct:hasVersion "3.0" ;
-      dct:language <http://www.lexvo.org/page/iso639-3/dan> ;
+      rdfs:label "Creative Commons CC-BY 2.0 Portugal" ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/pt/legalcode> ;
+      cc:jurisdiction <http://dbpedia.org/page/Portugal> ;
+      dct:source <http://creativecommons.org/licenses/by/2.0/pt> ;
+      dct:hasVersion "2.0" ;
+      dct:language <http://www.lexvo.org/page/iso629-2/por> ;
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;

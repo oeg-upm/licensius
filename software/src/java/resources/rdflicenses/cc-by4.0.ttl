@@ -15,9 +15,6 @@
 @prefix ms: <http://purl.org/NET/ms-rights#> .
 @prefix : <http://purl.org/NET/rdflicense/> .
 
-
-			
-#CREATIVE COMMONS LICENSES VERSION 4.0
 			
 <http://purl.org/NET/rdflicense/cc-by4.0>
     a   odrl:Policy ;
@@ -126,6 +123,7 @@ No term or condition of this Public License will be waived and no failure to com
 Nothing in this Public License constitutes or may be interpreted as a limitation upon, or waiver of, any privileges and immunities that apply to the Licensor or You, including from the legal processes of any jurisdiction or authority.
 Creative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and in those instances will be considered the “Licensor.” The text of the Creative Commons public licenses is dedicated to the public domain under the CC0 Public Domain Dedication. Except for the limited purpose of indicating that material is shared under a Creative Commons public license or as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark “Creative Commons” or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material. For the avoidance of doubt, this paragraph does not form part of the public licenses.
 """@en ;
+
  cc:legalcode """
 Creative Commons Navngivelse 4.0 Internasjonal Offentlige Lisens
 
@@ -217,12 +215,12 @@ Ingenting i denne Offentlig Lisensen utgjør eller kan tolkes som en begrensning
 Creative Commons er ikke en part i noen av sine offentlige lisenser. Likevel, Creative Commons kan velge å benytte en av sine lisenser på materiale som det publiserer og i de tilfellene vil Creative Commons å være å anse som «Lisensgiveren». Teksten i Creative Commons offentlige lisenser erklæres å være i det fri som beskrevet i CC0 Fristatus-erklæringen. Bortsett fra for det begrensede formål å indikere at materialet er delt under en Creative Commons offentlig lisens, eller som forøvrig tillatt av Creative Commons’ retningslinjer publisert på creativecommons.org/policies, tillater Creative Commons ikke bruk av varemerket «Creative Commons» eller noe annet varemerke eller logo tilhørende Creative Commons uten at det på forhånd foreligger skriftlig samtykke, inkludert, uten avgrensning, i forbindelse med uautoriserte endringer i noen av de offentlige lisensene eller i noen annen ordning, forståelse, eller avtale som angår bruk av lisensiert materiale. For å unngå tvil, dette avsnittet ikke en del av den offentlige lisensen.
 
 Creative Commons kan bli kontaktet på creativecommons.org.
-"""@no .
+"""@no ;
 
 cc:legalcode """
 Creative Commons Nimeä 4.0 Kansainvälinen Julkinen Lisenssi
 
-Käyttämällä Lisensoituja Oikeuksia (määritelty alla) Sinä hyväksyt tämän Creative Commons Nimeä 4.0 Kansainvälisen Julkisen Lisenssin (”Julkinen Lisenssi”) ehdot ja sitoudut noudattamaan niitä. Siinä laajuudessa kuin tämä Julkinen Lisenssi voidaan tulkita sopimukseksi, Lisensoidut Oikeudet myönnetään Sinulle vastineena siitä, että Sinä hyväksyt nämä ehdot, ja Lisenssinantaja myöntää Sinulle kyseiset oikeudet vastineena niistä eduista, jotka Lisenssinantaja saa asettamalla Lisensoidun Aineiston saataville näillä ehdoilla.
+Käyttämällä Lisensoituja Oikeuksia (määritelty alla) Sinä hyväksyt tämän Creative Commons Nimeä 4.0 Kansainvälisen Julkisen Lisenssin (Julkinen Lisenssi) ehdot ja sitoudut noudattamaan niitä. Siinä laajuudessa kuin tämä Julkinen Lisenssi voidaan tulkita sopimukseksi, Lisensoidut Oikeudet myönnetään Sinulle vastineena siitä, että Sinä hyväksyt nämä ehdot, ja Lisenssinantaja myöntää Sinulle kyseiset oikeudet vastineena niistä eduista, jotka Lisenssinantaja saa asettamalla Lisensoidun Aineiston saataville näillä ehdoilla.
 
 Osa 1 – Määritelmät.
 
@@ -311,6 +309,7 @@ Creative Commons ei ole julkisten lisenssiensä osapuoli. Siitä huolimatta Crea
 
 Creative Commonsiin voi ottaa yhteyttä osoitteessa creativecommons.org.
 """@fi ;
+
 cc:legalcode """
 Lisensi Publik Creative Commons Atribusi 4.0 Internasional
 
@@ -403,6 +402,7 @@ Creative Commons bukanlah pihak dalam lisensi publik. Walau demikian, Creative C
 
 Creative Commons dapat dihubungi melalui creativecommons.org.
 """@id ;
+
 cc:legalcode """
 クリエイティブ・コモンズ 表示 4.0 国際 パブリック・ライセンス
 

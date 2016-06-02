@@ -138,7 +138,7 @@ public class RDFUtils {
         return s;
     }
     
-    static Model cleanUnusedPrefixes(Model model) {
+    public static Model cleanUnusedPrefixes(Model model) {
         NsIterator it = model.listNameSpaces();
         List<String> uris = new ArrayList();
         List<String> toremove = new ArrayList();

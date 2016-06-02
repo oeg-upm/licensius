@@ -27,8 +27,8 @@ public class TestRDFLicense {
      * This method (and observing the logs) is enough to test if the dataset is correct
      */
     public static void main(String[] args) throws IOException {
-//     testLicenses();   
-        multilingual();
+     testLicenses();   
+//        multilingual();
     }
     
     public static void multilingual() throws IOException
@@ -59,6 +59,7 @@ public class TestRDFLicense {
     {
         RDFLicenseDataset dataset = new RDFLicenseDataset();
         List<RDFLicense> lics = dataset.getRDFLicenses();
+        int c=0;
         for(RDFLicense lic : lics)
         {
             if (lic==null)
@@ -66,9 +67,11 @@ public class TestRDFLicense {
                 System.err.println("One license is wrong");
                 continue;
             }
+            c++;
             String source=lic.getSource();
             System.out.println(lic.getURI()+"\t"+lic.getSource());
         }
+        System.out.println("total licenses: " + c);
         
     }
     public static void testx()
