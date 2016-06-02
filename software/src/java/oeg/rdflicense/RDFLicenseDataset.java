@@ -120,13 +120,12 @@ public class RDFLicenseDataset {
      * Gets a TTL representation of the RDFLicense
      */
     public String toTTL() {
-        if (modelTotal == null) {
+        if (modelTotal == null) 
             readRDFLicense();
-        }
-        if (modelTotal == null) {
+        if (modelTotal == null) 
             return null;
-        }
 
+        
         StringWriter sw = new StringWriter();
         modelTotal.write(sw, "TURTLE");
         return sw.toString();
@@ -169,7 +168,7 @@ public class RDFLicenseDataset {
                 logger.error("could not open stream");
             }
             raw = "";
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
             String str = "";
             while ((str = br.readLine()) != null) {
                 raw += str + " \n";

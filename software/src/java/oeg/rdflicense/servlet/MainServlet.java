@@ -65,6 +65,8 @@ public class MainServlet extends HttpServlet {
             if (rdflicenseuri.equals("http://purl.org/NET/rdflicense/") || rdflicenseuri.equals("http://purl.org/NET/rdflicense")) {
                 resp.setContentType("text/turtle;charset=utf-8");
                 dataset = new RDFLicenseDataset();
+                resp.setContentType("text/turtle;charset=utf-8");
+                resp.setCharacterEncoding("utf-8");
                 resp.getWriter().println(dataset.toTTL());
                 return;
             }
