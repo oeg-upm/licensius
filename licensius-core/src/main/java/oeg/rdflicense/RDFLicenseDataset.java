@@ -1,29 +1,25 @@
 package oeg.rdflicense;
 
-/*
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.NodeIterator;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Statement;
-import org.apache.jena.rdf.model.StmtIterator;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ResIterator;
-import org.apache.jena.vocabulary.RDF;
-*/
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import oeg.licensius.core.Licensius;
 import oeg.vroddon.util.URLutils;
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -35,6 +31,7 @@ public class RDFLicenseDataset {
     public static Model modelTotal = null;
     public static String raw = "";
     private static final Logger logger = Logger.getLogger(RDFLicenseDataset.class.getName());
+    public static Map<String, RDFLicense> glicenses = new HashMap();
     
     public static void main(String[] args) {
         Licensius.init();
@@ -49,11 +46,22 @@ public class RDFLicenseDataset {
             System.out.println(rdflicense.toTTL());
         }
     }
-    
+
+    /**
+     * Intenta cargarlo del local. Y si no sabe, lo coge del remoto
+     */
     public RDFLicenseDataset()
     {
+        System.err.println("Modelo total vacío: "+ (modelTotal==null));
         if (modelTotal==null)
-            modelTotal = readRDFLicense();
+        {
+            modelTotal = readRDFLicenseLocal();
+            if (modelTotal==null)
+            {
+                System.err.println("Leyendo el dataset de remoto");
+                modelTotal = readRDFLicense();
+            }
+        }
     }
     
     public boolean isValid()
@@ -88,7 +96,7 @@ public class RDFLicenseDataset {
         return licenses;
     }
     
-    
+
     
     /**
      * Obtiene un RDFLicense dado su URI. 
@@ -96,6 +104,10 @@ public class RDFLicenseDataset {
      */
     public static RDFLicense getRDFLicense(String rdfuri)
     {
+        RDFLicense rdflicense = glicenses.get(rdfuri);
+        if (rdflicense!=null)
+            return rdflicense;
+        
         if (modelTotal==null)
             modelTotal = readRDFLicense();
         if (modelTotal==null)
@@ -132,7 +144,7 @@ public class RDFLicenseDataset {
         String fragmento=raw.substring(index, index2+1);
         fragmento = RDFUtils.getLicensePrefixes(fragmento) + fragmento;
         
-        RDFLicense rdflicense = new RDFLicense();
+        rdflicense = new RDFLicense();
         rdflicense.model = RDFUtils.parseFromText(fragmento); 
         rdflicense.uri = rdfuri;
         return rdflicense;
@@ -211,6 +223,57 @@ public class RDFLicenseDataset {
         return lres.get(0).getURI();
     }
 
+    public static Model readRDFLicenseLocal() {
+        Model modelx = ModelFactory.createDefaultModel();
+        try{
+            InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("rdflicenses/list.txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            String str="";
+            if (is==null)
+                System.err.println("No se ha podido abrir el archivo list.txt");
+            if (is != null) {                            
+                int conta=0;
+                while ((str = reader.readLine()) != null) {
+                    if (str.isEmpty())
+                        continue;
+                    Model model = ModelFactory.createDefaultModel();
+                    InputStream is2 = Thread.currentThread().getContextClassLoader().getResourceAsStream("rdflicenses/"+str);
+                    StringWriter writer = new StringWriter();
+                    IOUtils.copy(is2, writer, "UTF-8");
+                    String miraw = writer.toString();     
+                    InputStream is4 = new ByteArrayInputStream(miraw.getBytes("UTF-8"));
+                    if (miraw.length()<5)
+                        continue;
+                    String mirawm = miraw.substring(0, miraw.length()-4);
+                    raw+="\n"+mirawm+" \n";
+                    try{
+                    model.read(is4, null, "TURTLE");
+                    if (model!=null)
+                    {
+                        String uri = "http://purl.org/NET/rdflicense/"+str;
+                        RDFLicense license = new RDFLicense(model);
+                        uri = uri.substring(0,uri.length()-4);
+                        license.uri=uri;
+                        glicenses.put(uri,license);
+                        modelx.add(model); 
+                        conta++;
+
+                    }
+                    }catch(Exception e)
+                    {
+                        System.err.println("La licencia " + str + " no contenía un RDF correcto");
+                        System.err.println(e.getMessage());
+                    }
+                }                
+                System.err.println("Total licencias correctas: " + conta);
+            }            
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+        }
+        return modelx;
+    }
+    
+    
     public static Model readRDFLicense() {
         try {
             Model modelx = ModelFactory.createDefaultModel();
@@ -222,4 +285,53 @@ public class RDFLicenseDataset {
             return null;
         }
     }
+
+    /**
+     * Returns all the licenses as a single Turtle string text
+     */
+    public String toTTL() {
+        if (modelTotal == null) 
+            readRDFLicense();
+        if (modelTotal == null) 
+            return null;
+        StringWriter sw = new StringWriter();
+        modelTotal.write(sw, "TURTLE");
+        return sw.toString();
+    }
+    
+    /**
+     * Obtains a list with all the licenses in the dataset. IT Loads the
+     */
+    public List<RDFLicense> getRDFLicenses() {
+        List<RDFLicense> licenses = new ArrayList();
+        if (!glicenses.isEmpty())
+        {
+            Iterator it = glicenses.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry e = (Map.Entry)it.next();
+                RDFLicense l = (RDFLicense)e.getValue();
+                licenses.add(l);
+            }
+            return licenses;
+        }
+        
+        
+        List<Resource> rdflicenses = new ArrayList();
+        List<Resource> licenseclasses = ODRL.getCommonPolicyClasses();
+        for (Resource licenseclass : licenseclasses) {
+            ResIterator it = modelTotal.listSubjectsWithProperty(RDF.type, licenseclass);
+            while (it.hasNext()) {
+                Resource res = it.next();
+                rdflicenses.add(res);
+            }
+        }
+        for (Resource res : rdflicenses) {
+//            System.out.println("Loading: " + res.getURI());
+            RDFLicense rdflicense = getRDFLicense(res.getURI());
+//            System.out.println(rdflicense.getLabel());
+            if (rdflicense!=null)
+                licenses.add(rdflicense);
+        }
+        return licenses;
+    }    
 }

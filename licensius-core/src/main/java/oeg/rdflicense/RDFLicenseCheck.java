@@ -168,7 +168,7 @@ public class RDFLicenseCheck {
     }
     
     
-    private static List<String> getPermissions(RDFLicense lic) {
+    public static List<String> getPermissions(RDFLicense lic) {
         List<String> list = new ArrayList();
         NodeIterator ni = lic.model.listObjectsOfProperty( ModelFactory.createDefaultModel().createResource(lic.getURI()), ODRL.PPERMISSION);
         while(ni.hasNext())
@@ -189,7 +189,7 @@ public class RDFLicenseCheck {
         }        
         return list;
     }
-    private static List<String> getProhibitions(RDFLicense lic) {
+    public static List<String> getProhibitions(RDFLicense lic) {
         List<String> list = new ArrayList();
         NodeIterator ni = lic.model.listObjectsOfProperty( ModelFactory.createDefaultModel().createResource(lic.getURI()), ODRL.PPROHIBITION);
         while(ni.hasNext())
@@ -210,7 +210,7 @@ public class RDFLicenseCheck {
         }             
         return list;
     }
-    private static List<String> getDuties(RDFLicense lic) {
+    public static List<String> getDuties(RDFLicense lic) {
         List<String> list = new ArrayList();
 //        NodeIterator ni = lic.model.listObjectsOfProperty( ModelFactory.createDefaultModel().createResource(lic.getURI()), Odrl.PDUTY);
         NodeIterator ni = lic.model.listObjectsOfProperty( ODRL.PDUTY);

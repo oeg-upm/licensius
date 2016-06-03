@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-    <display-name>Licensius 2.0</display-name>
+    <display-name>Licensius 2.04</display-name>
     <servlet>
         <servlet-name>licensegetlicensetext</servlet-name>
         <servlet-class>oeg.licensius.service.LicenseGetlicensetext</servlet-class>
@@ -46,10 +46,6 @@
         <url-pattern>/api/license/isopen</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/api/test</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>licenselist</servlet-name>
         <url-pattern>/api/license/list</url-pattern>
     </servlet-mapping>
@@ -64,10 +60,13 @@
     <servlet-mapping>
         <servlet-name>licensefindlicenseintxt</servlet-name>
         <url-pattern>/api/license/findlicenseintxt</url-pattern>
+    </servlet-mapping>    
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-    
     <welcome-file-list>
-        <welcome-file>http://licensius.com</welcome-file>
+        <welcome-file>http://www.licensius.com</welcome-file>
     </welcome-file-list>
     <filter>
         <filter-name>CorsFilter</filter-name>

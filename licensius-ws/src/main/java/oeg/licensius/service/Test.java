@@ -24,7 +24,7 @@ public class Test extends HttpServlet {
             resp.setStatus(200);
             resp.setContentType("text/html");
             PrintWriter w = resp.getWriter();
-            w.println("Thanks for testing licensius");
+            w.println("Thanks for testing licensius. " + req.getRequestURL());
             return;
         }
 

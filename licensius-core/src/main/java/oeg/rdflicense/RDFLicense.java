@@ -7,6 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Comparator;
 import oeg.licensius.core.Licensius;
 import oeg.vroddon.util.URLutils;
 import org.json.simple.JSONObject;
@@ -24,11 +25,36 @@ public class RDFLicense {
     {
         
     }
+    
     public RDFLicense(String _uri)
     {
         uri = _uri;
         model = getModel();
     }
+    
+    public RDFLicense(Model _model)
+    {
+        model=_model;
+    }
+    
+    public Model getModel() {
+        if (model!=null)
+            return model; 
+        try {
+            String urittl = uri+".ttl";
+            String txt = URLutils.browseSemanticWeb(urittl);
+            if (txt==null) 
+                txt="asdf";
+            System.out.println(txt);
+            model = ModelFactory.createDefaultModel();
+            InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
+            model.read(is, null, "TURTLE");
+            is.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return model;
+    }    
     
     public String getTitle()
     {
@@ -155,24 +181,7 @@ public class RDFLicense {
     }
     
     
-    public Model getModel() {
-        if (model!=null)
-            return model; 
-        try {
-            String urittl = uri+".ttl";
-            String txt = URLutils.browseSemanticWeb(urittl);
-            if (txt==null) 
-                txt="asdf";
-            System.out.println(txt);
-            model = ModelFactory.createDefaultModel();
-            InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
-            model.read(is, null, "TURTLE");
-            is.close();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return model;
-    }
+
     
     public static void main(String[] args) {
         Licensius.init();
@@ -182,5 +191,50 @@ public class RDFLicense {
         System.out.println(legalcode);
     }
 
-    
+    /**
+     * Gets an RDFXML representation of the RDFLicense
+     */
+    public String toRDFXML() {
+        StringWriter sw = new StringWriter();
+        if (model != null) {
+            model.write(sw, "RDF/XML");
+        }
+        return sw.toString();
+    }
+
+    /**
+     * Gets the URI for the legal code or an empty string if non-existing
+     */
+    public String getLegalCode() {
+        if (model == null) {
+            return "";
+        }
+        return RDFUtils.getFirstValue(model, uri, "http://creativecommons.org/ns#legalcode");
+    }
+
+    public String getSource() {
+        if (model == null) {
+            return "";
+        }
+        return RDFUtils.getFirstValue(model, uri, "http://purl.org/dc/terms/source");
+    }
+    public static Comparator<RDFLicense> COMPARE_PUBLISHER = new Comparator<RDFLicense>() {
+        public int compare(RDFLicense o1, RDFLicense o2) {
+            if (o1 == null) {
+                return -1;
+            }
+            if (o2 == null) {
+                return 1;
+            }
+            String s1 = o1.getPublisher();
+            if (s1.isEmpty()) {
+                s1 = o1.uri;
+            }
+            String s2 = o2.getPublisher();
+            if (s2.isEmpty()) {
+                s2 = o2.uri;
+            }
+            return s1.compareTo(s2);
+        }
+    };    
 }
