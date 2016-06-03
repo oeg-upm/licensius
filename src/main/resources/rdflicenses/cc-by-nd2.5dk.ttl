@@ -6,16 +6,16 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nd2.5dk>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-ND 2.5 Denmark" ;
+      rdfs:label "Creative Commons CC-BY-ND Denmark" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/2.5/dk/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Denmark> ;
       dct:source <http://creativecommons.org/licenses/by-nd/2.5/dk> ;
-      dct:hasVersion "3.0" ;
+      dct:hasVersion "2.5" ;
       dct:language <http://www.lexvo.org/page/iso639-3/dan> ;
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

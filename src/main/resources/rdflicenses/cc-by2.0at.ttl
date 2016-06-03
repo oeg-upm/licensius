@@ -60,7 +60,7 @@ CREATIVE COMMONS KANN UNTER https://creativecommons.org KONTAKTIERT WERDEN.
       dct:source <http://creativecommons.org/licenses/by/2.0/at> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

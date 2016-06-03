@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.0jp>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.0 Japan" ;
+      rdfs:label "Creative Commons CC-BY Japan" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/jp/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Japan> ;
       cc:legalcode """    
@@ -72,7 +72,7 @@ Unofficial English Translation"""@jp ;
       dct:source <http://creativecommons.org/licenses/by/2.0/jp> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

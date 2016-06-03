@@ -9,6 +9,7 @@
       rdfs:label "Creative Commons CC-BY-NC-ND Brazil" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/br/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Brazil> ;
+      dct:hasVersion "3.0" ;
       cc:legalcode <http://creativecommons.org/licenses/by-nc-nd/3.0/br> , """
 ?xml version=\"1.0\" encoding=\"UTF-8\"?>
          
@@ -64,7 +65,7 @@ O Creative Commons pode ser contactado pelo endereço: https://creativecommons.o
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;
@@ -72,5 +73,5 @@ O Creative Commons pode ser contactado pelo endereço: https://creativecommons.o
               ] ;
       odrl:prohibition
               [ a       odrl:Prohibition ;
-                odrl:action odrl:commercialize
+                odrl:action cc:CommercialUse
               ] .

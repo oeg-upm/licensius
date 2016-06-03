@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>oeg</groupId>
-    <artifactId>rdflicense-mvn</artifactId>
+    <artifactId>rdflicense</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>rdflicense-mvn</name>
+    <name>rdflicense</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -90,7 +90,7 @@
                         <phase>install</phase>
                         <configuration>
                             <tasks>
-                                <copy file="target/rdflicense-mvn-1.0-SNAPSHOT.war" tofile="rdflicense.war"/>
+                                <copy file="target/rdflicense-1.0-SNAPSHOT.war" tofile="rdflicense.war"/>
                             </tasks>
                         </configuration>
                         <goals>

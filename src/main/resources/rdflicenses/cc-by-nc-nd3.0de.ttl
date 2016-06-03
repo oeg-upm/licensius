@@ -74,7 +74,7 @@ Creative Commons kann kontaktiert werden über https://creativecommons.org/.
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;
@@ -82,5 +82,5 @@ Creative Commons kann kontaktiert werden über https://creativecommons.org/.
               ] ;
       odrl:prohibition
               [ a       odrl:Prohibition ;
-                odrl:action odrl:commercialize
+                odrl:action cc:CommercialUse
               ] .

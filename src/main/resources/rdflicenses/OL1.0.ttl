@@ -16,7 +16,7 @@
       dct:title "OL" ;
       foaf:logo <https://www.etalab.gouv.fr/wp-content/uploads/2011/10/licence-ouverte-open-licence.gif> ;
       odrl:permission
-              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction , odrl:modify , odrl:copy ;
+              [ odrl:action cc:CommercialUse , cc:Distribution , cc:DerivativeWorks , cc:Reproduction , odrl:modify , odrl:reproduce ;
                 odrl:duty
                         [ odrl:action cc:Attribution
                         ]

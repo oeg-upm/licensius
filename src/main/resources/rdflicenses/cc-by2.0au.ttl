@@ -75,7 +75,7 @@ Creative Commons may be contacted at https://creativecommons.org/.
       dct:source <http://creativecommons.org/licenses/by/2.0/au> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

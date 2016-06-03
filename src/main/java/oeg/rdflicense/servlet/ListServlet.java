@@ -70,7 +70,7 @@ public class ListServlet extends HttpServlet {
         ilimit = Math.min(ilimit, total);
         
         
-        ilimit = init+7;
+        ilimit = init+10;
         
         logger.info("XXX: "+total+" "+current+" "+ilimit);
         System.err.println("TOTAL:  "+total+"CURRENT: "+ current +" INIT: "+init+" LIMIT: "+ilimit);
@@ -100,8 +100,11 @@ public class ListServlet extends HttpServlet {
             if (conta != 0) {
                 s += ",\n";
             }
+            
+            String titulo = license.getLabel() +" "+license.getVersion();
+            
             s += "    {\n"
-                    + "      \"license\": \"" + license.getLabel() + "\",\n"
+                    + "      \"license\": \"" + titulo + "\",\n"
                     + "      \"licenseurl\": \"" + license.getURI() + "\"\n"
                     + "    } ";
             conta++;

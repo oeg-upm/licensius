@@ -20,7 +20,7 @@
       odrl:permission
               [ odrl:action cc:Distribution , <http://purl.org/NET/ldr/ns#extraction> , cc:Reproduction , cc:DerivativeWorks , <http://purl.org/NET/ldr/ns#reutilization> ;
                 odrl:duty
-                        [ odrl:action odrl:attachPolicy , cc:Attribution
+                        [ odrl:action cc:Notice , cc:Attribution
                         ]
               ] ;
       foaf:logo <http://www.nationalarchives.gov.uk/wp-content/uploads/2014/03/ogl-symbol.jpg> ;

@@ -11,9 +11,9 @@
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "ColorIURIS" ;
       odrl:permission
-              [ odrl:action cc:Distribution , cc:Reproduction , odrl:copy ;
+              [ odrl:action cc:Distribution , cc:Reproduction , odrl:reproduce ;
                 odrl:prohibition
-                        [ odrl:action odrl:commercialize
+                        [ odrl:action cc:CommercialUse
                         ]
               ] ;
               cc:legalcode """

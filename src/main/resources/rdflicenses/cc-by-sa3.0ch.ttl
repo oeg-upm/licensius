@@ -161,7 +161,7 @@ Creative Commons kann unter https://creativecommons.org/ kontaktiert werden.
       dct:source <http://creativecommons.org/licenses/by-sa/3.0/ch> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action cc:ShareAlike , odrl:attachPolicy , cc:Attribution
+                odrl:action cc:ShareAlike , cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

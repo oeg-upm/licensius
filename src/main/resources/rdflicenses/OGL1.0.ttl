@@ -13,14 +13,14 @@
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "The National Archives" ;
       odrl:permission
-              [ odrl:action cc:Distribution , cc:DerivativeWorks , odrl:copy ;
+              [ odrl:action cc:Distribution , cc:DerivativeWorks , odrl:reproduce ;
                 odrl:duty
-                        [ odrl:action odrl:attachPolicy , cc:Attribution
+                        [ odrl:action cc:Notice , cc:Attribution
                         ]
               ] ;
       odrl:prohibition
               [ a       odrl:Prohibition ;
-                odrl:action odrl:commercialize
+                odrl:action cc:CommercialUse
               ] ;
 cc:legalcode """
 You are encouraged to use and re-use the Information that is available under this licence freely and flexibly, with only a few conditions.

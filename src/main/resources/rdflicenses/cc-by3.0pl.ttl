@@ -114,7 +114,7 @@ Wyrażenia użyte w niniejszej Licencji należy rozumieć zgodnie z Ustawą z 4 
       dct:source <http://creativecommons.org/licenses/by/3.0/pl> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

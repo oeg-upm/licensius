@@ -65,7 +65,7 @@ Creative Commons Corporation peut être contacté sur https://creativecommons.or
       dct:source <http://creativecommons.org/licenses/by-nd/3.0/fr> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

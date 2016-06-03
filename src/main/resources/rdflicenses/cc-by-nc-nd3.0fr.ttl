@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0fr>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-NC-ND 3.0 France" ;
+      rdfs:label "Creative Commons CC-BY-NC-ND France" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/fr/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/France> ;
       cc:legalcode """          
@@ -66,7 +66,7 @@ dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/fr> ;
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;
@@ -74,5 +74,5 @@ dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/fr> ;
               ] ;
       odrl:prohibition
               [ a       odrl:Prohibition ;
-                odrl:action odrl:commercialize
+                odrl:action cc:CommercialUse
               ] .

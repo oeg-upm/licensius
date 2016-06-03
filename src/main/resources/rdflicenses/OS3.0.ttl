@@ -13,7 +13,7 @@
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "Ordnance Survey" ;
       odrl:permission
-              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+              [ odrl:action cc:CommercialUse , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
                 odrl:duty
                         [ odrl:action cc:Attribution
                         ]

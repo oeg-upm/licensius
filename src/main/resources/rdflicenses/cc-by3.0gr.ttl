@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by3.0gr>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 3.0 Greece" ;
+      rdfs:label "Creative Commons CC-BY Greece" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/gr/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Greece> ;
       cc:legalcode """          
@@ -101,7 +101,7 @@ H ΑΣΚΗΣΗ ΤΩΝ ΠΑΡΕΧΟΜΕΝΩΝ ΔΙΚΑΙΩΜΑΤΩΝ ΛΟΓΙΖΕ
       dct:source <http://creativecommons.org/licenses/by/3.0/gr> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

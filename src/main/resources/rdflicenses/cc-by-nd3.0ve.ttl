@@ -65,7 +65,7 @@ Usted puede contactar a Creative Commons a través de su portal en internet http
       dct:source <http://creativecommons.org/licenses/by-nd/3.0/ve> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.5bg>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.5 Bulgaria" ;
+      rdfs:label "Creative Commons CC-BY Bulgaria" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/bg/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Bulgaria> ;
       cc:legalcode """   
@@ -66,7 +66,7 @@
       dct:source <http://creativecommons.org/licenses/by/2.5/bg> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

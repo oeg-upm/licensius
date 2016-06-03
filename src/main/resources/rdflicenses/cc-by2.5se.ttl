@@ -75,7 +75,7 @@ Licensen skall utgöra parternas fullständiga reglering av allt som det berör,
       dct:source <http://creativecommons.org/licenses/by/2.5/se> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

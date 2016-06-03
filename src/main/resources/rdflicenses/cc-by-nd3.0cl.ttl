@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nd3.0cl>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-ND 3.0 Chile" ;
+      rdfs:label "Creative Commons CC-BY-ND Chile" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/cl/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Chile> ;
       cc:legalcode """
@@ -68,7 +68,7 @@ Creative Commons puede ser contactada en https://creativecommons.org/.
       dct:source <http://creativecommons.org/licenses/by-nd/3.0/cl> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

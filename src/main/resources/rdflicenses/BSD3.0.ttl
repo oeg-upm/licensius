@@ -2,6 +2,7 @@
 @prefix l4lod:   <http://ns.inria.fr/l4lod/> .
 @prefix dct:     <http://purl.org/dc/terms/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ldr:     <http://purl.org/NET/ldr/ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 

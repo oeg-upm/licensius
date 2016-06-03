@@ -9,6 +9,7 @@
       rdfs:label "Creative Commons CC-BY-NC-ND Chile" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/cl/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Chile> ;
+      dct:hasVersion "3.0" ;
       dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/cl> ;
 cc:legalcode """
 ﻿
@@ -68,7 +69,7 @@ Creative Commons puede ser contactada en https://creativecommons.org/."""@es ;
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;
@@ -76,5 +77,5 @@ Creative Commons puede ser contactada en https://creativecommons.org/."""@es ;
               ] ;
       odrl:prohibition
               [ a       odrl:Prohibition ;
-                odrl:action odrl:commercialize
+                odrl:action cc:CommercialUse
               ] .

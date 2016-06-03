@@ -6,8 +6,8 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.5cz>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.5 Czech Republic" ;
-      rdfs:label "Uveďte původ 3.0 Česká republika"@cz ;
+      rdfs:label "Creative Commons CC-BY Czech Republic" ;
+      rdfs:label "Uveďte původ Česká republika"@cz ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/cz/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Czech_Republic> ;
       cc:legalcode """   
@@ -86,7 +86,7 @@ Pokud se smluvní strany nedohodnou jinak, řídí se právní vztahy podle toho
       dct:source <http://creativecommons.org/licenses/by/2.5/dz> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

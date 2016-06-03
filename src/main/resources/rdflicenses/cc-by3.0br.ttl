@@ -67,7 +67,7 @@ O Creative Commons pode ser contactado pelo endereço: https://creativecommons.o
       dct:source <http://creativecommons.org/licenses/by/3.0/br> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

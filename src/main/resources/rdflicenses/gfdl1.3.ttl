@@ -17,7 +17,7 @@
       dct:publisher "Free Software Foundation" ;
       dct:title "GFDL" ;
       odrl:permission
-              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+              [ odrl:action cc:CommercialUse , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
                 odrl:constraint
                         [ odrl:count 100 ;
                           odrl:operator odrl:lteq
@@ -30,12 +30,12 @@
                         ]
               ] ;
       odrl:permission
-              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+              [ odrl:action cc:CommercialUse , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
                 odrl:duty
                         [ odrl:action cc:SourceCode , ldr:logChanges , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
-                        [ odrl:action ldr:noDRM
+                        [ odrl:action ldr:noDRM 
                         ]
               ] ;
 cc:legalcode """

@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.5hu>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.5 Hungary" ;
+      rdfs:label "Creative Commons CC-BY Hungary" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/hu/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Hungary> ;
       dct:source <http://creativecommons.org/licenses/by/2.5/hu> ;
@@ -15,7 +15,7 @@
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

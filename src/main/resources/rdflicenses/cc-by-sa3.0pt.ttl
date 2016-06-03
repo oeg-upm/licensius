@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-sa3.0pt>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-SA 3.0 Portugal" ;
+      rdfs:label "Creative Commons CC-BY-SA Portugal" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/pt/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Portugal> ;
       cc:legalcode """          
@@ -72,7 +72,7 @@ A Creative Commons pode ser contactada em https://creativecommons.org/.
       dct:source <http://creativecommons.org/licenses/by-sa/3.0/pt> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action cc:ShareAlike , odrl:attachPolicy , cc:Attribution
+                odrl:action cc:ShareAlike , cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

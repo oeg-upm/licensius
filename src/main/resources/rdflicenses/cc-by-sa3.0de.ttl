@@ -92,7 +92,7 @@ Creative Commons kann kontaktiert werden über https://creativecommons.org/.
       dct:source <http://creativecommons.org/licenses/by-sa/3.0/de> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action cc:ShareAlike , odrl:attachPolicy , cc:Attribution
+                odrl:action cc:ShareAlike , cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

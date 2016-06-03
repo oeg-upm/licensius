@@ -5,11 +5,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.InputStream;
+import java.io.StringWriter;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Enumeration;
 import java.util.List;
 import javax.servlet.http.*;
 
@@ -21,6 +20,7 @@ import oeg.rdflicense.RDFUtils;
 
 //COMMONS IO
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 //LOG4J
 import org.apache.log4j.Logger;
@@ -111,7 +111,22 @@ public class MainServlet extends HttpServlet {
             } else if (bTurtle || ServletUtils.isTurtle(req)) {
                 resp.setContentType("text/turtle;charset=utf-8");
                 resp.setCharacterEncoding("utf-8");
-                resp.getWriter().println(license.getOriginalText());
+                
+                RDFLicense rl = RDFLicenseDataset.getRDFLicense(rdflicenseuri);
+                if (rl!=null)
+                {
+                    String ruta = uri.replace("http://purl.org/NET/rdflicense/rdflicense/", "");
+                    ruta = ruta.replace("rdflicense/", "");
+                    ruta  = "rdflicenses/"+ruta;
+                    System.err.println("Trying to open the internal file: " + ruta);
+                    InputStream is2 = Thread.currentThread().getContextClassLoader().getResourceAsStream(ruta);
+                    StringWriter writer = new StringWriter();
+                    IOUtils.copy(is2, writer, "UTF-8");
+                    String miraw = writer.toString();     
+                    resp.getWriter().println(miraw);
+                }
+                else
+                    resp.getWriter().println(license.getOriginalText());
             } else if (bRDF || ServletUtils.isRDFXML(req)) {
                 resp.setContentType("application/rdf+xml;charset=utf-8");
                 resp.setCharacterEncoding("utf-8");

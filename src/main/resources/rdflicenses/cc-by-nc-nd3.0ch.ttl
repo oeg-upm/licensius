@@ -9,6 +9,7 @@
       rdfs:label "Creative Commons CC-BY-NC-ND Switzerland" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nc-nd/3.0/ch/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Switzerland> ;
+      dct:hasVersion "3.0" ;
       cc:legalcode """ 
 Lizenz 
  
@@ -218,7 +219,7 @@ Creative Commons kann unter https://creativecommons.org/ kontaktiert werden.
       dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/ch> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;
@@ -226,5 +227,5 @@ Creative Commons kann unter https://creativecommons.org/ kontaktiert werden.
               ] ;
       odrl:prohibition
               [ a       odrl:Prohibition ;
-                odrl:action odrl:commercialize
+                odrl:action cc:CommercialUse
               ] .

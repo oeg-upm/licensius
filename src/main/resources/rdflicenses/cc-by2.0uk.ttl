@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.0uk>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.0 England & Wales" ;
+      rdfs:label "Creative Commons CC-BY England & Wales" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/uk/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/England>,<http://dbpedia.org/page/Wales> ;
       cc:legalcode """   
@@ -114,7 +114,7 @@ The rights granted to You under this Licence shall terminate automatically upon 
       dct:source <http://creativecommons.org/licenses/by/2.0/uk> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

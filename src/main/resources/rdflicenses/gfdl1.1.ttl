@@ -4,6 +4,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix ldr: <http://purl.org/NET/ldr/ns#> .
 
 <http://purl.org/NET/rdflicense/gfdl1.1>
       a       odrl:Policy ;
@@ -15,7 +16,7 @@
       dct:publisher "Free Software Foundation" ;
       dct:title "GFDL" ;
       odrl:permission
-              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+              [ odrl:action cc:CommercialUse , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
                 odrl:constraint
                         [ odrl:count 100 ;
                           odrl:operator odrl:lteq
@@ -24,16 +25,16 @@
                         [ odrl:action "logChanges" , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
-                        [ odrl:action "noDRM"
+                        [ odrl:action ldr:noDRM
                         ]
               ] ;
       odrl:permission
-              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+              [ odrl:action cc:CommercialUse , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
                 odrl:duty
                         [ odrl:action cc:SourceCode , "logChanges" , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
-                        [ odrl:action "noDRM"
+                        [ odrl:action ldr:noDRM
                         ]
               ] ;
 cc:legalcode """

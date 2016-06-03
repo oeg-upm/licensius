@@ -7,14 +7,14 @@
 
 <http://purl.org/NET/rdflicense/BOOST1.0>
       a       odrl:Policy ;
-      rdfs:label "BOOST Software License 1.0" ;
+      rdfs:label "BOOST Software License" ;
       dct:source <http://opensource.org/licenses/BSL-1.0> ;
       dct:hasVersion "1.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "OSI" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:ShareAlike
+                odrl:action cc:Notice , cc:ShareAlike
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.5ar>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.5 Argentina" ;
+      rdfs:label "Creative Commons CC-BY Argentina" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/ar/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Argentina> ;
       cc:legalcode """   
@@ -67,7 +67,7 @@ Esta Licencia constituye el acuerdo integral entre las partes con respecto a la 
       dct:source <http://creativecommons.org/licenses/by/2.5/mx> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

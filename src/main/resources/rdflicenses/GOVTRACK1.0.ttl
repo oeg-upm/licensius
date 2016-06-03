@@ -12,13 +12,13 @@
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "GovTrack" ;
       odrl:permission
-              [ odrl:action cc:Reproduction , odrl:copy ;
+              [ odrl:action cc:Reproduction , odrl:reproduce ;
                 odrl:duty
                         [ odrl:action cc:ShareAlike , cc:Attribution
                         ]
               ] ;
       odrl:prohibition
-              [ odrl:action odrl:commercialize , cc:Distribution
+              [ odrl:action cc:CommercialUse , cc:Distribution
               ] ;
 cc:legalcode """
 The terms below are our standard terms of service. By using our data or API, you agree to these terms. If you’re okay with these terms, get hacking! Drop us a note to say hi though, 'cause we like to hear from folks using our data/API.

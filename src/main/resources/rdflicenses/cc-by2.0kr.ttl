@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.0kr>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.0 Korea" ;
+      rdfs:label "Creative Commons CC-BY Korea" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/kr/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Korea> ;
       cc:legalcode """    
@@ -77,7 +77,7 @@
       dct:source <http://creativecommons.org/licenses/by/2.0/kr> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by3.0lu>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 3.0 Luxemburg" ;
+      rdfs:label "Creative Commons CC-BY Luxemburg" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/lu/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Luxemburg> ;
       cc:legalcode """          
@@ -74,7 +74,7 @@ La présente Licence représente l’intégralité de l’accord conclu entre le
       dct:source <http://creativecommons.org/licenses/by/3.0/lu> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

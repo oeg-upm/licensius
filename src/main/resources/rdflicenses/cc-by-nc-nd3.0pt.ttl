@@ -67,7 +67,7 @@ A Creative Commons pode ser contactada em https://creativecommons.org/.
       dct:source <http://creativecommons.org/licenses/by-nc-nd/3.0/pt> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;
@@ -75,5 +75,5 @@ A Creative Commons pode ser contactada em https://creativecommons.org/.
               ] ;
       odrl:prohibition
               [ a       odrl:Prohibition ;
-                odrl:action odrl:commercialize
+                odrl:action cc:CommercialUse
               ] .

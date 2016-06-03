@@ -13,8 +13,8 @@
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "Oracle" ;
       odrl:permission
-              [ odrl:action cc:Distribution , odrl:modify , odrl:copy ;
+              [ odrl:action cc:Distribution , odrl:modify , odrl:reproduce ;
                 odrl:duty
-                        [ odrl:action odrl:attachPolicy , cc:ShareAlike
+                        [ odrl:action cc:Notice , cc:ShareAlike
                         ]
               ] .

@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nd3.0de>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-ND 3.0 Germany" ;
+      rdfs:label "Creative Commons CC-BY-ND Germany" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/de/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Germany> ;
       cc:legalcode """         
@@ -74,7 +74,7 @@ Creative Commons kann kontaktiert werden über https://creativecommons.org/.
       dct:source <http://creativecommons.org/licenses/by-nd/3.0/de> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by3.0ve>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 3.0 Venezuela" ;
+      rdfs:label "Creative Commons CC-BY Venezuela" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/ve/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Venezuela> ;
       dct:source <http://creativecommons.org/licenses/by/3.0/ve> ;
@@ -15,7 +15,7 @@
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

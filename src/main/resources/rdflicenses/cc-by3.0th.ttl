@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by3.0ro>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 3.0 Thailand" ;
+      rdfs:label "Creative Commons CC-BY Thailand" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/th/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Thailand> ;
       cc:legalcode """          
@@ -135,7 +135,7 @@
       dct:source <http://creativecommons.org/licenses/by/3.0/th> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

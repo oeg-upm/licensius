@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.0uk>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.0 South Africa" ;
+      rdfs:label "Creative Commons CC-BY South Africa" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/za/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/South_Africa> ;
       cc:legalcode """   
@@ -87,7 +87,7 @@ This Licence shall be construed so as to promote the use and distribution of the
       dct:source <http://creativecommons.org/licenses/by/2.0/za> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

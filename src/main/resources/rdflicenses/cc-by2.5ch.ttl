@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.5ch>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.5 Switzerland" ;
+      rdfs:label "Creative Commons CC-BY Switzerland" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/ch/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Switzerland> ;
       cc:legalcode ""@fr , """
@@ -63,7 +63,7 @@ Creative Commons kann unter https://creativecommons.org kontaktiert werden.   
       dct:source <http://creativecommons.org/licenses/by/2.5/ch> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

@@ -14,7 +14,7 @@
       odrl:permission
               [ odrl:action cc:Distribution , odrl:modify ;
                 odrl:duty
-                        [ odrl:action odrl:attachPolicy , cc:ShareAlike
+                        [ odrl:action cc:Notice , cc:ShareAlike
                         ]
               ] ;
 

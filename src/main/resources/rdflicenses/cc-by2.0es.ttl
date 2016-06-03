@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.0es>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.0 Spain" ;
+      rdfs:label "Creative Commons CC-BY Spain" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/es/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Spain> ;
       cc:legalcode """    
@@ -119,14 +119,14 @@ Esta licencia constituye el acuerdo pleno entre las partes con respecto a la obr
 Creative Commons no es parte de esta licencia, y no ofrece ninguna garantía en relación con la obra. Creative Commons no será responsable frente a usted o a cualquier parte, por cualquier teoría legal de cualesquiera daños resultantes, incluyendo, pero no limitado, daños generales o especiales (incluido el daño emergente y el lucro cesante), fortuitos o causales, en conexión con esta licencia. A pesar de las dos (2) oraciones anteriores, si Creative Commons se ha identificado expresamente como el licenciador, tendrá todos los derechos y obligaciones del licenciador.
 Salvo para el propósito limitado de indicar al público que la obra está licenciada bajo la CCPL, ninguna parte utilizará la marca registrada \"Creative Commons\" o cualquier marca registrada o insignia relacionada con \"Creative Commons\" sin su consentimiento por escrito. Cualquier uso permitido se hará de conformidad con las pautas vigentes en cada momento sobre el uso de la marca registrada por \"Creative Commons\", en tanto que sean publicadas su página web (website) o sean proporcionadas a petición previa.
 Puede contactar con Creative Commons en: https://creativecommons.org/.
-« Volver al resumen (Commons Deed)"""@es ;
+(Commons Deed)"""@es ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/spa> ;
       dct:publisher "Creative Commons" ;
       dct:source <http://creativecommons.org/licenses/by/2.0/es> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

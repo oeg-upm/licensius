@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.5il>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.5 Israel" ;
+      rdfs:label "Creative Commons CC-BY Israel" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/il/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Israel> ;
       dct:source <http://creativecommons.org/licenses/by/2.5/il> ;
@@ -15,7 +15,7 @@
       dct:publisher "Creative Commons" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

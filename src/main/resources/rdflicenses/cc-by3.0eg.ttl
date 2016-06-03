@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by3.0eg>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 3.0 Egypt" ;
+      rdfs:label "Creative Commons CC-BY Egypt" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/eg/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Egypt> ;
       cc:legalcode """         
@@ -78,7 +78,7 @@
       dct:source <http://creativecommons.org/licenses/by/3.0/eg> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

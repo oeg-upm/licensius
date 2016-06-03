@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nd2.0be>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-ND 2.0 Belgium" ;
+      rdfs:label "Creative Commons CC-BY-ND Belgium" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/2.0/be/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Belgium> ;
       cc:legalcode """   
@@ -96,7 +96,7 @@ Creative Commons n’est pas partie à cette Licence et n’offre aucune forme d
       dct:source <http://creativecommons.org/licenses/by-nd/2.0/be> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nd3.0at>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-ND 3.0 Austria" ;
+      rdfs:label "Creative Commons CC-BY-ND Austria" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/at/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Austria> ;
       cc:legalcode """
@@ -76,7 +76,7 @@ Creative Commons kann kontaktiert werden über https://creativecommons.org/.
       dct:source <http://creativecommons.org/licenses/by-nd/3.0/at> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

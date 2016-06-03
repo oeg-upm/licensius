@@ -7,7 +7,7 @@
 
 <http://purl.org/ms-lod/rdflicense/elra-end-user>
       a       odrl:Policy ;
-      rdfs:label "LANGUAGE RESOURCES END-USER AGREEMENT" ;
+      rdfs:label "Language Resources End-User Agreement"@en ;
       rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> ;
       cc:legalcode <http://www.elda.org/media/filer_public/2014/08/01/enduser_140312.pdf> ;
       ms:conditionsOfUse ms:noRedistribution , ms:spatialConstraint , ms:languageEngineeringResearch , cc:Attribution , ms:forAFee , ms:noDerivatives ;

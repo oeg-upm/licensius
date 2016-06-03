@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nd3.0ec>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-ND 3.0 Ecuador" ;
+      rdfs:label "Creative Commons CC-BY-ND Ecuador" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ec/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Ecuador> ;
       cc:legalcode """         
@@ -61,7 +61,7 @@ El Licenciatario puede ponerse en contacto con Creative Commons en la siguiente 
       dct:source <http://creativecommons.org/licenses/by-nd/3.0/ec> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

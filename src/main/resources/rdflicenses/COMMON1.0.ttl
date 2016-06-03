@@ -14,7 +14,7 @@
       dct:publisher "IBM" ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:ShareAlike
+                odrl:action cc:Notice , cc:ShareAlike
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

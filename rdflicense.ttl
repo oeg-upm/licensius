@@ -315,7 +315,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0de> a odrl:Policy;
@@ -336,7 +336,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0nl> a odrl:Policy;
@@ -357,7 +357,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0be> a odrl:Policy;
@@ -378,7 +378,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0dk> a odrl:Policy;
@@ -399,7 +399,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0ie> a odrl:Policy;
@@ -420,7 +420,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0it> a odrl:Policy;
@@ -441,7 +441,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0pt> a odrl:Policy;
@@ -462,7 +462,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0at> a odrl:Policy;
@@ -483,7 +483,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0au> a odrl:Policy;
@@ -504,7 +504,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0br> a odrl:Policy;
@@ -525,7 +525,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by3.0ch> a odrl:Policy;
@@ -546,7 +546,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0cl> a odrl:Policy;
@@ -567,7 +567,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0ve> a odrl:Policy;
@@ -588,7 +588,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0cn> a odrl:Policy;
@@ -609,7 +609,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0ro> a odrl:Policy;
@@ -630,7 +630,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by3.0ec> a odrl:Policy;
@@ -651,7 +651,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0fr> a odrl:Policy;
@@ -672,7 +672,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0es> a odrl:Policy;
@@ -693,7 +693,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0gr> a odrl:Policy;
@@ -714,7 +714,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0de> a odrl:Policy;
@@ -735,7 +735,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0nl> a odrl:Policy;
@@ -756,7 +756,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0be> a odrl:Policy;
@@ -775,7 +775,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0dk> a odrl:Policy;
@@ -796,7 +796,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 
@@ -819,7 +819,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0pt> a odrl:Policy;
@@ -840,7 +840,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0at> a odrl:Policy;
@@ -861,7 +861,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0au> a odrl:Policy;
@@ -882,7 +882,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by2.0ca> a odrl:Policy;
@@ -903,7 +903,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by2.0br> a odrl:Policy;
@@ -924,7 +924,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.5ch> a odrl:Policy;
@@ -945,7 +945,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0jp> a odrl:Policy;
@@ -966,7 +966,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by2.0cl> a odrl:Policy;
@@ -987,7 +987,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0fr> a odrl:Policy;
@@ -1007,7 +1007,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0es> a odrl:Policy;
@@ -1027,7 +1027,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0gr> a odrl:Policy;
@@ -1047,7 +1047,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0de> a odrl:Policy;
@@ -1067,7 +1067,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0nl> a odrl:Policy;
@@ -1087,7 +1087,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0be> a odrl:Policy;
@@ -1107,7 +1107,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0dk> a odrl:Policy;
@@ -1127,7 +1127,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0ie> a odrl:Policy;
@@ -1147,7 +1147,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0it> a odrl:Policy;
@@ -1165,7 +1165,7 @@
 	] ;
     odrl:duty [
         a odrl:Duty;
-		odrl:action cc:Attribution, odrl:attachPolicy 
+		odrl:action cc:Attribution, cc:Notice 
     ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0pt> a odrl:Policy;
@@ -1185,7 +1185,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0at> a odrl:Policy;
@@ -1205,7 +1205,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0au> a odrl:Policy;
@@ -1225,7 +1225,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0br> a odrl:Policy;
@@ -1245,7 +1245,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0ch> a odrl:Policy;
@@ -1263,7 +1263,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0cl> a odrl:Policy;
@@ -1282,7 +1282,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0ve> a odrl:Policy;
@@ -1301,7 +1301,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0cn> a odrl:Policy;
@@ -1320,7 +1320,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0ro> a odrl:Policy;
@@ -1339,7 +1339,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nd3.0ec> a odrl:Policy;
@@ -1357,7 +1357,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0fr> a odrl:Policy;
@@ -1377,7 +1377,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0es> a odrl:Policy;
@@ -1397,7 +1397,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0gr> a odrl:Policy;
@@ -1417,7 +1417,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0de> a odrl:Policy;
@@ -1437,7 +1437,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0nl> a odrl:Policy;
@@ -1456,7 +1456,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0ie> a odrl:Policy;
@@ -1476,7 +1476,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0it> a odrl:Policy;
@@ -1496,7 +1496,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0pt> a odrl:Policy;
@@ -1516,7 +1516,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0at> a odrl:Policy;
@@ -1536,7 +1536,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0au> a odrl:Policy;
@@ -1556,7 +1556,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0br> a odrl:Policy;
@@ -1576,7 +1576,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0ch> a odrl:Policy;
@@ -1596,7 +1596,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0cl> a odrl:Policy;
@@ -1616,7 +1616,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0ve> a odrl:Policy;
@@ -1636,7 +1636,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0cn> a odrl:Policy;
@@ -1656,7 +1656,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0ro> a odrl:Policy;
@@ -1676,7 +1676,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-sa3.0ec> a odrl:Policy;
@@ -1696,7 +1696,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution, cc:ShareAlike;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0fr> a odrl:Policy;
@@ -1719,7 +1719,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0es> 
@@ -1761,7 +1761,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0de> a odrl:Policy;
@@ -1784,7 +1784,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0nl> a odrl:Policy;
@@ -1807,7 +1807,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ie> a odrl:Policy;
@@ -1830,7 +1830,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0it> a odrl:Policy;
@@ -1853,7 +1853,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0pt> a odrl:Policy;
@@ -1876,7 +1876,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0at> a odrl:Policy;
@@ -1899,7 +1899,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0au> a odrl:Policy;
@@ -1922,7 +1922,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0br> a odrl:Policy;
@@ -1945,7 +1945,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ch> a odrl:Policy;
@@ -1968,7 +1968,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0cl> a odrl:Policy;
@@ -1991,7 +1991,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ve> a odrl:Policy;
@@ -2014,7 +2014,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0cn> a odrl:Policy;
@@ -2031,7 +2031,7 @@
         odrl:permission [
 			odrl:action cc:Reproduction, cc:Distribution ;
 			odrl:duty [
-				odrl:action cc:Attribution, odrl:attachPolicy ;
+				odrl:action cc:Attribution, cc:Notice ;
 			]	;		
        ] .
 	   
@@ -2055,7 +2055,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 	   
 <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ec> a odrl:Policy;
@@ -2078,7 +2078,7 @@
        odrl:duty [
            a odrl:Duty;
         odrl:action cc:Attribution;
-     odrl:action odrl:attachPolicy
+     odrl:action cc:Notice
        ] . 
 		
 #OTHER LICENSES
@@ -2138,7 +2138,7 @@
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
-				odrl:action cc:Attribution , odrl:attachPolicy
+				odrl:action cc:Attribution , cc:Notice
 				]
 			];
 		l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/>;
@@ -2157,7 +2157,7 @@
 		odrl:permission [
 			odrl:action cc:DerivativeWorks , cc:Distribution , cc:Reproduction, ldr:extraction, ldr:reutilization ;
 			odrl:duty [
-				odrl:action cc:Attribution , odrl:attachPolicy
+				odrl:action cc:Attribution , cc:Notice
 				]
 			];
 		l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/>;
@@ -2204,9 +2204,9 @@
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
        l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/>; 
    	   odrl:permission [
-		   odrl:action odrl:copy, cc:Distribution, cc:DerivativeWorks;
+		   odrl:action odrl:reproduce, cc:Distribution, cc:DerivativeWorks;
 			odrl:duty [
-				odrl:action cc:Attribution, odrl:attachPolicy
+				odrl:action cc:Attribution, cc:Notice
 			] ;		   
    	   ] ;
    	   odrl:prohibition [
@@ -2224,9 +2224,9 @@
 		  dct:language <http://www.lexvo.org/page/iso639-3/eng>;
        l4lod:licensingTerms <http://www.nationalarchives.gov.uk/doc/non-commercial-government-licence/>; 
    	   odrl:permission [
-		   odrl:action odrl:copy, cc:Distribution, cc:DerivativeWorks;
+		   odrl:action odrl:reproduce, cc:Distribution, cc:DerivativeWorks;
 			odrl:duty [
-				odrl:action cc:Attribution, odrl:attachPolicy
+				odrl:action cc:Attribution, cc:Notice
 			] ;		   
    	   ] ;
    	   odrl:prohibition [
@@ -2310,7 +2310,7 @@
    	   odrl:duty [
    	       a odrl:Duty;
    		   odrl:action cc:ShareAlike;
-		   odrl:action odrl:attachPolicy
+		   odrl:action cc:Notice
    	   ] . 		
 	   
 <http://purl.org/NET/rdflicense/IBM1.0>
@@ -2331,7 +2331,7 @@
    	   odrl:duty [
    	       a odrl:Duty;
    		   odrl:action cc:ShareAlike;
-		   odrl:action odrl:attachPolicy
+		   odrl:action cc:Notice
    	   ] . 
 	   
 <http://purl.org/NET/rdflicense/W3C1.0>
@@ -2346,12 +2346,12 @@
 	   	   a odrl:Permission;
 		   odrl:action cc:Distribution;
 		   odrl:action odrl:modify;
-		   odrl:action odrl:copy
+		   odrl:action odrl:reproduce
    	   ] ;
    	   odrl:duty [
    	       a odrl:Duty;
    		   odrl:action cc:ShareAlike;
-		   odrl:action odrl:attachPolicy
+		   odrl:action cc:Notice
    	   ] . 	   
 	   
 <http://purl.org/NET/rdflicense/CRYPTIX1.0>
@@ -2364,7 +2364,7 @@
 		odrl:permission [
 		   odrl:action cc:Distribution, odrl:modify;
 		   odrl:duty [
-			   odrl:action cc:ShareAlike, odrl:attachPolicy;
+			   odrl:action cc:ShareAlike, cc:Notice;
 		   ] ;		   
    	   ] .
  
@@ -2393,7 +2393,7 @@
 		odrl:permission [
 			odrl:action cc:Distribution, odrl:modify;
 			odrl:duty [
-				odrl:action cc:ShareAlike, odrl:attachPolicy;
+				odrl:action cc:ShareAlike, cc:Notice;
 			] 		   
 		] .
 	   
@@ -2466,7 +2466,7 @@
    	   odrl:duty [
    	       a odrl:Duty;
    		   odrl:action cc:ShareAlike;
-		   odrl:action odrl:attachPolicy
+		   odrl:action cc:Notice
    	   ] . 
 	   
 <http://purl.org/NET/rdflicense/ARTISTIC2.0>
@@ -2500,9 +2500,9 @@
 		cc:legalcode <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html>; 
 		l4lod:licensingTerms <http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/oslicense-093458.html>; 
 		odrl:permission [
-			odrl:action cc:Distribution, odrl:copy,  odrl:modify;
+			odrl:action cc:Distribution, odrl:reproduce,  odrl:modify;
 			odrl:duty [
-				odrl:action cc:ShareAlike, odrl:attachPolicy ;
+				odrl:action cc:ShareAlike, cc:Notice ;
 			];		   
    	   ] .
 	   
@@ -2572,7 +2572,7 @@ dct:publisher "European Commission";
 	    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
 		rdfs:label   "Govtrack License";	
    	   odrl:permission [
-			odrl:action cc:Reproduction, odrl:copy ;
+			odrl:action cc:Reproduction, odrl:reproduce ;
 			odrl:duty [
 				odrl:action cc:ShareAlike, cc:Attribution;
 			] 		   
@@ -2591,7 +2591,7 @@ dct:publisher "European Commission";
        dct:language <http://www.lexvo.org/page/iso639-3/fra>;
    	   rdfs:label   "License Ouverte"@fr;	
    	   odrl:permission [
-		   odrl:action odrl:copy, cc:Reproduction, cc:Distribution, odrl:modify, cc:DerivativeWorks, odrl:commercialize ;
+		   odrl:action odrl:reproduce, cc:Reproduction, cc:Distribution, odrl:modify, cc:DerivativeWorks, odrl:commercialize ;
 		   odrl:duty [
 				odrl:action cc:Attribution ;
 		   ] ;
@@ -2617,7 +2617,7 @@ dct:publisher "European Commission";
 	   rdfs:label   "ColorIURIS Copyright";	
 	    dct:publisher "ColorIURIS" ;
    	   odrl:permission [
-			odrl:action odrl:copy, cc:Distribution, cc:Reproduction;
+			odrl:action odrl:reproduce, cc:Distribution, cc:Reproduction;
 			odrl:prohibition [
 				odrl:action odrl:commercialize
 			] ;
@@ -2990,7 +2990,7 @@ dct:publisher "European Commission";
 			] ;
 		] ;
 	odrl:permission [
-		odrl:action odrl:copy ;
+		odrl:action odrl:reproduce ;
 		odrl:constraint [
 			a odrl:Constraint ;
 			odrl:operator odrl:eq ;

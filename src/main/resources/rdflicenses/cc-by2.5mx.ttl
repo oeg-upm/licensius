@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by2.5mx>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY 2.5 Mexico" ;
+      rdfs:label "Creative Commons CC-BY Mexico" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/mx/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Mexico> ;
       cc:legalcode """   
@@ -69,7 +69,7 @@ No será necesario el envío o recepción de la aceptación de las condiciones d
       dct:source <http://creativecommons.org/licenses/by/2.5/mx> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

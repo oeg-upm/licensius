@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-sa3.0nl>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-SA 3.0 Netherlands" ;
+      rdfs:label "Creative Commons CC-BY-SA Netherlands" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/nl/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/Netherlands> ;
       cc:legalcode """         
@@ -70,7 +70,7 @@ U kunt contact opnemen met Creative Commons via de website: https://creativecomm
       dct:source <http://creativecommons.org/licenses/by-sa/3.0/nl> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action cc:ShareAlike , odrl:attachPolicy , cc:Attribution
+                odrl:action cc:ShareAlike , cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;

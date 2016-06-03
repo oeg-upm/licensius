@@ -11,10 +11,10 @@
       dct:language <http://www.lexvo.org/page/iso639-3/jpn> ;
       dct:publisher "Web NDL Authority" ;
       odrl:permission
-              [ odrl:action cc:Distribution , odrl:Reproduction
+              [ odrl:action cc:Distribution , cc:Reproduction
               ] ;
       odrl:prohibition
-              [ odrl:action odrl:commercialize
+              [ odrl:action cc:CommercialUse
               ] ;
  cc:legalcode """
 利用条件

@@ -71,9 +71,9 @@
       odrl:permission
               [ odrl:action cc:Distribution , cc:Reproduction ;
                 odrl:duty
-                        [ odrl:action odrl:attachPolicy , cc:Attribution
+                        [ odrl:action cc:Notice , cc:Attribution
                         ]
               ] ;
       odrl:prohibition
-              [ odrl:action odrl:commercialize
+              [ odrl:action cc:CommercialUse
               ] .

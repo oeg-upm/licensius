@@ -6,7 +6,7 @@
 
 <http://purl.org/NET/rdflicense/cc-by-nd3.0cn>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY-ND 3.0 China" ;
+      rdfs:label "Creative Commons CC-BY-ND China" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/cn/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/China> ;
       cc:legalcode """          
@@ -69,7 +69,7 @@
       dct:source <http://creativecommons.org/licenses/by-nd/3.0/cn> ;
       odrl:duty
               [ a       odrl:Duty ;
-                odrl:action odrl:attachPolicy , cc:Attribution
+                odrl:action cc:Notice , cc:Attribution
               ] ;
       odrl:permission
               [ a       odrl:Permission ;
