@@ -6,10 +6,12 @@
 
 <http://purl.org/NET/rdflicense/allrightsreserved>
       a       odrl:Policy ;
-      rdfs:comment "This license does not disclose any of the IPR and database rights"@en ;
+      rdfs:comment "This license does not disclose any of the IPR and database rights.."@en ;
       rdfs:label "All rights reserved"@en ;
       cc:legalcode <http://en.wikipedia.org/wiki/All_rights_reserved> ;
-      dct:publisher " None" ;
+      dct:publisher "None" ;
       odrl:prohibition
-              [ odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#DatabaseRight>
+              [ 
+                odrl:action <http://purl.org/NET/ldr/ns#IPRRight> , <http://purl.org/NET/ldr/ns#DatabaseRight>
               ] .
+ 
