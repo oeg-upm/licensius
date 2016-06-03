@@ -1,0 +1,42 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/NDL1.0>
+      a       odrl:Policy ;
+      rdfs:label "Web NDL Authority License" ;
+      dct:source <http://iss.ndl.go.jp/ndla/use/> ;
+      dct:language <http://www.lexvo.org/page/iso639-3/jpn> ;
+      dct:publisher "Web NDL Authority" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , odrl:Reproduction
+              ] ;
+      odrl:prohibition
+              [ odrl:action odrl:commercialize
+              ] ;
+ cc:legalcode """
+利用条件
+
+当ウェブサイトの著作権は、特記されていない限り、国立国会図書館に帰属します。ご利用にあたっては、以下の点にご留意ください。
+1. 当サービスの利用条件
+
+SPARQL・URI等による機械的連携
+非営利目的の場合、Web NDL Authoritiesと連携していることを明示することを条件に、申請なしでご利用していただくことができます。営利目的の場合は、個別に審査が必要ですので、「お問い合わせ」のフォームからご一報ください。
+典拠データの一括ダウンロード用ファイル
+非営利目的の利用の場合、申請なしでご利用いただけます。当データを利用した成果物を公表する際には、その旨明示してください。営利目的の場合は、個別に審査が必要ですので、「お問い合わせ」のフォームからご一報ください。
+典拠データの個別ダウンロード
+特に利用条件に制限はありませんが、公序良俗、法令等に違反するサイトでの利用など、不適当と判断される事例を発見した場合には、利用をお断りします。
+Web NDL Authoritiesトップページ並びに各コンテンツへのリンク
+Web NDL Authoritiesへのリンクは自由です。Web NDL Authorities内の各ページにリンクされる場合は、そのページがWeb NDL Authorities内にあることが分かるように明記してください。
+なお、リンクされる際には、以下のバナーをお使いいただけます。
+国立国会図書館典拠データ検索・提供サービス（Web NDL Authorities）用バナー
+▲このページの先頭へ
+
+
+2. 免責事項
+
+当システムの利用またはリンク先サイトを利用されたことに起因または関連して生じた一切の損害（間接的であると直接的であるとを問わない）について、国立国会図書館は責任を負いません。また国立国会図書館外部サイトにリンクしている場合、国立国会図書館はそのリンク先サイトの内容の正確性を保証するものではありません。
+"""@jp .
+

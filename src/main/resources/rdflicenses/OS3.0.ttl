@@ -1,0 +1,44 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix l4lod:   <http://ns.inria.fr/l4lod/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/OS3.0>
+      a       odrl:Policy ;
+      rdfs:label "OS Open Data License" ;
+      dct:source <http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html> ;
+      dct:hasVersion "3.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Ordnance Survey" ;
+      odrl:permission
+              [ odrl:action odrl:commercialize , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:duty
+                        [ odrl:action cc:Attribution
+                        ]
+              ] ;
+cc:legalcode """
+OS makes a number of datasets available free of charge under the terms of the current Open Government Licence (OGL). These datasets – which include raster and vector mapping, height, boundary and gazetteer products – are available for download.
+
+The OGL allows you to:
+
+copy, distribute and transmit the data;
+adapt the data; and
+exploit the data commercially, whether by sub-licensing it, combining it with other data, or including it in your own product or application.
+You are therefore able to use the OS OpenData datasets in any way and for any purpose. We simply ask that you acknowledge the copyright and the source of the data by including the following attribution statement:
+
+Contains OS data © Crown copyright [and database right] (year)
+
+Where you use Code-Point Open data you must also use the following attribution statements:
+
+Contains Royal Mail data © Royal Mail copyright and Database right [year]
+
+Contains National Statistics data © Crown copyright and database right [year]
+
+You must also:
+
+include the same acknowledgement requirement in any sub-licences of the data that you grant, and a requirement that any further sub-licences do the same;
+ensure that you do not use the data in a way that suggests OS endorses you or your use of the data; and
+make sure you do not misrepresent the data or its source.
+"""@en .

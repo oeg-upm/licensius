@@ -1,0 +1,80 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/cc-by-nd2.5dk>
+      a       odrl:Policy ;
+      rdfs:label "Creative Commons CC-BY-ND 2.5 Denmark" ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/2.5/dk/legalcode> ;
+      cc:jurisdiction <http://dbpedia.org/page/Denmark> ;
+      dct:source <http://creativecommons.org/licenses/by-nd/2.5/dk> ;
+      dct:hasVersion "3.0" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/dan> ;
+      dct:publisher "Creative Commons" ;
+      odrl:duty
+              [ a       odrl:Duty ;
+                odrl:action odrl:attachPolicy , cc:Attribution
+              ] ;
+      odrl:permission
+              [ a       odrl:Permission ;
+                odrl:action cc:Distribution , cc:Reproduction
+              ] ;
+cc:legalcode """
+Licens
+
+Værket (som det defineres nedenfor) tilbydes på de betingelser, som følger af denne Creative Commons Public Licens ("CCPL" eller "Licensen"). Værket er beskyttet af ophavsretten og/eller anden gældende ret. Enhver brug af Værket udover den, der følger af Licensen eller af ophavsretten i øvrigt, er ikke tilladt.
+
+Ved at udøve den ret Licensen giver til Værket, accepterer du at være bundet af samtlige vilkår som er angivet nedenfor i denne licens.
+
+1. Definitioner
+
+"Samleværk" betyder et værk, såsom en periodisk udgivelse, en antologi eller et opslagsværk, i hvilket Værket i uændret form, sammen med et antal andre bidrag, der i sig selv udgør enkeltstående og uafhængige værker, bliver samlet til en helhed. Et værk, der udgør et Samleværk, vil ikke ifølge vilkårene i Licensen blive betragtet som et Bearbejdet Værk (som dette begreb er defineret nedenfor).
+"Bearbejdet Værk" (en bearbejdelse) betyder et værk, der er baseret på Værket eller på Værket og andre ældre værker, såsom en oversættelse, et musikalsk arrangement, en dramatisering, 'fiktionalisering', filmversionering, lydoptagelse, billedgengivelse, forkortelse, sammenfatning eller en hvilken som helst anden form til hvilken Værket kan blive konverteret, ændret eller tilpasset, med undtagelse af et Samleværk der ifølge vilkårene i Licensen ikke skal betragtes som et Bearbejdet Værk. I tilfælde af, at Værket er et musikværk eller en lydoptagelse, skal synkroniseringen med et filmværk betragtes som et Bearbejdet Værk ifølge Licensen.
+"Licensgiver" betyder den fysiske eller juridiske person, som tilbyder benyttelse af Værket på de vilkår, som følger af Licensen.
+"Originær Rettighedshaver" betyder den fysiske eller juridiske person, som har skabt Værket.
+"Værk" betyder den frembringelse eller den præstation, der er beskyttet af egentlige ophavsrettigheder eller af ophavsretsbeslægtede rettigheder, og som tilbydes på de vilkår der følger af denne Licens.
+"Du"/"Dig" betyder en fysisk eller juridisk person, der udøver rettigheder i henhold til Licensen, og som ikke tidligere har misligholdt vilkårene i Licensen i forhold til Værket, eller som har fået en udtrykkelig tilladelse fra Licensgiveren til at udøve rettigheder ifølge Licensen på trods af en tidligere misligholdelse af vilkårene i Licensen.
+2. Indskrænkninger
+
+Licensen har ikke til formål på nogen måde at begrænse retten til eksemplarfremstilling til privat brug, citatretten eller andre indskrænkninger i rettighedshaverens eksklusive rettigheder i henhold til ophavsretsloven eller i henhold til anden gældende ret.
+
+3. Licensaftalen
+
+I overensstemmelse med vilkårene i Licensen erhverver Du fra licensgiver en global, royalty-fri, ikke-eksklusiv, tidsubegrænset (i Værkets beskyttelsesperiode) ret til at udnytte Værket på følgende måde:
+
+at fremstille eksemplarer af Værket, at indarbejde Værket i et eller flere Samleværker og at fremstille eksemplarer af Værket i det omfang, det er indarbejdet i Samleværket;
+at sprede eksemplarer af Værket til almenheden, vise Værket offentligt, fremføre Værket offentligt, herunder overføre Værket til almenheden, inklusive Værket som det indgår i Samleværket;
+Royalties for kommerciel udnyttelse:
+
+Royalties for kommerciel offentlig fremførelse. Licensgiver fraskriver sig eneretten til individuelt eller gennem en rettighedshaverorganisation (som fx KODA, Gramex og Copydan) at opkræve royalties for offentlig fremførelse, herunder offentlig digital fremførelse (fx webcast), af Værket.
+Mekaniske rettigheder og eksemplarfremstillingsrettigheder . Licensgiver fraskriver sig eneretten til individuelt eller gennem en rettighedshaverorganisation (som fx NCB og Copydan) at opkræve royalties for enhver indspilning og eksemplarfremstilling af Værket
+Webcasting rettigheder. Webcasting er offentlig fremførelse og er således omfattet af bestemmelserne ovenfor under (c)(i).
+Ovenstående rettigheder må udøves i alle eksisterende og fremtidige medier og formater. Ovenstående rettigheder inkluderer retten til at udføre sådanne ændringer, som er teknisk nødvendige for at kunne udøve rettighederne på andre medier og formater, men herudover har Du ingen rettigheder til at skabe Bearbejdede Værker. De rettigheder, der ikke udtrykkeligt er nævnt ovenfor, forbliver hos Licensgiver.
+
+4. Begrænsninger
+
+Den meddelte licens efter punkt 3 ovenfor er undergivet og begrænset af følgende indskrænkninger:
+
+Du må alene sprede Værket til almenheden, vise Værket offentligt, fremføre Værket offentligt herunder overføre Værket trådbunden eller trådløs til almenheden under iagttagelse af vilkårene i Licensen, og hver gang Du spreder Værket til almenheden, viser Værket offentligt, fremfører Værket offentligt herunder overfører Værket trådbunden eller trådløs til almenheden, skal det ledsages af en kopi af Licensen eller Uniform Ressource Identifier for Licensen. Du må ikke tilbyde eller påbyde betingelser for Værket, som ændrer eller indskrænker Licensens vilkår eller modtagernes udøvelse af deres rettigheder efter Licensen. Du må ikke give underlicenser til Værket. Du skal sikre, at alle meddelelser, som henviser til Licensen og til ansvarsfraskrivelsen, videregives i uændret form. Du må ikke sprede Værket til almenheden, vise Værket offentligt, fremføre Værket offentligt herunder overføre Værket trådbunden eller trådløs til almenheden under anvendelse af nogen form for tekniske foranstaltninger, som begrænser adgangen til eller brugen af Værket på en måde, som er i strid med vilkårene i Licensen. Ovennævnte finder tilsvarende anvendelse på Værket, som udgør en del af et Samleværk, men det er ikke et krav, at Samleværket bortset fra Værket som sådan skal være undergivet vilkårene i Licensen. Hvis Du skaber et Samleværk, skal Du, efter at have modtaget påkrav herom fra en hvilken som helst Licensgiver, i den udstrækning det er praktisk muligt, slette enhver kreditering som krævet ifølge punkt 4(b) fra Samleværket.
+Såfremt du spreder Værket eller Samleværket til almenheden, viser Værket eller Samleværket offentligt, fremfører Værket eller Samleværket offentligt herunder overfører Værketeller Samleværket til almenheden, skal Du sikre, at Copyright Notices (copyright mærkning), videregives intakt, samt kreditering i overensstemmelse med god skik under hensyn til det medium og de midler, Du anvender: (i) ved angivelse af navnet (eller i påkommende tilfælde pseudonymet) på den Originære Rettighedshaver, hvis det er tilvejebragt, og/eller (ii) hvis den Originære Rettighedshaver og/eller Licensgiver har aftalt, at en eller flere andre parter (f.eks. en bevillingsgiver, en sponsorinstitution, en forlagsenhed, et tidsskrift) skal navngives i forbindelse med licensgivers Copyright Notice, ved angivelse af karakteren af den ydelse, en sådan part måtte have ydet, eller ved andre rimelige midler navnet på en sådan part eller sådanne parter; Værkets titel, hvis det er tilvejebragt; i den udstrækning det er praktisk muligt, Uniform Resource Identifier, hvis der findes en sådan, som Licensgiver har angivet at være knyttet til Værket, medmindre en sådan URI ikke henviser til Copyright Notice eller information om Licensen. En sådan angivelse skal foretages i overensstemmelse med god skik. Ved et Samleværk skal en sådan angivelse dog i det mindste foretages der, hvor tilsvarende kreditering finder sted, og på en sådan måde som i det mindste er lige så fremtrædende som krediteringen af lignende rettighedshavere.
+5. Ansvarsfraskrivelse I
+
+Med mindre andet skriftligt er aftalt mellem parterne, tilbyder Licensgiver Værket,"som det er og forefindes" uden indeståelse af nogen art vedrørende Værket. Dette gælder både udtrykkelig indeståelse, samt indeståelse, som licenstager måtte forudsætte, og omfatter uden begrænsninger indeståelse vedrørende rettighedssubjekter, Værkets kommercielle egenskaber og andre egenskaber ved selve Værket, ikke-krænkelse samt Værkets anvendelighed i relation til et bestemt formål. I visse jurisdiktioner tillades ikke begrænsninger på en indeståelse, der er forudsat af en medkontrahent, så denne begrænsning gælder muligvis ikke for Dig.
+
+6. Ansvarsfraskrivelse II
+
+Med undtagelse af hvad der følger af gældende ret, fraskriver Licensgiver sig ethvert ansvar over for Dig i relation til licensen og brug af værket for så vidt angår alle former for skade herunder direkte og indirekte skade, selv hvis Licensgiver har fået meddelelse om, at en sådan skade ville kunne opstå.
+
+7. Licensens ophør
+
+Licensen samt de rettigheder, der er indrømmet herved, ophører straks ved enhver misligholdelse fra Din side af vilkår indeholdt i Licensen. Fysiske eller juridiske personer, som har modtaget Samleværker, som defineret under punkt 1, fra Dig i medfør af Licensen vil imidlertid ikke få deres licenser bragt til ophør, såfremt disse fysiske eller juridiske personer til fulde respekterer disse licenser. Uanset ophøret af Licensen opretholdes gyldigheden af bestemmelserne under punkterne 1, 2, 5, 6, 7 og 8.
+I overensstemmelse med ovenstående vilkår er den her tildelte licens tidsubegrænset (i Værkets beskyttelsesperiode). Uanset det ovenfor anførte forbeholder Licensgiver sig retten til at tilgængeliggøre Værket under andre, alternative vilkår samt at ophøre med tilgængeliggørelsen af Værket på ethvert tidspunkt, såfremt en sådan handling ikke har til formål at trække Licensen tilbage (eller enhver anden licens, som er afgivet i medfør af eller er betinget af vilkårene i Licensen), og Licensen vil forblive fuldt gyldig, medmindre den er bragt til ophør som anført ovenfor.
+8. Øvrige bestemmelser
+
+Hver gang Du tilgængeliggører Værket eller et Samleværk for almenheden, herunder ved trådbunden eller trådløs overføring til almenheden, tilbyder Licensgiver modtageren en licens til Værket på de samme vilkår, som gælder i forhold til Dig ifølge Licensen.
+Hvis dele af Licensen er ugyldige i medfør af gældende ret, skal dette ikke påvirke gyldigheden af de øvrige dele af Licensen, og aftalen skal uden videre fortolkes således, at de ugyldige dele tilpasses med det minimum af ændringer, der skal til for at gøre delene gyldige i bedst mulige overensstemmelse med aftalens formål og målsætninger.
+En part skal ikke anses for at have afstået fra at gøre vilkårene i Licensen gældende, eller givet tilladelse til en overtrædelse heraf, medmindre et skriftligt tilsagn er underskrevet af den part, som foretager en sådan afståelse eller giver en sådan tilladelse.
+Licensen udgør den fuldstændige aftale mellem parterne vedrørende det licenserede Værk. Der er ingen underforståede aftalevilkår eller tilkendegivelser vedrørende værket, som ikke er angivet her. Licensgiver er ikke bundet af yderligere vilkår, som måtte være tilkendegivet af Dig. Licensen kan ikke ændres uden gensidig, skriftlig aftale mellem Licensgiver og Dig.
+"""@dk .
