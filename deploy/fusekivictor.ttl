@@ -1,0 +1,52 @@
+@prefix fuseki:  <http://jena.apache.org/fuseki#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tdb:     <http://jena.hpl.hp.com/2008/tdb#> .
+@prefix ja:      <http://jena.hpl.hp.com/2005/11/Assembler#> .
+@prefix :        <#> .
+
+
+[] rdf:type fuseki:Server ;
+   fuseki:services (
+     <#ric>
+     <#rdflicense>
+   ) .
+
+#[] ja:loadClass "org.apache.jena.tdb.TDB" .
+
+# TDB
+#tdb:DatasetTDB  rdfs:subClassOf  ja:RDFDataset .
+#tdb:GraphTDB    rdfs:subClassOf  ja:Model .
+
+
+<#rdflicense> rdf:type fuseki:Service ;
+    fuseki:name                     "rdflicense" ;    # http://host:port/books
+    fuseki:serviceQuery             "query" ;    # SPARQL query service
+    fuseki:serviceQuery             "sparql" ;    # SPARQL query service
+    fuseki:dataset           <#rdflicensedataset> .
+	
+<#ric> rdf:type fuseki:Service ;
+    fuseki:name                     "ric" ;    # http://host:port/books
+    fuseki:serviceQuery             "query" ;    # SPARQL query service
+    fuseki:serviceQuery             "sparql" ;    # SPARQL query service
+    fuseki:dataset           <#ricdataset> .
+	
+<#rdflicensedataset>    rdf:type ja:RDFDataset ;
+    rdfs:label "rdflicense" ;
+    ja:defaultGraph
+      [ rdfs:label "rdflicense.ttl" ;
+        a ja:MemoryModel ;
+        ja:content [ja:externalContent <file:rdflicense.ttl> ] ;
+      ] ;
+    .	
+	
+<#ricdataset>    rdf:type ja:RDFDataset ;
+    rdfs:label "ric" ;
+    ja:defaultGraph
+      [ rdfs:label "ric.ttl" ;
+        a ja:MemoryModel ;
+        ja:content [ja:externalContent <file:ric.ttl> ] ;
+      ] ;
+    .	
+	
+	
