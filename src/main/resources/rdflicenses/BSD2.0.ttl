@@ -4,9 +4,11 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
 
 <http://purl.org/NET/rdflicense/BSD2.0>
       a       odrl:Policy ;
+      owl:sameAs <https://licensedb.org/id/BSD-2-Clause> ;
       rdfs:label "2-clause BSD License" ;
       dct:source <http://www.linfo.org/bsdlicense.html> ;
       dct:hasVersion "2.0" ;

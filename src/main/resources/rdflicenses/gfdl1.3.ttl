@@ -23,7 +23,7 @@
                           odrl:operator odrl:lteq
                         ] ;
                 odrl:duty
-                        [ odrl:action :patentFree , cc:ShareAlike , cc:Attribution
+                        [ odrl:action ldr:patentFree , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
                         [ odrl:action ldr:noDRM 

@@ -22,7 +22,7 @@
                           odrl:operator odrl:lteq
                         ] ;
                 odrl:duty
-                        [ odrl:action "logChanges" , cc:ShareAlike , cc:Attribution
+                        [ odrl:action ldr:logChanges , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
                         [ odrl:action ldr:noDRM
@@ -31,7 +31,7 @@
       odrl:permission
               [ odrl:action cc:CommercialUse , cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
                 odrl:duty
-                        [ odrl:action cc:SourceCode , "logChanges" , cc:ShareAlike , cc:Attribution
+                        [ odrl:action cc:SourceCode , ldr:logChanges , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
                         [ odrl:action ldr:noDRM

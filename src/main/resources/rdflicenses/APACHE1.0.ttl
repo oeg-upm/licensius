@@ -17,19 +17,20 @@
 
 <http://purl.org/NET/rdflicense/APACHE1.0>
     a odrl:Policy;
-        rdfs:label   "Apache License";	
-        dct:hasVersion "1.0" ;
-	dct:source <http://www.apache.org/licenses/LICENSE-1.0> ;
-	dct:publisher "The Apache Group" ;
-	rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
-        dct:language <http://www.lexvo.org/page/iso639-3/eng>;
-	odrl:permission [
-            odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, ldr:patentFree ;
-            odrl:duty [
-                odrl:action cc:ShareAlike, cc:Attribution
-            ]		   
-        ] ;
-	cc:legalcode """
+    owl:sameAs <https://licensedb.org/id/Apache-1>
+    rdfs:label   "Apache License";	
+    dct:hasVersion "1.0" ;
+    dct:source <http://www.apache.org/licenses/LICENSE-1.0> ;
+    dct:publisher "The Apache Group" ;
+    rdfs:seeAlso <http://www.apache.org/licenses/LICENSE-1.0.txt> ;	   
+    dct:language <http://www.lexvo.org/page/iso639-3/eng>;
+    odrl:permission [
+        odrl:action cc:Reproduction, cc:DerivativeWorks, cc:Distribution, ldr:patentFree ;
+        odrl:duty [
+            odrl:action cc:ShareAlike, cc:Attribution
+        ]		   
+    ] ;
+    cc:legalcode """
  ====================================================================
   Copyright (c) 1995-1999 The Apache Group.  All rights reserved.
  

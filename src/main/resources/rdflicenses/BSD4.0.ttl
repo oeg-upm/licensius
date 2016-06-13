@@ -18,7 +18,7 @@
                         [ odrl:action cc:Notice , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
-                        [ odrl:action "Endorsement"
+                        [ odrl:action ldr:endorsement 
                         ]
               ] ;
       cc:legalcode """
