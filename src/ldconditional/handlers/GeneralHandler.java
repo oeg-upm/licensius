@@ -424,8 +424,8 @@ public class GeneralHandler extends AbstractHandler {
                         response.sendRedirect("/404.html");
                     }
                     if (!human) {
-                        String html = toTTL(policy);
-                        response.getWriter().println(html);
+                        String rdfttl = toTTL(policy);
+                        response.getWriter().println(rdfttl);
                         response.setStatus(HttpServletResponse.SC_OK);
                         response.setContentType("text/turtle;charset=utf-8");
                     } else {

@@ -177,7 +177,7 @@ public class HandlerSPARQL {
         String query = "select * where {<http://localhost/geo/resource/Provincia/Barcelona> ?p ?o}";
         ConditionalDataset cd = ConditionalDatasets.getDataset("geo");
 
-
+  
     }
     //   }
 }

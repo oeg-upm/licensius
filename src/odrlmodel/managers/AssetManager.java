@@ -700,7 +700,6 @@ public class AssetManager {
         List<Statement> ls = new ArrayList();
 
         DatasetGraphFactory.GraphMaker maker = new DatasetGraphFactory.GraphMaker() {
-
             public Graph create() {
                 return new GraphMem();
             }
