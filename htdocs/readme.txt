@@ -1,0 +1,1 @@
+También es necesario configurar apache: httpd.conf y .htaccess para que funcione correctamente

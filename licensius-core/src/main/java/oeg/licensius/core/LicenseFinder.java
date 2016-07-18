@@ -1,17 +1,13 @@
 package oeg.licensius.core;
 
-//import org.apache.jena.rdf.model.Model;
-//import org.apache.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-
-//JENA
 import java.util.List;
 import java.util.Map;
+
+//LICENSIUS
 import oeg.licensius.model.LicensiusFound;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
@@ -19,6 +15,11 @@ import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
 import oeg.rdflicense.RDFUtils;
 import oeg.vroddon.util.URLutils;
+
+
+//JENA
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Logger;
 
 /**
@@ -271,7 +272,9 @@ public class LicenseFinder {
             String licencia = getLicense(predicado);
             if (!licencia.isEmpty()) {
                 String urix = licencia;
-                RDFLicense rdfl = RDFLicenseDataset.getRDFLicenseByURI(licencia);
+                
+                String urimencionada = RDFUtils.extractURIFromText(urix);
+                RDFLicense rdfl = RDFLicenseDataset.getRDFLicenseByURI(urimencionada);      //ESTA BÚSQUEDA SE HACE ONLINE. ESO NO ES ÓPTIMO!
                 if (rdfl==null)
                     urix="";
                 else

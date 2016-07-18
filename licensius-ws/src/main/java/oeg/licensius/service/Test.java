@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import oeg.licensius.core.LicenseFinder;
+import oeg.licensius.model.LicensiusResponse;
 
 /** 
  * Test service to be docummented by swagger, deployed in Tomcat and running at www.licensius.com
@@ -27,6 +29,14 @@ public class Test extends HttpServlet {
             w.println("Thanks for testing licensius. " + req.getRequestURL());
             return;
         }
+
+    public static void main(String[] args) {
+        String uri = "https://w3id.org/def/cop";
+        LicenseFinder lf = new LicenseFinder();
+        LicensiusResponse le = lf.findLicenseInRDF(uri);
+        System.out.println(le.getJSON());
+
+    }
 
     
 }

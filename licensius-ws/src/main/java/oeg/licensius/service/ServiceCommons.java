@@ -12,22 +12,29 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.servlet.ServletException;
 
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
 import org.apache.log4j.Logger;
+
 /**
  *
  * @author Victor
  */
 public class ServiceCommons {
+
     /**
      * Determines whether a HTTP Servlet Request is demanding Turtle
+     *
      * @param request HTTP request
      * @retur true if demanding turtle
      */
@@ -49,8 +56,9 @@ public class ServiceCommons {
         return false;
 
     }
-    
-    /***
+
+    /**
+     * *
      * Obtains the body from a HTTP request. Period. No more, no less.
      */
     public static String getBody(HttpServletRequest request) throws IOException {
@@ -83,8 +91,8 @@ public class ServiceCommons {
         }
         body = stringBuilder.toString();
         return body;
-    }    
-    
+    }
+
     public static boolean isURI(String uri) {
         final URL url;
         try {
@@ -93,24 +101,27 @@ public class ServiceCommons {
         } catch (Exception e1) {
             return false;
         }
-    }    
+    }
 
     /**
      * Retrieves a txt document from a URL
      */
-    public static String downloadFromURL(String url)
-    {
+    public static String downloadFromURL(String url) {
         try {
             URL oracle = new URL(url);
             BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
             String inputLine;
-            String txt ="";
-            while ((inputLine = in.readLine()) != null)
-                txt += inputLine+"\n";
-            in.close();    
+            String txt = "";
+            while ((inputLine = in.readLine()) != null) {
+                txt += inputLine + "\n";
+            }
+            in.close();
             return txt;
         } catch (Exception ex) {
             return "";
         }
     }
+
+
+
 }

@@ -18,8 +18,12 @@ import org.apache.log4j.Logger;
 import java.io.BufferedWriter;
 import java.io.FileWriter; 
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import static oeg.rdflicense.RDFLicenseDataset.modelTotal;
 
 /**
  * Helper class with some useful methods to manipulate RDF
@@ -156,8 +160,10 @@ public class RDFUtils {
         return cadenas;
     }
 
+    //  http://creativecommons.org/licenses/by/4.0/
     public static List<Resource> getAllSubjectsWithObject(Model model, String s) {
         List<Resource> lres = new ArrayList();
+        
         StmtIterator it = model.listStatements();
         while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
@@ -408,5 +414,63 @@ public class RDFUtils {
         return url.replaceFirst(".*/([^/?]+).*", "$1"); 
     }        
 
+    public static String extractURIFromText(String texto) {
+        try {
+            URI uri = new URI(texto);
+            String suri = uri.toString();
+            System.out.println(suri);
+            return suri;
+        } catch (Exception e) {
+            List<String> uris = extractUrls(texto);
+            for (String uri : uris) {
+                System.out.println("Candidato: " + uri);
+                return uri;
+            }
+        }
+        return "";
+    }
+
+    public static List<String> extractUrls(String text) {
+        List<String> containedUrls = new ArrayList<String>();
+        String urlRegex = "((https?|ftp|gopher|telnet|file):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+        Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
+        Matcher urlMatcher = pattern.matcher(text);
+        while (urlMatcher.find()) {
+            containedUrls.add(text.substring(urlMatcher.start(0),
+                    urlMatcher.end(0)));
+        }
+
+        return containedUrls;
+    }    
+    
+    public static List<Resource> guessRDFLicenseFromURI(Model model, String uri)
+    {
+        List<Resource> lres = RDFUtils.getAllSubjectsWithObject(model, uri);
+        boolean ok = RDFUtils.isSubjectInModel(model, uri);
+        if (ok)
+            lres.add(model.createResource(uri));
+        return lres;
+    }
+    
+    public static boolean isSubjectInModel(Model model, String uri)
+    {
+        StmtIterator it = model.listStatements();
+        while (it.hasNext()) {
+            Statement stmt2 = it.nextStatement();
+            RDFNode nodo = stmt2.getSubject();
+            if (nodo.isResource())
+            {
+                Resource res = nodo.asResource();
+                if (res!=null)
+                {
+                    String urimodel = res.getURI();
+                    if (urimodel!=null && urimodel.equals(uri))
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     
 }

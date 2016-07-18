@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Licensius</title>
+<link rel="icon" href="img/favicon.png" type="image/png" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+<style>
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+background:#98B8CF;	
+background-image: -webkit-linear-gradient(left , rgb(84,116,137) 0%, rgb(133,160,177) 50%, rgb(84,116,137) 100%);
+
+#  background: -webkit-linear-gradient(45deg, #e10522 0%, rgba(225, 5, 34, 0) 70%), -webkit-linear-gradient(315deg, #3105d1 10%, rgba(49, 5, 209, 0) 80%), -webkit-linear-gradient(225deg, #0adbd8 10%, rgba(10, 219, 216, 0) 80%), -webkit-linear-gradient(135deg, #09f505 100%, rgba(9, 245, 5, 0) 70%);
+#  background: linear-gradient(45deg, #e10522 0%, rgba(225, 5, 34, 0) 70%), linear-gradient(135deg, #3105d1 10%, rgba(49, 5, 209, 0) 80%), linear-gradient(225deg, #0adbd8 10%, rgba(10, 219, 216, 0) 80%), linear-gradient(315deg, #09f505 100%, rgba(9, 245, 5, 0) 70%);
+}
+
+.absolute-center,
+.menu,
+.menu .btn .fa,
+.menu .btn.trigger .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.menu {
+  width: 6em; 
+  height: 6em; 
+}
+
+.menu .btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+  z-index: -10;
+  cursor: pointer;
+  -webkit-transition: opacity 1s, z-index 0.3s, -webkit-transform 1s;
+  transition: opacity 1s, z-index 0.3s, transform 1s;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.menu .btn .fa {
+  font-size: 3em;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.menu .btn:hover .fa { color: rgba(255, 255, 255, 0.7); }
+
+.menu .btn.trigger {
+  opacity: 1;
+  z-index: 100;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+#VICTOR
+.menu .btn.trigger:hover {
+ # -webkit-transform: scale(1.2);
+ # -ms-transform: scale(1.2);
+ # transform: scale(1.2);
+}
+
+.menu .btn.trigger:hover .line { background-color: rgba(255, 255, 255, 0.7); }
+
+.menu .btn.trigger:hover .line:before,
+.menu .btn.trigger:hover .line:after { background-color: rgba(255, 255, 255, 0.7); }
+
+.menu .btn.trigger .line {
+  width: 60%;
+  height: 6px;
+  background: #000;
+  border-radius: 6px;
+  -webkit-transition: background-color 0.3s, height 0.3s, top 0.3s;
+  transition: background-color 0.3s, height 0.3s, top 0.3s;
+}
+
+.menu .btn.trigger .line:before,
+.menu .btn.trigger .line:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: #000;
+  border-radius: 6px;
+  -webkit-transition: background-color 0.3s, -webkit-transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.menu .btn.trigger .line:before {
+  top: -12px;
+  -webkit-transform-origin: 15% 100%;
+  -ms-transform-origin: 15% 100%;
+  transform-origin: 15% 100%;
+}
+
+.menu .btn.trigger .line:after {
+  top: 12px;
+  -webkit-transform-origin: 25% 30%;
+  -ms-transform-origin: 25% 30%;
+  transform-origin: 25% 30%;
+}
+
+.menu .rotater {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.menu.active .btn-icon {
+  opacity: 1;
+  z-index: 50;
+}
+
+.menu.active .trigger .line {
+  height: 0px;
+  top: 45%;
+}
+
+.menu.active .trigger .line:before {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 110%;
+}
+
+.menu.active .trigger .line:after {
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 110%;
+}
+
+/* horrible things are happening here
+for some reason nth-child(1) is always busy and elements starting from 2 */
+
+.rotater:nth-child(1) {
+  -webkit-transform: rotate(-22.5deg);
+  -ms-transform: rotate(-22.5deg);
+  transform: rotate(-22.5deg);
+}
+
+.menu.active .rotater:nth-child(1) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(22.5deg);
+  -ms-transform: translateX(-10em) rotate(22.5deg);
+  transform: translateX(-10em) rotate(22.5deg);
+}
+
+.rotater:nth-child(2) {
+  -webkit-transform: rotate(22.5deg);
+  -ms-transform: rotate(22.5deg);
+  transform: rotate(22.5deg);
+}
+
+.menu.active .rotater:nth-child(2) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-22.5deg);
+  -ms-transform: translateX(-10em) rotate(-22.5deg);
+  transform: translateX(-10em) rotate(-22.5deg);
+}
+
+.rotater:nth-child(3) {
+  -webkit-transform: rotate(67.5deg);
+  -ms-transform: rotate(67.5deg);
+  transform: rotate(67.5deg);
+}
+
+.menu.active .rotater:nth-child(3) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-67.5deg);
+  -ms-transform: translateX(-10em) rotate(-67.5deg);
+  transform: translateX(-10em) rotate(-67.5deg);
+}
+
+.rotater:nth-child(4) {
+  -webkit-transform: rotate(112.5deg);
+  -ms-transform: rotate(112.5deg);
+  transform: rotate(112.5deg);
+}
+
+.menu.active .rotater:nth-child(4) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-112.5deg);
+  -ms-transform: translateX(-10em) rotate(-112.5deg);
+  transform: translateX(-10em) rotate(-112.5deg);
+}
+
+.rotater:nth-child(5) {
+  -webkit-transform: rotate(157.5deg);
+  -ms-transform: rotate(157.5deg);
+  transform: rotate(157.5deg);
+}
+
+.menu.active .rotater:nth-child(5) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-157.5deg);
+  -ms-transform: translateX(-10em) rotate(-157.5deg);
+  transform: translateX(-10em) rotate(-157.5deg);
+}
+
+.rotater:nth-child(6) {
+  -webkit-transform: rotate(202.5deg);
+  -ms-transform: rotate(202.5deg);
+  transform: rotate(202.5deg);
+}
+
+.menu.active .rotater:nth-child(6) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-202.5deg);
+  -ms-transform: translateX(-10em) rotate(-202.5deg);
+  transform: translateX(-10em) rotate(-202.5deg);
+}
+
+.rotater:nth-child(7) {
+  -webkit-transform: rotate(247.5deg);
+  -ms-transform: rotate(247.5deg);
+  transform: rotate(247.5deg);
+}
+
+.menu.active .rotater:nth-child(7) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-247.5deg);
+  -ms-transform: translateX(-10em) rotate(-247.5deg);
+  transform: translateX(-10em) rotate(-247.5deg);
+}
+
+.rotater:nth-child(8) {
+  -webkit-transform: rotate(292.5deg);
+  -ms-transform: rotate(292.5deg);
+  transform: rotate(292.5deg);
+}
+
+.menu.active .rotater:nth-child(8) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-292.5deg);
+  -ms-transform: translateX(-10em) rotate(-292.5deg);
+  transform: translateX(-10em) rotate(-292.5deg);
+}
+
+.rotater:nth-child(9) {
+  -webkit-transform: rotate(337.5deg);
+  -ms-transform: rotate(337.5deg);
+  transform: rotate(337.5deg);
+}
+
+.menu.active .rotater:nth-child(9) .btn-icon {
+  -webkit-transform: translateX(-10em) rotate(-337.5deg);
+  -ms-transform: translateX(-10em) rotate(-337.5deg);
+  transform: translateX(-10em) rotate(-337.5deg);
+}
+</style>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54238283-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+<body>
+<h1 style="color:#fff" align="center">Licensius</h1>
+
+
+<div class="menu">
+  <div class="btn trigger"> <span class="line"></span> 
+    <DIV style="color:black;font-size:20px;position: absolute; top:-150px; left:-270px; width:200px; height:25px">
+	<div style="text-align:right;font-size:20px">Licensius API</div>
+	<div style="text-align:right;font-size:14px">A RESTful <a style="color:blue;" href="apidoc/index.html">API</a> to help licensing</div>
+	<div style="text-align:right;font-size:14px">See also the Java <a style="color:blue;" href="http://oeg-upm.github.io/odrlapi/">ODRLApi</a></div>
+	
+	</DIV>
+	
+	
+    <DIV style="color:black;font-size:20px;position: absolute; top:-50px; left:-550px; width:400px; height:25px">
+	<div style="text-align:right;font-size:20px">Vocabularies</div>
+	<div style="text-align:right;font-size:14px">A <a style="color:blue;" href="http://purl.oclc.org/NET/ldr/ns#">Linked Data Rights</a> ontology</div>
+	<div style="text-align:right;font-size:14px">See also <a style="color:blue;" href="http://purl.org/NET/ms-rights#">Rights Information for Language Resources</a>
+	</div>
+	
+	</DIV>
+	
+	<DIV style="color:black;font-size:20px;position: absolute; top:-150px; left:150px; width:200px; height:25px">
+	<div style="text-align:left;font-size:20px">RDFLicense dataset</div>
+	<div style="text-align:left;font-size:14px">A <a style="color:blue;" href="http://rdflicense.linkeddata.es/">dataset</a> of common licenses represented in RDF</div>
+	
+	<div style="text-align:right;font-size:14px">See also the <a style="color:blue;" href="http://tbx2rdf.lider-project.eu/converter/resource/">RDF Copyright terminology</a></div>
+	</DIV>
+	
+    <div style="color:black;font-size:20px;position: absolute; top:-50px; left:220px; width:200px; height:25px">
+	<div style="text-align:left;font-size:20px">Conditional Linked Data</div>
+	<div style="text-align:left;font-size:14px">A policy-based linked data server</div>
+	</div>
+	</div>
+
+  <div class="rotater">
+	<a href="http://purl.oclc.org/NET/ldr/ns#" data-toggle="tooltip" title="Models">
+	<div class="btn btn-icon"> 
+	<i class="fa fa-cubes"></i> 
+	</div>
+	</a>
+  </div>
+  
+  <div class="rotater">
+	<a href="apidoc/index.html" data-toggle="tooltip" title="API">
+    <div class="btn btn-icon"> <i class="fa fa-code"></i> </div>
+	</a>
+  </div>
+  
+<div class="rotater">
+	<a href="http://rdflicense.linkeddata.es/" data-toggle="tooltip" title="RDFLicense Dataset">
+    <div class="btn btn-icon"> <i class="fa fa-database"></i> </div>
+	</a>
+</div>
+
+
+<div class="rotater">
+	<a href="http://conditional.linkeddata.es" data-toggle="tooltip" title="Conditional Linked Data">
+    <div class="btn btn-icon"> <i class="fa fa-cogs"></i> </div>
+	</a>
+</div>
+      <div style="text-align: center;color:black;font-size:12px; position: absolute; top:200px; left:-150px; width:400px; height:25px">
+	  Licensing support for Linked Data resources <br>
+	  Ontology Engineering Group - Universidad Politécnica de Madrid - 2015
+	  </div>
+
+</div>
+
+<style type="text/css">
+  .tooltip {
+    display: inline;
+    position: relative;
+  }
+  .tooltip:hover:after {
+    bottom: 26px;
+    content: attr(title); /* este es el texto que será mostrado */
+    left: 20%;
+    position: absolute;
+    z-index: 98;
+    /* el formato gráfico */
+    background: rgba(255,255,255, 0.2); /* el color de fondo */
+    border-radius: 5px;
+    color: #FFF; /* el color del texto */
+    font-family: Georgia;
+    font-size: 12px;
+    padding: 5px 15px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    width: 150px;
+  }
+  .tooltip:hover:before {
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+    /* el triángulo inferior */
+    border: solid;
+    border-color: rgba(255,255,255, 0.2) transparent;
+    border-width: 6px 6px 0 6px;
+  }
+</style>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script>
+$(document).ready(function() {
+    $(".menu").toggleClass("active"); 
+  $(".trigger").click(function() {
+//    $(".menu").toggleClass("active"); 
+  });
+});
+</script>
+
+
+
+</body>
+</html>

@@ -25,11 +25,18 @@
         </dependency>
         
         <dependency>
-                <groupId>oeg</groupId>
-                <artifactId>licensius-core</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <scope>compile</scope>
+            <groupId>oeg</groupId>
+            <artifactId>licensius-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>        
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>8.0.23</version>
+        </dependency>
+        
         
     </dependencies>
 

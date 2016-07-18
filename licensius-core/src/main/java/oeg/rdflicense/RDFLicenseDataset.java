@@ -20,6 +20,8 @@ import java.util.Map;
 import oeg.licensius.core.Licensius;
 import oeg.vroddon.util.URLutils;
 import org.apache.commons.io.IOUtils;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;
 
 /**
@@ -158,7 +160,7 @@ public class RDFLicenseDataset {
     public static RDFLicense getRDFLicenseByURI(String uri)
     {
         if (modelTotal==null)
-            modelTotal = readRDFLicense();
+            modelTotal = readRDFLicense();      //hace la búsqueda en la web. DEBERIA HACERLA EN LOCAL PRIMERO!
         if (modelTotal==null)
             return null;
         String rdfuri = getRDFLicenseByLicenseLax(uri);
@@ -191,18 +193,53 @@ public class RDFLicenseDataset {
         }
         if (uri.isEmpty())
             return "";
-        List<Resource> lres = RDFUtils.getAllSubjectsWithObject(modelTotal, uri);
+        
+//        RDFDataMgr.write(System.out, modelTotal, Lang.TURTLE);
+
+//        List<Resource> lresx = RDFUtils.getAllSubjectsWithObject(modelTotal, "http://creativecommons.org/licenses/by/4.0/");
+//        System.out.println(lresx.size());
+
+
+        // COMBINACION0: TAL Y COMO ESTÁ
+        List<Resource> lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri);
         if (lres.isEmpty()) {
-            if (uri.endsWith("/"))
+            if (uri.endsWith("/"))      //COMBINACION1: COMO ESTÁ PERO CAMBIANDO LA BARRA FINAL
             {
-                uri = uri.substring(0, uri.length()-2);
-                lres = RDFUtils.getAllSubjectsWithObject(modelTotal, uri);
+                String uri2 = uri.substring(0, uri.length()-1);
+                lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
             }
-            else
+            else                        
             {
-                uri = uri+"/";
-                lres = RDFUtils.getAllSubjectsWithObject(modelTotal, uri);
+                String uri2 = uri+"/";
+                lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
             }
+            
+            //COMBINACION2: COMO ESTA PERO CAMBIANDO http y https
+                
+            if (lres.isEmpty()) //probamos http y https
+            {
+                String uri2="";
+                if (uri.contains("http:"))
+                    uri2 = uri.replace("http:", "https:");
+                else if (uri.contains("https:"))
+                    uri2 = uri.replace("https:", "http:");
+                lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
+            }
+            if (lres.isEmpty()) //COMBINACION3: CAMBIANDO HTTP/HTTPS Y CAMBIANDO LA BARRA FINAL
+            {
+                String uri2="";
+                if (uri.contains("http:"))
+                    uri2 = uri.replace("http:", "https:");
+                else if (uri.contains("https:"))
+                    uri2 = uri.replace("https:", "http:");
+                if (uri2.endsWith("/"))      
+                    uri2 = uri2.substring(0, uri2.length()-1);
+                else
+                    uri2 = uri2+"/";
+                lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
+                
+            }
+            
         }
         if (lres.isEmpty())
             return "";
@@ -216,7 +253,7 @@ public class RDFLicenseDataset {
         if (modelTotal == null) {
             return "";
         }
-        List<Resource> lres = RDFUtils.getAllSubjectsWithObject(modelTotal, uri);
+        List<Resource> lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri);
         if (lres.isEmpty()) {
             return "";
         }
@@ -278,10 +315,12 @@ public class RDFLicenseDataset {
         try {
             Model modelx = ModelFactory.createDefaultModel();
             raw = URLutils.getFile("http://rdflicense.appspot.com/rdflicense/"); //http://rdflicense.linkeddata.es/dataset/rdflicense.ttl
-            InputStream is = new ByteArrayInputStream(raw.getBytes());
+            InputStream is = new ByteArrayInputStream(raw.getBytes("UTF-8"));
             modelx.read(is, null, "TURTLE");
             return modelx;
         } catch (Exception e) {
+            logger.warn(e.getMessage());
+            e.printStackTrace();
             return null;
         }
     }
