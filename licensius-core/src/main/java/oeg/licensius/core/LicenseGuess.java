@@ -198,7 +198,8 @@ public class LicenseGuess
             LicensiusError error = new LicensiusError(404, "Internal file not found");
             return error;
         }
-        
+        if (unknownText==null)
+            unknownText="";
         String out = "";
         unknownText = unknownText.trim();
         unknownText = unknownText.replace("\"", "");

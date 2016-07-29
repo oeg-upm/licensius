@@ -298,3 +298,4 @@ http://creativecommons.org/licenses/by-nc-nd/3.0/ro	http://creativecommons.org/l
 http://creativecommons.org/licenses/by-sa/3.0/br	http://creativecommons.org/licenses/by-sa/3.0/br
 https://www.gnu.org/licenses/lgpl.html	https://www.gnu.org/licenses/lgpl.html
 http://opendatacommons.org/licenses/pddl/	Public Domain
+http://purl.org/NET/rdflicense/afl3.0	Academic Free License
