@@ -50,23 +50,24 @@ public class LicenseFindlicenseintxt extends HttpServlet {
             //String txt = req.getParameter("txt");
             LicenseFinder lf = new LicenseFinder();
             LicensiusResponse le = LicenseGuess.guessLicense2(txt);
-            if (le.getClass().equals(LicensiusError.class))
+            /*if (le.getClass().equals(LicensiusError.class))
             {
                 LicensiusError e = (LicensiusError) le;
                 resp.setStatus(500);
                 PrintWriter w = resp.getWriter();
                 w.println(txt + " " + e.getJSON());
                 return;
-            }
+            }*/
             resp.setStatus(200);
             resp.setContentType("application/json");
             PrintWriter w = resp.getWriter();
             w.println(le.getJSON());
+            w.println(txt);
             return;
     }
 
     public static void main(String[] args) {
-        String uri = "Creative commons cc-by";
+        String uri = "Academic Free License";
         LicenseFinder lf = new LicenseFinder();
         LicensiusResponse le = LicenseGuess.guessLicense2(uri);
         System.out.println(le.getJSON());
