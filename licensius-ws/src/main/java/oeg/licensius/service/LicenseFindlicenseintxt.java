@@ -35,7 +35,7 @@ public class LicenseFindlicenseintxt extends HttpServlet {
                 LicensiusError e = (LicensiusError) le;
                 resp.setStatus(500);
                 PrintWriter w = resp.getWriter();
-                w.println(e.getJSON());
+                w.println(txt +" " + e.getJSON());
                 return;
             }
             resp.setStatus(200);
@@ -55,7 +55,7 @@ public class LicenseFindlicenseintxt extends HttpServlet {
                 LicensiusError e = (LicensiusError) le;
                 resp.setStatus(500);
                 PrintWriter w = resp.getWriter();
-                w.println(e.getJSON());
+                w.println(txt + " " + e.getJSON());
                 return;
             }
             resp.setStatus(200);

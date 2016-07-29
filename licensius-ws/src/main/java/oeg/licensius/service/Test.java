@@ -31,7 +31,7 @@ public class Test extends HttpServlet {
         }
 
     public static void main(String[] args) {
-        String uri = "https://w3id.org/def/cop";
+        String uri = "http://purl.org/wf4ever/ro";
         LicenseFinder lf = new LicenseFinder();
         LicensiusResponse le = lf.findLicenseInRDF(uri);
         System.out.println(le.getJSON());
