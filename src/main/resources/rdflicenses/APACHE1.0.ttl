@@ -17,8 +17,8 @@
 
 <http://purl.org/NET/rdflicense/APACHE1.0>
     a odrl:Policy;
-    owl:sameAs <https://licensedb.org/id/Apache-1>
-    rdfs:label   "Apache License";	
+    owl:sameAs <https://licensedb.org/id/Apache-1> ;
+    rdfs:label "Apache License";	
     dct:hasVersion "1.0" ;
     dct:source <http://www.apache.org/licenses/LICENSE-1.0> ;
     dct:publisher "The Apache Group" ;

@@ -4,6 +4,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix ldr: <http://purl.org/NET/ldr/ns#> .
 
 <http://purl.org/NET/rdflicense/BSD4.0>
       a       odrl:Policy ;

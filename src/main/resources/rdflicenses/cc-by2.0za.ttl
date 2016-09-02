@@ -4,14 +4,13 @@
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://purl.org/NET/rdflicense/cc-by2.0uk>
+<http://purl.org/NET/rdflicense/cc-by2.0za>
       a       odrl:Policy ;
-      rdfs:label "Creative Commons CC-BY South Africa"@en ;
+      rdfs:label "Creative Commons CC-BY South Africa" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/za/legalcode> ;
       cc:jurisdiction <http://dbpedia.org/page/South_Africa> ;
       cc:legalcode """   
 Licence
-
 THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CREATIVE COMMONS PUBLIC LICENCE ("CCPL" OR "LICENCE"). THE WORK IS PROTECTED BY COPYRIGHT, PERFOMERS PROTECTION AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENCE OR LAW IS PROHIBITED. 
 BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HERE, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENCE.
 
@@ -79,7 +78,6 @@ No term or provision of this Licence shall be deemed waived and no breach consen
 This Licence constitutes the entire agreement between the parties with respect to the Work Licensed here. There are no understandings, agreements or representations with respect to the Work not specified here. Licensor shall not be bound by any additional provisions that may appear in any communication from You. This Licence may not be modified without the mutual written agreement of the Licensor and You.
 This Licence is governed by the law of South Africa, and the law of South Africa shall apply to the establishment, and interpretation of this Licence.
 This Licence shall be construed so as to promote the use and distribution of the work in SADC (Southern African Development Community) countries.
-
 """@en ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso629-2/eng> ;

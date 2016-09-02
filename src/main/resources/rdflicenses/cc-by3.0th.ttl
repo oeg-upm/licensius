@@ -4,7 +4,7 @@
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://purl.org/NET/rdflicense/cc-by3.0ro>
+<http://purl.org/NET/rdflicense/cc-by3.0th>
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Thailand" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/th/legalcode> ;
@@ -128,7 +128,7 @@
 การยกเว้นข้อตกลงหรือเงื่อนไขใด ๆ ตามสัญญาอนุญาตนี้ จะต้องทำเป็นหนังสือและลงนาม โดยคู่สัญญาฝ่ายที่เป็นผู้รับผิดชอบในการยกเว้นหรือให้ความยินยอมเท่านั้น
 8.5
 สัญญาอนุญาตนี้ ประกอบด้วยข้อตกลงทั้งหมดระหว่างคู่สัญญาเกี่ยวกับงานที่อนุญาต ไม่มีบันทึกความเข้าใจ สัญญา หรือคำรับรองอื่นใดเกี่ยวกับงานที่อนุญาต นอกเหนือจากข้อตกลงตามที่ได้ระบุไว้ในสัญญาอนุญาตนี้ ผู้อนุญาตจะไม่ผูกพันกับข้อตกลงเพิ่มเติมอื่นใด ที่อาจปรากฏในการติดต่อสื่อสารใด ๆ จากท่าน สัญญาอนุญาตนี้ ไม่อาจเปลี่ยนแปลงแก้ไขได้โดยไม่มีข้อตกลงร่วมกันเป็นหนังสือระหว่างคู่สัญญาทั้งสองฝ่าย
-"""@ro ;
+"""@th ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/tha> ;
       dct:publisher "Creative Commons" ;
