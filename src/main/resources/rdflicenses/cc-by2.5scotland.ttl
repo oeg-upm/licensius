@@ -1,0 +1,129 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/cc-by2.5scotland>
+      a       odrl:Policy ;
+      rdfs:label "Creative Commons CC-BY Scotland" ;
+      rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/scotland/legalcode> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Scotland> ;
+      dct:source <http://creativecommons.org/licenses/by/2.5/scotland> ;
+      dct:hasVersion "2.5" ;
+      dct:publisher "Creative Commons" ;
+      odrl:duty
+              [ a       odrl:Duty ;
+                odrl:action cc:Notice , cc:Attribution
+              ] ;
+      odrl:permission
+              [ a       odrl:Permission ;
+                odrl:action cc:Distribution , cc:DerivativeWorks , cc:Reproduction
+              ] ;
+cc:legalcode """
+Attribution 2.5 Scotland
+
+CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE LEGAL SERVICES. DISTRIBUTION OF THIS LICENCE DOES NOT CREATE AN AGENT-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES REGARDING THE INFORMATION PROVIDED, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM ITS USE.
+Licence
+
+This Creative Commons Scotland public licence enables You to Use the Work worldwide provided that You keep to the terms of this Licence.
+
+'The Licensor' (the Person offering the Work under the terms and conditions of this Licence)
+
+and
+
+'You' (the Person acquiring rights under this Licence)
+
+agree as follows:
+
+1. Definitions of Capitalised Words
+
+"Collective Work" means a work made up of the Work in its entirety in unmodified form, along with other work, assembled into a collective whole.
+"Derivative Work" means a work that Uses the Work (or any substantial part of the Work) in any material form whatsoever (such as a translation, dramatisation, or abridgment), other than (i) as a whole and in unmodified form or (ii) by modifying it as may be technically necessary to Use it in a different mode or format; but a Collective Work is not a Derivative Work for the purpose of this Licence.
+"Derogatory Treatment" means derogatory treatment as defined by section 80 of the Copyright Design and Patents Act 1988, except as allowed by that Act: and it has that meaning wherever that treatment may take place and whoever may carry it out.
+"Licence Elements" means the following licence attributes indicated in the title of this Licence: Attribution.
+"Original Author" means the Person who created the Work.
+"Person" means a natural person or a body of persons corporate or incorporate.
+"Use", as a verb, means doing any act which is restricted by copyright, whether in the original medium or any other; and includes modifying the Work as may be technically necessary to Use it in a different mode or format.
+"Work" means the work protected by copyright which is offered under the terms of this Licence, and includes the Work as incorporated in any Collective Work.
+Words in the singular include the plural and vice versa.
+2. The Rights Granted
+
+2.1 The Licensor grants to You a worldwide, royalty-free, non-exclusive, licence to Use the Work for the duration of its copyright.
+
+So you may, for example:
+
+copy the Work, or create Derivative Works or incorporate it into a Collective Work;
+copy Derivative Works, or the Work as incorporated in any Collective Work; and
+publish, perform or communicate the Work and/or Derivative Works and/or the Work as incorporated in any Collective Work to anyone;
+in any medium whether now known or created in the future.
+
+2.2 However, this Licence does not allow you to:
+
+impose any terms or any technological measures on the Work, or a Derivative Work, that alter or restrict the terms of this Licence or any rights granted under it or have the effect or intent of restricting the ability of any person to exercise those rights;
+sublicense the Work; or
+subject the Work to Derogatory Treatment.
+2.3 You must, if you publish or distribute the Work or any Derivative Work to anyone else in any way, give reasonable credit to the Original Author as follows:
+
+by giving the name of the Original Author if that has been supplied; or a pseudonym if that has been supplied instead; and/or the name of any other person if that has been supplied for attribution in place of the Original Author;
+by giving the title of the Work if that has been supplied;
+by giving the Uniform Resource Identifier of the Work if that has been supplied, but you need not do so if this does not refer to its copyright terms or to its licensing information;
+in the case of a Derivative Work, by identifying how the Work has been used (for example, "French translation of the Work by X", or "Screenplay based on original work by X"); and
+in the case of a Derivative Work or a Collective Work, placing that credit in the same place, and at least as prominently, as any comparable authorship credit.
+But, if what you are publishing or distributing is a Derivative Work or a Collective Work, you must remove any of these credits if you are asked to do so by the Licensor and if it is practicable to do so.
+These are important conditions of this licence and if you fail to do so you will be in material breach of its terms.
+
+2.4 The Original Author asserts the right to be identified as the original author of the Work; but only as and when required by clause 2.3 above.
+
+2.5 You must also, if you publish or distribute the Work or any Derivative Work to anyone else in any way:
+
+include a copy of this Licence (or its Uniform Resource Identifier) with it; and
+keep intact any copyright notices for the Work and notices that refer to this Licence.
+These are important conditions of this licence and if you fail to do so you will be in material breach of its terms.
+
+2.6 Each time You publish the Work or any Derivative Work to anyone else in any way, the Licensor offers to the recipient a licence to the Work on the same terms and conditions as this Licence.
+
+2.7 And:
+
+the right to release the Work under different terms, or to stop distributing the Work, is reserved; and
+all other rights not expressly granted by the Licensor are reserved.
+2.8 This Licence does not affect any rights that You or anyone else may independently have under any applicable law (including fair dealing, fair use, or any other legally recognised limitation or exception to copyright infringement) to make any Use of this Work.
+
+3. Warranties and Disclaimer
+
+3.1 The Work is licensed by the Licensor "as is" and without any warranty of any kind, either express or implied, whether of title, of accuracy, of fitness for purpose, or otherwise.
+
+4. Limit of Liability
+
+4.1 Subject to any liability which may not be excluded or limited by law, the Licensor shall not be liable for, and expressly excludes, all liability for loss or damage however and whenever caused to anyone by any Use under this Licence, whether by You or by anyone else, and whether caused by any fault on the part of the Licensor or not. If liability may not be excluded by law, it is limited to actual and direct financial loss to the extent it is caused by proved negligence on the part of the Licensor.
+
+5. Termination
+
+5.1 Any breach by You of the terms of this licence (for example, by distributing the work licensed without attributing authorship as appropriate) entitles the Licensor to terminate this Licence with immediate effect and without notice to you. Persons who have received the Work, Derivative Works, or Collective Works from You under this Licence, however, will not have their licences terminated provided their use is in full compliance with this Licence or a licence granted under clause 2.6 of this Licence.
+
+5.2 If You are not in breach of the terms of this licence, the Licensor may not terminate your rights under it.
+
+5.3 Unless terminated under clause 5.1, this Licence is granted to you for the duration of copyright in the Work.
+
+6. General
+
+6.1 If any provision of this Licence is held to be invalid or unenforceable, that shall not affect the validity or enforceability of the remainder of the terms of this Licence.
+
+6.2 This Licence is the entire agreement between the parties with respect to the Work licensed here. It replaces any earlier understandings, agreements or representations with respect to the Work not specified here.
+
+6.3 If You are in breach of the terms of this Licence (for example, by distributing the work licensed without attributing authorship as appropriate) you will not be entitled to rely on the terms of this Licence or to complain of any breach by the Licensor.
+
+6.4 Neither You, nor anyone else, may enforce any provision of this Licence by specific implement or interdict.
+
+6.5 This Licence is governed by the law of Scotland and the parties accept the exclusive jurisdiction of the Courts of Scotland to decide any action or claim directed against the Licensor.
+
+6.6 If there is any dispute as to the meaning or effect of any provision of this Licence, it must so far as possible be read and given effect in a way that is compatible with the provisions of the Creative Commons generic licence, version 2.5, which has the same Licence Elements.
+
+The Notice below is not part of this licence.
+
+Creative Commons is not a party to this Licence, and makes no warranty whatsoever in connection with the Work. Creative Commons will not be liable to You or any party on any legal theory for any damages whatsoever, including without limitation any general, special, incidental or consequential damages arising in connection to this licence. Notwithstanding the foregoing two (2) sentences, if Creative Commons has expressly identified itself as the Licensor hereunder, it shall have all rights and obligations of Licensor.
+
+Except for the limited purpose of indicating to the public that the Work is licensed under the Creative Commons Public Licence, neither party will use the trademark "Creative Commons" or any related trademark or logo of Creative Commons without the prior written consent of Creative Commons. Any permitted use will be in compliance with Creative Commons' then-current trademark usage guidelines, as may be published on its website or otherwise made available upon request from time to time.
+
+Creative Commons may be contacted at https://creativecommons.org/.
+"""@dk .

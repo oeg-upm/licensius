@@ -177,3 +177,7 @@ ukogl1.0.ttl
 ukogl2.0.ttl
 ukogl3.0.ttl
 W3C1.0.ttl
+nlod1.ttl
+dldeby2.0.ttl
+iodl1.0.ttl
+cc-by2.5scotland.ttl
