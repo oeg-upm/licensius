@@ -26,6 +26,7 @@ import org.apache.log4j.Logger;
 
 /**
  * Class centralizing methods around the RDFLicenseDataset dataset
+ *
  * @author Victor
  */
 public class RDFLicenseDataset {
@@ -34,17 +35,16 @@ public class RDFLicenseDataset {
     public static String raw = "";
     private static final Logger logger = Logger.getLogger(RDFLicenseDataset.class.getName());
     public static Map<String, RDFLicense> glicenses = new HashMap();
-    
+
     public static void main(String[] args) {
         Licensius.init();
         RDFLicense rdflicense = null;
 //        rdflicense = RDFLicenseDataset.getRDFLicenseByURI("http://creativecommons.org/publicdomain/zero/1.0/");
-        
+
         //rdflicense = getRDFLicense("http://purl.org/NET/rdflicense/cc-by4.0");
         rdflicense = RDFLicenseDataset.getRDFLicenseByURI("https://www.gnu.org/licenses/lgpl.html");
-        
-        if (rdflicense!=null)
-        {
+
+        if (rdflicense != null) {
             System.out.println(rdflicense.toTTL());
         }
     }
@@ -52,124 +52,113 @@ public class RDFLicenseDataset {
     /**
      * Intenta cargarlo del local. Y si no sabe, lo coge del remoto
      */
-    public RDFLicenseDataset()
-    {
-        System.err.println("Modelo total vacío: "+ (modelTotal==null));
-        if (modelTotal==null)
-        {
+    public RDFLicenseDataset() {
+        System.out.println("Modelo total vacio: " + (modelTotal == null));
+        if (modelTotal == null) {
             modelTotal = readRDFLicenseLocal();
-            if (modelTotal==null)
-            {
+            if (modelTotal == null) {
                 System.err.println("Leyendo el dataset de remoto");
                 modelTotal = readRDFLicense();
             }
         }
     }
-    
-    public boolean isValid()
-    {
-        return modelTotal!=null;
-    }    
-    
-    
+
+    public boolean isValid() {
+        return modelTotal != null;
+    }
+
     /**
-     * Retrieves a list of all the RDFLicenses present in http://rdflicense.appspot.com/
+     * Retrieves a list of all the RDFLicenses present in
+     * http://rdflicense.appspot.com/
      */
-    public List<RDFLicense> listRDFLicenses()
-    {
+    public List<RDFLicense> listRDFLicenses() {
         List<RDFLicense> licenses = new ArrayList();
         List<Resource> rdflicenses = new ArrayList();
         List<Resource> licenseclasses = ODRL.getCommonPolicyClasses();
-        for(Resource licenseclass : licenseclasses)
-        {
-            ResIterator it = modelTotal.listSubjectsWithProperty(RDF.type,  licenseclass);
-            while(it.hasNext())
-            {
+        for (Resource licenseclass : licenseclasses) {
+            ResIterator it = modelTotal.listSubjectsWithProperty(RDF.type, licenseclass);
+            while (it.hasNext()) {
                 Resource res = it.next();
                 rdflicenses.add(res);
             }
         }
-        for(Resource res : rdflicenses)
-        {
-            RDFLicense rdflicense=getRDFLicense(res.getURI());
-            if (rdflicense!=null)
+        for (Resource res : rdflicenses) {
+            RDFLicense rdflicense = getRDFLicense(res.getURI());
+            if (rdflicense != null) {
                 licenses.add(rdflicense);
+            }
         }
         return licenses;
     }
-    
 
-    
     /**
-     * Obtiene un RDFLicense dado su URI. 
-     * Lo busca en el modelo total pero de una manera muy muy muy chapucera.
+     * Obtiene un RDFLicense dado su URI. Lo busca en el modelo total pero de
+     * una manera muy muy muy chapucera.
      */
-    public static RDFLicense getRDFLicense(String rdfuri)
-    {
+    public static RDFLicense getRDFLicense(String rdfuri) {
         RDFLicense rdflicense = glicenses.get(rdfuri);
-        if (rdflicense!=null)
+        if (rdflicense != null) {
             return rdflicense;
-        
-        if (modelTotal==null)
-            modelTotal = readRDFLicense();
-        if (modelTotal==null)
-            return null;
-        
-        String abuscar="\n"+"<"+rdfuri+">";
-        logger.debug("Searching: " + abuscar);
-        int index=raw.indexOf(abuscar);
-        
-        if (index==-1)
-        {
-            String xx=RDFUtils.getLastPart(rdfuri);
-            abuscar = ":"+xx;
-            index=raw.indexOf(abuscar);
         }
-        
-        
-        String extension ="ttl";
-        if (abuscar.length()<3)
+
+        if (modelTotal == null) {
+            modelTotal = readRDFLicense();
+        }
+        if (modelTotal == null) {
             return null;
-        extension = abuscar.substring(abuscar.length()-4, abuscar.length()-1);
-        if (index==-1)
-        {
-            logger.warn("License " + rdfuri +" not found");
+        }
+
+        String abuscar = "\n" + "<" + rdfuri + ">";
+        logger.debug("Searching: " + abuscar);
+        int index = raw.indexOf(abuscar);
+
+        if (index == -1) {
+            String xx = RDFUtils.getLastPart(rdfuri);
+            abuscar = ":" + xx;
+            index = raw.indexOf(abuscar);
+        }
+
+        String extension = "ttl";
+        if (abuscar.length() < 3) {
+            return null;
+        }
+        extension = abuscar.substring(abuscar.length() - 4, abuscar.length() - 1);
+        if (index == -1) {
+            logger.warn("License " + rdfuri + " not found");
             return null;
         }
         int index2 = raw.indexOf(". \n", index);
-        if (index2==-1)
-        {
-            logger.warn("License " + rdfuri +" end is not found");
+        if (index2 == -1) {
+            logger.warn("License " + rdfuri + " end is not found");
             return null;
         }
         //fragmento is the fragment in the raw file.
-        String fragmento=raw.substring(index, index2+1);
+        String fragmento = raw.substring(index, index2 + 1);
         fragmento = RDFUtils.getLicensePrefixes(fragmento) + fragmento;
-        
+
         rdflicense = new RDFLicense();
-        rdflicense.model = RDFUtils.parseFromText(fragmento); 
+        rdflicense.model = RDFUtils.parseFromText(fragmento);
         rdflicense.uri = rdfuri;
         return rdflicense;
     }
-    
-    
 
     /**
      * Dada una URI (por ejemplo)
      */
-    public static RDFLicense getRDFLicenseByURI(String uri)
-    {
-        if (modelTotal==null)
+    public static RDFLicense getRDFLicenseByURI(String uri) {
+        if (modelTotal == null) {
             modelTotal = readRDFLicense();      //hace la búsqueda en la web. DEBERIA HACERLA EN LOCAL PRIMERO!
-        if (modelTotal==null)
+        }
+        if (modelTotal == null) {
             return null;
+        }
         String rdfuri = getRDFLicenseByLicenseLax(uri);
-        if (rdfuri.isEmpty())
+        if (rdfuri.isEmpty()) {
             return null;
+        }
         RDFLicense license = getRDFLicense(rdfuri);
         return license;
     }
-    
 
     /**
      * Busca cualquier licencia que tiene como propiedad al texto dado
@@ -191,58 +180,57 @@ public class RDFLicenseDataset {
         if (modelTotal == null) {
             return "";
         }
-        if (uri.isEmpty())
+        if (uri.isEmpty()) {
             return "";
-        
-//        RDFDataMgr.write(System.out, modelTotal, Lang.TURTLE);
+        }
 
+//        RDFDataMgr.write(System.out, modelTotal, Lang.TURTLE);
 //        List<Resource> lresx = RDFUtils.getAllSubjectsWithObject(modelTotal, "http://creativecommons.org/licenses/by/4.0/");
 //        System.out.println(lresx.size());
-
-
         // COMBINACION0: TAL Y COMO ESTÁ
         List<Resource> lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri);
         if (lres.isEmpty()) {
-            if (uri.endsWith("/"))      //COMBINACION1: COMO ESTÁ PERO CAMBIANDO LA BARRA FINAL
+            if (uri.endsWith("/")) //COMBINACION1: COMO ESTÁ PERO CAMBIANDO LA BARRA FINAL
             {
-                String uri2 = uri.substring(0, uri.length()-1);
+                String uri2 = uri.substring(0, uri.length() - 1);
+                lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
+            } else {
+                String uri2 = uri + "/";
                 lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
             }
-            else                        
-            {
-                String uri2 = uri+"/";
-                lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
-            }
-            
+
             //COMBINACION2: COMO ESTA PERO CAMBIANDO http y https
-                
             if (lres.isEmpty()) //probamos http y https
             {
-                String uri2="";
-                if (uri.contains("http:"))
+                String uri2 = "";
+                if (uri.contains("http:")) {
                     uri2 = uri.replace("http:", "https:");
-                else if (uri.contains("https:"))
+                } else if (uri.contains("https:")) {
                     uri2 = uri.replace("https:", "http:");
+                }
                 lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
             }
             if (lres.isEmpty()) //COMBINACION3: CAMBIANDO HTTP/HTTPS Y CAMBIANDO LA BARRA FINAL
             {
-                String uri2="";
-                if (uri.contains("http:"))
+                String uri2 = "";
+                if (uri.contains("http:")) {
                     uri2 = uri.replace("http:", "https:");
-                else if (uri.contains("https:"))
+                } else if (uri.contains("https:")) {
                     uri2 = uri.replace("https:", "http:");
-                if (uri2.endsWith("/"))      
-                    uri2 = uri2.substring(0, uri2.length()-1);
-                else
-                    uri2 = uri2+"/";
+                }
+                if (uri2.endsWith("/")) {
+                    uri2 = uri2.substring(0, uri2.length() - 1);
+                } else {
+                    uri2 = uri2 + "/";
+                }
                 lres = RDFUtils.guessRDFLicenseFromURI(modelTotal, uri2);
-                
+
             }
-            
+
         }
-        if (lres.isEmpty())
+        if (lres.isEmpty()) {
             return "";
+        }
         return lres.get(0).getURI();
     }
 
@@ -262,55 +250,58 @@ public class RDFLicenseDataset {
 
     public static Model readRDFLicenseLocal() {
         Model modelx = ModelFactory.createDefaultModel();
-        try{
+        try {
             InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("rdflicenses/list.txt");
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            String str="";
-            if (is==null)
+            String str = "";
+            if (is == null) {
                 System.err.println("No se ha podido abrir el archivo list.txt");
-            if (is != null) {                            
-                int conta=0;
+            }
+            if (is != null) {
+                int conta = 0;
                 while ((str = reader.readLine()) != null) {
-                    if (str.isEmpty())
+                    if (str.isEmpty()) 
                         continue;
+                    
                     Model model = ModelFactory.createDefaultModel();
-                    InputStream is2 = Thread.currentThread().getContextClassLoader().getResourceAsStream("rdflicenses/"+str);
+                    InputStream is2 = Thread.currentThread().getContextClassLoader().getResourceAsStream("rdflicenses/" + str);
+                    if (is2==null)
+                        continue;
                     StringWriter writer = new StringWriter();
                     IOUtils.copy(is2, writer, "UTF-8");
-                    String miraw = writer.toString();     
+                    String miraw = writer.toString();
                     InputStream is4 = new ByteArrayInputStream(miraw.getBytes("UTF-8"));
-                    if (miraw.length()<5)
+                    if (miraw.length() < 5) {
                         continue;
-                    String mirawm = miraw.substring(0, miraw.length()-4);
-                    raw+="\n"+mirawm+" \n";
-                    try{
-                    model.read(is4, null, "TURTLE");
-                    if (model!=null)
-                    {
-                        String uri = "http://purl.org/NET/rdflicense/"+str;
-                        RDFLicense license = new RDFLicense(model);
-                        uri = uri.substring(0,uri.length()-4);
-                        license.uri=uri;
-                        glicenses.put(uri,license);
-                        modelx.add(model); 
-                        conta++;
-
                     }
-                    }catch(Exception e)
-                    {
+                    String mirawm = miraw.substring(0, miraw.length() - 4);
+                    raw += "\n" + mirawm + " \n";
+                    try {
+                        model.read(is4, null, "TURTLE");
+                        if (model != null) {
+                            String uri = "http://purl.org/NET/rdflicense/" + str;
+                            RDFLicense license = new RDFLicense(model);
+                            uri = uri.substring(0, uri.length() - 4);
+                            license.uri = uri;
+                            glicenses.put(uri, license);
+                            modelx.add(model);
+                            conta++;
+                            System.out.println(conta + " " + uri);
+
+                        }
+                    } catch (Exception e) {
                         System.err.println("La licencia " + str + " no contenía un RDF correcto");
                         System.err.println(e.getMessage());
                     }
-                }                
+                }
                 System.err.println("Total licencias correctas: " + conta);
-            }            
-        }catch(Exception e){
+            }
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
         return modelx;
     }
-    
-    
+
     public static Model readRDFLicense() {
         try {
             Model modelx = ModelFactory.createDefaultModel();
@@ -329,32 +320,32 @@ public class RDFLicenseDataset {
      * Returns all the licenses as a single Turtle string text
      */
     public String toTTL() {
-        if (modelTotal == null) 
+        if (modelTotal == null) {
             readRDFLicense();
-        if (modelTotal == null) 
+        }
+        if (modelTotal == null) {
             return null;
+        }
         StringWriter sw = new StringWriter();
         modelTotal.write(sw, "TURTLE");
         return sw.toString();
     }
-    
+
     /**
      * Obtains a list with all the licenses in the dataset. IT Loads the
      */
     public List<RDFLicense> getRDFLicenses() {
         List<RDFLicense> licenses = new ArrayList();
-        if (!glicenses.isEmpty())
-        {
+        if (!glicenses.isEmpty()) {
             Iterator it = glicenses.entrySet().iterator();
             while (it.hasNext()) {
-                Map.Entry e = (Map.Entry)it.next();
-                RDFLicense l = (RDFLicense)e.getValue();
+                Map.Entry e = (Map.Entry) it.next();
+                RDFLicense l = (RDFLicense) e.getValue();
                 licenses.add(l);
             }
             return licenses;
         }
-        
-        
+
         List<Resource> rdflicenses = new ArrayList();
         List<Resource> licenseclasses = ODRL.getCommonPolicyClasses();
         for (Resource licenseclass : licenseclasses) {
@@ -368,9 +359,10 @@ public class RDFLicenseDataset {
 //            System.out.println("Loading: " + res.getURI());
             RDFLicense rdflicense = getRDFLicense(res.getURI());
 //            System.out.println(rdflicense.getLabel());
-            if (rdflicense!=null)
+            if (rdflicense != null) {
                 licenses.add(rdflicense);
+            }
         }
         return licenses;
-    }    
+    }
 }
