@@ -165,6 +165,8 @@ odbc-by1.0.ttl
 odbc-pddl1.0.ttl
 odbl1.0.ttl
 ogl-nc1.0.ttl
+OGCDocument1.0.ttl
+OGCSoftware1.0.ttl
 OGL1.0.ttl
 OL1.0.ttl
 ORACLE1.0.ttl
