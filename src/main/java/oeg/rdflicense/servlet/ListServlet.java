@@ -2,14 +2,9 @@ package oeg.rdflicense.servlet;
 
 import javax.servlet.http.HttpServlet;
 //JAVA
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,8 +13,6 @@ import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseDataset;
 
 //LOG4J
-import oeg.rdflicense.servlet.MainServlet;
-import org.apache.commons.io.FileUtils;
 
 /**
  * This servlet is used by the user interface to show paginated answers
@@ -59,7 +52,7 @@ public class ListServlet extends HttpServlet {
         System.err.println("Licenses nulas: "+ (licenses==null));
         System.err.println("Ahora mismo hay cargadas "+ licenses.size()+" licencias!");
         if (licenses.isEmpty()) {
-            RDFLicenseDataset dataset = new RDFLicenseDataset();
+            dataset = new RDFLicenseDataset();
             licenses = dataset.getRDFLicenses();
         }
         List<RDFLicense> filtradas = new ArrayList();
@@ -81,7 +74,6 @@ public class ListServlet extends HttpServlet {
             ilimit=0;
         }
         
-
         
 /*
         filtradas = dataset.filterBy(filtradas, search);

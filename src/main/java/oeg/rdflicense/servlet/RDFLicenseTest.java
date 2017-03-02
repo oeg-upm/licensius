@@ -15,7 +15,7 @@ public class RDFLicenseTest {
         List<RDFLicense> licenses = dataset.getRDFLicenses();
         for(RDFLicense license : licenses)
         {
-            System.out.println(license.getLabel());
+            System.out.println(license.getLabel() + "     " + license.getURI());
         }
         System.out.println(licenses.size());
         
