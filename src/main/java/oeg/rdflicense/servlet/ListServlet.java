@@ -88,6 +88,8 @@ public class ListServlet extends HttpServlet {
                 + "  \"rows\": [\n";
         int conta = 0;
         for (int i = init; i < ilimit; i++) {
+            if (filtradas.size()<=i)
+                continue;
             RDFLicense license = filtradas.get(i);
             if (conta != 0) {
                 s += ",\n";

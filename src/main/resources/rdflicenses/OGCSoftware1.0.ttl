@@ -13,11 +13,13 @@
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
       dct:publisher "Open Geospatial Consortium, Inc." ;
       odrl:permission
-              [ odrl:action cc:Distribution , cc:DerivativeWorks , odrl:reproduce ;
+              [ a odrl:Permission ;
+                odrl:action cc:Distribution , odrl:modify , odrl:reproduce;
                 odrl:duty
-                        [ 
-                            odrl:action cc:Notice , cc:Attribution, odrl:inform
-                        ]
+                    [ a odrl:Duty ;
+                        odrl:action cc:Notice , cc:ShareAlike
+                    ] ;
+
               ] ;
 cc:legalcode """Software Notice
 
