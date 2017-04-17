@@ -1,0 +1,32 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/COLORIURIS1.0>
+      a       odrl:Policy ;
+      rdfs:label "ColorIURIS Copyright" ;
+      dct:source <http://www.coloriuris.net/en:avisos_legales#copyright_and_industrial_property> ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "ColorIURIS" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:Reproduction , odrl:reproduce ;
+                odrl:prohibition
+                        [ odrl:action cc:CommercialUse
+                        ]
+              ] ;
+              cc:legalcode """
+Entitlement of ColorIURIS, A.I.E.
+This web site, include you its contents (with the exception of the legislation and jurisprudence that they are of public domain) it is a collective work created by the initiative and under the coordination of Pedro Jaime Canut Zazurca, to whom all the moral rights correspond. All the rights of development are transfered to ColorIURIS, A.I.
+There is authorized the copy of safety realized by the user, the copy that remains in the cachet memory of the hard disk of the user; the reproduction, distribution and public communication for private use and without fortitude of lucre; as well as the reproduction and public communication for commercial uses any time it is carried out in a scientific context respecting the right of appointment; and acceptance previous of the agreement of license that offers itself the visitor on the foot of the pages of this web site.
+ColorIURIS (M-2667577) is a registered trademark in the Spanish Office of Patents and Marks (O.E.P.M.).
+Licencia de Marca.
+
+Entitlement of the users
+ColorIURIS, A.I.E. recognizes expressly the moral and remunerated rights after his legitimate holders.
+ColorIURIS, A.I.E. by any means - direct not even indirect, permanet nor provisional - will assume the responsibility of the works deposited by the users, nor will hand over to third - of free form not lucrative - either in, or everything partly the contents lodged for third.
+Other questions
+ColorIURIS, A.I.E. is submitted to the Law of Services of the Society of the Information and Electronic Commerce Spaniard; consequently he will withdraw the contents and/or his access to the same ones will prevent to request of the judicial competent authority, once have effective knowledge of the existence of a violation of rights of third.
+ColorIURIS, A.I.E. will transfer - in case of ColorIURIS Remunerated - with twice-monthly character the payments realized for third - in the cases that it proceeds - to the checking account facilitated by the users in the form of hiring, as soon as there were deduced the expenses of management and maintenance, and about that the user will be informed in the moment of the hiring
+"""@en .

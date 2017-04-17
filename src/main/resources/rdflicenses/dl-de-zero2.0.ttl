@@ -1,0 +1,45 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+<http://purl.org/NET/rdflicense/dl-de-zero2.0>
+      a       odrl:Policy ;
+      rdfs:label "Datenlizenz Deutschland – Zero – Version 2.0" ;
+      rdfs:seeAlso <https://www.govdata.de/dl-de/zero-2-0> ;
+      dct:source <https://www.govdata.de/dl-de/zero-2-0> ;
+      dct:alternative "DL DE Zero 2.0" ;
+      dct:hasVersion "2.0" ;
+      dct:publisher "govdata.de" ;
+      odrl:permission
+              [ odrl:action cc:Distribution , <http://purl.org/NET/ldr/ns#extraction> , cc:Reproduction , cc:DerivativeWorks , <http://purl.org/NET/ldr/ns#reutilization>
+              ] ;
+ cc:legalcode """
+Datenlizenz Deutschland – Zero – Version 2.0
+
+Jede Nutzung ist ohne Einschränkungen oder Bedingungen zulässig.
+
+Die bereitgestellten Daten und Metadaten dürfen für die kommerzielle und nicht kommerzielle Nutzung insbesondere
+
+1.         vervielfältigt, ausgedruckt, präsentiert, verändert, bearbeitet sowie an Dritte übermittelt werden;
+
+2.         mit eigenen Daten und Daten Anderer zusammengeführt und zu selbständigen neuen Datensätzen verbunden werden;
+
+3.         in interne und externe Geschäftsprozesse, Produkte und Anwendungen in öffentlichen und nicht öffentlichen elektronischen Netzwerken eingebunden werden.
+"""@de ;
+
+cc:legalcode """
+Data licence Germany - Zero - Version 2.0
+
+Any use is permitted without restrictions or conditions.
+
+The data and meta-data provided may, for commercial and non-commercial use, in particular
+
+1.         be copied, printed, presented, altered, processed and transmitted to third parties;
+
+2.         be merged with own data and with the data of others and be combined to form new and independent datasets;
+
+3.         be integrated in internal and external business processes, products and applications in public and non-public electronic networks. 
+"""@@en .

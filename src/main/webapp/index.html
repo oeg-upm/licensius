@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RDFLicense, Dataset of licenses as RDF</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/readable/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.2.0/jquery.bootgrid.min.css">	
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.2.0/jquery.bootgrid.min.js"></script>
+<!--        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>        -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js"></script>         
+        
+    </head>
+    <body>
+        <div class="container">
+            <center><h1>RDFLicense dataset</h1> 
+            <p>A dataset of licenses represented in RDF</p></center>
+            <div class="col-md-2">
+            </div>     
+            <div class="col-md-8">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2 class="panel-title">What is this?</h2></div>
+                    <div class="panel-body"> 
+                        <p>This site provides an RDF representation of different licenses for data, software or general works. Licenses served under http://purl.oclc.org/NET/rdflicense/ are understood by humans and machines alike.</p>
+                        <center><img src="./img/fig2.png" width="200px"></center>
+                    </div>
+                </div>
+                <!--<span style="color:red">UNDER MAINTENANCE (18.11.2014)</span> -->
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2 class="panel-title">Download complete dataset</h2></div>
+                    <div class="panel-body">
+                        <center><a href="http://purl.org/NET/rdflicense/" class="btn btn-success btn-large" download="rdflicense.ttl"><span class="glyphicon glyphicon-download-alt"></span>Download</a></center>
+                        <center><p><a href="http://rdflicense.linkeddata.es/dataset/void.ttl">VoID description</a> </p>	</center>
+
+                    </div>
+                </div>
+                
+                
+                
+             <table id="grid-data" class="table table-condensed table-hover table-striped"> 
+                 <thead>    
+                     <tr>
+                         <th data-column-id="license" data-formatter="link" data-order="desc">Licenses</th>    
+                         <th data-column-id="details" data-formatter="link2" data-order="desc">Details</th>    
+                     </tr>  
+                 </thead>
+             </table>                
+                
+                <script>
+                $("#grid-data").bootgrid({
+                    ajax: true,
+                    post: function ()
+                    {
+                        /* To accumulate custom parameter with the request object 
+                        return {
+                            currenturl: window.location.href 
+                        };*/
+                    },
+                    url: "/rdflicense/list",
+                    formatters: {
+                        "link": function(column, row)
+                        {
+                            return "<a href=\"" + row.licenseurl + "\">"+ row.license +  "</a>";
+                        },
+                        "link2": function(column, row)
+                        {
+                            return "<a href=\"" + row.licenseurl+".ttl" + "\"><img src=\"img/rdf32.png\"/></a>";
+                        }
+                    }
+                });
+                </script>                
+                
+                
+            <div class="panel panel-default"> 
+                <div class="panel-header"><h2>SPARQL Endpoint</h2></div>
+                <div class="panel-body">
+                    You may like querying our SPARQL endpoint at: <center><pre>SPARQL Endpoint: <a href="http://sparqlclient.eionet.europa.eu/sparqlClient.action?endpoint=http%3A%2F%2Flider2.dia.fi.upm.es%3A3037%2Frdflicense%2Fsparql&query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3Fp+%3Fo+%0D%0AWHERE+%7B%0D%0A++%3Chttp%3A%2F%2Fpurl.org%2FNET%2Frdflicense%2FCOMMON1.0%3E+%3Fp+%3Fo%0D%0A%7D+LIMIT+100&execute=Execute&_sourcePage=-yXd0X13octM74lfrR4JDYicZQJwqmH3-sINQg7wCyc%3D&__fp=QA6hLJHmkJQ%3D">http://lider2.dia.fi.upm.es:3037/rdflicense/sparql</a></pre></center><br/>
+                </div>
+            </div>
+                
+
+                <p></p>			
+                <center>
+                    <a href="https://github.com/oeg-upm/rdflicense"><img src="./img/github.png"></a>
+                    <a href="http://datahub.io/dataset/rdflicense"><img src="./img/ckan.png"></a>
+                </center>
+
+                <!-- <p>The list of referenceable licenses is also provided <a href="licenses.html">here</a></p> -->
+                <p class="vbottom"></p>
+
+                <p>The RDF version of the licenses in no manner substitutes the traditional English texts, but complements them by favouring the search, the automatic processing and the interoperation of licensed contents.</p>
+
+                <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="./img/80x15.png"></a>This dataset is published under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.
+                    You may also want to cite our research work:</p><p>
+                </p><blockquote><small><a href="http://delicias.dia.fi.upm.es/~vrodriguez/pdf/2014.11.jurix.dataset.pdf">A Dataset of RDF Licenses</a>, V. Rodriguez-Doncel, S. Villata, A. Gomez-Perez, in Proc. of the 27th Int. Conf. on Legal Knowledge and Information System (JURIX), R. Hoekstra (Ed.), ISBN 978-1-61499-467-1, pp. 187-189, IOS Press, (2014) </small></blockquote>
+
+
+                <!-- <p>Other related content you may like:</p> -->
+                <!-- These RDF versions do not substitute the legal texts, and they have been created to the best knowledge of the editors of this page. -->
+
+                <div id="footerxxxx">
+                    <footer>
+                        <hr>
+                        <center>
+                            <p style="font-size:12px">
+                                <strong>About us</strong> These licenses have been edited by the <a href="http://www.oeg-upm.net/">Ontology Engineering Group</a>, at Universidad Politecnica de Madrid and the <a href="http://www-sop.inria.fr/members/Serena.Villata/"> WIMMICS</a> at INRIA.<br>
+                                Thanks also to Emmanuel Desmontils for his corrections.<br/> 
+                                <strong>Disclaimer</strong> Use the information in this page at your own risk. We do not assume any responsibility on the use you make of the licenses. <br>
+                                <strong>Credits</strong> Icons have been taken from <a href="http://www.danilodemarco.com/">Danilo Demarco</a><br>
+                            </p></center>
+                    </footer>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+
+            </div> 
+        </div> <!-- end of bootstrap container -->
+
+
+        <script type="text/javascript" id="cookiebanner" src="./js/cookiebanner.min.js" data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies."></script>
+
+        <!-- Start of StatCounter Code for Default Guide -->
+        <script type="text/javascript">
+            var sc_project=10323696; 
+            var sc_invisible=1; 
+            var sc_security="78f26544"; 
+            var scJsHost = (("https:" == document.location.protocol) ?
+                "https://secure." : "http://www.");
+            document.write("<sc"+"ript type='text/javascript' src='" +
+                scJsHost+
+                "statcounter.com/counter/counter.js'></"+"script>");
+        </script><script type="text/javascript" src="./js/counter.js"></script>
+        <noscript>&lt;div class="statcounter"&gt;&lt;a title="web statistics"
+        href="http://statcounter.com/" target="_blank"&gt;&lt;img
+        class="statcounter"
+        src="http://c.statcounter.com/10323696/0/78f26544/1/"
+        alt="web statistics"&gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+        
+        
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54238283-5', 'auto');
+  ga('send', 'pageview');
+
+</script>        
+        
+
+    </body>
+</html>
