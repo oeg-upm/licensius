@@ -11,7 +11,40 @@
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-
+<style type="text/css">
+  .tooltip {
+    display: inline;
+    position: relative;
+  }
+  .tooltip:hover:after {
+    bottom: 26px;
+    content: attr(title); /* este es el texto que será mostrado */
+    left: 20%;
+    position: absolute;
+    z-index: 98;
+    /* el formato gráfico */
+    background: rgba(255,255,255, 0.2); /* el color de fondo */
+    border-radius: 5px;
+    color: #FFF; /* el color del texto */
+    font-family: Georgia;
+    font-size: 12px;
+    padding: 5px 15px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    width: 150px;
+  }
+  .tooltip:hover:before {
+    bottom: 20px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+    /* el triángulo inferior */
+    border: solid;
+    border-color: rgba(255,255,255, 0.2) transparent;
+    border-width: 6px 6px 0 6px;
+  }
+</style>
 <style>
 *,
 *:before,
@@ -31,9 +64,6 @@ body {
 body {
 background:#98B8CF;	
 background-image: -webkit-linear-gradient(left , rgb(84,116,137) 0%, rgb(133,160,177) 50%, rgb(84,116,137) 100%);
-
-#  background: -webkit-linear-gradient(45deg, #e10522 0%, rgba(225, 5, 34, 0) 70%), -webkit-linear-gradient(315deg, #3105d1 10%, rgba(49, 5, 209, 0) 80%), -webkit-linear-gradient(225deg, #0adbd8 10%, rgba(10, 219, 216, 0) 80%), -webkit-linear-gradient(135deg, #09f505 100%, rgba(9, 245, 5, 0) 70%);
-#  background: linear-gradient(45deg, #e10522 0%, rgba(225, 5, 34, 0) 70%), linear-gradient(135deg, #3105d1 10%, rgba(49, 5, 209, 0) 80%), linear-gradient(225deg, #0adbd8 10%, rgba(10, 219, 216, 0) 80%), linear-gradient(315deg, #09f505 100%, rgba(9, 245, 5, 0) 70%);
 }
 
 .absolute-center,
@@ -89,9 +119,6 @@ background-image: -webkit-linear-gradient(left , rgb(84,116,137) 0%, rgb(133,160
 
 #VICTOR
 .menu .btn.trigger:hover {
- # -webkit-transform: scale(1.2);
- # -ms-transform: scale(1.2);
- # transform: scale(1.2);
 }
 
 .menu .btn.trigger:hover .line { background-color: rgba(255, 255, 255, 0.7); }
@@ -367,40 +394,7 @@ for some reason nth-child(1) is always busy and elements starting from 2 */
 
 </div>
 
-<style type="text/css">
-  .tooltip {
-    display: inline;
-    position: relative;
-  }
-  .tooltip:hover:after {
-    bottom: 26px;
-    content: attr(title); /* este es el texto que será mostrado */
-    left: 20%;
-    position: absolute;
-    z-index: 98;
-    /* el formato gráfico */
-    background: rgba(255,255,255, 0.2); /* el color de fondo */
-    border-radius: 5px;
-    color: #FFF; /* el color del texto */
-    font-family: Georgia;
-    font-size: 12px;
-    padding: 5px 15px;
-    text-align: center;
-    text-shadow: 1px 1px 1px #000;
-    width: 150px;
-  }
-  .tooltip:hover:before {
-    bottom: 20px;
-    content: "";
-    left: 50%;
-    position: absolute;
-    z-index: 99;
-    /* el triángulo inferior */
-    border: solid;
-    border-color: rgba(255,255,255, 0.2) transparent;
-    border-width: 6px 6px 0 6px;
-  }
-</style>
+
 
 
 

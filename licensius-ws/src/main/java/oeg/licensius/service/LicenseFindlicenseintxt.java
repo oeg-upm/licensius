@@ -22,7 +22,7 @@ public class LicenseFindlicenseintxt extends HttpServlet {
     private static final Logger logger = Logger.getLogger(LicenseFindlicenseinrdf.class.getName());
 
     /**
-     * Sirve una cadena de prueba.
+     * Discovers a license in a piece of text 
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             String txt = req.getParameter("txt");
@@ -49,17 +49,8 @@ public class LicenseFindlicenseintxt extends HttpServlet {
     
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             String txt = ServiceCommons.getBody(req);
-            //String txt = req.getParameter("txt");
             LicenseFinder lf = new LicenseFinder();
             LicensiusResponse le = LicenseGuess.guessLicense2(txt);
-            /*if (le.getClass().equals(LicensiusError.class))
-            {
-                LicensiusError e = (LicensiusError) le;
-                resp.setStatus(500);
-                PrintWriter w = resp.getWriter();
-                w.println(txt + " " + e.getJSON());
-                return;
-            }*/
             resp.setStatus(200);
             resp.setContentType("application/json");
             PrintWriter w = resp.getWriter();

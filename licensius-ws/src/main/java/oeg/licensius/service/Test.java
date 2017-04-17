@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import oeg.licensius.core.LicenseFinder;
+import oeg.licensius.core.Licensius;
 import oeg.licensius.model.LicensiusResponse;
 
 /** 
@@ -31,6 +32,7 @@ public class Test extends HttpServlet {
         }
 
     public static void main(String[] args) {
+        Licensius.init();
         String uri = "http://purl.org/wf4ever/ro";
         LicenseFinder lf = new LicenseFinder();
         LicensiusResponse le = lf.findLicenseInRDF(uri);
