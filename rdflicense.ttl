@@ -3038,7 +3038,7 @@ dct:publisher "European Commission";
 		a	odrl:Policy ;
 		rdfs:label   "All rights reserved"@en;
 							dct:publisher " None" ;
-		rdfs:comment "This license does not disclose any of the IPR and database rights"@en ;
+		rdfs:comment "This license does not disclose any of the IPR and database rights XXX"@en ;
 		cc:legalcode <http://en.wikipedia.org/wiki/All_rights_reserved> ;
 		odrl:prohibition [
 			odrl:action ldr:IPRRight, ldr:databaseRight;
