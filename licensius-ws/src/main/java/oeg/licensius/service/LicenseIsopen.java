@@ -17,9 +17,11 @@ import oeg.rdflicense.RDFLicenseCheck;
 import oeg.rdflicense.RDFLicenseDataset;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import org.json.simple.parser.ParseException;
 
 /**
  * Determines if a license is open or not
+ * 
  * @author vrodriguez
  */
 public class LicenseIsopen extends HttpServlet {
@@ -31,7 +33,6 @@ public class LicenseIsopen extends HttpServlet {
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             resp.setStatus(200);
-//            resp.setContentType("application/json");
             String uri = req.getParameter("uri");
             LicensiusResponse le = get(uri);
             if (le.getClass().equals(LicensiusError.class))
@@ -43,7 +44,6 @@ public class LicenseIsopen extends HttpServlet {
                 return;
             }
             resp.setStatus(200);
-            //resp.setContentType("application/json");
             resp.setContentType("text/plain");
             PrintWriter w = resp.getWriter();
             w.println(le.getJSON());
@@ -59,7 +59,6 @@ public class LicenseIsopen extends HttpServlet {
             LicensiusError error = new LicensiusError(404, "License not found.");
             return error;
         }
-        
         LicensiusSimple ls = new LicensiusSimple();
         RDFLicenseCheck check = new RDFLicenseCheck(lic);
         ls.text=""+check.isOpen();
@@ -67,6 +66,19 @@ public class LicenseIsopen extends HttpServlet {
 
     }
     
-    
+     public static void main(String[] args) throws ParseException {
+        String uri = "http://purl.org/NET/rdflicense/NDL1.0";
+        RDFLicense rdflicense = new RDFLicense(uri);
+        if (rdflicense==null)
+        {
+            LicensiusError error = new LicensiusError(404, "License not found.");
+            System.out.println("error");
+        }
+        LicensiusSimple ls = new LicensiusSimple();
+        RDFLicenseCheck check = new RDFLicenseCheck(rdflicense);
+        ls.text=""+check.isOpen();
+        
+
+    }    
     
 }

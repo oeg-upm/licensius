@@ -103,6 +103,7 @@ public class URLutils {
             
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Error navegando la web semántica " + e.getMessage());
         }
         return document;
     }

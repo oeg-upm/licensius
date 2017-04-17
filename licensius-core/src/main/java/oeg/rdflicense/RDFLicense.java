@@ -1,16 +1,21 @@
 package oeg.rdflicense;
-//import org.apache.jena.rdf.model.Model;
-//import org.apache.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
-import oeg.licensius.core.Licensius;
-import oeg.vroddon.util.URLutils;
+
 import org.json.simple.JSONObject;
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import java.io.File;
+
+import oeg.licensius.core.Licensius;
+
+import oeg.vroddon.util.URLutils;
+import org.apache.commons.io.IOUtils;
 
 /**
  * This class offers methods to easily manipulate RDFLicenses: licenses as RDF, as those present in http://rdflicense.linkeddata.es/
@@ -37,21 +42,36 @@ public class RDFLicense {
         model=_model;
     }
     
+    /**
+     * Intenta cargar un archivo local. 
+     * Si no lo encuentra, busca en la web semántica.
+     */
     public Model getModel() {
         if (model!=null)
             return model; 
         try {
             String urittl = uri+".ttl";
-            String txt = URLutils.browseSemanticWeb(urittl);
-            if (txt==null) 
-                txt="asdf";
-            System.out.println(txt);
+            
+            int tmpi = uri.lastIndexOf("/");
+            String filename = "rdflicenses/"+uri.substring(tmpi+1, uri.length())+".ttl";
+            File file = new File(getClass().getClassLoader().getResource(filename).getFile());
+            String rdflicense="";
+            if (file.exists())
+            {
+                rdflicense = IOUtils.toString(getClass().getClassLoader().getResourceAsStream(filename));
+            }
+            else
+            {
+                rdflicense = URLutils.browseSemanticWeb(urittl);
+            }
             model = ModelFactory.createDefaultModel();
-            InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
+            InputStream is = new ByteArrayInputStream(rdflicense.getBytes(StandardCharsets.UTF_8));
             model.read(is, null, "TURTLE");
             is.close();
         }catch(Exception e){
+            System.err.println("We could not find that license");
             e.printStackTrace();
+            return null;
         }
         return model;
     }    
