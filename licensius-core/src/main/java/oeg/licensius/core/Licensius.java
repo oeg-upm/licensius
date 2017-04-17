@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
-import oeg.licensius.model.LicensiusSimple;
+import oeg.licensius.model.LicensiusSimpleResponse;
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseCheck;
 import oeg.rdflicense.RDFLicenseDataset;

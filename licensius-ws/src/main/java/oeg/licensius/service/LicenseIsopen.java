@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import oeg.licensius.model.LicensiusFound;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
-import oeg.licensius.model.LicensiusSimple;
+import oeg.licensius.model.LicensiusSimpleResponse;
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseCheck;
 import oeg.rdflicense.RDFLicenseDataset;
@@ -59,7 +59,7 @@ public class LicenseIsopen extends HttpServlet {
             LicensiusError error = new LicensiusError(404, "License not found.");
             return error;
         }
-        LicensiusSimple ls = new LicensiusSimple();
+        LicensiusSimpleResponse ls = new LicensiusSimpleResponse();
         RDFLicenseCheck check = new RDFLicenseCheck(lic);
         ls.text=""+check.isOpen();
         return ls;
@@ -74,10 +74,11 @@ public class LicenseIsopen extends HttpServlet {
             LicensiusError error = new LicensiusError(404, "License not found.");
             System.out.println("error");
         }
-        LicensiusSimple ls = new LicensiusSimple();
+        LicensiusSimpleResponse ls = new LicensiusSimpleResponse();
         RDFLicenseCheck check = new RDFLicenseCheck(rdflicense);
         ls.text=""+check.isOpen();
         
+        System.out.println(ls.getJSON());
 
     }    
     

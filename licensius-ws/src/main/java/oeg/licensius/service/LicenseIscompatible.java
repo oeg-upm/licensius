@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import oeg.licensius.model.LicensiusFound;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
-import oeg.licensius.model.LicensiusSimple;
+import oeg.licensius.model.LicensiusSimpleResponse;
 import oeg.rdflicense.RDFLicense;
 import oeg.rdflicense.RDFLicenseCheck;
 import oeg.rdflicense.RDFLicenseDataset;
@@ -60,7 +60,7 @@ public class LicenseIscompatible extends HttpServlet {
             LicensiusError error = new LicensiusError(404, "License not found.");
             return error;
         }
-        LicensiusSimple ls = new LicensiusSimple();
+        LicensiusSimpleResponse ls = new LicensiusSimpleResponse();
         ls.json=RDFLicenseCheck.compose(lic1, lic2);
         return ls;
 
