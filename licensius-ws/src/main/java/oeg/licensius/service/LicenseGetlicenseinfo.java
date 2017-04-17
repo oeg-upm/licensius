@@ -1,15 +1,16 @@
 package oeg.licensius.service;
 
+import com.hp.hpl.jena.rdf.model.Model;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import oeg.licensius.model.LicensiusResponse;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 
 /**
  *
@@ -44,6 +45,8 @@ public class LicenseGetlicenseinfo extends HttpServlet {
     public static void main(String[] args) {
         String uri = "http://purl.org/NET/rdflicense/gpl2.0";
         RDFLicense rdf = RDFLicenseDataset.getRDFLicense(uri);
+        Model model = rdf.getModel();
+        RDFDataMgr.write(System.out, model, Lang.TURTLE) ;
         String s = rdf.toLongJSON();
         System.out.println(s);
     }

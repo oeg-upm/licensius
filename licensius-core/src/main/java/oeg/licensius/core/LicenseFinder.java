@@ -11,10 +11,10 @@ import java.util.Map;
 import oeg.licensius.model.LicensiusFound;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
-import oeg.rdflicense.RDFUtils;
-import oeg.vroddon.util.URLutils;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFUtils;
+import oeg.licensius.util.URLutils;
 
 
 //JENA

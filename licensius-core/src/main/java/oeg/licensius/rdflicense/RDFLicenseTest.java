@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.licensius.rdflicense;
 
 import java.util.List;
 import oeg.licensius.core.Licensius;

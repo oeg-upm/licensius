@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.licensius.rdflicense;
 
 /*import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.NodeIterator;

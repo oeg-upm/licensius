@@ -2,29 +2,12 @@ package oeg.licensius.service;
 
 //import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import javax.servlet.http.*;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.servlet.ServletException;
-
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
-import org.apache.log4j.Logger;
 
 /**
  *

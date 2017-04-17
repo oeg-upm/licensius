@@ -18,12 +18,12 @@ import java.util.List;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 import oeg.licensius.model.LicensiusSimpleResponse;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseCheck;
-import oeg.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseCheck;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
 import org.apache.log4j.LogManager;
 
-import oeg.vroddon.util.SystemInformation;
+import oeg.licensius.util.SystemInformation;
 import org.apache.log4j.BasicConfigurator;
 import org.json.simple.JSONArray;
 
@@ -49,9 +49,13 @@ public class Licensius {
         System.out.println(s);
     }
 
+    public static boolean binit = false;
     /**
      */
     public static void init() {
+        if (binit==true)
+            return;
+        binit = true;
         initLogger(true, false);
     }
 

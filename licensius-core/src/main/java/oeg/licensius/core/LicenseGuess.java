@@ -13,15 +13,15 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
-import oeg.rdflicense.RDFUtils;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFUtils;
 import java.util.List;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-import oeg.vroddon.util.URLutils;
+import oeg.licensius.util.URLutils;
 import org.apache.log4j.Logger;
 
 /**

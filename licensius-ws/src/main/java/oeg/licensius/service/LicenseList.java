@@ -3,18 +3,19 @@ package oeg.licensius.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
 import org.json.simple.JSONArray;
 
+import oeg.licensius.rdflicense.RDFLicenseDataset;
+
 /**
- * Returns a list of licenses
+ * Returns a list of licenses. 
+ * Working in Licensius 2.0
+ * 
  * @author vrodriguez
  */
 public class LicenseList extends HttpServlet {
@@ -22,34 +23,22 @@ public class LicenseList extends HttpServlet {
     private static final Logger logger = Logger.getLogger(LicenseList.class.getName());
 
     /**
-     * Sirve una cadena de prueba.
+     * Sirve una lista con las URIs que se manejan
+     * http://www.licensius.com/api/license/list
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             resp.setStatus(200);
             resp.setContentType("application/json");
-            System.out.println("Hello world");
-            logger.info("hello world");
+            logger.info("Sirviendo una peticion de license list de " + req.getRemoteHost());
             PrintWriter w = resp.getWriter();
-            String s= get();
+            JSONArray array = new JSONArray();
+            RDFLicenseDataset dataset = new RDFLicenseDataset();
+            for(String lic : dataset.listURILicenses())
+                array.add(lic);
+    
+            String s = array.toJSONString();
             w.println(s);
             return;
         }
-    
-    /**
-     */
-    public String get()
-    {
-        JSONArray array = new JSONArray();
-        RDFLicenseDataset dataset = new RDFLicenseDataset();
-        List<RDFLicense> list = dataset.listRDFLicenses();
-        for(RDFLicense rdf : list)
-        {
-            String uri = rdf.getURI();
-            if (uri!=null)
-                array.add(rdf.getURI());
-        }
-        return array.toJSONString();
-    }
-
     
 }

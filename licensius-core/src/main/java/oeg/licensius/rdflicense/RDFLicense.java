@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.licensius.rdflicense;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -14,7 +14,7 @@ import java.io.File;
 
 import oeg.licensius.core.Licensius;
 
-import oeg.vroddon.util.URLutils;
+import oeg.licensius.util.URLutils;
 import org.apache.commons.io.IOUtils;
 
 /**
@@ -31,6 +31,10 @@ public class RDFLicense {
         
     }
     
+    /**
+     * Intenta cargar un archivo local. 
+     * Si no lo encuentra, busca en la web semántica.
+     */
     public RDFLicense(String _uri)
     {
         uri = _uri;
@@ -42,6 +46,11 @@ public class RDFLicense {
         model=_model;
     }
     
+    public boolean isOK()
+    {
+        return (model!=null);
+    }
+    
     /**
      * Intenta cargar un archivo local. 
      * Si no lo encuentra, busca en la web semántica.
@@ -50,7 +59,9 @@ public class RDFLicense {
         if (model!=null)
             return model; 
         try {
-            String urittl = uri+".ttl";
+            String urittl = uri;
+            if (urittl.contains(".ttl"))
+                urittl += ".ttl";
             
             int tmpi = uri.lastIndexOf("/");
             String filename = "rdflicenses/"+uri.substring(tmpi+1, uri.length())+".ttl";
@@ -69,7 +80,7 @@ public class RDFLicense {
             model.read(is, null, "TURTLE");
             is.close();
         }catch(Exception e){
-            System.err.println("We could not find that license");
+            System.err.println("We could not find that license "+ uri);
             e.printStackTrace();
             return null;
         }

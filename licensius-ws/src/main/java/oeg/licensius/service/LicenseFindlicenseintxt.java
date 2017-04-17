@@ -3,16 +3,18 @@ package oeg.licensius.service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import oeg.licensius.core.LicenseFinder;
 import oeg.licensius.core.LicenseGuess;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 
 /**
- * 
+ * Discovers a license in a piece of text 
  * @author vrodriguez
  */
 public class LicenseFindlicenseintxt extends HttpServlet {

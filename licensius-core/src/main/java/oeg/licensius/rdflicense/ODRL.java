@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.licensius.rdflicense;
 
 
 import com.hp.hpl.jena.rdf.model.Literal;

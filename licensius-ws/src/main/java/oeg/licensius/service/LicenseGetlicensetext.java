@@ -6,22 +6,24 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * Gets the text of a license
  * @author vrodriguez
  */
 public class LicenseGetlicensetext extends HttpServlet {
     
     private static final Logger logger = Logger.getLogger(LicenseGetlicensetext.class.getName());
+
     /**
-     * Sirve una cadena de prueba.
+     * Gets the text of a license
+     * http://www.licensius.com/api/license/getlicensetext?uri=http%3A%2F%2Fpurl.org%2FNET%2Frdflicense%2Fgpl2.0&lan=en
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             String uri = req.getParameter("uri");

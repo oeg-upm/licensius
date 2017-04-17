@@ -2,19 +2,16 @@ package oeg.licensius.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import oeg.licensius.model.LicensiusFound;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 import oeg.licensius.model.LicensiusSimpleResponse;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseCheck;
-import oeg.rdflicense.RDFLicenseDataset;
-import org.json.simple.JSONObject;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseCheck;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
 import org.json.simple.JSONArray;
 
 /**

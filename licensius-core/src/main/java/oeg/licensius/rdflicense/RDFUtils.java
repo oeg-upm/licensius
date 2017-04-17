@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.licensius.rdflicense;
 
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import static oeg.rdflicense.RDFLicenseDataset.modelTotal;
+import static oeg.licensius.rdflicense.RDFLicenseDataset.modelTotal;
 
 /**
  * Helper class with some useful methods to manipulate RDF

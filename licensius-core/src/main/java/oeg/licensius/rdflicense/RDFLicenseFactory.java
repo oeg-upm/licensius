@@ -1,4 +1,4 @@
-package oeg.rdflicense;
+package oeg.licensius.rdflicense;
 
 /*import org.apache.jena.rdf.model.AnonId;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -14,7 +14,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.vocabulary.RDF;
 import java.util.List;
 import java.util.UUID;
-import oeg.vroddon.util.RDFPrefixes;
+import oeg.licensius.util.RDFPrefixes;
 
 /**
  *
