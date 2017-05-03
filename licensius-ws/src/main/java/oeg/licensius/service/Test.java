@@ -11,6 +11,9 @@ import oeg.licensius.core.Licensius;
 import oeg.licensius.model.LicensiusResponse;
 
 /** 
+ * En Abril del 2017 me ha devuelto esto: 4/6f6seGcz5gvOtfxl4rwiUGot--86u4KQTYJwrinqFnU en salonica
+ * 
+ * 
  * Test service to be docummented by swagger, deployed in Tomcat and running at www.licensius.com
  * You can try it here: http://www.licensius.com/api/test
  * Buen puntero: http://www.jqueryscript.net/
@@ -27,7 +30,7 @@ public class Test extends HttpServlet {
             resp.setStatus(200);
             resp.setContentType("text/html");
             PrintWriter w = resp.getWriter();
-            w.println("Thanks for testing licensius. " + req.getRequestURL());
+            w.println("Thanks for testing our licensius 2 " + req.getRequestURL());
             return;
         }
 
