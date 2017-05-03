@@ -64,12 +64,21 @@ public class URLutils {
         boolean redirect = false;
         try {
             URL obj = new URL(url);
-            HttpURLConnection conn = null;
             
+            URLConnection oc = obj.openConnection();
+            HttpURLConnection conn = null;
+            if (url.startsWith("https"))
+                conn = (HttpsURLConnection)oc;
+            else
+                conn = (HttpURLConnection)oc;
+              
+            /*
+            HttpURLConnection conn = null;
             if (url.startsWith("https"))
                 conn = (HttpsURLConnection) obj.openConnection();
             else
                 conn = (HttpURLConnection) obj.openConnection();
+            */
             
             conn.setRequestProperty("Accept",acceptHeaderValue);                
             conn.setReadTimeout(5000);

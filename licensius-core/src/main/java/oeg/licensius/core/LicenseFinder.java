@@ -16,14 +16,17 @@ import oeg.licensius.rdflicense.RDFLicenseDataset;
 import oeg.licensius.rdflicense.RDFUtils;
 import oeg.licensius.util.URLutils;
 
-
 //JENA
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
 import org.apache.log4j.Logger;
 
 /**
  * This class implements some basic functionality to search licenses
+ *
  * @author Victor
  */
 public class LicenseFinder {
@@ -39,12 +42,13 @@ public class LicenseFinder {
         Logger.getLogger("licenser").info("Parsing " + uri);
         model = ModelFactory.createDefaultModel();
         String txt = URLutils.browseSemanticWeb(uri);
-        logger.info("Se ha descargado una cadena de " + txt.length() +" caracteres");
+        logger.info("Se ha descargado una cadena de " + txt.length() + " caracteres");
         return parseFromText(txt);
     }
 
     /**
      * Parses the ontology from a text
+     *
      * @param txt Text with an ontology
      */
     public boolean parseFromText(String txt) {
@@ -67,11 +71,12 @@ public class LicenseFinder {
                 logger.debug("Failed as TURTLE. " + e2.getMessage());
             }
             return false;
-       }
+        }
     }
 
     /**
      * Parsea un archivo RDF y lo carga en memoria
+     *
      * @param fileNameOrUri
      */
     public boolean parseFromJena(String fileNameOrUri) {
@@ -103,9 +108,9 @@ public class LicenseFinder {
                     }
                 }
             }
-            
+
             int count = RDFUtils.getNumberOfTriples(model);
-            
+
             logger.info(count + " triples have been read");
             if (count == 0) {
                 return false;
@@ -120,6 +125,7 @@ public class LicenseFinder {
 
     /**
      * Busca una licencia a partir de un texto
+     *
      * @param txt String with an RDF document
      * @return A string with the URI of the famous license.
      */
@@ -142,9 +148,37 @@ public class LicenseFinder {
         return salida;
     }
 
-    
+    /**
+     * Parsea un archivo RDF y lo carga en memoria
+     * https://cloud.google.com/appengine/docs/standard/java/issue-requests
+     *
+     * @param fileNameOrUri
+     */
+    public boolean parseFromGoogleThenJena(String fileNameOrUri) {
+        Logger.getLogger("licenser").info("Parsing " + fileNameOrUri);
+        try {
+            model = ModelFactory.createDefaultModel();
+
+            URL url = new URL(fileNameOrUri);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            StringBuffer json = new StringBuffer();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                json.append(line);
+            }
+            reader.close();
+            String modelostr = json.toString();
+            model.read(new ByteArrayInputStream(modelostr.getBytes()), null);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     /**
      * Busca una licencia a partir de una URI
+     *
      * @param uri String URI resoluble
      */
     public String findLicense(String uri) {
@@ -152,7 +186,9 @@ public class LicenseFinder {
         Logger.getLogger("licenser").info("Finding license in " + uri);
         boolean ok = false;
 
-        ok = parseFromJena(uri);
+//        ok = parseFromGoogleThenJena(uri);
+//          OK y bueno si no es para google
+//        ok = parseFromJena(uri);
         if (!ok) {
             ok = this.parseAfterDownload(uri);
         }
@@ -169,12 +205,15 @@ public class LicenseFinder {
                 break;
             }
         }
-        if (salida.isEmpty())
+        if (salida.isEmpty()) {
             salida = "unknown";
+        }
         return salida;
     }
- /**
+
+    /**
      * Busca una licencia a partir de una URI
+     *
      * @param uri String URI resoluble
      */
     public String findLicenseTitleNew(String uri) {
@@ -199,10 +238,32 @@ public class LicenseFinder {
                 break;
             }
         }
-        if (salida.isEmpty())
+        if (salida.isEmpty()) {
             salida = "unknown";
+        }
         return salida;
     }
+
+    public String findLicenseTitleRaw(String rawrdf) {
+        String resultado = "unknown";
+        LicenseFinder lf = new LicenseFinder();
+        String license = lf.findLicenseFromRDFText(rawrdf);
+        if (!license.isEmpty()) {
+            System.out.println("License: " + license);
+            String rdflicense = RDFLicenseDataset.getRDFLicenseByLicense(license);
+            if (rdflicense.isEmpty()) {
+                System.out.println("No estamos muy seguros del resultado pero bueno");
+                rdflicense = RDFLicenseDataset.getRDFLicenseByLicenseLax(license);
+            }
+            if (!rdflicense.isEmpty()) {
+                System.out.println("RDFLicense: " + rdflicense);
+                resultado = RDFUtils.getLabel(RDFLicenseDataset.modelTotal, rdflicense);
+            }
+        }
+        return resultado;
+
+    }
+
     public String findLicenseTitle(String uritoscan) {
         String resultado = "unknown";
         LicenseFinder lf = new LicenseFinder();
@@ -224,6 +285,7 @@ public class LicenseFinder {
 
     /**
      * Looks for rights in the Model, with different combinations
+     *
      * @param URIrights
      */
     private String getLicense(String URIrights) {
@@ -247,19 +309,21 @@ public class LicenseFinder {
         predicados.add("http://purl.org/dc/elements/1.1/rights");
         return predicados;
     }
-    
-    
+
     /**
      * Busca una licencia a partir de una URI
+     *
      * @param uri String URI resoluble
      */
     public LicensiusResponse findLicenseInRDF(String uri) {
         LicensiusFound lf = new LicensiusFound();
         Logger.getLogger("licenser").info("Finding license in " + uri);
         boolean ok = false;
-        ok = parseFromJena(uri);
+
+        //LA SIGUIENTE LINEA SOLO ESTA COMENTADA PARA QUE PUEDA FUNCIONAR EN GOOGLE. SI NO, SERIA ESTUPENDO TODO
+        //ok = parseFromJena(uri);
         if (!ok) {
-            Logger.getLogger("licenser").info("Could not be parsed by jena " + uri +". Instead, lets try to download it...");
+            Logger.getLogger("licenser").info("Could not be parsed by jena " + uri + ". Instead, lets try to download it...");
             ok = this.parseAfterDownload(uri);
         }
         if (!ok) {
@@ -272,21 +336,23 @@ public class LicenseFinder {
             String licencia = getLicense(predicado);
             if (!licencia.isEmpty()) {
                 String urix = licencia;
-                
+
                 String urimencionada = RDFUtils.extractURIFromText(urix);
                 RDFLicense rdfl = RDFLicenseDataset.getRDFLicenseByURI(urimencionada);      //ESTA BÚSQUEDA SE HACE ONLINE. ESO NO ES ÓPTIMO!
-                if (rdfl==null)
-                    urix="";
-                else
-                    urix=rdfl.getURI();
-                lf.add(urix, predicado+" "+licencia, "100");
+                if (rdfl == null) {
+                    urix = "";
+                } else {
+                    urix = rdfl.getURI();
+                }
+                lf.add(urix, predicado + " " + licencia, "100");
             }
         }
         return lf;
-    }    
-    
+    }
+
     /**
      * Busca una licencia a partir de un texto
+     *
      * @param txt String with an RDF document
      * @return A string with the URI of the famous license.
      */
@@ -305,21 +371,23 @@ public class LicenseFinder {
                 salida += licencia;
                 String urix = licencia;
                 RDFLicense rdfl = RDFLicenseDataset.getRDFLicenseByURI(licencia);
-                if (rdfl==null)
-                    urix="";
-                lf.add(urix, predicado+" "+licencia, "100");
+                if (rdfl == null) {
+                    urix = "";
+                }
+                lf.add(urix, predicado + " " + licencia, "100");
             }
         }
         return lf;
     }
 
-    
-    static Map<String, String> mapa = null ;
+    static Map<String, String> mapa = null;
+
     /**
      * Busca una licencia a partir de un texto
+     *
      * @param txt Texto en el cual ha de buscarse.
      */
-/*    public LicensiusResponse findLicenseInText(String txt) {
+    /*    public LicensiusResponse findLicenseInText(String txt) {
         LicensiusFound lf = new LicensiusFound();
         String s = LicenseGuess.guessLicense(txt);
         if (s == null || s.isEmpty())
@@ -334,17 +402,14 @@ public class LicenseFinder {
             lf.add("",s,"100");
         return lf;
     }        
- */
-    
-    
+     */
     public static void main(String[] args) {
         String uritoscan = "http://data.semanticweb.org/ns/swc/swc_2009-05-09.rdf";
-        uritoscan="http://purl.org/net/p-plan";
+        uritoscan = "http://purl.org/net/p-plan";
         String resultado = "Unknown";
         LicenseFinder lf = new LicenseFinder();
         resultado = lf.findLicenseTitle(uritoscan);
         System.out.println(resultado);
     }
-    
-    
+
 }

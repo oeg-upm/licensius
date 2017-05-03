@@ -1,2 +1,3 @@
 env: flex
 runtime: java
+service: licensius

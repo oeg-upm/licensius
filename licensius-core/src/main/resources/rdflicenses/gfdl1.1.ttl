@@ -4,7 +4,7 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
-@prefix ldr: <http://purl.org/NET/ldr/ns#> .
+@prefix ldr:     <http://purl.org/NET/ldr/ns#> .
 
 <http://purl.org/NET/rdflicense/gfdl1.1>
       a       odrl:Policy ;
@@ -22,7 +22,8 @@
                           odrl:operator odrl:lteq
                         ] ;
                 odrl:duty
-                        [ odrl:action ldr:logChanges , cc:ShareAlike , cc:Attribution
+                        [ 
+      odrl:action ldr:logChanges , cc:ShareAlike , cc:Attribution
                         ] ;
                 odrl:prohibition
                         [ odrl:action ldr:noDRM
