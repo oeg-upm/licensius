@@ -1,4 +1,4 @@
-# licensius
+# licensius-core
 Collection of license-related services
 
 This project is made up of a Java library (licensius-core) (documented at http://licensius.com/apidoc/licensius-core.pdf) which can be invoked from the command line, and a HTTP Rest Web service whose documentation is available at http://licensius.com/apidoc/index.html.
