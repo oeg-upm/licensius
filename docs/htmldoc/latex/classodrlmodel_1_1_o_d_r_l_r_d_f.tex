@@ -1,0 +1,127 @@
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f}{\section{odrlmodel.\-O\-D\-R\-L\-R\-D\-F Class Reference}
+\label{classodrlmodel_1_1_o_d_r_l_r_d_f}\index{odrlmodel.\-O\-D\-R\-L\-R\-D\-F@{odrlmodel.\-O\-D\-R\-L\-R\-D\-F}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \hyperlink{classodrlmodel_1_1_o_d_r_l_r_d_f_a217d73cee9780229436b4ad2d98eca22}{get\-R\-D\-F} (\hyperlink{classodrlmodel_1_1_policy}{Policy} policy, org.\-apache.\-jena.\-riot.\-Lang lang)
+\item 
+static List$<$ \hyperlink{classodrlmodel_1_1_policy}{Policy} $>$ \hyperlink{classodrlmodel_1_1_o_d_r_l_r_d_f_afe66fe4ccf0780c07d654607ca7ee159}{load} (String path)
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static List$<$ Resource $>$ \hyperlink{classodrlmodel_1_1_o_d_r_l_r_d_f_a0d61c9c15a0e5296cab48afe3d0ed765}{find\-Policies} (Model model)
+\item 
+static \hyperlink{classodrlmodel_1_1_policy}{Policy} \hyperlink{classodrlmodel_1_1_o_d_r_l_r_d_f_afe953ba08b36a15201b93de16912de1c}{get\-Policy\-From\-Resource} (Resource rpolicy)
+\item 
+static \hyperlink{classodrlmodel_1_1_metadata_object}{Metadata\-Object} \hyperlink{classodrlmodel_1_1_o_d_r_l_r_d_f_a42a859cda846744821b08091079dba91}{get\-Resource\-Metadata} (\hyperlink{classodrlmodel_1_1_metadata_object}{Metadata\-Object} me, Resource resource)
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_a10e793181613efb878443482aa2fa43a}{static Property {\bfseries P\-C\-C\-P\-E\-R\-M\-I\-S\-S\-I\-O\-N} = Model\-Factory.\-create\-Default\-Model().create\-Property(\char`\"{}http\-://creativecommons.\-org/ns\#permits\char`\"{})}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_a10e793181613efb878443482aa2fa43a}
+
+\item 
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_a94861aae27fa210b649b52547dd4ce05}{static Property {\bfseries P\-C\-C\-P\-E\-R\-M\-I\-S\-S\-I\-O\-N2} = Model\-Factory.\-create\-Default\-Model().create\-Property(\char`\"{}http\-://web.\-resource.\-org/cc/permits\char`\"{})}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_a94861aae27fa210b649b52547dd4ce05}
+
+\item 
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_a1057082ecc87b0162c071ef8dbcbcf48}{static Property {\bfseries P\-C\-C\-R\-E\-Q\-U\-I\-R\-E\-S} = Model\-Factory.\-create\-Default\-Model().create\-Property(\char`\"{}http\-://creativecommons.\-org/ns\#requires\char`\"{})}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_a1057082ecc87b0162c071ef8dbcbcf48}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface to serialize O\-D\-R\-L2.\-0 Expressions from / to R\-D\-F.
+
+\begin{DoxyAuthor}{Author}
+Victor 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_a0d61c9c15a0e5296cab48afe3d0ed765}{\index{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}!find\-Policies@{find\-Policies}}
+\index{find\-Policies@{find\-Policies}!odrlmodel::ODRLRDF@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}}
+\subsubsection[{find\-Policies}]{\setlength{\rightskip}{0pt plus 5cm}static List$<$Resource$>$ odrlmodel.\-O\-D\-R\-L\-R\-D\-F.\-find\-Policies (
+\begin{DoxyParamCaption}
+\item[{Model}]{model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_a0d61c9c15a0e5296cab48afe3d0ed765}
+Finds the policies in the model. It determines U\-R\-Is with a type of a known policy term. Policies are accepted to be odrl\-:policy, cc\-:License or dc\-:License\-Document 
+\begin{DoxyParams}{Parameters}
+{\em model} & Model \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of resources 
+\end{DoxyReturn}
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_afe953ba08b36a15201b93de16912de1c}{\index{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}!get\-Policy\-From\-Resource@{get\-Policy\-From\-Resource}}
+\index{get\-Policy\-From\-Resource@{get\-Policy\-From\-Resource}!odrlmodel::ODRLRDF@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}}
+\subsubsection[{get\-Policy\-From\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Policy} odrlmodel.\-O\-D\-R\-L\-R\-D\-F.\-get\-Policy\-From\-Resource (
+\begin{DoxyParamCaption}
+\item[{Resource}]{rpolicy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_afe953ba08b36a15201b93de16912de1c}
+Gets a O\-D\-R\-L2.\-0 policy object from a R\-D\-F resource
+
+
+\begin{DoxyParams}{Parameters}
+{\em an} & R\-D\-F Resource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An O\-D\-R\-L policy 
+\end{DoxyReturn}
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_a217d73cee9780229436b4ad2d98eca22}{\index{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}!get\-R\-D\-F@{get\-R\-D\-F}}
+\index{get\-R\-D\-F@{get\-R\-D\-F}!odrlmodel::ODRLRDF@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}}
+\subsubsection[{get\-R\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}static String odrlmodel.\-O\-D\-R\-L\-R\-D\-F.\-get\-R\-D\-F (
+\begin{DoxyParamCaption}
+\item[{{\bf Policy}}]{policy, }
+\item[{org.\-apache.\-jena.\-riot.\-Lang}]{lang}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_a217d73cee9780229436b4ad2d98eca22}
+Serializes the policy into a R\-D\-F string
+
+
+\begin{DoxyParams}{Parameters}
+{\em policy} & A given policy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The serialization language for the policy. For example, Lang.\-T\-T\-L 
+\end{DoxyReturn}
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_a42a859cda846744821b08091079dba91}{\index{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}!get\-Resource\-Metadata@{get\-Resource\-Metadata}}
+\index{get\-Resource\-Metadata@{get\-Resource\-Metadata}!odrlmodel::ODRLRDF@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}}
+\subsubsection[{get\-Resource\-Metadata}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Metadata\-Object} odrlmodel.\-O\-D\-R\-L\-R\-D\-F.\-get\-Resource\-Metadata (
+\begin{DoxyParamCaption}
+\item[{{\bf Metadata\-Object}}]{me, }
+\item[{Resource}]{resource}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_a42a859cda846744821b08091079dba91}
+Returns a \hyperlink{classodrlmodel_1_1_metadata_object}{Metadata\-Object} from a Jena resource 
+\begin{DoxyParams}{Parameters}
+{\em me} & \hyperlink{classodrlmodel_1_1_metadata_object}{Metadata\-Object} to be enriched \\
+\hline
+{\em resource} & Resource with the data \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_o_d_r_l_r_d_f_afe66fe4ccf0780c07d654607ca7ee159}{\index{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}!load@{load}}
+\index{load@{load}!odrlmodel::ODRLRDF@{odrlmodel\-::\-O\-D\-R\-L\-R\-D\-F}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}static List$<${\bf Policy}$>$ odrlmodel.\-O\-D\-R\-L\-R\-D\-F.\-load (
+\begin{DoxyParamCaption}
+\item[{String}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classodrlmodel_1_1_o_d_r_l_r_d_f_afe66fe4ccf0780c07d654607ca7ee159}
+Loads the O\-D\-R\-L2.\-0 policies found in a file. 
+\begin{DoxyParams}{Parameters}
+{\em path} & File location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A set of policies 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/odrlmodel/O\-D\-R\-L\-R\-D\-F.\-java\end{DoxyCompactItemize}
