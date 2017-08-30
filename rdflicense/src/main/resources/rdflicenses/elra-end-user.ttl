@@ -1,0 +1,106 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ms:      <http://purl.org/NET/ms-rights#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+
+<http://purl.org/NET/rdflicense/elra-end-user>
+      a       odrl:Policy ;
+      rdfs:label "Language Resources End-User Agreement"@en ;
+      rdfs:seeAlso <http://www.elda.org/en/services-around-lrs/distribution/licensing/> ;
+      cc:legalcode <http://www.elda.org/media/filer_public/2014/08/01/enduser_140312.pdf> ;
+      ms:conditionsOfUse ms:noRedistribution , ms:spatialConstraint , ms:languageEngineeringResearch , cc:Attribution , ms:forAFee , ms:noDerivatives ;
+      ms:licenseCategory ms:RES ;
+      dct:alternative "ELRA-END-USER" ;
+      dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+      dct:publisher "Elra" ;
+      odrl:permission
+              [ odrl:action cc:Reproduction , odrl:modify , odrl:translate ;
+                odrl:constraint
+                        [ a       odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:spatial "only at assignee's site"
+                        ] ;
+                odrl:constraint
+                        [ a       odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:purpose ms:languageEngineeringResearch
+                        ] ;
+                odrl:duty
+                        [ odrl:action cc:Attribution ;
+                          odrl:attributedParty
+                                  ms:distributionRightsHolder
+                        ] ;
+                odrl:duty
+                        [ odrl:action odrl:compensate
+                        ]
+              ] ;
+      odrl:prohibition
+              [ odrl:action cc:Distribution , cc:DerivativeWorks
+              ] ;
+cc:legalcode """
+This agreement is made by and between:
+" .............................. ", (hereinafter called END-USER), having its principal place of business at: .......................
+...................................................................................................................................................................................
+AND
+ELDA S.A.S., (hereinafter called DISTRIBUTOR), the distribution agency commissioned by ELRA, having its
+principal place of business at: 9 rue des Cordelières - 75013 Paris, FRANCE
+registered at the Tribunal de commerce de Paris:
+RCS Paris B 402 781 876 (95b147 95)
+whereby it is agreed as follows:
+1. Evaluation Packages, object of this Agreement, for which DISTRIBUTOR obtained distribution rights from
+the rightful holder, are described in Exhibit A.
+2. The site of use of the Evaluation Packages is mentioned in Exhibit B.
+3. Within this Agreement DISTRIBUTOR grants END-USER, engaged in bona fide language engineering
+research, the non-exclusive right to use the Evaluation Packages, exclusively for the purposes of evaluating
+their Human Language Technologies.
+4. END-USER is not permitted to reproduce the Evaluation Packages for commercial or distribution purposes
+and to commercialise (or distribute for free) in any form or by any means the Evaluation Packages or any
+derivative product or services based on all or a substantial part of it. Summaries, analyses and interpretations
+of the linguistic properties of the information may be derived and published, provided it is not possible to
+reconstruct the information from these summaries. Small excerpts of the information may be displayed to
+others or published in a scientific or technical context, solely for the purpose of describing the research and
+development and related issues. Any such use shall not infringe on the rights of any third party including, but
+limited to, the authors and publishers of the excerpts.
+5. DISTRIBUTOR grants END-USER the right to reproduce the Evaluation Packages temporarily or
+permanently, to translate, adapt, arrange and modify by any means the Evaluation Packages, if one or all of
+these acts are necessary to access and make the agreed use of the contents of the Evaluation Packages. ENDUSER
+is permitted to make a copy of the Evaluation Packages for purposes of archiving only.
+6. Without prejudice to the other provisions, the rights referred to herein shall be non transferable to any other
+entity. The Evaluation Packages shall not be transferred to or accessed from any other site.
+Add your initials here :
+ELDA - Commercial in confidence Date: 01/04/2015 Page 2/4
+7. END-USER acquires no ownership, rights or title in all or any parts of the Evaluation Packages.
+8. DISTRIBUTOR and OWNERS accept no responsibility for the accuracy or completeness of the data or for
+the consequences of their use. DISTRIBUTOR and OWNERS give no warranty for merchantibility and/or
+fitness for a particular purpose of the LRs.
+9. END-USER shall give appropriate references to DISTRIBUTOR, as well as to the name and reference of the
+Evaluation Packages in scholarly literature when the Evaluation Packages are mentioned. The following
+acknowledgement is required: “LANGUAGE RESOURCE NAME, ELRA catalogue
+(http://catalog.elra.info), ISLRN: XXX-XXX-XXX-XXX-X, ELRA ID: ELRA-XXXXX.”
+10. END-USER shall not use the name of DISTRIBUTOR in any publication in any manner that would imply an
+endorsement of END-USER or any product or service offered by END-USER.
+11. END-USER has no right or authority to incur, assume or create, in writing or otherwise, any warranty,
+liability or other obligation of any kind, express or implied, in the name of or on behalf of DISTRIBUTOR, it
+being intended that each party shall remain an independent contractor responsible for its own actions.
+12. Neither party shall be responsible for damages caused by the other party's non-fulfillment of provisions of this
+AGREEMENT.
+13.Both parties exclude all liability of whatsoever nature for direct, consequential or indirect loss or damage
+suffered by the other.
+14. END-USER agrees to pay DISTRIBUTOR a compensation. The mode of payment and schedule of payments
+are incorporated in Exhibit C and form part of this AGREEMENT.
+15.In order to preserve the desired, pre- competitive nature of the Human Language Technology evaluations,
+DISTRIBUTOR has developed a set of guidelines constraining the dissemination and publication of
+evaluation results. These guidelines are meant to preclude the publication of incomplete or inaccurate
+information that could damage the reputation of DISTRIBUTOR or Human Language Technologies / players
+and could discourage participation in future evaluation campaigns. The guidelines (listed in Exhibit D) shall
+be implemented by END-USER.
+16. This Agreement is subject to, construed and interpreted in accordance with the Law of France. Should it not
+be possible to settle amicably differences of interpretation out of this Agreement, then the case shall be
+brought before the regular courts of law for a decision. The "Tribunal de commerce de Paris" shall be the
+only competent court.
+The entire AGREEMENT is composed of the 16 articles herein together with Exhibits A, B, and C thereafter.
+In witness whereof, intending to be bound, the parties hereto have executed this AGREEMENT by their duly
+authorized 
+"""@en .

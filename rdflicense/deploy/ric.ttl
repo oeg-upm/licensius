@@ -1,0 +1,1056 @@
+@prefix : <https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ric: <https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric.owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#> .
+
+<https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#> rdf:type owl:Ontology ;
+                                                                                 rdfs:label "RIC-ATPI Ontology" ;
+                                                                                 dct:creator "Cristiana Santos" ;
+                                                                                 dct:contibutor "Pompeu Casanovas" ,
+                                                                                                "Victor Rodriguez" ;
+                                                                                 dct:rights "This ontology is distributed under a Creative Commons CC-BY 4.0 license - https://creativecommons.org/licenses/by/4.0/" ;
+                                                                                 dct:title "RIC-ATPI Ontology" ;
+                                                                                 rdfs:comment "Ontology of Relevant Legal Information in Consumer Disputes for the Air Transport Passenger Incidents" ;
+                                                                                 dct:language "en" ;
+                                                                                 dct:date "2016-02-26" ;
+                                                                                 owl:versionInfo "1.0.3" ;
+                                                                                 dct:license <https://creativecommons.org/licenses/by/4.0/> .
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#happensIn
+
+:happensIn rdf:type owl:ObjectProperty ;
+			rdfs:label "happens in" ;
+           rdfs:domain :AirTransportPassengerIncident .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#AirTransportPassengerIncident
+
+:AirTransportPassengerIncident rdf:type owl:Class ;
+							   rdfs:label "Air Transport Passenger Incident" ;
+                               rdfs:comment "Incident related to the air transport passenger domain" .
+
+
+:BaggageIncident rdf:type owl:Class ;
+                 rdfs:subClassOf :AirTransportPassengerIncident ;
+                 rdfs:label "Baggage Incident" ;
+                 rdfs:comment "Incident related to  mishandled baggage, which was lost, delayed, destroyed or damaged" .
+
+
+:InsolvencyIncident rdf:type owl:Class ;
+                   rdfs:label "Insolvency Incident" ;
+                   rdfs:subClassOf :FlightIncident ;
+                   rdfs:comment "When an air carrier has insufficient assets to meet all debts, or being unable to pay debts as and when they are due, Council Regulation  (EC) No 1346/2000 of 29 May 2000 on insolvency proceedings" .
+
+
+:CancelledFlight rdf:type owl:Class ;
+                 rdfs:subClassOf :FlightIncident ;
+				 rdfs:label "Cancelled Flight" ;
+                 rdfs:comment """The non-operation of a flight which was previously planned and on which at least one place was reserved, Article(2)(l) (EC) Regulation 261/2004. Broader interpretation from the Court : ‘cancellation’ as meaning that is does not refer exclusively to the situation in which the aeroplane in question fails to take off at all. That concept also covers the case in which an aeroplane took off but, for whatever reason, was subsequently forced to return to the airport of departure where its passengers were transferred to other flights, Aurora Sousa Rodríguez and Others v Air France SA, Judgment in Case C-83/10, 13/10/2011""" .
+
+:CompelledDeniedBoarding rdf:type owl:Class ;
+				rdfs:label "Compelled Denied Boarding" ;
+				rdfs:subClassOf :DeniedBoarding .
+				
+:CustomerServiceInsatisfaction rdf:type owl:Class ;
+                               rdfs:label "Customer Service Insatisfaction" ;
+                               rdfs:subClassOf :ServiceIncident ;
+							   rdfs:label "Customer Service Insatisfaction"@en ;
+                               rdfs:comment "When the passenger was not satisfied with the customer service provided by the air carrier in relation to the purchase of a service up to the point of delivery of the service." .
+
+:DamagedBagagge rdf:type owl:Class ;
+                rdfs:subClassOf :BaggageIncident ;
+                rdfs:label "Damaged Baggage" ;
+                rdfs:comment "Physical damage to baggage and/or its contents, IATA PSCRM, Reso780. It comprises all impairments to the substance of the baggage" .
+
+
+:DelayedBaggage rdf:type owl:Class ;
+                rdfs:subClassOf :BaggageIncident ;
+                rdfs:label "Delayed Baggage" ;
+                rdfs:comment "A piece(s) of baggage which fails to arrive at the airport of destination on the same flight as the passenger, but is subsequently delivered. IATA PSCRM, Reso780" .
+
+:DelayedFlight rdf:type owl:Class ;
+               rdfs:subClassOf :FlightIncident ;
+  			   rdfs:label "Delayed Flight"@en ;
+			   rdfs:label "Vuelo restrasado"@es ;
+               rdfs:comment "When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time, Article 6 Regulation 261/2004" .
+
+:DeniedFlight rdf:type owl:Class ;
+              rdfs:subClassOf :FlightIncident ;
+              rdfs:label "Denied Boarding" ;
+              rdfs:comment """Denied Flight or denied boarding means a refusal to carry passengers on a flight, although they have presented themselves for boarding under the conditions laid down in Article 3(2), except where there are reasonable grounds to deny them boarding, such as reasons of health, safety or security, or inadequate travel documentation, Article (2)(j) Regulation (EC) 261/2004. Broader interpretation from the CJEU: \" the concept of ‘denied boarding’ relates not only to cases of overbooking, denied boarding covers all circumstances in which an air carrier refuses to carry a passenger, such as those concerning other grounds, such as operational reasons\", German Rodriguez Cachafeiro, Maria de los Reyes Martinez-Reboredo Varela-Villamor v Iberia Lineas Aereas de Espana SA, Case C-321/11, 04/10/2012,  and C-22/11 (Finnair Oyj vs. Timy Lassooy)""" ;
+			  rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?text=&docid=128002&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=118809> .
+			  
+:DeniedBoardingOnAConnectingFlight rdf:type owl:Class ;
+			 rdfs:label "Denied Boarding on a Connecting Flight" ;
+			 rdfs:subClassOf :DeniedBoarding ;
+			 rdfs:comment "Passengers that are denied boarding on a connecting flight due to the fact their previous flight was delayed and caused further delay by the airline." .			  
+
+:DeniedBoardingOnReasonableGrounds rdf:type owl:Class ;
+			 rdfs:label "Denied Boarding on Reasonable Grounds" ;
+			 rdfs:subClassOf :DeniedBoarding . 
+
+:DestroyedBagagge rdf:type owl:Class ;
+                  rdfs:subClassOf :BaggageIncident ;
+                  rdfs:label "Destroyed Baggage" ;
+                  rdfs:comment "A baggage which became unusable" .
+
+:Downgrading rdf:type owl:Class ;
+             rdfs:subClassOf :SeatMisplacement ;
+             rdfs:label "Downgrading" ;
+             rdfs:comment "When an operating air carrier places a passenger in a class lower than that for which the ticket was purchased,Article 10 (2)  Regulation 261/2004" .
+
+:Event rdf:type owl:Class .
+
+:FlightIncident rdf:type owl:Class ;
+                rdfs:subClassOf :AirTransportPassengerIncident ;
+                rdfs:label "Flight Incident" ;
+                rdfs:comment "Incident related to the provision of the flight" .
+
+:FollowingDayDelayDeparture rdf:type owl:Class ;
+                            rdfs:subClassOf :DelayedFlight ;
+                            rdfs:label "Following Day Delay at Departure" ;
+                            rdfs:comment "When the reasonably expected time of departure is at least the day after the time of departure previously announced, Art. 6 (1) (ii) EC Regulation 261/2004" .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#Irresponsiveness
+
+:Irresponsiveness rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :ServiceIncident ;
+                  rdfs:label "Irresponsiveness" ;
+                  rdfs:comment "Incident related to the difficulties in getting information from the air carrier on where and how to complain and on claim redress (e.g. no phone number, no email or all telephone lines busy, no response to the complaint)." .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#LongDelayedAtArrival
+
+:LongDelayedAtArrival rdf:type owl:Class ;
+                      rdfs:subClassOf :DelayedFlight ;
+                      rdfs:label "Long Delay at Arrival" ;
+                      rdfs:comment "Interpretation from the CJEU: When an operating air carrier  reach their final destination three hours or more after the scheduled arrival time (originally scheduled by the air carrier), Joined Cases C-402/07 (Sturgeon vs. Condor Flugdienst GmbH) and C-432/07 (Böck/Lepuschitz vs. Air France); Joined Cases C-581/10 Nelson and Others v Deutsche Lufthansa AG and C-629/10 Tui Travel, British Airways, EasyJet, IATA vs. Civil Aviation Authority" .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#LongDelayedAtDeparture
+
+:LongDelayedAtDeparture rdf:type owl:Class ;
+                        rdfs:subClassOf :DelayedFlight ;
+                        rdfs:label "Long Delay at Departure" ;
+                        rdfs:comment "When an operating air carrier reasonably expects a flight to be delayed at departure at least five hours or more, Art. 6 (1) (iii) (EC) Regulation 261/2004" .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#LostBaggage
+
+:LostBaggage rdf:type owl:Class ;
+             rdfs:subClassOf :BaggageIncident ;
+             rdfs:label "Lost Baggage" ;
+             rdfs:comment "A piece of baggage which is irretrievably lost. IATA PSCRM, Reso780. A baggage delay turns into a loss of thereof if it has not arrived within 21 days (after the date on which it ought to have arrived) or the airline admits the loss, Art. 17 (2) Montreal Convention. " .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#SeatMisplacement
+
+:SeatMisplacement rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :ServiceIncident ;
+                  rdfs:label "Seat Misplacement"@en ;
+                  rdfs:comment "When an operating air carrier misplaces a passenger in a class different than that for which the ticket was purchased.Article 10  Regulation 261/2004" .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#ServiceIncident
+
+:ServiceIncident rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :AirTransportPassengerIncident ;
+                 rdfs:label "Service Incident" ;
+                 rdfs:comment "Incident related to the quality of the service" .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#ShortDelayedAtDeparture
+
+:ShortDelayedAtDeparture rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :DelayedFlight ;
+                         rdfs:label "Short Delay at Departure"@en ;
+                         rdfs:comment """When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure,  
+(a) for two hours or more in the case of flights of 1500 kilometres
+or less; or
+(b) for three hours or more in the case of all intra-Community
+flights of more than 1 500 kilometres and of all other
+flights between 1 500 and 3 500 kilometres; or
+(c) for four hours or more in the case of all flights not falling
+under (a) or (b),
+Article 6 (1) (EC) Regulation 261/2004"""@en .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#UnfairCommercialPractices
+
+:UnfairCommercialPractices rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf :ServiceIncident ;
+                           rdfs:label "Unfair Commercial Practices"@en ;
+                           rdfs:comment "Commercial practices which are unhonest practises; misleading commercial practices (such as false claims, deceiving information or leaving out important information that would affect the consumer decision to buy something); and aggressive sales techniques that harass the consumer into buying something under pressure, Article 5 of the Directive 2005/29/EC of 11 May 2005 concerning unfair business-to-consumer commercial practices in the internal market."@en .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#UnfairContractTerms
+
+:UnfairContractTerms rdf:type owl:Class ;
+                     rdfs:subClassOf :ServiceIncident ;
+                     rdfs:label "Unfair Contract Terms"@en ;
+                     rdfs:comment "A contractual term shall be regarded as unfair if, contrary to the requirement of good faith, it causes a significant  imbalance in the parties' rights and obligations arising under the contract, to the detriment of the consumer, Article 3 (1) Directive of Unfair Contract terms 93/ 13/EEC" .
+
+
+
+###  https://raw.githubusercontent.com/Rel-incode/ric-ontology/master/ric-atpi.owl#Upgrading
+
+:Upgrading rdf:type owl:Class ;
+           rdfs:subClassOf :SeatMisplacement ;
+           rdfs:comment "When an operating air carrier places a passenger in a class higher than that for which the ticket was purchased, Article 10 (1)  Regulation 261/2004"@en .
+		   
+:VolunteerDeniedBoarding rdf:type owl:Class ;
+                        rdfs:label "Volunteer Denied Boarding" ;
+                        rdfs:subClassOf :DeniedBoarding .
+		   
+		   
+#### MANUAL EDITED DOCUMENT ##################################################################################		   
+		   
+		   
+# LEGAL SOURCES
+:regulation261art31 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "This Regulation shall apply: (a) to passengers departing from an airport located in the territory of a Member State to which the Treaty applies;(b) to passengers departing from an airport located in a third country to an airport situated in the territory of a Member State to which the Treaty applies, unless they received benefits or compensation and were given assistance in that third country, if the operating air carrier of the flight concerned is a Community carrier" ;
+        rdfs:label "Regulation 261/2004, Art. 3(1)"@en .		   
+
+:regulation261art31b rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "This Regulation shall apply: (b) to passengers departing from an airport located in a third country to an airport situated in the territory of a Member State to which the Treaty applies, unless they received benefits or compensation and were given assistance in that third country, if the operating air carrier of the flight concerned is a Community carrier" ;
+        rdfs:label "Regulation 261/2004, Art. 3(1)b"@en .		   
+
+:regulation261art32 rdf:type ric:LegalSource , owl:NamedIndividual ;
+        rdfs:comment "This Regulation shall apply on the condition that passengers: (a) have a confirmed reservation on the flight concerned and, except in the case of cancellation referred to in Article 5, present themselves for check-in, — as stipulated and at the time indicated in advance and in writing (including by electronic means) by the air carrier, the tour operator or an authorised travel agent, or, if no time is indicated, — not later than 45 minutes before the published departure time; or (b) have been transferred by an air carrier or tour operator from the flight for which they held a reservation to another flight, irrespective of the reason" ;
+		rdfs:label "Regulation 261/2004, Art. 3(2)"@en .		   
+
+:regulation261art32a rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "Passengers must have a confirmed reservation on the flight concerned;Passengers must be present on time for check-in at the time indicated in the electronic panel or in the ticket, or if no time is indicated—not later THEN 45 min before the published departure time;When passengers have been through-checked, they have an obligation to arrive at the gate on time for boarding. This applies to both departing and connecting passengers" ;
+        rdfs:label "Regulation 261/2004, Art. 3(2)(a)"@en .		   
+
+:regulation261art33 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "This Regulation shall not apply to passengers travelling free of charge or at a reduced fare not available directly or indirectly to the public. However, it shall apply to passengers having tickets issued under a frequent flyer programme or other commercial programme by an air carrier or tour operator" ;
+        rdfs:label "Regulation 261/2004, Art. 3(3)"@en .		  
+	
+:regulation261art4 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment """When an operating air carrier reasonably expects to deny boarding on a flight, it shall first call for volunteers to surrender their reservations in exchange for benefits under conditions to be agreed between the passenger concerned and the operating air carrier. 
+		If an insufficient number of volunteers comes forward to allow the remaining passengers with reservations to board the flight, the operating air carrier may then deny boarding to passengers against their will. 
+		If boarding is denied to passengers against their will, the operating air carrier shall immediately compensate them and assist them""" ;
+        rdfs:label "Regulation 261/2004, Art. 4"@en .	
+		
+:regulation261art51b rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:label "Regulation 261/2004, Art. 5(1)(b)"@en .	
+		
+:regulation261art51c rdf:type ric:LegalSource , owl:NamedIndividual ;
+        rdfs:comment "In case of cancellation of a flight, the passengers concerned shall have the right to compensation by the operating air carrier" ;
+		rdfs:label "Regulation 261/2004, Art. 5(1)(c)"@en .		   
+
+:regulation261art51ci rdf:type ric:LegalSource , owl:NamedIndividual ;	
+		rdfs:comment """In case of cancellation of a flight, the passengers concerned shall have the right to compensation by the operating air carrier, unless: 
+		(i) they are informed of the cancellation at least two weeks before the scheduled time of departure; or 
+		(ii) they are informed of the cancellation between two weeks and seven days before the scheduled time of departure and are offered rerouting, allowing them to depart no more than two hours before the scheduled time of departure and to reach their final destination less than four hours after the scheduled time of arrival; or 
+		(iii) they are informed of the cancellation less than seven days before the scheduled time of departure and are offered rerouting, allowing them to depart no more than one hour before the scheduled time of departure and to reach their final destination less than two hours after the scheduled time of arrival""" ;
+		rdfs:label "Regulation 261/2004, Art. 5(1)(c) (i)"@en .	
+		
+:regulation261art52 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "When passengers are informed of the cancellation, an explanation shall be given concerning possible alternative transport."@en ;
+        rdfs:label "Regulation 261/2004, Art. 5(2)"@en .	
+		
+:regulation261art53 rdf:type ric:LegalSource , owl:NamedIndividual ;	
+		rdfs:comment "An operating air carrier shall not be obliged to pay compensation if it can prove that the cancellation is caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken. "@en ;
+        rdfs:label "Regulation 261/2004, Art. 5(3)"@en .	
+
+:regulation261art54 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "The burden of proof concerning a cancellation and whether it is caused by extraordinary circumstances rests with the operating air carrier"@en ;
+        rdfs:label "Regulation 261/2004, Art. 5(4)"@en .	
+
+:regulation261art6 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment """When an operating air carrier reasonably expects a flight to be delayed beyond its scheduled time of departure:
+(a) for two hours or more in the case of flights of 1 500 kilometres or less; or
+(b) for three hours or more in the case of all intra-Community flights of more than 1 500 kilometres and of all other flights between 1 500 and 3 500 kilometres; or
+(c) for four hours or more in the case of all flights not falling under (a) or (b) """@en ;
+        rdfs:label "Regulation 261/2004, Art. 6"@en .	
+
+:regulation261art612 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "When the reasonably expected time of departure is at least the day after the time of departure previously announced, the passengers should be offered by the operating air carrier the assistance specified in Article 9(1)(b) and 9(1)(c) "@en ;
+        rdfs:label "Regulation 261/2004, Art. 6(1)(ii)"@en .	
+		
+:regulation261art71 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment """Passengers shall receive compensation amounting to: 
+		(a) EUR 250 for all flights of 1 500 kilometres or less; 
+		(b) EUR 400 for all intra-Community flights of more than 1 500 kilometres, and for all other flights between 1 500 and 3 500 kilometres; 
+		(c) EUR 600 for all flights not falling under (a) or (b)""" ;
+        rdfs:label "Regulation 261/2004, Art. 7(1)"@en .	
+
+:regulation261art72b rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment """If the passenger is Rerouted to his final destination, on an alternative flight, the operating air carrier may reduce the compensation by 50%, when the arrival time (of which does not exceed the scheduled arrival time of the flight originally booked) by:  
+		-2h, in respect to all flights of ≤  1500 kms, 
+		-3h, in respect to all intra-Community flights of > 1500 kms,   
+		-3h, in respect for all other flights between 1500 and 3500km, 
+		-4h, in respect of all other flights.""" ;
+        rdfs:label "Regulation 261/2004, Art. 7(2)b"@en .	
+
+:regulation261art81 rdf:type ric:LegalSource , owl:NamedIndividual ;
+        rdfs:comment """passengers shall be offered the choice between: 
+		(a) reimbursement within seven days of the full cost of the ticket at the price at which it was bought, for the part or parts of the journey not made, and for the part or parts already made if the flight is no longer serving any purpose in relation to the passenger's original travel plan (together with, when relevant, a return flight to the first point of departure, at the earliest opportunity); 
+		The reimbursement shall be paid in cash, by electronic bank transfer, bank orders or bank cheques or, with the signed agreement of the passenger, in travel vouchers and/or other services.
+		(b) rerouting, under comparable transport conditions, to their final destination at the earliest opportunity; or 
+		(c) rerouting, under comparable transport conditions, to their final destination at a later date at the passenger's convenience, subject to availability of seats""" ;
+		rdfs:label "Regulation 261/2004, Art. 8 (1)"@en .
+
+:regulation261art81a rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "passengers shall be offered the choice between: (a) — reimbursement within seven days, by the means provided for in Article 7(3), of the full cost of the ticket at the price at which it was bought, for the part or parts of the journey not made, and for the part or parts already made if the flight is no longer serving any purpose in relation to the passenger's original travel plan, together with, when relevant, — a return flight to the first point of departure, at the earliest opportunity;" ;
+		rdfs:label "Regulation 261/2004, Art. 8(1)a"@en .		
+		
+:regulation261art12 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "This Regulation shall apply without prejudice to a passenger's rights to further compensation. The compensation may be deducted from such compensation" ;
+        rdfs:label "Regulation 261/2004, Art. 12"@en .		   
+		
+:regulation261art142 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "An operating air carrier denying boarding, cancelling or denying a flight shall provide each passenger affected with a written notice setting out the rules for compensation and assistance. The contact details of the national enforcement body shall also be given to the passenger in written form."@en ;
+        rdfs:label "Regulation 261/2004, Art. 14(2)"@en .		   
+		
+:regulation261art91a rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "Passengers shall be offered free of charge meals and refreshments in a reasonable relation to the waiting time."@en ;
+        rdfs:label "Regulation 261/2004, Art. 9(1)a"@en .		
+
+:regulation261art91b rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "Hotel accommodation in cases - where a stay of one or more nights becomes necessary, or - where a stay additional to that intended by the passenger becomes necessary;"@en ;
+        rdfs:label "Regulation 261/2004, Art. 9(1)b"@en .		
+
+:regulation261art91c rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "Transport between the airport and place of accommodation (hotel or other)."@en ;
+        rdfs:label "Regulation 261/2004, Art. 9(1)c"@en .		
+		
+:regulation261art92 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "In addition, passengers shall be offered free of charge two telephone calls, telex or fax messages, or e-mails."@en ;
+        rdfs:label "Regulation 261/2004, Art. 9(2)"@en .		   
+		
+:regulation261rec14 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "Extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken. Such circumstances may, in particular, occur in cases of political instability, meteorological conditions incompatible with the operation of the flight concerned, security risks, unexpected flight safety shortcomings and strikes that affect the operation of an operating air carrier."@en ;
+        rdfs:label "Regulation 261/2004, Recital 14"@en .
+		
+:regulation261rec15
+		rdfs:comment "Extraordinary circumstances should be deemed to exist where the impact of an air traffic management decision in relation to a particular aircraft on a particular day gives rise to a long delay, an overnight delay, or the cancellation of one or more flights by that aircraft, even though all reasonable measures had been taken by the air carrier concerned to avoid the delays or cancellations"@en ;
+        rdfs:label "Regulation 261/2004, Recital 15"@en .
+		
+:regulation261rec18 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "Care for passengers awaiting an alternative or a delayed flight may be limited or declined if the provision of the care would itself cause further delay" ; 
+        rdfs:label "Regulation 261/2004, Recital 18"@en .		   
+
+:regulation261rec20 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "Passengers should be fully informed of their rights in the event of denied boarding and of cancellation or long delay of flights, so that they can effectively exercise their rights" ;
+        rdfs:label "Regulation 261/2004, Recital 20"@en .		   
+
+:regulation1346 rdf:type ric:LegalSource, owl:NamedIndividual ;
+		rdfs:label "Council Regulation (EC) No 1346/2000 of 29 May 2000 on insolvency proceedings" .
+		
+:insolvencyagreement rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "In the event of an airline bankruptcy, IATA member airlines flying to and from the EU will make their best efforts to offer repatriation to passengers stranded away from home. These passengers will be provided access to discounted transport to return home, subject to available capacity.   The ‘rescue fares’ of a nominal amount will be available for purchase up to a maximum of two weeks after the event to anyone flying  to and from or within Europe who does not already possess insurance covering this eventuality. States responsible for the licensing of the insolvent airline should also play their role in communicating to stranded passengers the possibility of this rescue service. 2 - In some Member States purchases made by a credit card (and some debit cards) allow consumers to claim a refund from the card provider in the event of the service provider's insolvency. However, this refund is usually limited to the cost of the original ticket and in some cases subject to a minimum amount"@en;
+		rdfs:label "Agreement on Voluntary Repatriation Assistance To Passengers by IATA" ;
+		rdfs:seeAlso <http://www.iata.org/pressroom/pr/Documents/Voluntary-Repatriation-Assistance-to-Passengers-Report-PR-2014-11-25-01.pdf> .
+		
+:regulation261art101 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "If an operating air carrier places a passenger in a class higher than that for which the ticket was purchased, it may not request any supplementary payment" ;
+        rdfs:label "Regulation 261/2004, Art. 10(1)"@en .	
+		
+:regulation261art102 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "If an operating air carrier places a passenger in a class lower than that for which the ticket was purchased, it shall within seven days, reimburse: a)30 % of the price of the ticket for all flights of 1 500 kilometres or less;  b)50 % of the price of the ticket for all intra-Community flights of more than 1 500 kilometres, except flights between the European territory of the Member States and the French overseas departments, and for all other flights between 1 500 and 3 500 kilometres, or c)75 % of the price of the ticket for all flights not falling under (a) or (b), including flights between the European territory of the Member States and the French overseas departments" ;
+        rdfs:label "Regulation 261/2004, Art. 10(2)a"@en .	
+		
+:montreal172 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "The air carrier is liable for damage in case of destruction, loss or damage to checked baggage, if the event which caused the damage took place on board of the aircraft, or during any period within which the checked baggage was in the charge of the air carrier. However, the air carrier is not liable if the damage resulted from inherent defect, quality or vice of the baggage. In case of unchecked baggage, including personal items, the carrier is liable if the damage resulted from its fault or that of its servants or agents" ;
+		rdfs:label "Montreal Convention, Art. 17(2)"@en .
+
+:montreal173 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "If the carrier admits the loss of the checked baggage, or if the checked baggage has not arrived at the expiration of twenty-one days after the date on which it ought to have arrived, the passenger is entitled to enforce against the carrier the rights which flow from the contract of carriage" ;
+		rdfs:label "Montreal Convention, Art. 17(3)"@en .
+		
+:montreal221 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:comment "The carrier is liable for damage occasioned by delay in the carriage by air of passengers,  baggage. Nevertheless, the carrier shall not be liable for damage occasioned by delay if it proves that it and its servants and agents took all measures that could reasonably be required to avoid the damage or that it was impossible for it or them to take such measures" ;
+		rdfs:label "Montreal Convention, Art. 22(1)"@en .
+		
+:montreal222 rdf:type ric:LegalSource, owl:NamedIndividual ;
+		rdfs:comment """In the carriage of baggage, the liability of the carrier in the case of destruction, loss, damage or delay is limited to 1,000 Special Drawing Rights for each passenger,  
+		unless the passenger has made, at the time when the checked baggage was handed over to the carrier, a special declaration of interest in delivery at destination and has paid a supplementary sum if the case so requires. In that case the carrier will be liable to pay a sum not exceeding the declared sum, unless it proves that the sum is greater than the passenger's actual interest in delivery at destination""" ;
+		rdfs:label "Montreal Convention, Art. 22(2)"@en .
+
+:montreal42 rdf:type ric:LegalSource, owl:NamedIndividual ;
+		rdfs:comment "Any complaint to be made or instruction to be given under this Convention to the carrier shall have the same effect whether addressed to the contracting carrier or to the actual carrier" ;
+		rdfs:label "Montreal Convention, Art. 42"@en . 
+
+:montreal31 rdf:type ric:LegalSource, owl:NamedIndividual ;
+		rdfs:comment "Receipt by the person entitled to delivery of checked baggage or cargo without complaint is prima facie evidence that the same has been delivered in good condition and in accordance with the document of carriage. In the case of damage, the person entitled to delivery must complain to the carrier forthwith after the discovery of the damage, and, at the latest, within seven days from the date of receipt in the case of checked baggage and fourteen days from the date of receipt in the case of cargo. In the case of delay, the complaint must be made at the latest within twenty-one days from the date on which the baggage or cargo have been placed at his or her disposal. Every complaint must be made in writing and given or dispatched within the times aforesaid. If no complaint is made within the times aforesaid, no action shall lie against the air carrier" ;
+		rdfs:label "Montreal Convention, Art. 31"@en .
+
+:iataglossary rdf:type ric:LegalSource, owl:NamedIndividual ;
+ 		rdfs:label "IATA Glossary"@en ;
+		rdfs:seeAlso <http://www.iata.org/whatwedo/passenger/Documents/passenger-glossary-of-terms.xls> .
+	
+:regulation8895	rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:comment "The air carrier shall without delay, and in any event not later than fifteen days after the identity of the natural person entitled to compensation has been established, make such advance payments to meet immediate economic needs on a basis proportional to the hardship suffered" ;
+	rdfs:label "Regulation 889/2002, Art. 5"@en .
+	
+:regulation889612 rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:comment "All air carriers shall, when selling carriage by air in the Community, ensure that a summary of the main provisions governing liability for passengers and their baggage, including deadlines for filing an action for compensation and the possibility of making a special declaration for baggage, is made available to passengers at all points of sale, including sale by telephone and via the Internet.  In addition all air carriers shall  provide each passenger with a written indication of: the applicable limit for that flight on the carrier's liability in respect of destruction, loss of or damage to baggage and a warning that baggage greater in value than this figure should be brought to the airline's attention at check-in or fully insured by the passenger prior to travel; and the applicable limit for that flight on the carrier's liability for damage occasioned by delay" ;
+	rdfs:label "Regulation 889/2002, Art. 6(1)(2)"@en .
+	
+:com168p7 rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:label "Communication COM(2007)168" ;
+	rdfs:comment "Communication from the Commission to the European Parliament and the Council pursuant to Article 17 of the Regulation (EC) No 261/2004 on the operation and the results of this Regulation establishing common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights {SEC(2007) 426} (COM(2007) 168 final" ;
+	rdfs:seeAlso <http://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A52007DC0168> .
+	
+:opiniondget11 rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:label "Opinion from the Information Document of Directorate-General for Energy and Transport (DGET)" ;
+	rdfs:comment "Information Document of Directorate-General for Energy and Transport, Answers to Questions on the application of Regulation 261/2004" ;
+	rdfs:seeAlso <http://ec.europa.eu/transport/themes/passengers/air/doc/neb/questions_answers.pdf_reg_2004_261.pdf> .
+	
+:ecdraft rdf:type ric:LegalSource , owl:NamedIndividual ;	
+	rdfs:label "Draft list of extraordinary circumstances" ;
+	rdfs:comment """<b>List of extraordinary circumstances</b>
+	War / Political Instability - unforeseen disruption arising from war where travel is not recommended.
+	War / Political Instability - incident where the supply of aircraft fuel is limited or unavailable at short notice and without pre-notification.
+	Unlawful Act - e.g. terrorism
+	Sabotage - Acts of sabotage to the aircraft scheduled to operate the flight.
+	Security - Closure of the airport of departure or the airport of arrival without pre-notification for security reasons.
+	Security - Bomb discovery or bomb scare either onboard the aircraft or at the airport of departure or the airport of arrival.
+	Security - Hi-jacking of the aircraft.
+	Security - Removal of unaccompanied baggage due to a serious security concern.
+	Security - Removal of an unruly passenger from the aircraft for security reasons - thereby causing either a flight delay or diversion.
+	Meteorological - Weather conditions incompatible with the safe operation of the flight. These weather conditions may be forecast to arise at either the airport of departure, the airport of arrival or along the intended flight path of the aircraft.
+	Meteorological - Closure of either the airport of departure or the airport of arrival due to meteorological conditions.
+	Meteorological - Weather conditions resulting in capacity restrictions at either the airport of arrival or the airport of departure.
+	Meteorological - Damage to the aircraft which could affect the safety of the flight or the integrity of the aircraft and requires immediate assessment and/or repair and caused by other meteorological events (lightning strikes, hailstones, thunderstorms, severe turbulence etc).
+	Meteorological / De-icing - Extreme weather conditions which result in the elevated consumption and subsequent exhaustion of what would usually constitute ample de-icing stocks due to third party supply failures - with the result that the aircraft cannot be de-iced for departure.
+	Airport Closure - Closure of either the airport of arrival or the airport of departure for non-security and non-meteorological reasons.
+	Medical Grounds - Passenger or crew member becomes seriously ill or dies on-board or during the flight.
+	Bird-strikes - Bird-strikes to the aircraft during a flight which might cause damage which requires immediate compulsory checks and possible repair.
+	Manufacturing Defects - Discovery of a hidden manufacturing defect by the air carrier (this is often noted by unusual failure of the same aircraft part).
+	Unexpected flight safety shortcomings - Damage to the aircraft primary or secondary structure (e.g. metallic or composite structure) caused by third parties on the ground prior to the departure of a flight and requiring immediate assessment and/or repair. For example a collision between an airport vehicle and an aircraft.
+	Unexpected flight safety shortcomings - In-flight damage to the aircraft during the preceding flight, caused by a foreign object, and which requires immediate assessment and/or repair.
+	Unexpected flight safety shortcomings - Any technical issues which cause the pilot to carry out an aircraft turnaround or diversion.
+	Unexpected flight safety shortcomings - Failure of the bleed-air system/environmental control system on an aircraft (which had been properly maintained) either immediately prior to departure or in-flight.
+	Unexpected flight safety shortcomings - Premature failure of life-limited parts (as referenced in applicable maintenance data, contained within the aircraft maintenance manual, or Maintenance Planning Document, or Maintenance Review Board Report prior to their scheduled inspection/removal/retirement date (where those parts had been maintained in accordance with the required maintenance programme).
+	Unexpected flight safety shortcomings - Failure of on-condition/condition monitored parts i.e. parts which should not require unscheduled maintenance or replacement during normal operational service (for example propeller oil-temperature gauges. The premature failure of these parts during normal operational service when maintained in accordance with the maintenance programme is unpredictable).
+	Unexpected flight safety shortcomings - Failure of necessary or required aircraft systems (for example the cooling system, avionics system, flight control system, flaps, slats, rudders, thrust reverser, landing gear) either immediately prior to departure or in-flight (where those systems had been maintained in accordance with the required maintenance programme).
+	Unexpected flight safety shortcomings - Any other technical defects which become apparent immediately prior to departure or in-flight (where the system or part had been maintained in accordance with the required maintenance programme) and which require investigation and/or repair before the aircraft is airworthy for the intended flight.
+	Unexpected flight safety shortcomings - Smoke, fire or fumes on board the aircraft unless the problem has been caused by a part not being maintained in accordance with the required maintenance programme or due to a failure to follow appropriate operational procedures.
+	Industrial Relation Issues - Strikes that affect the operation of an air carrier. For example strikes undertaken by Air Traffic Control.
+	Air Traffic Management - Where Air Traffic Control suspends or restricts operations out of the airport of departure or into the airport of arrival.
+	Air Traffic Management - Where Air Traffic Control suspends or restricts operations into or out of a block of air-space through which the air carrier must travel in order to operate the flight.
+	<b>List of circumstances which are not extraordinary</b>
+	Technical Issues - Technical issues which arise as a result of the air carrier's failure to maintain its aircraft in accordance with the required maintenance programme.
+	Technical Issues - Technical issues which were found during maintenance where the part or system in question was scheduled to be checked. Over-running maintenance can be a reflection of poor maintenance planning.
+	Crew Out-of-Hours - When this occurs as a result of poor operational planning by the air carrier and inadequate flight and turnaround times being allocated for the aircraft.
+	Absence of correct Flight Documentation - Where the failure to prepare and submit the documentation necessary to operate the flight was due to factors within the air carrier's control.
+	Safety Assessment of Foreign Aircraft (SAFA) Inspections - SAFA aircraft inspections which reveal technical issues which require immediate assessment and/or aircraft repair. (These are issues that should have been addressed during the normal maintenance or operation of the aircraft)""";
+	rdfs:seeAlso <http://ec.europa.eu/transport/themes/passengers/air/doc/neb-extraordinary-circumstances-list.pdf> .
+		
+:opiniondget12 rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:label "Opinion from the Information Document of Directorate-General for Energy and Transport(DGET)" ;	
+	rdfs:comment "Information Document of Directorate-General for Energy and Transport, Answers to Questions on the application of Regulation 261/2004" ;
+	rdfs:seeAlso <http://ec.europa.eu/transport/themes/passengers/air/doc/neb/questions_answers.pdf_reg_2004_261.pdf> .
+	
+:com1748 rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:label "Communication COM(2011) 174" ;	
+	rdfs:comment "Communication from the Commission to the European Parliament and the Council on the application of Regulation 261/2004 establishing common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights, (COM(2011) 174 final)" ;
+	rdfs:seeAlso <http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:52011DC0174> .
+
+:case32111 rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:comment "‘Denied boarding’ relates not only to cases of overbooking, but covers all circumstances in which an air carrier refuses to carry a passenger, such as those concerning other grounds, operational reasons" ;
+	rdfs:label "(Case C-321/11)" ;
+	dct:identifier "ECLI:EU:C:2012:609" ;
+	rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?text=&docid=128002&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=118809> .
+	
+:casewalzclickair rdf:type ric:LegalSource, owl:NamedIndividual ;
+	rdfs:comment "The term ‘damage’ applied to baggage must be interpreted as including both material and non-material damage" ;
+	rdfs:label "(Case C-63/09)"@en ;
+	dct:identifier "ECLI:EU:C:2010:251" ;
+	rdfs:seeAlso <http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62009CJ0063> .
+
+:case8310 rdf:type ric:LegalSource, owl:NamedIndividual ;
+	rdfs:label "(Case C-83/10)"@en ;
+	rdfs:comment "‘Further compensation’ is intended to supplement the application of the standardised and immediate measures provided for by the EU Regulation. Further compensation allows passengers to be compensated for the entirety of the material and non-material damage they suffered due to the failure of the air carrier to fulfil its contractual obligations. Further compensation is carried by national courts." ;
+	dct:identifier "ECLI:EU:C:2011:652" ; 
+	rdfs:seeAlso <http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:62010CJ0083:EN:HTML> .
+	
+:case45213 rdf:type ric:LegalSource , owl:NamedIndividual ;
+	rdfs:comment "The actual arrival time corresponds to the time at which at least one of the doors of the aircraft is opened, the assumption being that, only at that moment, the passengers are permitted to leave the aircraft" ;
+	rdfs:label "(Case C-452/13)" ;
+	dct:identifier "ECLI:EU:C:2014:2141" ;
+	rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?docid=157348&doclang=EN> .
+			
+:case54907 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:label "(Case C-549/07)" ;
+		rdfs:comment "Extraordinary circumstances are events which could not have been avoided even if all reasonable measures had been taken, namely circumstances beyond the actual control of the air carrier; ii) events which, by their nature or origin, are inherent in the normal exercise of the activity of the air carrier and are beyond its actual control" ;
+		rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?docid=73223&doclang=en> ;
+		dct:identifier "ECLI:EU:C:2008:771" .
+
+:case40207 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:label "(Joined Cases(C-402/07);(C-432/07))" ;
+		rdfs:comment "A long delay entitles passengers to the same compensation as in the case of a flight cancellation: the passenger is entitled to compensation if he reaches his/her final destination with a delay of three hours or more. Such a delay does not, however, entitle passengers to compensation if the air carrier can prove that the long delay was caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken, namely circumstances beyond the actual control of the air carrier" ;
+		rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?docid=73703&doclang=EN> ;
+		dct:identifier "ECLI:EU:C:2009:716" .
+		
+:case58110 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:label "(Joined Cases(C-581/10);(C-629/10))" ;
+		rdfs:comment "Compensation should also apply to long delays, provided that passengers reach their final destination three hours or more after the scheduled arrival time (originally scheduled by the air carrier). A delay must be assessed in relation to the scheduled arrival time at that destination, that is, at the destination of the last flight, given that passengers suffer an irreversible loss of time. Such fixed compensation, is established in article 7 of the Regulation (between €250 and €600 depending on the distance of the flight). Such a delay does not, however, entitle passengers to compensation if the air carrier can prove that the long delay is caused by extraordinary circumstances" ;
+		rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?docid=128861&doclang=EN> ;
+		dct:identifier "ECLI:EU:C:2012:657" .
+		
+:case20408 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:label "(Case C-204/08)" ;
+		rdfs:comment "Jurisdiction" ;
+		rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?text=&docid=76299&pageIndex=0&doclang=en&mode=lst&dir=&occ=first&part=1&cid=715643> ;
+		dct:identifier "ECLI:EU:C:2009:439" .
+		
+:case13911 rdf:type ric:LegalSource , owl:NamedIndividual ;
+		rdfs:label "(Case C-139/11)" ;
+		rdfs:comment "Time-limits for bringing actions" ;
+		rdfs:seeAlso <http://curia.europa.eu/juris/document/document.jsf?docid=130243&doclang=en> ;
+		dct:identifier "ECLI:EU:C:2012:741" .
+			
+# INCIDENTS AS INDIVIDUALS		   
+:cancelledflight rdf:type :CancelledFlight , owl:NamedIndividual ;
+		rdfs:comment """Means the non-operation of a flight which was previously planned and on which at least one place was reserved, Art.(2)(l) (EC) Regulation 261/2004.
+		<hr> Cancellation covers the event in which an aeroplane took off, but for whatever reason, was subsequently forced to return to the airport of departure where its passengers were transferred to other flights, (<a href='http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=CELEX:62010CJ0083:EN:HTML'>Case C-83/10</a>)."""@en ;
+        rdfs:label "Cancelled Flight"@en .
+		
+:insolvency rdf:type :InsolvencyIncident, owl:NamedIndividual ;
+        rdfs:label "Insolvency"@en ;
+		rdfs:comment "When an air carrier has insufficient assets to meet all debts, or being unable to pay debts as and when they are due" ;
+		ric:hasLegalSource :regulation1346 .
+		
+:irresponsiveness rdf:type :Irresponsiveness, owl:NamedIndividual ;
+        rdfs:label "Irresponsiveness"@en ;
+		rdfs:comment "Incident related to the difficulties in getting information from the air carrier on where and how to complain; and on claiming redress (e.g. no phone number, no email or all telephone lines busy, no response to the complaint)" .
+
+:unfaircommercial rdf:type :UnfairCommercialPractices, owl:NamedIndividual ;
+        rdfs:label "Unfair commercial practices"@en ;
+		rdfs:comment "Unfair practises; misleading commercial practices (such as false claims, deceiving information or leaving out important information that would affect the consumer decision to buy something); and aggressive sales techniques that harass the consumer into buying something under pressure. (Article 5 of the Directive 2005/29/EC of 11 May 2005 concerning unfair business-to-consumer commercial practices in the internal market" .
+		
+:unfaircontractterms rdf:type :UnfairContractTerms, owl:NamedIndividual ;
+        rdfs:label "Unfair contract terms"@en ;
+		rdfs:comment "A contractual term shall be regarded as unfair if, contrary to the requirement of good faith, it causes a significant imbalance in the parties' rights and obligations arising under the contract, to the detriment of the consumer. (Article 3 (1) Directive of Unfair Contract terms 93/ 13/EEC)" .
+	
+:insatisfaction rdf:type :CustomerServiceInsatisfaction, owl:NamedIndividual ;
+        rdfs:label "Customer Service Insatisfaction"@en ;
+		rdfs:comment "Insatisfaction with the customer service provided by the airline in relation to the purchase of a service up to the point of delivery of the service. Examples: queue length, discriminatory issues related to language, nationality, quality of the food, behaviour or attitude of some of its employees" .
+		
+:upgrading rdf:type :SeatMisplacement, owl:NamedIndividual ;
+        rdfs:label "Seat Misplacement: Upgrading"@en ;
+		rdfs:comment "When an operating air carrier places a passenger in a class higher than that for which the ticket was purchased. (Article 10 (1)  Regulation 261/2004)" .
+		
+:downgrading rdf:type :SeatMisplacement, owl:NamedIndividual ;
+		rdfs:comment "When an operating air carrier places a passenger in a class lower than that for which the ticket was purchased. (Regulation 261/2004, Art. 10(2))"@en ;
+        rdfs:label "Seat Misplacement: Downgrading"@en .
+	
+:damagedbaggage rdf:type :DamagedBagagge, owl:NamedIndividual ;
+		rdfs:comment "Physical damage to baggage and/or its contents,IATA Glossary. It comprises all impairments to the substance of the baggage" ;
+        rdfs:label "Damaged baggage"@en .
+		
+:lostbaggage rdf:type :LostBaggage, owl:NamedIndividual ;
+        rdfs:label "Lost baggage"@en ;
+		rdfs:comment """Lost baggage is a piece of baggage which is irretrievably lost, IATA Glossary. 
+		A baggage delay turns into a loss of thereof if it has not arrived within 21 days (after the date on which it ought to have arrived) or the airline admits the loss, Art. 17 (2) Montreal Convention. 
+		Similar to lost baggage is the incident of missing items from the baggage. Therefore the same rules apply for those items. However, it will be hard to prove for the passenger that the specific object had been in the baggage in the first place""" .
+		
+:destroyedbaggage rdf:type :DestroyedBagagge, owl:NamedIndividual ;
+		rdfs:comment "A baggage which became unusable and cannot be used as supposed to" ;
+        rdfs:label "Destroyed baggage"@en .
+		
+:delayedbaggage rdf:type :DelayedBaggage, owl:NamedIndividual ;
+        rdfs:comment "Piece(s) of baggage which fails to arrive at the airport of destination on the same flight as the passenger, but is subsequently delivered." ;
+		rdfs:label "Delayed baggage"@en .
+		
+:volunteerdeniedboarding rdf:type :VolunteerDeniedBoarding, owl:NamedIndividual ;
+        rdfs:label "Volunteer denied boarding"@en ;
+		rdfs:comment "Volunteer Denied Boarding reflects the incident when a person who has presented himself for boarding under the conditions laid down in Article 3(2) and responds positively to the air carrier's call for passengers prepared to surrender their reservation in exchange for benefits, Article 2(k),  Regulation (EC) 261/2004.	 Article 2(k),  and 4(1) Regulation (EC) 261/2004".
+		
+:compelleddeniedboarding rdf:type :CompelledDeniedBoarding, owl:NamedIndividual ;
+        rdfs:label "Compelled denied boarding"@en ;
+		rdfs:comment "Compelled Denied Boarding reflects the incident when a person who has presented himself for boarding under the conditions laid down in Article 3(2) and does not respond positively to the air carrier's call for passengers to surrender their reservation and hence is compelled to yield it. Article 4(2)Regulation (EC) 261/2004"@en .
+
+:deniedboardingonreasonablegrounds rdf:type :DeniedBoardingOnReasonableGrounds, owl:NamedIndividual ;
+		rdfs:comment "Denied boarding occurs when there are reasonable grounds to deny them boarding, such as reasons of health, safety or security, or inadequate travel documentation, Article (2)(j) Regulation (EC) 261/2004. Broader interpretation from the CJEU: 'the concept of denied boarding relates not only to cases of overbooking, denied boarding covers all circumstances in which an air carrier refuses to carry a passenger, such as those concerning other grounds, such as operational reasons', German Rodriguez Cachafeiro, Maria de los Reyes Martinez-Reboredo Varela-Villamor v Iberia Lineas Aereas de Espana SA, Case C-321/11, 04/10/2012,  and C-22/11 (Finnair Oyj vs. Timy Lassooy)";
+		rdfs:label "Denied boarding on reasonable grounds"@en .
+		
+:deniedboardingonaconnectinglfight rdf:type :DeniedBoardingOnAConnectingFlight, owl:NamedIndividual ;
+        rdfs:label "Denied boarding on a connecting flight"@en ;
+		rdfs:comment "Passengers that are denied boarding on a connecting flight due to the fact their previous flight was delayed and caused further delay by the airline"@en.
+		
+:longdelayedatarrival rdf:type :LongDelayedAtArrival, owl:NamedIndividual ;
+        rdfs:label "Delayed flight at arrival of 3 hours or more"@en ;
+		rdfs:comment "When an operating air carrier reaches its final destination three hours or more after the scheduled arrival time (originally scheduled)" ;
+		ric:hasLegalSource :case40207, :case43207, :case58110, :case629.
+		
+:longdelayedatdeparture rdf:type :LongDelayedAtDeparture, owl:NamedIndividual ;
+        rdfs:label "Delayed flight at departure with a delay of 5 hours or more"@en ;	
+		rdfs:comment "When an operating air carrier reasonably expects a flight to be delayed at least 5 hours" ;
+		ric:hasLegalSource :regulation261art6.
+		
+:shortdelayedatdeparture rdf:type :ShortDelayedAtDeparture, owl:NamedIndividual ;
+		rdfs:label "Short delay at departure" ;
+        rdfs:comment """When an operating air carrier reasonably expects a flight to be delayed:
+		(a) 2h or more in the case of flights of 1500 km or less, or 
+		(b) 3h or more in the case of all intra-Community flights of more than 1500 km and for other flights between 1500 and 3500km, or  
+		(c) 4h or more in case of other flights not falling under (a) or (b)"""@en ;
+		ric:hasLegalSource :regulation261art6. 
+		
+:followingdaydelaydeparture rdf:type :FollowingDayDelayDeparture, owl:NamedIndividual ;
+		rdfs:label "Flight delayed until the following day" ;
+        rdfs:comment "Delayed flight at departure, when the reasonably expected time of departure is at least the day after the time of departure previously announced"@en ;
+		ric:hasLegalSource :regulation261art612.
+
+
+# REQUISITES
+
+:territorialapplication rdf:type ric:Requisite , owl:NamedIndividual ;
+		rdfs:label "Territorial application requisite"@en ;
+        rdfs:comment "These rights only apply to worldwide airlines and passengers when departing from an airport within EU, and also to all departing from an airport in a third country to a destination within the EU, where the operating air carrier is a Community air carrier (EU airline)"@en ;
+		ric:hasLegalSource :regulation261art31 .
+
+:baggageliabilityrequisite rdf:type ric:Requisite , owl:NamedIndividual ;
+		rdfs:label "Bagagge liabily requisite"@en ;
+		rdfs:comment """ i) Concerning checked-in baggage, the airline is liable for all damage occurring from the time the passenger delivers his piece at the check-in counter until he receives it at the baggage reclaim, Art. 17 (2) Montreal Convention.
+		ii) Concerning hand-luggage, the airline is liable for damage if the event wich caused damage took place on board of the aircraft, or in the course of any of the operations of embarking and disembarking, Art. 17 (1). This is due to the fact that passenger is in control of the baggage prior to boarding and retains it as soon as he disembarks the aircraft""" .
+	
+	
+# CONSTRAINTS		
+
+:careconstraint1 rdf:type ric:Constraint , owl:NamedIndividual ;
+		rdfs:label "Constraint to the right of meals and refreshments if it causes more delay"@en ;
+        rdfs:comment "Care for passengers awaiting an alternative or a delayed flight may be limited or declined if the provision of the care would itself cause further delay."@en ;
+		ric:hasLegalSource :regulation261rec18 .
+		
+:careconstraint2 rdf:type ric:Constraint , owl:NamedIndividual ;
+		rdfs:label "Constraint to the right of care if assistance already provided by a third country airport authority"@en ;
+        rdfs:comment "If a third country airport authority provides assistance on a flight incident to passengers (in the form of vouchers or accommodation), this preclude passenger from claiming further assistance from the airline concerned"@en ;
+		ric:hasLegalSource :regulation261art31b .
+		
+:reimbursementconstraint rdf:type ric:Constraint , owl:NamedIndividual ;	
+		rdfs:label "Constraint to the right of reimbursement"@en ;
+		rdfs:comment "If the Passenger chooses reimbursement, the airline no longer owes them a duty of care and they must make other travel arrangements themselves."@en .
+	
+:transportationandaccommodationconstraint rdf:type ric:Constraint , owl:NamedIndividual ;
+		rdfs:label "Constraint to the right of transportation and accommodation"@en ;
+		rdfs:comment "It has to be taken in account also the practicalities faced by the airline, such as the distance from the airport to the closest available hotels, combined with the time of the replacement flight in the following day."@en ;
+		rdfs:hasLegalSource :opiniondget12 .
+	
+:compensationincaseofcancellationconstraint rdf:type ric:Constraint, owl:NamedIndividual ;	
+		rdfs:label "Constraint to the right of compensation in case of cancelled flight"@en ;
+		ric:hasLegalSource :regulation261art72;
+		rdfs:comment "If the passenger is rerouted to his final destination, on an alternative flight, the operating air carrier may reduce the compensation by 50%, when the arrival time (of which does not exceed the scheduled arrival time of the flight originally booked) by:   -2h in respect to all flights of ≤  1500 kms; -3h, in respect to all intra-Community flights of > 1500 kms;  -3h, in respect for all other flights between 1500 and 3500km, Art.  7(2) (b)  -4h, in respect of all other flights" .
+		
+:compensationincaseofdeniedboardingconstraint rdf:type ric:Constraint, owl:NamedIndividual ;	
+		rdfs:label "Constraint to the right of compensation in case of compelled denied boarding"@en ;
+		ric:hasLegalSource :regulation261art72;
+		rdfs:comment "If the passenger is rerouted to his final destination, on an alternative flight, the operating air carrier may reduce the compensation by 50%, when the arrival time (of which does not exceed the scheduled arrival time of the flight originally booked) by:   -2h in respect to all flights of ≤  1500 kms; -3h, in respect to all intra-Community flights of > 1500 kms;  -3h, in respect for all other flights between 1500 and 3500km, Art.  7(2) (b)  -4h, in respect of all other flights" .		
+
+:burdenofproof rdf:type ric:Constraint, owl:NamedIndividual ;	
+		rdfs:label "Constraint in the burden of proof reason"@en ;
+		ric:hasLegalSource :regulation261art52;
+		rdfs:comment "The burden of proof concerning a cancellation and whether it is caused by extraordinary circumstances rests with the operating air carrier"@en .
+		
+		
+# FURTHER INTERPRETATION
+
+:consequentialdamagedelayinterpretation rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Right to 4150 SDR in case of consequential damage in a delayed flight";
+		rdfs:comment "The consequential damage due to delay needs to be proved according to the losses that passengers are subjected to. Examples of damage consist in costs of missing work, days of holidays, pre-booked accommodation or events, purchase necessities." ;
+		ric:hasLegalSource :montreal221 .
+
+:furthercompensationinterpretation rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Meaning of further compensation" ;
+		rdfs:comment "Passengers have rights to further compensation that should be pursued at the national court" ;
+		ric:hasLegalSource :regulation261art12, :case8310 .
+
+:interpretationofrighttorerouting1 rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further Interpretation to the right to rerouting1"@en ;
+		ric:hasLegalSource :com168p7 ;
+		rdfs:comment "Passengers should be rerouted via other carriers or by surface transport, if there is no alternative flight available on their own aircraft. The 'network airlines' generally have reciprocal agreements enabling them to reroute passengers via other carriers if necessary, at a reasonable price." .
+	
+:interpretationofrighttorerouting2 rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further Interpretation to the right to rerouting2"@en ;
+		rdfs:comment "Rerouting alternatives can be proposed by other means of transport, such as train, taxi or bus, if, the distance to be covered is appropriate for such transport modes" ;
+		ric:hasLegalSource :opiniondget11, :com168p7 .
+	
+:interpretationofrighttorerouting3 rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further Interpretation to the right to rerouting3"@en ;
+		rdfs:comment "Rerouting may be conducted by another mode of transport or by another carrier covering the same route or a very similar one, in the same or similar fare class. The 'comparable transport conditions' must be defined on the basis of the same or similar class and not on the ticket price paid by the individual passenger." .
+	
+:interpretationofrighttoinformation1 rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;
+		rdfs:label "Further interpretation of the right to information1"@en ;
+        rdfs:comment "Passengers should be fully informed of their rights in the event of denied boarding and of cancellation or long delay of flights, to effectively exercise their rights"@en ;
+		ric:hasLegalSource :regulation261rec20 .
+
+:interpretationofrighttoinformation2 rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;
+		rdfs:label "Further interpretation of the right to information2"@en ;
+        rdfs:comment "An operating air carrier denying boarding, delaying or cancelling a flight shall provide each passenger affected with a written notice setting out the rules for compensation and assistance. The contact details of the national designated body shall also be given to the passenger in written form"@en ;
+		ric:hasLegalSource :regulation261art142 .
+
+:interpretationdamagebaggage rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further interpretation of damage in baggage" ;
+		rdfs:comment "The limit of 1,000SDRs  must be interpreted as including both material and non-material damage"@en ;
+		ric:hasLegalSource :casewalzclickair .
+		
+:interpretationbaggageliability rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further interpretation of baggage liability"@en ;
+		rdfs:comment """EU air carriers must without delay, and in any event, not later than 15 days after the identity of the person entitled to compensation has been established, make such advance payments to meet immediate economic needs on a basis proportional to the hardship suffered’.
+		In practice, airlines treat this incident in different ways. Some provide immediate cash-payments for the passenger in order to purchase the most necessary articles; others reimburse the passenger after seeing the receipts."""@en ;
+		ric:hasLegalSource :regulation8895 .
+
+:interpretationbaggageinformationrequest rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further interpretation of baggage information request"@en ;
+		rdfs:comment """All air carriers shall, when selling carriage by air,
+		-ensure that information governing liability for passengers and their baggage, including deadlines for filing an action for compensation and the possibility of making a special declaration for baggage, is made available to passengers at all points of sale (including sale by telephone and via the Internet).
+		-provide each passenger with a written indication of the liability limits in respect of destruction, loss of or damage to baggage, and for damage occasioned by delay. """@en ;
+		ric:hasLegalSource :regulation88961 .
+
+:interpretationcomplainthandlingprocedure rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;
+		rdfs:label "Further interpretation of complaint handling procedure" ;
+		ric:LegalSource :montreal42 ;
+		rdfs:comment "When the operating and contracting airlines are different, the complaint can be issued against either. If the name or code of an air carrier is indicated on the ticket, that is the contracting air carrier" .
+		
+:interpretationondocumentation rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;		
+		rdfs:label "Documentation of the passenger" ;
+		rdfs:comment "It is stated in the terms and conditions of the air carriers that it is entirely the passenger’s responsibility to ensure that they are in possession of the necessary documentation. This includes items such as photographic ID, passports, visas, transit visas. It is advisable that passengers read the terms and conditions carefully to see what forms of identification are specified by the air carrier." .
+
+:interpretationofpassengersobligations rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;
+		rdfs:label "Further interpretation of the obligations of the passengers" ;
+		ric:hasLegalSource :regulation261art32a ;
+		rdfs:comment "Passengers must have a confirmed reservation on the flight concerned; Passengers must be present on time for check-in at the time indicated in the electronic panel or in the ticket, or if no time is indicated—not later THEN 45 min before the published departure time;When passengers have been through-checked, they have an obligation to arrive at the gate on time for boarding. This applies to both departing and connecting passengers" .
+
+:deniedboardinginterpretation rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;
+		rdfs:label "Further interpretation of the concept of 'denied boarding'" ;
+		ric:hasLegalSource :case32111 ;
+		rdfs:comment "The concept of ‘denied boarding’ covers all circumstances in which an air carrier refuses to carry a passenger, such as those concerning other grounds, such as operational reasons, because of the anticipated delay to an earlier flight also operated" .
+		
+:reasonablegroundsinterpretation rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;
+		rdfs:label "Further interpretation of the concept of reasonable grounds" ;
+		rdfs:comment """Denied boarding due to reasonable grounds. E.g. cases of: 
+		i) health
+		ii) safety
+		iii)security
+		iv) inadequate/insufficient travel documentation. 
+		The wording reasonable grounds allows a margin for personal judgement (e.g. on the part of ground staff and thus for an honest mistake).
+		The passenger must always confirm which travel documentation the company demands. Adequate travel documentation depends on each companies' terms and conditions, e.g. passport or Id, especially in case of minors."""@en .
+
+:arrivaltimeinterpretation 	rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		ric:hasLegalSource :case45213 ;
+		rdfs:label "Further interpretation of 'arrival time'" ;
+		rdfs:comment "The actual arrival time corresponds to the time at which at least one of the doors of the aircraft is opened, the assumption being that, at that moment, the passengers are permitted to leave the aircraft" .
+		
+:extraordinarycircumstancesinterpretation1 	rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further interpretation of extraordinary circumstances1" ;
+		rdfs:comment "Extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken. Such circumstances may, in particular, occur in cases of political instability, meteorological conditions incompatible with the operation of the flight concerned, security risks, unexpected flight safety shortcomings and strikes that affect the operation of an operating air carrier."@en ;
+		ric:hasLegalSource :regulation261rec14 .
+		
+:extraordinarycircumstancesinterpretation2	rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further interpretation of extraordinary circumstances2" ;
+		rdfs:comment "Extraordinary circumstances should be deemed to exist where the impact of an air traffic management decision in relation to a particular aircraft on a particular day gives rise to a long delay, an overnight delay, or the cancellation of one or more flights by that aircraft, even though all reasonable measures had been taken by the air carrier concerned to avoid the delays or cancellations"@en ;
+        ric:hasLegalSource :regulation261rec15 .
+		
+:extraordinarycircumstancesinterpretation3	rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further interpretation of extraordinary circumstances3" ;
+		rdfs:comment "Extraordinary Circumstances are events which, owing to its nature or origin, are not inherent to the normal exercise of  the activity of the air carrier, that could not have been avoided, even if all reasonable measures had been taken, namely circumstances which are beyond the air carrier’s actual control" ;
+		ric:hasLegalSource :case54907.
+		
+:rightsinlongdelayatarrivalinterpretation rdf:type ric:FurtherInterpretation , owl:NamedIndividual ;	
+		rdfs:label "Further interpretation of the rights in case of long delay interpreted at arrival" ;	
+		rdfs:comment "A long delay entitles passengers to the same compensation as in the case of a flight cancellation: the passenger is entitled to compensation if he reaches his/her final destination with a delay of three hours or more. Such a delay does not, however, entitle passengers to compensation if the air carrier can prove that the long delay was caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken, namely circumstances beyond the actual control of the air carrier. See other cases. Christopher Sturgeon v Condor Flugdienst GmbH (C-402/07); and Stefan Bock and Others v Air France SA (C-432/07), 19/11/2009.  Nelson v Lufthansa AG  (C-581/10); and TUI Travel/IATA/British Airways/easyJet/the Queen v Civil Aviation Authority ( C-629/10) 23/10/2012.  2)Art. 12 Regulation (EC) 261/2004 'This Regulation shall apply without prejudice to a passenger's rights for further compensation'";
+		ric:hasLegalSource :case40207, :case5810, :case58110 .
+		
+#EXCEPTIONS
+
+:earlynoticeexception rdf:type ric:Exception , owl:NamedIndividual ;
+		rdfs:label "Exception to the right of compensation in case of being informed in advance of the cancellation" ;
+		ric:hasLegalSource :regulation261art51ci ;
+		rdfs:comment """There is no right to compensation if the passenger is informed of the cancellation: 
+		i)at least 2 weeks before the scheduled time of departure; 
+		ii)between 2 weeks and 7 days before the scheduled time of departure and are offered rerouting (allowing them to depart no more than 2h before the scheduled time of departure and less than 4 h after the scheduled time of  arrival); or 
+		iii)less than 7 days before the scheduled time of departure, and are offered rerouting, allowing them to depart no more than 1h before the scheduled time of departure and less than 2 h after the scheduled time of  arrival)""" .
+
+:badbagexception rdf:type ric:Exception , owl:NamedIndividual ;
+		rdfs:label "Baggage with prior defect or inherent vice" ;
+		rdfs:comment "If the baggage had any vice or inherent defect prior to the flight, the airline is not liable for any damage caused to the baggage" ;
+		ric:hasLegalSource :montrealart172 .
+		
+:bagdamageunavoidable rdf:type ric:Exception , owl:NamedIndividual ;
+		rdfs:label "Exception to liability for damage caused by delay"@en ;
+		rdfs:comment "The carrier shall not be liable for damage occasioned by delay if it proves that it and its servants and agents took all measures that could reasonably be required to avoid the damage or that it was impossible for it or them to take such measures, Art. 19  Montreal Convention"@en ;
+		ric:hasLegalSource :montrealart19 .
+		
+:extraordinarycircumstances rdf:type ric:Exception , owl:NamedIndividual ;
+		rdfs:label "Exception to the right of compensation if there are extraordinary circumstances"@en ;
+		rdfs:comment "An operating air carrier shall not be obliged to pay compensation if it can prove that the cancellation is caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken."@en ;
+		ric:hasLegalSource :regulation261art53 .
+	
+
+# ENFORCEMENT PROCEDURE
+:complainthandling rdf:type ric:EnforcementProcedure , owl:NamedIndividual ;
+		rdfs:label "Complaint handling procedure"@en ;
+        rdfs:comment """To write a complaint, a standard complaint form should be filled in and addressed against the air carrier. If the air carrier fails to respond or if they reject the claim, a further step can be taken: lodging a complaint to the National Enforcement Body. <a href='http://ec.europa.eu/transport/themes/passengers/air/doc/complain_form/eu_complaint_form_en.pdf'> Complaint form</a> ); <a href='http://ec.europa.eu/transport/themes/passengers/air/doc/2004_261_national_enforcement_bodies.pdf'>NEB address</a> ;
+		Copies of the proof documents should be presented as annex to the complaint, in order to confirm the narrated facts and sustain the redress request (copies of the boarding pass, expenses, etc.)"""@en ;
+		rdfs:seeAlso <http://ec.europa.eu/transport/themes/passengers/air/doc/complain_form/eu_complaint_form_en.pdf> .
+
+:baggagecomplainthandling rdf:type ric:EnforcementProcedure , owl:NamedIndividual ;	
+		rdfs:label "Baggage complaint procedure"@en ;
+		rdfs:comment """An additional form called PIR (Property Irregularity Report) should be filled for baggage complaints, before leaving the airport (the complaint desks are located generally at the baggage pick up point and shall give each passenger this PIR form). 
+		Upon completion of the form, passengers should be given a copy of it or request it.
+		The passenger must complain to the carrier forthwith after the discovery of the damage, and, at the latest, within 7 days from the date of receipt, in the case of checked baggage. In the case of delay, the complaint must be made at the latest within 21 days from the date on which the baggage have been placed at his  disposal. Every complaint must be made in writing and given or dispatched within these time period. If no complaint is made within the times aforesaid, no action shall lie against the carrier, save in the case of fraud on its part. Art. 31 Montreal Convention ;
+		Passengers  have to prove the extent of their loss. Accordingly, copies of the proof documents should be presented in annex to the complaint, in order to confirm the narrated facts and to sustain the redress request (proof of purchase for the luggage, receipt/credit card statements, boarding pass, receipts of the essential purchases expenses). 
+		Depreciation rates are applied by the airlines when calculating compensation with the rationale being that as the consumer had the item for a certain period of time they had received some beneficial use.
+		Legal Action Procedure - The time-limit to claim for damages in court proceedings is 2 years from the date of arrival of the aircraft, or from the date on which the aircraft ought to have arrived, Article 35 Montreal Convention""" .
+		
+:insolvencyprocedure rdf:type ric:EnforcementProcedure , owl:NamedIndividual ;
+		rdfs:label "Resort to the ECC network"@en ;
+		rdfs:comment "It shall be for each Member State to decide which of these facilities shall be available and whether to enable the courts or administrative authorities to require prior recourse to other established means of dealing with complaints, Article 11 Directive 2005/29/EC;The Passenger should request help in the local ECC"@en .
+
+:eccprocedure rdf:type ric:EnforcementProcedure , owl:NamedIndividual ;
+		rdfs:label "Complaint to the nearest ECC-Net"@en ;
+		rdfs:comment "Please see the following link to contact the European Consumer Centre. " ;
+		rdfs:seeAlso <http://ec.europa.eu/consumers/solving_consumer_disputes/non-judicial_redress/ecc-net/index_en.htm> .
+		
+:legalactionprocedure rdf:type ric:EnforcementProcedure , owl:NamedIndividual ;
+		rdfs:comment """Follow Legal Action Procedure in courts.<hr><i>When to take legal action</i>. When there is a delayed/cancelled/denied flight, the limitation period is determined according to the rules of each Member state on the limitation of actions, (<a href='http://curia.europa.eu/juris/document/document.jsf?docid=130243&doclang=en'>Case C-139/11</a>);
+		<i>Where to take legal action</i>. The jurisdiction can be both at the place of departure and the place of arrival – depending on the passenger’s choice, (<a href='http://curia.europa.eu/juris/document/document.jsf?text=&docid=76299&pageIndex=0&doclang=en&mode=lst&dir=&occ=first&part=1&cid=715643'>Case C-204/08</a>)."""@en ;	
+		rdfs:label "Legal Action Procedure"@en .
+		
+# INCIDENTS TRIGGERING RIGHTS		 
+
+:righttoinformation rdf:type ric:Right , owl:NamedIndividual ;
+					rdfs:label "Right to Information"@en ; 
+					rdfs:comment "Right to be informed about the cause of the incident and the applicable rights" ;
+					ric:isTriggeredBy  :cancelledflight ;
+					ric:hasLegalSource :regulation261art52, :regulation261art142 ;
+					ric:subjectTo :territorialapplication;
+					ric:subjectTo :interpretationofrighttoinformation1, :interpretationofrighttoinformation2;
+					ric:hasEnforcementProcedure :complainthandling .
+					
+:righttocommunications rdf:type ric:Right , owl:NamedIndividual ;
+					rdfs:label "Right to Communications"@en ;
+					rdfs:comment "Right to have free of charge two telephone calls, telex or fax messages, or e-mails" ;
+					ric:isTriggeredBy :cancelledflight ;
+                    ric:hasLegalSource :regulation261art92 ;
+					ric:subjectTo :territorialapplication;
+					ric:hasEnforcementProcedure :complainthandling .
+		
+:righttomeals rdf:type ric:Right , owl:NamedIndividual ;
+					rdfs:label "Right to Meals and Refreshments"@en ;
+					rdfs:comment "Right to have free of charge meals and refreshments in a reasonable relation to the waiting time. This right may vary according to class of service and time of day" ;
+					ric:hasLegalSource :iataglossary,:regulation261art91a ;
+					ric:isTriggeredBy :cancelledflight ;
+					ric:subjectTo :territorialapplication, :careconstraint1, :careconstraint2 ;
+					ric:hasEnforcementProcedure :complainthandling .
+
+:righttorepatriation rdf:type ric:Right, owl:NamedIndividual ;
+			rdfs:label "Right to Repatriation"@en ;
+			ric:isTriggeredBy :insolvency ;
+			ric:hasLegalSource :insolvencyagreement ;
+			ric:hasEnforcementProcedure :insolvencyprocedure .
+
+:righttoreimbursementdowngrading rdf:type ric:Right, owl:NamedIndividual ;
+			rdfs:label "Right to Reimbursement due to Downgrading"@en ;
+			ric:isTriggeredBy :downgrading ;
+			ric:hasLegalSource :regulation261art102 ;
+			ric:hasEnforcementProcedure :complainthandling .
+
+:righttoreimbursementupgrading rdf:type ric:Right, owl:NamedIndividual ;
+			rdfs:label "No Right"@en ;
+			ric:isTriggeredBy :upgrading ;
+			ric:hasLegalSource :regulation261art101 .
+					
+:rightthatdependsonnationallegislation rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right that depends on national legislation"@en ;
+		ric:isTriggeredBy :unfaircontractterms, :unfaircommercial, :insatisfaction, :irresponsiveness ;
+		ric:hasEnforcementProcedure :eccprocedure .
+
+:righttoreimbursement1000sdr rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to up to 1000 SDRs"@en ; 
+		ric:isTriggeredBy :damagedbaggage,  :lostbaggage, :destroyedbaggage ;
+		ric:subjectTo :baggageliabilityrequisite, :interpretationdamagebaggage, :interpretationbaggageliability, :interpretationcomplainthandlingprocedure, :interpretationbaggageinformationrequest, :badbagexception  ;
+		ric:hasEnforcementProcedure :baggagecomplainthandling ;
+		ric:hasLegalSource :montreal172, :montreal222 .
+
+:righttoreimbursement1000sdrfordelay rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to up to 1000 SDRs"@en ;
+		ric:isTriggeredBy :delayedbaggage ;
+		ric:subjectTo :baggageliabilityrequisite, :interpretationdamagebaggage, :interpretationbaggageinformationrequest, :interpretationbaggageliability, :interpretationcomplainthandlingprocedure, :bagdamageunavoidable ;
+		ric:hasEnforcementProcedure :baggagecomplainthandling ;
+		ric:hasLegalSource :montreal172, :montreal222 .
+		
+:norightreasonabledenied rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "No right to claim"@en ;
+		ric:isTriggeredBy :deniedboardingonreasonablegrounds ;
+		ric:subjectTo :reasonablegroundsinterpretation.
+
+:righttoreimbursementreroutingdeniedconnecting rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to reimbursement or rerouting"@en ;
+		ric:isTriggeredBy :deniedboardingonaconnectinglfight ;
+		ric:hasLegalSource :case32111, :regulation261art8 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure ;
+		ric:subjectTo :reimbursementconstraint, :deniedboardinginterpretation, :interpretationofrighttorerouting1, :interpretationofrighttorerouting2, :interpretationofrighttorerouting3 .
+		
+:rightofvolunteerstorerouting rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to choose between i) reimbursement and return flight to the first point of departure; or ii) right to rerouting"@en ;
+		ric:isTriggeredBy :volunteerdeniedboarding ;		
+		ric:hasLegalSource :regulation261art4 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure ;
+		ric:subjectTo :interpretationofpassengersobligations, :interpretationofrighttorerouting1, :interpretationofrighttorerouting2, :interpretationofrighttorerouting3, :territorialapplication, :deniedboardinginterpretation . 
+		
+:righttoinformationsvolunteers rdf:type ric:Right , owl:NamedIndividual ;
+        rdfs:label "Right to Information"@en ;
+		rdfs:comment "Right to be informed about the cause of the incident and the consequent applicable rights" ;
+		ric:isTriggeredBy :volunteerdeniedboarding ;	
+		ric:hasLegalSource :regulation261art142 ;
+		ric:subjectTo :territorialapplication ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+
+:righttocompensationforcompelled rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to compensation due to denied boarding"@en ;
+		ric:isTriggeredBy :compelleddeniedboarding ; 
+		ric:subjectTo :furthercompensationinterpretation, :territorialapplication, :compensationincaseofcancellationconstraint ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure ;
+		ric:hasLegalSource :regulation261art71, :ecdraft .	
+		
+:righttomealsdenied rdf:type ric:Right , owl:NamedIndividual ;
+        rdfs:label "Right to Meals and Refreshments"@en ;		
+		rdfs:comment "Consists in a form of assistance based in the right to have free of charge meals and refreshments in a reasonable relation to the waiting time. This may vary according to class of service and time of day" ;
+		ric:hasLegalSource :iataglossary, :regulation261art91a ;
+		ric:isTriggeredBy :compelleddeniedboarding ;	
+		ric:subjectTo :territorialapplication, :careconstraint1 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .	
+	
+:righttoaccommodationdenied rdf:type ric:Right, owl:NamedIndividual ;		
+		rdfs:label "Right to accommodation and transportation."@en ;
+		rdfs:comment "Right to have free of charge transport between the airport and place of accommodation (hotel or other)" ;
+		ric:isTriggeredBy :compelleddeniedboarding ;
+		ric:subjectTo :territorialapplication, :opiniondget12, :transportationandaccommodationconstraint ;
+		ric:hasLegalSource :regulation261art91bc ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+
+:rightreimbursementreroutingcompelled rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to reimbursement or rerouting"@en ;
+		ric:isTriggeredBy :deniedboardingonaconnectingflight ;
+		ric:hasLegalSource :case32111, :regulation261art8ab ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure ;
+		ric:subjectTo :reimbursementconstraint, :interpretationofpassengersobligations, :deniedboardinginterpretation, :interpretationofrighttorerouting1, :interpretationofrighttorerouting2, :interpretationofrighttorerouting3 .
+		
+:rightofvolunteerstobenefits ric:isTriggeredBy ric:isTriggeredBy ;
+		ric:hasLegalSource :regulation261art41 ; 	
+		ric:subjectTo :territorialapplication, :deniedboardinginterpretation ;		
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+		
+:righttocompensationforlatearrival rdf:type ric:Right , owl:NamedIndividual ;
+        rdfs:label "Right to compensation";
+		rdfs:comment "A long delay entitles passengers to the right of compensation if he reaches his/her final destination with a delay of three hours or more. The right to compensation consists of a payment of an amount of money  regarding the passenger's inconvenience of a flight disruption. The amount depends on the flight distance and on the type of flight. The compensation shall be paid in cash, by electronic bank transfer, bank orders or bank cheques or, with the signed agreement of the passenger, in travel vouchers and/or other services"@en ;
+		ric:isTriggeredBy :longdelayedatarrival ;
+		ric:hasLegalSource :regulation261art71, :case40207, :case5810, :case58110 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure ;
+		ric:subjecTo :ecdraft, :righttofurthercompensationinterpretation, :arrivaltimeinterpretation, :rightsinlongdelayatarrivalinterpretation, :consequentialdamagedelayinterpretation, :bagdamageunavoidable, :extraordinarycircumstances, :extraordinarycircumstancesinterpretation1, :extraordinarycircumstancesinterpretation2, :extraordinarycircumstancesinterpretation3 .
+		
+:righttocompensationforcancellation rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to compensation due to cancellation"@en ;
+		rdfs:comment """The right to compensation consists of a payment of an amount of money  regarding the passenger's inconvenience of a flight disruption. 
+		The amount depends on the flight distance and on the type of flight. 
+		The compensation shall be paid in cash, by electronic bank transfer, bank orders or bank cheques or, with the signed agreement of the passenger, in travel vouchers and/or other services. """@en ;
+		ric:isTriggeredBy :cancelledflight ;
+		ric:subjectTo :furthercompensationinterpretation, :extraordinarycircumstancesinterpretation1, :extraordinarycircumstancesinterpretation2, :extraordinarycircumstancesinterpretation3, :ecdraft, :territorialapplication, :extraordinarycircumstances, :burdenofproofcancellation, :earlynoticeexception ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure ;
+		ric:hasLegalSource :regulation261art51c, :regulation261art51ci, :regulation261art71 .
+		
+:rightreimbursementreroutingdeniedcancellation rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to choose between i) reimbursement; or ii) right to rerouting"@en ;
+		ric:isTriggeredBy :cancelledflight ;
+		ric:subjectTo :territorialapplication, :reimbursementconstraint, :interpretationofrighttorerouting1, :interpretationofrighttorerouting2, :interpretationofrighttorerouting3, :opiniondget11, :com1748, :opiniondget12, :regulation261art31b, :com168p7 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure ;
+		ric:hasLegalSource :regulation261art81 .
+		
+:righttoaccommodationbycancellation rdf:type ric:Right, owl:NamedIndividual ;		
+		rdfs:label "Right to accommodation and transportation, in case of rerouting caused by a cancelled flight" ;
+		rdfs:comment """When the reasonably expected time of departure of the new flight is at least the day after the departure as it was planned for the cancelled flight.
+		Right to have free of charge transport between the airport and place of accommodation (hotel or other) and right to accommodation (in cases where a stay of one or more nights becomes necessary)."""@en ;
+		ric:isTriggeredBy :cancelledflight ;
+		ric:subjectTo :territorialapplication, :interpretationofrighttorerouting3, :opiniondget12 ;
+		ric:hasLegalSource :regulation261art9bc ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+		
+:rightreimbursementreroutingdelaydeparture rdf:type ric:Right, owl:NamedIndividual ;
+		rdfs:label "Right to reimbursement"@en ;	
+		rdfs:comment """<ul><li>Reimbursement consists in the refund, within seven days, of the full cost of the ticket at the price at which it was bought, for the part or parts of the journey not made unused flight tickets), and for the part or parts already made if the flight is no longer serving any purpose in relation to the passenger's original travel plan. This right is offered together with, when relevant, a return flight to the first point of departure, at the earliest opportunity, Article 8 (1) (a) of the (EC) Regulation"""@en ;
+		ric:isTriggeredBy :longdelayedatdeparture ;
+		ric:hasLegalSource :regulation261art81a ;
+		ric:subjectTo :reimbursementconstraint, :consequentialdamageinterpretation, :bagdamageunavoidable, :territorialapplication ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+
+:righttoaccommodationfollowindaydep rdf:type ric:Right, owl:NamedIndividual ;		
+		rdfs:label "Right to accommodation and transportation."@en ;
+		rdfs:comment "Right to have free of charge transport between the airport and place of accommodation (hotel or other) and right to accommodation (in cases where a stay of one or more nights becomes necessary)" ;
+		ric:isTriggeredBy :followingdaydelaydeparture ;
+		ric:hasLegalSource :regulation261art91b, :regulation261art91c ;
+		ric:subjectTo :territorialapplication, :transportationandaccommodationconstraint, :consequentialdamageinterpretation, :bagdamageunavoidable, :opiniondget12 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+
+:righttoinformationshortdelay rdf:type ric:Right , owl:NamedIndividual ;
+        rdfs:label "Right to Information"@en ;	
+		rdfs:comment "Right to be informed about the cause of the incident and the consequent applicable rights" ;
+		ric:isTriggeredBy :shortdelayedatdeparture ;
+		ric:hasLegalSource :regulation261art142 ;
+		ric:subjectTo :territorialapplication ;
+		ric:subjectTo :interpretationofrighttoinformation1, :interpretationofrighttoinformation2 ;
+		ric:hasEnforcementProcedure :complainthandling .
+
+:righttocommunicationsshortdelay rdf:type ric:Right , owl:NamedIndividual ;
+        rdfs:label "Right to Communications"@en ;
+		rdfs:comment "Right to have free of charge two telephone calls, telex or fax messages, or e-mails" ;
+		ric:isTriggeredBy :shortdelayedatdeparture ;
+		ric:subjectTo :territorialapplication ;
+		ric:hasLegalSource :regulation261art92 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+		
+:righttomealsshortdelay rdf:type ric:Right , owl:NamedIndividual ;
+        rdfs:label "Right to Meals and Refreshments"@en ;
+		rdfs:comment "Consists in a form of assistance based in the right to have free of charge meals and refreshments in a reasonable relation to the waiting time. This may vary according to class of service and time of day" ;
+		ric:hasLegalSource :iataglossary, :regulation261art91a ;
+		ric:isTriggeredBy :shortdelayedatdeparture ;
+		ric:subjectTo :territorialapplication, :careconstraint1, :careconstraint2 ;
+		ric:hasEnforcementProcedure :complainthandling, :legalactionprocedure .
+		
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
+
+
+

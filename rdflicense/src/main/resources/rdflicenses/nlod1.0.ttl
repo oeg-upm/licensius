@@ -1,0 +1,337 @@
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://purl.org/NET/rdflicense/nlod1.0>
+      a       odrl:Policy ;
+      rdfs:label "Norwegian Licence for Open Government Data NLOD" ;
+      rdfs:seeAlso <https://data.norge.no/nlod/en/1.0> ;
+		cc:jurisdiction <http://dbpedia.org/resource/Norway> ;
+      cc:legalcode """          
+Norwegian Licence for Open Government Data (NLOD)
+Preface of licence
+This licence grants you the right to copy, use and distribute information, provided you acknowledge the contributors and comply with the terms and conditions stipulated in this licence. By using information made available under this licence, you accept the terms and conditions set forth in this licence. As set out in Section 7, the licensor disclaims any and all liability for the quality of the information and what the information is used for.
+
+This licence shall not impose any limitations on the rights or freedoms of the licensee under the Norwegian Freedom of Information Act or any other legislation granting the general public a right of access to public sector information, or that follow from exemptions or limitations stipulated in the Norwegian Copyright Act. Further, the licence shall not impose any limitations on the licensee's freedom of expression recognized by law.
+
+Comments:
+The first sentence provides a brief introduction to the licence and points out key rights and obligations. The licence is primarily intended for use when public entities distribute data and other relevant content for further use by business and industry as well as civilian society.
+
+The other sentence describes how the licence agreement is entered into. Use of copyrighted information requires a licence (a permit). Such a licence is granted when you enter into the licence agreement by using the information and thus become a licensee.
+
+The third paragraph emphasises that the licence shall not deprive the licensee of any rights and freedoms pursuant to law. The intention behind the licence is to grant the licensee rights that he or she otherwise would not have, not to deprive the licensee of rights.
+
+The terms and conditions stipulated in the licence are based on the assumption that the information thus distributed is protected under the Copyright Act or other legislation. If the information is exempt from copyright protection, e.g. under Section 9 of the Copyright Act, everyone is at liberty to freely use the information without having to comply with the terms and conditions set out in this licence.
+
+This licence addresses the right to use information. It does not address access to information or terms of delivery.
+
+1. Definitions
+«Database» shall mean a database or similar protected under Section 43 of the Norwegian Copyright Act.
+«Information» shall mean texts, images, recordings, data sets or other works protected under Section 1 of the Norwegian Copyright Act, or which are protected under provisions addressing what is referred to as «neighbouring rights» in Chapter 5 of the Norwegian Copyright Act (including databases and photographs), and which are distributed under this licence.
+«Copy» shall mean reproduction in any form.
+«Licensee» and «you» shall mean natural or legal persons using information under this licence.
+«Licensor» shall mean the natural or legal person that makes information available under this licence.
+«Distribute» shall mean any actions whereby information is made available, including to distribute, transfer, communicate, disperse, show, perform, sell, lend and rent.
+«Use» shall mean one or more actions relevant to copyright law requiring permission from the owner of the copyright.
+Comments:
+Section 1 has various definitions used below in the licence. The defined term is indicated in bold. In the agreement, the term information is used as a generic term for everything offered for use under the licence. This may comprise various types of works such as copyrighted works (for example articles, novels, creative photographs, illustrations, etc.) as well as protected databases, tables, sound recordings, films, regular photographs, recordings of performances by performing artists, etc. The wording is general enough to cover computer programmes, but it is recommended that free licences adapted especially for computer programmes be used for these.
+
+Because the licence will primarily be used for Open Government data, the word «data» has been used in the title of the licence. Thus, «Open Government data» must be understood to constitute a type of «information». The licence can, however, also be used for licensing of other types of information. As a consequence, the term « Open Government data» has been used only in the title, while the term «Information» is used in the licence itself.
+
+In colloquial terms, the word «database» can also be used for certain types of catalogues which are protected as copyrighted works under Section 2 of the Copyright Act. The databases covered under Section 2 are covered by the definition of information. For such «databases», the Creative Commons licences will be compatible in accordance with Section 9 of this licence.
+
+2. Licence
+The licensee, subject to the limitations that follow from this licence, may use the information for any purpose and in all contexts, by:
+
+copying the information and distributing the information to others,
+modifying the information and/or combining the information with other information, and
+copying and distributing such changed or combined information.
+This is a non-exclusive, free, perpetual and worldwide licence. The information may be used in any medium and format known today and/or which will become known in the future. The Licensee shall not sub-license or transfer this licence.
+
+Comments:
+In Section 2 the licensee is granted a very extensive and liberal right to use the information. The licensee may share the information with others, change the information and use the information in the way he or she wants to. The only exception is if the licensor is not entitled to license the information under this licence; i.e. a mistake has been made. Please refer to Section 3 for further details.
+
+In the last sentence it is specified that the licensee is not entitled to sub-license or transfer this licence. This entails that this licence does not grant the licensee permission to grant others permission to use the information. The licensee does not have permission to change the terms and conditions for use of the information. Although the licensee has the right to transfer the information under this licence, the party receiving such information must obtain permission from the original licensor to be able to use the information. In practice, this means that the terms and conditions of this licence apply regardless of whom you receive the information from.
+
+3. Exemptions
+The licence does not apply to and therefore does not grant a right to use:
+
+information which contains personal data covered by the Norwegian Personal Data Act unless there is a legitimate basis for the disclosure and further processing of the personal data
+information distributed in violation of a statutory obligation to observe confidentiality
+information excluded from public disclosure pursuant to law, including information deemed sensitive under the Norwegian National Security Act
+information subject to third party rights which the licensor is not authorised to license to the licensee
+information protected by intellectual property rights other than copyright and neighbouring rights in accordance with Chapter 5 of the Norwegian Copyright Act, such as trademarks, patents and design rights, but this does not entail an impediment to use information where the licensor's logo has been permanently integrated into the information or to attribute the origin of the information in accordance with the article below relating to attribution.
+If the licensor has made available information not covered by the licence according to the above list, the licensee must cease all use of the information under the licence, and erase the information as soon as he or she becomes aware of or should have understood that the information is not covered by the licence.
+
+Comments:
+This licence is to be used for information which can be re-used. It shall not and cannot be used for information exempt from public disclosure in any way. If such information has been distributed under this licence, it will be because a mistake has been made. The licence does not apply for information of this type. Thus, it is not permissible to use this type of information by virtue of the licence.
+
+The licensee must be able to assume that the licensor has made a pre-assessment of whether the information can be distributed or not. However, it must be possible to hold the licensee responsible for distributing the information if the licensee should have understood that the information was distributed by mistake.
+
+Publication of «information subject to third party rights which the licensor is not authorised to license to the licensee» entails that the licensor is not the owner of the copyright to the information and that he has not been granted a sufficient licence from the owner of the copyright.
+
+4. Effects of breach of the licence
+The licence is subject to the licensee's compliance with the terms and conditions of this licence. In the event that the licensee commits a breach of this licence, this will entail that the licensee's right to use the information will be revoked immediately without further notice. In case of such a breach, the licensee must immediately and without further notice take measures to cause the infringement to end. Because the right to use the information has been terminated, the licensee must cease all use of the information by virtue of the licence.
+
+Comments:
+If the licensee does not fulfil the obligations under the licence agreement, the permit to use the information is revoked. The licensee must then cease to share and use the information. However, parties having received information from a party in breach of the licence may continue to use the information as long as their use is in conformity with the licence agreement.
+
+5. Attribution
+The licensee shall attribute the licensor as specified by the licensor and include a reference to this licence. To the extent practically possible, the licensee shall provide a link to both this licence and the source of the information.
+
+If the licensor has not specified how attributions shall be made, the licensee shall normally state the following: «Contains data under the Norwegian licence for Open Government data (NLOD) distributed by [name of licensor]».
+
+If the licensor has specified that the information shall only be available under a specific version of this licence, cf. Section 10, the licensee shall also state this.
+
+If the information has been changed, the licensee must clearly indicate that changes have been made by the licensee.
+
+Comments:
+This provision stipulates that the licensee must state the source of the information, and that this must be stated as specified in the licence if the licensor has not specified otherwise.
+
+The provision that it must be «practically possible» to provide a link to this licence and to the source of the information entails, for example, that the licensee need not provide a link when the information is not distributed in an electronic format.
+
+Thus, the licence requires an attribution statement, and describes how this is to be implemented, but it does not specify where this attribution statement must be positioned. This entails that the attribution statement need not be placed on the same page as the information, as it is sufficient that the reference to the source be placed on an «About» page, etc. It is also not a requirement that each individual data element be listed. Such a requirement would have rendered it difficult to comply with the attribution requirement in cases where data from several different sources are presented on a map, for example. The sources may instead be stated below the map, on an «About» page, etc. However, the reference to the source must not be hidden or difficult to find.
+
+If the licensee has changed the information, this must be indicated, for example in this manner: «Contains data under the Norwegian licence for Open Government Data (NLOD) distributed by [name of licensor]. Nils Klim has changed the information by cross-cutting it with user-generated content.»
+
+6. Proper use
+The licensee shall not use the information in a manner that appears misleading nor present the information in a distorted or incorrect manner.
+
+Neither the licensor's nor other contributors' names or trademarks must be used to support, recommend or market the licensee or any products or services using the information.
+
+Comments:
+This provision addresses the fact that the licensee must use the information in a prudent manner. The information cannot be changed, for example, and then be presented as if it has not been changed. The requirement that the information not be presented in an incorrect manner, entails that the licensee must familiarize himself with how to correctly interpret and understand the information. If the data is misunderstood and/or used incorrectly, any incorrect elements must be remedied as soon as one becomes aware of or should have understood that the information has been presented in an incorrect manner.
+
+This provision must also be viewed in the context of existing regulations relating to misleading marketing, deception, etc.
+
+7. Disclaimer of liability
+The information is licensed «as is». The information may contain errors and omissions. The licensor provides no warranties, including relating to the content and relevance of the information.
+
+The licensor disclaims any liability for errors and defects associated with the information to the maximum extent permitted by law.
+
+The licensor shall not be liable for direct or indirect losses as a result of use of the information or in connection with copying or further distribution of the information.
+
+Comments:
+This provision addresses the fact that the licensor assumes no economic liability for the information. This entails, inter alia, that the licensor does not assume liability for the correctness or completeness of the information.
+
+The licensor also does not assume liability for how the information is used or for the consequences of any use.
+
+As the licence agreement does not address access to the information, the licensor also does not assume liability for the information being accessible. This provision has a wide scope and also applies to situations not listed here.
+
+8. Guarantees regarding data quality and accessibility
+This licence does not prevent the licensor from issuing supplementary statements regarding expected or intended data quality and accessibility. Such statements shall be regarded as indicative in nature and not binding on the part of the licensor. The disclaimers in Section 7 also apply in full for such indicative statements. Based on separate agreement, the licensor may provide guarantees and distribute the information on terms and conditions different from those set forth in this licence.
+
+Comments:
+It follows from Section 8 that the licensor may provide supplementary statements regarding expected or intended data quality and accessibility. Such statements are indicative in nature and not binding for the licensor. They may be statements such as the following: «The information is normally updated at least once a month. We intend for the information to be accessible until 27 May 2664. We normally have an uptime of 99% measured in minutes per calendar month.»
+
+If the licensee would like the licensor to warrant e.g. data quality and accessibility, such warranties must be made in a separate agreement between the licensor and the licensee.
+
+9. Licence compatibility
+If the licensee is to distribute an adapted or combined work based on information covered by this licence and some other work licensed under a licence compatible by contract, such distribution may be based on an appropriate licence compatible by contract, cf. the list below.
+
+A licence compatible by contract shall mean the following licences:
+
+for all information: Open Government Licence (version 1.0),
+for those parts of the information which do not constitute databases: Creative Commons Attribution Licence (generic version 1.0, 2.0, 2.5 and unported version 3.0) and Creative Commons Navngivelse 3.0 Norge,
+for those parts of the information which constitute databases: Open Data Commons Attribution License (version 1.0).
+This provision does not prevent other licences from being compatible with this licence based on their content.
+
+Comments:
+The purpose of this Section is to specify that information licensed under NLOD may be used together with information licensed under one of the licences listed. If a data set has been distributed under NLOD and another data set has been distributed under OGL, these may be combined and re-published under OGL.
+
+Another example is if you use images covered by NLOD together with your own images and images under the Creative Commons Attribution Licence (CC-BY) in a collage. The entire collage may then be licensed under the CC-BY licence. In such a case, you must make sure to state the name of the licensor for the images originally licensed under NLOD, your own name, and the name of the licensor for the images under CC-BY as well as comply with the other licence terms and conditions.
+
+This provision makes a distinction between rights linked to databases and other rights. If you distribute a database under a Creative Commons licence, you may waive protection of the database, as it follows from Creative Commons (CC-BY 3.0 NO): «If the licensor has database rights or similar in pursuance of Section 43 of the (Norwegian) Copyright Act and EU’s Database Directive, the licensor waives these rights.» The licence is therefore not «compatible» with Creative Commons for databases per se. However, the licence agreement does not prevent the licensee from using individual elements / some content from the database. The provision on licence compatibility with Creative Commons may be applied for such elements.
+
+10. New versions of the licence
+The licensee may choose to use the information covered by this licence under any new versions of the Norwegian licence for Open Government data (NLOD) issued by the responsible ministry (currently the Ministry of Government Administration, Reform and Church Affairs) when these versions are final and official, unless the licensor when making the information available under this licence specifically has stated that solely version 1.0 of this licence may be used.
+
+Comments:
+The Ministry of Government Administration, Reform and Church Affairs (or any ministry which subsequently assumes this responsibility) may issue new versions of the licence, for example based on new experience, a desire to cover new needs or to ensure compatibility with new or other relevant licences.
+
+The licensee is entitled, but not obligated, to use the information under any new licences issued, unless the licensor has made the reservation that the information will solely be available under version 1.0 of the licence.
+
+If the licensor has stated that only a specific version of the licence is to be used, this must also be stated by the licensee. This can be done by stating, for example: «Contains data under the Norwegian licence for Open Government Data (NLOD) distributed by [name of licensor], licensed solely under version 1.0 of the licence.»
+
+To ensure the information does not become «stranded» under old terms and conditions and thus become «abandoned data», such reservations should only be used when absolutely necessary.
+
+11. Governing law and legal venue
+This licence, including its formation, and any disputes and claims arising in connection with or relating to this licence, shall be regulated by Norwegian law. The legal venue shall be the licensor's ordinary legal venue. The licensor may, with regard to intellectual proprietary rights, choose to pursue a claim at other competent legal venues and/or based on the laws of the country where the intellectual property rights are sought enforced.
+
+Comments:
+As a point of departure, the licence agreement is subject to Norwegian law and legal proceedings must take place at the licensor's ordinary legal venue. For the Norwegian Government, this is Oslo District Court.
+
+The information licensed may be used worldwide and by licensees from all parts of the world. In order to strengthen the enforcement, the licence also allows the licensor to pursue breaches of the licence at courts in other countries and also based on their copyright laws, etc.	  
+		"""@en ;
+			
+	  cc:legalcode """Norsk lisens for offentlige data (NLOD)
+Lisensavtalens innledning
+Denne lisensen gir deg rett til å kopiere, bruke og tilgjengeliggjøre informasjon gitt at du navngir bidragsyterne og oppfyller de vilkår som er beskrevet i denne lisensen. Ved å bruke informasjon som er gjort tilgjengelig under denne lisensen, aksepterer du vilkårene i denne lisensen. Som det fremgår av punkt 7 fraskriver lisensgiver seg ethvert ansvar for informasjonens kvalitet og hva informasjonen brukes til.
+
+Lisensen skal ikke begrense noen rettighet eller frihet som lisenstaker har i henhold til offentleglova eller annen lovgivning som gir allmennheten rett til innsyn i offentlig virksomhet, eller som følger av unntak eller begrensninger i åndsverkloven. Lisensen begrenser heller ikke lisenstakers lovbestemte ytringsfrihet.
+
+Kommentar:
+Den første setningen gir en kort introduksjon til lisensen og peker på sentrale rettigheter og plikter. Lisensen er primært ment å brukes når offentlige virksomheter skal tilgjengeliggjøre data og annet relevant innhold for viderebruk av næringsliv og sivilsamfunn.
+
+Den andre setningen viser hvordan lisensen inngås. For å kunne bruke informasjon som er rettighetsbeskyttet er det nødvendig å ha en lisens (en tillatelse). En slik lisens får du ved å inngå lisensavtalen, noe du gjør i det du bruker informasjon og blir en lisenstaker.
+
+Det tredje avsnittet gjør det klart at lisensen ikke skal frata lisenstaker rettigheter og friheter han eller hun har gjennom annet lovverk. Lisensen handler om å gi lisenstaker rettigheter han eller hun ellers ikke ville ha hatt, ikke om å frata lisenstaker rettigheter.
+
+Vilkårene som settes i lisensen tar utgangspunkt i at informasjonen som tilgjengeliggjøres er beskyttet av åndsverkloven eller annen lovgivning. Dersom dette ikke er tilfelle, for eksempel fordi informasjonen er unntatt opphavsrettslig beskyttelse etter åndsverkloven § 9, vil enhver stå fritt til å bruke informasjonen uten å oppfylle de vilkår som er beskrevet i denne lisensen.
+
+Denne lisensen handler om retten til å bruke informasjon. Den handler ikke om tilgang til informasjon eller leveransevilkår.
+
+1. Definisjoner
+«database» skal bety en database eller annet som er vernet etter åndsverkloven § 43.
+«informasjon» skal bety tekst, bilder, opptak, datasett eller andre frembringelser som er beskyttet som åndsverk, etter åndsverkloven § 1, eller som er beskyttet etter bestemmelsene om det som kalles «nærstående rettigheter» i åndsverkloven kapittel 5 (deriblant databaser og fotografier), og som er gjort tilgjengelig under denne lisensen.
+«kopiere» skal bety eksemplarframstilling av enhver art.
+«lisenstaker» og «du» skal bety den fysiske eller juridiske personen som bruker informasjon under denne lisensen.
+«lisensgiver» skal bety den fysiske eller juridiske person som tilgjengeliggjør informasjon under denne lisensen.
+«tilgjengeliggjøre» skal bety enhver tilgjengeliggjøringshandling deriblant å distribuere, overføre, spre, vise, fremføre, selge, låne ut og leie ut.
+«bruke» skal bety å foreta en eller flere opphavsrettslig relevante handlinger som krever rettighetshaverens tillatelse.
+Kommentarer:
+I punkt 1 gis det forskjellige definisjoner som brukes videre i lisensen. Definerte begrep er skrevet i fet skrift. Avtalen bruker begrepet informasjon som en samlebetegnelse på alt som blir lisensiert under lisensen. Dette kan være forskjellige former for frembringelser som opphavsrettsbeskyttede verk (for eksempel artikler, romaner, kreative fotografier, illustrasjoner osv.) og også beskyttede databaser, tabeller, lydopptak, film, alminnelige fotografier, opptak av fremføringen til utøvende kunstnere osv. Ordlyden er vid nok til å omfatte dataprogrammer, men det er anbefalt å bruke egne spesialtilpassede frie lisenser for dataprogrammer.
+
+Det at lisensgiver har «hjemmel» betyr enten at lisensgiver er rettighetshaver, eller at lisensgiver har fått tillatelse fra rettighetshaver.
+
+Fordi lisensen primært vil brukes til offentlige data er det ordet «data» som er benyttet i tittelen på lisensen. «Offentlige data» må derfor forstås som én type «informasjon». Lisensen kan imidlertid også brukes til å lisensiere andre typer informasjon. Av den grunn er uttrykket «offentlige data» bare brukt i tittelen, og ordet «informasjon» benyttet i selve lisensen.
+
+Ordet «database» kan i dagligtalen også brukes om noen typer kataloger som er vernet som åndsverk etter åndsverkloven § 2. Disse § 2-databasene er omfattet av definisjonen av informasjon. For disse § 2-databasene vil Creative Commons-lisensene være kompatible etter punkt 9 i denne lisensen.
+
+2. Lisens
+Lisenstaker kan, med de begrensninger som følger av denne lisensen, bruke informasjonen, til ethvert formål og i enhver sammenheng, ved å:
+
+kopiere informasjonen og tilgjengeliggjøre informasjonen for andre,
+endre informasjonen og/eller sette sammen informasjonen med annen informasjon, samt å
+kopiere og tilgjengeliggjøre slik endret eller sammensatt informasjon.
+Lisensen er ikke-eksklusiv, vederlagsfri og uten tidsmessige eller geografiske begrensninger. Informasjonen kan benyttes i ethvert medium og format, enten det er kjent i dag eller senere blir kjent. Lisenstaker kan ikke sublisensiere eller overføre denne lisensen.
+
+Kommentar:
+I punkt 2 får lisenstaker en svært omfattende og liberal rett til å bruke informasjonen. Lisenstaker kan dele informasjonen med andre, endre informasjonen og bruke informasjonen slik han eller hun vil. Det eneste unntaket er dersom lisensgiver ikke har lov til å lisensiere informasjonen med denne lisensen, og at det altså har skjedd en feil. Dette står det mer om i punkt 3.
+
+I siste setning er det presisert at lisenstaker ikke kan sublisensiere eller overføre denne lisensen. Det betyr at denne lisensen ikke gir lisenstaker tillatelse til å gi andre tillatelse til å bruke informasjonen. Lisenstaker har således heller ikke tillatelse til å endre vilkårene for bruk av informasjonen. Selv om lisenstaker etter denne lisensen har rett til å gi informasjonen videre, må den som eventuelt mottar slik informasjon få tillatelse fra den opprinnelige lisensgiveren for å kunne bruke informasjonen. Det betyr i praksis at vilkårene i denne lisensen gjelder uansett hvem du får informasjonen fra.
+
+3. Unntak
+Lisensen omfatter ikke og gir derfor ikke rett til å bruke:
+
+informasjon som inneholder personopplysninger som er omfattet av personopplysningsloven med mindre det foreligger lovlig behandlingsgrunnlag for utleveringen og for den videre behandling av personopplysningene
+informasjon som har blitt gjort tilgjengelig i strid med lovbestemt taushetsplikt
+informasjon som er unntatt offentlighet med hjemmel i lov, deriblant informasjon som er skjermingsverdig etter sikkerhetsloven
+informasjon omfattet av tredjeparts rettigheter som lisensgiver ikke kan lisensiere til lisenstaker
+informasjon som er beskyttet av andre immaterialrettigheter enn opphavsrett og de nærstående rettighetene etter åndsverkloven kapittel 5, så som varemerker, patenter og designrettigheter, men dette er ikke til hinder for å benytte informasjon der lisensgivers logo er fast integrert i informasjonen eller for å navngi opphavet til informasjonen etter bestemmelsen nedenfor om navngivelse.
+Hvis lisensgiver har tilgjengeliggjort informasjon som ikke blir omfattet av lisensen, i henhold til listen over, skal lisenstaker stoppe all form for bruk i kraft av lisensen, og slette informasjonen, så snart vedkommende blir gjort kjent med eller burde forstått at dette er informasjon som ikke er omfattet av lisensen.
+
+Kommentarer
+Denne lisensen skal brukes til informasjon som kan viderebrukes. Den skal ikke og kan ikke brukes til informasjon som er unntatt offentlighet på noe vis. Dersom slik informasjon har blitt tilgjengeliggjort under denne lisensen har det blitt gjort en feil. For slike typer informasjon gjelder ikke lisensen. Det er således ikke tillatt å viderebruke denne typen informasjon i kraft av lisensen.
+
+Lisenstaker må kunne gå ut ifra at lisensgiver har gjort en forhåndsvurdering av hva som kan tilgjengeliggjøres og ikke. Lisenstaker må likevel kunne bli holdt ansvarlig for å spre informasjon videre dersom vedkommende burde ha forstått at informasjonen har blitt tilgjengeliggjort ved en feil.
+
+Det at lisensgiver har publisert «informasjon omfattet av tredjeparts rettigheter som lisensgiver ikke kan lisensiere til lisenstaker» betyr at lisensgiver ikke selv er rettighetshaver til informasjonen, men at de likevel ikke har fått hjemmel av rettighetshaver.
+
+4. Virkninger ved brudd på lisensen
+Lisensen er betinget av at lisenstaker oppfyller vilkårene i denne lisensen. Lisenstakers brudd på denne lisensen innebærer at lisenstakers rett til å bruke informasjonen umiddelbart og uten varsel opphører. Lisenstaker skal ved slikt brudd, umiddelbart og uten varsel, treffe de tiltak som er nødvendige å bringe krenkelsen til opphør. Fordi retten til å bruke informasjonen opphører må lisenstaker stoppe all form for bruk av informasjonen i kraft av lisensen.
+
+Kommentar:
+Hvis lisenstaker ikke oppfyller sine forpliktelser etter lisensavtalen faller tillatelsen til å bruke informasjonen bort. Lisenstaker må da slutte å dele og bruke informasjonen. De som har fått informasjon fra den som bryter lisensen kan derimot fortsette å bruke informasjonen, så lenge deres bruk er i samsvar med lisensavtalen.
+
+5. Navngivelse
+Lisenstaker skal navngi lisensgiver slik det blir spesifisert av lisensgiver, og henvise til denne lisensen. Når det er praktisk mulig, skal lisenstaker lenke til både denne lisensen og til kilden til informasjonen.
+
+Hvis lisensgiver ikke spesifiserer hvordan navngivelse bør foretas, skal lisenstaker normalt oppgi følgende: «Inneholder data under Norsk lisens for offentlige data (NLOD) tilgjengeliggjort av [navnet på lisensgiver]».
+
+Hvis lisensgiver har spesifisert at informasjonen kun er tilgjengelig under en bestemt versjon av denne lisensen, jf. punkt 10, skal Lisenstaker oppgi dette.
+
+Er informasjonen endret skal lisenstaker tydelig angi at endringer er blitt gjort av lisenstaker.
+
+Kommentar:
+
+Dette kravet innebærer at lisenstaker skal oppgi hvem som er kilden deres, og at dette skal gjøres på den måten det er presisert i lisensen, hvis ikke lisensgiver har oppgitt noe annet.
+
+At det er «praktisk mulig» å lenke til denne lisensen og til kilden til informasjonen betyr at lisenstaker for eksempel ikke trenger å lenke når informasjonen ikke tilgjengeliggjøres elektronisk.
+
+Lisensen krever altså navngivelse, og forklarer hvordan dette skal gjennomføres, men det er ikke presisert hvor denne navngivelsen skal foregå. Dette betyr at det ikke er et krav at navngivelse foregår på samme side som informasjonen presenteres på, det er nok at kildehenvisningen blir plassert på en «Om»-side eller lignende. Det er heller ikke et krav at hvert enkelt dataelement skal navngis. Et slikt krav ville for eksempel ha gjort det vanskelig å tilfredsstille kravet om navngivelse der data fra en rekke forskjellige kilder presenteres i et kart. I stedet kan kilden oppgis nedenfor kartet, på en «Om»-side, eller lignende. Kildehenvisningen må likevel ikke være bortgjemt, eller vanskelig å finne.
+
+Hvis lisenstaker har endret informasjonen skal det merkes, for eksempel på denne måten: «Inneholder data under norsk lisens for offentlige data (NLOD) tilgjengeliggjort av [lisensgiver]. Nils Klim har endret informasjonen ved å kryssklippe den med brukergenerert innhold.»
+
+6. Forsvarlig bruk
+Lisenstaker skal ikke bruke informasjonen på en måte som fremstår som villedende, og heller ikke fordreie eller uriktig fremstille informasjonen.
+
+Verken lisensgivers eller andre bidragsyteres navn eller varemerker skal bli brukt for å gi støtte til, for å anbefale eller for å markedsføre lisenstaker eller produkter eller tjenester som benytter informasjonen.
+
+Kommentar:
+Dette kravet handler om at lisenstaker skal bruke informasjonen på en forsvarlig måte. Informasjonen kan for eksempel ikke endres, og deretter presenteres som om den ikke var endret. At informasjonen ikke skal fremstilles uriktig betyr at man må sette seg inn i hvordan informasjonen skal tolkes og forstås riktig. Dersom en misforstår dataene og bruker dataene feil er man nødt til å rette opp det som er feil så snart man blir gjort kjent med eller burde ha forstått at informasjonen er fremstilt på en uriktig måte.
+
+Kravet må også ses i sammenheng med eksisterende lovverk om blant annet villedende markedsføring og bedrageri.
+
+7. Ansvarsfraskrivelse
+Informasjonen er «som den er». Informasjonen kan inneholde feil og utelatelser. Lisensgiver gir ingen garantier, heller ikke for informasjonens innhold eller aktualitet.
+
+Lisensgiver fraskriver seg, så langt det er rettslig adgang til det, ethvert ansvar for feil og mangler ved informasjonen.
+
+Lisensgiver er ikke ansvarlig for direkte eller indirekte tap som måtte oppstå som følge av utnyttelse av informasjonen eller i forbindelse med kopiering eller videre tilgjengeliggjøring av informasjon.
+
+Kommentarer:
+Dette punktet handler om at lisensgiver ikke tar økonomisk ansvar for informasjonen. Dette betyr blant annet at lisensgiver ikke påtar seg ansvar for at informasjonen er korrekt eller fullstendig.
+
+Lisensgiver tar heller ikke ansvar for hva informasjonen brukes til, eller hvilke konsekvenser eventuell bruk har.
+
+Fordi lisensavtalen ikke handler om tilgang til informasjonen tar lisensgiver heller ikke ansvar for at informasjonen er tilgjengelig. Bestemmelsen er vid og dekker også andre situasjoner.
+
+8. Garantier for datakvalitet og tilgjengelighet
+Denne lisensen er ikke til hinder for at lisensgiver kan gi supplerende uttalelser om forventet eller tilsiktet datakvalitet og tilgjengelighet. Slike uttalelser skal anses å være av veiledende art og er ikke forpliktende for lisensgiver. Ansvarsfraskrivelsene i punkt 7 gjelder uavkortet også når det er gitt slike veiledende uttalelser. Lisensgiver kan ved særskilt avtale gi garantier og tilgjengeliggjøre informasjonen på andre vilkår enn de som følger av denne lisensen.
+
+Kommentarer:
+Av punkt 8 følger det at lisensgiver kan gi supplerende uttalelser om forventet eller tilsiktet datakvalitet og tilgjengelighet. Slike uttalelser er veiledende og forplikter ikke lisensgiver. De kan ha en form som for eksempel: «Informasjonen oppdateres normalt minst en gang i måneden. Vi har planlagt at informasjonen skal være tilgjengelig frem til 27. mai 2664. Vi har normalt en oppetid på 99 % målt i minutter per kalendermåned.»
+
+Hvis lisenstaker ønsker at lisensgiver skal forplikte seg ved å stille garantier for eksempel for datakvalitet og tilgjengelighet må dette gjøres i en egen avtale mellom lisensgiver og lisenstaker.
+
+9. Lisenskompatibilitet
+Hvis lisenstaker tilgjengeliggjør en avledet eller sammensatt frembringelse, basert på informasjon som omfattes av denne lisensen og en annen frembringelse som er lisensiert under en avtalefestet kompatibel lisens, kan tilgjengeliggjøringen foretas under en passende avtalefestet kompatibel lisens, jf. listen under.
+
+En avtalefestet kompatibel lisens skal bety følgende lisenser:
+
+for all informasjon: Open Government Licence (versjon 1.0),
+for de deler av informasjonen som ikke utgjør databaser: Creative Commons Attribution Licence (generic versjon 1.0, 2.0, 2.5 og unported versjon 3.0) og Creative Commons Navngivelse 3.0 Norge,
+for de deler av informasjonen som utgjør databaser, Open Data Commons Attribution License (versjon 1.0).
+Denne bestemmelsen er ikke til hinder for at andre lisenser etter sitt innhold kan være kompatible med denne lisensen.
+
+Kommentar:
+Hensikten med dette punktet er å presisere at informasjon som er lisensiert under NLOD kan brukes sammen med informasjon som er lisensiert under en av de opplistede lisensene. Dersom man for eksempel har ett datasett som er tilgjengeliggjort under NLOD og ett datasett som er tilgjengeliggjort under OGL, kan man kombinere disse og republisere under NLOD, OGL eller begge.
+
+Et annet eksempel er om du benytter bilder underlagt NLOD sammen med egne bilder og bilder under Creative Commons Attribution License (CC-BY) i en kollasj. Du kan da lisensiere hele denne kollasjen under CC-BY. En må passe på å oppgi både navnet til lisensgiveren for bildene som opprinnelig er lisensiert under NLOD, sitt eget navn og navnet til lisensgiverne til bildene under CC-BY og oppfylle de andre vilkårene som fremgår av bestemmelsene.
+
+Bestemmelsen skiller mellom rettigheter knyttet til databaser og andre rettigheter. Underlegger du en database en Creative Commons lisens kan du tape databasevernet da det følger av Creative Commons (CC-BY 3.0 NO): «Dersom lisensgiver innehar databaserettigheter eller lignende i henhold til åndsverklovens § 43 og EUs databasedirektiv, fraskriver lisensgiver seg disse rettigheter.» Derfor er ikke lisensen «kompatibel» med Creative Commons for databaser som sådan. Lisensavtalen hindrer derimot ikke at lisenstaker tar ut enkelte elementer / noe innhold fra databasen. For disse vil bestemmelsen om lisenskompatibilitet med Creative Commons kunne anvendes.
+
+En oppdatert liste over alle lisenser ansvarlig departement (for tiden Fornyings-, administrasjons- og kirkedepartementet) anser å være kompatible vil bli publisert på nettstedet data.norge.no.
+
+10. Nye versjoner av lisensen
+Lisenstaker kan velge å utnytte informasjonen som omfattes av lisensen under nye versjoner av Norsk lisens for offentlige data (NLOD) som blir utgitt av ansvarlig departement (for tiden Fornyings-, administrasjons- og kirkedepartementet) når disse versjonene er endelige og offisielle, med mindre lisensgiver ved tilgjengeliggjøringen av informasjonen under denne lisensen har gitt utrykk for at kun versjon 1.0 kan benyttes.
+
+Kommentar:
+Fornyings-, administrasjons- og kirkedepartementet (eller et departement som overtar dette ansvaret) kan gi ut nye versjoner av lisensen for eksempel på grunn av nye erfaring, ønske om å dekke nye behov eller at en ser at det er kommet nye eller er andre lisenser en ønsker at lisensavtalen skal være kompatibel med.
+
+Lisenstaker får en rett, men ikke en plikt, til å bruke informasjonen under nye lisenser som blir utgitt, med mindre lisensgiver har tatt forbehold om at informasjonen kun er tilgjengelig under versjon 1.0 av lisensen.
+
+Har lisensgiver oppgitt at kun en bestemt versjon av lisensen kan benyttes, skal det oppgis. Dette kan for eksempel gjøres ved å skrive: «Inneholder data under Norsk lisens for offentlige data (NLOD) tilgjengeliggjort av [navnet på lisensgiver], lisensiert kun under versjon 1.0 av lisensen.»
+
+For å sikre at informasjonen ikke blir «strandet» under gamle vilkår og blir «hittedata», bør slike forbehold kun brukes når det er helt nødvendig.
+
+11. Valg av lov og verneting
+Denne lisensen, inkludert dens inngåelse, og enhver tvist og ethvert krav som oppstår i forbindelse med eller relatert til denne lisensen, skal være underlagt norsk rett. Vernetinget skal være lisensgivers alminnelige verneting. Lisensgiver kan velge å fremme krav ved verneting i og/eller, hva gjelder de immaterielle rettigheter, under loven til det land der den immaterielle rettigheten søkes håndhevet.
+
+Kommentar:
+Lisensavtalen er i utgangspunktet underlagt norsk rett og rettssaker skal holdes ved lisensgivers vanlige domstol. For staten er det Oslo tingrett.
+
+Informasjonen som lisensieres kan bli brukt i hele verden og av lisenstakere fra alle deler av verden. For å styrke mulighetene for håndheving tillater lisensen også at lisensgiver kan forfølge brudd på lisensen ved domstoler i andre land og også under deres lover om opphavsrett, etc."""@no ;
+		
+		
+      dct:hasVersion "1.0" ;
+      dct:source <http://data.norge.no/nlod> ;
+      odrl:permission
+              [ odrl:action cc:Distribution , cc:DerivativeWorks , cc:Reproduction ;
+                odrl:duty
+                        [ odrl:action cc:Notice , cc:Attribution
+                        ]
+              ] .
