@@ -1,0 +1,195 @@
+\hypertarget{classodrlmodel_1_1_policy}{\section{odrlmodel.\-Policy Class Reference}
+\label{classodrlmodel_1_1_policy}\index{odrlmodel.\-Policy@{odrlmodel.\-Policy}}
+}
+Inheritance diagram for odrlmodel.\-Policy\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classodrlmodel_1_1_policy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classodrlmodel_1_1_policy_aa9b13e9353f711831ebedfd0aae45872}{Policy} ()
+\item 
+\hyperlink{classodrlmodel_1_1_policy_aebe74ea9719b1d43c650964f1ec6b7fb}{Policy} (String \-\_\-uri)
+\item 
+int \hyperlink{classodrlmodel_1_1_policy_a288746977d9b84e16ba7db3e1dda4068}{get\-Type} ()
+\item 
+void \hyperlink{classodrlmodel_1_1_policy_a4c74f621b29d742f9df45a9bf0c95826}{set\-Type} (int \-\_\-type)
+\item 
+void \hyperlink{classodrlmodel_1_1_policy_a8100fcce6e529bcb638698274209a7ab}{add\-Rule} (\hyperlink{classodrlmodel_1_1_rule}{Rule} r)
+\item 
+List$<$ \hyperlink{classodrlmodel_1_1_rule}{Rule} $>$ \hyperlink{classodrlmodel_1_1_policy_a112aa1e5e6afcbd40ddc4db602a19edf}{get\-Rules} ()
+\item 
+void \hyperlink{classodrlmodel_1_1_policy_a04cf98a54bb431b372a1603115c6b590}{set\-Rules} (List$<$ \hyperlink{classodrlmodel_1_1_rule}{Rule} $>$ \-\_\-rules)
+\item 
+void \hyperlink{classodrlmodel_1_1_policy_ab7f7e6cb828a4ab801b1641742d90446}{set\-Target\-In\-All\-Rules} (String target\-Name)
+\item 
+void \hyperlink{classodrlmodel_1_1_policy_a2cbd861f16cd8c942f5905d2b64dc836}{set\-Assignee\-In\-All\-Rules} (\hyperlink{classodrlmodel_1_1_party}{Party} assignee)
+\item 
+void \hyperlink{classodrlmodel_1_1_policy_a5db6c01f28698efbc325763bd93ad265}{set\-Assigner\-In\-All\-Rules} (\hyperlink{classodrlmodel_1_1_party}{Party} assigner)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classodrlmodel_1_1_policy_ac21b03b084083baf13c68ae71cceabad}{static final int {\bfseries P\-O\-L\-I\-C\-Y\-\_\-\-S\-E\-T} = 0}\label{classodrlmodel_1_1_policy_ac21b03b084083baf13c68ae71cceabad}
+
+\item 
+\hypertarget{classodrlmodel_1_1_policy_ad9764f12c73e051fc961e2962a42e107}{static final int {\bfseries P\-O\-L\-I\-C\-Y\-\_\-\-R\-E\-Q\-U\-E\-S\-T} = 1}\label{classodrlmodel_1_1_policy_ad9764f12c73e051fc961e2962a42e107}
+
+\item 
+\hypertarget{classodrlmodel_1_1_policy_aea7a829bafc34b98a72cd344b8285bcc}{static final int {\bfseries P\-O\-L\-I\-C\-Y\-\_\-\-O\-F\-F\-E\-R} = 2}\label{classodrlmodel_1_1_policy_aea7a829bafc34b98a72cd344b8285bcc}
+
+\item 
+\hypertarget{classodrlmodel_1_1_policy_a0d7c3db4e146f25bf30b684efc962f18}{static final int {\bfseries P\-O\-L\-I\-C\-Y\-\_\-\-C\-C} = 3}\label{classodrlmodel_1_1_policy_a0d7c3db4e146f25bf30b684efc962f18}
+
+\item 
+\hypertarget{classodrlmodel_1_1_policy_ae11df1da254f43aae6418d0a71723103}{static final int {\bfseries P\-O\-L\-I\-C\-Y\-\_\-\-A\-G\-R\-E\-E\-M\-E\-N\-T} = 4}\label{classodrlmodel_1_1_policy_ae11df1da254f43aae6418d0a71723103}
+
+\item 
+\hypertarget{classodrlmodel_1_1_policy_a9c0b3d10c39931b9bb4f3656055b12e7}{static final int {\bfseries P\-O\-L\-I\-C\-Y\-\_\-\-T\-I\-C\-K\-E\-T} = 5}\label{classodrlmodel_1_1_policy_a9c0b3d10c39931b9bb4f3656055b12e7}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classodrlmodel_1_1_policy_a78dc893b4b6be02dc15022f67431d9d4}{List$<$ \hyperlink{classodrlmodel_1_1_rule}{Rule} $>$ {\bfseries rules} = new Array\-List()}\label{classodrlmodel_1_1_policy_a78dc893b4b6be02dc15022f67431d9d4}
+
+\item 
+\hypertarget{classodrlmodel_1_1_policy_a2ee78152028a84149c0099df7d9e3d64}{String {\bfseries file\-Name} = \char`\"{}\char`\"{}}\label{classodrlmodel_1_1_policy_a2ee78152028a84149c0099df7d9e3d64}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{classodrlmodel_1_1_policy}{Policy} represents an O\-D\-R\-L policy, supporting a reduced set of the features defined in the O\-D\-R\-L2.\-0 specification
+
+The \hyperlink{classodrlmodel_1_1_policy}{Policy} entity is the top-\/level entity.
+
+An abstract common ancestor to Permissions, Prohibitions and Duties.  For more information, check \href{http://www.w3.org/community/odrl/two/model/#section-21}{\tt http\-://www.\-w3.\-org/community/odrl/two/model/\#section-\/21} \begin{DoxyAuthor}{Author}
+Victor Rodriguez Doncel at O\-E\-G-\/\-U\-P\-M 2014 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classodrlmodel_1_1_policy_aa9b13e9353f711831ebedfd0aae45872}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!Policy@{Policy}}
+\index{Policy@{Policy}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{Policy}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Policy.\-Policy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_aa9b13e9353f711831ebedfd0aae45872}
+\hyperlink{classodrlmodel_1_1_policy}{Policy} constructor with a random U\-R\-I in the default namespace A policy is by default a Set policy \hypertarget{classodrlmodel_1_1_policy_aebe74ea9719b1d43c650964f1ec6b7fb}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!Policy@{Policy}}
+\index{Policy@{Policy}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{Policy}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Policy.\-Policy (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-uri}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_aebe74ea9719b1d43c650964f1ec6b7fb}
+\hyperlink{classodrlmodel_1_1_policy}{Policy} constructor with a given U\-R\-I A policy is by default a Set policy 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-uri} & Given U\-R\-I \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classodrlmodel_1_1_policy_a8100fcce6e529bcb638698274209a7ab}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!add\-Rule@{add\-Rule}}
+\index{add\-Rule@{add\-Rule}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{add\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Policy.\-add\-Rule (
+\begin{DoxyParamCaption}
+\item[{{\bf Rule}}]{r}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_a8100fcce6e529bcb638698274209a7ab}
+Adds a rule to the policy 
+\begin{DoxyParams}{Parameters}
+{\em r} & \hyperlink{classodrlmodel_1_1_rule}{Rule} to be added \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_policy_a112aa1e5e6afcbd40ddc4db602a19edf}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!get\-Rules@{get\-Rules}}
+\index{get\-Rules@{get\-Rules}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{get\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Rule}$>$ odrlmodel.\-Policy.\-get\-Rules (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_a112aa1e5e6afcbd40ddc4db602a19edf}
+Gets the list of rules this policy has \begin{DoxyReturn}{Returns}
+List of rules 
+\end{DoxyReturn}
+\hypertarget{classodrlmodel_1_1_policy_a288746977d9b84e16ba7db3e1dda4068}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}int odrlmodel.\-Policy.\-get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_a288746977d9b84e16ba7db3e1dda4068}
+Gets the type of the \hyperlink{classodrlmodel_1_1_policy}{Policy} \begin{DoxyReturn}{Returns}
+one of\-: Policy.\-P\-O\-L\-I\-C\-Y\-\_\-\-S\-E\-T, Policy.\-P\-O\-L\-I\-C\-Y\-\_\-\-R\-E\-Q\-U\-E\-S\-T, Policy.\-P\-O\-L\-I\-C\-Y\-\_\-\-O\-F\-F\-E\-R 
+\end{DoxyReturn}
+\hypertarget{classodrlmodel_1_1_policy_a2cbd861f16cd8c942f5905d2b64dc836}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!set\-Assignee\-In\-All\-Rules@{set\-Assignee\-In\-All\-Rules}}
+\index{set\-Assignee\-In\-All\-Rules@{set\-Assignee\-In\-All\-Rules}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{set\-Assignee\-In\-All\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Policy.\-set\-Assignee\-In\-All\-Rules (
+\begin{DoxyParamCaption}
+\item[{{\bf Party}}]{assignee}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_a2cbd861f16cd8c942f5905d2b64dc836}
+Sets a certain assignee in all the rules 
+\begin{DoxyParams}{Parameters}
+{\em assignee} & \hyperlink{classodrlmodel_1_1_party}{Party} assigner \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_policy_a5db6c01f28698efbc325763bd93ad265}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!set\-Assigner\-In\-All\-Rules@{set\-Assigner\-In\-All\-Rules}}
+\index{set\-Assigner\-In\-All\-Rules@{set\-Assigner\-In\-All\-Rules}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{set\-Assigner\-In\-All\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Policy.\-set\-Assigner\-In\-All\-Rules (
+\begin{DoxyParamCaption}
+\item[{{\bf Party}}]{assigner}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_a5db6c01f28698efbc325763bd93ad265}
+Sets a certain assigner in all the rules 
+\begin{DoxyParams}{Parameters}
+{\em assigner} & \hyperlink{classodrlmodel_1_1_party}{Party} assigner \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_policy_a04cf98a54bb431b372a1603115c6b590}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!set\-Rules@{set\-Rules}}
+\index{set\-Rules@{set\-Rules}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{set\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Policy.\-set\-Rules (
+\begin{DoxyParamCaption}
+\item[{List$<$ {\bf Rule} $>$}]{\-\_\-rules}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_a04cf98a54bb431b372a1603115c6b590}
+Sets the list of rules 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-rules} & List of rules \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_policy_ab7f7e6cb828a4ab801b1641742d90446}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!set\-Target\-In\-All\-Rules@{set\-Target\-In\-All\-Rules}}
+\index{set\-Target\-In\-All\-Rules@{set\-Target\-In\-All\-Rules}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{set\-Target\-In\-All\-Rules}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Policy.\-set\-Target\-In\-All\-Rules (
+\begin{DoxyParamCaption}
+\item[{String}]{target\-Name}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_ab7f7e6cb828a4ab801b1641742d90446}
+Sets a certain target in all the rules 
+\begin{DoxyParams}{Parameters}
+{\em target\-Name} & Name of the target \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_policy_a4c74f621b29d742f9df45a9bf0c95826}{\index{odrlmodel\-::\-Policy@{odrlmodel\-::\-Policy}!set\-Type@{set\-Type}}
+\index{set\-Type@{set\-Type}!odrlmodel::Policy@{odrlmodel\-::\-Policy}}
+\subsubsection[{set\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Policy.\-set\-Type (
+\begin{DoxyParamCaption}
+\item[{int}]{\-\_\-type}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_policy_a4c74f621b29d742f9df45a9bf0c95826}
+Sets the type of the policy 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-type,one} & of\-: Policy.\-P\-O\-L\-I\-C\-Y\-\_\-\-S\-E\-T, Policy.\-P\-O\-L\-I\-C\-Y\-\_\-\-R\-E\-Q\-U\-E\-S\-T, Policy.\-P\-O\-L\-I\-C\-Y\-\_\-\-O\-F\-F\-E\-R \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/odrlmodel/Policy.\-java\end{DoxyCompactItemize}

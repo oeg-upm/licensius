@@ -1,0 +1,99 @@
+\hypertarget{classodrlmodel_1_1_permission}{\section{odrlmodel.\-Permission Class Reference}
+\label{classodrlmodel_1_1_permission}\index{odrlmodel.\-Permission@{odrlmodel.\-Permission}}
+}
+Inheritance diagram for odrlmodel.\-Permission\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classodrlmodel_1_1_permission}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classodrlmodel_1_1_permission_ac5e432bdda9d75997a93c22fb7d53091}{Permission} ()
+\item 
+\hyperlink{classodrlmodel_1_1_permission_a28aa45d6c1aa9ad63ec4e7ce43a14a7b}{Permission} (String \-\_\-uri)
+\item 
+void \hyperlink{classodrlmodel_1_1_permission_a9424e5529df4b49a28a882bd19eb2176}{set\-Duty} (\hyperlink{classodrlmodel_1_1_duty}{Duty} duty)
+\item 
+void \hyperlink{classodrlmodel_1_1_permission_ac239fbe0c792b3cfe74a2765e5f72a21}{set\-Duties} (List$<$ \hyperlink{classodrlmodel_1_1_duty}{Duty} $>$ \-\_\-duties)
+\item 
+List$<$ \hyperlink{classodrlmodel_1_1_duty}{Duty} $>$ \hyperlink{classodrlmodel_1_1_permission_a10e8e0171aadc06457192b15cd12bc00}{get\-Duties} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classodrlmodel_1_1_permission}{Permission} entity indicates the Actions that the assignee is permitted to perform on the associated \hyperlink{classodrlmodel_1_1_asset}{Asset}. In other words, what the assigner (supplier) has granted to the assignee (consumer).
+
+An O\-D\-R\-L policy expression M\-A\-Y contain at least one \hyperlink{classodrlmodel_1_1_permission}{Permission}. It is important to verify the semantics of the \hyperlink{classodrlmodel_1_1_policy}{Policy} type attribute as this M\-A\-Y indicate additional constraints on the \hyperlink{classodrlmodel_1_1_policy}{Policy} expression structure.
+
+If several \hyperlink{classodrlmodel_1_1_permission}{Permission} entities are referred to by a \hyperlink{classodrlmodel_1_1_policy}{Policy}, then all of them are valid.
+
+\begin{DoxyAuthor}{Author}
+Victor Rodriguez Doncel at O\-E\-G-\/\-U\-P\-M 2014 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classodrlmodel_1_1_permission_ac5e432bdda9d75997a93c22fb7d53091}{\index{odrlmodel\-::\-Permission@{odrlmodel\-::\-Permission}!Permission@{Permission}}
+\index{Permission@{Permission}!odrlmodel::Permission@{odrlmodel\-::\-Permission}}
+\subsubsection[{Permission}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Permission.\-Permission (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_permission_ac5e432bdda9d75997a93c22fb7d53091}
+\hyperlink{classodrlmodel_1_1_permission}{Permission} constructor \hyperlink{classodrlmodel_1_1_permission}{Permission} are by default anonymous \hypertarget{classodrlmodel_1_1_permission_a28aa45d6c1aa9ad63ec4e7ce43a14a7b}{\index{odrlmodel\-::\-Permission@{odrlmodel\-::\-Permission}!Permission@{Permission}}
+\index{Permission@{Permission}!odrlmodel::Permission@{odrlmodel\-::\-Permission}}
+\subsubsection[{Permission}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Permission.\-Permission (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-uri}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_permission_a28aa45d6c1aa9ad63ec4e7ce43a14a7b}
+Creates a permission identified by the given U\-R\-I. 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-uri} & U\-R\-I of the prohibition \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classodrlmodel_1_1_permission_a10e8e0171aadc06457192b15cd12bc00}{\index{odrlmodel\-::\-Permission@{odrlmodel\-::\-Permission}!get\-Duties@{get\-Duties}}
+\index{get\-Duties@{get\-Duties}!odrlmodel::Permission@{odrlmodel\-::\-Permission}}
+\subsubsection[{get\-Duties}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Duty}$>$ odrlmodel.\-Permission.\-get\-Duties (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_permission_a10e8e0171aadc06457192b15cd12bc00}
+Sets the duties associated to this permission \begin{DoxyReturn}{Returns}
+List of duties 
+\end{DoxyReturn}
+\hypertarget{classodrlmodel_1_1_permission_ac239fbe0c792b3cfe74a2765e5f72a21}{\index{odrlmodel\-::\-Permission@{odrlmodel\-::\-Permission}!set\-Duties@{set\-Duties}}
+\index{set\-Duties@{set\-Duties}!odrlmodel::Permission@{odrlmodel\-::\-Permission}}
+\subsubsection[{set\-Duties}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Permission.\-set\-Duties (
+\begin{DoxyParamCaption}
+\item[{List$<$ {\bf Duty} $>$}]{\-\_\-duties}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_permission_ac239fbe0c792b3cfe74a2765e5f72a21}
+Sets the duties associated to this permission 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-duties} & List of duties to be retrieved \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_permission_a9424e5529df4b49a28a882bd19eb2176}{\index{odrlmodel\-::\-Permission@{odrlmodel\-::\-Permission}!set\-Duty@{set\-Duty}}
+\index{set\-Duty@{set\-Duty}!odrlmodel::Permission@{odrlmodel\-::\-Permission}}
+\subsubsection[{set\-Duty}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Permission.\-set\-Duty (
+\begin{DoxyParamCaption}
+\item[{{\bf Duty}}]{duty}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_permission_a9424e5529df4b49a28a882bd19eb2176}
+Sets a single duty associated to this permission 
+\begin{DoxyParams}{Parameters}
+{\em duty} & \hyperlink{classodrlmodel_1_1_duty}{Duty} to be retrieved \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/odrlmodel/Permission.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,72 @@
+\hypertarget{classodrlmodel_1_1_action}{\section{odrlmodel.\-Action Class Reference}
+\label{classodrlmodel_1_1_action}\index{odrlmodel.\-Action@{odrlmodel.\-Action}}
+}
+Inheritance diagram for odrlmodel.\-Action\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classodrlmodel_1_1_action}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classodrlmodel_1_1_action_aba2aea2da231fcdfa327f82f9408a2ac}{Action} ()
+\item 
+\hyperlink{classodrlmodel_1_1_action_a8b58d562806a42c51959f257cbc5e8c8}{Action} (\hyperlink{classodrlmodel_1_1_action}{Action} a)
+\item 
+\hyperlink{classodrlmodel_1_1_action_a94997efd5b4b9b2c6baa428767199e41}{Action} (String \-\_\-uri)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class represents an O\-D\-R\-L \hyperlink{classodrlmodel_1_1_action}{Action}.
+
+The \hyperlink{classodrlmodel_1_1_action}{Action} entity (when related to a \hyperlink{classodrlmodel_1_1_permission}{Permission} entity) indicates the operations (e.\-g. play, copy, etc.) that the assignee (i.\-e. the consumer) is permitted to perform on the related \hyperlink{classodrlmodel_1_1_asset}{Asset} linked to by \hyperlink{classodrlmodel_1_1_permission}{Permission}.
+
+When related to a \hyperlink{classodrlmodel_1_1_prohibition}{Prohibition}, the \hyperlink{classodrlmodel_1_1_action}{Action} entity indicates the operations that the assignee (again the consumer) is prohibited to perform on the \hyperlink{classodrlmodel_1_1_asset}{Asset} linked to by \hyperlink{classodrlmodel_1_1_prohibition}{Prohibition}. Analogously, when related to a \hyperlink{classodrlmodel_1_1_duty}{Duty}, it indicates the operation to be performed. \hyperlink{classodrlmodel_1_1_action}{Action} contains the following attribute\-: name\-: indicates the \hyperlink{classodrlmodel_1_1_action}{Action} entity term (R\-E\-Q\-U\-I\-R\-E\-D) As its value, the name attribute M\-A\-Y take one of a set of \hyperlink{classodrlmodel_1_1_action}{Action} names which are formally defined in profiles.
+
+The O\-D\-R\-L Common Vocabulary defines a standard set of potential terms that M\-A\-Y be used. For example\-: 
+\begin{DoxyItemize}
+\item \href{http://www.w3.org/ns/odrl/2/write}{\tt http\-://www.\-w3.\-org/ns/odrl/2/write} 
+\item \href{http://www.w3.org/ns/odrl/2/read}{\tt http\-://www.\-w3.\-org/ns/odrl/2/read} 
+\item \href{http://www.w3.org/ns/odrl/2/distribute}{\tt http\-://www.\-w3.\-org/ns/odrl/2/distribute} 
+\end{DoxyItemize}
+
+Communities will develop new (or extend existing) profiles to capture additional and refined semantics. \begin{DoxyAuthor}{Author}
+Victor Rodriguez Doncel at O\-E\-G-\/\-U\-P\-M 2014 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classodrlmodel_1_1_action_aba2aea2da231fcdfa327f82f9408a2ac}{\index{odrlmodel\-::\-Action@{odrlmodel\-::\-Action}!Action@{Action}}
+\index{Action@{Action}!odrlmodel::Action@{odrlmodel\-::\-Action}}
+\subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Action.\-Action (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_action_aba2aea2da231fcdfa327f82f9408a2ac}
+\hyperlink{classodrlmodel_1_1_action}{Action} constructor with a random U\-R\-I in the default namespace. By default, an action will be like this\-: \href{http://salonica.dia.fi.upm.es/ldr/action/2e7de960-7001-4c07-bde5-c5ad1f35133d}{\tt http\-://salonica.\-dia.\-fi.\-upm.\-es/ldr/action/2e7de960-\/7001-\/4c07-\/bde5-\/c5ad1f35133d} \hypertarget{classodrlmodel_1_1_action_a8b58d562806a42c51959f257cbc5e8c8}{\index{odrlmodel\-::\-Action@{odrlmodel\-::\-Action}!Action@{Action}}
+\index{Action@{Action}!odrlmodel::Action@{odrlmodel\-::\-Action}}
+\subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Action.\-Action (
+\begin{DoxyParamCaption}
+\item[{{\bf Action}}]{a}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_action_a8b58d562806a42c51959f257cbc5e8c8}
+Cloner constructor \hypertarget{classodrlmodel_1_1_action_a94997efd5b4b9b2c6baa428767199e41}{\index{odrlmodel\-::\-Action@{odrlmodel\-::\-Action}!Action@{Action}}
+\index{Action@{Action}!odrlmodel::Action@{odrlmodel\-::\-Action}}
+\subsubsection[{Action}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Action.\-Action (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-uri}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_action_a94997efd5b4b9b2c6baa428767199e41}
+Creates an action identified by the given U\-R\-I. This \hyperlink{classodrlmodel_1_1_action}{Action} might be one of those defined by O\-D\-R\-L, in which case label, comment, and see\-Also are loaded from the O\-D\-R\-L ontology 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-uri} & U\-R\-I of the action \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/odrlmodel/Action.\-java\end{DoxyCompactItemize}

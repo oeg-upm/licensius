@@ -1,0 +1,69 @@
+\section*{Introduction}
+
+O\-D\-R\-L2.\-0 is a language to express policies\-: permissions, prohibitions, obligations.
+
+\begin{center}\end{center}  
+
+This A\-P\-I is able to manipulate expressions conformant to a subset of the \href{http://www.w3.org/community/odrl/two/model/}{\tt Core Model specification} and \href{http://www.w3.org/community/odrl/two/vocab/}{\tt Common Vocabulary}.
+
+O\-D\-R\-L2.\-0 can be serialized as X\-M\-L, as J\-S\-O\-N or as R\-D\-F based on the draft \href{http://www.w3.org/ns/odrl/2/}{\tt O\-D\-R\-L2.\-0 Ontology}. The only serialization this Java A\-P\-I supports in this version is the R\-D\-F
+
+\section*{Download}
+
+\href{lasversion.jar}{\tt odrlapi.\-0.\-1.\-jar}
+
+\section*{Fast intro to O\-D\-R\-L2.\-0 and O\-D\-R\-L2.\-0 Simple A\-P\-I}
+
+O\-D\-R\-L2.\-0 Core Model is abstract, i.\-e., serialization independent. The examples in this document assume the R\-D\-F serialization. First, some common prefixes\-: \begin{center} \begin{TabularC}{2}
+\hline
+prefix&namespace \\\cline{1-2}
+odrl&\href{http://www.w3.org/ns/odrl/2/}{\tt http\-://www.\-w3.\-org/ns/odrl/2/} \\\cline{1-2}
+dct&\href{http://purl.org/dc/terms/}{\tt http\-://purl.\-org/dc/terms/} \\\cline{1-2}
+\end{TabularC}
+\end{center} 
+
+\subsection*{A first example}
+
+A policy may represent the following statement\-: {\itshape \char`\"{}\-The asset 9898 can be read and written\char`\"{}}. 
+\begin{DoxyPre}
+\href{http://example.com/policy:0099}{\tt http://example.com/policy:0099}
+        a                 odrl:Policy , odrl:Set ;
+        odrl:permission   [ a            odrl:Permission ;
+                            odrl:action  odrl:write , odrl:read ;
+                            odrl:target  "http://example.com/asset:9898"
+                          ] ;
+\end{DoxyPre}
+ 
+
+Note we have created a resource, policy\-:01, of class odrl\-:Set, with a single permission\-: the permitted actions (read, write), and the resource (asset9898). The absence of the assignee is usually interpreted as \char`\"{}anybody\char`\"{}, the absence of the assigner might be interpreted as if it matches the policy publisher.
+
+This may have been defined in Java with the 
+\begin{DoxyPre}
+        Policy policy = new Policy("http://example.com/policy:0099");
+        Permission permission = new Permission();
+        permission.setTarget("http://example.com/asset:9898");
+        permission.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/read"), new Action("http://www.w3.org/ns/odrl/2/write")));
+        policy.addRule(permission);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        System.out.println(ODRLRDF.getRDF(policy, Lang.TTL));\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+ Note that the last line converts objects in the O\-D\-R\-L2.\-0 Simple A\-P\-I Model to the R\-D\-F (Turtle by default) serialization.
+
+\begin{center}\end{center} 
+
+\section*{Profile for Linked Data}
+
+The Linked Data profile uses a subset of the O\-D\-R\-L2.\-0 Core Model and Common Vocubulary, plus the needed vocabulary derived from the former\-: the \href{http://oeg-dev.dia.fi.upm.es/licensius/static/ldr/}{\tt Linked Data Rights} vocabulary
+
+\section*{Author and terms of use}
+
+This A\-P\-I has been programmed by \href{http://purl.org/NET/vroddon}{\tt Víctor Rodríguez Doncel} at the \href{http://www.oeg-upm.net}{\tt Ontology Engineering Group}, in Universidad Politécnica de Madrid (Spain)
+
+\begin{center}\end{center} 
+
+You may use this software as you like, but we do not accept any responsibility in its use.

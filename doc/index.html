@@ -1,0 +1,155 @@
+"My Github page"  
+=======
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ODRLAPI by vroddon @ OEG-UPM</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>JODRLAPI</h1>
+        <p>A Java API to manipulate ODRL2.0 RDF expressions</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/vroddon/odrlapi" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/vroddon/odrlapi/releases/download/v1.0/odrlapi-1.0.jar" class="button">JAR</a></li>
+            <li><a href="https://github.com/vroddon/odrlapi/zipball/master" class="button">SRC</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h3><a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h3>
+<p>ODRL2.0 is a language to express policies: permissions, prohibitions, obligations. It is specified by the 
+<a href="http://www.w3.org/community/odrl/">ODRL W3C Community and Business Group
+</a></p>
+<center><img src = "./images/odrlapi.jpg"/></center>
+<p>This API is able to manipulate (read/write) expressions conformant to a subset of the <a href="http://www.w3.org/community/odrl/two/model/">
+Core Model specification</a> and <a href="http://www.w3.org/community/odrl/two/vocab/">Common Vocabulary</a>.</p>
+<p>ODRL2.0 can be serialized as XML, as JSON or as RDF based on the draft <a href="http://www.w3.org/ns/odrl/2/">ODRL2.0 Ontology</a>. 
+The only serialization this Java API supports in this version is the RDF</p>
+
+ODRL2.0 Core Model is abstract, i.e., serialization independent. The examples in this document assume the RDF serialization. The most common prefixes are:
+<center><small>
+<table>
+<tr><td>prefix</td><td>namespace</td></tr>
+<tr><td>odrl</td><td>http://www.w3.org/ns/odrl/2/</td></tr>
+<tr><td>dct</td><td>http://purl.org/dc/terms/</td></tr>
+</table>
+</small>
+</center>
+
+<h4>Examples</h4>
+<p>A policy may represent the following statement: <i>"The asset 9898 can be read and written"</i>. </p>
+<p>The following example is taken from the official <a href="http://www.w3.org/ns/odrl/2/#sec-example-1">ODRL example 1</a></p>
+<pre>
+http://example.com/policy:0099
+        a                 odrl:Policy , odrl:Set ;
+        odrl:permission   [ a            odrl:Permission ;
+                            odrl:action  odrl:write , odrl:read ;
+                            odrl:target  "http://example.com/asset:9898"
+                          ] ;
+</pre>
+
+<p>In order to produce that code, the ODRLAPI can be used, by typing the excerpt shown below</p>
+
+This may have been defined in Java with the 
+<pre>
+        Policy policy = new Policy("http://example.com/policy:0099");
+        Permission permission = new Permission();
+        permission.setTarget("http://example.com/asset:9898");
+        permission.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/read"), new Action("http://www.w3.org/ns/odrl/2/write")));
+        policy.addRule(permission);
+        System.out.println(ODRLRDF.getRDF(policy, Lang.TTL));
+</pre>
+
+<p>The first line creates an object of type <a href="http://vroddon.github.io/odrlapi/htmldoc/html/classodrlmodel_1_1_policy.html">Policy</a>
+An empty string creates anonymous objects.</p>
+
+<p>Note we have created a resource, policy:01, of class odrl:Set, with a single permission: the permitted <a href="http://vroddon.github.io/odrlapi/htmldoc/html/classodrlmodel_1_1_action.html">Actions</a> (read, write), and the resource, 
+an <a href="http://vroddon.github.io/odrlapi/htmldoc/html/classodrlmodel_1_1_asset.html">Asset</a> (asset9898). </p>
+
+<p>The last line converts objects in the ODRL2.0 Simple API Model to the RDF (Turtle by default) serialization. Indeed, RDF/XML, N-Triples etc. are also supported.</p>
+
+<p>The source code includes 7 full examples of working source code for you to start digging. Look into the examples folder.</p>
+
+<h4>Full documentation</h4>
+
+<center>
+<span style="font-size:1.5em">
+<b><a href="htmldoc/html/annotated.html">Full documentation here</a></b></big></span></center>
+<h4>License</h4>
+
+This software is under a totally permisive MIT license. We are happy if you mention us, though.
+
+<center><a href="http://www.oeg-upm.net"><img src = "./images/oeg100.png"/></a></center>
+<span style="font-size:0.6em">
+The MIT License (MIT)
+
+Copyright (c) 2014 Ontology Engineering Group (OEG-UPM)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</span>
+
+
+
+	  
+	  </section>
+	  
+      <footer>
+        <p>Project maintained by <a href="https://github.com/vroddon">vroddon</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54238283-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>

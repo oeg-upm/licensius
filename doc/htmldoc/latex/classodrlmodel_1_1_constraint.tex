@@ -1,0 +1,122 @@
+\hypertarget{classodrlmodel_1_1_constraint}{\section{odrlmodel.\-Constraint Class Reference}
+\label{classodrlmodel_1_1_constraint}\index{odrlmodel.\-Constraint@{odrlmodel.\-Constraint}}
+}
+Inheritance diagram for odrlmodel.\-Constraint\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classodrlmodel_1_1_constraint}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classodrlmodel_1_1_constraint_adb03e20fbc5184936dc849508e8a9e02}{Constraint} ()
+\item 
+\hyperlink{classodrlmodel_1_1_constraint_a540f08813d46fd9e006d1f19fa1e5139}{Constraint} (\hyperlink{classodrlmodel_1_1_constraint}{Constraint} copia)
+\item 
+\hyperlink{classodrlmodel_1_1_constraint_a3a4d2d03c916c0b5c51de568a43d9761}{Constraint} (String \-\_\-uri)
+\item 
+void \hyperlink{classodrlmodel_1_1_constraint_a6813d28f7e2eb0375a9247c0c60437ad}{set\-Operator} (String \-\_\-operator)
+\item 
+void \hyperlink{classodrlmodel_1_1_constraint_a2d0a36345a3a99f683976c5c900f2276}{set\-Right\-Operand} (String \-\_\-right\-Operand)
+\item 
+void \hyperlink{classodrlmodel_1_1_constraint_a00c68186d9d61ca7c995e260bc595c7b}{set\-Value} (String \-\_\-value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classodrlmodel_1_1_constraint_af9fac4c8c0805d7eb1f6460f575067fc}{String {\bfseries operator=\char`\"{}\char`\"{}}}\label{classodrlmodel_1_1_constraint_af9fac4c8c0805d7eb1f6460f575067fc}
+
+\item 
+\hypertarget{classodrlmodel_1_1_constraint_abde5361d442cd655fb6c5aca3f911fe4}{String {\bfseries right\-Operand} =\char`\"{}\char`\"{}}\label{classodrlmodel_1_1_constraint_abde5361d442cd655fb6c5aca3f911fe4}
+
+\item 
+\hypertarget{classodrlmodel_1_1_constraint_a72bbef1fe62aff8d9701c44fa31ef55c}{String {\bfseries value} =\char`\"{}\char`\"{}}\label{classodrlmodel_1_1_constraint_a72bbef1fe62aff8d9701c44fa31ef55c}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class represents an O\-D\-R\-L2.\-0 \hyperlink{classodrlmodel_1_1_constraint}{Constraint}.
+
+The \hyperlink{classodrlmodel_1_1_constraint}{Constraint} entity indicates limits and restrictions to the \hyperlink{classodrlmodel_1_1_permission}{Permission}, the \hyperlink{classodrlmodel_1_1_prohibition}{Prohibition} and the \hyperlink{classodrlmodel_1_1_duty}{Duty} entity. Constraints express mathematical terms with two operands and one operator. For example, the “number of usages” (name) must be “smaller than” (operator) the “number 10″ (right\-Operand).
+
+If multiple \hyperlink{classodrlmodel_1_1_constraint}{Constraint} entities are linked to the same \hyperlink{classodrlmodel_1_1_permission}{Permission}, \hyperlink{classodrlmodel_1_1_prohibition}{Prohibition}, or \hyperlink{classodrlmodel_1_1_duty}{Duty} entity, then all of the \hyperlink{classodrlmodel_1_1_constraint}{Constraint} entities M\-U\-S\-T be satisfied. That is, all the \hyperlink{classodrlmodel_1_1_constraint}{Constraint} entities are (boolean) anded. In the case where the same \hyperlink{classodrlmodel_1_1_constraint}{Constraint} is repeated, then these M\-U\-S\-T be represented as a single \hyperlink{classodrlmodel_1_1_constraint}{Constraint} entity using an appropriate operator value (for example, is\-Any\-Of).
+
+\begin{DoxyAuthor}{Author}
+Victor Rodriguez Doncel at O\-E\-G-\/\-U\-P\-M 2014 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classodrlmodel_1_1_constraint_adb03e20fbc5184936dc849508e8a9e02}{\index{odrlmodel\-::\-Constraint@{odrlmodel\-::\-Constraint}!Constraint@{Constraint}}
+\index{Constraint@{Constraint}!odrlmodel::Constraint@{odrlmodel\-::\-Constraint}}
+\subsubsection[{Constraint}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Constraint.\-Constraint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_constraint_adb03e20fbc5184936dc849508e8a9e02}
+Default constraint with a random U\-R\-I \hypertarget{classodrlmodel_1_1_constraint_a540f08813d46fd9e006d1f19fa1e5139}{\index{odrlmodel\-::\-Constraint@{odrlmodel\-::\-Constraint}!Constraint@{Constraint}}
+\index{Constraint@{Constraint}!odrlmodel::Constraint@{odrlmodel\-::\-Constraint}}
+\subsubsection[{Constraint}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Constraint.\-Constraint (
+\begin{DoxyParamCaption}
+\item[{{\bf Constraint}}]{copia}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_constraint_a540f08813d46fd9e006d1f19fa1e5139}
+Cloner constructor \hypertarget{classodrlmodel_1_1_constraint_a3a4d2d03c916c0b5c51de568a43d9761}{\index{odrlmodel\-::\-Constraint@{odrlmodel\-::\-Constraint}!Constraint@{Constraint}}
+\index{Constraint@{Constraint}!odrlmodel::Constraint@{odrlmodel\-::\-Constraint}}
+\subsubsection[{Constraint}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Constraint.\-Constraint (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-uri}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_constraint_a3a4d2d03c916c0b5c51de568a43d9761}
+Creates an action identified by the given U\-R\-I. This \hyperlink{classodrlmodel_1_1_action}{Action} might be one of those defined by O\-D\-R\-L, in which case label, comment, and see\-Also are loaded from the O\-D\-R\-L ontology 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-uri} & U\-R\-I of the action \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classodrlmodel_1_1_constraint_a6813d28f7e2eb0375a9247c0c60437ad}{\index{odrlmodel\-::\-Constraint@{odrlmodel\-::\-Constraint}!set\-Operator@{set\-Operator}}
+\index{set\-Operator@{set\-Operator}!odrlmodel::Constraint@{odrlmodel\-::\-Constraint}}
+\subsubsection[{set\-Operator}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Constraint.\-set\-Operator (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-operator}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_constraint_a6813d28f7e2eb0375a9247c0c60437ad}
+Sets the operator 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-operator} & An operator, like \href{http://www.w3.org/ns/odrl/2/gt}{\tt http\-://www.\-w3.\-org/ns/odrl/2/gt} or \href{http://www.w3.org/ns/odrl/2/eq}{\tt http\-://www.\-w3.\-org/ns/odrl/2/eq} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_constraint_a2d0a36345a3a99f683976c5c900f2276}{\index{odrlmodel\-::\-Constraint@{odrlmodel\-::\-Constraint}!set\-Right\-Operand@{set\-Right\-Operand}}
+\index{set\-Right\-Operand@{set\-Right\-Operand}!odrlmodel::Constraint@{odrlmodel\-::\-Constraint}}
+\subsubsection[{set\-Right\-Operand}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Constraint.\-set\-Right\-Operand (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-right\-Operand}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_constraint_a2d0a36345a3a99f683976c5c900f2276}
+Sets the right\-Operand 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-right\-Operand} & A right\-Operand, like \href{http://www.w3.org/ns/odrl/2/language,}{\tt http\-://www.\-w3.\-org/ns/odrl/2/language,} \href{http://www.w3.org/ns/odrl/2/industry,}{\tt http\-://www.\-w3.\-org/ns/odrl/2/industry,} etc. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classodrlmodel_1_1_constraint_a00c68186d9d61ca7c995e260bc595c7b}{\index{odrlmodel\-::\-Constraint@{odrlmodel\-::\-Constraint}!set\-Value@{set\-Value}}
+\index{set\-Value@{set\-Value}!odrlmodel::Constraint@{odrlmodel\-::\-Constraint}}
+\subsubsection[{set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void odrlmodel.\-Constraint.\-set\-Value (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-value}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_constraint_a00c68186d9d61ca7c995e260bc595c7b}
+Sets the vlue 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-value} & Value, like \href{http://www.lexvo.org/page/iso639-3/eng,}{\tt http\-://www.\-lexvo.\-org/page/iso639-\/3/eng,} 3, etc. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/odrlmodel/Constraint.\-java\end{DoxyCompactItemize}

@@ -1,0 +1,45 @@
+\hypertarget{classodrlmodel_1_1_duty}{\section{odrlmodel.\-Duty Class Reference}
+\label{classodrlmodel_1_1_duty}\index{odrlmodel.\-Duty@{odrlmodel.\-Duty}}
+}
+Inheritance diagram for odrlmodel.\-Duty\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classodrlmodel_1_1_duty}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classodrlmodel_1_1_duty_a9451204912dfac8559df1489573a7776}{Duty} (String \-\_\-uri)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class represents an O\-D\-R\-L2.\-0 \hyperlink{classodrlmodel_1_1_duty}{Duty} The \hyperlink{classodrlmodel_1_1_duty}{Duty} entity indicates a requirement that M\-A\-Y be fulfilled in return for being entitled to the referring \hyperlink{classodrlmodel_1_1_permission}{Permission} entity.
+
+While implying different semantics, the \hyperlink{classodrlmodel_1_1_duty}{Duty} entity is similar to \hyperlink{classodrlmodel_1_1_permission}{Permission} in that it is an \hyperlink{classodrlmodel_1_1_action}{Action} that can be undertaken. If a \hyperlink{classodrlmodel_1_1_permission}{Permission} refers to several \hyperlink{classodrlmodel_1_1_duty}{Duty} entities, all of them have to be fulfilled for the \hyperlink{classodrlmodel_1_1_permission}{Permission} to become valid. If several \hyperlink{classodrlmodel_1_1_permission}{Permission} entities refer to one \hyperlink{classodrlmodel_1_1_duty}{Duty}, then the \hyperlink{classodrlmodel_1_1_duty}{Duty} only has to be fulfilled once for all the \hyperlink{classodrlmodel_1_1_permission}{Permission} entities to become valid.
+
+\begin{DoxyAuthor}{Author}
+Victor Rodriguez Doncel at O\-E\-G-\/\-U\-P\-M 2014 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classodrlmodel_1_1_duty_a9451204912dfac8559df1489573a7776}{\index{odrlmodel\-::\-Duty@{odrlmodel\-::\-Duty}!Duty@{Duty}}
+\index{Duty@{Duty}!odrlmodel::Duty@{odrlmodel\-::\-Duty}}
+\subsubsection[{Duty}]{\setlength{\rightskip}{0pt plus 5cm}odrlmodel.\-Duty.\-Duty (
+\begin{DoxyParamCaption}
+\item[{String}]{\-\_\-uri}
+\end{DoxyParamCaption}
+)}}\label{classodrlmodel_1_1_duty_a9451204912dfac8559df1489573a7776}
+Creates a duty identified by the given U\-R\-I. 
+\begin{DoxyParams}{Parameters}
+{\em \-\_\-uri} & U\-R\-I of the duty \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/odrlmodel/Duty.\-java\end{DoxyCompactItemize}
