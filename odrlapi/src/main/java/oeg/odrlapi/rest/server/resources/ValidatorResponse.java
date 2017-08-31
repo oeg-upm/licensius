@@ -1,9 +1,9 @@
 package oeg.odrlapi.rest.server.resources;
 
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import org.codehaus.jackson.map.ObjectMapper;
 
-
+ 
 /**
  * This is the response of the validator
  *
@@ -39,7 +39,7 @@ public class ValidatorResponse {
         this.text = text;
     }
 
-   /* public String toString() {
+    public String toString() {
         String s = "error";
         ObjectMapper mapperObj = new ObjectMapper();
         try {
@@ -49,5 +49,5 @@ public class ValidatorResponse {
         }
         return s;
     }
-*/
+
 }

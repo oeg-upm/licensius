@@ -32,7 +32,7 @@ public class Evaluator {
             @ApiResponse(code = 400, message = "Bad Request. One or more of the policies is not valid")})
     public Response evaluate(@ApiParam(name = "policy", value = "ODRL policy(es) serialized as RDF Turtle", required = true) String turtle) {
         EvaluatorResponse res = new EvaluatorResponse();
-        res.mapa.put("123", "ok");
+        res.results.put("123", "ok");
         return Response.status(200).entity(res).build();
     }
 
@@ -49,7 +49,7 @@ public class Evaluator {
         @ApiResponse(code = 400, message = "Bad Request. One or more of the policies is not valid")})
     public Response inform(@ApiParam(name = "element", value = "URI of a constraint or duty", required = true) String element, @ApiParam(name = "satisfied", value = "true if the constraint has been satisfied or the duty has been fulfilled, false otherwise", required = true) String satisfied) {
         EvaluatorResponse res = new EvaluatorResponse();
-        res.mapa.put("123", "ok");
+        res.results.put("123", "ok");
         return Response.status(201).entity(res).build();
     }
 

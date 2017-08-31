@@ -79,11 +79,15 @@
             <version>1.9.51</version>
         </dependency>
             
-<!--        <dependency>
-	<groupId>org.codehaus.jackson</groupId>
-	<artifactId>jackson-mapper-asl</artifactId>
-	<version>1.9.13</version> 
-</dependency>-->
+        <!--        <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>1.9.13</version> 
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+
+
+
     </dependencies>
 
     <build>

@@ -4,20 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * Evaluator response
  * @author vroddon
  */
 public class EvaluatorResponse {
 
+    public Map<String, String> results = new HashMap();
+    
     public Map<String, String> getMapa() {
-        return mapa;
+        return results;
     }
 
     public void setMapa(Map<String, String> mapa) {
-        this.mapa = mapa;
+        this.results = mapa;
     }
-    public Map<String, String> mapa = new HashMap();
-    
-    
    
 }
