@@ -1,0 +1,1 @@
+java -jar swagger-codegen-cli.jar generate -i http://odrlapi.appspot.com/swagger.json -l html2 -o .\src\main\webapp\clients

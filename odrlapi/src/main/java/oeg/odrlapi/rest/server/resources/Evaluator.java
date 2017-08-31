@@ -32,7 +32,7 @@ public class Evaluator {
             @ApiResponse(code = 400, message = "Bad Request. One or more of the policies is not valid")})
     public Response evaluate(@ApiParam(name = "policy", value = "ODRL policy(es) serialized as RDF Turtle", required = true) String turtle) {
         EvaluatorResponse res = new EvaluatorResponse();
-        res.results.put("123", "ok");
+        res.results.put("12glg3", "ok");
         return Response.status(200).entity(res).build();
     }
 

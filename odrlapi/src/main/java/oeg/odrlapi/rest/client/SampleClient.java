@@ -19,7 +19,7 @@ public class SampleClient {
     
     public static void main(String[] args) {
         validator(); 
-        test();
+        test();        test();
         test();
     }
     
@@ -31,11 +31,11 @@ public class SampleClient {
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
             if (conn.getResponseCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+                throw new RuntimeException("Failed : HTTdP error code : " + conn.getResponseCode());
             }
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             String output;
-            System.out.println("Output from Server .... \n");
+            System.out.println("Output from  Server .... \n");
             while ((output = br.readLine()) != null) {
                 System.out.println(output);
             }

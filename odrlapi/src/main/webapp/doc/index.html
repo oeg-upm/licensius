@@ -25,49 +25,59 @@
             </div>
             <div class="col-md-10">
             </div>
-
-            <div class="panel panel-default"> 
-                <div class="panel-header"><h3>ODRL Validator and Evaluator</h3></div>
-                <div class="panel-body">
-                    Please see the API documentation <a href="apidoc/index.html">here</a>             
-                </div>
-            </div>
             <div class="panel panel-default"> 
                 <div class="panel-header"><h3>ODRL Validator and Evaluator Sandbox</h3></div>
                 <div class="panel-body">
 
                     <div class="form-group">
-                        <div class="col-xs-5"><textarea style="font-family:monospace;" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
+                   <div class="col-xs-3">
+                    <select id="sample2" onchange="sample()">
+                      <option>sample000</option>
+                      <option>sample001</option>
+                      <option>sample002</option>
+                      <option>sample003</option>
+                    </select>                        
+                    </div>                        
+                        <div class="col-xs-7"><textarea style="font-family:monospace;" class="form-control" rows="14" id="pgn" name="pgn"></textarea></div>
                         <div class="col-xs-2">
                             <center>
                                 <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">Validate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
-                                <p>Validate</p>
+                                <p></p>
                             </center>
                             <center>
                                 <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform2()"><span class="ladda-label">Evaluate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
-                                <p>Evaluate</p>
+                                <p></p>
                             </center>
                         </div>
-                        <div class="col-xs-5"><textarea style="font-family:monospace;" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea>
-                            <div class="control-group">
-                                <a id="boton3" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform3()"><span class="ladda-label">Upload </span><span class="glyphicon glyphicon-upload"></span></a>                        
-                                <a id="boton4" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform4()"><span class="ladda-label">Expand </span><span class="glyphicon glyphicon-resize-full"></span></a>                        
-                            </div>
+                   <!--     <div class="col-xs-5"><textarea style="font-family:monospace;" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea></div> -->
 
-                        </div>
+                       
+                       <!-- <div class="dropdown">
+                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="samples">Samples
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">example000</a></li>
+                            <li><a href="#">example001</a></li>
+                            <li><a href="#">example002</a></li>
+                          </ul>
+                        </div>     -->                   
+                   
+                   
+                  
+                        
                     </div>
                 </div>
             </div>
-
-
-
+            <p id="salida" class="bg-info" style="font-family:monospace;">No output</p>
 
         </div>            
 
-        <div id="footer" style="position:fixed;bottom:0;text-align:left;font-size:smaller;">
+        <p style="margin-bottom:3cm;">.</p>
+<!--        <div id="footer" style="position:fixed;bottom:0;text-align:left;font-size:smaller;"> -->
+        <div id="footer" style="text-align:left;font-size:smaller;margin-bottom:3cm;"> 
             <div class="container">
                 <p > 
-                    This work is an independent initiative, not endorsed whatsoever by the <a href="https://www.w3.org/2016/poe">W3C Permissions and Obligations Working Group</a><br>
+                    This work is an independent initiative, not endorsed whatsoever by the <a href="https://www.w3.org/2016/poe">W3C Permissions and Obligations Working Group</a>. 
                     Open source hosted at <a href="https://github.com/oeg-upm/licensius/tree/master/odrlapi">github</a> - Victor Rodriguez Doncel - Ontology Engineering Group 2017
                 </p>
             </div>
@@ -79,10 +89,25 @@
 
         <script type="text/javascript">
 
+
+            function sample()
+            { 
+                var v = document.getElementById("sample2");
+                var archivo = v.options[v.selectedIndex].text
+                console.log(archivo);
+                var client = new XMLHttpRequest();
+                client.open('GET', '/samples/'+archivo);
+                client.onreadystatechange = function() {
+                  //alert(client.responseText);
+                  document.getElementById('pgn').value = client.responseText;
+                }
+                client.send();                
+            }
+
         //enrich
             function submitform1()
             {
-                console.info("Validate");
+                console.info("test");
                 var l = Ladda.create(document.getElementById("boton1"));
                 l.start();
                 var http = new XMLHttpRequest();
@@ -97,10 +122,35 @@
                 http.send(params);
                 http.onload = function () {
                     console.info(http.responseText);
-                    document.getElementById("rdf").value = http.responseText;
+//                    document.getElementById("rdf").value = http.responseText;
+                    document.getElementById("salida").innerHTML = http.responseText;
                     l.stop();
                 }
             }
+        //enrich
+            function submitform2()
+            {
+                console.info("Validate");
+                var l = Ladda.create(document.getElementById("boton2"));
+                l.start();
+                var http = new XMLHttpRequest();
+                var pgn = document.getElementById("pgn").value;
+                var pgnencoded = encodeURI(pgn);
+                console.info(pgn);
+                var params = "policy=" + pgnencoded;
+                http.open("POST", "/validator", true); //true
+                http.setRequestHeader("Content-type", "text/turtle");
+//                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+//                http.setRequestHeader("Content-length", params.length);
+//                http.setRequestHeader("Connection", "close");
+//                http.send(params);
+                http.send(pgn);
+                http.onload = function () {
+                    console.info(http.responseText);
+                    document.getElementById("salida").innerHTML = http.responseText;
+                    l.stop();
+                }
+            }            
         </script>
 
     </body>

@@ -9,7 +9,7 @@ import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.log4j.Logger;
 
 /**
- *
+ * Implements the logic of the ODRL Validation
  * @author vroddon
  */
 public class ODRLValidator {
@@ -17,15 +17,17 @@ public class ODRLValidator {
     private static final Logger logger = Logger.getLogger(ODRLValidator.class.getName());
     
     public ValidatorResponse validate(String turtle) {
+        System.out.println(turtle);
         ValidatorResponse vres = new ValidatorResponse();
-        vres.text = "unknown";
-        vres.valid = false;
-        
+        vres.text = "";
+        vres.valid = true;
+        vres.status=200;
+         
         Model model = getModel(turtle);
         if (model==null)
-        {
+        { 
             vres.valid = false;
-            vres.text = "The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES";
+            vres.text = "The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...";
             vres.status = 415;
             return vres;
         }
@@ -35,6 +37,7 @@ public class ODRLValidator {
     
     public Model getModel(String rdf)
     {
+        logger.info("Obteniendo el modelo de " + rdf);
         Model model = ModelFactory.createDefaultModel();
         model = ModelFactory.createDefaultModel();
         InputStream is = new ByteArrayInputStream(rdf.getBytes(StandardCharsets.UTF_8));

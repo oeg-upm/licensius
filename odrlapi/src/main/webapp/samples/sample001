@@ -1,0 +1,3 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+<http://odrlapi.appspot.com/samples/sample001>
+    a odrl:Policy .
