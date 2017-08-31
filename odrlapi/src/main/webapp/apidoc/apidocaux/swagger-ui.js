@@ -334,11 +334,7 @@ this["Handlebars"]["templates"]["main"] = Handlebars.template({"1":function(dept
     + "</a></div>";
 },"10":function(depth0,helpers,partials,data) {
   var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class='info_email'>Contacta: <a href=\"mailto:"
-    + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.contact : stack1)) != null ? stack1.email : stack1), depth0))
-    + "?subject="
-    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.info : depth0)) != null ? stack1.title : stack1), depth0))
-    + "\">Correo electr&oacute;nico</a> | GitHub (<a href=\"https://github.com/zaragoza-sedeelectronica/zaragoza-sedeelectronica.github.io\">ejemplos de uso</a>, <a href=\"https://github.com/zaragoza-sedeelectronica/zaragoza-sedeelectronica.github.io/issues\">notifica incidencias</a>)</a></div>";
+  return "";
 },"12":function(depth0,helpers,partials,data) {
   var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "<div class='info_license'><a href='"

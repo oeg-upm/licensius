@@ -35,7 +35,6 @@ public class Validator {
             return Response.status(vres.status).entity(vres).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error interno").build();
-
         }
     }
 

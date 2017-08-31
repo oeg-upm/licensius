@@ -7,6 +7,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import oeg.odrlapi.rest.server.resources.ValidatorResponse;
+import oeg.odrlapi.validator.ODRLValidator;
 
 /**
  * Sample client
@@ -15,18 +17,20 @@ public class EvaluatorPostClient {
 
 	// http://localhost:8080/RESTfulExample/json/product/post
 	public static void main(String[] args) {
+            ODRLValidator validator = new ODRLValidator();
+//            String input = "{\"qty\":17,\"name\":\"iPad 4\"}";
+            String input = "";
+            ValidatorResponse vres = validator.validate(input);
+            System.out.println(vres);
 
 		try {
 
-			URL url = new URL(
-					"http://localhost:8080/odrlapi/evaluator");
+			URL url = new URL("http://odrlapi.appspot.com/validator");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Type", "application/json");
-
-			String input = "{\"qty\":17,\"name\":\"iPad 4\"}";
-
+			//conn.setRequestProperty("Content-Type", "application/json");
+			
 			OutputStream os = conn.getOutputStream();
 			os.write(input.getBytes());
 			os.flush();
@@ -45,9 +49,7 @@ public class EvaluatorPostClient {
 
 				System.out.println(output);
 			}
-
 			conn.disconnect();
-
 		} catch (MalformedURLException e) {
 
 			e.printStackTrace();
