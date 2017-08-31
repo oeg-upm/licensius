@@ -14,6 +14,7 @@ public class Product {
 	}
 
 	public int getQty() {
+            qty+=3;
 		return qty;
 	}
 

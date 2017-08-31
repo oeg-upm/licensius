@@ -1,0 +1,61 @@
+package oeg.odrlapi.validator;
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import oeg.odrlapi.rest.server.resources.ValidatorResponse;
+import org.apache.log4j.Logger;
+
+/**
+ *
+ * @author vroddon
+ */
+public class ODRLValidator {
+
+    private static final Logger logger = Logger.getLogger(ODRLValidator.class.getName());
+    
+    public ValidatorResponse validate(String turtle) {
+        ValidatorResponse vres = new ValidatorResponse();
+        vres.text = "unknown";
+        vres.valid = false;
+        
+        Model model = getModel(turtle);
+        if (model==null)
+        {
+            vres.valid = false;
+            vres.text = "The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES";
+            vres.status = 415;
+            return vres;
+        }
+        return vres;
+    }
+    
+    
+    public Model getModel(String rdf)
+    {
+        Model model = ModelFactory.createDefaultModel();
+        model = ModelFactory.createDefaultModel();
+        InputStream is = new ByteArrayInputStream(rdf.getBytes(StandardCharsets.UTF_8));
+        logger.info("Parsing input of size: " + rdf.length());
+        try {
+            model.read(is, null, "RDF/XML");
+            logger.debug("Read as RDF/XML");
+            return model;
+        } catch (Exception e) {
+            logger.debug("Failed as RDF/XML. " + e.getMessage());
+            try {
+                is.close();
+                is = new ByteArrayInputStream(rdf.getBytes(StandardCharsets.UTF_8));
+                model.read(is, null, "TURTLE");
+                logger.debug("Read as TURTLE");
+                return model;
+            } catch (Exception e2) {
+                logger.debug("Failed as TURTLE. " + e2.getMessage());
+            }
+            return null;
+        }        
+    }
+
+}
