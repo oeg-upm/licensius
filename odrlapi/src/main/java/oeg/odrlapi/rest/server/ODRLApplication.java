@@ -1,4 +1,4 @@
-package oeg.odrlapi.main;
+package oeg.odrlapi.rest.server;
 
 import io.swagger.jaxrs.config.BeanConfig;
 import java.util.HashSet;

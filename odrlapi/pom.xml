@@ -6,7 +6,7 @@
     <packaging>war</packaging>
     <version>1.0</version>
     <name>odrlapi</name>
-    <url>http://odrlapi.licensius.com</url>
+    <url>http://odrlapi.appengine.com</url>
 
     <repositories>
         <repository>
@@ -64,6 +64,15 @@
             <version>3.1.0</version>
             <type>jar</type>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.google.appengine/appengine-api-1.0-sdk -->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>1.9.51</version>
+        </dependency>
+            
+        
     </dependencies>
 
     <build>
@@ -97,7 +106,12 @@
                     </configuration>
                 </execution>
             </executions>
-        </plugin>            
+        </plugin>     
+            <plugin>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>1.9.51</version> 
+            </plugin>               
         </plugins>
     </build>
 

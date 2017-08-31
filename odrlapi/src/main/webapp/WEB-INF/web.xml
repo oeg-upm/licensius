@@ -21,7 +21,7 @@
         </servlet-class>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>oeg.odrlapi.main.ODRLApplication</param-value>
+            <param-value>oeg.odrlapi.rest.server.ODRLApplication</param-value>
         </init-param>
     </servlet>
     <servlet>
@@ -33,7 +33,7 @@
         </init-param>
         <init-param>
             <param-name>swagger.api.basepath</param-name>
-            <param-value>http://localhost:8080/odrlapi</param-value>
+            <param-value>http://odrlapi.appspot.com</param-value>
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
@@ -43,10 +43,10 @@
         <load-on-startup>2</load-on-startup>
     </servlet>
     
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/doc/*</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>  -->
     
     <servlet-mapping>
         <servlet-name>resteasy</servlet-name>

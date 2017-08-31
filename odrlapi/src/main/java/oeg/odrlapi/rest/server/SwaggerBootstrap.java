@@ -1,14 +1,10 @@
 package oeg.odrlapi.rest.server;
 
-import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.config.SwaggerContextService;
 import io.swagger.models.Contact;
-import io.swagger.models.ExternalDocs;
 import io.swagger.models.Info;
 import io.swagger.models.License;
 import io.swagger.models.Swagger;
-import io.swagger.models.Tag;
-import io.swagger.models.auth.OAuth2Definition;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
