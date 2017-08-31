@@ -18,13 +18,19 @@ public class Validator {
    
 	@POST
 	@Path("/")
-	@Consumes("application/json")
+	@Consumes("text/turtle")
 	@Produces("application/json")
         @ApiOperation(value = "validator", notes = "Returns if a policy is valid, not valid or unknown. Checks the conformance of ODRL Policy expressions with respect to the ODRL Information Model validation requirements. ")
-        @ApiResponses(value = { @ApiResponse(code = 200, message = "true or false") })
+        @ApiResponses(value = { @ApiResponse(code = 200, message = "OK", response=ValidatorResponse.class),
+                                @ApiResponse(code = 400, message = "Bad Request"),
+                                @ApiResponse(code = 415, message = "Unsupported Media Type")})
         public Response validator(@ApiParam(name="policy", value = "ODRL policy serialized as RDF Turtle", required = true) String turtle) {
-		String result = "unknown";
-		return Response.status(201).entity(result).build();
+                if (1==0)
+                    return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error interno").build();
+                ValidatorResponse vres = new ValidatorResponse();
+                vres.text="unknown";
+                vres.valid=false;
+		return Response.status(200).entity(vres).build();
 	}
 	
 }

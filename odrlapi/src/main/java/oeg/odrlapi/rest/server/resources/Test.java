@@ -21,7 +21,7 @@ public class Test {
 	@Produces("application/json")
         @ApiOperation(value = "test", notes = "Checks if the service is up and running")
         @ApiResponses(value = { @ApiResponse(code = 200, message = "Service up"),
-                                @ApiResponse(code = 404, message = "Service down") })        
+                                @ApiResponse(code = 200, message = "Service down") })        
 	public Response test() {
            String ok = "ok";
            return Response.status(200).entity(ok).build();

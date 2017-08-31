@@ -30,7 +30,7 @@ public class Test extends HttpServlet {
             resp.setStatus(200);
             resp.setContentType("text/html");
             PrintWriter w = resp.getWriter();
-            w.println("Thanks for testing our licensius 2 " + req.getRequestURL());
+            w.println("Thanks for testing our licensius 2 (build 105)" + req.getRequestURL());
             return;
         }
 
