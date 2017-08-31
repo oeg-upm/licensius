@@ -14,12 +14,13 @@ import oeg.odrlapi.validator.ODRLValidator;
 /**
  * Sample client
  */
-public class EvaluatorGetClient {
+public class SampleClient {
 
-    // http://localhost:8080/RESTfulExample/json/product/get
+    
     public static void main(String[] args) {
+        validator(); 
         test();
-        validator();
+        test();
     }
     
     public static void test()

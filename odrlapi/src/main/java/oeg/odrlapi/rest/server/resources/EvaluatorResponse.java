@@ -11,11 +11,11 @@ public class EvaluatorResponse {
 
     public Map<String, String> results = new HashMap();
     
-    public Map<String, String> getMapa() {
+    public Map<String, String> getResults() {
         return results;
     }
 
-    public void setMapa(Map<String, String> mapa) {
+    public void setResults(Map<String, String> mapa) {
         this.results = mapa;
     }
    

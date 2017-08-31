@@ -1,16 +1,107 @@
+<!doctype html>
 <html>
     <head>
         <title>odrlapi</title>
-       <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--     <meta http-equiv="refresh" content="0; url=./doc/index.html" /> -->
+        <link rel="shortcut icon" href="favicon.png">         
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">        -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cerulean/bootstrap.min.css" >
+        <link rel="stylesheet" href="css/ladda-themeless.min.css"> <!-- http://msurguy.github.io/ladda-bootstrap/ -->
+        <script src="js/spin.min.js"></script>
+        <script src="js/ladda.min.js"></script>    
     </head>
     <body>
-        <div>ODRL Evaluator</div>
-        
-        <h1>ODRL Evaluator </h1>
-        Please see the API documentation <a href="apidoc/index.html">here</a>.
-        
-        
+        <div class="container">
+            <div class="page-header">
+                <h1>ODRL Implementation</h1> 
+                <p>The <a href="https://www.w3.org/2016/poe/">W3C Permissions and Obligations Expression</a> (POE) Working Group has been chartered 
+                    to create recommendations for expressing permissions and obligations statements for digital content.
+                    This site provides an implementation in compliance with the specs. Please see the API documentation <a href="apidoc/index.html">here</a></p>
+            </div>
+        </div>        
+        <div class="container">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+            </div>
+
+            <div class="panel panel-default"> 
+                <div class="panel-header"><h3>ODRL Validator and Evaluator</h3></div>
+                <div class="panel-body">
+                    Please see the API documentation <a href="apidoc/index.html">here</a>             
+                </div>
+            </div>
+            <div class="panel panel-default"> 
+                <div class="panel-header"><h3>ODRL Validator and Evaluator Sandbox</h3></div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <div class="col-xs-5"><textarea style="font-family:monospace;" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
+                        <div class="col-xs-2">
+                            <center>
+                                <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">Validate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <p>Validate</p>
+                            </center>
+                            <center>
+                                <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform2()"><span class="ladda-label">Evaluate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <p>Evaluate</p>
+                            </center>
+                        </div>
+                        <div class="col-xs-5"><textarea style="font-family:monospace;" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea>
+                            <div class="control-group">
+                                <a id="boton3" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform3()"><span class="ladda-label">Upload </span><span class="glyphicon glyphicon-upload"></span></a>                        
+                                <a id="boton4" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform4()"><span class="ladda-label">Expand </span><span class="glyphicon glyphicon-resize-full"></span></a>                        
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>            
+
+        <div id="footer" style="position:fixed;bottom:0;text-align:left;font-size:smaller;">
+            <div class="container">
+                <p > 
+                    This work is an independent initiative, not endorsed whatsoever by the <a href="https://www.w3.org/2016/poe">W3C Permissions and Obligations Working Group</a><br>
+                    Open source hosted at <a href="https://github.com/oeg-upm/licensius/tree/master/odrlapi">github</a> - Victor Rodriguez Doncel - Ontology Engineering Group 2017
+                </p>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>        
+
+        <script type="text/javascript">
+
+        //enrich
+            function submitform1()
+            {
+                console.info("Validate");
+                var l = Ladda.create(document.getElementById("boton1"));
+                l.start();
+                var http = new XMLHttpRequest();
+                var pgn = document.getElementById("pgn").value;
+                var pgnencoded = encodeURI(pgn);
+                console.info(pgn);
+                var params = "pgn=" + pgnencoded + "&action=enrich";
+                http.open("GET", "/test", true); //true
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+                http.setRequestHeader("Content-length", params.length);
+                http.setRequestHeader("Connection", "close");
+                http.send(params);
+                http.onload = function () {
+                    console.info(http.responseText);
+                    document.getElementById("rdf").value = http.responseText;
+                    l.stop();
+                }
+            }
+        </script>
+
     </body>
 </html>
