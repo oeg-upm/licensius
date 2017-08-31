@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <title>odrl</title>
+                                                         </head>
+<body>
+<div class="container">
+    <h1>odrl 2</h1> 
+    <p class="sw-info">Base URL: <span class="sw-info-basePath">/odrlapi</span>, Version: <span class="sw-info-version">1.0</span></p>
+    <p><p>This is an implementation of the ODRL Evaluator. For more info, read at <a href="https://www.w3.org/2016/poe/">W3C Permissions and Obligations Working Group</a></p>
+    </p>
+    
+    
+    <div id="sw-schemes" class="sw-default-value">
+        <span class="sw-default-value-header">Schemes:</span>
+        http
+    </div>
+    
+        
+        <h2 id="swagger--summary-tags">Summary</h2>
+            <h3 id="tag-test" class="swagger-summary-tag">Tag: test</h3>
+            
+        
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--test-get">GET /test</a></td>
+                        <td><p>test</p>
+        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="tag-validator" class="swagger-summary-tag">Tag: validator</h3>
+            
+        
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--validator-post">POST /validator</a></td>
+                        <td><p>validator</p>
+        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="tag-evaluator" class="swagger-summary-tag">Tag: evaluator</h3>
+            
+        
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--evaluator-post">POST /evaluator</a></td>
+                        <td><p>evaluator</p>
+        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+    
+    
+    
+    <h2>Paths</h2>
+    
+        
+        <span id="path--evaluator"></span>
+            <div id="operation--evaluator-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">evaluator</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/evaluator</strong></h3>
+                        Tags:
+                            <a href="#tag-evaluator">evaluator</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Returns if a policy is valid or not</p>
+            
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>ODRL policy serialized as RDF Turtle</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                        
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><span class="label label-default">application/json</span> 
+                    </p>
+                    
+                            <dl>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Invalid policy ID supplied</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--test"></span>
+            <div id="operation--test-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">test</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/test</strong></h3>
+                        Tags:
+                            <a href="#tag-test">test</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Checks if the service is up and running</p>
+            
+                    </section>
+                    
+                    
+                        <section class="sw-responses">
+                                <p><span class="label label-default">application/json</span> 
+                    </p>
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Service up</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-404">
+                                        404 Not Found
+                                    
+                                    </dt>
+                                    <dd class="sw-response-404">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Service down</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>    
+        <span id="path--validator"></span>
+            <div id="operation--validator-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">validator</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/validator</strong></h3>
+                        Tags:
+                            <a href="#tag-validator">validator</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Returns if a policy is valid, not valid or unknown. Checks the conformance of ODRL Policy expressions with respect to the ODRL Information Model validation requirements. </p>
+            
+                    </section>
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>ODRL policy serialized as RDF Turtle</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                        
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                                <p><span class="label label-default">application/json</span> 
+                    </p>
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>true or false</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+     
+    
+                       
+    
+</div>
+<script src="bundle.js" type="application/javascript"></script>
+</body>
+</html>
