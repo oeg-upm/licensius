@@ -16,7 +16,7 @@ public class Validation01 implements Validation {
     public ValidatorResponse validate(String turtle) {
         Model model = ODRLValidator.getModel(turtle);
         if (model==null)
-            return new ValidatorResponse(false, 415,"The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES..." );
+            return new ValidatorResponse(false, 415,"not valid<br>The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES..." );
         
         List<String> lista = new ArrayList();
         
@@ -26,7 +26,7 @@ public class Validation01 implements Validation {
         lista.addAll(RDFUtils.getObjectsOfType(model, ODRL.RSET));
         
         if (lista.isEmpty())
-            return new ValidatorResponse(false, 415,"01 There is no policy, aggrement, offer or set" );
+            return new ValidatorResponse(false, 415,"not valid<br>01 There is no policy, aggrement, offer or set" );
         
         return new ValidatorResponse(true, 200, "ok");
     }

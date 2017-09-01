@@ -1,0 +1,14 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# valid with assigner and assignee on rule level
+<http://odrlapi.appspot.com/samples/sample007>
+    a odrl:Agreement ;   
+    dct:source <https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.4-Agreement> ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target <http://example.com/asset:9898> ;
+        odrl:action odrl:reproduce ;
+        odrl:assigner ex:Bob ;
+        odrl:assignee ex:Alice ;
+    ] .

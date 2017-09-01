@@ -18,11 +18,11 @@ public class ODRLValidator {
     
     public static ValidatorResponse validate(String rdf) {
         System.out.println(rdf);
-        ValidatorResponse vrok = new ValidatorResponse(true, 200, "ok");
+        ValidatorResponse vrok = new ValidatorResponse(true, 200, "valid");
         
         Model model = getModel(rdf);
         if (model==null)
-            return new ValidatorResponse(false, 415,"The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES..." );
+            return new ValidatorResponse(false, 415,"not valid<br>999 The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES..." );
 
         Validation v = new Validation01();
         ValidatorResponse vr = v.validate(rdf);

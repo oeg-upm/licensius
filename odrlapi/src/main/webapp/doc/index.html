@@ -17,7 +17,7 @@
                 <h1>ODRL Implementation</h1> 
                 <p>The <a href="https://www.w3.org/2016/poe/">W3C Permissions and Obligations Expression</a> (POE) Working Group has been chartered 
                     to create recommendations for expressing permissions and obligations statements for digital content.
-                    This site provides an implementation in compliance with the specs. Please see the API documentation <a href="apidoc/index.html">here</a></p>
+                    This site provides an ODRL implementation whose API is documented <a href="apidoc/index.html">here</a>. See also the <a href="http://w3c.github.io/poe/vocab/ODRL22.ttl">onto</a>.</p>
             </div>
         </div>        
         <div class="container">
@@ -30,14 +30,20 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                   <div class="col-xs-2">
-                    <select id="sample2" onchange="sample()">
-                      <option>sample000</option>
-                      <option>sample001</option>
-                      <option>sample002</option>
-                      <option>sample003</option>
-                    </select>                        
-                    </div>                        
+                        <div class="col-xs-2">
+                            <select id="sample2" onchange="sample()">
+                                <option>sample000</option>
+                                <option>sample001</option>
+                                <option>sample002</option>
+                                <option>sample003</option>
+                                <option>sample004</option>
+                                <option>sample005</option>
+                                <option>sample006</option>
+                                <option>sample007</option>
+                                <option>sample008</option>
+                                <option>sample009</option>
+                            </select>                        
+                        </div>                        
                         <div class="col-xs-8"><textarea style="font-size:small;font-family:monospace;" class="form-control" rows="14" id="pgn" name="pgn"></textarea></div>
                         <div class="col-xs-2">
                             <center>
@@ -53,22 +59,6 @@
                                 <p></p>
                             </center>
                         </div>
-                   <!--     <div class="col-xs-5"><textarea style="font-family:monospace;" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea></div> -->
-
-                       
-                       <!-- <div class="dropdown">
-                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="samples">Samples
-                          <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">example000</a></li>
-                            <li><a href="#">example001</a></li>
-                            <li><a href="#">example002</a></li>
-                          </ul>
-                        </div>     -->                   
-                   
-                   
-                  
-                        
                     </div>
                 </div>
             </div>
@@ -77,94 +67,111 @@
         </div>            
 
         <p style="margin-bottom:3cm;">.</p>
-<!--        <div id="footer" style="position:fixed;bottom:0;text-align:left;font-size:smaller;"> -->
+        <!--        <div id="footer" style="position:fixed;bottom:0;text-align:left;font-size:smaller;"> -->
         <div id="footer" style="text-align:left;font-size:smaller;margin-bottom:3cm;"> 
             <div class="container">
                 <p > 
                     This work is an independent initiative, not endorsed whatsoever by the <a href="https://www.w3.org/2016/poe">W3C Permissions and Obligations Working Group</a>. 
-                    Open source hosted at <a href="https://github.com/oeg-upm/licensius/tree/master/odrlapi">github</a> - Victor Rodriguez Doncel - Ontology Engineering Group 2017
+                    Open source hosted at <a href="https://github.com/oeg-upm/licensius/tree/master/odrlapi">github</a> - Victor Rodriguez Doncel - <a href="http://www.oeg-upm.net">OEG</a> - Universidad Politécnica de Madrid 2017
                 </p>
             </div>
         </div>
-
+<!--
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>        
-
+-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" crossorigin="anonymous"></script>        
         <script type="text/javascript">
 
 
-            // Loads a file with a sample into the textarea for the user to standard texts
-            function sample()
-            { 
-                var v = document.getElementById("sample2");
-                var archivo = v.options[v.selectedIndex].text ;
-                console.log(archivo);
-                var client = new XMLHttpRequest();
-                client.open('GET', '/samples/'+archivo);
-                client.onreadystatechange = function() {
-                  //alert(client.responseText);
-                  document.getElementById('pgn').value = client.responseText;
-                }
-                client.send();                
-            }
+                                // Loads a file with a sample into the textarea for the user to standard texts
+                                function sample()
+                                {
+                                    var v = document.getElementById("sample2");
+                                    var archivo = v.options[v.selectedIndex].text;
+                                    console.log(archivo);
+                                    var client = new XMLHttpRequest();
+                                    client.open('GET', '/samples/' + archivo);
+                                    client.onreadystatechange = function () {
+                                        //alert(client.responseText);
+                                        document.getElementById('pgn').value = client.responseText;
+                                    }
+                                    client.send();
+                                }
 
-        //enrich
-            function submitform1()
-            {
-                console.info("test");
-                var l = Ladda.create(document.getElementById("boton1"));
-                l.start();
-                var http = new XMLHttpRequest();
-                var pgn = document.getElementById("pgn").value;
-                var pgnencoded = encodeURI(pgn);
-                console.info(pgn);
-                var params = "pgn=" + pgnencoded + "&action=enrich";
-                http.open("GET", "/test", true); //true
-                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
-                http.setRequestHeader("Content-length", params.length);
-                http.setRequestHeader("Connection", "close");
-                http.send(params);
-                http.onload = function () {
-                    console.info(http.responseText);
+                                //enrich
+                                function submitform1()
+                                {
+                                    console.info("test");
+                                    var l = Ladda.create(document.getElementById("boton1"));
+                                    l.start();
+                                    var http = new XMLHttpRequest();
+                                    var pgn = document.getElementById("pgn").value;
+                                    var pgnencoded = encodeURI(pgn);
+                                    console.info(pgn);
+                                    var params = "pgn=" + pgnencoded + "&action=enrich";
+                                    http.open("GET", "/test", true); //true
+                                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+                                    http.setRequestHeader("Content-length", params.length);
+                                    http.setRequestHeader("Connection", "close");
+                                    http.send(params);
+                                    http.onload = function () {
+                                        console.info(http.responseText);
 //                    document.getElementById("rdf").value = http.responseText;
-                    document.getElementById("salida").innerHTML = http.responseText;
-                    l.stop();
-                }
-            }
+                                        document.getElementById("salida").innerHTML = http.responseText;
+                                        l.stop();
+                                    }
+                                }
+                                var entityMap = {
+                                    '&': '&amp;',
+                                    '<': '&lt;',
+                                    '>': '&gt;',
+                                    '"': '&quot;',
+                                    "'": '&#39;',
+                                    '/': '&#x2F;',
+                                    '`': '&#x60;',
+                                    '=': '&#x3D;'
+                                };
 
-            //Validation
-            function submitform2()
-            {
-                var l = Ladda.create(document.getElementById("boton2"));
-                l.start();
-                var http = new XMLHttpRequest();
-                var pgn = document.getElementById("pgn").value;
-                var pgnencoded = encodeURI(pgn);
-                http.open("POST", "/validator", true); //true
-                http.setRequestHeader("Content-type", "text/turtle");
-                http.send(pgn);
-                http.onload = function () {
-                    var res = http.responseText;
-                    console.info(res);
-                    var obj = JSON.parse(res);
-                    var text = obj.text;
-                    var status = obj.status;
-                    document.getElementById("salida").innerHTML = text.html();
-                    var n = res.indexOf("200");                         
-                    if (status===200)
-                    {
-                        console.info("BUENO");
-                        document.getElementById("salida").setAttribute("class", "bg-success");
-                    }
-                    else
-                    {
-                        console.info("MALO");
-                        document.getElementById("salida").setAttribute("class", "bg-danger");
-                    } 
-                    l.stop();
-                }
-            }            
+                                function escapeHtml(string) {
+                                    return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+                                        return entityMap[s];
+                                    });
+                                }
+                                //Validation
+                                function submitform2()
+                                {
+                                    var l = Ladda.create(document.getElementById("boton2"));
+                                    l.start();
+                                    var http = new XMLHttpRequest();
+                                    var pgn = document.getElementById("pgn").value;
+                                    var pgnencoded = encodeURI(pgn);
+                                    http.open("POST", "/validator", true); //true
+                                    http.setRequestHeader("Content-type", "text/turtle");
+                                    http.send(pgn);
+                                    http.onload = function () {
+                                        var res = http.responseText;
+                                        console.info(res);
+                                        var obj = JSON.parse(res);
+                                        var text = obj.text;
+                                        var status = obj.status;
+                                        document.getElementById("salida").innerHTML = escapeHtml(text);
+                                        var n = res.indexOf("200");
+                                        if (status === 200)
+                                        {
+                                            console.info("BUENO");
+                                            document.getElementById("salida").setAttribute("class", "bg-success");
+                                        } else
+                                        {
+                                            console.info("MALO");
+                                            document.getElementById("salida").setAttribute("class", "bg-danger");
+                                        }
+                                        l.stop();
+                                    }
+                                }
         </script>
 
     </body>
