@@ -1,6 +1,5 @@
 package oeg.odrlapi.main;
 
-import java.io.IOException;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import oeg.odrlapi.validator.ODRLValidator;
 

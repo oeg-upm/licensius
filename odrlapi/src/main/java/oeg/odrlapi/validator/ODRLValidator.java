@@ -1,11 +1,11 @@
 package oeg.odrlapi.validator;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Logger;
 
 /**
@@ -18,7 +18,7 @@ public class ODRLValidator {
     
     public static ValidatorResponse validate(String rdf) {
         System.out.println(rdf);
-        ValidatorResponse vrok = new ValidatorResponse(false, 200, "ok");
+        ValidatorResponse vrok = new ValidatorResponse(true, 200, "ok");
         
         Model model = getModel(rdf);
         if (model==null)
@@ -26,6 +26,11 @@ public class ODRLValidator {
 
         Validation v = new Validation01();
         ValidatorResponse vr = v.validate(rdf);
+        if (vr.valid == false)
+            return vr;
+
+        v = new Validation02();
+        vr = v.validate(rdf);
         if (vr.valid == false)
             return vr;
         

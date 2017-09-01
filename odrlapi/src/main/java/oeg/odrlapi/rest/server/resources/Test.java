@@ -25,7 +25,8 @@ public class Test {
             /*Product product = new Product();
             product.setName(turtle);
             product.setQty(12);
-            return product; */
+            return product; //also valid!
+           */
 	}
 	
 }

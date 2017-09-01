@@ -150,7 +150,7 @@
                     var obj = JSON.parse(res);
                     var text = obj.text;
                     var status = obj.status;
-                    document.getElementById("salida").innerHTML = text;
+                    document.getElementById("salida").innerHTML = text.html();
                     var n = res.indexOf("200");                         
                     if (status===200)
                     {

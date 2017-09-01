@@ -1,14 +1,13 @@
 package oeg.odrlapi.validator;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
+import org.apache.jena.rdf.model.Model;
 
 /**
- * Determines if there is at least one policy
+ * Determines if there is at least one policy.
  * @author vroddon
  */
 public class Validation01 implements Validation {

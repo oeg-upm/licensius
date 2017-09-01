@@ -5,8 +5,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 
  
 /**
- * This is the response of the validator
- *
+ * This is the response of the validator.
+ * @param valid Valid or not
+ * @param status HTTP status
+ * @param text Text describing the error
  * @author vroddon
  */
 public class ValidatorResponse {
