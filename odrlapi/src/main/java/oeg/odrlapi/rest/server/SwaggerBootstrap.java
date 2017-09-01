@@ -45,6 +45,7 @@ public class SwaggerBootstrap extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
     Info info = new Info()
             .title("odrlapi")
+            .version("2.0")
             .description("This is an implementation of the ODRL Evaluator. For more info, read " +
                     "at [W3C Permissions and Obligations Working Group](https://www.w3.org/2016/poe/) ")
             .contact(new Contact()

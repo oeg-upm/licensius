@@ -1,0 +1,12 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#valid. target can also be a literal.
+<http://odrlapi.appspot.com/samples/sample005>
+    a odrl:Policy;
+    dct:source "victor" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target "asset9898" ;
+        odrl:action odrl:reproduce
+    ] .
