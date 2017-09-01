@@ -27,7 +27,7 @@ public class Validation01 implements Validation {
         lista.addAll(RDFUtils.getObjectsOfType(model, ODRL.RSET));
         
         if (lista.isEmpty())
-            return new ValidatorResponse(false, 415,"There is no policy, aggrement, offer or set" );
+            return new ValidatorResponse(false, 415,"01 There is no policy, aggrement, offer or set" );
         
         return new ValidatorResponse(true, 200, "ok");
     }
