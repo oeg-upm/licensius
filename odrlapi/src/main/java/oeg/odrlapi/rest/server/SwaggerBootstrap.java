@@ -11,8 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 /*
-//once generated the http://localhost:8080/odrlapi/swagger.json, the documentation can be generated in different manners
-// Option 1 Generated client at https://editor.swagger.io/ as html2 makes a static version to easily generate clients.
+COMO GENERAR LA PAGINA WEB CON LOS CLIENTES. 
+IR A LA WEB DE https://editor.swagger.io/
+PEGAR EL SWAGGER NUESTRO
+ELEGIR html2 
+DESCARGAR
+COPIAR A LA CARPETA DESEADA
 a) ir a https://editor.swagger.io/
 b) copypaster el ultimo swagger.yaml
 c) decir "descargar html2 client"
@@ -42,7 +46,7 @@ public class SwaggerBootstrap extends HttpServlet {
     Info info = new Info()
             .title("odrlapi")
             .description("This is an implementation of the ODRL Evaluator. For more info, read " +
-                    "at [W3C Permissions and Obligations Working Group](https://www.w3.org/2016/poe/)")
+                    "at [W3C Permissions and Obligations Working Group](https://www.w3.org/2016/poe/) ")
             .contact(new Contact()
                     .email("vrodriguezDELETETHIS@fi.upm.es"))
             .license(new License()

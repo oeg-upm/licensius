@@ -12,7 +12,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import oeg.odrlapi.rest.server.EvaluatorResult;
 
 @Path("/evaluator")
 @Api(value = "/evaluator", description = "Evaluates an ODRL policy")
@@ -49,7 +48,7 @@ public class Evaluator {
         @ApiResponse(code = 400, message = "Bad Request. One or more of the policies is not valid")})
     public Response inform(@ApiParam(name = "element", value = "URI of a constraint or duty", required = true) String element, @ApiParam(name = "satisfied", value = "true if the constraint has been satisfied or the duty has been fulfilled, false otherwise", required = true) String satisfied) {
         EvaluatorResponse res = new EvaluatorResponse();
-        res.results.put("123", "ok");
+        res.results.put("12Dsssss3s", "ok");
         return Response.status(201).entity(res).build();
     }
 

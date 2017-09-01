@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Evaluator response
+ * Evaluator response. 
  * @author vroddon
  */
 public class EvaluatorResponse {
 
+    /**
+     * Map with a list of strings
+     */
     public Map<String, String> results = new HashMap();
     
     public Map<String, String> getResults() {

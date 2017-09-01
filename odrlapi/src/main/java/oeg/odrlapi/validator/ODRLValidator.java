@@ -16,26 +16,24 @@ public class ODRLValidator {
 
     private static final Logger logger = Logger.getLogger(ODRLValidator.class.getName());
     
-    public ValidatorResponse validate(String turtle) {
-        System.out.println(turtle);
-        ValidatorResponse vres = new ValidatorResponse();
-        vres.text = "";
-        vres.valid = true;
-        vres.status=200;
-         
-        Model model = getModel(turtle);
+    public static ValidatorResponse validate(String rdf) {
+        System.out.println(rdf);
+        ValidatorResponse vrok = new ValidatorResponse(false, 200, "ok");
+        
+        Model model = getModel(rdf);
         if (model==null)
-        { 
-            vres.valid = false;
-            vres.text = "The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...  s";
-            vres.status = 415;
-            return vres;
-        }
-        return vres;
+            return new ValidatorResponse(false, 415,"The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES..." );
+
+        Validation v = new Validation01();
+        ValidatorResponse vr = v.validate(rdf);
+        if (vr.valid == false)
+            return vr;
+        
+        return vrok;
     }
     
     
-    public Model getModel(String rdf)
+    public static Model getModel(String rdf)
     {
         logger.info("Obteniendo el modelo de " + rdf);
         Model model = ModelFactory.createDefaultModel();

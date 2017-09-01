@@ -49,7 +49,7 @@
                                 <p></p>
                             </center>
                             <center>
-                                <a id="boton3" class="btn btn-primary ladda-button disabled" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">Transcode </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <a id="boton3" class="btn btn-primary ladda-button disabled" data-style="zoom-in" href="javascript: submitform3()"><span class="ladda-label">Transcode </span><span class="glyphicon glyphicon-chevron-right"></span></a>
                                 <p></p>
                             </center>
                         </div>
@@ -94,10 +94,11 @@
         <script type="text/javascript">
 
 
+            // Loads a file with a sample into the textarea for the user to standard texts
             function sample()
             { 
                 var v = document.getElementById("sample2");
-                var archivo = v.options[v.selectedIndex].text
+                var archivo = v.options[v.selectedIndex].text ;
                 console.log(archivo);
                 var client = new XMLHttpRequest();
                 client.open('GET', '/samples/'+archivo);
@@ -134,14 +135,11 @@
         //enrich
             function submitform2()
             {
-                console.info("Validate");
                 var l = Ladda.create(document.getElementById("boton2"));
                 l.start();
                 var http = new XMLHttpRequest();
                 var pgn = document.getElementById("pgn").value;
                 var pgnencoded = encodeURI(pgn);
-                console.info(pgn);
-                var params = "policy=" + pgnencoded;
                 http.open("POST", "/validator", true); //true
                 http.setRequestHeader("Content-type", "text/turtle");
 //                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
@@ -152,12 +150,26 @@
                 http.onload = function () {
                     var res = http.responseText;
                     console.info(res);
-                    document.getElementById("salida").innerHTML = res;
+                    var obj = JSON.parse(res);
+                    var text = obj.text;
+                    var status = obj.status;
+                    
+                    document.getElementById("salida").innerHTML = text;
                         
-                    if ((res.indexOf('200')) == -1)
+                    var n = res.indexOf("200");                         
+//                    if (n !== -1)
+                    if (status===200)
+                    {
+                        console.info("BUENO");
                         document.getElementById("salida").setAttribute("class", "bg-info");
+                    }
                     else
-                        document.getElementById("salida").setAttribute("class,", "bg-warn");
+                    {
+                        console.info("MALO");
+                        document.getElementById("salida").setAttribute("class", "bg-danger");
+//                        $('.salida').removeClass('bg-info');
+//                        $('.salida').addClass('bg-warn');
+                    } 
                         
                     
                     l.stop();

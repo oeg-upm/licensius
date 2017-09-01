@@ -15,6 +15,18 @@ public class ValidatorResponse {
     public String text;
     public int status = 200;
 
+    public ValidatorResponse()
+    {
+        
+    }
+    
+    public ValidatorResponse(Boolean _valid, int _status, String _text)
+    {
+        text = _text;
+        status = _status;
+        valid = _valid;
+    }
+    
     public int getStatus() {
         return status;
     }
