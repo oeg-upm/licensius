@@ -42,6 +42,17 @@
                                 <option>sample007</option>
                                 <option>sample008</option>
                                 <option>sample009</option>
+                                <option>sample010</option>
+                                <option>sample011</option>
+                                <option>sample012</option>
+                                <option>sample013</option>
+                                <option>sample014</option>
+                                <option>sample015</option>
+                                <option>sample016</option>
+                                <option>sample017</option>
+                                <option>sample018</option>
+                                <option>sample019</option>
+                                <option>sample020</option>
                             </select>                        
                         </div>                        
                         <div class="col-xs-8"><textarea style="font-size:small;font-family:monospace;" class="form-control" rows="14" id="pgn" name="pgn"></textarea></div>
@@ -76,17 +87,15 @@
                 </p>
             </div>
         </div>
-<!--
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>        
--->
+        <!--
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>        
+        -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" crossorigin="anonymous"></script>        
         <script type="text/javascript">
-
-
                                 // Loads a file with a sample into the textarea for the user to standard texts
                                 function sample()
                                 {
@@ -148,7 +157,6 @@
                                     l.start();
                                     var http = new XMLHttpRequest();
                                     var pgn = document.getElementById("pgn").value;
-                                    var pgnencoded = encodeURI(pgn);
                                     http.open("POST", "/validator", true); //true
                                     http.setRequestHeader("Content-type", "text/turtle");
                                     http.send(pgn);
@@ -158,7 +166,11 @@
                                         var obj = JSON.parse(res);
                                         var text = obj.text;
                                         var status = obj.status;
-                                        document.getElementById("salida").innerHTML = escapeHtml(text);
+                                        var toprint = escapeHtml(text);
+                                        toprint = toprint.replace("/[\n\r]/g", "<BR>");
+                                        console.info(toprint);
+                                        document.getElementById("salida").innerHTML = toprint;
+                                        
                                         var n = res.indexOf("200");
                                         if (status === 200)
                                         {

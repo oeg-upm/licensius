@@ -5,8 +5,8 @@
 <http://odrlapi.appspot.com/samples/sample008>
     a odrl:Agreement ;
     dct:source <https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.4-Agreement> ;
-    odrl:assigner ex:Bob ;  
-    odrl:assignee ex:Alice ; 
+    odrl:assigner _:Bob ;  
+    odrl:assignee _:Alice ; 
     odrl:permission [
         a odrl:Permission ;
         odrl:target <http://example.com/asset:9898> ;

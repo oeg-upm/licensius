@@ -1,0 +1,17 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# should be valid
+<http://odrlapi.appspot.com/samples/party000>
+   a odrl:Party;
+   odrl:assigneeOf <http://odrlapi.appspot.com/samples/sample012>.
+
+<http://odrlapi.appspot.com/samples/sample013>
+    a odrl:Agreement ;   
+    dct:source "victor" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target <http://example.com/asset:9898> ;
+        odrl:action odrl:reproduce ;
+        odrl:assigner _:Alice ;
+    ] .

@@ -1,6 +1,8 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
+#https://github.com/simonstey/ODRL-SHACL-Shapes/wiki
 odrl:PolicyShape
     a sh:NodeShape ;
     sh:targetClass odrl:Policy ;
@@ -10,4 +12,142 @@ odrl:PolicyShape
             sh:alternativePath ( odrl:permission odrl:prohibition ) 
         ] ;
         sh:minCount 1 ;
+    ] .
+
+odrl:Offer rdfs:subClassOf odrl:Policy .
+
+odrl:OfferShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Offer ;
+    sh:or ( odrl:topAssignerMinShape odrl:nestedAssignerMinShape ) .
+
+odrl:topAssignerMinShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:assigner ;
+        sh:minCount 1 ;
+    ] .
+
+odrl:nestedAssignerMinShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:permission ;
+        sh:node odrl:topAssignerMinShape ;
+    ] ;
+    sh:property [
+        sh:path odrl:prohibition ;
+        sh:node odrl:topAssignerMinShape ;
+    ] .
+
+
+
+
+odrl:Agreement rdfs:subClassOf odrl:Policy .
+
+odrl:AgreementShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Agreement ;
+    sh:or ( odrl:topAssigneeMinShape odrl:nestedAssigneeMinShape ) ;
+    sh:or ( odrl:topAssignerMinShape odrl:nestedAssignerMinShape ) .
+
+odrl:topAssignerMinShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:assigner ;
+        sh:minCount 1 ;
+    ] .
+
+odrl:nestedAssignerMinShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:permission ;
+        sh:node odrl:topAssignerMinShape ;
+    ] ;
+    sh:property [
+        sh:path odrl:prohibition ;
+        sh:node odrl:topAssignerMinShape ;
+    ] .
+
+odrl:topAssigneeMinShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:assignee ;
+        sh:minCount 1 ;
+    ] .
+
+odrl:nestedAssigneeMinShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:permission ;
+        sh:node odrl:topAssigneeMinShape ;
+    ] ;
+    sh:property [
+        sh:path odrl:prohibition ;
+        sh:node odrl:topAssigneeMinShape ;
+    ] .
+
+
+
+odrl:AssetTargetShape
+    a sh:NodeShape ;
+    sh:targetObjectsOf odrl:target ;
+    sh:nodeKind sh:IRI .
+
+odrl:AssetShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Asset ;
+    sh:nodeKind sh:IRI .
+
+
+
+
+
+odrl:Permission rdfs:subClassOf odrl:Rule .
+odrl:Prohibition rdfs:subClassOf odrl:Rule .
+
+odrl:RuleShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Rule ;
+    sh:or ( odrl:topRuleMinActionShape odrl:nestedRuleMinActionShape ) .
+
+odrl:topRuleMinActionShape 
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:action ;
+        sh:minCount 1 ;
+    ] .
+
+odrl:nestedRuleMinActionShape 
+    a sh:NodeShape ;
+    sh:property [
+        sh:path [ sh:inversePath odrl:permission ];
+        sh:node odrl:topRuleMinActionShape ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath odrl:prohibition ];
+        sh:node odrl:topRuleMinActionShape ;
+    ] .
+
+
+
+
+odrl:Permission rdfs:subClassOf odrl:Rule .
+
+odrl:PermissionShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Permission ;
+    sh:or ( odrl:topPermMinTargetShape odrl:nestedPermMinTargetShape ) .
+
+odrl:topPermMinTargetShape 
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:target ;
+        sh:minCount 1 ;
+    ] .
+
+odrl:nestedPermMinTargetShape 
+    a sh:NodeShape ;
+    sh:property [
+        sh:path [ sh:inversePath odrl:permission ];
+        sh:node odrl:topPermMinTargetShape ;
     ] .

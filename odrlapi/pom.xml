@@ -136,7 +136,7 @@
             <plugin>
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
-                <version>1.9.51</version> 
+                <version>1.9.54</version> 
             </plugin>               
         </plugins>
     </build>
