@@ -27,7 +27,7 @@ public class ODRLValidator {
         if (model==null)
         { 
             vres.valid = false;
-            vres.text = "The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...";
+            vres.text = "The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...  s";
             vres.status = 415;
             return vres;
         }

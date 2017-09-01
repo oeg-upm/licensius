@@ -35,7 +35,7 @@ public class Validator {
             ValidatorResponse vres = validator.validate(rdf);
             return Response.status(vres.status).entity(vres).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error...").build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error...d").build();
         }
     }
 

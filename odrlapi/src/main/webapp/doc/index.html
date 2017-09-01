@@ -30,7 +30,7 @@
                 <div class="panel-body">
 
                     <div class="form-group">
-                   <div class="col-xs-3">
+                   <div class="col-xs-2">
                     <select id="sample2" onchange="sample()">
                       <option>sample000</option>
                       <option>sample001</option>
@@ -38,14 +38,18 @@
                       <option>sample003</option>
                     </select>                        
                     </div>                        
-                        <div class="col-xs-7"><textarea style="font-family:monospace;" class="form-control" rows="14" id="pgn" name="pgn"></textarea></div>
+                        <div class="col-xs-8"><textarea style="font-size:small;font-family:monospace;" class="form-control" rows="14" id="pgn" name="pgn"></textarea></div>
                         <div class="col-xs-2">
                             <center>
-                                <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">Validate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform2()"><span class="ladda-label">Validate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
                                 <p></p>
                             </center>
                             <center>
-                                <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform2()"><span class="ladda-label">Evaluate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <a id="boton1" class="btn btn-primary ladda-button disabled" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">Evaluate </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <p></p>
+                            </center>
+                            <center>
+                                <a id="boton3" class="btn btn-primary ladda-button disabled" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">Transcode </span><span class="glyphicon glyphicon-chevron-right"></span></a>
                                 <p></p>
                             </center>
                         </div>
@@ -146,8 +150,16 @@
 //                http.send(params);
                 http.send(pgn);
                 http.onload = function () {
-                    console.info(http.responseText);
-                    document.getElementById("salida").innerHTML = http.responseText;
+                    var res = http.responseText;
+                    console.info(res);
+                    document.getElementById("salida").innerHTML = res;
+                        
+                    if ((res.indexOf('200')) == -1)
+                        document.getElementById("salida").setAttribute("class", "bg-info");
+                    else
+                        document.getElementById("salida").setAttribute("class,", "bg-warn");
+                        
+                    
                     l.stop();
                 }
             }            
