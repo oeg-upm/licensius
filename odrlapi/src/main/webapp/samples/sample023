@@ -1,0 +1,22 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#valid. (example 13 in the IM)
+<http://odrlapi.appspot.com/samples/sample023>
+    dct:source <http://w3c.github.io/poe/model/> ;
+    a odrl:Offer ;
+    odrl:profile <http://example.com/odrl:profile:10> ;
+    odrl:obligation [
+        odrl:target <http://example.com/document:1234> ;
+        odrl:assigner <http://example.com/org:616> ;
+        odrl:assignee <http://example.com/person:44> ;
+        odrl:action [
+            rdf:value odrl:print;
+            odrl:refinement [
+                odrl:leftOperand odrl:percentage;
+                odrl:operator odrl:lteq;
+                odrl:rightOperand 50;
+            ] 
+        ] 
+    ] .

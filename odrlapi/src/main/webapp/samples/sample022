@@ -1,0 +1,23 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#valid. (example 22 in the IM)
+<http://odrlapi.appspot.com/samples/sample022>
+    dct:source <http://w3c.github.io/poe/model/> ;
+    a odrl:Agreement ;
+    odrl:profile <http://example.com/odrl:profile:09> ;
+    odrl:obligation [
+        odrl:target <http://example.com/photoAlbum:55> ;
+        odrl:assigner <http://example.com/org:43> ;
+        odrl:assignee <http://example.com/person:44> ;
+        odrl:action [
+            rdf:value odrl:compensate ;
+            odrl:refinement [
+                odrl:leftOperand odrl:payAmount;
+                odrl:operator odrl:eq;
+                odrl:rightOperand 500;
+                odrl:unit <http://dbpedia.org/resource/Euro>
+            ] 
+        ] 
+    ] .

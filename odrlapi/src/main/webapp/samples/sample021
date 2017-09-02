@@ -1,0 +1,21 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#valid. (example 21 in the IM)
+<http://odrlapi.appspot.com/samples/sample021>
+    dct:source <http://w3c.github.io/poe/model/> ;
+    a odrl:Agreement ;
+    odrl:profile <http://example.com/odrl:profile:08> ;
+    odrl:permission [
+        odrl:target <http://example.com/photoAlbum:55> ;
+        odrl:assigner <http://example.com/MyPix:55> ;
+        odrl:assignee <http://example.com/assignee:55> ;
+        odrl:action odrl:display ;
+        odrl:conflict odrl:perm         
+    ] ;
+    odrl:prohibition [
+        odrl:target <http://example.com/photoAlbum:55> ;
+        odrl:assigner <http://example.com/MyPix:55> ;
+        odrl:assignee <http://example.com/assignee:55> ;
+        odrl:action odrl:display 
+    ] .

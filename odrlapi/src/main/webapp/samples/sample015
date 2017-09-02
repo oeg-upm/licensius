@@ -3,7 +3,7 @@
 
 # invalid due to missing assignee and assigner
 <http://odrlapi.appspot.com/samples/sample015>
-    a odrl:Policy ;  
+    a odrl:Agreement ;  
     dct:source <https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.4-Agreement> ; 
     odrl:permission [
         a odrl:Permission ;

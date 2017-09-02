@@ -9,5 +9,5 @@
         a odrl:Permission ;
         odrl:target <http://example.com/asset:9898> ;
         odrl:action odrl:reproduce ;
-        odrl:assigner ex:Bob ;
+        odrl:assigner _:Bob ;
     ] .

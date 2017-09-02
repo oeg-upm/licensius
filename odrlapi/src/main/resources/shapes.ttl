@@ -91,6 +91,7 @@ odrl:nestedAssigneeMinShape
 odrl:AssetTargetShape
     a sh:NodeShape ;
     sh:targetObjectsOf odrl:target ;
+    sh:severity sh:Warning ;
     sh:nodeKind sh:IRI .
 
 odrl:AssetShape

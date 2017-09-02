@@ -2,10 +2,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 # should be valid
-<http://odrlapi.appspot.com/samples/party000>
-   a odrl:Party;
-   odrl:assigneeOf <http://odrlapi.appspot.com/samples/sample012>.
-
+# PENDING TO BE FIXED
 <http://odrlapi.appspot.com/samples/sample013>
     a odrl:Agreement ;   
     dct:source "victor" ;
@@ -15,3 +12,7 @@
         odrl:action odrl:reproduce ;
         odrl:assigner _:Alice ;
     ] .
+
+<http://odrlapi.appspot.com/samples/party000>
+   a odrl:Party;
+   odrl:assigneeOf <http://odrlapi.appspot.com/samples/sample012>.
