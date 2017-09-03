@@ -1,4 +1,7 @@
-# invalid. (asset specified externally)
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# invalid. no asset.
 <http://odrlapi.appspot.com/samples/sample031>
     a odrl:Set ;   
     dct:source "victor" ;
