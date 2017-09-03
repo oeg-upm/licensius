@@ -31,6 +31,7 @@ public class ODRL {
     public static Property PASSIGNEE = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assignee");
     public static Property PACTION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/action");
     public static Property PDUTY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/duty");
+    public static Property POBLIGATION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/obligation");
     public static Property PCONSTRAINT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/constraint");
     public static Property PCOUNT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/count");
     public static Property POPERATOR = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/operator");
@@ -41,6 +42,9 @@ public class ODRL {
     public static Property RDCLICENSEDOC = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/LicenseDocument");
     public static Property PAMOUNTOFTHISGOOD = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/amountOfThisGood");
     public static Property PUNITOFMEASUREMENT = ModelFactory.createDefaultModel().createProperty("http://purl.org/goodrelations/UnitOfMeasurement");
+    public static Property PASSIGNEROF = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assignerOf");
+    public static Property PASSIGNEEOF = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assigneeOf");
+    public static Property PHASPOLICY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/hasPolicy");
     
     public static Property PDCLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
     public static Property PDCRIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");

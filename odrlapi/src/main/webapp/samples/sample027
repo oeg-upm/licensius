@@ -1,0 +1,17 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#invalid. NEEDS SOME REASONING. constraint lacks left operand (MODIFIED example 20 in the IM)
+<http://odrlapi.appspot.com/samples/sample027>
+    dct:source "victor" ;
+    a odrl:Offer ;
+    odrl:profile <http://example.com/odrl:profile:07> ;
+    odrl:permission [
+        odrl:target <http://example.com/game:9090> ;
+        odrl:assigner <http://example.com/org:xyz> ;
+        odrl:action odrl:play ;
+        odrl:constraint [
+            odrl:operator odrl:lteq;
+            odrl:rightOperand "2017-12-31"
+        ]            
+    ] .

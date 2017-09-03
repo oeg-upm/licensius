@@ -28,6 +28,9 @@ public class ODRLValidator {
         if (model == null) {
             return new ValidatorResponse(false, 415, "not valid.The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...");
         }
+        
+        String rdf2 = Preprocessing.preprocess(rdf);
+        model = ODRLValidator.getModel(rdf2);
 
         ValidatorResponse response = validateSingle(new Validation01(), null, rdf);
         response = validateSingle(new Validation03(), response, rdf);

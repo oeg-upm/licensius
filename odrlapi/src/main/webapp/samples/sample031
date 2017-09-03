@@ -1,0 +1,8 @@
+# invalid. (asset specified externally)
+<http://odrlapi.appspot.com/samples/sample031>
+    a odrl:Set ;   
+    dct:source "victor" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:action odrl:reproduce ;
+    ] .

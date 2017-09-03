@@ -1,13 +1,13 @@
 package oeg.odrlapi.rdf;
 
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import org.apache.log4j.Logger;
 import java.io.BufferedWriter;
-import java.io.FileWriter; 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +27,12 @@ import org.apache.jena.vocabulary.RDF;
 
 /**
  * Helper class with some useful methods to manipulate RDF
+ *
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class RDFUtils {
 
     private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
-
 
     String property = "";
     String value = "";
@@ -139,27 +139,26 @@ public class RDFUtils {
         return "";
     }
 
-    
-    
     /**
-     * Gets all the values of the given property. It assumes that all the values are strings.
+     * Gets all the values of the given property. It assumes that all the values
+     * are strings.
+     *
      * @param resource
      * @param property
      */
     public static List<String> getObjectsGivenSP(Model model, String ssujeto, String sproperty) {
         List<String> cadenas = new ArrayList();
-        try{
-        Resource sujeto = ModelFactory.createDefaultModel().createProperty(ssujeto);
-        Property property = ModelFactory.createDefaultModel().createProperty(sproperty);
-        NodeIterator it = model.listObjectsOfProperty(sujeto, property);
-        while (it.hasNext()) {
-            RDFNode nodo = it.nextNode();
-            String rtitle = nodo.toString();
-            cadenas.add(rtitle);
-        }
-        }catch(Exception e)
-        {
-            
+        try {
+            Resource sujeto = ModelFactory.createDefaultModel().createProperty(ssujeto);
+            Property property = ModelFactory.createDefaultModel().createProperty(sproperty);
+            NodeIterator it = model.listObjectsOfProperty(sujeto, property);
+            while (it.hasNext()) {
+                RDFNode nodo = it.nextNode();
+                String rtitle = nodo.toString();
+                cadenas.add(rtitle);
+            }
+        } catch (Exception e) {
+
         }
         return cadenas;
     }
@@ -167,7 +166,7 @@ public class RDFUtils {
     //  http://creativecommons.org/licenses/by/4.0/
     public static List<Resource> getAllSubjectsWithObject(Model model, String s) {
         List<Resource> lres = new ArrayList();
-        
+
         StmtIterator it = model.listStatements();
         while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
@@ -191,9 +190,8 @@ public class RDFUtils {
     }
 
     /**
-     * Devuelve los objetos para una propiedad dada:
-     * - Si es recurso, la URI
-     * - Si es literal, solo el literal (sin language tag ni datatype)
+     * Devuelve los objetos para una propiedad dada: - Si es recurso, la URI -
+     * Si es literal, solo el literal (sin language tag ni datatype)
      */
     public static List<String> getObjectsForProperty(Model model, String sproperty) {
         List<String> lres = new ArrayList();
@@ -208,6 +206,20 @@ public class RDFUtils {
             if (nodo.isLiteral()) {
                 Literal l = (Literal) nodo;
                 lres.add(l.getString());
+            }
+        }
+        return lres;
+    }
+
+    public static List<String> getSubjectsForProperty(Model model, String sproperty) {
+        List<String> lres = new ArrayList();
+        Property property = ModelFactory.createDefaultModel().createProperty(sproperty);
+        ResIterator nit = model.listResourcesWithProperty(property);
+        while (nit.hasNext()) {
+            Resource nodo = nit.next();
+            if (nodo.isResource()) {
+                Resource r = (Resource) nodo;
+                lres.add(r.getURI());
             }
         }
         return lres;
@@ -229,9 +241,10 @@ public class RDFUtils {
         }
         return cadenas;
     }
-    
+
     /**
-     * Obtains the first literal in the given model for the uri and property given and of the given language
+     * Obtains the first literal in the given model for the uri and property
+     * given and of the given language
      */
     public static String getFirstLiteral(Model model, String uri, String propiedad, String lan) {
         Resource res = model.getResource(uri);
@@ -243,11 +256,11 @@ public class RDFUtils {
         while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
             RDFNode nodo = stmt2.getObject();
-            if (nodo.isLiteral())
-            {
+            if (nodo.isLiteral()) {
                 Literal l = nodo.asLiteral();
-                if (l.getLanguage().equals(lan))
+                if (l.getLanguage().equals(lan)) {
                     return l.getLexicalForm();
+                }
             }
         }
         return "";
@@ -267,8 +280,9 @@ public class RDFUtils {
         }
         return "";
     }
+
     public static String getFirstLanguage(Model model, String uri, String propiedad) {
-        String s ="[";
+        String s = "[";
         Resource res = model.getResource(uri);
         if (res == null) {
             return "";
@@ -278,19 +292,20 @@ public class RDFUtils {
         while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
             RDFNode nodo = stmt2.getObject();
-            if (nodo.isLiteral())
-            {
+            if (nodo.isLiteral()) {
                 Literal l = nodo.asLiteral();
-                if (true)
+                if (true) {
                     return l.getLanguage();
-                s+="\""+l.getLanguage()+"\", ";
+                }
+                s += "\"" + l.getLanguage() + "\", ";
             }
         }
-        s+="]";
+        s += "]";
         return s;
     }
+
     public static String getAllLanguages(Model model, String uri, String propiedad) {
-        String s ="[";
+        String s = "[";
         Resource res = model.getResource(uri);
         if (res == null) {
             return "";
@@ -300,17 +315,15 @@ public class RDFUtils {
         while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
             RDFNode nodo = stmt2.getObject();
-            if (nodo.isLiteral())
-            {
+            if (nodo.isLiteral()) {
                 Literal l = nodo.asLiteral();
-                s+="\""+l.getLanguage()+"\", ";
+                s += "\"" + l.getLanguage() + "\", ";
             }
         }
-        s+="]";
+        s += "]";
         return s;
     }
-    
-    
+
     public static String getLabel(Model model, String uri) {
         Resource res = model.getResource(uri);
         if (res == null) {
@@ -331,6 +344,7 @@ public class RDFUtils {
 
     /**
      * Parses the ontology from a text
+     *
      * @param txt Text with an ontology
      */
     public static Model parseFromText(String txt) {
@@ -375,48 +389,60 @@ public class RDFUtils {
         s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
         return s;
     }
+
     public static String getLicensePrefixes(String f) {
-        String s ="";
+        String s = "";
         s += "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
         s += "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
         s += "@prefix : <http://purl.org/NET/rdflicense/> .\n";
 
-        
-        if (f.contains("cc:"))
+        if (f.contains("cc:")) {
             s += "@prefix cc: <http://creativecommons.org/ns#> . \n";
-        if (f.contains("dct:"))
+        }
+        if (f.contains("dct:")) {
             s += "@prefix dct: <http://purl.org/dc/terms/> . \n";
-        if (f.contains("owl:"))
+        }
+        if (f.contains("owl:")) {
             s += "@prefix owl: <http://www.w3.org/2002/07/owl#> .\n";
-        if (f.contains("dcat:"))
+        }
+        if (f.contains("dcat:")) {
             s += "@prefix dcat:  <http://www.w3.org/ns/dcat#> .\n";
-        if (f.contains("xml:"))
+        }
+        if (f.contains("xml:")) {
             s += "@prefix xml: <http://www.w3.org/XML/1998/namespace> .\n";
-        if (f.contains("xsd:"))
+        }
+        if (f.contains("xsd:")) {
             s += "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
-        if (f.contains("foaf:"))
+        }
+        if (f.contains("foaf:")) {
             s += "@prefix foaf: <http://xmlns.com/foaf/0.1/> .\n";
-        if (f.contains("l4lod:"))
+        }
+        if (f.contains("l4lod:")) {
             s += "@prefix l4lod: <http://ns.inria.fr/l4lod/> .\n";
-        if (f.contains("odrl:"))
+        }
+        if (f.contains("odrl:")) {
             s += "@prefix odrl: <http://www.w3.org/ns/odrl/2/> .\n";
-        if (f.contains("ldr:"))
+        }
+        if (f.contains("ldr:")) {
             s += "@prefix ldr: <http://purl.org/NET/ldr/ns#> .\n";
-        if (f.contains("skos:"))
+        }
+        if (f.contains("skos:")) {
             s += "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n";
-        if (f.contains("provo:"))
+        }
+        if (f.contains("provo:")) {
             s += "@prefix provo: <http://purl.org/net/provenance/ns#> .\n";
+        }
         return s;
-    }    
+    }
 
     static String getLastPart(String uri) {
         Resource r = ModelFactory.createDefaultModel().createResource(uri);
         return r.getLocalName();
-    }    
-    
-    public static String getLastBitFromUrl(final String url){
-        return url.replaceFirst(".*/([^/?]+).*", "$1"); 
-    }        
+    }
+
+    public static String getLastBitFromUrl(final String url) {
+        return url.replaceFirst(".*/([^/?]+).*", "$1");
+    }
 
     public static String extractURIFromText(String texto) {
         try {
@@ -445,36 +471,58 @@ public class RDFUtils {
         }
 
         return containedUrls;
-    }    
-    
-    public static List<Resource> guessRDFLicenseFromURI(Model model, String uri)
-    {
+    }
+
+    public static List<Resource> guessRDFLicenseFromURI(Model model, String uri) {
         List<Resource> lres = RDFUtils.getAllSubjectsWithObject(model, uri);
         boolean ok = RDFUtils.isSubjectInModel(model, uri);
-        if (ok)
+        if (ok) {
             lres.add(model.createResource(uri));
+        }
         return lres;
     }
-    
-    public static boolean isSubjectInModel(Model model, String uri)
-    {
+
+    public static boolean isSubjectInModel(Model model, String uri) {
         StmtIterator it = model.listStatements();
         while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
             RDFNode nodo = stmt2.getSubject();
-            if (nodo.isResource())
-            {
+            if (nodo.isResource()) {
                 Resource res = nodo.asResource();
-                if (res!=null)
-                {
+                if (res != null) {
                     String urimodel = res.getURI();
-                    if (urimodel!=null && urimodel.equals(uri))
+                    if (urimodel != null && urimodel.equals(uri)) {
                         return true;
+                    }
                 }
             }
         }
         return false;
     }
+
+    public static String getString(Model model) {
+        String syntax = "TURTLE"; // also try "N-TRIPLE" and "TURTLE"
+        StringWriter out = new StringWriter();
+        model.write(out, syntax);
+        String result = out.toString();
+        return result;
+    }
     
+    public static Model inferClassFromRange(Model model, String spropiedad, String sclase)
+    {
+        Property property = ModelFactory.createDefaultModel().createProperty(spropiedad);
+        Resource clase = ModelFactory.createDefaultModel().createProperty(sclase);
+        ResIterator rit = model.listResourcesWithProperty(property);
+        NodeIterator nit = model.listObjectsOfProperty(property);
+        while (nit.hasNext()) {
+            RDFNode node = nit.next();
+            if (node.isResource())
+            {
+                Resource r = node.asResource();
+                model.add(r,RDF.type,clase);
+            }
+        }
+        return model;
+    }
     
 }

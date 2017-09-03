@@ -2,7 +2,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 # valid with assigner and assignee on policy level
-# invalid IN THE NEW SPEC. ISNT IT?
 <http://odrlapi.appspot.com/samples/sample008>
     a odrl:Agreement ;
     dct:source <https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.4-Agreement> ;
