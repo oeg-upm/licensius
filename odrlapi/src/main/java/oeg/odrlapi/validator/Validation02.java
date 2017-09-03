@@ -1,5 +1,7 @@
 package oeg.odrlapi.validator;
 
+import java.util.List;
+import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.topbraid.spin.util.*;
 import org.apache.jena.rdf.model.Model;
@@ -22,15 +24,25 @@ public class Validation02 implements Validation {
         Model shapes = JenaUtil.createMemoryModel();
         shapes.read(Validation02.class.getResourceAsStream("/shapes.ttl"), "urn:dummy", FileUtils.langTurtle);
         Resource report = ValidationUtil.validateModel(policy, shapes, true);
-        String informe = ModelPrinter.get().print(report.getModel());
+        Model resultado = report.getModel();
+        String informe = ModelPrinter.get().print(resultado);
+        
+        String mensaje ="";
+        List<String> ls = RDFUtils.getObjectsForProperty(resultado, "http://www.w3.org/ns/shacl#resultMessage");
+        for(String s : ls)
+        {
+            mensaje+=s+" \n";
+        }
+        System.out.println(informe);
+        
 
         if (!informe.contains("<http://www.w3.org/ns/shacl#Violation>")) {
             if (!informe.contains("<http://www.w3.org/ns/shacl#Warning>")) {
                 return new ValidatorResponse(true, 200, "ok");
             }
-            return new ValidatorResponse(true, 200, "warning " + informe);
+            return new ValidatorResponse(true, 200, "warning. " + mensaje);
         } else {
-            return new ValidatorResponse(false, 415, "not valid. " + informe);
+            return new ValidatorResponse(false, 415, "not valid. " + mensaje);
         }
     }
 

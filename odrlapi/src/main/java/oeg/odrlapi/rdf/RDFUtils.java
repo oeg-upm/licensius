@@ -92,15 +92,13 @@ public class RDFUtils {
     }
 
     /**
-     * Get 
      */
-    public static List<String> getObjectsOfType(Model model, Resource resource) {
+    public static List<String> getSubjectOfType(Model model, Resource propiedad) {
         List<String> policies = new ArrayList();
-        ResIterator it = model.listResourcesWithProperty(RDF.type, resource);
+        ResIterator it = model.listResourcesWithProperty(RDF.type, propiedad);
         while (it.hasNext()) {
             Resource res = it.next();
             Statement s = res.getProperty(RDF.type);
-            String objeto = s.getObject().asResource().getURI();
             Resource sujeto = s.getSubject();
             policies.add(sujeto.getURI());
         }
@@ -148,14 +146,20 @@ public class RDFUtils {
      * @param resource
      * @param property
      */
-    public static List<String> getAllPropertyStrings(Resource resource, Property property) {
+    public static List<String> getObjectsGivenSP(Model model, String ssujeto, String sproperty) {
         List<String> cadenas = new ArrayList();
-        StmtIterator it = resource.listProperties(property);
+        try{
+        Resource sujeto = ModelFactory.createDefaultModel().createProperty(ssujeto);
+        Property property = ModelFactory.createDefaultModel().createProperty(sproperty);
+        NodeIterator it = model.listObjectsOfProperty(sujeto, property);
         while (it.hasNext()) {
-            Statement stmt2 = it.nextStatement();
-            RDFNode nodo = stmt2.getObject();
+            RDFNode nodo = it.nextNode();
             String rtitle = nodo.toString();
             cadenas.add(rtitle);
+        }
+        }catch(Exception e)
+        {
+            
         }
         return cadenas;
     }

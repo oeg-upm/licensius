@@ -3,42 +3,124 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 #https://github.com/simonstey/ODRL-SHACL-Shapes/wiki
+
 odrl:PolicyShape
     a sh:NodeShape ;
     sh:targetClass odrl:Policy ;
     sh:nodeKind sh:IRI ;
+    sh:message "Policies must have an identificative URI";
     sh:property [
         sh:path [ 
-            sh:alternativePath ( odrl:permission odrl:prohibition ) 
+            sh:alternativePath ( odrl:permission odrl:prohibition odrl:obligation) 
         ] ;
+        sh:message "Policies must have at least one permission, obligation or prohibition.";
         sh:minCount 1 ;
     ] .
 
 odrl:Offer rdfs:subClassOf odrl:Policy .
 
+
+
 odrl:OfferShape
     a sh:NodeShape ;
     sh:targetClass odrl:Offer ;
-    sh:or ( odrl:topAssignerMinShape odrl:nestedAssignerMinShape ) .
+    sh:message "Offers must have an assigner, either directly or on its rules";
+    sh:or (odrl:exactAssignerShape odrl:exactPermissionAssignerShape odrl:exactProhibitionAssignerShape odrl:exactObligationAssignerShape) .
 
-odrl:topAssignerMinShape
+odrl:AgreementShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Agreement ;
+    sh:message "Agreement must have an assigner and an assignee, either directly or on its rules";
+    sh:or (odrl:exactAssignerShape odrl:exactPermissionAssignerShape odrl:exactProhibitionAssignerShape odrl:exactObligationAssignerShape) ;
+    sh:or (odrl:exactAssigneeShape odrl:exactPermissionAssigneeShape odrl:exactProhibitionAssigneeShape odrl:exactObligationAssigneeShape) .
+
+odrl:exactAssignerShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:assigner ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+odrl:exactPermissionAssignerShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:permission ; 
+        sh:node odrl:exactAssignerShape ;
+    ] .
+
+odrl:exactProhibitionAssignerShape
+    sh:property [
+        sh:path odrl:prohibition ;
+        sh:node odrl:exactAssignerShape ;
+    ] .
+
+odrl:exactObligationAssignerShape
+    sh:property [
+        sh:path odrl:obligation ;
+        sh:node odrl:exactAssignerShape ;
+    ] .
+
+
+odrl:exactAssignerShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:assigner ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+odrl:exactPermissionAssigneeShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path odrl:permission ; 
+        sh:node odrl:exactAssigneeShape ;
+    ] .
+
+odrl:exactProhibitionAssigneeShape
+    sh:property [
+        sh:path odrl:prohibition ;
+        sh:node odrl:exactAssigneeShape ;
+    ] .
+
+odrl:exactObligationAssigneeShape
+    sh:property [
+        sh:path odrl:obligation ;
+        sh:node odrl:exactAssigneeShape ;
+    ] .
+
+
+
+
+
+
+odrl:minAssignerShape
     a sh:NodeShape ;
     sh:property [
         sh:path odrl:assigner ;
         sh:minCount 1 ;
     ] .
 
-odrl:nestedAssignerMinShape
+odrl:minPermissionAssignerShape
     a sh:NodeShape ;
     sh:property [
-        sh:path odrl:permission ;
-        sh:node odrl:topAssignerMinShape ;
-    ] ;
-    sh:property [
-        sh:path odrl:prohibition ;
-        sh:node odrl:topAssignerMinShape ;
+        sh:path odrl:permission ; 
+        sh:node odrl:minAssignerShape ;
+        sh:minCount 1 ;
     ] .
 
+odrl:minProhibitionAssignerShape
+    sh:property [
+        sh:path odrl:prohibition ;
+        sh:node odrl:minAssignerShape  ;
+        sh:minCount 1 ;
+    ] .
+
+odrl:minObligationAssignerShape
+    sh:property [
+        sh:path odrl:obligation ;
+        sh:node odrl:minAssignerShape  ;
+    ] .
 
 
 
@@ -47,6 +129,7 @@ odrl:Agreement rdfs:subClassOf odrl:Policy .
 odrl:AgreementShape
     a sh:NodeShape ;
     sh:targetClass odrl:Agreement ;
+    sh:message "Agreements must have an assigner and an assignee";
     sh:or ( odrl:topAssigneeMinShape odrl:nestedAssigneeMinShape ) ;
     sh:or ( odrl:topAssignerMinShape odrl:nestedAssignerMinShape ) .
 
@@ -92,6 +175,7 @@ odrl:AssetTargetShape
     a sh:NodeShape ;
     sh:targetObjectsOf odrl:target ;
     sh:severity sh:Warning ;
+    sh:message "Please consider using Assets with a URI";
     sh:nodeKind sh:IRI .
 
 odrl:AssetShape
@@ -100,14 +184,12 @@ odrl:AssetShape
     sh:nodeKind sh:IRI .
 
 
-
-
-
 odrl:Permission rdfs:subClassOf odrl:Rule .
 odrl:Prohibition rdfs:subClassOf odrl:Rule .
 
 odrl:RuleShape
     a sh:NodeShape ;
+    sh:message "Rules must have at least one action";
     sh:targetClass odrl:Rule ;
     sh:or ( odrl:topRuleMinActionShape odrl:nestedRuleMinActionShape ) .
 
@@ -125,6 +207,10 @@ odrl:nestedRuleMinActionShape
         sh:node odrl:topRuleMinActionShape ;
     ] ;
     sh:property [
+        sh:path [ sh:inversePath odrl:obligation ];
+        sh:node odrl:topRuleMinActionShape ;
+    ] ;
+    sh:property [
         sh:path [ sh:inversePath odrl:prohibition ];
         sh:node odrl:topRuleMinActionShape ;
     ] .
@@ -137,6 +223,7 @@ odrl:Permission rdfs:subClassOf odrl:Rule .
 odrl:PermissionShape
     a sh:NodeShape ;
     sh:targetClass odrl:Permission ;
+    sh:message "Permissions must have at least one target";
     sh:or ( odrl:topPermMinTargetShape odrl:nestedPermMinTargetShape ) .
 
 odrl:topPermMinTargetShape 
@@ -151,4 +238,26 @@ odrl:nestedPermMinTargetShape
     sh:property [
         sh:path [ sh:inversePath odrl:permission ];
         sh:node odrl:topPermMinTargetShape ;
+    ] .
+
+#PLEASE NOTE THAT THIS CONSTRAINT IS NOT FIRED IF THE IS NOT TYPED AS CONSTRAINT EXPLICITLY
+
+odrl:ConstraintShape
+    a sh:NodeShape ;
+    sh:targetClass odrl:Constraint ;
+    sh:message "Constraints must have exactly one leftoperand" ;
+    sh:property [
+        sh:path odrl:leftOperand;
+        sh:message "Constraints must have exactly one leftoperand." ;
+        sh:minCount 1 ;
+        sh:maxCount 1 
+    ] , [
+        sh:path odrl:operator;
+        sh:message "Constraints must have exactly one operator." ;
+        sh:minCount 1 ;
+        sh:maxCount 1 
+    ] , [
+        sh:path [ 
+            sh:alternativePath ( odrl:rightOperand odrl:rightOperandReference) 
+        ] ;
     ] .

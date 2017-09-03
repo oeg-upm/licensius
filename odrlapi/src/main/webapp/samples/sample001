@@ -1,6 +1,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
 #valid. 
+#please note that the current spec is not clear on whether there must be "at least one assigner or assignee".
 <http://odrlapi.appspot.com/samples/sample001>
     a odrl:Policy;
     odrl:permission [

@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import oeg.odrlapi.validator.ODRLValidator;
 
 @Path("/validator")
-@Api(value = "/validator", description = "Checks the conformance of ODRL Policy expressions with respect to the ODRL Information Model validation requirements")
+@Api(value = "/validator", description = "Checks the conformance of ODRL Policy expressions with respect to the ODRL Information Model validation requirements.")
 @Produces({"application/json"})
 public class Validator {
 
@@ -36,7 +36,7 @@ public class Validator {
             ValidatorResponse vres = validator.validate(rdf);
             return Response.status(vres.status).entity(vres).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error...d").build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error.").build();
         }
     }
 

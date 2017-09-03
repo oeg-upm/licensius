@@ -1,12 +1,9 @@
 package oeg.odrlapi.main;
 
-import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import oeg.odrlapi.validator.ODRLValidator;
-import org.apache.commons.io.IOUtils;
-import org.apache.jena.rdf.model.Model;
 
 /**
  * This is the main class intended for testing purposes.
@@ -17,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         try{
-            String rdf = new Scanner(new URL("http://odrlapi.appspot.com/samples/sample005").openStream(), "UTF-8").useDelimiter("\\A").next();
+            String rdf = new Scanner(new URL("http://odrlapi.appspot.com/samples/sample004").openStream(), "UTF-8").useDelimiter("\\A").next();
 
 /*            String odrl = new Scanner(new URL("http://w3c.github.io/poe/vocab/ODRL22.ttl").openStream(), "UTF-8").useDelimiter("\\A").next();
             Model modrl = ODRLValidator.getModel(odrl);         
