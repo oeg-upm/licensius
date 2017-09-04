@@ -12,5 +12,5 @@
         odrl:action odrl:reproduce
     ] .
 
-<http://odrlapi.appspot.com/samples/party651> odrl:assignerOf <http://odrlapi.appspot.com/samples/sample037> .
+<http://odrlapi.appspot.com/samples/party651> odrl:assignerOf <http://odrlapi.appspot.com/samples/sample038> .
 

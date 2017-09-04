@@ -13,7 +13,7 @@
         odrl:constraint [
             odrl:leftOperand odrl:dateTime ;
             odrl:operator odrl:lteq;
-            odrl:rightOperandReference "asdf" .
+            odrl:rightOperandReference "asdf" 
         ]            
     ] .
 

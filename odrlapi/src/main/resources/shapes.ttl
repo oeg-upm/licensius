@@ -266,7 +266,7 @@ odrl:nestedPermMinTargetShape
 odrl:ConstraintShape
     a sh:NodeShape ;
     sh:targetClass odrl:Constraint ;
-    sh:message "Constraints must have exactly one leftoperand" ;
+    sh:message "Constraints must have exactly one leftoperand, operator and rightoperand (or rightoperandreference). rightoperandrefrence must be a uri" ;
     sh:property [
         sh:path odrl:leftOperand;
         sh:message "Constraints must have exactly one leftoperand." ;
@@ -277,8 +277,19 @@ odrl:ConstraintShape
         sh:message "Constraints must have exactly one operator." ;
         sh:minCount 1 ;
         sh:maxCount 1 
-    ] , [
-        sh:path [ 
-            sh:alternativePath ( odrl:rightOperand odrl:rightOperandReference) 
-        ] ;
-    ] .
+    ] ;
+    sh:xone (
+    [sh:property [
+        sh:path odrl:rightOperand;
+        sh:minCount 1 ;
+        sh:maxCount 1 
+
+    ]] [sh:property [
+        sh:path odrl:rightOperandReference;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;        
+        sh:nodeKind sh:IRI
+
+    ]]
+    ) .
+

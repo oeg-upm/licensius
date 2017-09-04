@@ -33,7 +33,10 @@ public class Preprocessing {
             List<String> politicas = RDFUtils.getObjectsGivenSP(model, party, ODRL.PASSIGNEROF.getURI());
             for (String politica : politicas) {
                 Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
+                System.out.println(model.size());
                 model.add(rpolitica, ODRL.PASSIGNER, rparty);
+                System.out.println(rpolitica.getURI() + " - " + ODRL.PASSIGNER.getURI() + " - " + rparty.getURI());
+                System.out.println(model.size());
             }
         }
 
@@ -55,7 +58,7 @@ public class Preprocessing {
             List<String> politicas = RDFUtils.getObjectsGivenSP(model, party, ODRL.PHASPOLICY.getURI());
             for (String politica : politicas) {
                 Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-                model.add(rpolitica, ODRL.PTARGET, rparty);
+               model.add(rpolitica, ODRL.PTARGET, rparty);
             }
         }
 
@@ -65,6 +68,9 @@ public class Preprocessing {
         model = RDFUtils.inferClassFromRange(model, ODRL.PPROHIBITION.getURI(), ODRL.RPROHIBITION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.POBLIGATION.getURI(), ODRL.RDUTY.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PDUTY.getURI(), ODRL.RDUTY.getURI());
+
+        out = RDFUtils.getString(model);
+        System.out.println("INTERMEDIO :\n"+out);
 
         //INTRODUCES THE GENERAL PROPERTIES (DEFINED AT POLICY LEVEL) IN EACH RULE LEVEL.
         //asset, target, assigner, assignee

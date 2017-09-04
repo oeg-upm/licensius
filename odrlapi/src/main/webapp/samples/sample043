@@ -13,7 +13,7 @@
         odrl:constraint [
             odrl:leftOperand odrl:dateTime ;
             odrl:operator odrl:lteq;
-            odrl:rightOperandReference <http://example.com/service:2342> .
+            odrl:rightOperandReference <http://example.com/service:2342> 
         ]            
     ] .
 
