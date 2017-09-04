@@ -20,11 +20,7 @@ public class Validation03 implements Validation {
         if (model==null)
             return new ValidatorResponse(false, 415,"not valid. The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES..." );
         
-        List<String> lista = new ArrayList();
-        lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.RPOLICY));
-        lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.RAGREEMENT));
-        lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.ROFFER));
-        lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.RSET));
+        List<String> lista = Preprocessing.getPoliticas(model);
         for(String politica : lista)
         {
             List<String> clases = RDFUtils.getObjectsGivenSP(model, politica, RDF.type.getURI());

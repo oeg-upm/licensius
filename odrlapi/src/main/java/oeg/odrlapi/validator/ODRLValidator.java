@@ -34,6 +34,7 @@ public class ODRLValidator {
 
         ValidatorResponse response = validateSingle(new Validation01(), null, rdf);
         response = validateSingle(new Validation03(), response, rdf);
+        response = validateSingle(new Validation04(), response, rdf);
         response = validateSingle(new Validation02(), response, rdf);
         return response;
     }

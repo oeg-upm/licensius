@@ -169,12 +169,17 @@ odrl:nestedAssigneeMinShape
     ] .
 
 #v
+#tricky because the maxcount is not verified in fact given the OWA
 odrl:PermissionTargetShape 
     a sh:NodeShape ;
     sh:targetClass odrl:Permission ;
     sh:property [
         sh:message "Permissions can have at most one assigner";
         sh:path odrl:assigner ;
+        sh:maxCount 1 ;
+    ],[
+        sh:message "Permissions can have at most one assignee";
+        sh:path odrl:assignee ;
         sh:maxCount 1 ;
     ] .
 

@@ -8,7 +8,8 @@
     odrl:permission [
         odrl:target <http://odrlapi.appspot.com/samples/asset000> ;
         odrl:action odrl:reproduce
-    ], odrl:prohibition [
+    ];
+    odrl:prohibition [
         odrl:target <http://odrlapi.appspot.com/samples/asset000> ;
         odrl:action odrl:reproduce
     ]  .

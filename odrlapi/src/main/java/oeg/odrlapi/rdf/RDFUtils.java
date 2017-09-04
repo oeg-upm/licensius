@@ -104,6 +104,18 @@ public class RDFUtils {
         }
         return policies;
     }
+    public static List<Resource> getRSubjectOfType(Model model, Resource propiedad) {
+        List<Resource> policies = new ArrayList();
+        ResIterator it = model.listResourcesWithProperty(RDF.type, propiedad);
+        while (it.hasNext()) {
+            Resource res = it.next();
+            Statement s = res.getProperty(RDF.type);
+            Resource sujeto = s.getSubject();
+            policies.add(sujeto);
+        }
+        return policies;
+    }
+    
 
     public static List<String> getObjectsOfType(Model model, String uri) {
         List<String> policies = new ArrayList();
@@ -137,6 +149,21 @@ public class RDFUtils {
             return value;
         }
         return "";
+    }
+    public static List<String> getRO(Model model, Resource sujeto, Property property) {
+        List<String> cadenas = new ArrayList();
+        try{
+            NodeIterator it = model.listObjectsOfProperty(sujeto, property);
+            while (it.hasNext()) {
+                RDFNode nodo = it.nextNode();
+                String rtitle = nodo.toString();
+                cadenas.add(rtitle);
+            }
+        } catch (Exception e) {
+
+        }
+        return cadenas;
+        
     }
 
     /**

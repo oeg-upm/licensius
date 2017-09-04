@@ -17,7 +17,6 @@ public class Validation01 implements Validation {
         Model model = ODRLValidator.getModel(turtle);
         if (model==null)
             return new ValidatorResponse(false, 415,"not valid. The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES." );
-        
         List<String> lista = new ArrayList();
         
         lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.RPOLICY));
