@@ -15,3 +15,4 @@
 <http://odrlapi.appspot.com/samples/party000>
    a odrl:Party;
    odrl:assigneeOf <http://odrlapi.appspot.com/samples/sample012>.
+

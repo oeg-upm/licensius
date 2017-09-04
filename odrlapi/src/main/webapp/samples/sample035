@@ -1,2 +1,27 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+
+#valid (Modified example 25, constraint on consequence)
+<http://odrlapi.appspot.com/samples/sample035>
+    dct:source "victor" ;
+    a odrl:Agreement ;
+    odrl:profile <http://example.com/odrl:profile:09> ;
+    odrl:permission [
+        odrl:target <http://example.com/data:77> ;
+        odrl:assigner <http://example.com/org:99> ;
+        odrl:assignee <http://example.com/person:88> ;
+        odrl:action odrl:distribute ;
+        odrl:duty [
+            odrl:action odrl:attribute ;
+            odrl:attributedParty "Australia";
+            odrl:consequence [
+                odrl:action odrl:acceptTracking ;
+                odrl:trakingParty <http://example.com/dept:100> ;
+                odrl:constraint [
+                    odrl:leftOperand odrl:dateTime ;
+                    odrl:operator odrl:lteq;
+                    odrl:rightOperand "2017-12-31"
+                ] 
+            ]
+        ]            
+    ] .

@@ -2,7 +2,6 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 # valid. (assigner specified externally)
-# PENDING TO BE FIXED
 <http://odrlapi.appspot.com/samples/sample012>
     a odrl:Agreement ;   
     dct:source "victor" ;

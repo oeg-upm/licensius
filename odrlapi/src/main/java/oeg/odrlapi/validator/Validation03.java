@@ -43,7 +43,7 @@ public class Validation03 implements Validation {
         }
         
         if (lista.isEmpty())
-            return new ValidatorResponse(false, 415,"not valid. 01 There is no policy, aggrement, offer or set" );
+            return new ValidatorResponse(false, 415,"not valid. There is no policy, aggrement, offer or set" );
         
         return new ValidatorResponse(true, 200, "ok");    }
     

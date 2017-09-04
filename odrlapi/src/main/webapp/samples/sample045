@@ -1,0 +1,25 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#valid. (example 34-35 in the spec)
+<http://odrlapi.appspot.com/samples/sample045>
+    a odrl:Policy ;
+    odrl:profile <http://example.com/odrl:profile:30> ;
+    odrl:permission [
+        odrl:assigner <http://example.com/org-01> ;
+        odrl:action odrl:archive, odrl:annotate
+    ] ;
+    odrl:prohibition [
+        odrl:assigner <http://example.com/org-01> ;
+        odrl:action odrl:aggregate
+    ] .
+
+<http://odrlapi.appspot.com/samples/sample045b>
+    a odrl:Agreement ;
+    odrl:profile <http://example.com/odrl:profile:30> ;
+    odrl:inheritFrom <<http://odrlapi.appspot.com/samples/sample045> ;
+    odrl:permission [
+        odrl:assigner <http://example.com/asset:555> ;
+        odrl:action odrl:display, odrl:print ;
+        odrl:assignee <http://example.com/user:0001>
+    ] .

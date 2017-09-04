@@ -1,0 +1,26 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+#valid. Example 9 in the IM.
+<http://odrlapi.appspot.com/samples/sample041>
+    a odrl:Agreement ;
+    odrl:profile <http://example.com/odrl:profile:05> ;
+    dct:source <http://w3c.github.io/poe/model/> ;
+    odrl:permission [
+        odrl:target <http://example.com/looking-glass.ebook> ;
+        odrl:assigner [
+            a odrl:Party, vcard:Organization ;
+            rdf:value <http://example.com/org/sony-books> ;
+            vcard:fn "Sony Books LCC" ;
+            vcard:hasEmail "sony-contact@example.com"
+        ] ;
+        odrl:assignee [
+            a odrl:PartyCollection, vcard:Group ;
+            rdf:value <http://example.com/team/A> ;
+            vcard:fn "Team A" ;
+            vcard:hasEmail "teamA@example.com" ;
+        ] ;
+        odrl:action odrl:use ;
+    ] .

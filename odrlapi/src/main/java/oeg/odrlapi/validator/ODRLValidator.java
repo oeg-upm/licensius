@@ -55,14 +55,14 @@ public class ODRLValidator {
             return response;
             
         } catch (Exception e) {
-            System.err.println("Ha fallado la validación " + e.getMessage());
+            System.err.println("Ha fallado la validación ... " + e.getMessage());
             return new ValidatorResponse(true, 200, "valid");
         }
         
     }
 
+    // Sistema de caché para almacenar modelos
     public static Map<Integer, Model> cache = new WeakHashMap();
-
     public static Model getModel(String rdf) {
         int hash = rdf.hashCode();
         if (cache.size() > 50) {

@@ -1,7 +1,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
-# invalid due to missing assigner
+# invalid due to missing assigner in Offer
 <http://odrlapi.appspot.com/samples/sample006>
     a odrl:Offer ;   
     dct:source <https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.3-Offer> ;

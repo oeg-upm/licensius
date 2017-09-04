@@ -20,7 +20,6 @@ odrl:PolicyShape
 odrl:Offer rdfs:subClassOf odrl:Policy .
 
 
-
 odrl:OfferShape
     a sh:NodeShape ;
     sh:targetClass odrl:Offer ;
@@ -169,7 +168,24 @@ odrl:nestedAssigneeMinShape
         sh:node odrl:topAssigneeMinShape ;
     ] .
 
+#v
+odrl:PermissionTargetShape 
+    a sh:NodeShape ;
+    sh:targetClass odrl:Permission ;
+    sh:property [
+        sh:message "Permissions can have at most one assigner";
+        sh:path odrl:assigner ;
+        sh:maxCount 1 ;
+    ] .
 
+
+#v
+odrl:ActionActionShape
+    a sh:NodeShape ;
+    sh:targetObjectsOf odrl:action ;
+    sh:severity sh:Warning ;
+    sh:message "Please consider using Actions with a URI";
+    sh:nodeKind sh:IRI .
 
 odrl:AssetTargetShape
     a sh:NodeShape ;
