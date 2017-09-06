@@ -25,6 +25,8 @@ public class ODRL {
     public static Property PPROHIBITION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/prohibition");
     public static Resource RDUTY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Duty");
     public static Resource RCONSTRAINT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Constraint");
+    public static Resource RLOGICALCONSTRAINT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/LogicalConstraint");
+    
     public static Resource RACTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Action");
     public static Property PTARGET = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/target");
     public static Property PASSIGNER = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assigner");
@@ -45,6 +47,9 @@ public class ODRL {
     public static Property PASSIGNEROF = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assignerOf");
     public static Property PASSIGNEEOF = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assigneeOf");
     public static Property PHASPOLICY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/hasPolicy");
+    public static Property PREFINEMENT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/refinement");
+    public static Property PLEFTOPERAND = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/leftOperand");
+    public static Property PRIGHTOPERAND = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/rightOperand");
     
     public static Property PINHERITFROM = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/inheritFrom");
     

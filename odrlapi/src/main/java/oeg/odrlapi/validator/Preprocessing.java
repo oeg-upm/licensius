@@ -11,9 +11,11 @@ import org.apache.jena.rdf.model.NodeIterator;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.rdf.model.SimpleSelector;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
+import org.apache.jena.vocabulary.RDF;
 
 /**
  * Preprocesses a policy
@@ -64,14 +66,15 @@ public class Preprocessing {
             }
         }
 
-        System.out.println("Paso 1 terminado: Externo->Politica " + model.size());
+       System.out.println("Paso 1 terminado: Externo->Politica " + model.size());
 
         //MAKES SURE THAT THE IMPORTANT CLASSES ARE WELL INFERRED
-        model = RDFUtils.inferClassFromRange(model, ODRL.PCONSTRAINT.getURI(), ODRL.RCONSTRAINT.getURI());
+  //      model = RDFUtils.inferClassFromRange(model, ODRL.PCONSTRAINT.getURI(), ODRL.RCONSTRAINT.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PPERMISSION.getURI(), ODRL.RPERMISSION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PPROHIBITION.getURI(), ODRL.RPROHIBITION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.POBLIGATION.getURI(), ODRL.RDUTY.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PDUTY.getURI(), ODRL.RDUTY.getURI());
+        model = Preprocessing.addConstraintTypes(model);
 
         System.out.println("Paso 2 terminado: Regla recibe clase " + model.size());
 
@@ -221,7 +224,7 @@ public class Preprocessing {
         return lista;
     }
 
-    private static List<Resource> getReglasDirectas(Model model, Resource rpolitica) {
+    public static List<Resource> getReglasDirectas(Model model, Resource rpolitica) {
         List<Resource> rreglas = new ArrayList();//quiero obetner toads las relgas
         NodeIterator it = model.listObjectsOfProperty(rpolitica, ODRL.PPERMISSION);
         while (it.hasNext()) {
@@ -245,6 +248,97 @@ public class Preprocessing {
             }
         }
         return rreglas;
+    }
+
+    /**
+     * Determines if the constraints are Constraints or LogicalConstraints.
+     * Asserts the RDF statement explicitly for its easier validation.
+     * If the type is asserted, then nothing is done.
+     * It works for every possible object of odrl:constraint or odrl:refinement 
+     * @param model RDF model
+     * @return Modified RDF model. 
+     */
+    private static Model addConstraintTypes(Model model) {
+        NodeIterator ni = model.listObjectsOfProperty(ODRL.PREFINEMENT);
+        List<Statement> nuevas = new ArrayList();
+        while(ni.hasNext())
+        {
+            RDFNode node = ni.next();
+            if (!node.isResource())
+                continue;
+            Resource rnode = node.asResource();
+            StmtIterator li = model.listStatements(new SimpleSelector(rnode,null,(RDFNode)null));
+            boolean normal = false;
+            
+            while(li.hasNext())
+            {
+                Statement st = li.next();
+                Resource rpropiedad = st.getPredicate();
+                int cuenta =0;
+                if (rpropiedad.getURI().equals(RDF.type.getURI()))
+                    continue;
+                if (rpropiedad.getURI().equals(ODRL.POPERATOR))
+                    cuenta++;
+                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND))
+                    cuenta++;
+                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND))
+                    cuenta++;
+                if (cuenta>0)
+                {
+                    normal=true;
+                    Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RCONSTRAINT);
+                    nuevas.add(sn);
+                }
+            }            
+            if (!normal)
+            {
+                Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RLOGICALCONSTRAINT);
+                nuevas.add(sn);
+            }
+        }  
+        ni = model.listObjectsOfProperty(ODRL.PCONSTRAINT);
+        while(ni.hasNext())
+        {
+            RDFNode node = ni.next();
+            if (!node.isResource())
+                continue;
+            Resource rnode = node.asResource();
+            StmtIterator li = model.listStatements(new SimpleSelector(rnode,null,(RDFNode)null));
+            boolean normal = false;
+            while(li.hasNext())
+            {
+                Statement st = li.next();
+                Resource rpropiedad = st.getPredicate();
+                int cuenta =0;
+                if (rpropiedad.getURI().equals(RDF.type.getURI()))
+                    continue;
+                if (rpropiedad.getURI().equals(ODRL.POPERATOR))
+                    cuenta++;
+                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND))
+                    cuenta++;
+                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND))
+                    cuenta++;
+                if (cuenta>0)
+                {
+                    normal=true;
+                    Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RCONSTRAINT);
+                    nuevas.add(sn);
+                    
+                }
+            }
+            if (!normal)
+            {
+                    Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RLOGICALCONSTRAINT);
+                    nuevas.add(sn);
+                    
+            }
+        }  
+        for(Statement st : nuevas)
+            model.add(st);
+
+         
+        
+        return model;
     }
 
 }

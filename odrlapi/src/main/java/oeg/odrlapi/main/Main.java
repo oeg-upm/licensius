@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         try{
             //6, 42
-            String rdf = new Scanner(new URL("http://odrlapi.appspot.com/samples/sample045").openStream(), "UTF-8").useDelimiter("\\A").next();
+            String rdf = new Scanner(new URL("http://odrlapi.appspot.com/samples/sample054").openStream(), "UTF-8").useDelimiter("\\A").next();
 
 /*            String odrl = new Scanner(new URL("http://w3c.github.io/poe/vocab/ODRL22.ttl").openStream(), "UTF-8").useDelimiter("\\A").next();
             Model modrl = ODRLValidator.getModel(odrl);         

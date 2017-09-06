@@ -1,0 +1,30 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#invalid. Modified example 14 in the IM. Values in the list of the operands must be constraints.
+<http://odrlapi.appspot.com/samples/sample054>
+    a odrl:Offer ;
+    dct:source "victor";
+    odrl:profile <http://example.com/odrl:profile:10> ;
+    odrl:permission [
+        odrl:target <http://example.com/book/1999> ;
+        odrl:assigner <http://example.com/org/paisley-park> ;
+        odrl:action [
+            rdf:value odrl:reproduce ;
+            odrl:refinement [
+                odrl:xone (<http://example.com/p:88/C1> <http://example.com/p:88/C2>)
+            ]
+        ]
+   ] .
+
+<http://example.com/p:88/C1> 
+    a <http://dbpedia.org/ontology/country> ;
+    rdf:value "France" .
+
+<http://example.com/p:88/C2> 
+    a odrl:Constraint ;
+    odrl:leftOperand "media" ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand odrl:print .
+ 
