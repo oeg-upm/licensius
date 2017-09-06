@@ -20,7 +20,7 @@ import org.apache.jena.reasoner.ValidityReport;
  *
  * @author vroddon
  */
-public class Validation02b implements Validation {
+public class Validation02 implements Validation {
 
     public final static String ODRLONTO = "http://w3c.github.io/poe/vocab/ODRL22.ttl";
     private static Model odrlmodel = null;
@@ -46,7 +46,7 @@ public class Validation02b implements Validation {
     public ValidatorResponse validate(String turtle) {
         Model model = ODRLValidator.getModel(turtle);
         model.add(getODRLModel());
-        Model odrl = Validation02b.getODRLModel();
+        Model odrl = Validation02.getODRLModel();
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
         reasoner = reasoner.bindSchema(odrl);
         InfModel infmodel = ModelFactory.createInfModel(reasoner, model);
@@ -80,7 +80,7 @@ public class Validation02b implements Validation {
                 + "        odrl:target <http://example.com/asset:9898> ;\n"
                 + "        odrl:action odrl:reproduce\n"
                 + "    ] .";
-        Validation02b v = new Validation02b();
+        Validation02 v = new Validation02();
         v.validate(sample003);
     }
 

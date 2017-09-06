@@ -2,10 +2,8 @@ package oeg.odrlapi.validator;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.WeakHashMap;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
@@ -34,12 +32,14 @@ public class ODRLValidator {
             model = ODRLValidator.getModel(rdf2);
         }catch(Exception e)
         {
-            e.printStackTrace();
-            return new ValidatorResponse(false, 415, "not valid.The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...");
+            String message = "not valid.The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...";
+            if (!e.getMessage().isEmpty())
+                message = e.getMessage();
+            return new ValidatorResponse(false, 415, message);
         }
 
         ValidatorResponse response = validateSingle(new Validation01(), null, rdf);
-        response = validateSingle(new Validation02b(), response, rdf);
+//        response = validateSingle(new Validation02(), response, rdf);
         response = validateSingle(new Validation03(), response, rdf);
         response = validateSingle(new Validation04(), response, rdf);
         response = validateSingle(new Validation05(), response, rdf);

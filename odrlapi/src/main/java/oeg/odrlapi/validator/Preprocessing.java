@@ -1,22 +1,17 @@
 package oeg.odrlapi.validator;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import oeg.odrlapi.rdf.RDFUtils;
-import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.NodeIterator;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
-import oeg.odrlapi.rdf.*;
-import org.apache.jena.rdf.model.Selector;
 import org.apache.jena.rdf.model.SimpleSelector;
-import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 
@@ -91,10 +86,8 @@ public class Preprocessing {
         model = interiorizar(model, ODRL.PACTION.getURI());
 
         System.out.println("Paso 3 terminado: Politica->Regla " + model.size());
-
         System.out.println("ANTES DE HEREDAR:\n" + RDFUtils.getString(model));
         model = heredar(model);
-
         System.out.println("Paso 3 terminado: Herencia realizada " + model.size());
 
         out = RDFUtils.getString(model);
@@ -127,6 +120,7 @@ public class Preprocessing {
     }
 
     private static Model heredar(Model model) throws Exception {
+        
         // Model nuevo = ModelFactory.createDefaultModel();
         List<String> politicas = getPoliticas(model);
         Map<Integer, String> mapa = new HashMap();
@@ -139,7 +133,7 @@ public class Preprocessing {
             contador++;
         }
         //   System.out.println(Collections.singletonList(mapa)); 
-
+        
         //Generamos el grafo!        
         for (String politica : politicas) {
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
@@ -158,6 +152,9 @@ public class Preprocessing {
 //                System.out.println(rmapa.get(politica) +" <-- " + rmapa.get(padre) +"          "+ (politica +" <-- " + padre));
             }
         }
+        if (g.isCyclic())
+            throw new Exception("Policy inheritance graph cannot be cyclic!");
+        
 
         //Aqui se ordena el grafo topológicamente
         int resultado[] = g.topologicalSort();
