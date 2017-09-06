@@ -29,9 +29,23 @@
 
 <http://odrlapi.appspot.com/samples/policyD>
     a odrl:Policy ;
-    odrl:inheritFrom <http://odrlapi.appspot.com/samples/policyA> ;
+    odrl:inheritFrom <http://odrlapi.appspot.com/samples/policyE> ;
     odrl:inheritFrom <http://odrlapi.appspot.com/samples/policyB> ;
     odrl:permission [
         odrl:assigner <http://example.com/asset:555> ;
         odrl:action odrl:reproduce
+    ] .
+
+<http://odrlapi.appspot.com/samples/policyE>
+    a odrl:Policy ;
+    odrl:permission [
+        odrl:assigner <http://example.com/asset:555> ;
+        odrl:action odrl:anonymize
+    ] .
+
+<http://odrlapi.appspot.com/samples/policyF>
+    a odrl:Policy ;
+    odrl:permission [
+        odrl:assigner <http://example.com/asset:555> ;
+        odrl:action odrl:append
     ] .

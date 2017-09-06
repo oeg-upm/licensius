@@ -29,8 +29,14 @@ public class ODRLValidator {
             return new ValidatorResponse(false, 415, "not valid.The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...");
         }
         
-        String rdf2 = Preprocessing.preprocess(rdf);
-        model = ODRLValidator.getModel(rdf2);
+        try{
+            String rdf2 = Preprocessing.preprocess(rdf);
+            model = ODRLValidator.getModel(rdf2);
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            return new ValidatorResponse(false, 415, "not valid.The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...");
+        }
 
         ValidatorResponse response = validateSingle(new Validation01(), null, rdf);
         response = validateSingle(new Validation02b(), response, rdf);

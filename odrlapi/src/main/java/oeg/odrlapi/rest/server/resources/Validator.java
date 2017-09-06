@@ -13,6 +13,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import oeg.odrlapi.validator.ODRLValidator;
+import oeg.odrlapi.validator.Preprocessing;
 
 @Path("/validator")
 @Api(value = "/validator", description = "Checks the conformance of ODRL Policy expressions with respect to the ODRL Information Model validation requirements.")
@@ -40,4 +41,24 @@ public class Validator {
         }
     }
 
+    
+    @POST
+    @Path("/canonicalize")
+    @Consumes("text/turtle")
+    @Produces("text/turtle")
+    @ApiOperation(value = "canonicalize", notes = "Canonicalizes the policy or policies given. Properties in the policy are transferred to the rules, inheritance is applied, external definitions are considered.")
+    @ApiResponses(value = {
+        @ApiResponse(code = 200, message = "OK", response = ValidatorResponse.class)
+        ,
+                                @ApiResponse(code = 400, message = "Bad Request")
+        ,
+                                @ApiResponse(code = 415, message = "Unsupported Media Type")})
+    public Response canonicalize(@ApiParam(name = "policy", value = "ODRL policy serialized as RDF Turtle or RDF/XML", required = true) String rdf) {
+        try {
+            String canonical = Preprocessing.preprocess(rdf);
+            return Response.status(200).entity(canonical).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
+    }    
 }
