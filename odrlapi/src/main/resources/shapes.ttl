@@ -236,7 +236,7 @@ odrl:nestedPermMinTargetShape
 odrl:ConstraintShape
     a sh:NodeShape ;
     sh:targetClass odrl:Constraint ;
-    sh:message "Constraints must have exactly one leftoperand, operator and rightoperand (or rightoperandreference). rightoperandrefrence must be a uri" ;
+    sh:message "Constraints must have exactly one leftoperand, operator and rightoperand (or rightoperandreference) and rightoperandrefrence must be a uri" ;
     sh:property [
         sh:path odrl:leftOperand;
         sh:message "Constraints must have exactly one leftoperand." ;

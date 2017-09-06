@@ -153,7 +153,7 @@ public class Preprocessing {
             }
         }
         if (g.isCyclic())
-            throw new Exception("Policy inheritance graph cannot be cyclic!");
+            throw new Exception("not valid. Policy inheritance graph cannot be cyclic!");
         
 
         //Aqui se ordena el grafo topológicamente

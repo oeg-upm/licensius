@@ -18,6 +18,6 @@
     odrl:inheritFrom <http://odrlapi.appspot.com/samples/sample045> ;
     odrl:assignee <http://example.com/user:0001> ;
     odrl:permission [
-        odrl:assigner <http://example.com/asset:555> ;
+        odrl:target <http://example.com/asset:555> ;
         odrl:action odrl:display
     ] .
