@@ -83,36 +83,37 @@ public class Preprocessing {
         System.out.println("PREPROCESADO:\n"+out);
         return out;
     }
+    
+    private static Model heredar(Model model)
+    {
+        List<String> politicas = getPoliticas(model);
+        for (String politica : politicas) {
+            Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
+            NodeIterator it = model.listObjectsOfProperty(rpolitica, ODRL.PINHERITFROM);
+            while (it.hasNext()) {
+                RDFNode nodo = it.nextNode();
+                if (nodo.isLiteral())
+                {
+                    System.out.println("WARNING ESTE MODELO NO ES VALIDO");
+                    continue;
+                }
+                Resource rpadre = nodo.asResource();
+                List<Resource> rreglas = getReglasDirectas(model, rpolitica);
+                
+            }            
+        }
+        return model;
+    }
 
-    public static Model interiorizar(Model model, String sproperty) {
+
+    private static Model interiorizar(Model model, String sproperty) {
         Property rpropiedad = ModelFactory.createDefaultModel().createProperty(sproperty);
 
         List<String> politicas = getPoliticas(model);
         for (String politica : politicas) {
             //COMIENZO DEL INTENTO DE OBTENER TODAS LAS REGLAS DE UNA POLITICA
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-            List<Resource> rreglas = new ArrayList();//quiero obetner toads las relgas
-            NodeIterator it = model.listObjectsOfProperty(rpolitica, ODRL.PPERMISSION);
-            while (it.hasNext()) {
-                RDFNode nodo = it.nextNode();
-                if (nodo.isResource()) {
-                    rreglas.add(nodo.asResource());
-                }
-            }
-            it = model.listObjectsOfProperty(rpolitica, ODRL.POBLIGATION);
-            while (it.hasNext()) {
-                RDFNode nodo = it.nextNode();
-                if (nodo.isResource()) {
-                    rreglas.add(nodo.asResource());
-                }
-            }
-            it = model.listObjectsOfProperty(rpolitica, ODRL.PPROHIBITION);
-            while (it.hasNext()) {
-                RDFNode nodo = it.nextNode();
-                if (nodo.isResource()) {
-                    rreglas.add(nodo.asResource());
-                }
-            }
+            List<Resource> rreglas = getReglasDirectas(model, rpolitica);
             //AHORA, PARA CADA UNA DE LAS PROPIEDADES QUE HAY QUE INTERIORIZAR...
             List<String> items = RDFUtils.getObjectsGivenSP(model, politica, sproperty);
             for (String item : items) {
@@ -139,9 +140,31 @@ public class Preprocessing {
         return lista;
     }
     
-    static List<Resource> getReglas(Model model, String politica)
+    private static List<Resource> getReglasDirectas(Model model, Resource rpolitica)
      {
-        return null;
+            List<Resource> rreglas = new ArrayList();//quiero obetner toads las relgas
+            NodeIterator it = model.listObjectsOfProperty(rpolitica, ODRL.PPERMISSION);
+            while (it.hasNext()) {
+                RDFNode nodo = it.nextNode();
+                if (nodo.isResource()) {
+                    rreglas.add(nodo.asResource());
+                }
+            }
+            it = model.listObjectsOfProperty(rpolitica, ODRL.POBLIGATION);
+            while (it.hasNext()) {
+                RDFNode nodo = it.nextNode();
+                if (nodo.isResource()) {
+                    rreglas.add(nodo.asResource());
+                }
+            }
+            it = model.listObjectsOfProperty(rpolitica, ODRL.PPROHIBITION);
+            while (it.hasNext()) {
+                RDFNode nodo = it.nextNode();
+                if (nodo.isResource()) {
+                    rreglas.add(nodo.asResource());
+                }
+            }
+            return rreglas;
     }
 
 }

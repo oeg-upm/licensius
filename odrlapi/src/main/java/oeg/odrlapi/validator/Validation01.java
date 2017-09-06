@@ -8,6 +8,7 @@ import org.apache.jena.rdf.model.Model;
 
 /**
  * Determines if there is at least one policy.
+ * Result: Warning. There is no policy, aggrement, offer or set to evaluate.
  * @author vroddon
  */
 public class Validation01 implements Validation {

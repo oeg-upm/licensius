@@ -112,8 +112,7 @@
         <div id="footer" style="text-align:left;font-size:smaller;margin-bottom:3cm;"> 
             <div class="container">
                 <p > 
-                    This work is an independent initiative, not endorsed whatsoever by the <a href="https://www.w3.org/2016/poe">W3C Permissions and Obligations Working Group</a>. 
-                    Open source hosted at <a href="https://github.com/oeg-upm/licensius/tree/master/odrlapi">github</a> - Victor Rodriguez Doncel - <a href="http://www.oeg-upm.net">OEG</a> - Universidad Politécnica de Madrid 2017
+                    This work is an independent initiative, not endorsed whatsoever by the W3C. Open source hosted at <a href="https://github.com/oeg-upm/licensius/tree/master/odrlapi">github</a> - Victor Rodriguez Doncel - <a href="http://www.oeg-upm.net">OEG</a> - Universidad Politécnica de Madrid 2017
                 </p>
             </div>
         </div>
@@ -193,12 +192,15 @@
                                     http.onload = function () {
                                         var res = http.responseText;
                                         console.info(res);
+                                        res = res.replace("\n", "TOPRINT")
+                                        res = res.replace("\\n", "TOPRINT")
                                         var obj = JSON.parse(res);
                                         var text = obj.text;
                                         var status = obj.status;
                                         var toprint = escapeHtml(text);
-                                        toprint = toprint.replace("/[\n\r]/g", "<BR>");
-                                        console.info(toprint);
+                                        console.info("Antes:"+toprint);
+                                        toprint = toprint.replace("TOPRINT", "<BR>");
+                                        console.info("Tras :"+toprint);
                                         document.getElementById("salida").innerHTML = toprint;
                                         
                                         var n = res.indexOf("200");

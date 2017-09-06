@@ -38,7 +38,7 @@ odrl:exactAssignerShape
     sh:property [
         sh:path odrl:assigner ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:maxCount 1 
     ] .
 
 odrl:exactPermissionAssignerShape
@@ -90,36 +90,6 @@ odrl:exactObligationAssigneeShape
 
 
 
-
-
-
-odrl:minAssignerShape
-    a sh:NodeShape ;
-    sh:property [
-        sh:path odrl:assigner ;
-        sh:minCount 1 ;
-    ] .
-
-odrl:minPermissionAssignerShape
-    a sh:NodeShape ;
-    sh:property [
-        sh:path odrl:permission ; 
-        sh:node odrl:minAssignerShape ;
-        sh:minCount 1 ;
-    ] .
-
-odrl:minProhibitionAssignerShape
-    sh:property [
-        sh:path odrl:prohibition ;
-        sh:node odrl:minAssignerShape  ;
-        sh:minCount 1 ;
-    ] .
-
-odrl:minObligationAssignerShape
-    sh:property [
-        sh:path odrl:obligation ;
-        sh:node odrl:minAssignerShape  ;
-    ] .
 
 
 

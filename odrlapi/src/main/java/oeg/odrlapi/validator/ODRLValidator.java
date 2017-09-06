@@ -33,9 +33,11 @@ public class ODRLValidator {
         model = ODRLValidator.getModel(rdf2);
 
         ValidatorResponse response = validateSingle(new Validation01(), null, rdf);
+        response = validateSingle(new Validation02b(), response, rdf);
         response = validateSingle(new Validation03(), response, rdf);
         response = validateSingle(new Validation04(), response, rdf);
-        response = validateSingle(new Validation02(), response, rdf);
+        response = validateSingle(new Validation05(), response, rdf);
+        response = validateSingle(new ValidationSHACL(), response, rdf);
         return response;
     }
 
