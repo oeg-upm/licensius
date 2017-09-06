@@ -22,7 +22,7 @@ public class ODRLValidator {
     private static final Logger logger = Logger.getLogger(ODRLValidator.class.getName());
 
     public static ValidatorResponse validate(String rdf) {
-        System.out.println(rdf);
+        System.out.println("==============RDF a ser validado:\n" + rdf);
 
         Model model = getModel(rdf);
         if (model == null) {

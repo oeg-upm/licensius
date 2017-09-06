@@ -14,6 +14,11 @@ import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import oeg.odrlapi.rdf.*;
+import org.apache.jena.rdf.model.Selector;
+import org.apache.jena.rdf.model.SimpleSelector;
+import org.apache.jena.rdf.model.StmtIterator;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.rdf.model.StmtIterator;
 
 /**
  * Preprocesses a policy
@@ -29,6 +34,8 @@ public class Preprocessing {
         if (model == null) {
             return rdf;
         }
+        System.out.println("Paso 0: RDF de partida " + model.size());
+
         //PROCESSES ASSIGNEROF OUT OF THE POLICY
         List<String> lista = RDFUtils.getSubjectsForProperty(model, ODRL.PASSIGNEROF.getURI());
         for (String party : lista) {
@@ -36,10 +43,7 @@ public class Preprocessing {
             List<String> politicas = RDFUtils.getObjectsGivenSP(model, party, ODRL.PASSIGNEROF.getURI());
             for (String politica : politicas) {
                 Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-                System.out.println(model.size());
                 model.add(rpolitica, ODRL.PASSIGNER, rparty);
-                System.out.println(rpolitica.getURI() + " - " + ODRL.PASSIGNER.getURI() + " - " + rparty.getURI());
-                System.out.println(model.size());
             }
         }
 
@@ -65,12 +69,16 @@ public class Preprocessing {
             }
         }
 
+        System.out.println("Paso 1 terminado: Externo->Politica " + model.size());
+
         //MAKES SURE THAT THE IMPORTANT CLASSES ARE WELL INFERRED
         model = RDFUtils.inferClassFromRange(model, ODRL.PCONSTRAINT.getURI(), ODRL.RCONSTRAINT.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PPERMISSION.getURI(), ODRL.RPERMISSION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PPROHIBITION.getURI(), ODRL.RPROHIBITION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.POBLIGATION.getURI(), ODRL.RDUTY.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PDUTY.getURI(), ODRL.RDUTY.getURI());
+
+        System.out.println("Paso 2 terminado: Regla recibe clase " + model.size());
 
         out = RDFUtils.getString(model);
 //        System.out.println("INTERMEDIO :\n" + out);
@@ -82,25 +90,55 @@ public class Preprocessing {
         model = interiorizar(model, ODRL.PASSIGNEE.getURI());
         model = interiorizar(model, ODRL.PACTION.getURI());
 
+        System.out.println("Paso 3 terminado: Politica->Regla " + model.size());
+
+        System.out.println("ANTES DE HEREDAR:\n" + RDFUtils.getString(model));
         model = heredar(model);
 
+        System.out.println("Paso 3 terminado: Herencia realizada " + model.size());
+
         out = RDFUtils.getString(model);
-        System.out.println("PREPROCESADO:\n" + out);
+        System.out.println("FINAL:\n" + RDFUtils.getString(model));
         return out;
     }
 
+    private static List<Resource> getPadresHerencia(Model model, Resource hijo) {
+        List<Resource> lis = new ArrayList();
+        NodeIterator ni = model.listObjectsOfProperty(hijo, ODRL.PINHERITFROM);
+        while (ni.hasNext()) {
+            RDFNode n = ni.next();
+            if (n.isResource()) {
+                lis.add(n.asResource());
+            }
+        }
+        return lis;
+    }
+
+    private static Model encastrar(Model model, Resource newpadre, Resource oldpadre) {
+        StmtIterator sit = model.listStatements(new SimpleSelector(oldpadre, null, (RDFNode) null));
+        while (sit.hasNext()) {
+            Statement st = sit.next();
+            Resource s = st.getSubject();
+            Property p = st.getPredicate();
+            RDFNode o = st.getObject();
+            model.add(newpadre, p, o);
+        }
+        return model;
+    }
+
     private static Model heredar(Model model) throws Exception {
+        // Model nuevo = ModelFactory.createDefaultModel();
         List<String> politicas = getPoliticas(model);
         Map<Integer, String> mapa = new HashMap();
         Map<String, Integer> rmapa = new HashMap();
         PolicyGraph g = new PolicyGraph(politicas.size());
-        Integer contador=0;
+        Integer contador = 0;
         for (String politica : politicas) {
             mapa.put(contador, politica);
-            rmapa.put(politica,contador);
+            rmapa.put(politica, contador);
             contador++;
         }
-        System.out.println(Collections.singletonList(mapa)); // method 2
+        //   System.out.println(Collections.singletonList(mapa)); 
 
         //Generamos el grafo!        
         for (String politica : politicas) {
@@ -112,36 +150,38 @@ public class Preprocessing {
                     throw new Exception("warning. inheritsFrom must be a URI");
                 }
                 String padre = nodo.asResource().getURI();
-                if (!politicas.contains(padre))
+                if (!politicas.contains(padre)) {
                     throw new Exception("warning. inheritsFrom must be used pointing to an existing policy");
-                g.addEdge(rmapa.get(padre),rmapa.get(politica));
+                }
+                g.addEdge(rmapa.get(padre), rmapa.get(politica));
 //                System.out.println(politica +" <-- " + padre );
-                System.out.println(rmapa.get(politica) +" <-- " + rmapa.get(padre) +"          "+ (politica +" <-- " + padre));
+//                System.out.println(rmapa.get(politica) +" <-- " + rmapa.get(padre) +"          "+ (politica +" <-- " + padre));
             }
         }
-        
+
         //Aqui se ordena el grafo topológicamente
-        int resultado[]=g.topologicalSort();
-        
+        int resultado[] = g.topologicalSort();
+
         List<String> orderedpolicies = new ArrayList();
-        //Aquí ya está ordenado!
-        for(Integer i=0;i<resultado.length;i++)
-        {
+        for (Integer i = 0; i < resultado.length; i++) {
             String politica = mapa.get(resultado[i]);
             orderedpolicies.add(politica);
             System.out.println(politica);
         }
-        
+
+        //Aquí se aplican las herencias.
         for (String politica : politicas) {
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-            NodeIterator it = model.listObjectsOfProperty(rpolitica, ODRL.PINHERITFROM);
-            while (it.hasNext()) {
-                RDFNode nodo = it.nextNode();
-                Resource rpadre = nodo.asResource();
-                List<Resource> rreglas = getReglasDirectas(model, rpolitica);
-
+            List<Resource> padres = getPadresHerencia(model, rpolitica);
+            for (Resource padre : padres) {
+                Model racimopadre = RDFUtils.getRacimo(model, padre, new ArrayList());
+                racimopadre = encastrar(racimopadre, rpolitica, padre);
+                model.add(racimopadre);
             }
         }
+
+        model.removeAll(null, ODRL.PINHERITFROM, null);
+
         return model;
     }
 

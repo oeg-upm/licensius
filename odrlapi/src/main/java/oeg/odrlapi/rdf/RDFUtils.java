@@ -21,6 +21,8 @@ import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.ResIterator;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Selector;
+import org.apache.jena.rdf.model.SimpleSelector;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.vocabulary.RDF;
@@ -47,6 +49,34 @@ public class RDFUtils {
 
     public static void print(Model modelo) {
 //        RDFDataMgr.write(System.out, modelo, Lang.TURTLE) ;
+    }
+    /**
+     * Este algoritmo es probable que haga loops. OJO!
+     */
+    public static Model getRacimo(Model model, Resource nodo, List<Resource> traversed)
+    {
+        Model racimo = ModelFactory.createDefaultModel();
+        Selector selector = new SimpleSelector(nodo, null, (RDFNode)null);
+        StmtIterator it = model.listStatements(selector);
+        while(it.hasNext())
+        {
+            Statement stm = it.next();
+            RDFNode o = stm.getObject();
+            Resource p = stm.getPredicate();
+            if (p.toString().equals("http://www.w3.org/ns/odrl/2/inheritFrom"))
+                continue;
+            System.out.println(stm);
+            if (o.isResource())
+            {
+                if (traversed.contains(o.asResource()))
+                    continue;
+                traversed.add(o.asResource());
+                racimo.add(stm);
+                Model hijos = getRacimo(model,o.asResource(), traversed);
+                racimo.add(hijos);
+            }
+        }
+        return racimo;
     }
 
     /*
