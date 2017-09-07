@@ -33,6 +33,8 @@ public class Preprocessing {
         }
         System.out.println("Paso 0: RDF de partida " + model.size());
 
+        model = policy2Set(model);
+
         //PROCESSES ASSIGNEROF OUT OF THE POLICY
         List<String> lista = RDFUtils.getSubjectsForProperty(model, ODRL.PASSIGNEROF.getURI());
         for (String party : lista) {
@@ -66,10 +68,10 @@ public class Preprocessing {
             }
         }
 
-       System.out.println("Paso 1 terminado: Externo->Politica " + model.size());
+        System.out.println("Paso 1 terminado: Externo->Politica " + model.size());
 
         //MAKES SURE THAT THE IMPORTANT CLASSES ARE WELL INFERRED
-  //      model = RDFUtils.inferClassFromRange(model, ODRL.PCONSTRAINT.getURI(), ODRL.RCONSTRAINT.getURI());
+        //      model = RDFUtils.inferClassFromRange(model, ODRL.PCONSTRAINT.getURI(), ODRL.RCONSTRAINT.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PPERMISSION.getURI(), ODRL.RPERMISSION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PPROHIBITION.getURI(), ODRL.RPROHIBITION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.POBLIGATION.getURI(), ODRL.RDUTY.getURI());
@@ -123,7 +125,7 @@ public class Preprocessing {
     }
 
     private static Model heredar(Model model) throws Exception {
-        
+
         // Model nuevo = ModelFactory.createDefaultModel();
         List<String> politicas = getPoliticas(model);
         Map<Integer, String> mapa = new HashMap();
@@ -136,7 +138,7 @@ public class Preprocessing {
             contador++;
         }
         //   System.out.println(Collections.singletonList(mapa)); 
-        
+
         //Generamos el grafo!        
         for (String politica : politicas) {
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
@@ -155,9 +157,9 @@ public class Preprocessing {
 //                System.out.println(rmapa.get(politica) +" <-- " + rmapa.get(padre) +"          "+ (politica +" <-- " + padre));
             }
         }
-        if (g.isCyclic())
+        if (g.isCyclic()) {
             throw new Exception("not valid. Policy inheritance graph cannot be cyclic!");
-        
+        }
 
         //Aqui se ordena el grafo topológicamente
         int resultado[] = g.topologicalSort();
@@ -252,92 +254,120 @@ public class Preprocessing {
 
     /**
      * Determines if the constraints are Constraints or LogicalConstraints.
-     * Asserts the RDF statement explicitly for its easier validation.
-     * If the type is asserted, then nothing is done.
-     * It works for every possible object of odrl:constraint or odrl:refinement 
+     * Asserts the RDF statement explicitly for its easier validation. If the
+     * type is asserted, then nothing is done. It works for every possible
+     * object of odrl:constraint or odrl:refinement
+     *
      * @param model RDF model
-     * @return Modified RDF model. 
+     * @return Modified RDF model.
      */
     private static Model addConstraintTypes(Model model) {
         NodeIterator ni = model.listObjectsOfProperty(ODRL.PREFINEMENT);
         List<Statement> nuevas = new ArrayList();
-        while(ni.hasNext())
-        {
+        while (ni.hasNext()) {
             RDFNode node = ni.next();
-            if (!node.isResource())
+            if (!node.isResource()) {
                 continue;
+            }
             Resource rnode = node.asResource();
-            StmtIterator li = model.listStatements(new SimpleSelector(rnode,null,(RDFNode)null));
+            StmtIterator li = model.listStatements(new SimpleSelector(rnode, null, (RDFNode) null));
             boolean normal = false;
-            
-            while(li.hasNext())
-            {
+
+            while (li.hasNext()) {
                 Statement st = li.next();
                 Resource rpropiedad = st.getPredicate();
-                int cuenta =0;
-                if (rpropiedad.getURI().equals(RDF.type.getURI()))
+                int cuenta = 0;
+                if (rpropiedad.getURI().equals(RDF.type.getURI())) {
                     continue;
-                if (rpropiedad.getURI().equals(ODRL.POPERATOR))
+                }
+                if (rpropiedad.getURI().equals(ODRL.POPERATOR)) {
                     cuenta++;
-                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND))
+                }
+                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND)) {
                     cuenta++;
-                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND))
+                }
+                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND)) {
                     cuenta++;
-                if (cuenta>0)
-                {
-                    normal=true;
+                }
+                if (cuenta > 0) {
+                    normal = true;
                     Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RCONSTRAINT);
                     nuevas.add(sn);
                 }
-            }            
-            if (!normal)
-            {
+            }
+            if (!normal) {
                 Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RLOGICALCONSTRAINT);
                 nuevas.add(sn);
             }
-        }  
+        }
         ni = model.listObjectsOfProperty(ODRL.PCONSTRAINT);
-        while(ni.hasNext())
-        {
+        while (ni.hasNext()) {
             RDFNode node = ni.next();
-            if (!node.isResource())
+            if (!node.isResource()) {
                 continue;
+            }
             Resource rnode = node.asResource();
-            StmtIterator li = model.listStatements(new SimpleSelector(rnode,null,(RDFNode)null));
+            StmtIterator li = model.listStatements(new SimpleSelector(rnode, null, (RDFNode) null));
             boolean normal = false;
-            while(li.hasNext())
-            {
+            while (li.hasNext()) {
                 Statement st = li.next();
                 Resource rpropiedad = st.getPredicate();
-                int cuenta =0;
-                if (rpropiedad.getURI().equals(RDF.type.getURI()))
+                int cuenta = 0;
+                if (rpropiedad.getURI().equals(RDF.type.getURI())) {
                     continue;
-                if (rpropiedad.getURI().equals(ODRL.POPERATOR))
+                }
+                if (rpropiedad.getURI().equals(ODRL.POPERATOR)) {
                     cuenta++;
-                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND))
+                }
+                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND)) {
                     cuenta++;
-                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND))
+                }
+                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND)) {
                     cuenta++;
-                if (cuenta>0)
-                {
-                    normal=true;
+                }
+                if (cuenta > 0) {
+                    normal = true;
                     Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RCONSTRAINT);
                     nuevas.add(sn);
-                    
+
                 }
             }
-            if (!normal)
-            {
-                    Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RLOGICALCONSTRAINT);
-                    nuevas.add(sn);
-                    
-            }
-        }  
-        for(Statement st : nuevas)
-            model.add(st);
+            if (!normal) {
+                Statement sn = ResourceFactory.createStatement(rnode, RDF.type, ODRL.RLOGICALCONSTRAINT);
+                nuevas.add(sn);
 
-         
-        
+            }
+        }
+        for (Statement st : nuevas) {
+            model.add(st);
+        }
+
+        return model;
+    }
+
+    public static Model policy2Set(Model model) {
+        List<String> politicas = getPoliticas(model);
+        for (String politica : politicas) {
+            Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
+            NodeIterator nx = model.listObjectsOfProperty(rpolitica, RDF.type);
+            int count=0;
+            while (nx.hasNext()) {
+                RDFNode nodex = nx.next();
+                if (!nodex.isResource()) {
+                    continue;
+                }
+                Resource tipo = nodex.asResource();
+                if (tipo.getURI().equals(ODRL.RSET))
+                    count++;
+                if (tipo.getURI().equals(ODRL.ROFFER))
+                    count++;
+                if (tipo.getURI().equals(ODRL.RAGREEMENT))
+                    count++;
+            }
+            if (count==0)
+                model.add(rpolitica, RDF.type, ODRL.RSET);
+        }
+
         return model;
     }
 
