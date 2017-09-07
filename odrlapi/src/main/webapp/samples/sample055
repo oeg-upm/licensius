@@ -11,7 +11,7 @@
         odrl:assigner <http://example.com/org88> ;
         odrl:target [
             a odrl:AssetCollection ;
-            dct:source <http://example.com/media-catalogue> ;
+            odrl:source <http://example.com/media-catalogue> ;
             odrl:action odrl:play ;
             odrl:refinement [
                 odrl:leftOperand odrl:runningTime ;
