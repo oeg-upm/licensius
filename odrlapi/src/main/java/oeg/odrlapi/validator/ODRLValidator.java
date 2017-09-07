@@ -32,7 +32,7 @@ public class ODRLValidator {
             model = ODRLValidator.getModel(rdf2);
         }catch(Exception e)
         {
-            String message = "not valid.The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...";
+            String message = "not valid. The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...";
             if (e!=null && !e.getMessage().isEmpty())
                 message = e.getMessage();
             return new ValidatorResponse(false, 415, message);

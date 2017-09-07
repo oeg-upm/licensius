@@ -15,7 +15,7 @@
             odrl:action odrl:play ;
             odrl:refinement [
                 odrl:leftOperand odrl:runningTime ;
-                odrl:operand odrl:lt ;
+                odrl:operator odrl:lt ; 
                 odrl:rightOperand 60 ;
                 odrl:unit <http://qudt.org/vocab/unit/MinuteTime>
             ]

@@ -44,5 +44,5 @@
     a odrl:Policy ;
     odrl:permission [
         odrl:target <http://example.com/asset:8623> ;
-        odrl:action odrl:append
+        odrl:action odrl:execute
     ] .

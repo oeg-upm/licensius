@@ -43,7 +43,10 @@ public class Main {
                 ValidatorResponse resp = validator.validate(rdf);
                 System.out.println(String.format("%03d %s %s", i, truth,resp.valid));
                 if (truth!=resp.valid)
+                {
                     errors++;
+                    System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+                }
             }catch(Exception e)
             {
                 e.printStackTrace();

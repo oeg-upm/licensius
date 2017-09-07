@@ -84,6 +84,7 @@ public class Preprocessing {
 
         out = RDFUtils.getString(model);
 //        System.out.println("INTERMEDIO :\n" + out);
+        model = heredar(model);
 
         //INTRODUCES THE GENERAL PROPERTIES (DEFINED AT POLICY LEVEL) IN EACH RULE LEVEL.
         //asset, target, assigner, assignee
@@ -94,7 +95,6 @@ public class Preprocessing {
 
  //       System.out.println("Paso 3 terminado: Politica->Regla " + model.size());
  //       System.out.println("ANTES DE HEREDAR:\n" + RDFUtils.getString(model));
-        model = heredar(model);
   //      System.out.println("Paso 3 terminado: Herencia realizada " + model.size());
 
         out = RDFUtils.getString(model);
@@ -148,11 +148,12 @@ public class Preprocessing {
             while (it.hasNext()) {
                 RDFNode nodo = it.nextNode();
                 if (nodo.isLiteral()) {
-                    throw new Exception("warning. inheritsFrom must be a URI");
+                    throw new Exception("not valid. warning. inheritsFrom must be a URI");
                 }
                 String padre = nodo.asResource().getURI();
                 if (!politicas.contains(padre)) {
-                    throw new Exception("warning. inheritsFrom must be used pointing to an existing policy");
+                    throw new Exception("not valid. warning. inheritsFrom must be used pointing to an existing policy");
+                   
                 }
                 g.addEdge(rmapa.get(padre), rmapa.get(politica));
 //                System.out.println(politica +" <-- " + padre );
