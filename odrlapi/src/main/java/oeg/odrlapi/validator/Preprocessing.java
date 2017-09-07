@@ -33,7 +33,7 @@ public class Preprocessing {
         if (model == null) {
             return rdf;
         }
-        System.out.println("Paso 0: RDF de partida " + model.size());
+    //    System.out.println("Paso 0: RDF de partida " + model.size());
 
         model = policy2Set(model);
 
@@ -70,7 +70,7 @@ public class Preprocessing {
             }
         }
 
-        System.out.println("Paso 1 terminado: Externo->Politica " + model.size());
+    //    System.out.println("Paso 1 terminado: Externo->Politica " + model.size());
 
         //MAKES SURE THAT THE IMPORTANT CLASSES ARE WELL INFERRED
         //      model = RDFUtils.inferClassFromRange(model, ODRL.PCONSTRAINT.getURI(), ODRL.RCONSTRAINT.getURI());
@@ -80,7 +80,7 @@ public class Preprocessing {
         model = RDFUtils.inferClassFromRange(model, ODRL.PDUTY.getURI(), ODRL.RDUTY.getURI());
         model = Preprocessing.addConstraintTypes(model);
 
-        System.out.println("Paso 2 terminado: Regla recibe clase " + model.size());
+ //       System.out.println("Paso 2 terminado: Regla recibe clase " + model.size());
 
         out = RDFUtils.getString(model);
 //        System.out.println("INTERMEDIO :\n" + out);
@@ -92,13 +92,13 @@ public class Preprocessing {
         model = interiorizar(model, ODRL.PASSIGNEE.getURI());
         model = interiorizar(model, ODRL.PACTION.getURI());
 
-        System.out.println("Paso 3 terminado: Politica->Regla " + model.size());
-        System.out.println("ANTES DE HEREDAR:\n" + RDFUtils.getString(model));
+ //       System.out.println("Paso 3 terminado: Politica->Regla " + model.size());
+ //       System.out.println("ANTES DE HEREDAR:\n" + RDFUtils.getString(model));
         model = heredar(model);
-        System.out.println("Paso 3 terminado: Herencia realizada " + model.size());
+  //      System.out.println("Paso 3 terminado: Herencia realizada " + model.size());
 
         out = RDFUtils.getString(model);
-        System.out.println("FINAL:\n" + RDFUtils.getString(model));
+  //      System.out.println("FINAL:\n" + RDFUtils.getString(model));
         return out;
     }
 
@@ -170,7 +170,7 @@ public class Preprocessing {
         for (Integer i = 0; i < resultado.length; i++) {
             String politica = mapa.get(resultado[i]);
             orderedpolicies.add(politica);
-            System.out.println(politica);
+   //         System.out.println(politica);
         }
 
         //Aquí se aplican las herencias.
@@ -282,13 +282,13 @@ public class Preprocessing {
                 if (rpropiedad.getURI().equals(RDF.type.getURI())) {
                     continue;
                 }
-                if (rpropiedad.getURI().equals(ODRL.POPERATOR)) {
+                if (rpropiedad.getURI().equals(ODRL.POPERATOR.getURI())) {
                     cuenta++;
                 }
-                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND)) {
+                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND.getURI())) {
                     cuenta++;
                 }
-                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND)) {
+                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND.getURI())) {
                     cuenta++;
                 }
                 if (cuenta > 0) {
@@ -318,13 +318,13 @@ public class Preprocessing {
                 if (rpropiedad.getURI().equals(RDF.type.getURI())) {
                     continue;
                 }
-                if (rpropiedad.getURI().equals(ODRL.POPERATOR)) {
+                if (rpropiedad.getURI().equals(ODRL.POPERATOR.getURI())) {
                     cuenta++;
                 }
-                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND)) {
+                if (rpropiedad.getURI().equals(ODRL.PLEFTOPERAND.getURI())) {
                     cuenta++;
                 }
-                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND)) {
+                if (rpropiedad.getURI().equals(ODRL.PRIGHTOPERAND.getURI())) {
                     cuenta++;
                 }
                 if (cuenta > 0) {
@@ -359,11 +359,11 @@ public class Preprocessing {
                     continue;
                 }
                 Resource tipo = nodex.asResource();
-                if (tipo.getURI().equals(ODRL.RSET))
+                if (tipo.getURI().equals(ODRL.RSET.getURI()))
                     count++;
-                if (tipo.getURI().equals(ODRL.ROFFER))
+                if (tipo.getURI().equals(ODRL.ROFFER.getURI()))
                     count++;
-                if (tipo.getURI().equals(ODRL.RAGREEMENT))
+                if (tipo.getURI().equals(ODRL.RAGREEMENT.getURI()))
                     count++;
             }
             if (count==0)

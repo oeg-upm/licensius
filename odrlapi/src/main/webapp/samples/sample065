@@ -1,0 +1,23 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#invalid. Modified example 16 in the IM, it lacks source
+<http://odrlapi.appspot.com/samples/sample065>
+    a odrl:Offer ;
+    dct:source "http://w3c.github.io/poe/model/";
+    odrl:profile <http://example.com/odrl:profile:11> ;
+    odrl:permission [
+        odrl:assigner <http://example.com/org88> ;
+        odrl:target [
+            a odrl:AssetCollection ;
+            odrl:action odrl:play ;
+            odrl:refinement [
+                odrl:leftOperand odrl:runningTime ;
+                odrl:operator odrl:lt ;
+                odrl:rightOperand 60 ;
+                odrl:unit <http://qudt.org/vocab/unit/MinuteTime>
+            ]
+        ]
+    ] . 
+

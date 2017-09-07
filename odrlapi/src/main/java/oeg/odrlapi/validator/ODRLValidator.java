@@ -20,7 +20,7 @@ public class ODRLValidator {
     private static final Logger logger = Logger.getLogger(ODRLValidator.class.getName());
 
     public static ValidatorResponse validate(String rdf) {
-        System.out.println("==============RDF a ser validado:\n" + rdf);
+   //     System.out.println("==============RDF a ser validado:\n" + rdf);
 
         Model model = getModel(rdf);
         if (model == null) {
@@ -45,6 +45,7 @@ public class ODRLValidator {
         response = validateSingle(new Validation05(), response, rdf);
         response = validateSingle(new Validation06(), response, rdf);
         response = validateSingle(new Validation07(), response, rdf);
+        response = validateSingle(new Validation08(), response, rdf);
         response = validateSingle(new ValidationSHACL(), response, rdf);
         return response;
     }
@@ -66,7 +67,7 @@ public class ODRLValidator {
             return response;
             
         } catch (Exception e) {
-            System.err.println("Ha fallado la validación ... " + e.getMessage());
+    //        System.err.println("Ha fallado la validación ... " + e.getMessage());
             return new ValidatorResponse(true, 200, "valid");
         }
         

@@ -29,6 +29,7 @@ public class ODRL {
     public static Resource RCONSTRAINT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Constraint");
     public static Resource RLOGICALCONSTRAINT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/LogicalConstraint");
     public static Resource RASSETCOLLECTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/AssetCollection");
+    public static Resource RPARTYCOLLECTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/PartyCollection");
     
     public static Resource RACTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Action");
     public static Property PTARGET = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/target");

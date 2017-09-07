@@ -13,21 +13,42 @@ import oeg.odrlapi.validator.ODRLValidator;
 public class Main {
 
     public static void main(String[] args) {
+        superTest();
         try{
-            //6, 42
-            String rdf = new Scanner(new URL("http://odrlapi.appspot.com/samples/sample057").openStream(), "UTF-8").useDelimiter("\\A").next();
-
-/*            String odrl = new Scanner(new URL("http://w3c.github.io/poe/vocab/ODRL22.ttl").openStream(), "UTF-8").useDelimiter("\\A").next();
-            Model modrl = ODRLValidator.getModel(odrl);         
-            System.out.println(modrl.size());
-*/            
-//            InputStream is = Main.class.getResourceAsStream("/samples/sample000");
-//            String rdf = IOUtils.toString(is, "UTF-8"); 
+            String rdf = new Scanner(new URL("http://odrlapi.appspot.com/samples/sample066").openStream(), "UTF-8").useDelimiter("\\A").next();
             ODRLValidator validator = new ODRLValidator();
             ValidatorResponse resp = validator.validate(rdf);
             System.out.println(resp);
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    
+    
+    public static void superTest()
+    {
+        int errors = 0;
+        System.out.println("--- TRU ALG");
+        for(int i=0;i<70;i++)
+        {
+            Boolean truth = null;
+            try{
+                String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d",i);
+                String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
+                if (rdf.contains("#valid"))
+                    truth=true;
+                else if (rdf.contains("#invalid"))
+                    truth=false;
+                ODRLValidator validator = new ODRLValidator();
+                ValidatorResponse resp = validator.validate(rdf);
+                System.out.println(String.format("%03d %s %s", i, truth,resp.valid));
+                if (truth!=resp.valid)
+                    errors++;
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Errors: " + errors);
     }
 }

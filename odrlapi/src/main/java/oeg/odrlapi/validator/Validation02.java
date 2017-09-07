@@ -55,7 +55,7 @@ public class Validation02 implements Validation {
         if (validity.isValid()) {
             return new ValidatorResponse(true, 200, "");
         } else {
-            System.out.println("Conflicts");
+    //        System.out.println("Conflicts");
             for (Iterator i = validity.getReports(); i.hasNext();) {
                 reporte+=(" - " + i.next());
             }

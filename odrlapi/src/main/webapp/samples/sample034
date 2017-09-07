@@ -1,7 +1,7 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
-#invalid (?) "An Asset must have at least one relation sub-property value (of type Asset)"
+#valid (?) warning, asset it is not a URI
 <http://odrlapi.appspot.com/samples/sample034>
     a odrl:Set ;
     dct:source "victor" ;

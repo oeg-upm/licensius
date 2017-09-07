@@ -65,7 +65,7 @@ public class RDFUtils {
             Resource p = stm.getPredicate();
             if (p.toString().equals("http://www.w3.org/ns/odrl/2/inheritFrom"))
                 continue;
-            System.out.println(stm);
+   //         System.out.println(stm);
             if (o.isResource())
             {
                 if (traversed.contains(o.asResource()))
@@ -505,12 +505,12 @@ public class RDFUtils {
         try {
             URI uri = new URI(texto);
             String suri = uri.toString();
-            System.out.println(suri);
+      //      System.out.println(suri);
             return suri;
         } catch (Exception e) {
             List<String> uris = extractUrls(texto);
             for (String uri : uris) {
-                System.out.println("Candidato: " + uri);
+      //          System.out.println("Candidato: " + uri);
                 return uri;
             }
         }

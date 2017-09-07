@@ -88,10 +88,10 @@ class PolicyGraph
         {
             Integer elemento = (Integer)stack.pop();
             resultado[cuenta] = elemento;
-            System.out.print(elemento + " ");
+      //      System.out.print(elemento + " ");
             cuenta++;
         }
-        System.out.println();
+    //    System.out.println();
         return resultado;
     }
     
@@ -123,7 +123,7 @@ class PolicyGraph
 		//@recStack recursion stack, to check which all nodes are present 
 		//on the stack
 		Set<Integer> recStack = new HashSet<Integer>();
-		System.out.println(vertices);
+//		System.out.println(vertices);
 		//loop through all the vertices in the graph
 		for(int i=0;i<vertices;i++)
 		{
@@ -135,7 +135,7 @@ class PolicyGraph
 	//@v : current vertex
 	public boolean helper(int v, boolean[] visited, Set<Integer> recStack)
 	{
-		System.out.println("v: "+v+" set: "+recStack);
+	//	System.out.println("v: "+v+" set: "+recStack);
 		//if we have not visited the vertex v yet 
 		//then visit the vertex v and all its adjacent vertices
 		if(!visited[v])

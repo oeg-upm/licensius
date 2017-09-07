@@ -31,7 +31,7 @@ public class Validation06 implements Validation {
         {
             Resource r = ri.next();
             Model racimopadre = RDFUtils.getRacimo(model, r, new ArrayList());
-            System.out.println("RACIMO--" + RDFUtils.getString(racimopadre) + "--FIN DEL RACIMO");
+    //        System.out.println("RACIMO--" + RDFUtils.getString(racimopadre) + "--FIN DEL RACIMO");
             StmtIterator si = racimopadre.listStatements(new SimpleSelector(null, RDF.first, (RDFNode)null));
             while (si.hasNext())
             {

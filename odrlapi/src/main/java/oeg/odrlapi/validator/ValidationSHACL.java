@@ -33,7 +33,7 @@ public class ValidationSHACL implements Validation {
         {
             mensaje+=s+" \n";
         }
-        System.out.println(informe);
+ //       System.out.println(informe);
         
 
         if (!informe.contains("<http://www.w3.org/ns/shacl#Violation>")) {
