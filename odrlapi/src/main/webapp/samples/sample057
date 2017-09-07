@@ -1,1 +1,13 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix p1: <http://odrlapi.appspot.com/profile/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
+#invalid. unknown action, but profile not included
+<http://odrlapi.appspot.com/samples/sample057>
+    a odrl:Policy;
+    dct:creator "victor" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target <http://odrlapi.appspot.com/samples/asset000> ;
+        odrl:action p1:supercalifragilisticoespialidoso
+    ] .

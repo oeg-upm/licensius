@@ -2,8 +2,10 @@ package oeg.odrlapi.validator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import oeg.odrlapi.rdf.RDFUtils;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -127,7 +129,7 @@ public class Preprocessing {
     private static Model heredar(Model model) throws Exception {
 
         // Model nuevo = ModelFactory.createDefaultModel();
-        List<String> politicas = getPoliticas(model);
+        Set<String> politicas = getPoliticas(model);
         Map<Integer, String> mapa = new HashMap();
         Map<String, Integer> rmapa = new HashMap();
         PolicyGraph g = new PolicyGraph(politicas.size());
@@ -190,7 +192,7 @@ public class Preprocessing {
     private static Model interiorizar(Model model, String sproperty) {
         Property rpropiedad = ModelFactory.createDefaultModel().createProperty(sproperty);
 
-        List<String> politicas = getPoliticas(model);
+        Set<String> politicas = getPoliticas(model);
         for (String politica : politicas) {
             //COMIENZO DEL INTENTO DE OBTENER TODAS LAS REGLAS DE UNA POLITICA
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
@@ -217,8 +219,8 @@ public class Preprocessing {
     }
 
     //This is ok, because policies MUST Have an ID
-    static List<String> getPoliticas(Model model) {
-        List<String> lista = new ArrayList();
+    static Set<String> getPoliticas(Model model) {
+        Set<String> lista = new HashSet();
         lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.RPOLICY));
         lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.RAGREEMENT));
         lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.ROFFER));
@@ -346,7 +348,7 @@ public class Preprocessing {
     }
 
     public static Model policy2Set(Model model) {
-        List<String> politicas = getPoliticas(model);
+        Set<String> politicas = getPoliticas(model);
         for (String politica : politicas) {
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
             NodeIterator nx = model.listObjectsOfProperty(rpolitica, RDF.type);
@@ -369,6 +371,11 @@ public class Preprocessing {
         }
 
         return model;
+    }
+
+    public static boolean hasProfile(Model model, Resource rpolitica) {
+        NodeIterator ni = model.listObjectsOfProperty(rpolitica, ODRL.PPROFILE);
+        return ni.hasNext();
     }
 
 }

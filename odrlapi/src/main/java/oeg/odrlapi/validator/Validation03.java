@@ -2,6 +2,7 @@ package oeg.odrlapi.validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
@@ -25,7 +26,7 @@ public class Validation03 implements Validation {
             return new ValidatorResponse(false, 415, "not valid. The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...");
         }
 
-        List<String> lista = Preprocessing.getPoliticas(model);
+        Set<String> lista = Preprocessing.getPoliticas(model);
         for (String politica : lista) {
             List<String> clases = RDFUtils.getObjectsGivenSP(model, politica, RDF.type.getURI());
             int cuenta = 0;
