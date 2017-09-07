@@ -1,0 +1,16 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix p1: <http://odrlapi.appspot.com/profile/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#valid. Example 35 in the IM
+<http://odrlapi.appspot.com/samples/sample062>
+    a odrl:Policy;
+    dct:source <http://w3c.github.io/poe/model/> ;
+    odrl:profile <http://example.com/odrl:profile:40> ;
+    odrl:conflict odrl:perm ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target <http://example.com/asset:1212> ;
+        odrl:action odrl:use ;
+        odrl:assigner <http://example.com/owner:181> 
+    ] .

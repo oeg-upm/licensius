@@ -53,6 +53,7 @@ public class ODRL {
     
     public static Property PINHERITFROM = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/inheritFrom");
     public static Property PPROFILE = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/profile");
+    public static Property PCONFLICT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/conflict");
     
             
     public static Property PDCLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");

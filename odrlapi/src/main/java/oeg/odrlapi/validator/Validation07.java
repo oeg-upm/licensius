@@ -78,10 +78,67 @@ public class Validation07 implements Validation {
         return set;
     }
 
+    public static Set<String> getOperators() {
+        Set<String> set = new HashSet();
+        set.add("http://www.w3.org/ns/odrl/2/eq");
+        set.add("http://www.w3.org/ns/odrl/2/gt");
+        set.add("http://www.w3.org/ns/odrl/2/gteq");
+        set.add("http://www.w3.org/ns/odrl/2/lt");
+        set.add("http://www.w3.org/ns/odrl/2/lteq");
+        set.add("http://www.w3.org/ns/odrl/2/neq");
+        set.add("http://www.w3.org/ns/odrl/2/isA");
+        set.add("http://www.w3.org/ns/odrl/2/hasPart");
+        set.add("http://www.w3.org/ns/odrl/2/isPartOf");
+        set.add("http://www.w3.org/ns/odrl/2/isAllOf");
+        set.add("http://www.w3.org/ns/odrl/2/isAnyOf");
+        set.add("http://www.w3.org/ns/odrl/2/isNoneOf");
+        return set;
+    }
+
+    public static Set<String> getLeftOperands() {
+        Set<String> set = new HashSet();
+        set.add("http://www.w3.org/ns/odrl/2/absolutePosition");
+        set.add("http://www.w3.org/ns/odrl/2/absoluteSpatialPosition");
+        set.add("http://www.w3.org/ns/odrl/2/absoluteTemporalPosition");
+        set.add("http://www.w3.org/ns/odrl/2/absoluteSize");
+        set.add("http://www.w3.org/ns/odrl/2/count");
+        set.add("http://www.w3.org/ns/odrl/2/dateTime");
+        set.add("http://www.w3.org/ns/odrl/2/delayPeriod");
+        set.add("http://www.w3.org/ns/odrl/2/deliveryChannel");
+        set.add("http://www.w3.org/ns/odrl/2/elapsedTime");
+        set.add("http://www.w3.org/ns/odrl/2/event");
+        set.add("http://www.w3.org/ns/odrl/2/fileFormat");
+        set.add("http://www.w3.org/ns/odrl/2/industry");
+        set.add("http://www.w3.org/ns/odrl/2/language");
+        set.add("http://www.w3.org/ns/odrl/2/media");
+        set.add("http://www.w3.org/ns/odrl/2/meteredTime");
+        set.add("http://www.w3.org/ns/odrl/2/payAmount");
+        set.add("http://www.w3.org/ns/odrl/2/percentage");
+        set.add("http://www.w3.org/ns/odrl/2/product");
+        set.add("http://www.w3.org/ns/odrl/2/purpose");
+        set.add("http://www.w3.org/ns/odrl/2/recipient");
+        set.add("http://www.w3.org/ns/odrl/2/relativePosition");
+        set.add("http://www.w3.org/ns/odrl/2/relativeSpatialPosition");
+        set.add("http://www.w3.org/ns/odrl/2/relativeTemporalPosition");
+        set.add("http://www.w3.org/ns/odrl/2/relativeSize");
+        set.add("http://www.w3.org/ns/odrl/2/resolution");
+        set.add("http://www.w3.org/ns/odrl/2/spatial");
+        set.add("http://www.w3.org/ns/odrl/2/spatialCoordinates");
+        set.add("http://www.w3.org/ns/odrl/2/systemDevice");
+        set.add("http://www.w3.org/ns/odrl/2/timeInterval");
+        set.add("http://www.w3.org/ns/odrl/2/unitOfCount");
+        set.add("http://www.w3.org/ns/odrl/2/version");
+        set.add("http://www.w3.org/ns/odrl/2/virtualLocation");
+
+        return set;
+    }
+
     @Override
     public ValidatorResponse validate(String turtle) {
         Model model = ODRLValidator.getModel(turtle);
         Set acciones = getActions();
+        Set lefts = getLeftOperands();
+        Set operators = getOperators();
 
         //Para cada politica
         Set<String> politicas = Preprocessing.getPoliticas(model);
@@ -91,6 +148,8 @@ public class Validation07 implements Validation {
                 continue;
             }
             Model racimopadre = RDFUtils.getRacimo(model, rpolitica, new ArrayList());
+
+            //VALIDACION DE LAS ACCIONES
             NodeIterator ni = racimopadre.listObjectsOfProperty(ODRL.PACTION);
             if (ni.hasNext()) {
                 RDFNode node = ni.next();
@@ -109,11 +168,47 @@ public class Validation07 implements Validation {
                             if (!acciones.contains(saction2)) {
                                 return new ValidatorResponse(false, 415, "not valid. Undefined action while the policy does not use a profile.");
                             }
-
                         }
                     }
                 }
             }
+
+            //VALIDACION DE LOS LEFTOPERANDS
+            ni = racimopadre.listObjectsOfProperty(ODRL.PLEFTOPERAND);
+            if (ni.hasNext()) {
+                RDFNode node = ni.next();
+                if (node.isResource() && !node.isAnon()) {
+                    String saction = node.asResource().getURI();
+                    if (!lefts.contains(saction)) {
+                        return new ValidatorResponse(false, 415, "not valid. Undefined left operand while the policy does not use a profile.");
+                    }
+                }
+            }
+
+            //VALIDACION DE LOS OPERATORS
+            ni = racimopadre.listObjectsOfProperty(ODRL.POPERATOR);
+            if (ni.hasNext()) {
+                RDFNode node = ni.next();
+                if (node.isResource() && !node.isAnon()) {
+                    String saction = node.asResource().getURI();
+                    if (!operators.contains(saction)) {
+                        return new ValidatorResponse(false, 415, "not valid. Undefined operator while the policy does not use a profile.");
+                    }
+                }
+            }
+            
+            //VALIDACION DE LOS CONFLICTTERMS
+            ni = racimopadre.listObjectsOfProperty(ODRL.PCONFLICT);
+            if (ni.hasNext()) {
+                RDFNode node = ni.next();
+                if (node.isResource() && !node.isAnon()) {
+                    String saction = node.asResource().getURI();
+                    if (!operators.contains(saction)) {
+                        return new ValidatorResponse(false, 415, "not valid. Undefined conflict strategy while the policy does not use a profile.");
+                    }
+                }
+            }            
+
         }
 
         return new ValidatorResponse(true, 200, "valid");

@@ -1,0 +1,17 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix p1: <http://odrlapi.appspot.com/profile/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#valid. Strange conflict strategy, but profile given
+<http://odrlapi.appspot.com/samples/sample063>
+    a odrl:Policy;
+    dct:source "victor" ;
+    odrl:profile <http://example.com/odrl:profile:40> ;
+    odrl:conflict <http://example.com/odrl/profile/40/strategyUNKNOWN> ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target <http://example.com/asset:1212> ;
+        odrl:action odrl:use ;
+        odrl:assigner <http://example.com/owner:181> 
+    ] .
+

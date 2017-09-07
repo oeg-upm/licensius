@@ -1,1 +1,19 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix p1: <http://odrlapi.appspot.com/profile/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+#invalid. unknown element in LeftOperand, but profile not included
+<http://odrlapi.appspot.com/samples/sample058>
+    a odrl:Policy;
+    dct:creator "victor" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target <http://odrlapi.appspot.com/samples/asset000> ;
+        odrl:action odrl:play
+        odrl:constraint [
+            odrl:leftOperand p1:abracadabra ;
+            odrl:operator odrl:lteq;
+            odrl:rightOperand "2017-12-31"
+        ]  
+    ] .
 
