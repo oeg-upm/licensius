@@ -1,6 +1,7 @@
 package oeg.odrlapi.validator;
 
 import java.util.ArrayList;
+import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
@@ -23,14 +24,14 @@ public class Validation06 implements Validation {
 
     @Override
     public ValidatorResponse validate(String turtle) {
-        Model model = ODRLValidator.getModel(turtle);
+        Model model = RDFSugar.getModel(turtle);
         
         
         ResIterator ri = model.listSubjectsWithProperty(RDF.type, ODRL.RLOGICALCONSTRAINT);
         while (ri.hasNext())
         {
             Resource r = ri.next();
-            Model racimopadre = RDFUtils.getRacimo(model, r, new ArrayList());
+            Model racimopadre = RDFUtils.getRacimoExceptProperty(model, r, new ArrayList());
     //        System.out.println("RACIMO--" + RDFUtils.getString(racimopadre) + "--FIN DEL RACIMO");
             StmtIterator si = racimopadre.listStatements(new SimpleSelector(null, RDF.first, (RDFNode)null));
             while (si.hasNext())

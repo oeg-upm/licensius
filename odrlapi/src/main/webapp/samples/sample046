@@ -15,6 +15,7 @@
     a odrl:Policy ;
     odrl:inheritFrom <http://odrlapi.appspot.com/samples/policyA> ;
     odrl:permission [
+        odrl:target <http://example.com/asset:8623> ;
         odrl:assignee <http://example.com/assigneeB> ;
         odrl:action odrl:display
     ] .
@@ -23,6 +24,7 @@
     a odrl:Policy ;
     odrl:inheritFrom <http://odrlapi.appspot.com/samples/policyB> ;
     odrl:permission [
+        odrl:target <http://example.com/asset:8623> ;
         odrl:action odrl:print
     ] .
 
@@ -31,12 +33,14 @@
     odrl:inheritFrom <http://odrlapi.appspot.com/samples/policyE> ;
     odrl:inheritFrom <http://odrlapi.appspot.com/samples/policyB> ;
     odrl:permission [
+        odrl:target <http://example.com/asset:8623> ;
         odrl:action odrl:reproduce
     ] .
 
 <http://odrlapi.appspot.com/samples/policyE>
     a odrl:Policy ;
     odrl:permission [
+        odrl:target <http://example.com/asset:8623> ;
         odrl:action odrl:anonymize
     ] .
 

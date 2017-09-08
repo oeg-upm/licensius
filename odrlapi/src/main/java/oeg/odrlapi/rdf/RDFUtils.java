@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.jena.rdf.model.Literal;
@@ -50,8 +52,10 @@ public class RDFUtils {
     public static void print(Model modelo) {
 //        RDFDataMgr.write(System.out, modelo, Lang.TURTLE) ;
     }
+    
     /**
      * Este algoritmo es probable que haga loops. OJO!
+     * In a model, it chooses every statement where the given resource is given is the subject and children
      */
     public static Model getRacimo(Model model, Resource nodo, List<Resource> traversed)
     {
@@ -63,9 +67,6 @@ public class RDFUtils {
             Statement stm = it.next();
             RDFNode o = stm.getObject();
             Resource p = stm.getPredicate();
-            if (p.toString().equals("http://www.w3.org/ns/odrl/2/inheritFrom"))
-                continue;
-   //         System.out.println(stm);
             if (o.isResource())
             {
                 if (traversed.contains(o.asResource()))
@@ -73,6 +74,33 @@ public class RDFUtils {
                 traversed.add(o.asResource());
                 racimo.add(stm);
                 Model hijos = getRacimo(model,o.asResource(), traversed);
+                racimo.add(hijos);
+            }
+        }
+        return racimo;
+    }    
+    /**
+     * Este algoritmo es probable que haga loops. OJO!
+     */
+    public static Model getRacimoExceptProperty(Model model, Resource nodo, List<Resource> traversed)
+    {
+        Model racimo = ModelFactory.createDefaultModel();
+        Selector selector = new SimpleSelector(nodo, null, (RDFNode)null);
+        StmtIterator it = model.listStatements(selector);
+        while(it.hasNext())
+        {
+            Statement stm = it.next();
+            RDFNode o = stm.getObject();
+            Resource p = stm.getPredicate();
+            if (p.toString().equals("http://www.w3.org/ns/odrl/2/inheritFrom"))
+                continue;
+            if (o.isResource())
+            {
+                if (traversed.contains(o.asResource()))
+                    continue;
+                traversed.add(o.asResource());
+                racimo.add(stm);
+                Model hijos = getRacimoExceptProperty(model,o.asResource(), traversed);
                 racimo.add(hijos);
             }
         }
@@ -105,21 +133,6 @@ public class RDFUtils {
         return true;
     }
 
-    /**
-     * Obtiene todos los recursos que son de un tipo dado
-     */
-    public static List<Resource> getResourcesOfType(Model model, Resource resource) {
-        List<Resource> policies = new ArrayList();
-        ResIterator it = model.listResourcesWithProperty(RDF.type, resource);
-        while (it.hasNext()) {
-            Resource res = it.next();
-            Statement s = res.getProperty(RDF.type);
-            String objeto = s.getObject().asResource().getURI();
-            Resource sujeto = s.getSubject();
-            policies.add(sujeto);
-        }
-        return policies;
-    }
 
     /**
      */
@@ -580,6 +593,17 @@ public class RDFUtils {
             }
         }
         return model;
+    }
+    public static Set<Statement> getSetOfStatements(Model m, Selector selector)
+    {
+        Set<Statement> set = new HashSet();
+        StmtIterator si = m.listStatements(selector);
+        while(si.hasNext())
+        {
+            Statement s = si.next();
+            set.add(s);
+        }
+        return set;
     }
     
 }

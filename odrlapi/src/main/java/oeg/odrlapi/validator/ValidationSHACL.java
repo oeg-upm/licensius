@@ -1,6 +1,7 @@
 package oeg.odrlapi.validator;
 
 import java.util.List;
+import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.topbraid.spin.util.*;
@@ -20,7 +21,7 @@ public class ValidationSHACL implements Validation {
 
     @Override
     public ValidatorResponse validate(String turtle) {
-        Model policy = ODRLValidator.getModel(turtle);
+        Model policy = RDFSugar.getModel(turtle);
         Model shapes = JenaUtil.createMemoryModel();
         shapes.read(ValidationSHACL.class.getResourceAsStream("/shapes.ttl"), "urn:dummy", FileUtils.langTurtle);
         Resource report = ValidationUtil.validateModel(policy, shapes, true);

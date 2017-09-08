@@ -13,9 +13,15 @@ import oeg.odrlapi.validator.ODRLValidator;
 public class Main {
 
     public static void main(String[] args) {
+     //   test(71);
         superTest();
+    }
+    
+    public static void test(int i)
+    {
         try{
-            String rdf = new Scanner(new URL("http://odrlapi.appspot.com/samples/sample066").openStream(), "UTF-8").useDelimiter("\\A").next();
+            String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d",i);
+            String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
             ODRLValidator validator = new ODRLValidator();
             ValidatorResponse resp = validator.validate(rdf);
             System.out.println(resp);
@@ -29,7 +35,7 @@ public class Main {
     {
         int errors = 0;
         System.out.println("--- TRU ALG");
-        for(int i=0;i<70;i++)
+        for(int i=0;i<72;i++)
         {
             Boolean truth = null;
             try{

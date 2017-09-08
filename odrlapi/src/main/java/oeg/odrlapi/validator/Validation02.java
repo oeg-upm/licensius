@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Scanner;
+import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import oeg.odrlapi.validator.ODRLValidator;
@@ -35,7 +36,7 @@ public class Validation02 implements Validation {
         odrlmodel = ModelFactory.createDefaultModel();
         try {
             String rdf = new Scanner(new URL(ODRLONTO).openStream(), "UTF-8").useDelimiter("\\A").next();
-            odrlmodel = ODRLValidator.getModel(rdf);
+            odrlmodel = RDFSugar.getModel(rdf);
         } catch (Exception e) {
             return null;
         }
@@ -44,7 +45,7 @@ public class Validation02 implements Validation {
 
     @Override
     public ValidatorResponse validate(String turtle) {
-        Model model = ODRLValidator.getModel(turtle);
+        Model model = RDFSugar.getModel(turtle);
         model.add(getODRLModel());
         Model odrl = Validation02.getODRLModel();
         Reasoner reasoner = ReasonerRegistry.getOWLReasoner();

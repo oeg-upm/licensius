@@ -2,6 +2,7 @@ package oeg.odrlapi.validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
@@ -15,7 +16,7 @@ public class Validation01 implements Validation {
 
     @Override
     public ValidatorResponse validate(String turtle) {
-        Model model = ODRLValidator.getModel(turtle);
+        Model model = RDFSugar.getModel(turtle);
         if (model==null)
             return new ValidatorResponse(false, 415,"not valid. The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES." );
         List<String> lista = new ArrayList();

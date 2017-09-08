@@ -3,7 +3,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 
 #invalid. wrong refinement
-<http://odrlapi.appspot.com/samples/sample068>
+<http://odrlapi.appspot.com/samples/sample069>
     dct:source "victor" ;
     a odrl:Agreement ;
     odrl:profile <http://example.com/odrl:profile:09> ;

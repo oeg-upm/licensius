@@ -3,6 +3,7 @@ package oeg.odrlapi.validator;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
@@ -22,7 +23,7 @@ public class Validation07 implements Validation {
 
     @Override
     public ValidatorResponse validate(String turtle) {
-        Model model = ODRLValidator.getModel(turtle);
+        Model model = RDFSugar.getModel(turtle);
         Set acciones = ODRL.getActions();
         Set lefts = ODRL.getLeftOperands();
         Set operators = ODRL.getOperators();
@@ -31,10 +32,10 @@ public class Validation07 implements Validation {
         Set<String> politicas = Preprocessing.getPoliticas(model);
         for (String politica : politicas) {
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-            if (Preprocessing.hasProfile(model, rpolitica)) {
+            if (Validation07.hasProfile(model, rpolitica)) {
                 continue;
             }
-            Model racimopadre = RDFUtils.getRacimo(model, rpolitica, new ArrayList());
+            Model racimopadre = RDFUtils.getRacimoExceptProperty(model, rpolitica, new ArrayList());
 
             //VALIDACION DE LAS ACCIONES
             NodeIterator ni = racimopadre.listObjectsOfProperty(ODRL.PACTION);
@@ -101,4 +102,10 @@ public class Validation07 implements Validation {
         return new ValidatorResponse(true, 200, "valid");
     }
 
+    public static boolean hasProfile(Model model, Resource rpolitica) {
+        NodeIterator ni = model.listObjectsOfProperty(rpolitica, ODRL.PPROFILE);
+        return ni.hasNext();
+    }
+    
+    
 }

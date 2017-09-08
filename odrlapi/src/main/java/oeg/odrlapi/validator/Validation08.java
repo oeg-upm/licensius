@@ -1,5 +1,6 @@
 package oeg.odrlapi.validator;
 
+import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.NodeIterator;
@@ -17,7 +18,7 @@ public class Validation08 implements Validation {
 
     @Override
     public ValidatorResponse validate(String turtle) {
-        Model model = ODRLValidator.getModel(turtle);
+        Model model = RDFSugar.getModel(turtle);
         
         ResIterator ri  = model.listSubjectsWithProperty(RDF.type, ODRL.RASSETCOLLECTION);
         while(ri.hasNext())
