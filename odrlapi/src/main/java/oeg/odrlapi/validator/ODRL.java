@@ -31,6 +31,9 @@ public class ODRL {
     public static Resource RASSETCOLLECTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/AssetCollection");
     public static Resource RPARTYCOLLECTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/PartyCollection");
     
+    public static Property RREMEDY = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/remedy");
+    public static Property RCONSEQUENCE = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/consequence");
+            
     public static Resource RACTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Action");
     public static Property PTARGET = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/target");
     public static Property PASSIGNER = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assigner");

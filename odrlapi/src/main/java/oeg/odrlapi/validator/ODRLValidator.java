@@ -47,6 +47,7 @@ public class ODRLValidator {
         response = validateSingle(new Validation06(), response, rdf);
         response = validateSingle(new Validation07(), response, rdf);
         response = validateSingle(new Validation08(), response, rdf);
+        response = validateSingle(new Validation09(), response, rdf);
         response = validateSingle(new ValidationSHACL(), response, rdf);
         return response;
     }
