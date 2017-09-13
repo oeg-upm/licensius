@@ -13,8 +13,8 @@ import oeg.odrlapi.validator.ODRLValidator;
 public class Main {
 
     public static void main(String[] args) {
-        test(73);
-     // superTest();
+//        test(27);
+      superTest();
     }
     
     public static void test(int i)

@@ -1,6 +1,8 @@
 package oeg.odrlapi.validator;
 
+import java.net.URL;
 import java.util.List;
+import java.util.Scanner;
 import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
@@ -23,7 +25,20 @@ public class ValidationSHACL implements Validation {
     public ValidatorResponse validate(String turtle) {
         Model policy = RDFSugar.getModel(turtle);
         Model shapes = JenaUtil.createMemoryModel();
-        shapes.read(ValidationSHACL.class.getResourceAsStream("/shapes.ttl"), "urn:dummy", FileUtils.langTurtle);
+//        shapes.read(ValidationSHACL.class.getResourceAsStream("/shapes.ttl"), "urn:dummy", FileUtils.langTurtle);
+        
+        try{
+            String odrlapi = String.format("https://raw.githubusercontent.com/w3c/poe/gh-pages/semantics/shacl/odrlapi.ttl");
+            String rdfshapes = new Scanner(new URL(odrlapi).openStream(), "UTF-8").useDelimiter("\\A").next();
+            shapes = RDFSugar.getModel(rdfshapes);
+        }catch(Exception e)
+        {
+            //ok, we resort to out local file
+          shapes.read(ValidationSHACL.class.getResourceAsStream("/shapes.ttl"), "urn:dummy", FileUtils.langTurtle);
+          e.printStackTrace();
+        }
+        
+        
         Resource report = ValidationUtil.validateModel(policy, shapes, true);
         Model resultado = report.getModel();
         String informe = ModelPrinter.get().print(resultado);
