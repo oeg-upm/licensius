@@ -1,4 +1,3 @@
-
 package oeg.odrlapi.validator;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 
 /**
- *
+ * Inheritance transformation
  * @author vroddon
  */
 public class Transformation04 implements Transformation {

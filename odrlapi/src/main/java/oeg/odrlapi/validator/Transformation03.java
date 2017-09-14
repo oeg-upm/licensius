@@ -15,7 +15,8 @@ import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.vocabulary.RDF;
 
 /**
- *
+ * Infers classes: permission, prohibition, obligation, duty, constraints.
+ * This makes easy the further processing, and it is not so slow as an RDFS reasoner (my reasoner takes 30 seconds to do this!)
  * @author vroddon
  */
 public class Transformation03 implements Transformation  {

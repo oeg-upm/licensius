@@ -1,0 +1,11 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
+#valid. 
+<http://odrlapi.appspot.com/samples/sample074>
+    a odrl:Policy;
+    odrl:assignee "Pedro" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target <http://odrlapi.appspot.com/samples/asset000> ;
+        odrl:action odrl:reproduce, odrl:play
+    ] .
