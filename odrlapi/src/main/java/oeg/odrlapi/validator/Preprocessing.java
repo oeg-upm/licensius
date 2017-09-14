@@ -45,7 +45,9 @@ public class Preprocessing {
 
         model = new Transformation05().transform(model);
         
+        System.out.println("1 "+RDFUtils.getString(model));
         model = new Transformation06().transform(model);
+        System.out.println("2 "+ RDFUtils.getString(model));
 
         out = RDFUtils.getString(model);
         
@@ -64,7 +66,7 @@ public class Preprocessing {
         return lista;
     }
 
-    public static Set<Resource> getReglasDirectas(Model model, Resource rpolitica) {
+    public static Set<Resource> getDirectRules(Model model, Resource rpolitica) {
         Set<Resource> rreglas = new HashSet();//quiero obetner toads las relgas
         NodeIterator it = model.listObjectsOfProperty(rpolitica, ODRL.PPERMISSION);
         while (it.hasNext()) {
@@ -131,7 +133,7 @@ public class Preprocessing {
         for(String politica : politicas)
         {
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-            Set<Resource> rreglas = getReglasDirectas(model, rpolitica);
+            Set<Resource> rreglas = getDirectRules(model, rpolitica);
             reglas.addAll(rreglas);
         }
         return reglas;

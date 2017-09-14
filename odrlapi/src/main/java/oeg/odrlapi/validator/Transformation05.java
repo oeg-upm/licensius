@@ -33,7 +33,7 @@ public class Transformation05 implements Transformation{
         for (String politica : politicas) {
             //COMIENZO DEL INTENTO DE OBTENER TODAS LAS REGLAS DE UNA POLITICA
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-            Set<Resource> rreglas = Preprocessing.getReglasDirectas(model, rpolitica);
+            Set<Resource> rreglas = Preprocessing.getDirectRules(model, rpolitica);
             //AHORA, PARA CADA UNA DE LAS PROPIEDADES QUE HAY QUE INTERIORIZAR...
             List<String> items = RDFUtils.getObjectsGivenSP(model, politica, sproperty);
             for (String item : items) {
@@ -47,7 +47,7 @@ public class Transformation05 implements Transformation{
                 if (item.startsWith("http")) {
                     model.remove(rpolitica, rpropiedad, ModelFactory.createDefaultModel().createResource(item));
                 } else {
-                    model.remove(rpolitica, rpropiedad, ModelFactory.createDefaultModel().createResource(item));
+                    model.remove(rpolitica, rpropiedad, ModelFactory.createDefaultModel().createLiteral(item));
                 }
             }
         }

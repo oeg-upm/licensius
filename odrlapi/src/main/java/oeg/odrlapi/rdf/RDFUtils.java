@@ -60,13 +60,16 @@ public class RDFUtils {
     public static Model getRacimo(Model model, Resource nodo, List<Resource> traversed)
     {
         Model racimo = ModelFactory.createDefaultModel();
-        Selector selector = new SimpleSelector(nodo, null, (RDFNode)null);
-        StmtIterator it = model.listStatements(selector);
+        StmtIterator it = model.listStatements(new SimpleSelector(nodo, null, (RDFNode)null));
         while(it.hasNext())
         {
             Statement stm = it.next();
             RDFNode o = stm.getObject();
             Resource p = stm.getPredicate();
+            if (o.isLiteral())
+            {
+                racimo.add(stm);
+            }
             if (o.isResource())
             {
                 if (traversed.contains(o.asResource()))

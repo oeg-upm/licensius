@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
+import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -69,7 +70,19 @@ public class RDFSugar {
         return policies;
     }
     
-    public static Set<Resource> getObjects(Model model, Resource regla, Property prop)
+    public static Set<RDFNode> getObjects(Model model, Resource regla, Property prop)
+    {
+        Set<RDFNode> res = new HashSet();
+        StmtIterator si = model.listStatements(regla, prop, (RDFNode)null);
+        while(si.hasNext())
+        {
+            Statement st = si.next();
+            RDFNode node = st.getObject();
+            res.add(node);
+        }
+        return res;
+    }    
+    public static Set<Resource> getResourceObjects(Model model, Resource regla, Property prop)
     {
         Set<Resource> res = new HashSet();
         StmtIterator si = model.listStatements(regla, prop, (RDFNode)null);
@@ -79,6 +92,19 @@ public class RDFSugar {
             RDFNode node = st.getObject();
             if (node.isResource())
                 res.add(node.asResource());
+        }
+        return res;
+    }    
+    public static Set<String> getLiteralObjects(Model model, Resource regla, Property prop)
+    {
+        Set<String> res = new HashSet();
+        StmtIterator si = model.listStatements(regla, prop, (Literal)null);
+        while(si.hasNext())
+        {
+            Statement st = si.next();
+            RDFNode node = st.getObject();
+            if (node.isLiteral())
+                res.add(node.asLiteral().toString());
         }
         return res;
     }    

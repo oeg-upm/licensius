@@ -38,6 +38,7 @@ public class ODRLParser {
             RDFNode node = ni.next();
             Resource permiso = node.asResource();
             Model racimo = RDFUtils.getRacimo(model, permiso, new ArrayList<Resource>());
+
             racimo.add(politica, ODRL.PPERMISSION, permiso);
             
             rules.add(racimo);

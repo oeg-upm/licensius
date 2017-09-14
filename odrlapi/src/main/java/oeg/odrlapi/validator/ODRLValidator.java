@@ -1,18 +1,12 @@
 package oeg.odrlapi.validator;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
-import java.util.WeakHashMap;
 import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Logger;
 
 /**
- * Implements the logic of the ODRL Validation
+ * Implements the logic of the ODRL Validation.
  *
  * @author vroddon
  */

@@ -37,7 +37,7 @@ public class Transformation06 implements Transformation {
             for(Model rule : rules)
             {
                 Resource ruleid = ODRLParser.getRuleId(rule, politica);
-                Set<Resource> assets = RDFSugar.getObjects(model, ruleid, ODRL.PTARGET);
+                Set<RDFNode> assets = RDFSugar.getObjects(model, ruleid, ODRL.PTARGET);
                 if (assets.size() > 1)
                 {
                     model = desdoblar(model, ruleid, ODRL.PTARGET, politica);
@@ -47,7 +47,7 @@ public class Transformation06 implements Transformation {
             for(Model rule : rules)
             {
                 Resource ruleid = ODRLParser.getRuleId(rule, politica);
-                Set<Resource> assets = RDFSugar.getObjects(model, ruleid, ODRL.PASSIGNER);
+                Set<RDFNode> assets = RDFSugar.getObjects(model, ruleid, ODRL.PASSIGNER);
                 if (assets.size() > 1)
                 {
                     model = desdoblar(model, ruleid, ODRL.PASSIGNER, politica);
@@ -57,18 +57,16 @@ public class Transformation06 implements Transformation {
             for(Model rule : rules)
             {
                 Resource ruleid = ODRLParser.getRuleId(rule, politica);
-                Set<Resource> assets = RDFSugar.getObjects(model, ruleid, ODRL.PASSIGNEE);
+                Set<RDFNode> assets = RDFSugar.getObjects(model, ruleid, ODRL.PASSIGNEE);
                 if (assets.size() > 1)
-                {
                     model = desdoblar(model, ruleid, ODRL.PASSIGNEE, politica);
-                }
             }
             
             rules = ODRLParser.getRootRules(model, politica);
             for(Model rule : rules)
             {
                 Resource ruleid = ODRLParser.getRuleId(rule, politica);
-                Set<Resource> assets = RDFSugar.getObjects(model, ruleid, ODRL.PACTION);
+                Set<RDFNode> assets = RDFSugar.getObjects(model, ruleid, ODRL.PACTION);
                 if (assets.size() > 1)
                 {
                     model = desdoblar(model, ruleid, ODRL.PACTION, politica);
@@ -86,24 +84,35 @@ public class Transformation06 implements Transformation {
     public static Model desdoblar(Model model, Resource regla, Property prop, Resource politica)
     {
         Model racimo = RDFUtils.getRacimo(model, regla, new ArrayList<Resource>());
-        Set<Resource> sassets = RDFSugar.getObjects(model, regla, prop);
+//        System.out.println("MODELX "+RDFUtils.getString(model));
+//        System.out.println("racimoX "+RDFUtils.getString(racimo));
+        
+        
+        Set<Resource> sassets = RDFSugar.getResourceObjects(model, regla, prop);
         Property TIPO = getTipoRegla(model,regla);
         
         List<Resource> assets = new ArrayList();
         for(Resource r : sassets)
             assets.add(r);
 
+        Set<String> sassets2 = RDFSugar.getLiteralObjects(model, regla, prop);
+        List<String> assets2 = new ArrayList();
+        for(String sasset : sassets2)
+            assets2.add(sasset);
+        
         //borro todo el racimo
         Set<Statement> aborrar = RDFUtils.getSetOfStatements(model, new SimpleSelector(null, prop, (RDFNode)null));
         model = model.remove(racimo);  //VVV
         for(Statement borra : aborrar)
         {
             racimo.remove(borra);
-//            model.remove(borra);
+            model.remove(borra); //por que estaba esto comentado??!?!?!?
         }
         
         int tam = assets.size();
         List<Model> racimos = copiar(racimo, tam);
+ //       System.out.println("racimo1 "+RDFUtils.getString(racimos.get(0)));
+        
         for(int i =0;i<tam;i++)
         {
             Model m = racimos.get(i);

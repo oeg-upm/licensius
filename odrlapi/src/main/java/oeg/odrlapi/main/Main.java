@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.Scanner;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import oeg.odrlapi.validator.ODRLValidator;
+import oeg.odrlapi.validator.Preprocessing;
 
 /**
  * This is the main class intended for testing purposes.
@@ -13,11 +14,24 @@ import oeg.odrlapi.validator.ODRLValidator;
 public class Main {
 
     public static void main(String[] args) {
-//        test(27);
-      superTest();
+        normalize(74);
+//        validate(74);
+//      superTest();
     }
     
-    public static void test(int i)
+    public static void normalize(int i)
+    {
+        try{
+            String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d",i);
+            String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
+            String rdf2 = Preprocessing.preprocess(rdf);
+            System.out.println(rdf2);
+        }catch(Exception e){
+            e.printStackTrace();
+        }        
+    }
+    
+    public static void validate(int i)
     {
         try{
             String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d",i);
@@ -30,12 +44,14 @@ public class Main {
         }
     }
     
-    
+    /**
+     * Iterates through all the samples showing the expected/real results
+     */
     public static void superTest()
     {
         int errors = 0;
         System.out.println("--- TRU ALG");
-        for(int i=0;i<72;i++)
+        for(int i=0;i<73;i++)
         {
             Boolean truth = null;
             try{

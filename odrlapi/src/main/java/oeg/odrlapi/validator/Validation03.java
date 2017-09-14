@@ -48,7 +48,7 @@ public class Validation03 implements Validation {
 
             //Aquie mpieza la segunda validación
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
-            Set<Resource> lr = Preprocessing.getReglasDirectas(model, rpolitica);
+            Set<Resource> lr = Preprocessing.getDirectRules(model, rpolitica);
             for (Resource r : lr) {
                 int cuenta2 = 0;
                 NodeIterator nx = model.listObjectsOfProperty(r, RDF.type);
