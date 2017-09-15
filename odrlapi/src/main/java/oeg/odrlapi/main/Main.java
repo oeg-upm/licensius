@@ -14,7 +14,7 @@ import oeg.odrlapi.validator.Preprocessing;
 public class Main {
 
     public static void main(String[] args) {
-        normalize(74);
+        normalize(75);
 //        validate(74);
 //      superTest();
     }

@@ -1,0 +1,15 @@
+{
+"@context": {
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+    },
+    "@type": "odrl:Set",
+    "@id": "http://example.com/policy:1010",
+    "permission": [{
+        "target": "http://example.com/asset:9898",
+        "action": "odrl:read"
+    }],
+    "prohibition": [{
+        "target": "http://example.com/asset:9898",
+        "action": "odrl:reproduce"
+    }]
+}

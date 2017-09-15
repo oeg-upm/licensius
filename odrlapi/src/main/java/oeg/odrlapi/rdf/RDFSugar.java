@@ -22,11 +22,14 @@ import org.apache.jena.vocabulary.RDF;
 
 /**
  * Collection of static methods of usefulness.
+ *
  * @author vroddon
  */
 public class RDFSugar {
-        // Sistema de caché para almacenar modelos
+    // Sistema de caché para almacenar modelos
+
     public static Map<Integer, Model> cache = new WeakHashMap();
+
     public static Model getModel(String rdf) {
         int hash = rdf.hashCode();
         if (cache.size() > 50) {
@@ -37,18 +40,29 @@ public class RDFSugar {
             model = ModelFactory.createDefaultModel();
             InputStream is = new ByteArrayInputStream(rdf.getBytes(StandardCharsets.UTF_8));
             try {
-                model.read(is, null, "RDF/XML");
+                model.read(is, null, "TURTLE");
                 cache.put(hash, model);
                 return model;
             } catch (Exception e) {
                 try {
                     is.close();
                     is = new ByteArrayInputStream(rdf.getBytes(StandardCharsets.UTF_8));
-                    model.read(is, null, "TURTLE");
+                    model.read(is, null, "RDF/XML");
                     cache.put(hash, model);
                     return model;
                 } catch (Exception e2) {
-                    return null;
+
+                    try {
+                        is.close();
+                        is = new ByteArrayInputStream(rdf.getBytes(StandardCharsets.UTF_8));
+                        model.read(is, null, "JSON-LD");
+                        System.out.println("turtle "+RDFUtils.getString(model));
+                        cache.put(hash, model);
+                        return model;
+                    } catch (Exception e3) {
+
+                        return null;
+                    }
                 }
             }
         }
@@ -69,43 +83,41 @@ public class RDFSugar {
         }
         return policies;
     }
-    
-    public static Set<RDFNode> getObjects(Model model, Resource regla, Property prop)
-    {
+
+    public static Set<RDFNode> getObjects(Model model, Resource regla, Property prop) {
         Set<RDFNode> res = new HashSet();
-        StmtIterator si = model.listStatements(regla, prop, (RDFNode)null);
-        while(si.hasNext())
-        {
+        StmtIterator si = model.listStatements(regla, prop, (RDFNode) null);
+        while (si.hasNext()) {
             Statement st = si.next();
             RDFNode node = st.getObject();
             res.add(node);
         }
         return res;
-    }    
-    public static Set<Resource> getResourceObjects(Model model, Resource regla, Property prop)
-    {
+    }
+
+    public static Set<Resource> getResourceObjects(Model model, Resource regla, Property prop) {
         Set<Resource> res = new HashSet();
-        StmtIterator si = model.listStatements(regla, prop, (RDFNode)null);
-        while(si.hasNext())
-        {
+        StmtIterator si = model.listStatements(regla, prop, (RDFNode) null);
+        while (si.hasNext()) {
             Statement st = si.next();
             RDFNode node = st.getObject();
-            if (node.isResource())
+            if (node.isResource()) {
                 res.add(node.asResource());
+            }
         }
         return res;
-    }    
-    public static Set<String> getLiteralObjects(Model model, Resource regla, Property prop)
-    {
+    }
+
+    public static Set<String> getLiteralObjects(Model model, Resource regla, Property prop) {
         Set<String> res = new HashSet();
-        StmtIterator si = model.listStatements(regla, prop, (Literal)null);
-        while(si.hasNext())
-        {
+        StmtIterator si = model.listStatements(regla, prop, (Literal) null);
+        while (si.hasNext()) {
             Statement st = si.next();
             RDFNode node = st.getObject();
-            if (node.isLiteral())
+            if (node.isLiteral()) {
                 res.add(node.asLiteral().toString());
+            }
         }
         return res;
-    }    
+    }
 }
