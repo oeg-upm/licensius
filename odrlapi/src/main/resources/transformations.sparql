@@ -1,0 +1,34 @@
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/> 
+
+#FIRST QUERY
+DELETE { 
+  ?party odrl:assignerOf ?policy .
+}
+INSERT { 
+   ?policy odrl:assigner ?party . 
+}
+WHERE { 
+   ?party  odrl:assignerOf ?policy .
+} 
+
+#SECOND QUERY
+DELETE { 
+  ?party odrl:assigneeOf ?policy .
+}
+INSERT { 
+   ?policy odrl:assignee ?party . 
+}
+WHERE { 
+   ?party  odrl:assigneeOf ?policy .
+} 
+
+#THIRD QUERY
+DELETE { 
+  ?asset odrl:hasPolicy ?policy .
+}
+INSERT { 
+   ?policy odrl:target ?asset . 
+}
+WHERE { 
+   ?asset odrl:hasPolicy ?policy .
+} 

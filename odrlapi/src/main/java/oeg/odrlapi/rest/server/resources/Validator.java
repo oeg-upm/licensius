@@ -22,7 +22,7 @@ public class Validator {
 
     @POST
     @Path("/")
-    @Consumes("text/turtle")
+    @Consumes({"text/turtle", "application/rdf+xml","application/ld+json"}) 
     @Produces("application/json")
     @ApiOperation(value = "validator", notes = "Returns if a policy is valid, not valid or unknown. Checks the conformance of ODRL Policy expressions with respect to the ODRL Information Model validation requirements. ")
     @ApiResponses(value = {
@@ -44,7 +44,7 @@ public class Validator {
     
     @POST
     @Path("/canonicalize")
-    @Consumes("text/turtle")
+    @Consumes({"text/turtle", "application/rdf+xml","application/ld+json"})
     @Produces("text/turtle")
     @ApiOperation(value = "canonicalize", notes = "Canonicalizes the policy or policies given. Properties in the policy are transferred to the rules, inheritance is applied, external definitions are considered.")
     @ApiResponses(value = {
