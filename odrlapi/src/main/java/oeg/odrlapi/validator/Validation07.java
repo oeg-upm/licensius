@@ -15,7 +15,7 @@ import org.apache.jena.vocabulary.RDF;
 
 /**
  * Profile-type validations.
- *
+ * Can this validation be made by a SHACL Shape?
  * @author vroddon
  */
 public class Validation07 implements Validation {

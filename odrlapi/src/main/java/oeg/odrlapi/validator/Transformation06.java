@@ -1,15 +1,12 @@
 package oeg.odrlapi.validator;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import oeg.odrlapi.rdf.ODRLParser;
-import oeg.odrlapi.rdf.ODRLRule;
 import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 
-import static oeg.odrlapi.validator.Preprocessing.getReglas;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.NodeIterator;

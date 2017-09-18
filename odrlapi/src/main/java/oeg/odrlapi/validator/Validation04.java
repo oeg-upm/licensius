@@ -9,10 +9,10 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
-import static org.apache.jena.vocabulary.RDF.Statement;
 
 /**
  * Permissions cannot have more than one assigner or assignee.
+ * @todo REPLACE THIS BY A SHACL SHAPE
  * @author vroddon
  */
 public class Validation04 implements Validation {

@@ -3,7 +3,8 @@ package oeg.odrlapi.validator;
 import org.apache.jena.rdf.model.Model;
 
 /**
- * Transformation made on a ODRL Policy.
+ * Transformation made to a ODRL Policy.
+ * The meaning of the resulting policy must be preserved.
  * @author vroddon
  */
 public interface Transformation {

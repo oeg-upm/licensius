@@ -8,7 +8,11 @@ import oeg.odrlapi.validator.Preprocessing;
 
 /**
  * This is the main class intended for testing purposes.
- * https://console.cloud.google.com/home/dashboard?project=odrlapi
+ * It contains three methods:
+ * - superTest validates all the known test cases
+ * - normalize Normalizes one policy
+ * - validate Validates one policy
+ * Control panel: https://console.cloud.google.com/home/dashboard?project=odrlapi
  * @author vroddon
  */
 public class Main {
@@ -19,6 +23,9 @@ public class Main {
 //      superTest();
     }
     
+    /**
+     * Normalizes one test case
+     */
     public static void normalize(int i)
     {
         try{
@@ -31,6 +38,9 @@ public class Main {
         }        
     }
     
+    /**
+     * Validates one test case
+     */
     public static void validate(int i)
     {
         try{

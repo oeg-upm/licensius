@@ -9,6 +9,7 @@ import org.apache.jena.rdf.model.Resource;
 
 /**
  * A remedy must not refer to a Duty that includes a consequence Duty.
+ * @todo REPLACE THIS BY A SHACL SHAPE
  * @author vroddon
  */
 public class Validation09 implements Validation {

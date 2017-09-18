@@ -12,6 +12,7 @@ import org.apache.jena.vocabulary.RDF;
  * Searches for AssetCollections with a refinement that do not include a odrl:source property.
  * "Using the refinement property, the uid property must not be used to identify the AssetCollection. 
  * Instead, the source property must be used to reference the AssetCollection."
+ * @todo REPLACE THIS BY A SHACL SHAPE
  * @author vroddon
  */
 public class Validation08 implements Validation {

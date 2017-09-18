@@ -1,6 +1,6 @@
 PREFIX odrl: <http://www.w3.org/ns/odrl/2/> 
 
-#FIRST QUERY
+#FIRST QUERY OF TRANSFORMATION1
 DELETE { 
   ?party odrl:assignerOf ?policy .
 }
@@ -11,7 +11,7 @@ WHERE {
    ?party  odrl:assignerOf ?policy .
 } 
 
-#SECOND QUERY
+#SECOND QUERY OF TRANSFORMATION1
 DELETE { 
   ?party odrl:assigneeOf ?policy .
 }
@@ -22,7 +22,7 @@ WHERE {
    ?party  odrl:assigneeOf ?policy .
 } 
 
-#THIRD QUERY
+#THIRD QUERY OF TRANSFORMATION1
 DELETE { 
   ?asset odrl:hasPolicy ?policy .
 }

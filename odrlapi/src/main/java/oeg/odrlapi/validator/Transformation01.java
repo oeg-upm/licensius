@@ -1,7 +1,6 @@
 package oeg.odrlapi.validator;
 
 import java.util.Set;
-import static oeg.odrlapi.validator.Preprocessing.getPoliticas;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.NodeIterator;
@@ -17,7 +16,7 @@ public class Transformation01 implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {
-        Set<String> politicas = getPoliticas(model);
+        Set<String> politicas = Preprocessing.getPoliticas(model);
         for (String politica : politicas) {
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);
             NodeIterator nx = model.listObjectsOfProperty(rpolitica, RDF.type);

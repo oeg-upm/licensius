@@ -11,7 +11,8 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.update.UpdateAction;
 
 /**
- * Method to test SPARQL queries. Ideally, transformation should be able to be expressed as SPARQL queries.
+ * Method to test SPARQL queries. 
+ * Ideally, transformationS should be able to be expressed as SPARQL queries. 
  * @author vroddon
  */
 public class TestSPARQL {
@@ -30,7 +31,6 @@ public class TestSPARQL {
 
       //      Query query = QueryFactory.create(sparqlstr);
       //      QueryExecution qe = QueryExecutionFactory.create(query, model);
-
       //      Model resultModel = qe.execConstruct() ;
             
             UpdateAction.parseExecute(sparqlstr, model );
