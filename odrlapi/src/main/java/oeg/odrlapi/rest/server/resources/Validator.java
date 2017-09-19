@@ -35,7 +35,7 @@ public class Validator {
         try {
             ODRLValidator validator = new ODRLValidator();
             ValidatorResponse vres = validator.validate(rdf);
-            return Response.status(vres.status).entity(vres).build();
+            return Response.status(vres.status).entity(vres).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Internal error.").build();
         }
@@ -56,7 +56,9 @@ public class Validator {
     public Response canonicalize(@ApiParam(name = "policy", value = "ODRL policy serialized as RDF Turtle or RDF/XML", required = true) String rdf) {
         try {
             String canonical = Preprocessing.preprocess(rdf);
-            return Response.status(200).entity(canonical).build();
+//            return Response.status(200).entity(canonical).build();
+            return Response.status(200).entity(canonical).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").build();
+            
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
