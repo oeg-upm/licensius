@@ -18,7 +18,7 @@ public class Validation01 implements Validation {
     public ValidatorResponse validate(String turtle) {
         Model model = RDFSugar.getModel(turtle);
         if (model==null)
-            return new ValidatorResponse(false, 415,"not valid. The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES." );
+            return new ValidatorResponse(false, 415,"not valid. The input could not be parsed as RDF Turtle, JSON-LD,  RDF/XML or NTRIPLES." );
         List<String> lista = new ArrayList();
         
         lista.addAll(RDFUtils.getSubjectOfType(model, ODRL.RPOLICY));

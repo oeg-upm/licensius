@@ -1,14 +1,10 @@
 package oeg.odrlapi.validator;
 
-import java.io.InputStream;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.Scanner;
 import oeg.odrlapi.rdf.RDFSugar;
-import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
-import oeg.odrlapi.validator.ODRLValidator;
-import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;

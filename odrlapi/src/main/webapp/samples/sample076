@@ -1,0 +1,22 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+#invalid. rightOperand is a blank node
+<http://odrlapi.appspot.com/samples/sample076>
+    dct:source "victor" ;
+    a odrl:Offer ;
+    odrl:profile <http://example.com/odrl:profile:07> ;
+    odrl:permission [
+        odrl:target <http://example.com/game:9090> ;
+        odrl:assigner <http://example.com/org:xyz> ;
+        odrl:action odrl:play ;
+        odrl:constraint [
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:lteq ;
+            odrl:rightOperand [
+                rdfs:comment "Right operand without URI"
+            ]
+        ]            
+    ] .
+

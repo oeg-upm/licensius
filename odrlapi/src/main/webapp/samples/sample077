@@ -1,0 +1,20 @@
+{
+   "@context": "http://www.w3.org/ns/odrl.jsonld",
+   "@type": "Offer",
+   "uid": "http://example.com/policy:4444",
+   "profile": "http://example.com/odrl:profile:11",
+   "permission": [{
+       "assigner": "http://example.com/org88",
+       "target": {
+           "@type": "AssetCollection",
+           "source":  "http://example.com/media-catalogue",
+           "refinement": [{
+               "leftOperand": "runningTime",
+               "operator": "lt",
+               "rightOperand": "60",
+               "unit": "http://qudt.org/vocab/unit/MinuteTime"
+           }],
+       },
+       "action": "play"
+   }]
+}

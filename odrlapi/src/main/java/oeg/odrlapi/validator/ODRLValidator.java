@@ -19,7 +19,7 @@ public class ODRLValidator {
 
         Model model = RDFSugar.getModel(rdf);
         if (model == null) {
-            return new ValidatorResponse(false, 415, "not valid.The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...");
+            return new ValidatorResponse(false, 415, "not valid.The input could not be parsed as RDF Turtle, JSON-LD, RDF/XML or NTRIPLES...");
         }
         
         try{
@@ -27,7 +27,7 @@ public class ODRLValidator {
             model = RDFSugar.getModel(rdf2);
         }catch(Exception e)
         {
-            String message = "not valid. The input could not be parsed as RDF Turtle, RDF/XML or NTRIPLES...";
+            String message = "not valid. The input could not be parsed as RDF Turtle, RDF/XML, JSON-LD, or NTRIPLES...";
             if (e!=null && !e.getMessage().isEmpty())
                 message = e.getMessage();
             return new ValidatorResponse(false, 415, message);
