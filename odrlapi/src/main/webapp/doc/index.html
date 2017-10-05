@@ -28,9 +28,12 @@
             <div class="panel panel-default"> 
                 <div class="panel-header"><h3>ODRL Validator and Evaluator Sandbox</h3></div>
                 <div class="panel-body">
-
+                
+                    <div class="form-group">
+                        <div class="col-xs-2">                        
+                        
                     <b>JSON-LD</b><br/>
-                        <div class="col-xs-2">
+                        
                             <select id="sample2json" onchange="samplejson()">
                                 <option>sample000.json</option>
                                 <option>sample001.json</option>
@@ -105,12 +108,8 @@
                                 <option>sample076.json</option>
                                 <option>sample077.json</option>
                             </select>                        
-                        </div>             
-                    <br/>
+                     <br/>
                     <b>Turtle</b><br/>
-                    
-                    <div class="form-group">
-                        <div class="col-xs-2">
                             <select id="sample2" onchange="sample()">
                                 <option>sample000</option>
                                 <option>sample001</option>
@@ -191,7 +190,8 @@
                                 <option>sample076</option>
                                 <option>sample077</option>
                             </select>                        
-                        </div>                        
+                        </div>
+                    
                         <div class="col-xs-8"><textarea style="font-size:small;font-family:monospace;" class="form-control" rows="14" id="pgn" name="pgn"></textarea></div>
                         <div class="col-xs-2">
                             <center>
