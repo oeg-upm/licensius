@@ -29,12 +29,85 @@
                 <div class="panel-header"><h3>ODRL Validator and Evaluator Sandbox</h3></div>
                 <div class="panel-body">
 
+                    <b>JSON-LD</b><br/>
                         <div class="col-xs-2">
-                            <select id="sample2json" onchange="sample()">
+                            <select id="sample2json" onchange="samplejson()">
                                 <option>sample000.json</option>
+                                <option>sample001.json</option>
+                                <option>sample002.json</option>
+                                <option>sample003.json</option>
+                                <option>sample004.json</option>
+                                <option>sample005.json</option>
+                                <option>sample006.json</option>
+                                <option>sample007.json</option>
+                                <option>sample008.json</option>
+                                <option>sample009.json</option>
+                                <option>sample010.json</option>
+                                <option>sample011.json</option>
+                                <option>sample012.json</option>
+                                <option>sample013.json</option>
+                                <option>sample014.json</option>
+                                <option>sample015.json</option>
+                                <option>sample016.json</option>
+                                <option>sample017.json</option>
+                                <option>sample018.json</option>
+                                <option>sample019.json</option>
+                                <option>sample020.json</option>
+                                <option>sample021.json</option>
+                                <option>sample022.json</option>
+                                <option>sample023.json</option>
+                                <option>sample024.json</option>
+                                <option>sample025.json</option>
+                                <option>sample026.json</option>
+                                <option>sample027.json</option>
+                                <option>sample028.json</option>
+                                <option>sample029.json</option>
+                                <option>sample030.json</option>
+                                <option>sample031.json</option>
+                                <option>sample032.json</option>
+                                <option>sample033.json</option>
+                                <option>sample034.json</option>
+                                <option>sample035.json</option>
+                                <option>sample036.json</option>
+                                <option>sample037.json</option>
+                                <option>sample038.json</option>
+                                <option>sample039.json</option>
+                                <option>sample040.json</option>
+                                <option>sample041.json</option>
+                                <option>sample042.json</option>
+                                <option>sample043.json</option>
+                                <option>sample044.json</option>
+                                <option>sample045.json</option>
+                                <option>sample046.json</option>
+                                <option>sample047.json</option>
+                                <option>sample048.json</option>
+                                <option>sample050.json</option>
+                                <option>sample051.json</option>
+                                <option>sample052.json</option>
+                                <option>sample053.json</option>
+                                <option>sample054.json</option>
+                                <option>sample055.json</option>
+                                <option>sample056.json</option>
+                                <option>sample061.json</option>
+                                <option>sample063.json</option>
+                                <option>sample064.json</option>
+                                <option>sample065.json</option>
+                                <option>sample066.json</option>
+                                <option>sample067.json</option>
+                                <option>sample068.json</option>
+                                <option>sample069.json</option>
+                                <option>sample070.json</option>
+                                <option>sample071.json</option>
+                                <option>sample072.json</option>
+                                <option>sample073.json</option>
+                                <option>sample074.json</option>
+                                <option>sample075.json</option>
+                                <option>sample076.json</option>
+                                <option>sample077.json</option>
                             </select>                        
-                        </div>                        
-
+                        </div>             
+                    <br/>
+                    <b>Turtle</b><br/>
                     
                     <div class="form-group">
                         <div class="col-xs-2">
@@ -164,6 +237,21 @@
                                 function sample()
                                 {
                                     var v = document.getElementById("sample2");
+                                    var archivo = v.options[v.selectedIndex].text;
+                                    console.log(archivo);
+                                    var client = new XMLHttpRequest();
+                                    client.open('GET', '/samples/' + archivo);
+                                    client.onreadystatechange = function () {
+                                        //alert(client.responseText);
+                                        document.getElementById('pgn').value = client.responseText;
+                                    }
+                                    client.send();
+                                }
+
+                                // Loads a file with a sample into the textarea for the user to standard texts
+                                function samplejson()
+                                {
+                                    var v = document.getElementById("sample2json");
                                     var archivo = v.options[v.selectedIndex].text;
                                     console.log(archivo);
                                     var client = new XMLHttpRequest();
