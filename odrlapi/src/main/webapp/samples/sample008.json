@@ -1,0 +1,20 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "type" : "Permission",
+    "action" : "reproduce",
+    "target" : "http://example.com/asset:9898"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample008",
+    "type" : "Agreement",
+    "dct:source" : {
+      "uid" : "https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.4-Agreement"
+    },
+    "assignee" : "_:b1",
+    "assigner" : "_:b2",
+    "permission" : "_:b0"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

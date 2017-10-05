@@ -1,0 +1,34 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "rdf:value" : {
+      "uid" : "odrl:compensate"
+    },
+    "refinement" : "_:b1"
+  }, {
+    "uid" : "_:b1",
+    "leftOperand" : "payAmount",
+    "operator" : "eq",
+    "rightOperand" : 500,
+    "unit" : {
+      "uid" : "http://dbpedia.org/resource/Euro"
+    }
+  }, {
+    "uid" : "_:b2",
+    "action" : "_:b0",
+    "assignee" : "http://example.com/person:44",
+    "assigner" : "http://example.com/org:43",
+    "target" : "http://example.com/photoAlbum:55"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample022",
+    "type" : "Agreement",
+    "dct:source" : {
+      "uid" : "http://w3c.github.io/poe/model/"
+    },
+    "obligation" : "_:b2",
+    "profile" : "http://example.com/odrl:profile:09"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

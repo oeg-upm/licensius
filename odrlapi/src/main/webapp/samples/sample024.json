@@ -1,0 +1,44 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "action" : "_:b1",
+    "assigner" : "http://example.com/org/paisley-park",
+    "target" : "http://example.com/book/1999"
+  }, {
+    "uid" : "_:b1",
+    "rdf:value" : {
+      "uid" : "odrl:reproduce"
+    },
+    "refinement" : "_:b2"
+  }, {
+    "uid" : "_:b2",
+    "xone" : [ {
+      "uid" : "http://odrlapi.appspot.com/samples/cons88C2"
+    }, {
+      "uid" : "http://odrlapi.appspot.com/samples/cons88C1"
+    } ]
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/cons88C1",
+    "type" : "Constraint",
+    "odrl:leftOperand" : "media",
+    "operator" : "eq",
+    "rightOperand" : "online"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/cons88C2",
+    "type" : "Constraint",
+    "odrl:leftOperand" : "media",
+    "operator" : "eq",
+    "rightOperand" : "print"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample024",
+    "type" : "Offer",
+    "dct:source" : {
+      "uid" : "http://w3c.github.io/poe/model/"
+    },
+    "permission" : "_:b0",
+    "profile" : "http://example.com/odrl:profile:10"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

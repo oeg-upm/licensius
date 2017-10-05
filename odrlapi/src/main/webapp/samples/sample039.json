@@ -1,0 +1,20 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "action" : "reproduce",
+    "assigner" : "http://odrlapi.appspot.com/samples/party651",
+    "target" : "http://odrlapi.appspot.com/samples/asset000"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/party111",
+    "assignerOf" : "http://odrlapi.appspot.com/samples/sample039"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample039",
+    "type" : "Policy",
+    "dct:source" : "victor",
+    "assigner" : "http://odrlapi.appspot.com/samples/party651",
+    "permission" : "_:b0"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

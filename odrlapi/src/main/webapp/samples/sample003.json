@@ -1,0 +1,18 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "type" : "Permission",
+    "action" : "reproduce",
+    "assignee" : "http://example.com/user:314",
+    "assigner" : "http://example.com/user:711",
+    "target" : "http://example.com/asset:9898"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample003",
+    "type" : [ "Agreement", "Offer" ],
+    "dct:source" : "victor",
+    "permission" : "_:b0"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

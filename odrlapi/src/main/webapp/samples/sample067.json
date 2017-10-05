@@ -1,0 +1,28 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "type" : "PartyCollection",
+    "action" : "display",
+    "refinement" : "_:b1",
+    "source" : "http://example.com/user44/friends"
+  }, {
+    "uid" : "_:b1",
+    "leftOperand" : "foaf:age",
+    "operator" : "gt",
+    "rightOperand" : 17
+  }, {
+    "uid" : "_:b2",
+    "assignee" : "_:b0",
+    "assigner" : "http://example.com/user44",
+    "target" : "http://example.com/myPhotos:BdayParty"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample067",
+    "type" : "Agreement",
+    "dct:source" : "http://w3c.github.io/poe/model/",
+    "permission" : "_:b2",
+    "profile" : "http://example.com/odrl:profile:12"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

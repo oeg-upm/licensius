@@ -1,0 +1,19 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "action" : [ "stream", "play" ],
+    "assigner" : "http://example.com/org/sony-music",
+    "target" : [ "http://example.com/music/PurpleRain.mp3", "http://example.com/music/1999.mp3" ]
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample070",
+    "type" : "Policy",
+    "dct:source" : {
+      "uid" : "http://w3c.github.io/poe/model/"
+    },
+    "permission" : "_:b0",
+    "profile" : "http://example.com/odrl:profile:20"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

@@ -580,6 +580,13 @@ public class RDFUtils {
         String result = out.toString();
         return result;
     }
+    public static String getStringJSONLD(Model model) {
+        String syntax = "JSON-LD"; // also try "N-TRIPLE" and "TURTLE"
+        StringWriter out = new StringWriter();
+        model.write(out, syntax);
+        String result = out.toString();
+        return result;
+    }
     
     public static Model inferClassFromRange(Model model, String spropiedad, String sclase)
     {

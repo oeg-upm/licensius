@@ -1,0 +1,30 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "type" : "AssetCollection",
+    "action" : "play",
+    "refinement" : "_:b1",
+    "source" : "http://example.com/media-catalogue"
+  }, {
+    "uid" : "_:b1",
+    "leftOperand" : "odrl:runningTime",
+    "operator" : "lt",
+    "rightOperand" : 60,
+    "unit" : {
+      "uid" : "http://qudt.org/vocab/unit/MinuteTime"
+    }
+  }, {
+    "uid" : "_:b2",
+    "assigner" : "http://example.com/org88",
+    "target" : "_:b0"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample055",
+    "type" : "Offer",
+    "dct:source" : "http://w3c.github.io/poe/model/",
+    "permission" : "_:b2",
+    "profile" : "http://example.com/odrl:profile:11"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

@@ -1,0 +1,18 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "type" : "Policy",
+    "dct:source" : {
+      "uid" : "https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1-Policy"
+    },
+    "permission" : "_:b1"
+  }, {
+    "uid" : "_:b1",
+    "type" : "Permission",
+    "action" : "reproduce",
+    "target" : "http://example.com/asset:9898"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

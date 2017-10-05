@@ -2,9 +2,12 @@ package oeg.odrlapi.main;
 
 import java.net.URL;
 import java.util.Scanner;
+import oeg.odrlapi.rdf.RDFSugar;
+import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import oeg.odrlapi.validator.ODRLValidator;
 import oeg.odrlapi.validator.Preprocessing;
+import org.apache.jena.rdf.model.Model;
 
 /**
  * This is the main class intended for testing purposes.
@@ -18,7 +21,8 @@ import oeg.odrlapi.validator.Preprocessing;
 public class Main {
 
     public static void main(String[] args) {
-        normalize(75);
+        transformFolder();
+//        normalize(75);
 //        validate(74);
 //      superTest();
     }
@@ -86,4 +90,30 @@ public class Main {
         }
         System.out.println("Errors: " + errors);
     }
+    
+    public static void transformFolder()
+    {
+        String folder = "D:\\svn\\licensius\\odrlapi\\src\\main\\webapp\\samples";
+        String file = "D:\\svn\\licensius\\odrlapi\\src\\main\\webapp\\samples\\sample005";
+
+        for(int i=5;i<75;i++)
+        {
+            try{
+                String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d",i);
+                String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
+                Model model = RDFSugar.getModel(rdf);
+                String json = RDFUtils.getStringJSONLD(model);
+                System.out.println(json);
+                break;
+            }catch(Exception e)
+            {
+                
+            }
+        }
+        
+        System.out.println();
+    }
+    
+    
+    
 }

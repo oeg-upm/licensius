@@ -1,0 +1,19 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "type" : "Permission",
+    "action" : "use",
+    "assigner" : "http://example.com/owner:181",
+    "target" : "http://example.com/asset:1212"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample063",
+    "type" : "Policy",
+    "dct:source" : "victor",
+    "conflict" : "http://example.com/odrl/profile/40/strategyUNKNOWN",
+    "permission" : "_:b0",
+    "profile" : "http://example.com/odrl:profile:40"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

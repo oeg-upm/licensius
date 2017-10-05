@@ -1,0 +1,23 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "leftOperand" : "dateTime",
+    "operator" : "lteq",
+    "rightOperand:Reference" : "asdf"
+  }, {
+    "uid" : "_:b1",
+    "action" : "play",
+    "assigner" : "http://example.com/org:xyz",
+    "constraint" : "_:b0",
+    "target" : "http://example.com/game:9090"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample044",
+    "type" : "Offer",
+    "dct:source" : "victor",
+    "permission" : "_:b1",
+    "profile" : "http://example.com/odrl:profile:07"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

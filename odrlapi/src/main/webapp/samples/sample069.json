@@ -1,0 +1,36 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "rdf:value" : {
+      "uid" : "odrl:compensate"
+    },
+    "compensatedParty" : "http://wwf.org",
+    "refinement" : "_:b1"
+  }, {
+    "uid" : "_:b1",
+    "leftOperand" : "payAmount",
+    "operator" : "eq",
+    "unit" : {
+      "uid" : "http://dbpedia.org/resource/Euro"
+    }
+  }, {
+    "uid" : "_:b2",
+    "action" : "delete",
+    "consequence" : "_:b3",
+    "target" : "http://example.com/document:XZY"
+  }, {
+    "uid" : "_:b3",
+    "action" : "_:b0"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample069",
+    "type" : "Agreement",
+    "dct:source" : "victor",
+    "assignee" : "http://example.com/person:44",
+    "assigner" : "http://example.com/org:43",
+    "obligation" : "_:b2",
+    "profile" : "http://example.com/odrl:profile:09"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}

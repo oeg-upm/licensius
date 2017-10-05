@@ -1,0 +1,15 @@
+{
+  "@graph" : [ {
+    "uid" : "_:b0",
+    "odrl:action" : "reproduce",
+    "target" : "http://odrlapi.appspot.com/samples/asset000"
+  }, {
+    "uid" : "http://odrlapi.appspot.com/samples/sample034",
+    "type" : "Set",
+    "dct:source" : "victor",
+    "permission" : "_:b0"
+  } ],
+  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
+    "odrl" : "http://www.w3.org/ns/odrl/2/"
+  } ]
+}
