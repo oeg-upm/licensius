@@ -1,9 +1,17 @@
 package oeg.odrlapi.rdf;
 
+import com.github.jsonldjava.core.DocumentLoader;
+import com.github.jsonldjava.core.JsonLdOptions;
+import com.github.jsonldjava.core.JsonLdProcessor;
+import com.github.jsonldjava.utils.JsonUtils;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.jena.graph.Graph;
@@ -29,8 +37,10 @@ public class ODRLConverter {
     public static void main(String args[]) {
         for(int i=0;i<75;i++)
         {
+            i=5;
             String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d", i);
             convertToJson(testfile);
+            break;
         }
     }
 
@@ -56,9 +66,22 @@ public class ODRLConverter {
             String ofile = tf3+".json";
             write(g, RDFFormat.JSONLD_PRETTY, ctx, ofile);
 
+        DocumentLoader dl = new DocumentLoader();
+        JsonLdOptions options = new JsonLdOptions();
+        dl.addInjectedDoc("http://www.w3.org/ns/odrl/2/", atContextAsJson);
+        options.setDocumentLoader(dl);
+
+        InputStream inputStream = new FileInputStream(ofile);
+        Object jsonObject = JsonUtils.fromInputStream(inputStream);
+        Map context = new HashMap();
+        Object compact = JsonLdProcessor.compact(jsonObject, context, options);
+        System.out.println(JsonUtils.toPrettyString(compact));
+            
+            
+            
             //    model.write( System.out, "JSON-LD" );
         } catch (Exception e) {
-//            e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
