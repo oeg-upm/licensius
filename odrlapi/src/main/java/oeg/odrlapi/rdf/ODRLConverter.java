@@ -1,7 +1,11 @@
 package oeg.odrlapi.rdf;
 
+import com.github.jsonldjava.utils.JsonUtils;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.Scanner;
@@ -12,6 +16,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.JsonLDWriteContext;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import static org.apache.jena.riot.RDFLanguages.JSONLD;
 import org.apache.jena.riot.WriterDatasetRIOT;
 import org.apache.jena.riot.system.PrefixMap;
 import org.apache.jena.riot.system.RiotLib;
@@ -29,8 +34,10 @@ public class ODRLConverter {
     public static void main(String args[]) {
         for(int i=0;i<75;i++)
         {
+            i=12;
             String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d", i);
             convertToJson(testfile);
+            break;
         }
     }
 
@@ -41,6 +48,8 @@ public class ODRLConverter {
             String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
 //            System.out.println(rdf);
             Model model = RDFSugar.getModel(rdf);
+            
+            
             model.setNsPrefix("odrlapi", "http://odrlapi.appspot.com/samples/");
             model.setNsPrefix("odrl", "http://www.w3.org/ns/odrl/2/");
             DatasetGraph g = DatasetFactory.create(model).asDatasetGraph();
@@ -54,8 +63,11 @@ public class ODRLConverter {
             String tf3 = FilenameUtils.getName(tf2);
             tf3 = folder+"\\" + tf3;
             String ofile = tf3+".json";
-            write(g, RDFFormat.JSONLD_PRETTY, ctx, ofile);
+            write(g, RDFFormat.JSONLD_COMPACT_PRETTY, ctx, ofile);
+            
+            
 
+ 
             //    model.write( System.out, "JSON-LD" );
         } catch (Exception e) {
 //            e.printStackTrace();
@@ -69,6 +81,15 @@ public class ODRLConverter {
             OutputStream os = new FileOutputStream(initialFile);
             //os can also be System.out
             write(os, g, f, ctx);
+            
+            
+            InputStream is = new FileInputStream(ofile);
+            Object out = JsonUtils.fromInputStream(is);
+            String str = JsonUtils.toPrettyString(out);
+            System.out.println(str);
+            
+            
+            write(System.out, g, f, ctx);
         } catch (Exception e) {
             System.out.println("Error with " + ofile);
         }
