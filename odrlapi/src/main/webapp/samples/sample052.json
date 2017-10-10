@@ -1,48 +1,10 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "_:b1",
-    "assigner" : "http://example.com/org/paisley-park",
-    "target" : "http://example.com/book/1999"
-  }, {
-    "uid" : "_:b1",
-    "rdf:value" : {
-      "uid" : "odrl:reproduce"
-    },
-    "refinement" : "_:b4"
-  }, {
-    "uid" : "_:b4",
-    "xone" : {
-      "@list" : [ {
-        "uid" : "http://example.com/p:88/C1"
-      }, {
-        "uid" : "http://example.com/p:88/C2"
-      } ]
-    }
-  }, {
-    "uid" : "http://example.com/p:88/C1",
-    "type" : "Constraint",
-    "leftOperand" : "media",
-    "operator" : "eq",
-    "rightOperand" : {
-      "uid" : "odrl:online"
-    }
-  }, {
-    "uid" : "http://example.com/p:88/C2",
-    "type" : "Constraint",
-    "leftOperand" : "media",
-    "operator" : "eq",
-    "rightOperand" : {
-      "uid" : "odrl:print"
-    }
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample052",
-    "type" : "Offer",
-    "dct:source" : "http://w3c.github.io/poe/model/#constraint-logical",
-    "permission" : "_:b0",
-    "profile" : "http://example.com/odrl:profile:10"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://example.com/p:88/C1",
+  "type": "Constraint",
+  "leftOperand": "media",
+  "operator": "eq",
+  "rightOperand": {
+    "uid": "odrl:online"
+  },
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

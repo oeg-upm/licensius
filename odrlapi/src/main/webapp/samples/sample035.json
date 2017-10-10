@@ -1,36 +1,28 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "attribute",
-    "attribute:dParty" : "Australia",
-    "consequence" : "_:b1"
-  }, {
-    "uid" : "_:b1",
-    "action" : "acceptTracking",
-    "constraint" : "_:b3",
-    "odrl:trakingParty" : {
-      "uid" : "http://example.com/dept:100"
-    }
-  }, {
-    "uid" : "_:b2",
-    "action" : "distribute",
-    "assignee" : "http://example.com/person:88",
-    "assigner" : "http://example.com/org:99",
-    "duty" : "_:b0",
-    "target" : "http://example.com/data:77"
-  }, {
-    "uid" : "_:b3",
-    "leftOperand" : "dateTime",
-    "operator" : "lteq",
-    "rightOperand" : "2017-12-31"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample035",
-    "type" : "Agreement",
-    "dct:source" : "victor",
-    "permission" : "_:b2",
-    "profile" : "http://example.com/odrl:profile:09"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample035",
+  "type": "Agreement",
+  "dct:source": "victor",
+  "permission": {
+    "action": "distribute",
+    "assignee": "http://example.com/person:88",
+    "assigner": "http://example.com/org:99",
+    "duty": {
+      "action": "attribute",
+      "attribute:dParty": "Australia",
+      "consequence": {
+        "action": "acceptTracking",
+        "constraint": {
+          "leftOperand": "dateTime",
+          "operator": "lteq",
+          "rightOperand": "2017-12-31"
+        },
+        "odrl:trakingParty": {
+          "uid": "http://example.com/dept:100"
+        }
+      }
+    },
+    "target": "http://example.com/data:77"
+  },
+  "profile": "http://example.com/odrl:profile:09",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

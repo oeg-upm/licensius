@@ -1,25 +1,19 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "delete",
-    "target" : "http://example.com/data:77"
-  }, {
-    "uid" : "_:b1",
-    "action" : "modify",
-    "assignee" : "http://example.com/person:99",
-    "assigner" : "http://example.com/person:88",
-    "remedy" : "_:b0",
-    "target" : "http://example.com/data:77"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample072",
-    "type" : "Agreement",
-    "dct:source" : {
-      "uid" : "http://w3c.github.io/poe/model/"
+  "uid": "http://odrlapi.appspot.com/samples/sample072",
+  "type": "Agreement",
+  "dct:source": {
+    "uid": "http://w3c.github.io/poe/model/"
+  },
+  "profile": "http://example.com/odrl:profile:09",
+  "prohibition": {
+    "action": "modify",
+    "assignee": "http://example.com/person:99",
+    "assigner": "http://example.com/person:88",
+    "remedy": {
+      "action": "delete",
+      "target": "http://example.com/data:77"
     },
-    "profile" : "http://example.com/odrl:profile:09",
-    "prohibition" : "_:b1"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+    "target": "http://example.com/data:77"
+  },
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

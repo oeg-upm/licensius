@@ -1,25 +1,19 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "leftOperand" : "dateTime",
-    "operator" : "lt",
-    "rightOperand" : "2018-01-01"
-  }, {
-    "uid" : "_:b1",
-    "action" : "distribute",
-    "assigner" : "http://example.com/org:616",
-    "constraint" : "_:b0",
-    "target" : "http://example.com/document:1234"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample026",
-    "type" : "Offer",
-    "dct:source" : {
-      "uid" : "http://w3c.github.io/poe/model/"
+  "uid": "http://odrlapi.appspot.com/samples/sample026",
+  "type": "Offer",
+  "dct:source": {
+    "uid": "http://w3c.github.io/poe/model/"
+  },
+  "permission": {
+    "action": "distribute",
+    "assigner": "http://example.com/org:616",
+    "constraint": {
+      "leftOperand": "dateTime",
+      "operator": "lt",
+      "rightOperand": "2018-01-01"
     },
-    "permission" : "_:b1",
-    "profile" : "http://example.com/odrl:profile:10"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+    "target": "http://example.com/document:1234"
+  },
+  "profile": "http://example.com/odrl:profile:10",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

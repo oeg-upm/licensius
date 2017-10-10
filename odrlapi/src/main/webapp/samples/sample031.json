@@ -1,15 +1,10 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "type" : "Permission",
-    "action" : "reproduce"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample031",
-    "type" : "Set",
-    "dct:source" : "victor",
-    "permission" : "_:b0"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample031",
+  "type": "Set",
+  "dct:source": "victor",
+  "permission": {
+    "type": "Permission",
+    "action": "reproduce"
+  },
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

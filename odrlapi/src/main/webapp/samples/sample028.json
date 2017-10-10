@@ -1,23 +1,17 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "type" : "Constraint",
-    "operator" : "lteq",
-    "rightOperand" : "2017-12-31"
-  }, {
-    "uid" : "_:b1",
-    "action" : "play",
-    "assigner" : "http://example.com/org:xyz",
-    "constraint" : "_:b0",
-    "target" : "http://example.com/game:9090"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample028",
-    "type" : "Offer",
-    "dct:source" : "victor",
-    "permission" : "_:b1",
-    "profile" : "http://example.com/odrl:profile:07"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample028",
+  "type": "Offer",
+  "dct:source": "victor",
+  "permission": {
+    "action": "play",
+    "assigner": "http://example.com/org:xyz",
+    "constraint": {
+      "type": "Constraint",
+      "operator": "lteq",
+      "rightOperand": "2017-12-31"
+    },
+    "target": "http://example.com/game:9090"
+  },
+  "profile": "http://example.com/odrl:profile:07",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

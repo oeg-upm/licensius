@@ -1,15 +1,10 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "type" : "Permission",
-    "action" : "reproduce",
-    "target" : "http://odrlapi.appspot.com/samples/asset000"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample001",
-    "type" : "Policy",
-    "permission" : "_:b0"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample001",
+  "type": "Policy",
+  "permission": {
+    "type": "Permission",
+    "action": "reproduce",
+    "target": "http://odrlapi.appspot.com/samples/asset000"
+  },
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

@@ -1,18 +1,13 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "type" : "Permission",
-    "action" : "reproduce",
-    "target" : "http://example.com/asset:9898"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample006",
-    "type" : "Offer",
-    "dct:source" : {
-      "uid" : "https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.3-Offer"
-    },
-    "permission" : "_:b0"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample006",
+  "type": "Offer",
+  "dct:source": {
+    "uid": "https://github.com/simonstey/ODRL-SHACL-Shapes/wiki/3.1.3-Offer"
+  },
+  "permission": {
+    "type": "Permission",
+    "action": "reproduce",
+    "target": "http://example.com/asset:9898"
+  },
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

@@ -1,25 +1,11 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "display",
-    "assigner" : "http://example.com/asset:555"
-  }, {
-    "uid" : "_:b1",
-    "action" : "reviewPolicy"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample047",
-    "type" : "Policy",
-    "dct:source" : "victor",
-    "inheritFrom" : "http://odrlapi.appspot.com/samples/sample047b",
-    "obligation" : "_:b1",
-    "target" : "http://example.com/asset:terms-and-conditions"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample047b",
-    "type" : "Policy",
-    "inheritFrom" : "http://odrlapi.appspot.com/samples/sample047",
-    "permission" : "_:b0"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample047",
+  "type": "Policy",
+  "dct:source": "victor",
+  "inheritFrom": "http://odrlapi.appspot.com/samples/sample047b",
+  "obligation": {
+    "action": "reviewPolicy"
+  },
+  "target": "http://example.com/asset:terms-and-conditions",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

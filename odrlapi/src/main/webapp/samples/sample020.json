@@ -1,25 +1,19 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "play",
-    "assigner" : "http://example.com/org:xyz",
-    "constraint" : "_:b1",
-    "target" : "http://example.com/game:9090"
-  }, {
-    "uid" : "_:b1",
-    "leftOperand" : "dateTime",
-    "operator" : "lteq",
-    "rightOperand" : "2017-12-31"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample020",
-    "type" : "Offer",
-    "dct:source" : {
-      "uid" : "http://w3c.github.io/poe/model/"
+  "uid": "http://odrlapi.appspot.com/samples/sample020",
+  "type": "Offer",
+  "dct:source": {
+    "uid": "http://w3c.github.io/poe/model/"
+  },
+  "permission": {
+    "action": "play",
+    "assigner": "http://example.com/org:xyz",
+    "constraint": {
+      "leftOperand": "dateTime",
+      "operator": "lteq",
+      "rightOperand": "2017-12-31"
     },
-    "permission" : "_:b0",
-    "profile" : "http://example.com/odrl:profile:07"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+    "target": "http://example.com/game:9090"
+  },
+  "profile": "http://example.com/odrl:profile:07",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

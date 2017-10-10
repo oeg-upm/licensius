@@ -1,60 +1,11 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "execute",
-    "target" : "http://example.com/asset:8623"
-  }, {
-    "uid" : "_:b1",
-    "action" : "display",
-    "assignee" : "http://example.com/assigneeB",
-    "target" : "http://example.com/asset:8623"
-  }, {
-    "uid" : "_:b2",
-    "action" : "anonymize",
-    "target" : "http://example.com/asset:8623"
-  }, {
-    "uid" : "_:b3",
-    "action" : "reviewPolicy"
-  }, {
-    "uid" : "_:b4",
-    "action" : "reproduce",
-    "target" : "http://example.com/asset:8623"
-  }, {
-    "uid" : "_:b5",
-    "action" : "print",
-    "target" : "http://example.com/asset:8623"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/policyA",
-    "type" : "Policy",
-    "dct:source" : "victor",
-    "assigner" : "http://example.com/org-01",
-    "obligation" : "_:b3",
-    "target" : "http://example.com/asset:terms-and-conditions"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/policyB",
-    "type" : "Policy",
-    "inheritFrom" : "http://odrlapi.appspot.com/samples/policyA",
-    "permission" : "_:b1"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/policyC",
-    "type" : "Policy",
-    "inheritFrom" : "http://odrlapi.appspot.com/samples/policyB",
-    "permission" : "_:b5"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/policyD",
-    "type" : "Policy",
-    "inheritFrom" : [ "http://odrlapi.appspot.com/samples/policyB", "http://odrlapi.appspot.com/samples/policyE" ],
-    "permission" : "_:b4"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/policyE",
-    "type" : "Policy",
-    "permission" : "_:b2"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/policyF",
-    "type" : "Policy",
-    "permission" : "_:b0"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/policyA",
+  "type": "Policy",
+  "dct:source": "victor",
+  "assigner": "http://example.com/org-01",
+  "obligation": {
+    "action": "reviewPolicy"
+  },
+  "target": "http://example.com/asset:terms-and-conditions",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

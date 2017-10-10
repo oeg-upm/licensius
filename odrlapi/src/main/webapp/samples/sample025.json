@@ -1,32 +1,25 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "acceptTracking",
-    "odrl:trakingParty" : {
-      "uid" : "http://example.com/dept:100"
-    }
-  }, {
-    "uid" : "_:b1",
-    "action" : "distribute",
-    "assignee" : "http://example.com/person:88",
-    "assigner" : "http://example.com/org:99",
-    "duty" : "_:b2",
-    "target" : "http://example.com/data:77"
-  }, {
-    "uid" : "_:b2",
-    "action" : "attribute",
-    "attribute:dParty" : "Australia",
-    "consequence" : "_:b0"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample025",
-    "type" : "Agreement",
-    "dct:source" : {
-      "uid" : "http://w3c.github.io/poe/model/"
+  "uid": "http://odrlapi.appspot.com/samples/sample025",
+  "type": "Agreement",
+  "dct:source": {
+    "uid": "http://w3c.github.io/poe/model/"
+  },
+  "permission": {
+    "action": "distribute",
+    "assignee": "http://example.com/person:88",
+    "assigner": "http://example.com/org:99",
+    "duty": {
+      "action": "attribute",
+      "attribute:dParty": "Australia",
+      "consequence": {
+        "action": "acceptTracking",
+        "odrl:trakingParty": {
+          "uid": "http://example.com/dept:100"
+        }
+      }
     },
-    "permission" : "_:b1",
-    "profile" : "http://example.com/odrl:profile:09"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+    "target": "http://example.com/data:77"
+  },
+  "profile": "http://example.com/odrl:profile:09",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

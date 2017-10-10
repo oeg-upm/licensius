@@ -1,25 +1,19 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "play",
-    "assigner" : "http://example.com/org:xyz",
-    "constraint" : "_:b1",
-    "target" : "http://example.com/game:9090"
-  }, {
-    "uid" : "_:b1",
-    "leftOperand" : "dateTime",
-    "operator" : "lteq",
-    "rightOperand:Reference" : {
-      "uid" : "http://example.com/service:2342"
-    }
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample043",
-    "type" : "Offer",
-    "dct:source" : "victor",
-    "permission" : "_:b0",
-    "profile" : "http://example.com/odrl:profile:07"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample043",
+  "type": "Offer",
+  "dct:source": "victor",
+  "permission": {
+    "action": "play",
+    "assigner": "http://example.com/org:xyz",
+    "constraint": {
+      "leftOperand": "dateTime",
+      "operator": "lteq",
+      "rightOperand:Reference": {
+        "uid": "http://example.com/service:2342"
+      }
+    },
+    "target": "http://example.com/game:9090"
+  },
+  "profile": "http://example.com/odrl:profile:07",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

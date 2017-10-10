@@ -1,34 +1,11 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "action" : "print",
-    "assigner" : "http://example.com/asset:555"
-  }, {
-    "uid" : "_:b1",
-    "action" : "reviewPolicy"
-  }, {
-    "uid" : "_:b2",
-    "action" : "display",
-    "assigner" : "http://example.com/asset:555"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample048",
-    "type" : "Policy",
-    "dct:source" : "victor",
-    "inheritFrom" : "http://odrlapi.appspot.com/samples/sample048b",
-    "obligation" : "_:b1",
-    "target" : "http://example.com/asset:terms-and-conditions"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample048b",
-    "type" : "Policy",
-    "inheritFrom" : "http://odrlapi.appspot.com/samples/sample048c",
-    "permission" : "_:b2"
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample048c",
-    "type" : "Policy",
-    "inheritFrom" : "http://odrlapi.appspot.com/samples/sample048",
-    "permission" : "_:b0"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://odrlapi.appspot.com/samples/sample048",
+  "type": "Policy",
+  "dct:source": "victor",
+  "inheritFrom": "http://odrlapi.appspot.com/samples/sample048b",
+  "obligation": {
+    "action": "reviewPolicy"
+  },
+  "target": "http://example.com/asset:terms-and-conditions",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }

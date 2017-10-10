@@ -1,44 +1,6 @@
 {
-  "@graph" : [ {
-    "uid" : "_:b0",
-    "xone" : {
-      "@list" : [ {
-        "uid" : "http://example.com/p:88/C1"
-      }, {
-        "uid" : "http://example.com/p:88/C2"
-      } ]
-    }
-  }, {
-    "uid" : "_:b2",
-    "rdf:value" : {
-      "uid" : "odrl:reproduce"
-    },
-    "refinement" : "_:b0"
-  }, {
-    "uid" : "_:b4",
-    "action" : "_:b2",
-    "assigner" : "http://example.com/org/paisley-park",
-    "target" : "http://example.com/book/1999"
-  }, {
-    "uid" : "http://example.com/p:88/C1",
-    "type" : "http://dbpedia.org/ontology/country",
-    "rdf:value" : "France"
-  }, {
-    "uid" : "http://example.com/p:88/C2",
-    "type" : "Constraint",
-    "odrl:leftOperand" : "media",
-    "operator" : "eq",
-    "rightOperand" : {
-      "uid" : "odrl:print"
-    }
-  }, {
-    "uid" : "http://odrlapi.appspot.com/samples/sample054",
-    "type" : "Offer",
-    "dct:source" : "victor",
-    "permission" : "_:b4",
-    "profile" : "http://example.com/odrl:profile:10"
-  } ],
-  "@context" : [ "http://www.w3.org/ns/odrl.jsonld", {
-    "odrl" : "http://www.w3.org/ns/odrl/2/"
-  } ]
+  "uid": "http://example.com/p:88/C1",
+  "type": "http://dbpedia.org/ontology/country",
+  "rdf:value": "France",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
 }
