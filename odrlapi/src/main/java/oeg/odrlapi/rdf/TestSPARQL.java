@@ -19,7 +19,7 @@ public class TestSPARQL {
     public static void main(String args[])
     {
         try{
-            int i = 12;
+            int i = 78;
             String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d",i);
             String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
             System.out.println(rdf);

@@ -1,0 +1,8 @@
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/> 
+INSERT { 
+   ?policy odrl:action ?clasederivada . 
+}
+WHERE { 
+   ?clasederivada odrl:includedIn ?clasepadre .
+   ?policy odrl:action ?clasepadre .
+} 

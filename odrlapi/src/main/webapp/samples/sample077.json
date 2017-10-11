@@ -13,8 +13,8 @@
                "operator": "lt",
                "rightOperand": "60",
                "unit": "http://qudt.org/vocab/unit/MinuteTime"
-           }],
+           }]
        },
-       "action": "play"
+       "action": "play" 
    }]
 }
