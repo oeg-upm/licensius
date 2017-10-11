@@ -35,18 +35,20 @@ public class Preprocessing {
             return rdf;
         }
 
-        model = new Transformation01().transform(model);
+        model = new TransformationN2a().transform(model);
         
-        model = new Transformation02().transform(model);
+        model = new TransformationN1().transform(model);
 
-        model = new Transformation03().transform(model);
+        model = new TransformationN2b().transform(model);
 
-        model = new Transformation04().transform(model);
+        model = new TransformationN6().transform(model);
+        
+        model = new TransformationN3().transform(model);
 
-        model = new Transformation05().transform(model);
+        model = new TransformationN4().transform(model);
         
         System.out.println("1 "+RDFUtils.getString(model));
-        model = new Transformation06().transform(model);
+        model = new TransformationN5().transform(model);
         System.out.println("2 "+ RDFUtils.getString(model));
 
         out = RDFUtils.getString(model);

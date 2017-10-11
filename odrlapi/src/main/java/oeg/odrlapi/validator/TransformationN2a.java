@@ -12,7 +12,7 @@ import org.apache.jena.vocabulary.RDF;
  * For policies without explicit type, it asserts that they are Set.
  * @author vroddon
  */
-public class Transformation01 implements Transformation {
+public class TransformationN2a implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {

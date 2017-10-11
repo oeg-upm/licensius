@@ -24,8 +24,10 @@ public class TestSPARQL {
             String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
             System.out.println(rdf);
             Model model = RDFSugar.getModel(rdf);
+            if (model==null)
+                System.err.println("Error garrafal");
             
-            InputStream stream = TestSPARQL.class.getResourceAsStream("/transformations.sparql");
+            InputStream stream = TestSPARQL.class.getResourceAsStream("/transformation6.sparql");
             String sparqlstr = new Scanner(stream, "UTF-8").useDelimiter("\\A").next();
             System.out.println(sparqlstr);
 

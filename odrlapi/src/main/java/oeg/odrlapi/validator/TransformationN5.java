@@ -23,7 +23,7 @@ import org.apache.jena.vocabulary.RDF;
  * De-composes complex rules.
  * @author vroddon
  */
-public class Transformation06 implements Transformation {
+public class TransformationN5 implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {
@@ -55,7 +55,7 @@ public class Transformation06 implements Transformation {
             {
                 Resource ruleid = ODRLParser.getRuleId(rule, politica);
                 Set<RDFNode> assets = RDFSugar.getObjects(model, ruleid, ODRL.PASSIGNEE);
-                if (assets.size() > 1)
+               if (assets.size() > 1)
                     model = desdoblar(model, ruleid, ODRL.PASSIGNEE, politica);
             }
             

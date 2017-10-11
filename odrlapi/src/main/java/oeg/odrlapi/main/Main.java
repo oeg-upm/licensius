@@ -21,8 +21,8 @@ import org.apache.jena.rdf.model.Model;
 public class Main {
 
     public static void main(String[] args) {
-        transformFolder();
-//        normalize(75);
+//        transformFolder();
+        normalize(78);
 //        validate(74);
 //      superTest();
     }

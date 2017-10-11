@@ -1,0 +1,12 @@
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/> 
+
+#FIRST QUERY OF TRANSFORMATION1
+DELETE { 
+  ?party odrl:assignerOf ?policy .
+}
+INSERT { 
+   ?policy odrl:assigner ?party . 
+}
+WHERE { 
+   ?party  odrl:assignerOf ?policy .
+} 

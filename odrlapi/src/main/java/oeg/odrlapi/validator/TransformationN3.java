@@ -20,7 +20,7 @@ import org.apache.jena.rdf.model.StmtIterator;
  * Inheritance transformation
  * @author vroddon
  */
-public class Transformation04 implements Transformation {
+public class TransformationN3 implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {

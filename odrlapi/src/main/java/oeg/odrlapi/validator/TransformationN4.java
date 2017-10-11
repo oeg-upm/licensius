@@ -4,7 +4,7 @@ package oeg.odrlapi.validator;
 import java.util.List;
 import java.util.Set;
 import oeg.odrlapi.rdf.RDFUtils;
-import static oeg.odrlapi.validator.Preprocessing.getPoliticas;
+import oeg.odrlapi.validator.Preprocessing;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -15,7 +15,7 @@ import org.apache.jena.rdf.model.Resource;
  * asset, target, assigner, assignee
  * @author vroddon
  */
-public class Transformation05 implements Transformation{
+public class TransformationN4 implements Transformation{
 
     @Override
     public Model transform(Model model) throws Exception {
@@ -29,7 +29,7 @@ public class Transformation05 implements Transformation{
     private static Model interiorizar(Model model, String sproperty) {
         Property rpropiedad = ModelFactory.createDefaultModel().createProperty(sproperty);
 
-        Set<String> politicas = getPoliticas(model);
+        Set<String> politicas = Preprocessing.getPoliticas(model);
         for (String politica : politicas) {
             //COMIENZO DEL INTENTO DE OBTENER TODAS LAS REGLAS DE UNA POLITICA
             Resource rpolitica = ModelFactory.createDefaultModel().createResource(politica);

@@ -19,7 +19,7 @@ import org.apache.jena.vocabulary.RDF;
  * This makes easy the further processing, and it is not so slow as an RDFS reasoner (my reasoner takes 30 seconds to do this!)
  * @author vroddon
  */
-public class Transformation03 implements Transformation  {
+public class TransformationN2b implements Transformation  {
 
     @Override
     public Model transform(Model model) throws Exception {
@@ -29,7 +29,7 @@ public class Transformation03 implements Transformation  {
         model = RDFUtils.inferClassFromRange(model, ODRL.PPROHIBITION.getURI(), ODRL.RPROHIBITION.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.POBLIGATION.getURI(), ODRL.RDUTY.getURI());
         model = RDFUtils.inferClassFromRange(model, ODRL.PDUTY.getURI(), ODRL.RDUTY.getURI());
-        model = Transformation03.addConstraintTypes(model);
+        model = TransformationN2b.addConstraintTypes(model);
         return model;
     }
     /**
