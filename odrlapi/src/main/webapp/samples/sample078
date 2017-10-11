@@ -1,4 +1,5 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ex: <http://example.org/> .
 
 odrl:play odrl:includedIn odrl:use . 
 odrl:display odrl:includedIn odrl:use . 
