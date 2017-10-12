@@ -1,0 +1,10 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ex: <http://example.org/> .
+
+<http://odrlapi.appspot.com/samples/sample082>
+    a odrl:Policy ;
+    dc:isReplacedBy <http://odrlapi.appspot.com/samples/sample005> ;
+    odrl:permission [
+        odrl:target <http://example.com/asset:555> ;
+        odrl:action odrl:display
+    ] .

@@ -1,0 +1,20 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ex: <http://example.org/> .
+
+odrl:share odrl:implies odrl:distribute . 
+odrl:move odrl:implies odrl:delete . 
+ 
+<http://odrlapi.appspot.com/samples/sample079>
+    a odrl:Policy;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target ex:PartA ;
+        odrl:action odrl:share ;
+        odrl:assignee ex:Bob
+    ] ;
+    odrl:prohibition [
+        a odrl:Prohibition ;
+        odrl:target ex:PartB ;
+        odrl:action odrl:move ;
+        odrl:assignee ex:Bob
+    ] .

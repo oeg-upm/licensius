@@ -43,6 +43,8 @@ public class Preprocessing {
 
         model = new TransformationN6().transform(model);
         
+        model = new TransformationN7().transform(model);
+        
         model = new TransformationN3().transform(model);
 
         model = new TransformationN4().transform(model);

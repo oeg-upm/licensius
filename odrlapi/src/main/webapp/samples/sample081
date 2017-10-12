@@ -1,0 +1,14 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix ex: <http://example.org/> .
+
+ex:Person1 odrl:partOf ex:Team . 
+ex:Person2 odrl:partOf ex:Team . 
+ 
+<http://odrlapi.appspot.com/samples/sample081>
+    a odrl:Policy;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target ex:Dataset ;
+        odrl:action odrl:use ;
+        odrl:assignee ex:Team
+    ] .

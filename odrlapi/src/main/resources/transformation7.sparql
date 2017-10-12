@@ -1,0 +1,11 @@
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/> 
+
+INSERT { 
+   ?rule odrl:action ?classB . 
+}
+WHERE { 
+   ?classA odrl:implies ?classB .
+   ?rule odrl:action ?classA .
+   ?rule a ?p .
+   FILTER (?p IN (odrl:Permission, odrl:Duty ) )
+} 

@@ -22,10 +22,10 @@ public class Main {
 
     public static void main(String[] args) {
 //        transformFolder();
-        normalize(78);
+        normalize(79);
 //        validate(74);
 //      superTest();
-    }
+    } 
     
     /**
      * Normalizes one test case
