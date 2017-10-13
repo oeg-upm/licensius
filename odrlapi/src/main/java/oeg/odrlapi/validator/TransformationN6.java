@@ -21,7 +21,7 @@ public class TransformationN6 implements Transformation {
     @Override
     public Model transform(Model model) throws Exception {
         try{
-            InputStream stream = TestSPARQL.class.getResourceAsStream("/transformation6.sparql");
+            InputStream stream = TestSPARQL.class.getResourceAsStream("/sparql/transformation6.sparql");
             String sparqlstr = new Scanner(stream, "UTF-8").useDelimiter("\\A").next();
             UpdateAction.parseExecute(sparqlstr, model );
 //            model.write( System.out, "TTL" );

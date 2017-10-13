@@ -1,0 +1,13 @@
+{
+  "uid": "http://odrlapi.appspot.com/samples/sample064",
+  "type": "Policy",
+  "dct:source": "victor",
+  "conflict": "http://example.com/odrl/profile/40/strategyUNKNOWN",
+  "permission": {
+    "type": "Permission",
+    "action": "use",
+    "assigner": "http://example.com/owner:181",
+    "target": "http://example.com/asset:1212"
+  },
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
+}

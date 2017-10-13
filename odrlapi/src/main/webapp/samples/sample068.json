@@ -1,0 +1,34 @@
+{
+  "uid": "http://odrlapi.appspot.com/samples/sample068",
+  "type": "Agreement",
+  "dct:source": {
+    "uid": "http://w3c.github.io/poe/model/"
+  },
+  "assignee": "http://example.com/person:44",
+  "assigner": "http://example.com/org:43",
+  "obligation": {
+    "action": "delete",
+    "consequence": {
+      "action": {
+        "rdf:value": {
+          "uid": "odrl:compensate"
+        },
+        "compensatedParty": "http://wwf.org",
+        "refinement": {
+          "leftOperand": "payAmount",
+          "operator": "eq",
+          "rightOperand": {
+            "type": "xsd:decimal",
+            "@value": "10.00"
+          },
+          "unit": {
+            "uid": "http://dbpedia.org/resource/Euro"
+          }
+        }
+      }
+    },
+    "target": "http://example.com/document:XZY"
+  },
+  "profile": "http://example.com/odrl:profile:09",
+  "@context": "http://www.w3.org/ns/odrl.jsonld"
+}

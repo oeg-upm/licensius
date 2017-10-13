@@ -27,7 +27,7 @@ public class TestSPARQL {
             if (model==null)
                 System.err.println("Error garrafal");
             
-            InputStream stream = TestSPARQL.class.getResourceAsStream("/transformation6.sparql");
+            InputStream stream = TestSPARQL.class.getResourceAsStream("/sparql/transformation6.sparql");
             String sparqlstr = new Scanner(stream, "UTF-8").useDelimiter("\\A").next();
             System.out.println(sparqlstr);
 
