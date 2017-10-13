@@ -1,5 +1,6 @@
 package oeg.odrlapi.rdf;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -7,14 +8,20 @@ import org.apache.log4j.Logger;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.net.ssl.HttpsURLConnection;
+import org.apache.jena.atlas.lib.StrUtils;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -615,5 +622,86 @@ public class RDFUtils {
         }
         return set;
     }
+    /**
+     * Loads a file from a URI, downloading it. 
+     */
+    public static String getFile(String uri) {
+        String txt = "";
+        try {
+            URL oracle = new URL(uri);
+            BufferedReader in = new BufferedReader(new InputStreamReader(oracle.openStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                txt+=inputLine+" \n";
+            }
+            in.close();
+        } catch (Exception e) {
+        }
+        return txt;
+    }
     
+    /**
+     * Downloads a file making its best:
+     * - following redirects
+     * - implementing the best content negotiation
+     * curl -I -L -H "Accept: application/rdf+xml" http://datos.bne.es/resource/XX947766
+     */
+    public static String browseSemanticWeb(String url) {
+        String document = "";
+        String acceptHeaderValue = StrUtils.strjoin(",","application/rdf+xml","application/turtle;q=0.9","application/x-turtle;q=0.9","text/n3;q=0.8","text/turtle;q=0.8","text/rdf+n3;q=0.7","application/xml;q=0.5","text/xml;q=0.5","text/plain;q=0.4","*/*;q=0.2");
+        boolean redirect = false;
+        try {
+            URL obj = new URL(url);
+            
+            URLConnection oc = obj.openConnection();
+            HttpURLConnection conn = null;
+            if (url.startsWith("https"))
+                conn = (HttpsURLConnection)oc;
+            else
+                conn = (HttpURLConnection)oc;
+              
+            /*
+            HttpURLConnection conn = null;
+            if (url.startsWith("https"))
+                conn = (HttpsURLConnection) obj.openConnection();
+            else
+                conn = (HttpURLConnection) obj.openConnection();
+            */
+            
+            conn.setRequestProperty("Accept",acceptHeaderValue);                
+            conn.setReadTimeout(5000);
+            int status = conn.getResponseCode();
+            if (status != HttpURLConnection.HTTP_OK) {
+                if (status == HttpURLConnection.HTTP_MOVED_TEMP
+                        || status == HttpURLConnection.HTTP_MOVED_PERM
+                        || status == HttpURLConnection.HTTP_SEE_OTHER) {
+                    redirect = true;
+                }
+            }
+            
+            if (redirect) {
+		String newUrl = conn.getHeaderField("Location");
+		String cookies = conn.getHeaderField("Set-Cookie");  
+                conn.disconnect();
+                if (newUrl.startsWith("https"))
+                    conn = (HttpsURLConnection) new URL(newUrl).openConnection();
+                else
+                    conn = (HttpURLConnection) new URL(newUrl).openConnection();
+                if (cookies!=null)
+                    conn.setRequestProperty("Cookie", cookies);                
+            }
+	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+	String inputLine;
+	StringBuffer html = new StringBuffer();
+	while ((inputLine = in.readLine()) != null) {html.append(inputLine);html.append("\n");}
+	in.close();            
+            
+        document = html.toString();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error navegando la web semántica " + e.getMessage());
+        }
+        return document;
+    }    
 }
