@@ -16,7 +16,7 @@ import org.apache.jena.update.UpdateAction;
  * It is implemented as a SPARQL Update query
  * @author vroddon
  */
-public class TransformationN6 implements Transformation {
+public class TransformationN06 implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {

@@ -15,7 +15,7 @@ import org.apache.jena.update.UpdateAction;
  * This transformation changes every Rule including the Asset β with the property odrl:target by adding the property-value odrl:target α for every α where α odrl:partOf β .
  * @author Victor
  */
-public class TransformationN8 implements Transformation {
+public class TransformationN08 implements Transformation {
     @Override
     public Model transform(Model model) throws Exception {
         try{
@@ -39,7 +39,7 @@ public class TransformationN8 implements Transformation {
             System.out.println(rdf);
             
             Model model = RDFSugar.getModel(rdf);
-            TransformationN8 t = new TransformationN8();
+            TransformationN08 t = new TransformationN08();
             model = t.transform(model);
             
             System.out.println("===================================================");

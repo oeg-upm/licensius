@@ -2,6 +2,7 @@
 @prefix dc: <http://purl.org/dc/terms/> . 
 @prefix ex: <http://example.org/> .
 
+#valid
 <http://odrlapi.appspot.com/samples/sample082>
     a odrl:Policy ;
     dc:isReplacedBy <http://odrlapi.appspot.com/samples/sample005> ;

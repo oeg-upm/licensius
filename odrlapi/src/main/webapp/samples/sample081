@@ -4,6 +4,7 @@
 ex:Person1 odrl:partOf ex:Team . 
 ex:Person2 odrl:partOf ex:Team . 
  
+#valid
 <http://odrlapi.appspot.com/samples/sample081>
     a odrl:Policy;
     odrl:permission [

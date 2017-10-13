@@ -3,7 +3,8 @@
 
 ex:Part1 odrl:partOf ex:Dataset . 
 ex:Part2 odrl:partOf ex:Dataset . 
- 
+
+#valid
 <http://odrlapi.appspot.com/samples/sample080>
     a odrl:Policy;
     odrl:permission [

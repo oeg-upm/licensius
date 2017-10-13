@@ -26,7 +26,7 @@ import org.apache.jena.rdf.model.StmtIterator;
  * The original triple with inheritFrom is removed in this transformation (or moved to a metadata property).
  * @author vroddon
  */
-public class TransformationN3 implements Transformation {
+public class TransformationN03 implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {

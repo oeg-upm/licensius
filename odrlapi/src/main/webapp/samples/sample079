@@ -4,6 +4,7 @@
 odrl:share odrl:implies odrl:distribute . 
 odrl:move odrl:implies odrl:delete . 
  
+#valid
 <http://odrlapi.appspot.com/samples/sample079>
     a odrl:Policy;
     odrl:permission [

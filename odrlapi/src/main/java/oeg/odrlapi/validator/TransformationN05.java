@@ -23,7 +23,7 @@ import org.apache.jena.vocabulary.RDF;
  * De-composes complex rules.
  * @author vroddon
  */
-public class TransformationN5 implements Transformation {
+public class TransformationN05 implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {

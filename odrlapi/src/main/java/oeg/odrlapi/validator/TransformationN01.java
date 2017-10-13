@@ -18,7 +18,7 @@ import org.apache.jena.rdf.model.Resource;
  *
  * @author vroddon
  */
-public class TransformationN1 implements Transformation {
+public class TransformationN01 implements Transformation {
 
     @Override
     public Model transform(Model model) throws Exception {

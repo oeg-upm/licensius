@@ -69,8 +69,9 @@ public class TransformationN10 implements Transformation {
             int i = 82;
             String testfile = String.format("http://odrlapi.appspot.com/samples/sample%03d",i);
             String rdf = new Scanner(new URL(testfile).openStream(), "UTF-8").useDelimiter("\\A").next();
+            rdf = "@prefix dc: <http://purl.org/dc/terms/> .\n"+rdf;
             System.out.println(rdf);
-            
+             
             Model model = RDFSugar.getModel(rdf);
             TransformationN10 t = new TransformationN10();
             model = t.transform(model);

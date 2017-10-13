@@ -13,7 +13,7 @@ import org.apache.jena.update.UpdateAction;
  *
  * @author Victor
  */
-public class TransformationN9 implements Transformation {
+public class TransformationN09 implements Transformation {
     @Override
     public Model transform(Model model) throws Exception {
         try{
@@ -37,7 +37,7 @@ public class TransformationN9 implements Transformation {
             System.out.println(rdf);
             
             Model model = RDFSugar.getModel(rdf);
-            TransformationN9 t = new TransformationN9();
+            TransformationN09 t = new TransformationN09();
             model = t.transform(model);
             
             System.out.println("===================================================");

@@ -5,6 +5,7 @@ odrl:play odrl:includedIn odrl:use .
 odrl:display odrl:includedIn odrl:use . 
 odrl:print odrl:includedIn odrl:use .
  
+#valid
 <http://odrlapi.appspot.com/samples/sample078>
     a odrl:Policy;
     odrl:permission [
