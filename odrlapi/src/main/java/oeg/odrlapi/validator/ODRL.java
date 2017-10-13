@@ -81,6 +81,7 @@ public class ODRL {
     public static Resource RAGREEMENT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Agreement");
     public static Resource RTICKET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Ticket");
     
+    public static Property PISREPLACEDBY = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/isReplacedBy");
     
     /**
      * Gets a list of common classes used to denote a license or policy

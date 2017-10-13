@@ -7,6 +7,12 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 
 /**
+ * Transformation N1.
+ * N1. Internalization of parties and assets declared out of the policy
+ * The transformation replicates external references to the Policy, to the Assignee or to the Assigner 
+ * (through the odrl:hasPolicy, odrl:assignerOf and odrl:assigneeOf respectively), asserting that information within the Policy, i.e., 
+ * new properties with odrl:target, odrl:assigner and odrl:assignee are created, where the subject is the referred Policy. 
+ * Please note that more than one target, assigner or assignee can exits.
  * External references to the policy, to the assignee or to the assigner are
  * declared inside the policy.
  *

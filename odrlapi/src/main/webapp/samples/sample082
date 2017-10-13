@@ -1,4 +1,5 @@
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dc: <http://purl.org/dc/terms/> . 
 @prefix ex: <http://example.org/> .
 
 <http://odrlapi.appspot.com/samples/sample082>

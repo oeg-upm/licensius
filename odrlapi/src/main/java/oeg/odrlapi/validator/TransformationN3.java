@@ -17,7 +17,13 @@ import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 
 /**
- * Inheritance transformation
+ * Inheritance transformation. 
+ * This transformation applies the inheritance rules defined IM Section 2.9. The transformation is necessary because a non-valid Policy may become valid 
+ * upon application of these rules.
+ * Given a set of policies (instances of Policy), this step applies the inheritance mechanism making the policies self-contained 
+ * (i.e. after this step no inheritsFrom exists in the set of policies). The set of policies and their relations constitutes an acyclic directed graph, 
+ * and it can be traversed in topological order so that every inheritance transformations is made in the correct order (see Kahn's or DFS algorithms). 
+ * The original triple with inheritFrom is removed in this transformation (or moved to a metadata property).
  * @author vroddon
  */
 public class TransformationN3 implements Transformation {

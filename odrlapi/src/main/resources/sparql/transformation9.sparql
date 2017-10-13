@@ -1,9 +1,9 @@
 PREFIX odrl: <http://www.w3.org/ns/odrl/2/> 
 
 INSERT { 
-   ?rule odrl:target ?assetB . 
+   ?rule odrl:assignee ?assetB . 
 }
 WHERE { 
    ?assetB odrl:partOf ?assetA .
-   ?rule odrl:target ?assetA .
+   ?rule odrl:assignee ?assetA .
 } 
