@@ -41,17 +41,21 @@ public class Preprocessing {
 
         model = new TransformationN02b().transform(model);
 
+        model = new TransformationN03().transform(model);
+        
+        model = new TransformationN04().transform(model);
+        
+        model = new TransformationN10().transform(model);
+        
         model = new TransformationN06().transform(model);
         
         model = new TransformationN07().transform(model);
         
-        model = new TransformationN03().transform(model);
+        model = new TransformationN08().transform(model);
 
-        model = new TransformationN04().transform(model);
-        
-        System.out.println("1 "+RDFUtils.getString(model));
+        model = new TransformationN09().transform(model);
+
         model = new TransformationN05().transform(model);
-        System.out.println("2 "+ RDFUtils.getString(model));
 
         out = RDFUtils.getString(model);
         
