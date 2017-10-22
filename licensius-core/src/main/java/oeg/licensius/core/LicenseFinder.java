@@ -403,11 +403,16 @@ public class LicenseFinder {
         return lf;
     }        
      */
+    
+    
     public static void main(String[] args) {
         String uritoscan = "http://data.semanticweb.org/ns/swc/swc_2009-05-09.rdf";
         uritoscan = "http://purl.org/net/p-plan";
         String resultado = "Unknown";
         LicenseFinder lf = new LicenseFinder();
+        
+        String url = "http://datos.gob.es/es/catalogo/l01280066-seguridad-vial-accidentes-de-trafico-2014";
+        
         resultado = lf.findLicenseTitle(uritoscan);
         System.out.println(resultado);
     }
