@@ -1,4 +1,4 @@
-package licenser;
+package observatorio.utils;
 
 //JENA
 import com.hp.hpl.jena.rdf.model.Model;

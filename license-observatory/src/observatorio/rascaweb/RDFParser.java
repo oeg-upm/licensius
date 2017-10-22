@@ -1,4 +1,4 @@
-package rascaweb;
+package observatorio.rascaweb;
 
 
 import com.hp.hpl.jena.rdf.model.Model;

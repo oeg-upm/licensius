@@ -1,6 +1,6 @@
-package svg;
+package observatorio.svg;
 
-import oeg.ckan.CKANtest;
+import observatorio.portals.ckan.CKANtest;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

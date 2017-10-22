@@ -1,9 +1,9 @@
-package licenser;
+package observatorio.utils;
 
 //JAVA
-import oeg.ckan.CKANExplorer;
-import oeg.ckan.CKANExplorerold;
-import oeg.ckan.CKANDatasets;
+import observatorio.portals.ckan.CKANExplorer;
+import observatorio.portals.ckan.CKANExplorerold;
+import observatorio.portals.ckan.CKANDatasets;
 import java.util.Date;
 import java.util.List;
 

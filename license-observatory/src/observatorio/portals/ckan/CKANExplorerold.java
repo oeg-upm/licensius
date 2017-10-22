@@ -1,4 +1,4 @@
-package oeg.ckan;
+package observatorio.portals.ckan;
 
 //JAVA
 import java.io.BufferedReader;

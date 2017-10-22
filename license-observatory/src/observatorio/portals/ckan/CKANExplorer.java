@@ -1,4 +1,4 @@
-package oeg.ckan;
+package observatorio.portals.ckan;
 
 //JAVA
 import java.io.BufferedReader;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //JSON Simpler
-import licenser.WebLicenseAnalyzer;
+import observatorio.utils.WebLicenseAnalyzer;
 import observatory.ObservatoryApp;
 import observatory.ObservatoryCommands;
 import org.apache.log4j.Logger;

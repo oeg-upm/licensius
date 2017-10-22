@@ -1,7 +1,7 @@
 package observatory;
 
 import java.util.Date;
-import licenser.MainLicenser;
+import observatorio.utils.MainLicenser;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
 import org.apache.log4j.ConsoleAppender;

@@ -7,7 +7,9 @@ import vroddon.sw.SemanticWeb;
 import vroddon.sw.Vocab;
 
 /**
- *
+ * Claes principal.
+ * En 2017 hago una importación del repo de bitbucket, mergeandolo en licensius y con las instrucciones que se muestran más abajo
+ * https://stackoverflow.com/questions/1683531/how-to-import-existing-git-repository-into-another
  * @author Victor
  */
 public class Observatory {

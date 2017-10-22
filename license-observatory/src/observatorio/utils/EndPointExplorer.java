@@ -1,4 +1,4 @@
-package licenser;
+package observatorio.utils;
 
 //JAVA
 import java.io.BufferedReader;

@@ -1,4 +1,4 @@
-package oeg.ckan;
+package observatorio.portals.ckan;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import licenser.WebLicenseAnalyzer;
+import observatorio.utils.WebLicenseAnalyzer;
 import org.apache.commons.io.FileUtils;
-import svg.Lodcloud;
+import observatorio.svg.Lodcloud;
 import vroddon.sw.Dataset;
 import vroddon.sw.RecursoDescrito;
 import vroddon.web.utils.Downloader;

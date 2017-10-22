@@ -1,4 +1,4 @@
-package oeg.ckan;
+package observatorio.portals.ckan;
 
 //JAVA
 import java.io.BufferedReader;
@@ -17,7 +17,7 @@ import com.hp.hpl.jena.rdf.model.ResIterator;
 
 //JSON
 import java.io.File;
-import licenser.EndPointExplorer;
+import observatorio.utils.EndPointExplorer;
 import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

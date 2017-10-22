@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
-import licenser.EndPointExplorer;
+import observatorio.utils.EndPointExplorer;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import vroddon.sw.Dataset;

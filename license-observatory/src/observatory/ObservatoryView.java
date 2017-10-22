@@ -47,11 +47,11 @@ import javax.swing.UIManager;
 import javax.swing.text.EditorKit;
 
 //LICENSER, VRODDON
-import oeg.ckan.CKANDatasets;
-import oeg.ckan.CKANExplorer;
-import oeg.ckan.CKANExplorerold;
-import oeg.lov.LOVVocabs;
-import licenser.LicenseFinder;
+import observatorio.portals.ckan.CKANDatasets;
+import observatorio.portals.ckan.CKANExplorer;
+import observatorio.portals.ckan.CKANExplorerold;
+import observatorio.portals.lov.LOVVocabs;
+import observatorio.utils.LicenseFinder;
 import vroddon.commons.StringUtils;
 import vroddon.sw.Modelo;
 import vroddon.sw.Vocab;

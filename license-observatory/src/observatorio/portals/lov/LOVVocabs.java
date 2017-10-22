@@ -1,4 +1,4 @@
-package oeg.lov;
+package observatorio.portals.lov;
 
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.mem.GraphMem;
@@ -29,7 +29,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-import licenser.EndPointExplorer;
+import observatorio.utils.EndPointExplorer;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.Logger;

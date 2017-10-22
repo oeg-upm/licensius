@@ -1,4 +1,4 @@
-package rascaweb;
+package observatorio.rascaweb;
 
 //HTMLUNIT "http://htmlunit.sourceforge.net";
 import vroddon.web.utils.Downloader;

@@ -1,7 +1,7 @@
-package licenser;
+package observatorio.utils;
 
 //JENA
-import oeg.ckan.CKANExplorer;
+import observatorio.portals.ckan.CKANExplorer;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;

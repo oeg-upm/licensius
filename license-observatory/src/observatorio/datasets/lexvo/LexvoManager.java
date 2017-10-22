@@ -1,4 +1,4 @@
-package datasets.lexvo;
+package observatorio.datasets.lexvo;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
