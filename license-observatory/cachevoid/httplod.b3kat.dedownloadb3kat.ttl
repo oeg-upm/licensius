@@ -1,0 +1,86 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix : <#> .
+
+## your dataset
+<http://lod.b3kat.de/dataset/about> rdf:type void:Dataset ;
+ foaf:homepage <http://lod.b3kat.de> ;
+ dcterms:title "B3Kat - Library Union Catalogue" ;
+ dcterms:description "Joint Union Catalogue of 180 academic libraries in the german states of Bavaria, Berlin and Brandenburg. The data contains descriptions of 23Mio. Items available in these libraries." ;
+ dcterms:publisher <http://lod.b3kat.de/bib/DE-12> ;
+ dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+ void:sparqlEndpoint <http://lod.b3kat.de/sparql> ;
+ void:uriLookupEndpoint <http://lod.b3kat.de> ;
+ void:dataDump <http://lod.b3kat.de/download> ;
+ void:vocabulary <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ;
+ void:vocabulary <http://www.w3.org/2000/01/rdf-schema#> ;
+ void:vocabulary <http://www.w3.org/2002/07/owl#> ;
+ void:vocabulary <http://purl.org/dc/elements/1.1/> ;
+ void:vocabulary <http://purl.org/dc/terms/> ;
+ void:vocabulary <http://purl.org/dc/dcmitype/> ;
+ void:vocabulary <http://purl.org/ontology/bibo/> ;
+ void:vocabulary <http://purl.org/vocab/frbr/core#> ;
+ void:vocabulary <http://purl.org/NET/c4dm/event.owl#> ;
+ void:vocabulary <http://xmlns.com/foaf/0.1/> ;
+ void:vocabulary <http://w3.org/2004/02/skos/core#> ;
+ void:vocabulary <http://www.geonames.org/ontology#> ;
+ void:vocabulary <http://id.loc.gov/vocabulary/relators/> ;
+ void:exampleResource <http://lod.b3kat.de/page/title/BV000023809> ;
+ void:subset :myDS-DS1 ;
+ void:subset :myDS-DS2 ;
+ void:subset :myDS-DS3 ;
+ void:subset :myDS-DS4 .
+
+## datasets you link to
+
+# interlinking to :DS1
+:DS1 rdf:type void:Dataset ;
+ foaf:homepage <http://d-nb.info/gnd> ;
+ dcterms:title "GND" ;
+ dcterms:description "Gemeinsame Normdatei" ; 
+ void:exampleResource <http://d-nb.info/gnd/4688372-1> .
+
+:myDS-DS1 rdf:type void:Linkset ;
+ void:linkPredicate <http://purl.org/dc/elements/1.1/subject> ;
+ void:target <http://lod.b3kat.de/dataset/about> ;
+ void:target :DS1 .
+
+# interlinking to :DS2
+:DS2 rdf:type void:Dataset ;
+ foaf:homepage <http://d-nb.info/gnd> ;
+ dcterms:title "GND" ;
+ dcterms:description "Gemeinsame Normdatei" ; 
+ void:exampleResource <http://d-nb.info/gnd/124884253> .
+
+:myDS-DS2 rdf:type void:Linkset ;
+ void:linkPredicate <http://purl.org/dc/elements/1.1/creator> ;
+ void:target <http://lod.b3kat.de/dataset/about> ;
+ void:target :DS2 .
+
+# interlinking to :DS3
+:DS3 rdf:type void:Dataset ;
+ foaf:homepage <http://dewey.info/> ;
+ dcterms:title "DDC" ;
+ dcterms:description "Dewey Decimal Classification" ; 
+ void:exampleResource <http://dewey.info/class/920/about> .
+
+:myDS-DS3 rdf:type void:Linkset ;
+ void:linkPredicate <http://purl.org/dc/elements/1.1/subject> ;
+ void:target <http://lod.b3kat.de/dataset/about> ;
+ void:target :DS3 .
+
+# interlinking to :DS4
+:DS4 rdf:type void:Dataset ;
+ foaf:homepage <http://id.loc.gov/vocabulary/iso639-2> ;
+ dcterms:title "ISO639-2 Languages" ;
+ dcterms:description "ISO639-2 Languages" ; 
+ void:exampleResource <http://id.loc.gov/vocabulary/iso639-2/ger> .
+
+:myDS-DS4 rdf:type void:Linkset ;
+ void:linkPredicate <http://purl.org/dc/elements/1.1/language> ;
+ void:target <http://lod.b3kat.de/dataset/about> ;
+ void:target :DS4 .
+
