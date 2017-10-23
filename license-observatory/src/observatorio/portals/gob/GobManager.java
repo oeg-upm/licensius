@@ -7,8 +7,10 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -17,7 +19,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import org.apache.jena.riot.RDFDataMgr;
+import org.jsoup.Jsoup;
 
 /**
  * Manager de datos.gob.es. Realiza consultas y obtiene estadísticas.
@@ -27,6 +31,44 @@ import org.apache.jena.riot.RDFDataMgr;
 public class GobManager {
 
     public static void main(String[] args) {
+        GobManager g = new GobManager();
+        List<String> list = g.getCommonLicenses();
+        int famosas=0;
+        int i=0;
+        for(String url : list)
+        {
+            boolean ok = false;
+            System.out.print(i+"\t"+url+"\t");
+            
+            if (url.contains("opendefinition") || url.contains("creativecommons"))
+            {
+                famosas++;
+                System.out.print("Famosa\n");
+                continue;
+            }
+                
+            try{
+                String html = Jsoup.connect(url).get().html();
+                if (html.contains("desnaturalizar el sentido"))
+                {
+                    ok=true;
+                    System.out.print("Risp"); 
+                }
+                else
+                {
+                    System.out.print("Otro"); 
+                }
+               System.out.print("\n"); 
+            }catch(Exception e){
+                System.out.print("Error\n"); 
+            }
+            i++;
+            if (i==100)
+                return;
+        }
+    }
+    
+    public static void f0(){
         System.out.println("Análisis de licencias en datos.gob.es");
 
         Map<String,List<String>> mapDatasetDistributions = new HashMap();
@@ -94,6 +136,28 @@ public class GobManager {
             String lic = mapDatasetLicencia.get(dataset);
             System.out.println(conta+"\t"+dataset+"\t"+lic);
         }
+    }
+    
+    public List<String> getCommonLicenses()
+    {
+        List<String> licencias = new ArrayList();
+        try
+        {
+            InputStream in = this.getClass().getResourceAsStream("licenciasgob.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String str = "";
+            while ((str = br.readLine()) != null) {
+                StringTokenizer st = new StringTokenizer(str, "\t");
+                String num = st.nextToken();
+                String url = st.nextToken();      
+                licencias.add(url);
+            }
+        }catch(Exception e)
+        {
+            
+        }
+        return licencias;
+        
     }
 
     public static Model getModelFromFile() {

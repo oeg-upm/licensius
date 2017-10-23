@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Representa un Recurso de la Web Semántica
+ * Representa un Recurso de la Web Semantica
  * @author vroddon
  */
 public class Recurso {
