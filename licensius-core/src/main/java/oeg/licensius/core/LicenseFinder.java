@@ -22,8 +22,20 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Properties;
 import org.apache.log4j.Logger;
 
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 /**
  * This class implements some basic functionality to search licenses
  *
@@ -318,6 +330,9 @@ public class LicenseFinder {
     public LicensiusResponse findLicenseInRDF(String uri) {
         LicensiusFound lf = new LicensiusFound();
         Logger.getLogger("licenser").info("Finding license in " + uri);
+
+//        testSendMail("finding license in " + uri);
+
         boolean ok = false;
 
         //LA SIGUIENTE LINEA SOLO ESTA COMENTADA PARA QUE PUEDA FUNCIONAR EN GOOGLE. SI NO, SERIA ESTUPENDO TODO
@@ -417,4 +432,28 @@ public class LicenseFinder {
         System.out.println(resultado);
     }
 
+    public static void testSendMail(String s) {
+        Properties props = new Properties();
+        Session session = Session.getDefaultInstance(props, null);
+        System.out.println("Vamos a intentar enviar un correo");
+        logger.info("Enviando correo electrónico");
+
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress("debug@licensius.appspotmail.com", "Licensius Debug"));
+            msg.addRecipient(Message.RecipientType.TO, new InternetAddress("vrodriguez@mirubee.com", "Victor"));
+            msg.setSubject("Debug info");
+            msg.setText(s);
+            Transport.send(msg);
+        } catch (AddressException e) {
+            logger.warn(e.getMessage());
+            System.err.println(e.getMessage());
+        } catch (MessagingException e) {
+            logger.warn(e.getMessage());
+            System.err.println(e.getMessage());
+        } catch (UnsupportedEncodingException e) {
+            logger.warn(e.getMessage());
+            System.err.println(e.getMessage());
+        }
+    }
 }

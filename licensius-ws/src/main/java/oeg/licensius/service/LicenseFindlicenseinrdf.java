@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import oeg.licensius.core.LicenseFinder;
+import oeg.licensius.core.Licensius;
 import oeg.licensius.model.LicensiusError;
 import oeg.licensius.model.LicensiusResponse;
 
@@ -22,6 +23,7 @@ public class LicenseFindlicenseinrdf extends HttpServlet {
      * Sirve una cadena de prueba.
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.println("DANDO SERVICIO A: LicenseFindlicenseinrdf " + Licensius.version);
         String uri = req.getParameter("uri");
         LicenseFinder lf = new LicenseFinder();
         LicensiusResponse le = lf.findLicenseInRDF(uri);
@@ -63,8 +65,9 @@ public class LicenseFindlicenseinrdf extends HttpServlet {
 
     public static void main(String[] args) {
         String uri = "http://purl.org/NET/p-plan";
+        String urihttps = "https://spec.edmcouncil.org/fibo/ontology/master/latest/BE/Corporations/Corporations/";
         LicenseFinder lf = new LicenseFinder();
-        LicensiusResponse le = lf.findLicenseInRDF(uri);
+        LicensiusResponse le = lf.findLicenseInRDF(urihttps);
         System.out.println(le.getJSON());
 
     }

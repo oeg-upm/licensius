@@ -42,7 +42,12 @@
                 <artifactId>commons-collections</artifactId>
                 <version>3.2.1</version>
         </dependency>
-        
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>1.9.51</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>    
     <build>
         <!-- lo que sigue es para incluir los archivos de texto en los paquetes. menuda movida. -->

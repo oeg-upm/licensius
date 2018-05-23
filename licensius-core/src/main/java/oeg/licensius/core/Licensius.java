@@ -38,7 +38,7 @@ import org.json.simple.JSONArray;
 public class Licensius {
 
     static final Logger logger = Logger.getLogger(Licensius.class);
-    private static final String version = "1.0.0";
+    public static final String version = "1";
     private static final String name = "Licensius core";
 
     public static void main(String[] args) {
