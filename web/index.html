@@ -1,0 +1,439 @@
+<html>
+    <!-- Victor Rodriguez Doncel - Ontology Engineering Group - Universidad Politecnica de Madrid (Spain) - 2015 -->
+    <head>
+        <title>Conditional access to Linked Data</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cerulean/bootstrap.min.css" rel="stylesheet">
+        <link rel="icon" href="/ldc/img/favicon.png" type="image/png" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+        <script src="js/bootbox.min.js"></script>
+    </head>
+
+    <body onload="init()">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    
+                <a class="navbar-brand" href="/ldc">  <!--// index.html -->
+                    <img src="/ldc/img/rdf-condicional.png" width="24" style="float:left;margin:0px"/ > Conditional Linked Data
+                </a>
+<!--                    <a class="navbar-brand" href="/ldc/index.html"><span class="glyphicon glyphicon-home"></span></a> -->
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+<!--                        <li class="active"><a href="#">Home</a></li> -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/ldc/account"><span class="glyphicon glyphicon-log-in"></span><div id="accountid">Account</div></a></li>
+                    </ul>					
+                </div>
+            </div>
+        </nav>      
+
+        <div class="container">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+            </div>
+            <div class="well">
+                <h1><img src="img/rdf-condicional48.png" alt="ldc" align="left" style="PADDING-RIGHT: 5px"> Conditional Linked Data</h1> 
+                <p>
+                    <strong>Conditional access to Linked Data</strong> is a way of publishing data in the Web, making information to be selectively 
+                    available according to a set of desired conditions (free, paid content, etc.), using standard formats 
+                    granting the best availability and interoperability for both people and applications
+                </p> 
+            </div>  
+            <div id="datasets">
+            </div>
+
+        </div>
+        <div id="footer">
+            <div class="container">
+                <hr/>
+                <center> <p class="muted credit">This service is provided for free. We decline any responsibility on its use.</p>
+                </center>
+            </div>
+        </div>
+        
+        
+        <script type="text/javascript" id="cookiebanner" src="http://cookiebanner.eu/js/cookiebanner.min.js" data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies."></script>
+        <script type="text/javascript">
+        // Este script rellena la tabla con los datasets existentes
+        // Invoca a getDatasets
+        var google = "";
+        function init()
+        {
+            console.log("Getting the User");
+            $.post( "/ldc/api/getUser", function( data ) {
+                google = data;
+              if (data!=null && data!="null" && data!="")
+                document.getElementById("accountid").innerHTML = " "+data;
+              else
+                document.getElementById("accountid").innerHTML = " login";
+            })        
+            if (google==null || google=="")
+            {
+                console.log("User is Anonymous")
+        /*        var div1 = document.getElementById('onlyregistered');
+                var div2 = document.getElementById('onlyanonymous');
+                div1.style.visibility = "hidden";
+                div2.style.visibility = "visible";
+//                $("onlyregistered").hide();
+//                $("onlyanonymous").show(); */
+            }
+            else
+            {
+                console.log("User is " + google);
+                /*var div1 = document.getElementById('onlyregistered');
+                var div2 = document.getElementById('onlyanonymous');
+                div1.style.visibility = "visible";
+                div2.style.visibility = "hidden";*/
+                
+//                $("onlyregistered").show();
+//                $("onlyanonymous").hide();
+            }
+            
+            
+            
+            console.log("Getting the datasets");
+            var http = new XMLHttpRequest();
+            http.open("POST", "/ldc/api/getDatasets", true);
+            var params = "";
+            http.send(params);
+            var html = '	\
+                        <div class="panel panel-default"> \
+                        <div class="panel-body"> \
+                        <table class="table "> \
+                          <col width="10%"> \
+                          <col width="10%"> \
+                          <col width="65%"> \
+                          <col width="15%"> \
+                                <thead> \
+                                  <tr> \
+                                        <th>Short</th> \
+                                        <th>Resources</th> \
+                                        <th>Description</th> \
+                                        <th>Actions</th> \
+                                  </tr> \
+                                </thead> \
+                                <tbody> \
+                ';
+            http.onload = function () {
+                var json = http.responseText;
+                json = $.parseJSON(json);
+                $.each(json.datasets, function (i, ds) {
+                    var template = ' \
+                                <tr> \
+                                        <td>' + ds.id + '</td> \
+                                        <td>' + ds.triples + '</td> \
+                                        <td>';
+					if (ds.logo!=null)
+					{
+						template +='<img style=\"vertical-align:middle;width:200px;float:left;margin:8px;\" src=\"data:image/png;base64,' + ds.logo + '"/>' ;
+					}
+                    template += '<p class="lead"><a href="' + ds.uri + '">' + ds.title + '</a></p> \
+                                                <br/>' + ds.comment + ' \
+                                        </td> \
+                                        <td>';
+                    if (ds.owner=="true")
+                        template+= '<a style="margin:2px;" data-toggle="tooltip" title="Removes this dataset from the server" id="boton1" class="btn btn-primary" href="javascript: submitRemove(\'' + ds.id + '\')"><span class="glyphicon glyphicon-remove"></span></a> \
+                                                <a style="margin:2px;" data-toggle="tooltip" title="Edits this dataset in the server" id="boton2" class="btn btn-primary" href="javascript: submitEdit(\'' + ds.id + '\', \'edit\')"><span class="glyphicon glyphicon-edit"></span></a> \
+                                                <a style="margin:2px;" data-toggle="tooltip" title="Administers the dataset" id="boton6" class="btn btn-primary" href="/ldc/manage/' + ds.id + '"><span class="glyphicon glyphicon-lock"></span></a> \
+                                       ';
+                    template+=' </td> \
+                                </tr> ';
+                    html += template;
+                });
+                html += '</tbody> </table>'; 
+                console.log(google)
+                if (!google || google==null || google.strlength==0 || google=='null')
+                    html += '<div id="onlyanonymous"><right><small>Create an account or <a href="account">login</a> to upload your own data!</small></right></div>';
+                else
+                    html += '<div id="onlyregistered"><a style="margin:2px;" data-toggle="tooltip" title="Adds a new dataset to the server" id="boton1" class="btn btn-primary" href="javascript:  submitEdit(\'\', \'new\')"><span class="glyphicon glyphicon-plus"></span></a></div>';
+                html += ' </div> </div>';
+                $('#datasets').append(html);
+            }
+        }
+        </script>
+
+        <script>
+            var seldataset = '';
+            function submitRebase(dataset)
+            {
+                console.info('Rebase dataset');
+                
+                var urlsugerida ="http://";
+		var params="&dataset="+dataset;
+		var http = new XMLHttpRequest();
+		http.open("POST", "/ldc/api/suggestURI", false); //este ultimo false significa que es síncrino.
+		http.onreadystatechange=function()
+		{
+                    console.info("Se ha devuelto: " + http.responseText)
+                    if (http.status == 200)
+                    {
+                        urlsugerida=http.responseText;
+                    }
+		}		
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+		http.setRequestHeader("Content-length", params.length);    
+		http.setRequestHeader("Connection", "close");
+		http.send(params);                
+                bootbox.prompt({
+                    title: "What is the original URL to be rebased?",
+                    value: urlsugerida,
+                    callback: function (result) {
+                        if (result === null) {
+                        } else {
+                            var params = "&dataset=" + dataset;
+                            params += "&uri=" + result;
+                            $("body").css("cursor", "progress");
+                            var http = new XMLHttpRequest();
+                            http.open("POST", "/ldc/api/datasetRebase", true); //true
+                            http.onreadystatechange = function ()
+                            {
+                                location.reload();
+                                $("body").css("cursor", "default");
+                            }
+                            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+                            http.setRequestHeader("Content-length", params.length);
+                            http.setRequestHeader("Connection", "close");
+                            http.send(params);
+                        }
+                    }
+                });
+            }
+            function submitEdit(dataset, action)
+            {
+                console.info('Edit dataset');
+                seldataset = dataset;
+                $('#editDataset').modal('show');
+            }
+            function submitRemove(dataset)
+            {
+                console.info("Removing dataset: " + dataset);
+                bootbox.confirm("You are going to delete the dataset " + dataset + "<br>Are you sure?", function (result) {
+                    console.info('el resultado ha sido ' + result);
+                    if (result == 'false' || result == false)
+                        return;
+                    $("body").css("cursor", "progress");
+                    var params = "&dataset=" + dataset;
+                    var http = new XMLHttpRequest();
+                    http.open("POST", "/ldc/api/datasetRemove", true); //true
+                    http.onreadystatechange = function ()
+                    {
+                        location.reload();
+                        $("body").css("cursor", "default");
+                    }
+                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+                    http.setRequestHeader("Content-length", params.length);
+                    http.setRequestHeader("Connection", "close");
+                    http.send(params);
+                });
+            }
+            
+        function submitIndex(dataset)
+        {
+                console.info("Indexing dataset: " +dataset);
+                bootbox.confirm("You are going to index the dataset " + dataset + "<br>This may be a lengthy operation. <b>Are you sure?</b>", function(result) {
+		console.info('el resultado ha sido ' + result);
+		if (result=='false' || result==false)
+			return;
+		$("body").css("cursor", "progress");	
+		var params="&dataset="+dataset;
+		var http = new XMLHttpRequest();
+		http.open("POST", "/ldc/api/datasetIndex", true); //true
+		http.onreadystatechange=function()
+		{
+			location.reload();
+			$("body").css("cursor", "default");	
+		}		
+		http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+		http.setRequestHeader("Content-length", params.length);    
+		http.setRequestHeader("Connection", "close");
+		http.send(params);
+	}); 		
+}            
+
+        </script>    
+
+
+
+        <!-- DIALOGO PARA EDITAR EL DATASET -->
+        <div class="modal fade" id="editDataset" tabindex="-1" role="dialog" aria-labelledby="editDataset" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Dataset</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Edit Dataset</h3>
+
+                        <div class="form-group">
+                            <label for="shortTitle">Short label</label>
+                            <input id="shortTitle" class="form-control" placeholder="Examples: 'geo', 'iate', 'wordnet'" required>
+                        </div>		
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input id="title" class="form-control" placeholder="Examples: 'XYZ Terminology', 'A Dictionary of French'" required>
+                        </div>		
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" class="form-control" rows="3" placeholder="This dataset describes lore ipsum.." ></textarea>
+                        </div>		
+
+                        <div class="form-group">
+                            <label for="logo">Logo</label>
+                            <input type="file" name="afile" id="afile" accept="image/*"/>
+                            <div id="progreso"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rdfdump">RDF Dump</label>
+                            <input type="file" name="afile2" id="afile2"/>
+                            <div id="progreso2"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" onclick="enviarDataset()" data-dismiss="modal" class="btn btn-primary">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIN DEL DIALOGO PARA EL DATASET -->    
+
+        <!--Este codigo gestiona la upload del logo -->
+<script>
+//AJAX http://code.tutsplus.com/tutorials/uploading-files-with-ajax--net-21077
+//JAVASCRIPT https://developer.tizen.org/dev-guide/2.2.1/org.tizen.web.appprogramming/html/tutorials/w3c_tutorial/comm_tutorial/upload_ajax.htm
+
+document.querySelector('#afile').addEventListener('change', function(e) {
+  var file = this.files[0];
+  var fd = new FormData();
+  seldataset = document.getElementById('shortTitle').value;
+  console.info(seldataset);
+  fd.append("dataset", seldataset);
+  fd.append("afile", file);
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/ldc/api/logoUpload', true);
+  xhr.upload.onprogress = function(e) {
+    if (e.lengthComputable) {
+      var percentComplete = (e.loaded / e.total) * 100;
+	  document.getElementById('progreso').innerHTML = Math.round(percentComplete) + '% uploaded';
+      console.log(percentComplete + '% uploaded');
+    }
+  };
+  xhr.onload = function() {
+    if (this.status == 200) {
+//      var resp = JSON.parse(this.response);
+      console.log('finished');
+	  document.getElementById('progreso').innerHTML = '';
+  
+	  
+   //   var image = document.createElement('img');
+   //   image.src = resp.dataUrl;
+   //   document.body.appendChild(image);
+    };
+  };
+
+  xhr.send(fd);
+}, false);
+</script>
+        <!-- Este código gestiona los uploads -->
+        <script>
+            document.querySelector('#afile2').addEventListener('change', function (e) {
+                var file = this.files[0];
+                var fd = new FormData();
+                seldataset = document.getElementById('shortTitle').value;
+                console.info(seldataset);
+
+                fd.append("dataset", seldataset);
+                fd.append("afile2", file);
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/ldc/api/datasetUpload', true);
+                xhr.upload.onprogress = function (e) {
+                    if (e.lengthComputable) {
+                        var percentComplete = (e.loaded / e.total) * 100;
+                        document.getElementById('progreso2').innerHTML = Math.round(percentComplete) + '% uploaded';
+                        console.log(percentComplete + '% uploaded');
+                    }
+                };
+                xhr.onload = function () {
+                    if (this.status == 200) {
+                        console.log('finished');
+                        document.getElementById('progreso2').innerHTML = '';
+                    }
+                    else
+                    {
+                        bootbox.dialog({
+                            message: "Conversion could not be made",
+                            title: "Error",
+                            buttons: {
+                                danger: {
+                                    label: "OK",
+                                    className: "btn-danger",
+                                    callback: function () {
+                                        //	Example.show("OK");
+                                    }
+                                }
+                            }
+                        });
+                    }
+                };
+                xhr.send(fd);
+            }, false);
+        </script>
+
+        <!--Este codigo se ejecuta cuando se abre el dialogo modal -->
+        <script>
+            var recipient = -1;
+            $('#editDataset').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                //http://stackoverflow.com/questions/28774571/retrieving-table-row-information-using-ajax-and-pdo-to-display-in-bootstrap-moda
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function ()
+                {
+                    console.info('Received response from describeDataset');
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        console.info('found');
+                        //document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                        var json = JSON.parse(xmlhttp.responseText);
+                        document.getElementById('shortTitle').value = json.id;
+                        document.getElementById('title').value = json.title;
+                        document.getElementById('description').value = json.comment;
+                    }
+                }
+                xmlhttp.open("GET", "/ldc/api/getDatasetMetadata?dataset=" + seldataset, true);
+                xmlhttp.setRequestHeader('Content-Type', 'application/json');
+                xmlhttp.send();
+            })
+            function enviarDataset() {
+                //este codigo se ejecuta cuando se ha dado al OK
+                var label = document.getElementById("shortTitle").value;
+                var description = document.getElementById("description").value;
+                var title = document.getElementById("title").value;
+                console.info(description);
+                var params = "dataset=" + seldataset;
+                params += "&title=" + title;
+                params += "&description=" + description;
+                params += "&newlabel=" + label;
+                var http = new XMLHttpRequest();
+                http.onreadystatechange = function ()
+                {
+                    location.reload();
+                }
+                http.open("POST", "/ldc/api/setDatasetMetadata", true); //true		
+                http.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+                http.setRequestHeader("Content-length", params.length);
+                http.setRequestHeader("Connection", "close");
+                http.send(params);
+            }
+        </script>	
+
+
+    </body>
+</html>

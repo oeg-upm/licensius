@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Conditional Linked Data</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cerulean/bootstrap.min.css" rel="stylesheet">
+        <link rel="icon" href="/ldc/img/favicon.png" type="image/png" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+    </head>
+    <body onload="init()"> 
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/ldc/index.html"><span class="glyphicon glyphicon-home"></span></a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+<!--                        <li class="active"><a href="#">Home</a></li> -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/ldc/account"><span class="glyphicon glyphicon-log-in"></span><div id="accountid">Account</div></a></li>
+                    </ul>					
+                </div>
+            </div>
+        </nav>      
+
+        <div class="container">
+
+            <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+                <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">SignIn</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                    </div>     
+                    <div style="padding-top:30px" class="panel-body" >
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        <div id="resultado"></div>
+
+
+
+                        <form id="loginform" class="form-horizontal" role="form">
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+                            </div>                               
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+                            <div class="input-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div style="margin-top:10px" class="form-group">
+                                <!-- Button -->
+                                <div class="col-sm-12 controls">
+                                    <a id="btn-login" onclick="submitlogin()" href="javascript:void(0);" class="btn btn-success">Login  </a>
+                                    <!--      <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a> -->
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-12 control">
+                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                        Don't have an account! 
+                                        <a href="#" onClick="$('#loginbox').hide();
+                                                $('#signupbox').show()">
+                                            Sign Up Here
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>    
+                        </form>     <!-- fin del form de login -->
+
+
+
+                    </div>                     
+                </div>  
+            </div>
+            
+            
+            <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign Up</div>
+                        <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide();
+                                $('#loginbox').show()">Sign In</a></div>
+                    </div>  
+                    <div class="panel-body" >
+                        <form id="signupform" class="form-horizontal" role="form">
+                            <div id="signupalert" style="display:none" class="alert alert-danger">
+                                <p>Error:</p>
+                                <span></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">Email</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname" class="col-md-3 control-label">Real Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="col-md-3 control-label">User</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="username" placeholder="User">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Password</label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="icode" class="col-md-3 control-label">Bot test</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="icode" placeholder="">
+                                </div>
+                                (Type 'asdf' if you are not a bot)
+                            </div>
+
+                            <div class="form-group">
+                                <!-- Button -->                                        
+                                <div class="col-md-offset-3 col-md-9">
+                                    <!-- victor here -->
+                                    <button id="btn-signup" type="button" class="btn btn-info"  onclick="submitsignup()"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                    <span style="margin-left:8px;"></span>  
+                                </div>
+                            </div>
+                            <!-- <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Faceboo</button>
+                                </div>                                           
+                            </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div> 		
+
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <hr/>
+                <center> <p class="muted credit">This service is provided for free. We decline any responsibility on its use.</p></center>
+            </div>
+        </div>
+
+        <script>
+        var google='';
+        function init()
+        {
+            console.log("Getting the datasets");
+            $.post( "/ldc/api/getUser", function( data ) {
+                google = data;
+              if (data!=null && data!="null")
+                document.getElementById("accountid").innerHTML = " "+data;
+              else
+                document.getElementById("accountid").innerHTML = " login";
+            })        
+        }
+            
+            function submitsignup() {
+                console.log("signup");
+                var usuario = document.forms.signupform.username.value;
+                var clave = document.forms.signupform.password.value;
+                var control = document.forms.signupform.icode.value;
+                console.log("signup de: " + usuario + " " + clave + " con código " + control);
+                if (control!='asdf')
+                {
+                    alert("Please type 'asdf' in the control box");
+                    return;
+                }
+                var xmlhttp = new XMLHttpRequest();
+                var vusuario2 = "anon";
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        vusuario2 = xmlhttp.responseText;
+                        console.log(vusuario2);
+                        document.getElementById("resultado").innerHTML = vusuario2;
+                        if (vusuario2 == "403")
+                        {
+                            window.location.replace("account");          //tbx2rdf/account                   
+                            document.getElementById("resultado").innerHTML = "Wrong password";
+                        }
+                        else
+                        {
+                            window.location.replace("account");
+//                            document.getElementById("resultado").innerHTML="";
+                        }
+                    }
+                }
+                var up = "user=" + usuario + "&password=" + clave; 
+                xmlhttp.open("POST", "/ldc/api/signup", true); //"/tbx2rdf/service/login"
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.send(up);                
+            }
+            function submitlogin() {
+                var usuario = document.forms.loginform.username.value;
+                var clave = document.forms.loginform.password.value;
+                console.log("hola: " + usuario + " " + clave);
+                var xmlhttp = new XMLHttpRequest();
+                var vusuario2 = "anon";
+                xmlhttp.onreadystatechange = function ()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        vusuario2 = xmlhttp.responseText;
+                        console.log(vusuario2);
+                        document.getElementById("resultado").innerHTML = vusuario2;
+                        if (vusuario2 == "403")
+                        {
+//                            window.location.replace("account");          //tbx2rdf/account                   
+                            document.getElementById("resultado").innerHTML = "Wrong password";
+                        }
+                        else
+                        {
+                            window.location.replace("account");
+//                            document.getElementById("resultado").innerHTML="";
+                        }
+                    }
+                }
+                var up = "user=" + usuario + "&password=" + clave;
+                xmlhttp.open("POST", "/ldc/api/login", true); //"/tbx2rdf/service/login"
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.send(up);
+            }
+        </script>
+
+        
+        <!-- LAS SIGUIENTES TIENEN QUE VER CON GOOGLE AUTHENTICATION -->
+<script type="text/javascript">
+var helper = (function() {
+  var authResult = undefined;
+
+  return {
+    /**
+     * Hides the sign-in button and connects the server-side app after
+     * the user successfully signs in.
+     *
+     * @param {Object} authResult An Object which contains the access token and
+     *   other authentication information.
+     */
+    onSignInCallback: function(authResult) {
+      $('#authResult').html('Auth Result:<br/>');
+      for (var field in authResult) {
+        $('#authResult').append(' ' + field + ': ' + authResult[field] + '<br/>');
+      }
+      if (authResult['access_token']) {
+        // The user is signed in
+        this.authResult = authResult;
+        helper.connectServer();
+        // After we load the Google+ API, render the profile data from Google+.
+        gapi.client.load('plus','v1',this.renderProfile);
+      } else if (authResult['error']) {
+        // There was an error, which means the user is not signed in.
+        // As an example, you can troubleshoot by writing to the console:
+        console.log('There was an error: ' + authResult['error']);
+        $('#authResult').append('Logged out');
+        $('#authOps').hide('slow');
+        $('#gConnect').show();
+      }
+      console.log('authResult', authResult);
+    },
+    /**
+     * Retrieves and renders the authenticated user's Google+ profile.
+     */
+    renderProfile: function() {
+      var request = gapi.client.plus.people.get( {'userId' : 'me'} );
+      request.execute( function(profile) {
+          $('#profile').empty();
+          if (profile.error) {
+            $('#profile').append(profile.error);
+            return;
+          }
+          $('#profile').append(
+              $('<p><img src=\"' + profile.image.url + '\"></p>'));
+          $('#profile').append(
+              $('<p>Hello ' + profile.displayName + '!<br />Tagline: ' +
+              profile.tagline + '<br />About: ' + profile.aboutMe + '</p>'));
+          if (profile.cover && profile.coverPhoto) {
+            $('#profile').append(
+                $('<p><img src=\"' + profile.cover.coverPhoto.url + '\"></p>'));
+          }
+        });
+		
+		gapi.client.load('oauth2', 'v2', function() {
+		  gapi.client.oauth2.userinfo.get().execute(function(resp) {
+			// Shows user email
+			console.log(resp.email);
+			 $('#idUsuario').empty();
+			 $('#idUsuario').append(resp.email);
+		  })
+		});			
+		
+      $('#authOps').show('slow');
+      $('#gConnect').hide();
+    },
+    /**
+     * Calls the server endpoint to disconnect the app for the user.
+     */
+    disconnectServer: function() {
+      // Revoke the server tokens
+      $.ajax({
+        type: 'POST',
+        url: window.location.href + 'disconnect',
+        async: false,
+        success: function(result) {
+          console.log('revoke response: ' + result);
+          $('#authOps').hide();
+          $('#profile').empty();
+          $('#visiblePeople').empty();
+          $('#authResult').empty();
+          $('#gConnect').show();
+        },
+        error: function(e) {
+          console.log(e);
+        }
+      });
+			 $('#idUsuario').empty();
+			 $('#idUsuario').append('guest');	  
+    },
+    /**
+     * Calls the server endpoint to connect the app for the user. The client
+     * sends the one-time authorization code to the server and the server
+     * exchanges the code for its own tokens to use for offline API access.
+     * For more information, see:
+     *   https://developers.google.com/+/web/signin/server-side-flow
+     */
+    connectServer: function() {
+      console.log(this.authResult.code);
+      $.ajax({
+        type: 'POST',
+        url: window.location.href + 'connect?state={{ STATE }}',
+        contentType: 'application/octet-stream; charset=utf-8',
+        success: function(result) {
+          console.log(result);
+          helper.people();
+        },
+        processData: false,
+        data: this.authResult.code
+      });
+    },
+    /**
+     * Calls the server endpoint to get the list of people visible to this app.
+     */
+    people: function() {
+      $.ajax({
+        type: 'GET',
+        url: window.location.href + 'people',
+        contentType: 'application/octet-stream; charset=utf-8',
+        success: function(result) {
+          helper.appendCircled(result);
+        },
+        processData: false
+      });
+    },
+    /**
+     * Displays visible People retrieved from server.
+     *
+     * @param {Object} people A list of Google+ Person resources.
+     */
+    appendCircled: function(people) {
+      $('#visiblePeople').empty();
+
+      $('#visiblePeople').append('Number of people visible to this app: ' +
+          people.totalItems + '<br/>');
+      for (var personIndex in people.items) {
+        person = people.items[personIndex];
+        $('#visiblePeople').append('<img src="' + person.image.url + '">');
+      }
+    },
+  };
+})();
+
+/**
+ * Perform jQuery initialization and check to ensure that you updated your
+ * client ID.
+ */
+$(document).ready(function() {
+  $('#disconnect').click(helper.disconnectServer);
+  if ($('[data-clientid="YOUR_CLIENT_ID"]').length > 0) {
+    alert('This sample requires your OAuth credentials (client ID) ' +
+        'from the Google APIs console:\n' +
+        '    https://code.google.com/apis/console/#:access\n\n' +
+        'Find and replace YOUR_CLIENT_ID with your client ID and ' +
+        'YOUR_CLIENT_SECRET with your client secret in the project sources.'
+    );
+  }
+});
+
+/**
+ * Calls the helper method that handles the authentication flow.
+ *
+ * @param {Object} authResult An Object which contains the access token and
+ *   other authentication information.
+ */
+function onSignInCallback(authResult) {
+  helper.onSignInCallback(authResult);
+}
+</script>        
+        
+    </body>
+</html>
