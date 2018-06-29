@@ -1,0 +1,3 @@
+requestURI: /ldc/data/geo/ComunidadAut%C3%B3noma/Canarias
+
+recurso: http://tbx2rdf.lider-project.eu/converter/resource/a/geo/ComunidadAut%C3%B3noma/Canarias

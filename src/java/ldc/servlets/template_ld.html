@@ -1,0 +1,112 @@
+<!doctype html>
+<!-- TEMPLATE_CONTEXTO must have a value -->
+<html>
+    <head>
+        <title>Conditional Linked Data server</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/cerulean/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.2.0/jquery.bootgrid.min.css">		
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="icon" href="/ldc/img/favicon.png" type="image/png" />
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bootgrid/1.2.0/jquery.bootgrid.min.js"></script>
+        <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    </head>
+
+    <body onload="jsinit()">
+
+        <!-- AQUI EMPIEZA EL MENÚ -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/ldc/index.html"><span class="glyphicon glyphicon-home"></span></a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <!--                        <li class="active"><a href="#">Home</a></li> -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/ldc/account"><span class="glyphicon glyphicon-log-in"></span><div id="accountid">Account</div></a></li>
+                    </ul>					
+                </div>
+            </div>
+        </nav>      
+
+
+        <div class="container">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+            </div>
+            <div class="panel panel-default"> 
+                <div class="panel-body">
+                    <h1><!--TEMPLATE_TITLE--></h1>
+                    <!--TEMPLATE_CONTENT-->
+                </div>
+            </div>
+
+            <!-- AQUÍ VENÍA EL TTL -->
+            <div class="panel panel-default" style="visibility:hidden"> 
+                <div class="panel-header"><h2>RDF</h2></div>
+                <div class="panel-body">
+                    <pre class="prettyprint">
+			<!--TEMPLATE_TTL-->
+                    </pre>
+                </div>
+            </div>
+
+            <script>
+                var google = "";
+                function jsinit()
+                {
+                    console.log("Getting the User");
+                    $.post("/ldc/api/getUser", function (data) {
+                        google = data;
+                        if (data != null && data != "null" && data != "")
+                            document.getElementById("accountid").innerHTML = " " + data;
+                        else
+                            document.getElementById("accountid").innerHTML = " login";
+                    })
+
+                }
+            </script>            
+
+            <script>
+                $("#grid-data").bootgrid({
+                    ajax: true,
+                    post: function ()
+                    {
+                        /* To accumulate custom parameter with the request object 
+                         return {
+                         currenturl: window.location.href 
+                         };*/
+                    },
+                    url: getContexto(),
+                    formatters: {
+                        "link": function (column, row)
+                        {
+                            var limpio = row.resourceurl;
+                            return "<a href=\"" + limpio + "\">" + row.resource + "</a>";
+                        }
+                    }
+                });
+                function getContexto()
+                {
+                    var contextoserver = "TEMPLATE_CONTEXTO";
+                    var url = contextoserver + "/api/getResources";
+                    //  url: "/converter/service/getResources",
+                    return url;
+                }
+            </script>		
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <hr/>
+                <center> <p class="muted credit">This service is provided for free. We decline any responsibility on its use.</p>
+                </center>
+            </div>
+        </div>
+    </body>
+</html>
