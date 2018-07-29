@@ -58,6 +58,7 @@
                     <button class="add_profile btn btn-default" type="button">Add Profile &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
                     <button class="add_conflict btn btn-default" type="button">Add Conflict Strategy &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
                         <button class="add_inheritance btn btn-default" type="button">Add Inheritance &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
+                        <button class="add_policytype btn btn-default" type="button">Declare Policy Type &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
                     </div>
 
                 </div>
@@ -230,6 +231,22 @@
     </div>
 </script>
 
+<script type="text/template" id="policyType">
+    <div class="panel-body">Policy type
+        <button class="delete btn btn-sm remove"  name="{{deleteName}}"  type="button">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+        <select class="form-control" name="{{name}}">
+            <option value="Set">Set</option>
+            <option value="Agreement">Agreement</option>
+            <option value="Offer">Offer</option>
+        </select>
+
+    </div>
+</script>
+
+
+
 <script type="text/template" id="profileTemplate">
     <div  class="panel-body">Profile         <button class="delete btn btn-sm remove"  name="{{deleteName}}"  type="button">
         <span class="glyphicon glyphicon-remove"></span>
@@ -253,6 +270,11 @@
 <script type="text/template" id="addInheritanceButtonTemplate">
     <button class="add_inheritance btn btn-default" type="button">Add Inheritance &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
 </script>
+<!--victor -->
+<script type="text/template" id="addPolicyTypeButtonTemplate">
+    <button class="add_policytype btn btn-default" type="button">Declare Policy Type &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
+</script>
+<!-- -->
 
 <script type="text/template" id="addTargetButtonTemplate">
     <button class="add_target btn btn-default" type="button">Add Target &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>

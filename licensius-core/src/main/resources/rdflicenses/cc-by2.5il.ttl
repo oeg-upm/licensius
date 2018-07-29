@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Israel" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/il/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Israel> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Israel> ;
       dct:source <http://creativecommons.org/licenses/by/2.5/il> ;
       dct:hasVersion "2.5" ;
       dct:language <http://www.lexvo.org/page/iso629-2/isr> ;

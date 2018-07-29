@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY 2.5 Sweden" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/se/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Sweden> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Sweden> ;
       cc:legalcode """   
 Licens
 

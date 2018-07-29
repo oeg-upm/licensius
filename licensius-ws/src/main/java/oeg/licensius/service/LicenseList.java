@@ -16,7 +16,7 @@ import oeg.licensius.rdflicense.RDFLicenseDataset;
  * Returns a list of licenses. 
  * Working in Licensius 2.0
  * 
- * @author vrodriguez
+ * @author vroddon
  */
 public class LicenseList extends HttpServlet {
     

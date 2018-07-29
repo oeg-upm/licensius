@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY United States" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/us/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/United_States> ;
+      cc:jurisdiction <http://dbpedia.org/resource/United_States> ;
       dct:hasVersion "3.0" ;
       cc:legalcode """    License
 

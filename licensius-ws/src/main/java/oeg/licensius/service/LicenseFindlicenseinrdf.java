@@ -13,7 +13,7 @@ import oeg.licensius.model.LicensiusResponse;
 
 /**
  * Discovers a license in a piece of RDF 
- * @author vrodriguez
+ * @author vroddon
  */
 public class LicenseFindlicenseinrdf extends HttpServlet {
 

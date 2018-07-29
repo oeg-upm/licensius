@@ -22,11 +22,9 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Properties;
 import org.apache.log4j.Logger;
 
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 import javax.mail.Message;
@@ -54,13 +52,14 @@ public class LicenseFinder {
         Logger.getLogger("licenser").info("Parsing " + uri);
         model = ModelFactory.createDefaultModel();
         String txt = URLutils.browseSemanticWeb(uri);
+//        System.out.println("VVV\n" +txt +"\nVVV");
         logger.info("Se ha descargado una cadena de " + txt.length() + " caracteres");
         return parseFromText(txt);
     }
 
     /**
-     * Parses the ontology from a text
-     *
+     * Parses the ontology from a string.
+     * We assume the string is in RDF.
      * @param txt Text with an ontology
      */
     public boolean parseFromText(String txt) {
@@ -87,7 +86,7 @@ public class LicenseFinder {
     }
 
     /**
-     * Parsea un archivo RDF y lo carga en memoria
+     * Parsea un archivo RDF y lo carga en memoria.
      *
      * @param fileNameOrUri
      */
@@ -323,12 +322,12 @@ public class LicenseFinder {
     }
 
     /**
-     * Busca una licencia a partir de una URI
+     * Busca una licencia a partir de una URI.
      *
      * @param uri String URI resoluble
      */
     public LicensiusResponse findLicenseInRDF(String uri) {
-        LicensiusFound lf = new LicensiusFound();
+        LicensiusFound licensefound = new LicensiusFound();
         Logger.getLogger("licenser").info("Finding license in " + uri);
 
 //        testSendMail("finding license in " + uri);
@@ -359,10 +358,11 @@ public class LicenseFinder {
                 } else {
                     urix = rdfl.getURI();
                 }
-                lf.add(urix, predicado + " " + licencia, "100");
+                licensefound.add(urix, predicado + " " + licencia, "100");
             }
         }
-        return lf;
+        logger.info("Number of licenses found: " + licensefound.size());
+        return licensefound;
     }
 
     /**
@@ -403,7 +403,7 @@ public class LicenseFinder {
      * @param txt Texto en el cual ha de buscarse.
      */
     /*    public LicensiusResponse findLicenseInText(String txt) {
-        LicensiusFound lf = new LicensiusFound();
+        LicensiusFound licensefound = new LicensiusFound();
         String s = LicenseGuess.guessLicense(txt);
         if (s == null || s.isEmpty())
         {
@@ -412,10 +412,10 @@ public class LicenseFinder {
         }
         String rdf = RDFLicenseDataset.getRDFLicenseByLicense(s);
         if (rdf!=null && !rdf.isEmpty())
-            lf.add(rdf,"","100");
+            licensefound.add(rdf,"","100");
         else
-            lf.add("",s,"100");
-        return lf;
+            licensefound.add("",s,"100");
+        return licensefound;
     }        
      */
     

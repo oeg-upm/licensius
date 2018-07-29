@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Mexico" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/mx/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Mexico> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Mexico> ;
       cc:legalcode """   
 Licencia
 

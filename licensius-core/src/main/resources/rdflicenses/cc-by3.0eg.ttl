@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Egypt" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/eg/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Egypt> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Egypt> ;
       cc:legalcode """         
 يتمّ تقديم المصنف/العمل ( كما هو وارد أدناه ) بموجب بنود هذا الترخيص العام الخاص بمنظمة المشاع الإبداعي (Creative Commons) ("CCPL" أو"الترخيص"). ويكون المصنف محميًّاً بموجب حق المؤلف و/أو أي قانون آخر معمول به. يُمنع استخدام المصنف بخلاف ما هو مسموح به بموجب هذا الترخيص و/أو أي قانون آخر معمول به بموجب قوانين حماية الملكية الفكرية المصرية.
 

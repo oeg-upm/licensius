@@ -15,9 +15,9 @@
               [ odrl:action cc:Distribution , odrl:lease , cc:DerivativeWorks , cc:Reproduction , odrl:sell ;
                 odrl:duty
                         [ odrl:action cc:SourceCode , cc:ShareAlike , cc:Attribution
-                        ]
+                        ] 
               ] ;
-      cc:jurisdiction <http://dbpedia.org/page/Belgium> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Belgium> ;
       cc:legalcode """
 European Union Public Licence
 V. 1.1

@@ -16,7 +16,7 @@ import org.json.simple.JSONArray;
 
 /**
  * Determines if a license is open or not
- * @author vrodriguez
+ * @author vroddon
  */
 public class LicenseIscompatible extends HttpServlet {
     

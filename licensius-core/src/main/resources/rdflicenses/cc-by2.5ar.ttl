@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Argentina" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/ar/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Argentina> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Argentina> ;
       cc:legalcode """   
 Licencia
 

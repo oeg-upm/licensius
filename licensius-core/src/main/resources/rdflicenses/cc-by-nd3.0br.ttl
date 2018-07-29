@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-ND Brazil" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/br/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Brazil> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Brazil> ;
       cc:legalcode """
 ?xml version=\"1.0\" encoding=\"UTF-8\"?>
          

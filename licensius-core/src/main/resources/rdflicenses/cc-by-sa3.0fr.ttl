@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-SA 3.0 France" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/fr/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/France> ;
+      cc:jurisdiction <http://dbpedia.org/resource/France> ;
       cc:legalcode """          
 Creative Commons
  

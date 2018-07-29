@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
  * Determines if a license is open or not
  * Working in 2.0
  * 
- * @author vrodriguez
+ * @author vroddon
  */
 public class LicenseIsopen extends HttpServlet {
     

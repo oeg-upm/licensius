@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Thailand" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/th/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Thailand> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Thailand> ;
       cc:legalcode """          
 สัญญาอนุญาต
 

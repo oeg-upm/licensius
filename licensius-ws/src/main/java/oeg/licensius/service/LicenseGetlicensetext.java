@@ -13,7 +13,7 @@ import org.json.simple.parser.ParseException;
 
 /**
  * Gets the text of a license
- * @author vrodriguez
+ * @author vroddon
  */
 public class LicenseGetlicensetext extends HttpServlet {
     

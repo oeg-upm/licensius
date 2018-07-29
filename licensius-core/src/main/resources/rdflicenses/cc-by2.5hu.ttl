@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Hungary" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/hu/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Hungary> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Hungary> ;
       dct:source <http://creativecommons.org/licenses/by/2.5/hu> ;
       dct:hasVersion "2.5" ;
       dct:language <http://www.lexvo.org/page/iso629-2/mag> ;
