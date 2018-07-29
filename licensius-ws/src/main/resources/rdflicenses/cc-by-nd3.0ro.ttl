@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-ND 3.0 Romania" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ro/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Romania> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Romania> ;
       cc:legalcode """          
 Creative Commons
  

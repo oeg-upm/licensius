@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Luxemburg" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/lu/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Luxemburg> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Luxemburg> ;
       cc:legalcode """          
 Licence
 

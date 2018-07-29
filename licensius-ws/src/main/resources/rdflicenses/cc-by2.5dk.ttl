@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Denmark" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/dk/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Denmark> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Denmark> ;
       dct:source <http://creativecommons.org/licenses/by/2.5/dk> ;
       dct:hasVersion "2.5" ;
       dct:language <http://www.lexvo.org/page/iso629-2/dan> ;

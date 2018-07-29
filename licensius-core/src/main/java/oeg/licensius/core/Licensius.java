@@ -57,9 +57,10 @@ public class Licensius {
             return;
         binit = true;
         initLogger(true, false);
+        logger.info("Java="+System.getProperty("java.version")) ;
         logger.info("Jena="+Jena.VERSION) ;
         logger.info("ARQ="+ARQ.VERSION) ;
-        logger.info("RIOT="+RIOT.VERSION) ;        
+        logger.info("RIOT="+RIOT.VERSION) ;   
     }
 
     /**

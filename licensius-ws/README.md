@@ -29,3 +29,7 @@ gcloud config set project licensius
 ```
 mvn appengine:update  
 ```
+
+5. Check logs, errors, performance... here
+https://console.cloud.google.com
+

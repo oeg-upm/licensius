@@ -23,7 +23,9 @@ public class LicenseFindlicenseinrdf extends HttpServlet {
      * Sirve una cadena de prueba.
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        System.out.println("DANDO SERVICIO A: LicenseFindlicenseinrdf " + Licensius.version);
+//      the following line is not valid because we cannot open files!!
+//      Licensius.init();
+        System.out.println("Serving the service with the class: LicenseFindlicenseinrdf " + Licensius.version);
         String uri = req.getParameter("uri");
         LicenseFinder lf = new LicenseFinder();
         LicensiusResponse le = lf.findLicenseInRDF(uri);

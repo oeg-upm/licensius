@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Canada" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/ca/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Canada> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Canada> ;
       cc:legalcode """    
 Creative Commons
  

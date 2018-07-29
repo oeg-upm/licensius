@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Korea" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/kr/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Korea> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Korea> ;
       cc:legalcode """    
 저작자표시 2.0
 

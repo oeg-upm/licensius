@@ -13,11 +13,13 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
  */
 package oeg.licensius.util;
 
+import com.google.apphosting.utils.security.urlfetch.URLFetchServiceStreamHandler;
 import java.net.*;
 import java.io.*;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.jena.atlas.lib.StrUtils;
 
@@ -26,6 +28,8 @@ import org.apache.jena.atlas.lib.StrUtils;
  * @author Victor
  */
 public class URLutils {
+
+    private static final Logger logger = Logger.getLogger(URLutils.class.getName());
 
     /**
      * Returns the last chunk in a URL
@@ -53,9 +57,11 @@ public class URLutils {
     }
     
     /**
-     * Downloads a file making its best:
-     * - following redirects
-     * - implementing the best content negotiation
+     * Downloads a file making its best efforts to retrieve RDF.
+     * In particular:
+     * - it adds to the HTTP header the need for RDF (content negotiation).
+     * - it follows redirects.
+     * - pending: to scan for RDFa.
      * curl -I -L -H "Accept: application/rdf+xml" http://datos.bne.es/resource/XX947766
      */
     public static String browseSemanticWeb(String url) {
@@ -64,21 +70,39 @@ public class URLutils {
         boolean redirect = false;
         try {
             URL obj = new URL(url);
-            
             URLConnection oc = obj.openConnection();
             HttpURLConnection conn = null;
             if (url.startsWith("https"))
-                conn = (HttpsURLConnection)oc;
+            {
+                logger.info("Protocol is HTTPS");
+                try
+                {
+                    logger.info("Changing to HttpsURLConnection");
+                    conn = (HttpsURLConnection)oc;
+                }catch(Exception e)
+                {
+                    logger.info("Changing to HttpURLConnection because of Google URLFetchServiceStreamHandler");
+                    conn = (HttpURLConnection)oc;
+                }
+            }
             else
-                conn = (HttpURLConnection)oc;
-              
-            /*
-            HttpURLConnection conn = null;
-            if (url.startsWith("https"))
-                conn = (HttpsURLConnection) obj.openConnection();
-            else
-                conn = (HttpURLConnection) obj.openConnection();
-            */
+            {
+                logger.info("Protocol is HTTP");
+
+                try
+                {
+                    logger.info("Changing to HttpURLConnection");
+                    conn = (HttpURLConnection)oc;
+                }catch(Exception e)
+                {
+                    if (oc.getClass().equals(URLFetchServiceStreamHandler.class))
+                    {
+                        logger.info("Changing to HttpURLConnection because of Google URLFetchServiceStreamHandler");
+                        conn = (HttpURLConnection)oc;
+                    }
+                }
+                
+            }
             
             conn.setRequestProperty("Accept",acceptHeaderValue);                
             conn.setReadTimeout(5000);
@@ -92,15 +116,29 @@ public class URLutils {
             }
             
             if (redirect) {
+                logger.info("We are being redirected");
 		String newUrl = conn.getHeaderField("Location");
 		String cookies = conn.getHeaderField("Set-Cookie");  
                 conn.disconnect();
                 if (newUrl.startsWith("https"))
-                    conn = (HttpsURLConnection) new URL(newUrl).openConnection();
+                {
+                    logger.info("Protocol is now HTTPS");
+                    if (oc.getClass().equals(HttpsURLConnection.class))
+                        conn = (HttpsURLConnection)oc;
+                    if (oc.getClass().equals(URLFetchServiceStreamHandler.class))
+                        conn = (HttpURLConnection)oc;
+                }
                 else
+                {
+                    logger.info("Protocol is now HTTP");
                     conn = (HttpURLConnection) new URL(newUrl).openConnection();
-                if (cookies!=null)
-                    conn.setRequestProperty("Cookie", cookies);                
+                    if (oc.getClass().equals(URLFetchServiceStreamHandler.class))
+                        conn = (HttpURLConnection)oc;
+                }
+                if (cookies!=null) //What for?
+                {
+        //            conn.setRequestProperty("Cookie", cookies);                
+                }
             }
 	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
 	String inputLine;
@@ -112,7 +150,7 @@ public class URLutils {
             
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.println("Error navegando la web semántica " + e.getMessage());
+            System.err.println("Fatal error browsing the semantic web " + e.getMessage());
         }
         return document;
     }
