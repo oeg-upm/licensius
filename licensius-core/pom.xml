@@ -48,6 +48,12 @@
             <version>1.9.51</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-tools-sdk</artifactId>
+            <version>1.9.54</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>    
     <build>
         <!-- lo que sigue es para incluir los archivos de texto en los paquetes. menuda movida. -->

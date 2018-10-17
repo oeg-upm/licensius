@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-ND Ecuador" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-nd/3.0/ec/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Ecuador> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Ecuador> ;
       cc:legalcode """         
 Creative Commons
  

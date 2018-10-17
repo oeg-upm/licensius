@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Venezuela" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/ve/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Venezuela> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Venezuela> ;
       dct:source <http://creativecommons.org/licenses/by/3.0/ve> ;
       dct:hasVersion "3.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/spa> ;

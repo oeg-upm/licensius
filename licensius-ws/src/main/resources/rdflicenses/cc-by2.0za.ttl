@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY South Africa" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/za/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/South_Africa> ;
+      cc:jurisdiction <http://dbpedia.org/resource/South_Africa> ;
       cc:legalcode """   
 Licence
 

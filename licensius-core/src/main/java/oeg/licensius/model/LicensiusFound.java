@@ -42,6 +42,11 @@ public class LicensiusFound implements LicensiusResponse {
     return json;
     }
 
+    public int size()
+    {
+        return licenses.size();
+    }
+    
     public void add(String licencia, String evidencia, String prob) {
         licenses.add(licencia);
         evidences.add(evidencia);

@@ -1,6 +1,5 @@
 package oeg.licensius.service;
 
-//import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import java.io.IOException;
 import javax.servlet.http.*;
 import java.io.BufferedReader;

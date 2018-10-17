@@ -14,7 +14,7 @@ import org.apache.jena.riot.RDFDataMgr;
 
 /**
  *
- * @author vrodriguez
+ * @author vroddon
  */
 public class LicenseGetlicenseinfo extends HttpServlet {
     

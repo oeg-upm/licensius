@@ -1,5 +1,7 @@
 package oeg.licensius.core;
 
+import com.hp.hpl.jena.Jena;
+import com.hp.hpl.jena.query.ARQ;
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -21,6 +23,7 @@ import oeg.licensius.rdflicense.RDFLicenseDataset;
 import org.apache.log4j.LogManager;
 
 import oeg.licensius.util.SystemInformation;
+import org.apache.jena.riot.RIOT;
 import org.apache.log4j.BasicConfigurator;
 import org.json.simple.JSONArray;
 
@@ -54,6 +57,10 @@ public class Licensius {
             return;
         binit = true;
         initLogger(true, false);
+        logger.info("Java="+System.getProperty("java.version")) ;
+        logger.info("Jena="+Jena.VERSION) ;
+        logger.info("ARQ="+ARQ.VERSION) ;
+        logger.info("RIOT="+RIOT.VERSION) ;   
     }
 
     /**

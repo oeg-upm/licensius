@@ -10,7 +10,7 @@
       a       odrl:Policy ;
       rdfs:label "Open Government Licence" ;
       rdfs:seeAlso <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/> ;
-      cc:jurisdiction <http://dbpedia.org/page/United_Kingdom> ;
+      cc:jurisdiction <http://dbpedia.org/resource/United_Kingdom> ;
       dct:source <http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/re-use-and-licensing/ukglf/> ;
       dct:hasVersion "2.0" ;
       dct:language <http://www.lexvo.org/page/iso639-3/eng> ;

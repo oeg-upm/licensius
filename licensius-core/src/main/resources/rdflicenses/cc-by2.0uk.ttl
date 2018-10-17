@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY England & Wales" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/uk/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/England>,<http://dbpedia.org/page/Wales> ;
+      cc:jurisdiction <http://dbpedia.org/resource/England>,<http://dbpedia.org/resource/Wales> ;
       cc:legalcode """   
 Licence
 

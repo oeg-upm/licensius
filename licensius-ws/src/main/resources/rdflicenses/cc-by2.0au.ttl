@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY 2.0 Australia" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/au/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Australia> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Australia> ;
       cc:legalcode """   
 Creative Commons
  

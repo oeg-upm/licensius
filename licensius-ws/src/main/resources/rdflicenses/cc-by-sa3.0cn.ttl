@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-SA 3.0 China" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/cn/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/China> ;
+      cc:jurisdiction <http://dbpedia.org/resource/China> ;
       cc:legalcode """          
 返回知识共享
  

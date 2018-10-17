@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Belgium" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/be/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Belgium> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Belgium> ;
       cc:legalcode """   
 Creative Commons
  

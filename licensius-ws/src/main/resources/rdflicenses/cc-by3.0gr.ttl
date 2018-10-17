@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Greece" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/gr/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Greece> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Greece> ;
       cc:legalcode """          
 Creative Commons
  

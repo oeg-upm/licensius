@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Bulgaria" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/bg/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Bulgaria> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Bulgaria> ;
       cc:legalcode """   
 Договор за използване на произведение
 

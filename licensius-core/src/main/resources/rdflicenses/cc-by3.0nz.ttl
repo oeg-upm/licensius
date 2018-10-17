@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY New Zealand" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/3.0/nz/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/New_Zealand> ;
+      cc:jurisdiction <http://dbpedia.org/resource/New_Zealand> ;
       cc:legalcode """         
 Licence
 

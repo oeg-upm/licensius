@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Japan" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/jp/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Japan> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Japan> ;
       cc:legalcode """    
 クリエイティブ・コモンズ・ジャパン
  

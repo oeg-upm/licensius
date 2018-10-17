@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Switzerland" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/ch/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Switzerland> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Switzerland> ;
       cc:legalcode ""@fr , """
 ?xml version=\"1.0\" encoding=\"utf-8\"?>
      

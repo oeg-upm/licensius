@@ -9,7 +9,7 @@
       rdfs:label "Creative Commons CC-BY Czech Republic" ;
       rdfs:label "Uveďte původ Česká republika"@cz ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/cz/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Czech_Republic> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Czech_Republic> ;
       cc:legalcode """   
 Licenční ujednání
 

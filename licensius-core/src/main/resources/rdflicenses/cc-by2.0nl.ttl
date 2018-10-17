@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY Netherlands" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/nl/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Netherlands> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Netherlands> ;
       cc:legalcode """    
 Creative Commons
  
