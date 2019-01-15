@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
 
 //LOG4J
 

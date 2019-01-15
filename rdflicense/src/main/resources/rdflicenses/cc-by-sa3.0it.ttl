@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-SA 3.0 Italy" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/it/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Italy> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Italy> ;
       cc:legalcode """          
 Creative Commons
  

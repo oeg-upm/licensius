@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-SA 3.0 Chile" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/cl/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Chile> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Chile> ;
       cc:legalcode """
 ﻿
           

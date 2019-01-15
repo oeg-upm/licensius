@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY-SA 3.0 Spain" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by-sa/3.0/es/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Spain> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Spain> ;
       cc:legalcode """           
 Creative Commons 
   

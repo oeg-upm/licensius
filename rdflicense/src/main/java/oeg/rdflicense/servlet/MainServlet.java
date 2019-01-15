@@ -13,10 +13,10 @@ import java.util.List;
 import javax.servlet.http.*;
 
 //import odrlmodel.Policy;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseCheck;
-import oeg.rdflicense.RDFLicenseDataset;
-import oeg.rdflicense.RDFUtils;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseCheck;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFUtils;
 
 //COMMONS IO
 import org.apache.commons.io.FileUtils;

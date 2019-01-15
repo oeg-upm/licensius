@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY 2.5 Portugal" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.0/pt/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Portugal> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Portugal> ;
       dct:source <http://creativecommons.org/licenses/by/2.0/pt> ;
       dct:hasVersion "2.5" ;
       dct:language <http://www.lexvo.org/page/iso629-2/por> ;

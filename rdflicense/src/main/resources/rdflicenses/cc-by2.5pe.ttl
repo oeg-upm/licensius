@@ -8,7 +8,7 @@
       a       odrl:Policy ;
       rdfs:label "Creative Commons CC-BY 2.5 Peru" ;
       rdfs:seeAlso <http://creativecommons.org/licenses/by/2.5/pe/legalcode> ;
-      cc:jurisdiction <http://dbpedia.org/page/Peru> ;
+      cc:jurisdiction <http://dbpedia.org/resource/Peru> ;
       cc:legalcode """   
 Licencia
 

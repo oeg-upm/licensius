@@ -1,11 +1,11 @@
 package oeg.rdflicense.servlet;
 
 import java.util.List;
-import oeg.rdflicense.RDFLicense;
-import oeg.rdflicense.RDFLicenseDataset;
+import oeg.licensius.rdflicense.RDFLicense;
+import oeg.licensius.rdflicense.RDFLicenseDataset;
 
 /**
- *
+ * Class to test that everything is alrgiht.
  * @author vrodriguez
  */
 public class RDFLicenseTest {
