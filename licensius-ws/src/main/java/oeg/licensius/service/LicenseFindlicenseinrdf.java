@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import oeg.licensius.core.LicenseFinder;
 import oeg.licensius.core.Licensius;
 import oeg.licensius.model.LicensiusError;
-import oeg.licensius.model.LicensiusResponse;
+import oeg.licensius.model.LicensiusResponse; 
 
 /**
  * Discovers a license in a piece of RDF 
