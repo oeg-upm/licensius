@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.jena.rdf.model.Model;
+
 import org.apache.jena.graph.Graph;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;

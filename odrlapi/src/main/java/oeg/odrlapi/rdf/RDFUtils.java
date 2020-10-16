@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import org.apache.log4j.Logger;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -43,7 +42,7 @@ import org.apache.jena.vocabulary.RDF;
  */
 public class RDFUtils {
 
-    private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
+//    private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
 
     String property = "";
     String value = "";
@@ -430,21 +429,21 @@ public class RDFUtils {
     public static Model parseFromText(String txt) {
         Model model = ModelFactory.createDefaultModel();
         InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
-        logger.info("Size: " + txt.length());
+//        logger.info("Size: " + txt.length());
         try {
             model.read(is, null, "RDF/XML");
-            logger.debug("Read as RDF/XML");
+  //          logger.debug("Read as RDF/XML");
             return model;
         } catch (Exception e) {
-            logger.debug("Failed as RDF/XML. " + e.getMessage());
+    //        logger.debug("Failed as RDF/XML. " + e.getMessage());
             try {
                 is.close();
                 is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8));
                 model.read(is, null, "TURTLE");
-                logger.debug("Read as TURTLE");
+      //          logger.debug("Read as TURTLE");
                 return model;
             } catch (Exception e2) {
-                logger.debug("Failed as TURTLE. " + e2.getMessage());
+        //        logger.debug("Failed as TURTLE. " + e2.getMessage());
             }
             return null;
         }
@@ -648,7 +647,7 @@ public class RDFUtils {
      */
     public static String browseSemanticWeb(String url) {
         String document = "";
-        String acceptHeaderValue = StrUtils.strjoin(",","application/rdf+xml","application/turtle;q=0.9","application/x-turtle;q=0.9","text/n3;q=0.8","text/turtle;q=0.8","text/rdf+n3;q=0.7","application/xml;q=0.5","text/xml;q=0.5","text/plain;q=0.4","*/*;q=0.2");
+        String acceptHeaderValue = "application/rdf+xml, application/turtle;q=0.9, application/x-turtle;q=0.9, text/n3;q=0.8, text/turtle;q=0.8, text/rdf+n3;q=0.7, application/xml;q=0.5, text/xml;q=0.5, text/plain;q=0.4, */*;q=0.2";
         boolean redirect = false;
         try {
             URL obj = new URL(url);

@@ -3,7 +3,6 @@ package oeg.odrlapi.validator;
 import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import org.apache.jena.rdf.model.Model;
-import org.apache.log4j.Logger;
 
 /**
  * Implements the logic of the ODRL Validation.
@@ -12,7 +11,7 @@ import org.apache.log4j.Logger;
  */
 public class ODRLValidator {
 
-    private static final Logger logger = Logger.getLogger(ODRLValidator.class.getName());
+//    private static final Logger logger = Logger.getLogger(ODRLValidator.class.getName());
 
     public static ValidatorResponse validate(String rdf) {
    //     System.out.println("==============RDF a ser validado:\n" + rdf);

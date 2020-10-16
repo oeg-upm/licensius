@@ -6,13 +6,13 @@ import java.util.Scanner;
 import oeg.odrlapi.rdf.RDFSugar;
 import oeg.odrlapi.rdf.RDFUtils;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
-import org.topbraid.spin.util.*;
+//import org.topbraid.spin.util.*;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
 import org.topbraid.shacl.util.ModelPrinter;
 import org.topbraid.shacl.validation.ValidationUtil;
-
+import org.apache.jena.graph.Factory;
 /**
  * Validation using the SHACL constraints. 
  * Double check at http://shacl.org/playground/
@@ -24,7 +24,8 @@ public class ValidationSHACL implements Validation {
     @Override
     public ValidatorResponse validate(String turtle) {
         Model policy = RDFSugar.getModel(turtle);
-        Model shapes = JenaUtil.createMemoryModel();
+        Model shapes = (Model) Factory.createDefaultGraph();
+        
 //        shapes.read(ValidationSHACL.class.getResourceAsStream("/shapes.ttl"), "urn:dummy", FileUtils.langTurtle);
         
         try{
@@ -66,10 +67,10 @@ public class ValidationSHACL implements Validation {
         String rdf = "as<vvdssd B sdl";
         System.out.println(rdf);
 
-        Model shapes = JenaUtil.createMemoryModel();
+        Model shapes = (Model) Factory.createDefaultGraph();
         shapes.read(ValidationSHACL.class.getResourceAsStream("/shape.ttl"), "urn:dummy", FileUtils.langTurtle);
-        Model policy = JenaUtil.createMemoryModel();
-        policy.read(ValidationSHACL.class.getResourceAsStream("/policy02.ttl"), "urn:dummy", FileUtils.langTurtle);
+         Model policy = (Model) Factory.createDefaultGraph();
+       policy.read(ValidationSHACL.class.getResourceAsStream("/policy02.ttl"), "urn:dummy", FileUtils.langTurtle);
 //                policy.read(ValidationExample.class.getResourceAsStream("/policy01.ttl"), "urn:dummy", FileUtils.langTurtle);
         Resource report = ValidationUtil.validateModel(policy, shapes, true);
         System.out.println(ModelPrinter.get().print(report.getModel()));
