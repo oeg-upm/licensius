@@ -76,7 +76,7 @@ public class ODRLRDF {
             {
                 LOGGER.info("File Model");
                 String rdf = FileUtils.readFileToString(new File(path));
-                System.out.println(rdf);
+               
                 model = RDFUtils.parseFromText(rdf);
 //                model = RDFDataMgr.loadModel(path);
             }
