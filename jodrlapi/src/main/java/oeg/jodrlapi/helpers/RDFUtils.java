@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import oeg.jodrlapi.JODRLApiSettings;
@@ -32,6 +33,8 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.util.iterator.ExtendedIterator;
 import org.apache.jena.vocabulary.RDF;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Helper class with some useful methods to manipulate RDF
@@ -65,6 +68,8 @@ public class RDFUtils {
             System.err.println("ODRLApi error");
         }
     }
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(RDFUtils.class);
 
     /**
      * Loads the models.
@@ -447,7 +452,7 @@ public class RDFUtils {
             in.close();
             document = html.toString();
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
         return document;
     }
@@ -458,17 +463,18 @@ public class RDFUtils {
      */
     public static Model parseFromText(String txt) {
         Model model = ModelFactory.createDefaultModel();
-        InputStream is = new ByteArrayInputStream(txt.getBytes()); //StandardCharsets.UTF_8
+        InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8)); //StandardCharsets.UTF_8 IMPORTANT
         try {
             model.read(is, null, "RDF/XML");
             return model;
         } catch (Exception e) {
             try {
                 is.close();
-                is = new ByteArrayInputStream(txt.getBytes()); //StandardCharsets.UTF_8
+                is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8)); //StandardCharsets.UTF_8
                 model.read(is, null, "TURTLE");
                 return model;
             } catch (Exception e2) {
+                LOGGER.error("Unable to create model, result is null");
                 return null;
             }
         }

@@ -25,6 +25,8 @@ import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.vocabulary.RDF;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Interface to serialize ODRL2 Expressions from / to RDF.
@@ -32,6 +34,8 @@ import org.apache.jena.vocabulary.RDF;
  * @author Victor
  */
 public class ODRLRDF {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(ODRLRDF.class);
  
     /**
      * Serializes the policy into a RDF string
@@ -62,15 +66,23 @@ public class ODRLRDF {
             Model model = null;
             if (path.startsWith("http"))
             {
+                LOGGER.info("HTTP Model");
                 String rdf = RDFUtils.browseSemanticWeb(path);
+              
                 model = RDFUtils.parseFromText(rdf);
+                
             }
             else
             {
+                LOGGER.info("File Model");
                 String rdf = FileUtils.readFileToString(new File(path));
+                System.out.println(rdf);
                 model = RDFUtils.parseFromText(rdf);
 //                model = RDFDataMgr.loadModel(path);
             }
+            
+           
+            
             List<Resource> ls = ODRLRDF.findPolicies(model);
             for (Resource rpolicy : ls) {
                 Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
@@ -79,7 +91,7 @@ public class ODRLRDF {
             }
         }catch(Exception e)
         {
-            System.err.println("error " + e.getMessage());
+            LOGGER.error("error " + e.getMessage());
             e.printStackTrace();
         }
         return politicas;
