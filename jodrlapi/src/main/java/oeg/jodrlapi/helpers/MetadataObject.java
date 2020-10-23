@@ -2,7 +2,6 @@ package oeg.jodrlapi.helpers;
 
 
 //APACHE COMMONS
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,13 +16,12 @@ import org.apache.commons.io.FilenameUtils;
  * This class represents a resource with some metadata.
  * Under this simple model, objects may have zero or one metadata elements: comments, title, labels or seeAlso 
  * Every resource may have a URI too, whose default namespace has been made public to be changed at will
- * @author Victor Rodriguez Doncel at OEG-UPM 2014
+ * @author Victor Rodriguez Doncel at OEG-UPM 2014, 2020
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
 @JsonPropertyOrder({"@context", "@id", "type", "text", "metadata","parts", "annotations"})
 public class MetadataObject {
-    public static final String DEFAULT_NAMESPACE = LDRConfig.getNamespace(); 
     
     //The possibly many rdfs:label
     public List<String> labels = new ArrayList();
@@ -31,6 +29,8 @@ public class MetadataObject {
     public String comment = "";
     public String seeAlso="";
     public String title="";
+    public String note = "";
+    public String definition = "";
     
     
     @JsonProperty("@id")

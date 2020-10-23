@@ -2,25 +2,31 @@ package oeg.jodrlapi.odrlmodel;
 
 
 //JAVA
+import java.util.ArrayList;
+import java.util.List;
 import oeg.jodrlapi.helpers.MetadataObject;
 import java.util.UUID;
+import oeg.jodrlapi.JODRLApiSettings;
 
 //APACHE COMMONS
 //import org.apache.commons.io.FilenameUtils;
 
 /**
- * This class represents an ODRL2.0 Party
+ * This class represents an ODRL2.2 Party
  * The Party entity is aimed at identifying a person, group of people, or organisation. 
  * The Party MUST identify a (legal) entity that can participate in policy transactions
  * @author Victor
  */
 public class Party extends MetadataObject {
+
+    public List<PartyCollection> partOf  = new ArrayList();
+    
     /**
      * Party constructor with a random URI in the default namespace. 
      * By default, an party will be like this: http://salonica.dia.fi.upm.es/ldr/party/2e7de960-7001-4c07-bde5-c5ad1f35133d
      */
     public Party() {
-        uri = MetadataObject.DEFAULT_NAMESPACE + "party/" + UUID.randomUUID().toString();
+        uri = JODRLApiSettings.ODRL_NS + "party/" + UUID.randomUUID().toString();
     }
 
     /**

@@ -52,7 +52,7 @@ public class ODRLRDF {
     }   
     
     /**
-     * Loads the ODRL2.0 policies found in a file.
+     * Loads the ODRL2.2 policies found in a file.
      * @param path File location
      * @return A set of policies
      */
@@ -86,7 +86,8 @@ public class ODRLRDF {
     }  
     
     /**
-     * Gets a policy from an RDF
+     * Gets a policy from an a text document (RDF) containing one policy.
+     * @return One single policy.
      */
     public static Policy getPolicy(String rdf)
     {
@@ -101,29 +102,7 @@ public class ODRLRDF {
     }
     
     
-    /**
-     * Loads the ODRL2.0 policies found in a file.
-     * @param path File location
-     * @return A set of policies
-     */
-    /*public static List<Policy> load(String path) {
-        List<Policy> politicas=new ArrayList();
-        try{
-            Model model = RDFDataMgr.loadModel(path);
-            List<Resource> ls = ODRLRDF.findPolicies(model);
-            for (Resource rpolicy : ls) {
-                Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
-                policy.fileName = path;
-                politicas.add(policy);
-            }
-        }catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return politicas;
-    }        */
-    
-    
+
     
     
 /******************* NON-PUBLIC METHODS ******************************************/    
@@ -205,7 +184,7 @@ public class ODRLRDF {
     }
     
     /**
-     * Gets the JENA resource from a policy
+     * Gets the JENA resource from a policy. 
      * @param policy Policy
      */
     private static Resource getResourceFromPolicy(Policy policy)

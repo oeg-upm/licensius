@@ -8,6 +8,7 @@ import oeg.jodrlapi.helpers.MetadataObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import oeg.jodrlapi.JODRLApiSettings;
 import static oeg.jodrlapi.odrlmodel.Policy.POLICY_SET;
 import org.apache.commons.io.FilenameUtils;
 
@@ -38,6 +39,10 @@ public class Rule extends MetadataObject {
 
     public List<Constraint> constraint = new ArrayList();
     
+    public List<Rule> consequence = new ArrayList();
+    
+    public List<Rule> remedy = new ArrayList();
+    
     public String target="";   //Target of the rule (object over which the actions are exercised)
 
     protected Party assignee=null; //To whom the rule applies
@@ -51,7 +56,7 @@ public class Rule extends MetadataObject {
      */
     public Rule()
     {
-        uri=MetadataObject.DEFAULT_NAMESPACE+"rule/" + UUID.randomUUID().toString();
+        uri=JODRLApiSettings.ODRL_NS+"rule/" + UUID.randomUUID().toString();
     }
     
     /**

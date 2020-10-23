@@ -5,6 +5,7 @@ package oeg.jodrlapi.odrlmodel;
 //JAVA
 import oeg.jodrlapi.helpers.MetadataObject;
 import java.util.UUID;
+import oeg.jodrlapi.JODRLApiSettings;
 
 /**
 * This class represents an ODRL2.0 Constraint.
@@ -33,7 +34,7 @@ public class Constraint extends MetadataObject{
      */
     public Constraint()
     {
-        uri=MetadataObject.DEFAULT_NAMESPACE+"constraint/" + UUID.randomUUID().toString();
+        uri=JODRLApiSettings.ODRL_NS+"constraint/" + UUID.randomUUID().toString();
     }
     
     /**

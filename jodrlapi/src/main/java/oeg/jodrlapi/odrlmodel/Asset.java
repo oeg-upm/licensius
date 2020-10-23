@@ -5,6 +5,7 @@ import oeg.jodrlapi.helpers.MetadataObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import oeg.jodrlapi.JODRLApiSettings;
 
 
 /**
@@ -32,17 +33,20 @@ import java.util.UUID;
  */
 public class Asset extends MetadataObject {
 
+    public List<AssetCollection> partOf  = new ArrayList();
+    
+    
     /**
-     * An asseet may have attached a set of _policies
+     * An asset may have attached a set of _policies
      */
-    public List<Policy> policies = new ArrayList();
+    public List<Policy> hasPolicy = new ArrayList();
 
     /**
      * Creates a Linked Data resource, identifiable by its URI.
      * A random URI is given.
      */
     public Asset() {
-        this(MetadataObject.DEFAULT_NAMESPACE+"asset/" + UUID.randomUUID().toString());        
+        this(JODRLApiSettings.ODRL_NS+"asset/" + UUID.randomUUID().toString());        
     }
 
     /**
@@ -57,11 +61,11 @@ public class Asset extends MetadataObject {
      * Returns the list of _policies ya completada
      * @return List of _policies
      */
-    public List<Policy> getPolicies() {
+    public List<Policy> getHasPolicy() {
         
         ///VVXXXVVV
         List<Policy> lpolicies = new ArrayList();
-        for(Policy p : policies)
+        for(Policy p : hasPolicy)
         {
 //            Policy policy2 = PolicyManager.getPolicy(p.getURI());
  //           if (policy2!=null)
@@ -79,8 +83,8 @@ public class Asset extends MetadataObject {
      * @param policy The policy
      */
     public void setPolicy(Policy policy) {
-        policies.clear();
-        policies.add(policy);
+        hasPolicy.clear();
+        hasPolicy.add(policy);
     }
 
     /**
@@ -88,7 +92,7 @@ public class Asset extends MetadataObject {
      * @param policy New policy to be added
      */
     public void addPolicy(Policy policy) {
-        policies.add(policy);
+        hasPolicy.add(policy);
     }
     
     /**
@@ -97,12 +101,12 @@ public class Asset extends MetadataObject {
      */
     public void removePolicy(String uri)
     {
-        for (int i=0;i<policies.size();i++)
+        for (int i=0;i<hasPolicy.size();i++)
         {
-            Policy policy = policies.get(i);
+            Policy policy = hasPolicy.get(i);
             if (policy.getURI().equals(uri))
             {
-                policies.remove(policy);
+                hasPolicy.remove(policy);
                 return;
             }
         }

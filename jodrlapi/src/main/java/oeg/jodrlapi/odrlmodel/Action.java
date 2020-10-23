@@ -7,11 +7,19 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import oeg.jodrlapi.helpers.MetadataObject;
 import java.util.UUID;
+import oeg.jodrlapi.JODRLApiSettings;
+import oeg.jodrlapi.helpers.RDFUtils;
+import static oeg.jodrlapi.helpers.RDFUtils.coreModel;
 
 //APACHE COMMONS
 import org.apache.commons.io.FilenameUtils;
+import org.apache.jena.ontology.Individual;
+import org.apache.jena.ontology.OntClass;
+import org.apache.jena.util.iterator.ExtendedIterator;
 
 /**
  * This class represents an ODRL Action.
@@ -43,7 +51,7 @@ public class Action extends MetadataObject {
      * By default, an action will be like this: http://salonica.dia.fi.upm.es/ldr/action/2e7de960-7001-4c07-bde5-c5ad1f35133d
      */
     public Action() {
-        uri = MetadataObject.DEFAULT_NAMESPACE + "action/" + UUID.randomUUID().toString();
+        uri = JODRLApiSettings.ODRL_NS + "action/" + UUID.randomUUID().toString();
     }
 
     /**
@@ -65,8 +73,38 @@ public class Action extends MetadataObject {
             setURI("http://www.w3.org/ns/odrl/2/" + _uri);
 
     }
+    
+    /**
+     * Gets all the official actions. 
+     * This method requires internet connection.
+     * @return List of URIs with actions
+     */
+    public static List<Action> getCoreODRLActions() {
+        List<Action> actions = new ArrayList();
+        OntClass action = coreModel.getOntClass("http://www.w3.org/ns/odrl/2/Action");
+        ExtendedIterator it = action.listInstances();
+        while (it.hasNext()) {
+            Action a = new Action();
+            Individual saction = (Individual) it.next();
+            String comment = RDFUtils.getFirstPropertyValue(saction, RDFUtils.COMMENT);
+            String label = RDFUtils.getFirstPropertyValue(saction, RDFUtils.LABEL);
+            String definition = RDFUtils.getFirstPropertyValue(saction, RDFUtils.DEFINITION);
+            String note = RDFUtils.getFirstPropertyValue(saction, RDFUtils.NOTE);
+            label = label.replace("@en", "");
+            
+            a.uri = saction.getURI();
+            a.title = label;
+            a.comment = comment;
+            a.note = note;
+            a.definition = definition;
+            actions.add(a);
+        }
+        return actions;
+    }
+    
 
 }
+//Class intended for a cleanear JSON-LD serialization.
 class ActionSerializer extends JsonSerializer<Action> 
 {
     @Override

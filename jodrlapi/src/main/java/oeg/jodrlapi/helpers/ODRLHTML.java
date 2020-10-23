@@ -16,11 +16,10 @@ public class ODRLHTML {
 
     /**
      * Makes a human readable version of the license in HTML.
-     * @param policy ODRL2.0 Policy
-     * @param lan Language
+     * @param policy ODRL2.2 Policy
      * @return HTML String
      */
-    public static String toHumanHTML(Policy policy, String lan) {
+    public static String toHTML(Policy policy) {
         String s = "";
         s += "<html>\n";
         s += "<head><style type=\"text/css\">";

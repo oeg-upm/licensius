@@ -7,7 +7,7 @@ import oeg.jodrlapi.odrlmodel.Policy;
 import org.apache.jena.riot.Lang;
 
 /**
- *
+ * Shows how to load an external policy.
  * @author vroddon
  */
 public class Example8 {

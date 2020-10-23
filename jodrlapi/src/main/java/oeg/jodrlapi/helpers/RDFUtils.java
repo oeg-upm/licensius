@@ -12,10 +12,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import oeg.jodrlapi.JODRLApiSettings;
 import oeg.jodrlapi.odrlmodel.Action;
 import oeg.jodrlapi.odrlmodel.Constraint;
 import oeg.jodrlapi.odrlmodel.Rule;
-import org.apache.jena.atlas.lib.StrUtils;
 import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
@@ -39,7 +39,7 @@ import org.apache.jena.vocabulary.RDF;
  * @exclude
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
-class RDFUtils {
+public class RDFUtils {
     
 //    private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
 
@@ -47,6 +47,8 @@ class RDFUtils {
     String value = "";
     public static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
     public static Property COMMENT = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#comment");
+    public static Property DEFINITION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2004/02/skos/core#definition");
+    public static Property NOTE = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2004/02/skos/core#note");
     public static Property RIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
     public static Property RLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
     public static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
@@ -74,10 +76,10 @@ class RDFUtils {
         coreModel = ModelFactory.createOntologyModel();
         InputStream in1 = null, in2 = null;
         if (local == false) {
-            in1 = FileManager.get().open("http://w3.org/ns/odrl/2/ODRL20.rdf");
-            in2 = FileManager.get().open("http://web.resource.org/cc/");
+            in1 = FileManager.get().open(JODRLApiSettings.ODRL_ONTOLOGY);
+            in2 = FileManager.get().open(JODRLApiSettings.CC_ONTOLOGY);
         } else {
-            in1 = RDFUtils.class.getClassLoader().getResourceAsStream("odrl21.ttl"); //To find them in this package it should be odrlmodel/odrl21.ttl etc.
+            in1 = RDFUtils.class.getClassLoader().getResourceAsStream("odrl22.ttl"); //To find them in this package it should be odrlmodel/odrl21.ttl etc.
             in2 = RDFUtils.class.getClassLoader().getResourceAsStream("ccrel.rdf");
         }
         if (in1 != null && in2 != null) {
@@ -85,7 +87,7 @@ class RDFUtils {
                 coreModel.read(in1, null, "RDF/XML");
             } catch (Exception e) {
                 in1.close();
-                in1 = RDFUtils.class.getClassLoader().getResourceAsStream("odrl21.ttl"); //To find them in this package it should be odrlmodel/odrl21.ttl etc.
+                in1 = RDFUtils.class.getClassLoader().getResourceAsStream("odrl22.ttl"); //To find them in this package it should be odrlmodel/odrl21.ttl etc.
                 coreModel.read(in1, null, "TTL");
             }
             try {
@@ -101,22 +103,6 @@ class RDFUtils {
         }
         in1.close();
         in2.close();
-    }
-
-    /**
-     * Gets the ODRL core actions
-     */
-    public static List<String> getCoreODRLActions() {
-        List<String> actions = new ArrayList();
-        OntClass action = coreModel.getOntClass("http://www.w3.org/ns/odrl/2/Action");
-        ExtendedIterator it = action.listInstances();
-        while (it.hasNext()) {
-            Individual saction = (Individual) it.next();
-            String comment = RDFUtils.getFirstPropertyValue(saction, RDFUtils.COMMENT);
-            String label = RDFUtils.getFirstPropertyValue(saction, RDFUtils.LABEL);
-            actions.add(label);
-        }
-        return actions;
     }
 
     public static String getIndividualLabel(String uri) {

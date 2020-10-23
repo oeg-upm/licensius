@@ -16,9 +16,9 @@ Core Model specification</a> and <a href="http://www.w3.org/community/odrl/two/v
 
 <a href="lasversion.jar">odrlapi.0.1.jar</a>
 
-<h1>Fast intro to ODRL2.0 and ODRL2.0 Simple API</h1>
+<h1>Fast intro to ODRL2.2 and ODRL2.2 Simple API</h1>
 
-ODRL2.0 Core Model is abstract, i.e., serialization independent. The examples in this document assume the RDF serialization. First, some common prefixes:
+ODRL2.2 Core Model is abstract, i.e., serialization independent. The examples in this document assume the RDF serialization. First, some common prefixes:
 <center>
 <table>
 <tr><td>prefix</td><td>namespace</td></tr>
@@ -34,7 +34,7 @@ A policy may represent the following statement: <i>"The asset 9898 can be read a
         a                 odrl:Policy , odrl:Set ;
         odrl:permission   [ a            odrl:Permission ;
                             odrl:action  odrl:write , odrl:read ;
-                            odrl:target  "http://example.com/asset:9898"
+                            odrl:target  "http://example.com/asset9898"
                           ] ;
 </pre>
 <p>Note we have created a resource, policy:01, of class odrl:Set, with a single permission: the permitted actions (read, write), and the resource (asset9898). 
@@ -42,9 +42,9 @@ The absence of the assignee is usually interpreted as "anybody", the absence of 
 
 This may have been defined in Java with the 
 <pre>
-        Policy policy = new Policy("http://example.com/policy:0099");
+        Policy policy = new Policy("http://example.com/policy0099");
         Permission permission = new Permission();
-        permission.setTarget("http://example.com/asset:9898");
+        permission.setTarget("http://example.com/asset9898");
         permission.setActions(Arrays.asList(new Action("http://www.w3.org/ns/odrl/2/read"), new Action("http://www.w3.org/ns/odrl/2/write")));
         policy.addRule(permission);
 		
@@ -61,7 +61,7 @@ Note that the last line converts objects in the ODRL2.0 Simple API Model to the 
 
 
 <h1>Author and terms of use</h1>
-<p>This API has been programmed by <a href="http://purl.org/NET/vroddon">Víctor Rodríguez Doncel</a> at the <a href="http://www.oeg-upm.net">Ontology Engineering Group</a>, in Universidad Politécnica de Madrid (Spain)</p>
+<p>This API has been programmed by <a href="http://purl.org/NET/vroddon">Víctor Rodríguez Doncel</a> and Pablo Calleja at the <a href="http://www.oeg-upm.net">Ontology Engineering Group</a>, in Universidad Politécnica de Madrid (Spain)</p>
 <center><img src = "../../doc/oeg100.png"/></center>
 
 <p>You may use this software as you like, but we do not accept any responsibility in its use.</p>

@@ -8,11 +8,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import oeg.jodrlapi.helpers.MetadataObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import oeg.jodrlapi.JODRLApiSettings;
 
 /**
  * Policy represents an ODRL policy, supporting a reduced set of the features
@@ -29,31 +29,44 @@ import java.util.UUID;
 @JsonIgnoreProperties(ignoreUnknown = true, value={"context"})
 @JsonInclude(Include.NON_EMPTY)
 public class Policy extends MetadataObject {
-
-    //A policy is made of one or more rules
-    public List<Rule> rules = new ArrayList();
-
     //If it is to be stored somewhere
     @JsonIgnore
     public String fileName = "";
 
-    //Kind of policy it is
-    @JsonIgnore
-    private int typeofpolicy = POLICY_SET;
+    //A policy is made of one or more rules
+    public List<Rule> rules = new ArrayList();
 
-    public static final int POLICY_SET = 0; //DEFAULT
-    public static final int POLICY_REQUEST = 1;
-    public static final int POLICY_OFFER = 2;
-    public static final int POLICY_CC = 3;
-    public static final int POLICY_AGREEMENT = 4;
-    public static final int POLICY_TICKET = 5;
+    //
+    public List<String> profile = new ArrayList();
+    
+    //
+    public List<String> target = new ArrayList(); 
+
+    //
+    public List<String> inheritFrom = new ArrayList();
+    
+    public String conflict = ""; //invalid, perm, prohibit
+    
+    //Kind of policy it is
+    @JsonProperty("@type")
+    private String typeofpolicy = "http://www.w3.org/ns/odrl/2/Set";
+
+    //Agreement, Assertion, Offer, Privacy, Request, Set, Ticket
+    public static final String POLICY_SET = "http://www.w3.org/ns/odrl/2/Set";             //DEFAULT
+    public static final String POLICY_REQUEST = "http://www.w3.org/ns/odrl/2/Request";         
+    public static final String POLICY_OFFER = "http://www.w3.org/ns/odrl/2/Offer";
+    public static final String POLICY_CC = "http://www.w3.org/ns/odrl/2/CC"; // DEPRECATED
+    public static final String POLICY_AGREEMENT = "http://www.w3.org/ns/odrl/2/Agreement";
+    public static final String POLICY_TICKET = "http://www.w3.org/ns/odrl/2/Ticket";
+    public static final String POLICY_ASSERTION = "http://www.w3.org/ns/odrl/2/Assertion";
+    public static final String POLICY_PRIVACY = "http://www.w3.org/ns/odrl/2/Privacy";
 
     /**
      * Policy constructor with a random URI in the default namespace A policy is
      * by default a Set policy
      */
     public Policy() {
-        uri = MetadataObject.DEFAULT_NAMESPACE + "policy/" + UUID.randomUUID().toString();
+        uri = JODRLApiSettings.ODRL_NS + "policy/" + UUID.randomUUID().toString();
     }
 
     /**
@@ -81,7 +94,7 @@ public class Policy extends MetadataObject {
      * @return one of: Policy.POLICY_SET, Policy.POLICY_REQUEST,
      * Policy.POLICY_OFFER
      */
-    public int getTypeofpolicy() {
+    public String getTypeofpolicy() {
         return typeofpolicy;
     }
 
@@ -91,7 +104,7 @@ public class Policy extends MetadataObject {
      * @param _type, one of: Policy.POLICY_SET, Policy.POLICY_REQUEST,
      * Policy.POLICY_OFFER
      */
-    public void setTypeofpolicy(int _type) {
+    public void setTypeofpolicy(String _type) {
         typeofpolicy = _type;
     }
 
@@ -171,13 +184,6 @@ public class Policy extends MetadataObject {
     @JsonProperty("@context")
     public String getContext() {
         return "http://www.w3.org/ns/odrl.jsonld";
-    }
-
-    @JsonProperty("@type")
-    public String getType() {
-        if (typeofpolicy == POLICY_SET)
-            return "http://www.w3.org/ns/odrl/2/Set";
-        return "http://www.w3.org/ns/odrl/2/Policy";
     }
     
     @JsonProperty("permission")

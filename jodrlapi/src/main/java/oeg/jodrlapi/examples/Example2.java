@@ -8,8 +8,8 @@ import java.util.Arrays;
 import org.apache.jena.riot.Lang;
 
 /**
- * This class shows a simple example creating a simple ODRL expression, with a Payment and a count constrain
- * @see http://www.w3.org/ns/odrl/2/#sec-example-2
+ * This class shows a simple example creating a not-so-simple ODRL expression, with a Payment and a count constraint.
+ * Shows how to serialize has JSON-LD.
  * @author Victor
  */
 public class Example2 {
@@ -45,12 +45,13 @@ public class Example2 {
         c.setValue("1");
         permission2.setConstraint(Arrays.asList(c));
         policy.addRule(permission2);
-        
-        //We serialize the policy
-        String rdf=ODRLRDF.getRDF(policy,Lang.TTL);
-        System.out.println(rdf);
-        System.out.println("\n"+policy.toJSONLD());
 
+        //We serialize the policy as JSON-LD
+        String rdf=ODRLRDF.getRDF(policy,Lang.JSONLD);
+        System.out.println(rdf);
+        
+        //We serialize the policy as an alternative JSON-LD. Based on JACKSON.
+        System.out.println("\n"+policy.toJSONLD());
 
     }
 }
