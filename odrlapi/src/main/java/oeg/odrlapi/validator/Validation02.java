@@ -19,7 +19,9 @@ import org.apache.jena.reasoner.ValidityReport;
  */
 public class Validation02 implements Validation {
 
-    public final static String ODRLONTO = "http://w3c.github.io/poe/vocab/ODRL22.ttl";
+
+//    public final static String ODRLONTO = "http://w3c.github.io/poe/vocab/ODRL22.ttl";
+    public final static String ODRLONTO = "https://www.w3.org/ns/odrl/2/ODRL22.ttl";
     private static Model odrlmodel = null;
 
     /**

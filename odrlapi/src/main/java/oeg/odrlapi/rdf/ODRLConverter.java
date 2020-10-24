@@ -14,15 +14,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.jena.rdf.model.Model;
-
-import org.apache.jena.graph.Graph;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.JsonLDWriteContext;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
-import static org.apache.jena.riot.RDFLanguages.JSONLD;
 import org.apache.jena.riot.WriterDatasetRIOT;
 import org.apache.jena.riot.system.PrefixMap;
 import org.apache.jena.riot.system.RiotLib;
