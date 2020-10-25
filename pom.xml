@@ -12,6 +12,8 @@
 
     <modules>
         <module>jodrlapi</module>
+        <module>licensius-core</module>
+        <module>licensius-ws</module>
     </modules>
 
     <build>
