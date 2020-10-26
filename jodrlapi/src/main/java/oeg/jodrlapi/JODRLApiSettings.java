@@ -1,9 +1,5 @@
 package oeg.jodrlapi;
 
-import java.util.List;
-import oeg.jodrlapi.helpers.RDFUtils;
-import oeg.jodrlapi.odrlmodel.Action;
-
 /**
  * Despliegue como maven: 
  * 

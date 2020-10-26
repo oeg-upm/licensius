@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>oeg.licensius</groupId>
     <artifactId>jodrlapi</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>Java ODRL API</name>
     <url>http://licensius.com</url>
@@ -12,6 +12,13 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    
+    <parent>
+        <groupId>oeg</groupId>
+        <artifactId>licensius</artifactId>
+        <version>1.0.3</version>
+    </parent>    
+    
     <!--    
     <build>
     <plugins>

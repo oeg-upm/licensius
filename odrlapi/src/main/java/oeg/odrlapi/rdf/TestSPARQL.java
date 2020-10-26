@@ -3,10 +3,6 @@ package oeg.odrlapi.rdf;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.update.UpdateAction;
 

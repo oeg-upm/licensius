@@ -1,4 +1,7 @@
 # licensius
+
+[![](https://jitpack.io/v/oeg-upm/licensius.svg)](https://jitpack.io/#oeg-upm/licensius)
+
 Collection of RDF licensing projects. See: 
 - https://github.com/oeg-upm/licensius/tree/master/odrlapi Evaluator for the newest ODRL spec
 - https://github.com/oeg-upm/licensius/tree/master/rdflicense Collection of common licenses as RDF

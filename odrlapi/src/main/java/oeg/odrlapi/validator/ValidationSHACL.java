@@ -13,6 +13,8 @@ import org.apache.jena.util.FileUtils;
 import org.topbraid.shacl.util.ModelPrinter;
 import org.topbraid.shacl.validation.ValidationUtil;
 import org.apache.jena.graph.Factory;
+import org.apache.jena.mem.GraphMem;
+import org.topbraid.jenax.util.JenaUtil;
 /**
  * Validation using the SHACL constraints. 
  * Double check at http://shacl.org/playground/
@@ -24,7 +26,8 @@ public class ValidationSHACL implements Validation {
     @Override
     public ValidatorResponse validate(String turtle) {
         Model policy = RDFSugar.getModel(turtle);
-        Model shapes = (Model) Factory.createDefaultGraph();
+//        Model shapes = (Model) Factory.createDefaultGraph();
+        Model shapes = JenaUtil.createDefaultModel();
         
 //        shapes.read(ValidationSHACL.class.getResourceAsStream("/shapes.ttl"), "urn:dummy", FileUtils.langTurtle);
         
@@ -67,9 +70,12 @@ public class ValidationSHACL implements Validation {
         String rdf = "as<vvdssd B sdl";
         System.out.println(rdf);
 
-        Model shapes = (Model) Factory.createDefaultGraph();
+        Model shapes = JenaUtil.createDefaultModel();
+//        Model shapes = (Model) Factory.createDefaultGraph();
+        
         shapes.read(ValidationSHACL.class.getResourceAsStream("/shape.ttl"), "urn:dummy", FileUtils.langTurtle);
-         Model policy = (Model) Factory.createDefaultGraph();
+//         Model policy = (Model) Factory.createDefaultGraph();
+        Model policy = JenaUtil.createDefaultModel();
        policy.read(ValidationSHACL.class.getResourceAsStream("/policy02.ttl"), "urn:dummy", FileUtils.langTurtle);
 //                policy.read(ValidationExample.class.getResourceAsStream("/policy01.ttl"), "urn:dummy", FileUtils.langTurtle);
         Resource report = ValidationUtil.validateModel(policy, shapes, true);

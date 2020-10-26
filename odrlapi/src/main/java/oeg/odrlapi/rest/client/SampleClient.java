@@ -10,21 +10,19 @@ import java.net.URL;
 import oeg.odrlapi.rest.server.resources.ValidatorResponse;
 import oeg.odrlapi.validator.ODRLValidator;
 
-
 /**
  * Sample client
  */
 public class SampleClient {
 
-    
     public static void main(String[] args) {
-        validator(); 
-        test();        test();
+        validator();
+        test();
+        test();
         test();
     }
-    
-    public static void test()
-    {
+
+    public static void test() {
         try {
             URL url = new URL("http://odrlapi.appspot.com/test");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -46,9 +44,8 @@ public class SampleClient {
             e.printStackTrace();
         }
     }
-    
-    public static void evaluator()
-    {
+
+    public static void evaluator() {
 
         try {
             URL url = new URL("http://odrlapi.appspot.com/validator");
@@ -81,47 +78,47 @@ public class SampleClient {
         }
 
     }
-        public static void validator()
-        {
-            ODRLValidator validator = new ODRLValidator();
-            String input = "";
-            ValidatorResponse vres = validator.validate(input);
-            System.out.println(vres);
-		try {
 
-			URL url = new URL("http://odrlapi.appspot.com/validator");
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setDoOutput(true);
-			conn.setRequestMethod("POST");
-			//conn.setRequestProperty("Content-Type", "application/json");
-			
-			OutputStream os = conn.getOutputStream();
-			os.write(input.getBytes());
-			os.flush();
+    public static void validator() {
+        ODRLValidator validator = new ODRLValidator();
+        String input = "";
+        ValidatorResponse vres = validator.validate(input);
+        System.out.println(vres);
+        try {
 
-			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
-				throw new RuntimeException("Failed : HTTP error code : "
-						+ conn.getResponseCode());
-			}
+            URL url = new URL("http://odrlapi.appspot.com/validator");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+            //conn.setRequestProperty("Content-Type", "application/json");
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					(conn.getInputStream())));
+            OutputStream os = conn.getOutputStream();
+            os.write(input.getBytes());
+            os.flush();
 
-			String output;
-			System.out.println("Output from Server .... \n");
-			while ((output = br.readLine()) != null) {
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + conn.getResponseCode());
+            }
 
-				System.out.println(output);
-			}
-			conn.disconnect();
-		} catch (MalformedURLException e) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    (conn.getInputStream())));
 
-			e.printStackTrace();
-		} catch (IOException e) {
+            String output;
+            System.out.println("Output from Server .... \n");
+            while ((output = br.readLine()) != null) {
 
-			e.printStackTrace();
+                System.out.println(output);
+            }
+            conn.disconnect();
+        } catch (MalformedURLException e) {
 
-		}
+            e.printStackTrace();
+        } catch (IOException e) {
 
-	}
+            e.printStackTrace();
+
+        }
+
+    }
 }

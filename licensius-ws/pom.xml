@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>oeg</groupId>
-    <artifactId>licensius</artifactId>
+    <groupId>oeg.licensius</groupId>
+    <artifactId>licensius-ws</artifactId>
     <version>2.02</version>
     <packaging>war</packaging>
-    <name>licensius</name>
+    <name>Licensius Web Services</name>
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+    <parent>
+        <groupId>oeg</groupId>
+        <artifactId>licensius</artifactId> 
+        <version>1.0.3</version>
+    </parent>    
+    
+    
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
@@ -24,7 +32,7 @@
         </dependency>
         
         <dependency>
-            <groupId>oeg</groupId>
+            <groupId>oeg.licensius</groupId>
             <artifactId>licensius-core</artifactId>
             <version>2.02</version>
             <type>jar</type>
@@ -46,6 +54,7 @@
         
     </dependencies>
     <build>
+        <finalName>licensius</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -99,7 +108,7 @@
                         <phase>install</phase>
                         <configuration>
                             <tasks>
-                                <copy file="target/licensius-2.02.war" tofile="licensius.war"/>
+                                <copy file="target/licensius.war" tofile="licensius.war"/>
                             </tasks>
                         </configuration>
                         <goals>

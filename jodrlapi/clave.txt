@@ -1,1 +1,0 @@
- * mvn deploy -Dregistry=https://maven.pkg.github.com/oeg-upm -Dtoken=8cf790fb0237b23faaf2d71b9c18d8a93d91e6db

@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
 //        transformFolder();
         normalize(82);
-//        validate(74);
+        validate(74);
 //      superTest();
     } 
     

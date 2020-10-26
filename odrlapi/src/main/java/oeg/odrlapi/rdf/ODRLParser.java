@@ -10,7 +10,7 @@ import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 
 /**
- * Parsing of RDF ODRL Policies.
+ * Parsing of RDF ODRL Policies for JENA models
  * @author vroddon
  */
 public class ODRLParser {
