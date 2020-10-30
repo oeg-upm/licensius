@@ -301,8 +301,10 @@ public class RDFUtils {
     public static List<Resource> getOntResourcesOfType(Model model, Resource resource) {
         List<Resource> res = new ArrayList();
         OntModel ontModel = ModelFactory.createOntologyModel();
-        ontModel.add(model);
+        
         ontModel.add(coreModel);
+        ontModel.add(model);
+        
 
         // RDFUtils.print(ontModel);
 
@@ -310,6 +312,7 @@ public class RDFUtils {
         ExtendedIterator it = ontModel.listIndividuals(r2);
         while (it.hasNext()) {
             Individual ind = (Individual) it.next();
+            
             if (ind.isResource()) {
                 res.add(ind);
             }

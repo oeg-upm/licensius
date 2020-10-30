@@ -72,10 +72,18 @@ public class ODRLRDF {
                 model = RDFUtils.parseFromText(rdf);
                 
             }
-            else
+            if ((path.startsWith("/")) || (path.startsWith("C:")))
             {
                 LOGGER.info("File Model");
                 String rdf = FileUtils.readFileToString(new File(path));
+               
+                model = RDFUtils.parseFromText(rdf);
+                
+            }
+            else
+            {
+                LOGGER.info("String Model");
+                String rdf = path;
                
                 model = RDFUtils.parseFromText(rdf);
 //                model = RDFDataMgr.loadModel(path);
@@ -84,6 +92,7 @@ public class ODRLRDF {
            
             
             List<Resource> ls = ODRLRDF.findPolicies(model);
+            
             for (Resource rpolicy : ls) {
                 Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
                 policy.fileName = path;
