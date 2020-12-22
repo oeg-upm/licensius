@@ -1,0 +1,540 @@
+@prefix : <http://purl.org/ms-rights#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix profile: <http://www.w3.org/ns/dx/prof/> .
+@prefix role: <http://www.w3.org/ns/dx/prof/role/> .
+@prefix odrl-lr: <http://purl.org/NET/ms-rights#> .
+
+
+@base <http://purl.org/NET/odrl-lr#> .
+
+<http://purl.org/NET/odrl-lr#> rdf:type owl:Ontology, profile:Profile ;
+			rdfs:label "ODRL Profile for Language Resources"@en ;
+                        rdfs:comment "The ODRL Profile for Language Resources provides the vocabulary elements to write policies for language resources. This work has been made in the framework of the H2020 Prêt-à-LLOD project () and it is the result of promoting the 'Language Resources Ontology' into a full ODRL-compliant profile "@en;
+                        dct:description "This ontology is a profile of ODRL and it provides: new odrl:Actions, new odrl:LeftOperands and several new properties intended to describe language resources and intended to be used as conditions in policies."@en;
+                        profile:isProfileOf <http://www.w3.org/ns/odrl/2/core> ;
+                        profile:hasRole role:specification ;
+                        profile:hasResource <https://pddm-pal.oeg.fi.upm.es/> ;
+			owl:priorVersion <http://purl.org/NET/ms-rights#> ;
+			owl:versionInfo "2.2" ;
+			dct:date "2020-12-30" ;
+			dct:modified "2020-12-30" ;
+			vann:preferredNamespaceUri <http://purl.org/NET/odrl-lr#> ;
+			vann:preferredNamespacePrefix "odrl-lr" ;			
+			dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+			dct:creator "Penny Labropoulou" ;
+			dct:creator "Pablo Calleja" ;
+			dct:creator "Victor Rodriguez Doncel" .
+
+dcat:Distribution rdf:type owl:Class, skos:Concept ; 
+			skos:broader odrl:Asset ;
+			rdfs:label "Distribution"@en ;
+			skos:definition "Represents a specific available form of a dataset. Each dataset might be available in different forms, these forms might represent different formats of the dataset or different endpoints. Examples of distributions include a downloadable CSV file, an API or an RSS feed"@en .
+
+odrl-lr:Availability rdf:type owl:Class, skos:Concept;
+			rdfs:label "Availability"@en ;
+			skos:definition "Availability status of the resource; conditionsOfUse can be further used to indicate the specific terms of availability"@en . 
+
+odrl-lr:License rdf:type owl:Class, skos:Concept ;
+			skos:broader odrl:Policy ;
+			rdfs:label "License"@en ;
+			rdfs:subClassOf dct:LicenseDocument ;
+			skos:definition "The licence of use for the resource; for an overview of licences, please visit: http://www.meta-net.eu/meta-share/licenses."@en .
+
+odrl-lr:ConditionsOfUse rdf:type owl:Class, skos:Concept ;
+			rdfs:label "Conditions of Use"@en ;
+			skos:definition "The conditionsOfUse optional element in the metadata is only to be taken as providing brief human readable information on the fact that the LR is provided under a specific set of conditions. These correspond to the most frequently used conditions imposed by the licensor of the LR (via the specified licence). The proper exposition of all conditions and possible exceptions is to be found inside the licence text. LR depositors should, hence, carefully choose the values of this field to match the licence chosen and users should carefully read that licence before using the LR."@en .
+			
+odrl-lr:UserNature rdf:type owl:Class, skos:Concept ;
+			rdfs:label "User Nature"@en ;
+			skos:definition "Identifies the type of user of the resource (e.g. affiliated with a commercial vs. academic institution, member of an organisation/network etc.); the user type may have implications on the licensing or pricing of a resource"@en .
+
+odrl-lr:DistributionAccessMedium rdf:type owl:Class, skos:Concept ;
+			rdfs:label "Distribution Access Medium"@en ;
+			skos:definition "Specifies the medium (channel) used for delivery or providing access to the resource"@en .
+
+odrl-lr:LicenseCategory rdf:type owl:Class, skos:Concept ;
+			rdfs:label "License Category"@en ;
+			skos:definition "A way of classifying licences according to their conditions of use (CLARIN recommendation)"@en .
+
+dcat:distribution rdf:type owl:ObjectProperty, skos:Concept ;
+			rdfs:label "Distribution"@en ;
+			skos:definition "Connects a dataset to one of its available distributions."@en ;
+			rdfs:domain odrl-lr:LanguageResource .
+
+odrl-lr:availability rdf:type owl:ObjectProperty , skos:Concept, odrl:LeftOperand  ;
+			rdfs:label "Availability"@en ;
+			skos:definition "Used to link a Language Resource to an Availability status."@en ;
+			rdfs:domain odrl-lr:LanguageResource ;
+			rdfs:range :Availability .
+
+odrl-lr:iprHolder rdf:type owl:ObjectProperty , skos:Concept ;
+			skos:closeMatch dct:rightsHolder ;
+			rdfs:label "IPR Holder"@en ;
+			skos:definition "A person or an organization who holds the full Intellectual Property Rights (Copyright, trademark etc) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g. an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor."@en ;
+			rdfs:domain odrl-lr:LanguageResource ;
+			rdfs:range foaf:Agent .
+
+odrl-lr:availabilityEndDate rdf:type owl:DatatypeProperty , skos:Concept ;
+			rdfs:label "Availability End Date"@en ;
+			skos:definition "Identifies the Availability End Date of the resource."@en ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range xsd:date .
+
+odrl-lr:availabilityStartDate rdf:type owl:DatatypeProperty, skos:Concept  ;
+			rdfs:label "Availability Start Date"@en ;
+			skos:definition "Identifies the Availability Start Date of the resource."@en ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range xsd:date .
+			
+odrl-lr:license 	rdf:type owl:ObjectProperty , skos:Concept ;
+			rdfs:label "License"@en ;
+			skos:definition "Links a resource to the licence under which it is distributed; values are taken from a list of standard licences"@en ;
+			rdfs:subPropertyOf dct:license ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range odrl-lr:License .
+			
+odrl-lr:conditionsOfUse rdf:type owl:ObjectProperty, skos:Concept  ;
+			rdfs:label "Conditions of Use"@en ;
+			skos:definition "Links the resource (distribution) to the conditions of use imposed by the licence; intended as a user-friendly list of basic terms and conditions"@en ;
+			rdfs:domain odrl-lr:License ;
+			rdfs:range odrl-lr:ConditionsOfUse .
+		
+odrl-lr:userNature rdf:type owl:ObjectProperty, skos:Concept  ;
+			rdfs:label "User Nature"@en ;
+			skos:definition "Used to identify the type of user of the resource (affiliated with a commercial vs. academic institution)"@en ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range odrl-lr:UserNature .
+
+odrl-lr:distributionAccessMedium rdf:type owl:ObjectProperty, skos:Concept  ;
+			rdfs:label "Distribution Access Medium"@en ;
+			skos:definition "Specifies the medium (channel) used for delivery or providing access to the resource"@en ;
+			rdfs:subPropertyOf odrl:deliveryChannel ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range odrl-lr:DistributionAccessMedium .
+			
+dcat:downloadURL rdf:type owl:ObjectProperty, skos:Concept  ;
+			rdfs:label "Download URL"@en ;
+			skos:definition "This is a direct link to a downloadable file in a given format. E.g. CSV file or RDF file. The format is described by the distribution's dc:format and/or dcat:mediaType"@en ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range rdfs:Resource .
+			
+dcat:accessURL rdf:type owl:ObjectProperty, skos:Concept  ;
+			rdfs:label "Access URL"@en ;
+			skos:definition "Could be any kind of URL that gives access to a distribution of the dataset. E.g. landing page, download, feed URL, SPARQL endpoint. Use when your catalog does not have information on which it is or when it is definitely not a download."@en ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range rdfs:Resource .
+
+odrl-lr:fee rdf:type owl:ObjectProperty, skos:Concept  ;
+			rdfs:subPropertyOf odrl:payAmount ;
+			rdfs:label "Fee"@en ;
+			skos:definition "Specifies the costs that are required to access the resource, a fragment of the resource or to use a tool or service."@en ;
+			rdfs:domain dcat:Distribution ;
+			vs:term_status "deprecated" ;
+			rdfs:seeAlso <http://purl.org/goodrelations/v1#PriceSpecification>, odrl:compensate;
+			rdfs:range rdfs:Resource .
+
+odrl-lr:attributionText rdf:type owl:DatatypeProperty, skos:Concept  ;
+			rdfs:label "Attribution Text"@en ;
+			rdfs:domain odrl-lr:Distribution ;
+			skos:definition "The text that must be quoted for attribution purposes when using a resource - for cases where a resource is provided with a restriction on attribution."@en ;
+			rdfs:seeAlso cc:attributionName, cc:attributionURL;
+			vs:term_status "deprecated" .
+			
+cc:attributionName rdf:type owl:DatatypeProperty, skos:Concept  ;
+			rdfs:label "Attribution Name"@en ;
+			skos:definition "The name the creator of a Work would like used when attributing re-use."@en ;
+			rdfs:domain dcat:Distribution .
+
+cc:attributionURL rdf:type owl:DatatypeProperty , skos:Concept ;
+			rdfs:label "Attribution URL"@en ;
+			skos:definition "The URL the creator of a Work would like used when attributing re-use."@en ;
+			rdfs:domain dcat:Distribution .
+			
+odrl-lr:licensor rdf:type owl:ObjectProperty, skos:Concept  ;
+			rdfs:label "Licensor"@en ;
+			skos:definition "The person who is legally eligible to license and actually licenses the resource. The licensor could be different from the creator, the distributor or the IPR holder. The licensor has the necessary rights or licences to license the work and is the party that actually licenses the resource that is distributed via the specific channel. She will have obtained the necessary rights or licences from the IPR holder and she may have a distribution agreement with a distributor that disseminates the work under a set of conditions defined in the specific  licence and collects revenue on the licensor's behalf. The attribution of the creator, separately from the attribution of the licensor, may be part of the licence under which the resource is distributed (as e.g. is the case with Creative Commons Licences)."@en ;
+			rdfs:subPropertyOf odrl:assigner ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range foaf:Agent .
+
+odrl-lr:distributionRightsHolder rdf:type owl:ObjectProperty , skos:Concept ;
+			rdfs:label "Distribution Rights Holder"@en ;
+			skos:definition "Identifies a person or an organization that holds the distribution rights. The range and scope of distribution rights is defined in the distribution agreement. The distributor in most cases only has a limited licence to distribute the work and collect royalties on behalf of the licensor or the IPR holder and cannot give to any recipient of the work permissions that exceed the scope of the distribution agreement (e.g. to allow uses of the work that are not defined in the distribution agreement)"@en ;
+			rdfs:subPropertyOf dct:rightsHolder ;
+			rdfs:domain dcat:Distribution ;
+			rdfs:range foaf:Agent .
+
+odrl-lr:licenseCategory rdf:type owl:ObjectProperty , skos:Concept ;
+			rdfs:label "License Category"@en ;
+			skos:definition "A way of categorising licences into three main categories: PUB, ACA or RES, according to CLARIN recommendations (cf. https://kitwiki.csc.fi/twiki/bin/view/FinCLARIN/ClarinLC)"@en ;
+			rdfs:domain odrl-lr:License ;
+			rdfs:range odrl-lr:LicenseCategory .
+
+odrl-lr:available-restrictedUse rdf:type odrl-lr:Availability, owl:NamedIndividual, skos:Concept ;
+		skos:definition "For resources available but with conditions of use imposed by the type of licence."@en ; 
+		rdfs:label "Available: Restricted Use"@en .
+		
+odrl-lr:available-unrestrictedUse rdf:type odrl-lr:Availability, owl:NamedIndividual, skos:Concept ;
+		skos:definition "For resources available with no restrictions of use (e.g. public domain resources)."@en ; 
+		rdfs:label "Available: Unrestricted Use"@en .
+		
+odrl-lr:availableThroughOtherDistributor rdf:type odrl-lr:Availability, owl:NamedIndividual, skos:Concept ;
+		skos:definition "For resources that are documented in the catalogue but the contents of which can only be accessed through other distribution channels."@en ; 
+		rdfs:label "Available Through Other Distributor"@en .
+		
+odrl-lr:underNegotiation rdf:type odrl-lr:Availability, owl:NamedIndividual, skos:Concept ;
+		skos:definition "For resources whose availability is still pending."@en ; 
+		rdfs:label "Under Negotiation"@en .
+		
+odrl-lr:AGPL rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to the AGPL (GNU Affero General Public License) which is a kind of license meant to govern the use of a resource; mainly intended for s/w"@en ; 
+		cc:legalcode <http://www.gnu.org/licenses/agpl-3.0.html> ;
+		rdfs:label "AGPL"@en .
+		
+odrl-lr:ApacheLicence_2.0 rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to the Apache Licence 2.0 which is a kind of license meant to govern the use of a resource; mainly intended for s/w"@en ; 
+		cc:legalcode <http://www.apache.org/licenses/LICENSE-2.0> ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/APACHE2.0> ;
+		rdfs:label "Apache Licence 2.0"@en .
+		
+odrl-lr:BSD rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to the BSD (Berkeley Software Distribution) license, which is a kind of license meant to govern the use of a resource; mainly intended for s/w"@en ; 
+		cc:legalcode <http://opensource.org/licenses/BSD-2-Clause> ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/BSD1.0> ;
+		rdfs:label "BSD"@en .
+		
+odrl-lr:BSD_3clause rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to the BSD 3-clause (Berkeley Software Distribution) license, which is a kind of license meant to govern the use of a resource; mainly intended for s/w"@en ; 
+		cc:legalCode <http://opensource.org/licenses/BSD-3-Clause> ;
+		rdfs:label "BSD 3-clause"@en .
+		
+odrl-lr:CC-BY rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to CC-BY which is a kind of license meant to govern the use of a resource"@en ; 
+		cc:legalCode <http://creativecommons.org/licenses/by/3.0/legalcode> ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/cc-by3.0> ;
+		rdfs:label "CC-BY"@en .
+
+odrl-lr:CC-BY-NC rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to CC-BY-NC which is a kind of license meant to govern the use of a resource"@en ; 
+		skos:closeMatch <http://purl.org/NET/rdflicense/cc-by-nc3.0> ;
+		cc:legalCode <http://creativecommons.org/licenses/by-nc/3.0/legalcode> ;
+		rdfs:label "CC-BY-NC"@en .
+		
+odrl-lr:CC-BY-NC-ND rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/cc-by-nc-nd3.0> ;
+		cc:legalCode <http://creativecommons.org/licenses/by-nc-nd/3.0/legalcode> ;
+		skos:definition "It refers to CC-BY-NC-ND which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CC-BY-NC-ND"@en .
+		
+odrl-lr:CC-BY-NC-SA rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/cc-by-nc-sa3.0> ;
+		cc:legalCode <http://creativecommons.org/licenses/by-nc-nd/3.0/legalcode> ;
+		skos:definition "It refers to CC-BY-NC-SA which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CC-BY-NC-SA"@en .
+		
+odrl-lr:CC-BY-ND rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/cc-by-nd3.0> ;
+		cc:legalCode <http://creativecommons.org/licenses/by-nd/3.0/legalcode> ;
+		skos:definition "It refers to CC-BY-ND which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CC-BY-ND"@en .
+		
+odrl-lr:CC-BY-SA rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/cc-by-sa3.0> ;
+		cc:legalCode <http://creativecommons.org/licenses/by-sa/3.0/legalcode> ;
+		skos:definition "It refers to CC-BY-SA which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CC-BY-SA"@en .
+		
+odrl-lr:CC-ZERO rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/cc-zero1.0> ;
+		cc:legalCode <https://creativecommons.org/publicdomain/zero/1.0/legalcode> ;
+		skos:definition "It refers to CC-ZERO which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CC-ZERO"@en .
+		
+odrl-lr:CLARIN_ACA rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to CLARIN_ACA which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CLARIN_ACA"@en .
+		
+odrl-lr:CLARIN_ACA-NC rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to CLARIN_ACA-NC which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CLARIN_ACA-NC"@en .
+		
+odrl-lr:CLARIN_PUB rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to CLARIN_PUB which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CLARIN_PUB"@en .
+		
+odrl-lr:CLARIN_RES rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to CLARIN_RES which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "CLARIN_RES"@en .
+		
+odrl-lr:ELRA_END_USER rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to ELRA_END_USER which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "ELRA_END_USER"@en .
+		
+odrl-lr:ELRA_EVALUATION rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to ELRA_EVALUATION which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "ELRA_EVALUATION"@en .
+		
+odrl-lr:ELRA_VAR rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to ELRA_VAR which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "ELRA_VAR"@en .
+		
+odrl-lr:GFDL rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalcode <http://www.gnu.org/copyleft/fdl.html> ;
+		skos:definition "It refers to GFDL (GNU Free Documentation License) which is a kind of license meant to govern the use of a resource; mainly intended for documents (e.g. manuals, textbooks etc.)"@en ; 
+		rdfs:label "GFDL"@en .
+		
+odrl-lr:GPL rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/gpl3.0> ;
+		cc:legalcode <http://www.gnu.org/copyleft/gpl.html> ;
+		skos:definition "It refers to GPL (GNU General Public Licence) which is a kind of license meant to govern the use of a resource; mainly intended for s/w"@en ; 
+		rdfs:label "GPL"@en .
+
+odrl-lr:LGPL rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:closeMatch <http://purl.org/NET/rdflicense/GNU-LGPL3.0> ;
+		cc:legalcode <https://www.gnu.org/licenses/lgpl.html> ;
+		skos:definition "It refers to LGPL (GNU Lesser General Public Licence) which is a kind of license meant to govern the use of a resource; mainly intended for s/w"@en ; 
+		rdfs:label "LGPL"@en .
+
+odrl-lr:MS-C-NoReD rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20%20NoRedistribution_v0%207.pdf> ;
+		skos:definition "It refers to MS-C-NoReD which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-C-NoReD"@en .
+		
+odrl-lr:MS-C-NoReD-FF rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20NoRedistribution%20For-a-Fee_v0%207.pdf> ;
+		skos:definition "It refers to MS-C-NoReD-FF which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-C-NoReD-FF"@en .
+		
+odrl-lr:MS-C-NoReD-ND rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20NoRedistribution%20NoDerivatives-v1.0.pdf> ;
+		skos:definition "It refers to MS-C-NoReD-ND which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-C-NoReD-ND"@en .
+		
+odrl-lr:MS-C-NoReD-ND-FF rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20NoRedistribution%20NoDerivatives%20For-a-fee-v1.0.pdf> ;
+		skos:definition "It refers to MS-C-NoReD-ND-FF which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-C-NoReD-ND-FF"@en .
+		
+odrl-lr:MS-NC-NoReD rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20NonCommercial%20NoRedistribution-v%201.0.pdf> ;
+		skos:definition "It refers to MS-NC-NoReD which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-NC-NoReD"@en .
+		
+odrl-lr:MS-NC-NoReD-FF rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20NonCommercial%20NoRedistribution%20For-a-Fee-v%201.0.pdf> ;
+		skos:definition "It refers to MS-NC-NoReD-FF which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-NC-NoReD-FF"@en .
+		
+odrl-lr:MS-NC-NoReD-ND rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20NonCommercial%20NoRedistribution%20NoDerivatives-v1.0.pdf> ;
+		skos:definition "It refers to MS-NC-NoReD-ND which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-NC-NoReD-ND"@en .
+		
+odrl-lr:MS-NC-NoReD-ND-FF rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20NonCommercial%20NoRedistribution%20NoDerivatives%20For-a-fee-v%201.0.pdf> ;
+		skos:definition "It refers to MS-NC-NoReD-ND-FF which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MS-NC-NoReD-ND-FF"@en .
+		
+odrl-lr:MSCommons-BY rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BY%20v1.0.pdf> ;
+		skos:definition "It refers to MSCommons-BY which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MSCommons-BY"@en .
+		
+odrl-lr:MSCommons-BY-NC rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BYNC%20v1.0.pdf>;
+		skos:definition "It refers to MSCommons-BY-NC which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MSCommons-BY-NC"@en .
+		
+odrl-lr:MSCommons-BY-NC-ND rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BYNCND%20v1.0.pdf>;
+		skos:definition "It refers to MSCommons-BY-NC-ND which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MSCommons-BY-NC-ND"@en .
+		
+odrl-lr:MSCommons-BY-NC-SA rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BYNCSA%20v1.0.pdf>;
+		skos:definition "It refers to MSCommons-BY-NC-SA which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MSCommons-BY-NC-SA"@en .
+		
+odrl-lr:MSCommons-BY-ND rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BYND%20v1.0.pdf>;
+		skos:definition "It refers to MSCommons-BY-ND which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MSCommons-BY-ND"@en .
+		
+odrl-lr:MSCommons-BY-SA rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		cc:legalCode <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20COMMONS_BYSA%20v1.0.pdf>;
+		skos:definition "It refers to MSCommons-BY-SA which is a kind of license meant to govern the use of a resource"@en ; 
+		rdfs:label "MSCommons-BY-SA"@en .
+		
+odrl-lr:Princeton_Wordnet_license rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to Princeton_Wordnet license which is a kind of license meant to govern the use of a resource (namely wordnet)"@en ; 
+		cc:legalCode <http://wordnet.princeton.edu/wordnet/license/> ;
+		rdfs:label "Princeton_Wordnet License"@en .
+		
+odrl-lr:proprietary rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to any kind of proprietary license meant to govern the use of a resource; the rights holder has exclusive legal rights over the license itself; the end user is advised to check the conditionsOfUse metadata element for a quick overview of the rights granted for the use of the resource and pay attention to the full license text; "@en ; 
+		rdfs:label "proprietary"@en .
+		
+odrl-lr:openForReuseWithRestrictions rdf:type odrl-lr:License, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to any kind of license that governs the use of a resource permitting certain automatic processing procedures but with specific restrictions; the end user is advised to check the conditionsOfUse metadata element for a quick overview of the rights granted for the use of the resource and to read carefully the full license text"@en ; 
+		rdfs:label "Open For Reuse With Restrictions"@en .
+		
+odrl-lr:nonCommercialUse rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Non-commercial use refers to a kind of 'ConditionsOfUse' imposed by the licence; use for non commercial purposes, such as research and education by academic users"@en ; 
+		rdfs:label "Non-Commercial Use"@en .
+		
+cc:Attribution rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Attribution refers to a kind of 'ConditionsOfUse' imposed by the licence; users must give credit to the resource owner, copyright holder or anyone else as required by the licensor by using appropriate attribution data"@en ; 
+		rdfs:label "Attribution"@en .
+		
+odrl-lr:evaluation rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Evaluation refers to a kind of 'ConditionsOfUse' imposed by the licence; use for evaluation purposes (cf. ELRA_EVALUATION license)"@en ; 
+		rdfs:label "Evaluation"@en .
+		
+odrl-lr:informLicensor rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Inform Licensor refers to a kind of 'ConditionsOfUse' imposed by the licence; users must inform the licensor as to the kind of use they make of the resource"@en ; 
+		rdfs:label "Inform Licensor"@en .
+		
+odrl-lr:noDerivatives rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "No Derivatives refers to a kind of 'ConditionsOfUse' imposed by the licence; users are not allow to share derivatives of the resource"@en ; 
+		rdfs:label "No Derivatives"@en .
+		
+odrl-lr:noRedistribution rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "No Redistribution refers to a kind of 'ConditionsOfUse' imposed by the licence; users are not allowed to redistribute the resource"@en ; 
+		rdfs:label "No Redistribution"@en .
+		
+odrl-lr:onlyMSmembers rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Only Meta Share members refers to a kind of 'ConditionsOfUse' imposed by the licence; the resource can only be used by members of the MetaShare network"@en ; 
+		rdfs:label "Only Meta Share members"@en .
+		
+odrl-lr:redeposit rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Redeposit refers to a kind of 'ConditionsOfUse' imposed by the licence; users are encouraged to deposit any modified versions of the resource they make to the distribution channel through which they have acquired the resource"@en ; 
+		rdfs:label "Redeposit"@en .
+		
+cc:ShareAlike rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Share Alike refers to a kind of 'ConditionsOfUse' imposed by the licence; if users create derivatives of a resource, the derivatives are to be licensed with the same license as that accompanying the original resource"@en ; 
+		rdfs:label "Share Alike"@en .
+		
+odrl-lr:languageEngineeringResearch rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Language engineering research refers to a kind of 'ConditionsOfUse' imposed by the licence; the resource can only be used for research purposes in the Language Enginnering / Language Technology domain."@en ;
+		rdfs:label "Language Engineering Research"@en . 
+		
+odrl-lr:research rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Research refers to a kind of 'ConditionsOfUse' imposed by the licence; the resource can only be used for research purposes."@en ;
+		rdfs:label "Research"@en .
+		
+odrl-lr:education rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Education refers to a kind of 'ConditionsOfUse' imposed by the licence; the resource can only be used for educational purposes."@en ;
+		rdfs:label "Education"@en . 
+
+odrl-lr:userIdentified rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+        skos:definition "UserIdentified refers to a kind of 'ConditionsOfUse' imposed by the licence; the resource can only be accessed by users that are identified/authenticated."@en ;
+		rdfs:label "User Identified"@en . 
+
+odrl-lr:spatialConstraint rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Spatial constraint refers to a kind of 'ConditionsOfUse' imposed by the licence; used for resources with spatial restrictions, e.g. the content is available or can be used only at a single location, center, or site."@en ;
+		rdfs:label "Spatial Constraint"@en . 
+
+odrl-lr:requestPlan rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "RequestPlan refers to a kind of 'ConditionsOfUse' imposed by the licence; the licensor requires a research plan for granting access."@en ;
+		rdfs:label "Request Plan"@en . 
+
+odrl-lr:personalDataIncluded rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+		skos:definition "PersonalDataIncluded refers to a kind of 'ConditionsOfUse' imposed by the licence; it's a privacy warning for resources that include personal data."@en ;
+		rdfs:label "Personal Data Included"@en . 
+		
+odrl:compensate rdf:type odrl-lr:ConditionsOfUse, owl:NamedIndividual, skos:Concept ;
+        skos:definition "Compensate refers to a kind of 'ConditionsOfUse' imposed by the licence; grant of use for the resource is only given if a certain fee is compensated."@en ;
+		rdfs:label "Compensate"@en . 
+
+odrl-lr:academicUser rdf:type odrl-lr:UserNature, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to resource users affiliated with an academic institution"@en ; 
+		rdfs:label "Academic User"@en .
+
+odrl-lr:commercialUser rdf:type odrl-lr:UserNature, owl:NamedIndividual, skos:Concept ;
+		skos:definition "It refers to resource users affiliated with a commercial institution"@en ; 
+		rdfs:label "Commercial User"@en .
+		
+odrl-lr:memberOfELRA rdf:type odrl-lr:UserNature, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Used for stating pricing privileges for members of ELRA with regard to the distribution of a resource"@en ;
+		rdfs:label "Member Of ELRA"@en .
+
+odrl-lr:memberOfLDC rdf:type odrl-lr:UserNature, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Used for stating pricing privileges for members of LDC with regard to the distribution of a resource"@en ;
+		rdfs:label "Member Of LDC"@en .
+		
+odrl-lr:memberOfTST-Centrale rdf:type odrl-lr:UserNature, owl:NamedIndividual, skos:Concept ;
+		skos:definition "Used for stating pricing privileges for members of TST-Centrale with regard to the distribution of a resource"@en ;
+		rdfs:label "Member of TST-Centrale"@en .
+		
+odrl-lr:webExecutable rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "webExecutable refers to a kind of distribution/access medium used for delivering a language resource; intended for web services"@en ;
+		rdfs:label "Web Executable"@en .
+		
+odrl-lr:paperCopy rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "paperCopy refers to a kind of distribution/access medium used for delivering a language resource; intended for resources delivered in printout form"@en ;
+		rdfs:label "Paper Copy"@en .
+		
+odrl-lr:hardDisk rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "hardDisk refers to a kind of distribution/access medium used for delivering a language resource; intended for resources delivered in hard disks"@en ;
+		rdfs:label "Hard Disk"@en .
+		
+odrl-lr:bluRay rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "bluRay refers to a kind of distribution/access medium used for delivering a language resource; intended for resources delivered on bluRay disks"@en ;
+		rdfs:label "Blu-ray"@en .
+		
+odrl-lr:DVD-R rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "DVD-R refers to a kind of distribution/access medium used for delivering a language resource; intended for resources delivered on DVD-R disks"@en ;
+		rdfs:label "DVD-R"@en .
+		
+odrl-lr:CD-ROM rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "CD-ROM refers to a kind of distribution/access medium used for delivering a language resource; intended for resources delivered on CD-ROM"@en ;
+		rdfs:label "CD-ROM"@en .
+		
+odrl-lr:downloadable rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "downloadable refers to a kind of distribution/access medium used for delivering a language resource; intended for resources delivered as downloadable files"@en ;
+		rdfs:label "Downloadable"@en .
+		
+odrl-lr:accessibleThroughInterface rdf:type odrl-lr:DistributionAccessMedium, owl:NamedIndividual, skos:Concept ;
+		skos:definition "accessibleThroughInterface refers to a kind of distribution/access medium used for delivering a language resource; intended for resources that can only be accessed with an i/f (e.g. lexical query or corpus query systems)"@en ;
+		rdfs:label "Accessible Through Interface"@en .
+		
+odrl-lr:ACA rdf:type odrl-lr:LicenseCategory, owl:NamedIndividual, skos:Concept ;
+		skos:definition "One of the values of license categories; resources of this category are only available to academic users"@en ;
+		rdfs:label "ACA"@en .
+		
+odrl-lr:PUB rdf:type odrl-lr:LicenseCategory, owl:NamedIndividual, skos:Concept ;
+		skos:definition "One of the values of license categories; resources of this category are available to all users (although other terms and conditions may apply)"@en ;
+		rdfs:label "PUB"@en .
+		
+odrl-lr:RES rdf:type odrl-lr:LicenseCategory, owl:NamedIndividual, skos:Concept ;
+		skos:definition "One of the values of license categories; resources of this category are available to all users but under conditions that require that the user is authorised before having access to the resource"@en ;
+		rdfs:label "RES"@en .
+
+odrl-lr:incorporate rdf:type skos:Concept ;
+	skos:broaderTransitive odrl:use ;
+	rdfs:label "incorporate"@en ;
+	skos:definition "The Assigner permits/prohibits the Assignees to incorporate the Asset unmodified into a Collective Work."@en .
+
+odrl-lr:authenticated rdf:type owl:DatatypeProperty, skos:Concept, odrl:LeftOperand ;
+    skos:definition "Specifies if the user has been identified/authenticated."@en ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Authenticated"@en .
+	
+odrl-lr:communicate rdf:type skos:Concept ;
+		skos:closeMatch odrl:present ;
+		rdfs:label "communicate"@en ;
+		skos:definition "The Assigner permits/prohibits the Assignees to communicate the Asset to the public"@en .
+
+
