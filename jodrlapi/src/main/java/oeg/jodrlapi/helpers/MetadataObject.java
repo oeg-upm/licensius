@@ -154,6 +154,8 @@ public class MetadataObject {
             }
             return labels.get(0);
         }
+        if (uri==null)
+            return "";
         String baseName = FilenameUtils.getBaseName(uri);
         return baseName;
     }
@@ -182,7 +184,7 @@ public class MetadataObject {
      */
     @Override
     public String toString() {
-        if (getLabel("").isEmpty()) {
+        if (getLabel("")!=null && !getLabel("").isEmpty()) {
             return getLabel("");
         }
         return FilenameUtils.getBaseName(uri);

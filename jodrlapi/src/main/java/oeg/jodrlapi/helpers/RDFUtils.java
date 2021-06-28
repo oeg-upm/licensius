@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -370,6 +371,19 @@ public class RDFUtils {
         }
         return policies;
     }
+    
+    public static List<String> getAllProperties(Resource resource) {
+        List<String> list = new ArrayList();
+        StmtIterator it = resource.listProperties();
+        while(it.hasNext())
+        {
+            Statement stmt2 = it.nextStatement();
+            Resource res = stmt2.getPredicate();
+            RDFNode node = stmt2.getObject();
+            list.add(res.toString());
+        }
+        return list;
+    }
 
     /**
      * Gets the first value of a property
@@ -482,4 +496,15 @@ public class RDFUtils {
             }
         }
     }
+    public static String getLastPartOfUri(String suri) {
+        try {
+            URI uri = new URI(suri);
+            String path = uri.getPath();
+            String idStr = path.substring(path.lastIndexOf('/') + 1);
+            return idStr;
+        } catch (Exception e) {
+            return "";
+        }
+    }
+    
 }
