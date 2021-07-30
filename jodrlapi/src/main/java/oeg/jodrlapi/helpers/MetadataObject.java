@@ -20,17 +20,22 @@ import org.apache.commons.io.FilenameUtils;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(Include.NON_EMPTY)
-@JsonPropertyOrder({"@context", "@id", "type", "text", "metadata","parts", "annotations"})
+@JsonPropertyOrder({"@context", "@id", "type", "text", "metadata"})
 public class MetadataObject {
     
     //The possibly many rdfs:label
     public List<String> labels = new ArrayList();
     
+    public String identifier = "";  //we shall take spdx
     public String comment = "";
     public String seeAlso="";
     public String title="";
     public String note = "";
     public String definition = "";
+    public String source = "";
+    
+    //licenses that are similar or the same.
+    public List<String> closeMatch = new ArrayList();
     
     
     @JsonProperty("@id")
@@ -61,6 +66,9 @@ public class MetadataObject {
         seeAlso = mo.seeAlso;
         title = mo.title;
         uri = mo.uri;
+        closeMatch = mo.closeMatch;
+        identifier = mo.identifier;
+        source = mo.source;
     }
     
     /**
@@ -167,6 +175,16 @@ public class MetadataObject {
     {
         setLabel(label);
     }
+    
+    /**
+     * Returns the identifier (spdx), if any.
+     * @return spdx identifier
+     */
+    public String getIdentifier()
+    {
+        return identifier;
+    }
+    
 
     /**
      * Sets the only label of a metadata object
@@ -189,5 +207,19 @@ public class MetadataObject {
         }
         return FilenameUtils.getBaseName(uri);
     }    
+
+    /**
+     * @return the source
+     */
+    public String getSource() {
+        return source;
+    }
+
+    /**
+     * @param source the source to set
+     */
+    public void setSource(String source) {
+        this.source = source;
+    }
     
 }

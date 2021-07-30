@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--    <link href='//cdn.jsdelivr.net/yasgui/2.5.0/yasgui.min.css' rel='stylesheet' type='text/css'/> -->
+<!--    <link href='https://cdn.jsdelivr.net/npm/yasgui@2.7.29/dist/yasgui.min.css' rel='stylesheet' type='text/css'/> -->
+    <style>
+      .yasgui .endpointText {display:none !important;}
+    </style>
+    
+        <title>SPARQL query endpoint for common licenses</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Licenses in ODRL">
+        <meta name="author" content="Victor Rodriguez">
+        <link rel="icon" type="image/png" href="favicon.png">          
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">          
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>        
+    
+        
+        <link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" type="text/css" /> 
+        <script src="https://unpkg.com/@triply/yasgui/build/yasgui.min.js"></script>        
+  </head>
+  <body>
+      
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-sm bg-light">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">License list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sparql.html">SPARQL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dump.html">Data dump</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="container">
+      
+            <input id="link1" type="button" value="link 1" onclick="example1();" />
+      
+	  <div id='yasgui'></div>
+          
+        </div>
+        
+        <script>
+                const yasgui = new Yasgui(document.getElementById("yasgui"), {
+                  requestConfig: { endpoint: "https://localhost:3330/ds" },
+                  copyEndpointOnNewTab: false,
+                });
+            
+            function example1()
+            {
+//                 const yasgui = new Yasgui(document.getElementById("yasgui"));
+                /*const yasgui = new Yasgui(document.getElementById("yasgui"), {
+                  requestConfig: { endpoint: "http://example.com/sparql" },
+                  copyEndpointOnNewTab: false,
+                });*/
+                var tab = yasgui.getTab("");
+                tab.setQuery("select ?s where {?s a <http://www.w3.org/ns/odrl/2/Set>}");
+
+            }
+        </script>
+          
+<!--    <script src='https://cdn.jsdelivr.net/yasgui/2.5.0/yasgui.min.js'></script>     
+    <script src='https://cdn.jsdelivr.net/npm/yasgui@2.7.29/dist/yasgui.min.js'></script> 
+    <script type="text/javascript">
+      var yasgui = null;
+      
+        function example1()
+        {
+//        var tab = yasgui.getTab("");
+        yasgui.setQuery("select * where {...}");
+        }
+      
+
+      function getCurrent() {
+        if(yasgui != null) {
+          return yasgui.current();
+        }
+        return null;
+      }
+      YASGUI.YASQE.defaults.value = "PREFIX dataid: <http:\/\/dataid.dbpedia.org\/ns\/core#>\r\nPREFIX dct:    <http:\/\/purl.org\/dc\/terms\/>\r\nPREFIX dcat:   <http:\/\/www.w3.org\/ns\/dcat#>\r\nPREFIX db:     <https:\/\/databus.dbpedia.org\/>\r\nPREFIX rdf:    <http:\/\/www.w3.org\/1999\/02\/22-rdf-syntax-ns#>\r\nPREFIX rdfs:   <http:\/\/www.w3.org\/2000\/01\/rdf-schema#>\r\n\r\nSELECT DISTINCT ?s WHERE {\r\n  ?s a dataid:Dataset. \r\n} \r\nLIMIT 10"
+      YASGUI.defaults.catalogueEndpoints= [{endpoint:"https://dbpedia.org/sparql",title:"English DBpedia"},{endpoint:"https://localhost:3330/ds",title:"Localhost"},{endpoint:"https://databus.dbpedia.org/repo/sparql",title:"Databus DFP"},{endpoint:"https://databus.dbpedia.org/testrepo/sparql",title:"Databus test DFP"}]
+      YASGUI.YASR.defaults.getUsedPrefixes = function() {
+        var currentPage = getCurrent();
+
+        if(currentPage != null) {
+          var prefixes = currentPage.yasqe.getPrefixesFromQuery();
+          //alert(JSON.stringify(prefixes)); 
+	  return prefixes;
+	}
+      }
+
+      yasgui = YASGUI(document.getElementById("yasgui"), {
+        //Uncomment below to change the default endpoint
+        //Note: If you've already opened the YASGUI page before, you should first clear your
+        //local-storage cache before you will see the changes taking effect
+        yasqe:{sparql:{endpoint:'https://databus.dbpedia.org/repo/sparql'}}
+      });
+
+    </script> -->
+  </body>
+</html>

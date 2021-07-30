@@ -57,8 +57,11 @@ public class RDFUtils {
     public static Property RLICENSE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/license");
     public static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
     public static Property SEEALSO = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
+    public static Property SOURCE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/source");
     public static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
     public static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");
+    public static Property RIDENTIFIER = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/identifier");
+    public static Property CLOSEMATCH = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2004/02/skos/core#closeMatch");
     public static OntModel coreModel;
 
     static {

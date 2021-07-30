@@ -54,10 +54,58 @@ public class ODRLRDF {
         String s = sw.toString();
         return s;
     }
+    
+    public static List<Policy> loadFromRDF(String rdf)
+    {
+        List<Policy> politicas = new ArrayList();
+        Model model = RDFUtils.parseFromText(rdf);
+        List<Resource> ls = ODRLRDF.findPolicies(model);
+        for (Resource rpolicy : ls) {
+            Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
+            policy.fileName = "unk";
+            politicas.add(policy);
+        }
+        return politicas;
+    }
+    /**
+     * Loads the ODRL2.2 policies found in a file or uri.
+     * @param uri URI or local file location
+     * @return A set of policies
+     */
+    public static List<Policy> loadFromURI(String path)
+    {
+        List<Policy> politicas = new ArrayList();
+        try {
+            Model model = null;
+            if (path.startsWith("http")) {
+                LOGGER.info("HTTP Model");
+                String rdf = RDFUtils.browseSemanticWeb(path);
+
+                model = RDFUtils.parseFromText(rdf);
+
+            }
+            else{
+                LOGGER.info("File Model");
+                String rdf = FileUtils.readFileToString(new File(path));
+                model = RDFUtils.parseFromText(rdf);
+            } 
+            List<Resource> ls = ODRLRDF.findPolicies(model);
+            for (Resource rpolicy : ls) {
+                Policy policy = ODRLRDF.getPolicyFromResource(rpolicy);
+                policy.fileName = path;
+                politicas.add(policy);
+            }
+        } catch (Exception e) {
+            LOGGER.error("error " + e.getMessage());
+            e.printStackTrace();
+        }
+        return politicas;
+    }
+    
 
     /**
      * Loads the ODRL2.2 policies found in a file.
-     *
+     * @deprecated 
      * @param path File location
      * @return A set of policies
      */
@@ -355,15 +403,22 @@ public class ODRLRDF {
      * @param resource Resource with the data
      */
     protected static MetadataObject getResourceMetadata(MetadataObject me, Resource resource) {
+        me.identifier = RDFUtils.getFirstPropertyValue(resource, RDFUtils.RIDENTIFIER);
         me.title = RDFUtils.getFirstPropertyValue(resource, RDFUtils.TITLE);
         me.comment = RDFUtils.getFirstPropertyValue(resource, RDFUtils.COMMENT);
         me.setLabel(RDFUtils.getFirstPropertyValue(resource, RDFUtils.LABEL));
+        List<String> cms = RDFUtils.getAllPropertyStrings(resource, RDFUtils.CLOSEMATCH);
+        me.closeMatch.clear();
+        for (String cm : cms) {
+            me.closeMatch.add(cm);
+        }
         List<String> labels = RDFUtils.getAllPropertyStrings(resource, RDFUtils.LABEL);
         me.labels.clear();
         for (String label : labels) {
             me.addLabel(label);
         }
         me.seeAlso = RDFUtils.getFirstPropertyValue(resource, RDFUtils.SEEALSO);
+        me.source = RDFUtils.getFirstPropertyValue(resource, RDFUtils.SOURCE);
         return me;
     }
 
@@ -491,6 +546,9 @@ public class ODRLRDF {
         if (!me.seeAlso.isEmpty()) {
             resource.addProperty(ODRLRDF.SEEALSO, me.seeAlso);
         }
+        if (!me.source.isEmpty()) {
+            resource.addProperty(ODRLRDF.SOURCE, me.source);
+        }
         return resource;
     }
 
@@ -556,6 +614,7 @@ public class ODRLRDF {
     private static Property RIGHTS = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/rights");
     private static Property LABEL = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#label");
     private static Property SEEALSO = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/2000/01/rdf-schema#seeAlso");
+    private static Property SOURCE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/source");
     private static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
     private static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");
 

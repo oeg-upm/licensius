@@ -41,6 +41,8 @@ public class RDFLicense {
         model = getModel();
     }
     
+    
+    
     public RDFLicense(Model _model)
     {
         model=_model;

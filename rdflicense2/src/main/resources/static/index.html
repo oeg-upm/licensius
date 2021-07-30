@@ -1,0 +1,156 @@
+<html style="min-height: 100%;">
+    <head>
+        <title>Index of structured representations of common licenses</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Licenses in ODRL">
+        <meta name="author" content="Victor Rodriguez">
+        <link rel="icon" type="image/png" href="favicon.png">          
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">          
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>        
+    </head>
+    <body>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-sm bg-light">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">License list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sparql.html">SPARQL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dump.html">Data dump</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="container">
+            <h2>ODRL representations of public licenses</h2>
+            <h3>Introduction</h3>
+            <p>The following table maps different efforts to describe licenses, and in some cases represent their contents in a structured forms, using different formats --ODRL among them</p>
+            <ul>
+                <li>official - Licenses encoded by the publishers of the license (RDF ODRL)</li>
+                <li>rdflicense - First mapping effort to ODRL (RDF ODRL)</li>
+                <li>spdx - General catalogue of licenses (JSON)</li>
+                <li>dalicc - Licenses encoded in the framework of the <a href="https://dalicc.net/">DALICC</a> project (RDF ODRL)</li>
+                <li>metashare - Licenses used in the domain of language resources (RDF ODRL)</li>
+            </ul>
+            <table class="table table-striped table-bordered table-sm" style="font-size:small;">
+               <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Structured Interpretations</th>
+               </thead>
+               <tbody id="idtablebody">
+                </tbody>
+            </table>
+        </div>
+        
+ <footer class="navbar-fixed-bottom" style="background-color: #fff;font-size: 12px;">
+  <center>
+     <hr>
+       <table>
+        <tr>
+         <td width=50% style="border: 1; padding-right: 2em; padding-left: 2em;">
+           <table>
+              <tr><td width="50px"><img src="https://pddm-pal.oeg.fi.upm.es/images/eu.jpg" width=40></td>
+                  <td>This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant  agreement No 825182: <a href="https://pret-a-llod.eu/">Prêt-à-LLOD</a> and the COST Action "<a href="https://nexuslinguarum.eu/">NexusLinguarum</a>" (CA18209)</td></tr>
+         </table>
+        </td>
+         <td>
+          <table>
+             <tr>
+               <td width="180px"><img src="https://pddm-pal.oeg.fi.upm.es/images/Logo_OEG.gif" width=60px;><img src="https://pddm-pal.oeg.fi.upm.es/images/fi.jpg" width=50px;><img src="https://pddm-pal.oeg.fi.upm.es/images/upm.jpg"   width=60px;></td>
+               <td>Ontology Engineering Group (<a href="http://www.oeg-upm.net">OEG</a>)<br/>Escuela Técnica Superior de Ingenieros Informáticos<br/>Universidad Politécnica de Madrid</td>
+             </tr>
+          </table>
+        </td>
+      </tr>
+   </table>
+<!--   <hr>
+    The content in these pages is published under <a rel="license" href="http://purl.org/NET/rdflicense/cc-by4.0">Creative Commons Attribution 4.0 Unported License</a> -->
+  </center>
+</footer>
+
+        
+<!--    <footer class="footer">
+      <div class="container">
+          <hr style="margin-top:100px;">
+        <span class="text-muted">This work has been supported by the projects COST Action "NexusLinguarum ‐ European network for Web‐centred linguistic data science" (CA18209) and .</span>
+      </div>
+    </footer> -->
+        
+    <script>
+        console.log("hola");
+        var url = "https://pddm-pal.oeg.fi.upm.es/license/?title=true";
+        listlicenses();
+        
+        async function listlicenses()
+        {
+            var url2 = "license";
+            const table = document.getElementById("idtablebody");
+            const response = await fetch(url2);            
+//            const response = await fetch('http://www.licensius.com/api/license/list', {method: 'GET'});
+//            const response = await fetch(url, {method: 'POST', body: JSON.stringify("")});
+            var str ="";
+            const jlist = await response.json();
+            
+jlist.sort(function(a, b) { 
+  if (a.title < b.title) return -1;
+  if (a.title > b.title) return 1;
+  return 0;
+});            
+            
+            for(var i = 0; i < jlist.length; i++) {
+                var obj = jlist[i];
+                let row = table.insertRow();
+                row.insertCell(0).innerHTML = obj.licenseid;
+                var stitle = obj.title;
+
+                if (obj.source)
+                    stitle += ' <a href="'+obj.source+'">⚓</a>';
+        
+                row.insertCell(1).innerHTML = stitle;
+                
+                
+                let celda = row.insertCell(2);
+                var m = "";
+                for(x in obj.mapping)
+                {
+                    var mapeo = obj.mapping[x];
+                    var enlace = "";
+                    if (mapeo.startsWith("http"))
+                        enlace = mapeo;
+                    else
+                        enlace = "https://raw.githubusercontent.com/w3c/odrl/master/bp/license/" + mapeo;
+                    var texto = mapeo;
+                    if (mapeo.includes("dalicc"))
+                        texto = 'dalicc';
+                    else if (mapeo.includes("rdflicense"))
+                        texto = 'rdflicense';
+                    else if (mapeo.includes("spdx"))
+                        texto = 'spdx';
+                    else if (mapeo.includes("official"))
+                        texto = 'official';
+                    else if (mapeo.includes("licensedb"))
+                        texto = 'licensedb';
+                    else
+                        texto = 'other';
+                    
+                    m+='<span class="badge badge-light"><a style="text-decoration: none;" href="'+ enlace +'">'+texto+'</a></span>';
+
+                    }
+                
+                celda.innerHTML = m;
+                console.log(obj.licenseid);
+            }            
+            
+///            document.getElementById("lista").innerHTML =  str; //JSON.stringify(jlist);
+        }
+        
+    </script>
+    
+    </body>
+</html>
