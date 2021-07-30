@@ -156,8 +156,8 @@ public class TripleStore {
         /*String repo = "https://github.com/Pret-a-LLOD/pddm/";
         String folder = "..\\..\\temporal";*/
         try {
-            FileUtils.deleteDirectory(new File(DATAFOLDER));
-            Git.cloneRepository().setURI(GITREPO).setDirectory(new File(DATAFOLDER)).call();
+            FileUtils.deleteDirectory(new File(ODRLFOLDER));
+            Git.cloneRepository().setURI(GITREPO).setDirectory(new File(ODRLFOLDER)).call();
         } catch (Exception e) {
             e.printStackTrace();
         }
