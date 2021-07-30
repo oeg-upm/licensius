@@ -11,7 +11,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import oeg.jodrlapi.helpers.ODRLRDF;
-import oeg.jodrlapi.helpers.RDFUtils;
 import oeg.jodrlapi.odrlmodel.Policy;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -24,11 +23,9 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
-import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.PullCommand;
 import org.eclipse.jgit.api.PullResult;
-import org.eclipse.jgit.lib.StoredConfig;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -43,9 +40,13 @@ public class TripleStore {
     private static FusekiServer server = null;
     private static Dataset ds = null;
     public static List<Policy> policies = new ArrayList();
-    //public static List<LicenseEntry> entries = new ArrayList();
-    public static Map<String, LicenseEntry> map = new HashMap();
+    public static Map<String, LicenseEntry> policiesIndex = new HashMap();
 
+    public static final String GITREPO = "https://github.com/w3c/odrl/";
+    public static final String DATAFOLDER = "odrl/bp/license";
+    public static final String INDEXFILE ="odrl/bp/license/index.json";
+    
+    
     public static void main(String args[]) {
 //        startServer();
 //        startup();
@@ -54,9 +55,22 @@ public class TripleStore {
         createIndex();
 
     }
+    /**
+     * Deletes the data in memory
+     */
+    public static void clear()
+    {
+        policies = new ArrayList();
+        policiesIndex = new HashMap();
+        ds = null;
+        server = null;
+    }
 
+    /**
+     * @deprecated
+     */
     public static void createIndex() {
-        String folder = "..\\..\\temporal";
+        String folder = DATAFOLDER;
         loadlicenses(folder);
         System.out.println("================================================");
         for (Policy p : policies) {
@@ -71,9 +85,9 @@ public class TripleStore {
             le.source = p.getSource();
             le.licenseid = id;
             try{
-            ObjectMapper mapper = new ObjectMapper();
-            String json = mapper.writeValueAsString(le );
-            System.out.println(json+",");
+                ObjectMapper mapper = new ObjectMapper();
+                String json = mapper.writeValueAsString(le );
+                System.out.println(json+",");
             }catch(Exception e){}
         }
     }
@@ -83,15 +97,8 @@ public class TripleStore {
         return url.replaceFirst(".*/([^/?]+).*", "$1");
     }
 
-    public static void readIndex() {
-        String repo = "https://github.com/w3c/odrl/";
-        String folder = "odrl";
-        //       clonegit(repo, folder);
-        loadlicensesFromIndex("odrl/bp/license/index.json");
-    }
-
-    public static void loadlicensesFromIndex(String file) {
-        map.clear();
+    public static void loadlicensesIndex(String file) {
+        policiesIndex.clear();
         try {
             String str = IOUtils.toString(new FileInputStream(new File(file)), "UTF-8");
             JSONParser parser = new JSONParser();
@@ -110,7 +117,7 @@ public class TripleStore {
                 for (int i = 0; i < am.size(); i++) {
                     e.mapping.add((String) am.get(i));
                 }
-                map.put(id, e);
+                policiesIndex.put(id, e);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -124,10 +131,11 @@ public class TripleStore {
 /*
         //We clone the git into a temporal folder
         pullgit();
-
+*/
         //We load all the licenses
+        
         loadlicenses("..\\..\\temporal\\data\\licenses");
-         */
+         
         //We start the server
         startSPARQLServer();
 
@@ -144,11 +152,11 @@ public class TripleStore {
     }
 
     public static void clonegit() {
-        String repo = "https://github.com/Pret-a-LLOD/pddm/";
-        String folder = "..\\..\\temporal";
+        /*String repo = "https://github.com/Pret-a-LLOD/pddm/";
+        String folder = "..\\..\\temporal";*/
         try {
-            FileUtils.deleteDirectory(new File(folder));
-            Git.cloneRepository().setURI(repo).setDirectory(new File(folder)).call();
+            FileUtils.deleteDirectory(new File(DATAFOLDER));
+            Git.cloneRepository().setURI(GITREPO).setDirectory(new File(DATAFOLDER)).call();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -156,9 +164,9 @@ public class TripleStore {
 
     public static void pullgit() {
         try {
-            String repo = "https://github.com/Pret-a-LLOD/pddm/";
-            String folder = "..\\..\\temporal";
-            Git git = Git.open(new File(folder));
+//            String repo = "https://github.com/Pret-a-LLOD/pddm/";
+//            String folder = "..\\..\\temporal";
+            Git git = Git.open(new File(DATAFOLDER));
             /* CloneCommand cloneCommand = Git.cloneRepository();
         cloneCommand.setURI(repo);
         cloneCommand.setDirectory(new File(folder));
@@ -185,6 +193,11 @@ public class TripleStore {
         }
     }
 
+    public static void loadlicenses()
+    {
+        loadlicenses("./"+DATAFOLDER+"/data/licenses");
+    }
+    
     public static void loadlicenses(String folder) {
         File ffolder = new File(folder);
         ds = DatasetFactory.createTxnMem();
@@ -217,7 +230,7 @@ public class TripleStore {
                 
                 if (!id.isEmpty())
                 {
-                    LicenseEntry entry = map.get(id);
+                    LicenseEntry entry = policiesIndex.get(id);
                     if (entry==null)
                         entry = new LicenseEntry(id);
                     if (entry.title.isEmpty())
@@ -225,7 +238,7 @@ public class TripleStore {
                     if (entry.source.isEmpty())
                         entry.source = p.getSource();
                     entry.mapping.add(p.getURI());
-                    map.put(id, entry);
+                    policiesIndex.put(id, entry);
                 }*/
             }
 
@@ -235,8 +248,11 @@ public class TripleStore {
 
     }
 
+        /**
+         * Starts the SPARQL server
+         */
     public static void startSPARQLServer() {
-        loadlicenses("..\\..\\temporal\\data\\licenses");
+       // loadlicenses("..\\..\\temporal\\data\\licenses");
 
         /*      System.setProperty("org.eclipse.jetty.util.log.class", "org.eclipse.jetty.util.log.StdErrLog");
         System.setProperty("org.eclipse.jetty.LEVEL", "OFF");

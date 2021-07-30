@@ -34,16 +34,28 @@ public class LicenseController {
     @ResponseBody
     public ResponseEntity getLicenses(@RequestParam(required = false) String id)  {
         String s = "";
-        Iterator it = TripleStore.map.entrySet().iterator();
+        Iterator it = TripleStore.policiesIndex.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry)it.next();        
         }
         
-        List<LicenseEntry> valores = new ArrayList<LicenseEntry>(TripleStore.map.values());
+        List<LicenseEntry> valores = new ArrayList<LicenseEntry>(TripleStore.policiesIndex.values());
         
         return new ResponseEntity<>( valores,HttpStatus.OK);
 //        return new ResponseEntity<>( TripleStore.policies,HttpStatus.OK);
     }    
     
-    
+    @CrossOrigin
+    @RequestMapping(
+            value = "/license/refresh",
+            produces= "application/json;charset=UTF-8",
+            method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity refresh()  {
+        TripleStore.clonegit();
+        TripleStore.clear();
+        TripleStore.loadlicenses();
+        String msg = TripleStore.policies.size() + " licenses loaded";
+        return new ResponseEntity<>( msg ,HttpStatus.OK);
+    }    
 }
