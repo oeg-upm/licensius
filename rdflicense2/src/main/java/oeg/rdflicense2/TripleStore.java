@@ -43,6 +43,7 @@ public class TripleStore {
     public static Map<String, LicenseEntry> policiesIndex = new HashMap();
 
     public static final String GITREPO = "https://github.com/w3c/odrl/";
+    public static final String ODRLFOLDER = "odrl";
     public static final String DATAFOLDER = "odrl/bp/license";
     public static final String INDEXFILE ="odrl/bp/license/index.json";
     
@@ -144,8 +145,8 @@ public class TripleStore {
 
     public static void clonegit(String repo, String folder) {
         try {
-            FileUtils.deleteDirectory(new File(folder));
-            Git.cloneRepository().setURI(repo).setDirectory(new File(folder)).call();
+            FileUtils.deleteDirectory(new File(ODRLFOLDER));
+            Git.cloneRepository().setURI(repo).setDirectory(new File(ODRLFOLDER)).call();
         } catch (Exception e) {
             e.printStackTrace();
         }
