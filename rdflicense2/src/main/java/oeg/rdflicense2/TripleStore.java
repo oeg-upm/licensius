@@ -134,7 +134,7 @@ public class TripleStore {
 */
         //We load all the licenses
         
-        loadlicenses("..\\..\\temporal\\data\\licenses");
+    //    loadlicenses("..\\..\\temporal\\data\\licenses");
          
         //We start the server
         startSPARQLServer();
