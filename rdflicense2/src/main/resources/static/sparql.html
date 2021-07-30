@@ -9,6 +9,11 @@
     <style>
       .yasgui .endpointText {display:none !important;}
     </style>
+<style>
+  .yasgui .autocompleteWrapper {
+    display: none !important;
+  }
+</style>    
     
         <title>SPARQL query endpoint for common licenses</title>
         <meta charset="utf-8">
@@ -52,7 +57,7 @@
         
         <script>
                 const yasgui = new Yasgui(document.getElementById("yasgui"), {
-                  requestConfig: { endpoint: "https://localhost:3330/ds" },
+                  requestConfig: { endpoint: "/sparql" },
                   copyEndpointOnNewTab: false,
                 });
             
