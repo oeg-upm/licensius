@@ -196,7 +196,7 @@ public class TripleStore {
 
     public static void loadlicenses()
     {
-        loadlicenses("./"+DATAFOLDER+"/data/licenses");
+        loadlicenses("./"+DATAFOLDER);
     }
     
     public static void loadlicenses(String folder) {

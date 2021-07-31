@@ -6,14 +6,46 @@
         <meta name="description" content="Licenses in ODRL">
         <meta name="author" content="Victor Rodriguez">
         <link rel="icon" type="image/png" href="favicon.png">          
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">          
+
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">          
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"  crossorigin="anonymous"></script> -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>        
+ -->       
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+        
+        
     </head>
     <body>
-        <!-- navbar -->
-        <nav class="navbar navbar-expand-sm bg-light">
+        
+<nav class="navbar navbar-inverse"> <!-- navbar-inverse -->
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-home"></span></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+            <li class="nav-item active" >
+              <a class="nav-link" href="index.html">License list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sparql.html">SPARQL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dump.html">Data dump</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.html">Service</a>
+            </li>
+      </ul>
+        
+    </div>
+  </div>
+</nav>             
+        
+        <!-- navbar 
+        <nav class="navbar  navbar-inverse navbar-expand-sm bg-light"> <!--  
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="index.html">License list</a>
@@ -25,7 +57,7 @@
               <a class="nav-link" href="dump.html">Data dump</a>
             </li>
           </ul>
-        </nav>
+        </nav> -->
         <div class="container">
             <h2>ODRL representations of public licenses</h2>
             <h3>Introduction</h3>
@@ -51,28 +83,26 @@
  <footer class="navbar-fixed-bottom" style="background-color: #fff;font-size: 12px;">
   <center>
       <hr>
-      <p><b>Disclaimer</b>: This page contains no legal advice and reproduces interpretations made by third parties. See also the <a href="https://rdflicense.linkeddata.es/swagger-ui.html">API</a>.</p>
-      <small>
+      <p style="text-align:left;margin-left:50px;"><b>Disclaimer</b>:This page contains no legal advice and reproduces interpretations made by third parties. See also the <a href="https://rdflicense.linkeddata.es/swagger-ui.html">API</a>.</p>
        <table>
            
         <tr>
          <td width=50% style="border: 1; padding-right: 2em; padding-left: 2em;">
-           <table>
-              <tr><td width="50px"><img src="https://pddm-pal.oeg.fi.upm.es/images/eu.jpg" width=40></td>
-                  <td>This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant  agreement No 825182: <a href="https://pret-a-llod.eu/">Prêt-à-LLOD</a> and the COST Action "<a href="https://nexuslinguarum.eu/">NexusLinguarum</a>" (CA18209)</td></tr>
+           <table style="font-size:small;">
+              <tr><td width="55px"><img src="eu.jpg" width=50></td>
+                  <td>This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant  agreement No 825182: <a href="https://pret-a-llod.eu/">Prêt-à-LLOD</a> and the COST Action "<a href="https://nexuslinguarum.eu/">NexusLinguarum</a>" (CA18209)<img src="nexus.png" width=20><img src="pretallod.jpg" width=50> </td></tr>
          </table>
         </td>
          <td>
-          <table>
+          <table style="font-size:small;">
              <tr>
-               <td width="180px"><img src="https://pddm-pal.oeg.fi.upm.es/images/Logo_OEG.gif" width=60px;><img src="https://pddm-pal.oeg.fi.upm.es/images/fi.jpg" width=50px;><img src="https://pddm-pal.oeg.fi.upm.es/images/upm.jpg"   width=60px;></td>
+               <td width="180px"><img src="Logo_OEG.gif" width=60px;><img src="fi.jpg" width=50px;><img src="upm.jpg"   width=60px;></td>
                <td>Ontology Engineering Group (<a href="http://www.oeg-upm.net">OEG</a>)<br/>Escuela Técnica Superior de Ingenieros Informáticos<br/>Universidad Politécnica de Madrid</td>
              </tr>
           </table>
         </td>
       </tr>
    </table>
-      </small>
 <!--   <hr>
     The content in these pages is published under <a rel="license" href="http://purl.org/NET/rdflicense/cc-by4.0">Creative Commons Attribution 4.0 Unported License</a> -->
   </center>
@@ -114,7 +144,7 @@ jlist.sort(function(a, b) {
                 var stitle = obj.title;
 
                 if (obj.source)
-                    stitle += ' <a href="'+obj.source+'">⚓</a>';
+                    stitle += ' <a href="'+obj.source+'"><span class="glyphicon glyphicon-share-alt"></span></a>';
         
                 row.insertCell(1).innerHTML = stitle;
                 
@@ -143,7 +173,7 @@ jlist.sort(function(a, b) {
                     else
                         texto = 'other';
                     
-                    m+='<span class="badge badge-light"><a style="text-decoration: none;" href="'+ enlace +'">'+texto+'</a></span>';
+                    m+='<span class="label label-primary" style="margin-right:3px;"><a style="color:white;text-decoration:none;font-weight:normal;" href="'+ enlace +'">'+texto+'</a></span>';
 
                     }
                 
