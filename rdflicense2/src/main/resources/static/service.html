@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Services for licenses for language resources</title>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png">         
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/journal/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
+    <link rel="stylesheet" href="css/ladda-themeless.min.css">
+    <script src="js/spin.min.js"></script>
+    <script src="js/ladda.min.js"></script>    
+  </head>
+  <body>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-sm bg-light">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">License list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sparql.html">SPARQL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dump.html">Data dump</a>
+            </li>
+          </ul>
+        </nav>      
+      
+      
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-home"></span></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html">RDFChess</a></li>
+        <li><a href="model.html">Model</a></li>
+        <li class="active"><a href="pgn2rdf.html">PGN2RDF</a></li> 
+        <li><a href="resource/">Games</a></li> 
+      </ul>
+        
+<!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
+</ul> -->
+        
+        
+        
+    </div>
+  </div>
+</nav>      
+      
+      
+    <div class="container">
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-10">
+	</div>
+        
+        
+        
+  <div class="well">
+      <h1><img src="img/rdfchess32.png" alt="RDFChess" align="left" style="PADDING-RIGHT: 5px"> Linked Chess Data</h1> 
+    <p>This site provides the models for representing chess games and a dataset of games in RDF, as well as a service to transform PGN games into RDF game</p> 
+  </div>
+    <div id="PGN2RDF">
+        <h2>PGN2RDF</h2>
+        <form action="/RDFChess/pgn2rdf" method="post" role="form" class="form-horizontal">
+          
+            <div class="form-group">
+                <div class="col-xs-5"><textarea style="font-family:monospace;" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
+                <div class="col-xs-2">
+                    <center>
+                        <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">Link PGN </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <p>Get a linked chess game!</p>
+                    </center>
+                    <center>
+                        <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform2()"><span class="ladda-label">PGN to RDF </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <p>Get a RDF chess game!</p>
+                    </center>
+                </div>
+                <div class="col-xs-5"><textarea style="font-family:monospace;" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea>
+                    <div class="control-group">
+                    <a id="boton3" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform3()"><span class="ladda-label">Upload </span><span class="glyphicon glyphicon-upload"></span></a>                        
+                    <a id="boton4" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform4()"><span class="ladda-label">Expand </span><span class="glyphicon glyphicon-resize-full"></span></a>                        
+                    </div>
+                
+                </div>
+            </div>
+         </form>           
+            
+            
+<!--        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="fileOwner" />
+          <div><input type="file" name="upfile"/></div>
+<div><input type="submit" name="submit" value="Upload" /></div>
+        </form>  
+            -->
+        </div>
+	<div class="col-md-1">
+	</div>        
+    </div>    
+    
+    <div id="footer">
+      <div class="container">
+          <hr/>
+          <center> <p class="muted credit">Developed in May 2015 by the Daselab and OEG</p></center>
+      </div>
+    </div>
+    
+    
+    <script>
+     $(document).ready(function() {
+//        document.getElementById('pgn').value="[Event \"Once upon a time\"]\n[White \"Peasant\"]\n[Black \"King\"]\n[Result \"1-0\"]\n[ECO \"C23\"]\n1.e4 e5 2.Bc4 Nc6 3.Qh5 Nf6 4.Dxf7 1-0";
+        var partida= "[Event \"St Stefan/Belgrade m\"]\n"+"[Site \"Belgrade\"]\n"+"[Date \"1992.??.??\"]\n";
+        partida += "[Round \"30\"]\n[White \"Spassky, Boris V\"]\n[Black \"Fischer, Robert James\"]\n";
+        partida += "[Result \"0-1\"]\n[WhiteElo \"2560\"]\n[BlackElo \"2785\"]\n";
+        partida += "[ECO \"E83\"]\n";
+        partida +="1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.f3 O-O 6.Be3 Nc6 7.Nge2 a6 8.h4 h5 9.Nc1 Nd7 10.Nb3 a5 11.a4 Nb4 12.Be2 b6 13.g4 hxg4 14.fxg4 c5 15.h5 cxd4 16.Nxd4 Nc5 17.Nd5 Bb7 18.Nf5 gxf5 19.gxf5 Bxd5 20.exd5 Bxb2 21.Kf1 Qd7 22.Qb1 Bxa1 23.Rg1+ Kh8 24.Qxa1+ f6 25.Qb1 Rg8 26.Rg6 Rxg6 27.hxg6 Kg7  0-1";
+        document.getElementById('pgn').value= partida;
+        $.getJSON('/pgn2rdf', function(data) {
+        $('#result').html("Hello, " + data.name);
+      });
+    });
+    </script>
+    
+<script type="text/javascript">
+
+//enrich
+function submitform1()
+{
+    console.info("Starting the enrich action");
+    var l = Ladda.create(document.getElementById("boton1"));
+    l.start();    
+    var http = new XMLHttpRequest();
+    var pgn = document.getElementById("pgn").value;
+    var pgnencoded = encodeURI(pgn);
+    console.info(pgn);
+    var params = "pgn=" + pgnencoded+"&action=enrich";
+    http.open("POST", "/rdfchess/pgn2rdf", true); //true
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+    http.setRequestHeader("Content-length", params.length);    
+    http.setRequestHeader("Connection", "close");
+    http.send(params);
+    http.onload = function() {
+        document.getElementById("rdf").value = http.responseText;
+        l.stop();
+    }    
+}
+
+//translate
+function submitform2()
+{
+    console.info("Starting the translate action");
+    var l = Ladda.create(document.getElementById("boton2"));
+    l.start();    
+    var http = new XMLHttpRequest();
+    var pgn = document.getElementById("pgn").value;
+    var pgnencoded = encodeURI(pgn);
+    console.info(pgn);
+    var params = "pgn=" + pgnencoded+"&action=translate";
+    http.open("POST", "/rdfchess/pgn2rdf", true); //true
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+    http.setRequestHeader("Content-length", params.length);    
+    http.setRequestHeader("Connection", "close");
+    http.send(params);
+    http.onload = function() {
+        document.getElementById("rdf").value = http.responseText;
+        l.stop();
+    }       
+}
+
+//upload
+function submitform3()
+{
+    console.info("Starting the upload action");
+    var l = Ladda.create(document.getElementById("boton3")); 
+    l.start();    
+    var http = new XMLHttpRequest();
+    var rdf = document.getElementById("rdf").value;
+    var pgnencoded = encodeURI(rdf);
+    console.info(rdf);
+    var params = "pgn=" + pgnencoded+"&action=upload";
+    http.open("POST", "/rdfchess/pgn2rdf", true); //true
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+    http.setRequestHeader("Content-length", params.length);    
+    http.setRequestHeader("Connection", "close");
+    http.send(params);
+    http.onload = function() {
+         l.stop();
+        if (http.responseText) {
+            alert('Game uploaded as: ' + http.responseText);
+            window.open(http.responseText);
+        }
+        else
+        {
+            alert('No game has been uploaded');
+        }
+    }       
+}
+
+//expand
+function submitform4()
+{
+    var l = Ladda.create(document.getElementById("boton4"));
+    console.info("Starting the expansion action");
+    l.start();    
+    var http = new XMLHttpRequest();
+    var rdf = document.getElementById("rdf").value;
+    var pgnencoded = encodeURI(rdf);
+    console.info(rdf);
+    var params = "pgn=" + pgnencoded+"&action=expand";
+    http.open("POST", "/rdfchess/pgn2rdf", true); //true
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+    http.setRequestHeader("Content-length", params.length);    
+    http.setRequestHeader("Connection", "close");
+    http.send(params);
+    http.onload = function() {
+         document.getElementById("rdf").value = http.responseText;
+         l.stop();
+    }       
+}
+
+
+</script>    
+    
+    
+  </body>
+</html>
