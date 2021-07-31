@@ -48,8 +48,9 @@
         </nav>
 
         <div class="container">
-      
-            <input id="link1" type="button" value="link 1" onclick="example1();" />
+            <p>This SPARQL contains licenses represented as RDF. Each license lives in its named graph.</p>
+            <p><input id="link1" type="button" value="see" onclick="example1();" /> Get all the licenses </p>
+            <p><input id="link2" type="button" value="see" onclick="example2();" /> Load one license </p>
       
 	  <div id='yasgui'></div>
           
@@ -69,9 +70,17 @@
                   copyEndpointOnNewTab: false,
                 });*/
                 var tab = yasgui.getTab("");
-                tab.setQuery("select ?s where {?s a <http://www.w3.org/ns/odrl/2/Set>}");
+//                tab.setQuery("select ?s where {?s a <http://www.w3.org/ns/odrl/2/Set>}");
+                tab.setQuery("SELECT DISTINCT ?g WHERE  { GRAPH ?g {?s ?p ?o} } ORDER BY ?g");
 
             }
+            function example2()
+            {
+                var tab = yasgui.getTab("");
+                tab.setQuery("SELECT * {GRAPH <http://purl.org/NET/rdflicense/APACHE1.0> {?s ?p ?o }} LIMIT 1000");
+                
+            }
+            
         </script>
           
 <!--    <script src='https://cdn.jsdelivr.net/yasgui/2.5.0/yasgui.min.js'></script>     

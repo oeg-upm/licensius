@@ -36,17 +36,19 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li ><a href="index.html">RDFChess</a></li>
-        <li><a href="model.html">Model</a></li>
-        <li class="active"><a href="pgn2rdf.html">PGN2RDF</a></li> 
-        <li><a href="resource/">Games</a></li> 
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">License list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sparql.html">SPARQL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dump.html">Data dump</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="service.html">Service</a>
+            </li>
       </ul>
-        
-<!-- <ul class="nav navbar-nav navbar-right">
-        <li><a href="/account"><span class="glyphicon glyphicon-log-in"></span> Account</a></li>
-</ul> -->
-        
-        
         
     </div>
   </div>
@@ -59,16 +61,13 @@
 	<div class="col-md-10">
 	</div>
         
-        
-        
   <div class="well">
-      <h1><img src="img/rdfchess32.png" alt="RDFChess" align="left" style="PADDING-RIGHT: 5px"> Linked Chess Data</h1> 
-    <p>This site provides the models for representing chess games and a dataset of games in RDF, as well as a service to transform PGN games into RDF game</p> 
+      <h1><img src="img/rdfchess32.png" alt="RDFChess" align="left" style="PADDING-RIGHT: 5px">Transformation of Metashare registries</h1> 
+      <p>This webpage demonstrates the transformation of language resource catalog entries from/to various forms</p> 
   </div>
     <div id="PGN2RDF">
-        <h2>PGN2RDF</h2>
+        <h2>Metashare validator and transformer</h2>
         <form action="/RDFChess/pgn2rdf" method="post" role="form" class="form-horizontal">
-          
             <div class="form-group">
                 <div class="col-xs-5"><textarea style="font-family:monospace;" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
                 <div class="col-xs-2">
@@ -90,14 +89,6 @@
                 </div>
             </div>
          </form>           
-            
-            
-<!--        <form action="/upload" method="post" enctype="multipart/form-data">
-          <input type="hidden" name="fileOwner" />
-          <div><input type="file" name="upfile"/></div>
-<div><input type="submit" name="submit" value="Upload" /></div>
-        </form>  
-            -->
         </div>
 	<div class="col-md-1">
 	</div>        
@@ -106,7 +97,7 @@
     <div id="footer">
       <div class="container">
           <hr/>
-          <center> <p class="muted credit">Developed in May 2015 by the Daselab and OEG</p></center>
+          <center> <p class="muted credit">Developed in Athens in July 2021 by the Institute of Speech and Language Processing and Ontology Engineering Group</p></center>
       </div>
     </div>
     

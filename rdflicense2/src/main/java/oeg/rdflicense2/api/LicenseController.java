@@ -1,17 +1,16 @@
 package oeg.rdflicense2.api;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import oeg.jodrlapi.odrlmodel.Policy;
 import oeg.rdflicense2.LicenseEntry;
 import oeg.rdflicense2.TripleStore;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 @Api(tags = "License", value = "License")
+@ApiOperation(value = "Access to licenses in RDF.")
 public class LicenseController {
     
     @CrossOrigin
@@ -31,18 +31,15 @@ public class LicenseController {
             value = "/license",
             produces= "application/json;charset=UTF-8",
             method = RequestMethod.GET)
+    @ApiOperation(value = "Gets a list of licenses and their different encodings by different authors")
     @ResponseBody
     public ResponseEntity getLicenses(@RequestParam(required = false) String id)  {
-        String s = "";
-        Iterator it = TripleStore.policiesIndex.entrySet().iterator();
+        /*Iterator it = TripleStore.policiesIndex.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry e = (Map.Entry)it.next();        
-        }
-        
+        }*/
         List<LicenseEntry> valores = new ArrayList<LicenseEntry>(TripleStore.policiesIndex.values());
-        
         return new ResponseEntity<>( valores,HttpStatus.OK);
-//        return new ResponseEntity<>( TripleStore.policies,HttpStatus.OK);
     }    
     
     @CrossOrigin

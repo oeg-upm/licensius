@@ -9,7 +9,7 @@ public class Rdflicense2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Rdflicense2Application.class, args);
-                TripleStore.clonegit();
+       //         TripleStore.clonegit();
        //         dailymethod();
                 TripleStore.loadlicensesIndex(TripleStore.INDEXFILE);
                 TripleStore.loadlicenses(TripleStore.DATAFOLDER);

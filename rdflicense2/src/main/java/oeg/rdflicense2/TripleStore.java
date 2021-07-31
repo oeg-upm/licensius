@@ -271,10 +271,10 @@ public class TripleStore {
             String result = out.toString();
             // System.out.println(result);
 
-            server = FusekiServer.create().port(3330).enableCors(true).add("/ds", dataset, true).build();
+            server = FusekiServer.create().port(3330).enableCors(true).add("/ds", ds, true).build();
             server.start();
 
-            try (QueryExecution qExec = QueryExecutionFactory.create("SELECT * {?s ?p ?o}", dataset)) {
+            try (QueryExecution qExec = QueryExecutionFactory.create("SELECT * {?s ?p ?o}", ds)) {
                 ResultSet rs = qExec.execSelect();
                 ResultSetFormatter.outputAsTSV(rs);
                 int tot = rs.getRowNumber();

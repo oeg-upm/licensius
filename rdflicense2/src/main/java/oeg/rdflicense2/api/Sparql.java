@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * Makes a transparent mirror of the queries to the Triplestore SPARQL endpoint
  * @author vroddon
  */
 @Controller
+@ApiIgnore
 public class Sparql {
-
     @RequestMapping("/sparql")
     public ResponseEntity mirror(@ApiParam(required = false, hidden = true) @RequestBody(required = false) String body,
             @ApiParam(required = false, hidden = true) HttpMethod method,
             @ApiParam(required = false, hidden = true) HttpServletRequest request,
             @ApiParam(required = false, hidden = true) HttpServletResponse response) {
-
         System.out.println("Redirigiendo");
         try {
             return mirrorRest(body, method, request, response);
