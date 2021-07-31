@@ -49,8 +49,8 @@
       <h3><img src="favicon.png" align="left" style="padding-right: 5px;">Transformation of Metashare catalog entries</h3> 
       <p>This webpage demonstrates the transformation of language resource catalog entries from/to various forms</p> 
   </div>
-    <div id="PGN2RDF">
-        <form action="/RDFChess/pgn2rdf" method="post" role="form" class="form-horizontal" >
+    <div id="PGN2RDF"> <!-- method="post" role="form"  action="/RDFChess/pgn2rdf" -->
+        <form  class="form-horizontal" >
             <div class="form-group">
                 <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
                 <div class="col-xs-2">
@@ -161,7 +161,7 @@ async function validate()
     var texto = document.getElementById("pgn").value;
     const response = await fetch("/validate", {method: 'POST', body: texto});
     const jr = await response.json();    
-    document.getElementById("rdf").value = "ready " + jr;
+    document.getElementById("rdf").value = "Valid: " + jr;
     l.stop();
 }
 
