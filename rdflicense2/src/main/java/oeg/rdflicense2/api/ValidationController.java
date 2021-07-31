@@ -23,6 +23,7 @@ public class ValidationController {
 
     public static boolean validate(String xml) {
         try {
+            System.out.println("Vamos a validar!");
             File fXmlFile = new File("/path/to/my.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">          
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>        
+    <title>Sticky Footer Template for Bootstrap</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/">
+    <link href="sticky-footer.css" rel="stylesheet">
+    <style>/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}</style>
+  </head>
+
+  <body>
+        <nav class="navbar navbar-expand-sm bg-light">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">License list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sparql.html">SPARQL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Data dump</a>
+            </li>
+          </ul>
+        </nav>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+            <h2>ODRL representations of public licenses</h2>
+            <h3>Introduction</h3>
+            <p>The following table maps different efforts to describe licenses, and in some cases represent their contents in a structured forms, using different formats --ODRL among them</p>
+            <ul>
+                <li>official - Licenses encoded by the publishers of the license (RDF ODRL)</li>
+                <li>rdflicense - First mapping effort to ODRL (RDF ODRL)</li>
+                <li>spdx - General catalogue of licenses (JSON)</li>
+                <li>dalicc - Licenses encoded in the framework of the <a href="https://dalicc.net/">DALICC</a> project (RDF ODRL)</li>
+                <li>metashare - Licenses used in the domain of language resources (RDF ODRL)</li>
+            </ul>
+            <table class="table table-striped table-bordered table-sm" style="font-size:small;">
+               <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Structured Interpretations</th>
+               </thead>
+               <tbody id="idtablebody">
+                </tbody>
+            </table>        
+        
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+  </body>
+</html>
