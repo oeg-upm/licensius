@@ -3,6 +3,7 @@ package oeg.rdflicense2.api;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.io.File;
+import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 
 /**
  *
@@ -41,11 +43,13 @@ public class ValidationController {
     public static boolean validateXML(String xml) {
         try {
             System.out.println("Vamos a validar!");
+            InputSource is = new InputSource(new StringReader(xml));
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(xml);
+            Document doc = dBuilder.parse(is);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
 
