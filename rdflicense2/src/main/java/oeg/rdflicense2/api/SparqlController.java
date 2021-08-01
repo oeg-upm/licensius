@@ -26,7 +26,7 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @Controller
 @ApiIgnore
-public class Sparql {
+public class SparqlController {
     @RequestMapping("/sparql")
     public ResponseEntity mirror(@ApiParam(required = false, hidden = true) @RequestBody(required = false) String body,
             @ApiParam(required = false, hidden = true) HttpMethod method,

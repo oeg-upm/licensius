@@ -52,7 +52,7 @@
     <div id="PGN2RDF"> <!-- method="post" role="form"  action="/RDFChess/pgn2rdf" -->
         <form  class="form-horizontal" >
             <div class="form-group">
-                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
+                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em;font-size:0.9em;" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
                 <div class="col-xs-2">
                     <center>
                         <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: transform()"><span class="ladda-label">XML to RDF </span><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -63,7 +63,7 @@
                         <p>Validate</p>
                     </center>
                 </div>
-                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea>
+                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em;font-size:0.9em;" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea>
 <!--                    <div class="control-group">
                     <a id="boton3" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform3()"><span class="ladda-label">Upload </span><span class="glyphicon glyphicon-upload"></span></a>                        
                     <a id="boton4" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform4()"><span class="ladda-label">Expand </span><span class="glyphicon glyphicon-resize-full"></span></a>                        
@@ -122,9 +122,9 @@
      $(document).ready(function() {
         var partida= "<xml> blah blah blah </xml>";
         document.getElementById('pgn').value= partida;
-        $.getJSON('/pgn2rdf', function(data) {
+        /* $.getJSON('/pgn2rdf', function(data) {
         $('#result').html("Hello, " + data.name);
-      });
+      });*/
     });
     </script>
     
@@ -134,12 +134,16 @@
 async function transform()
 {
     console.info("transform");
-    var l = Ladda.create(document.getElementById("boton2"));
+    var l = Ladda.create(document.getElementById("boton1"));
     l.start();    
     var texto = document.getElementById("pgn").value;
-    const response = await fetch("/xmlrdf", {method: 'POST', body: texto});
+    const response = await fetch("/xml2rdf", {method: 'POST', body: texto});
     const jr = await response.json();    
-    document.getElementById("rdf").value = jr;
+    console.log(jr.transformation);
+    if (jr.valid===true)
+        document.getElementById("rdf").value = jr.transformation;
+    else
+        document.getElementById("rdf").value = "error";
     l.stop();
 }
 
@@ -152,7 +156,7 @@ async function validate()
     var texto = document.getElementById("pgn").value;
     const response = await fetch("/validate", {method: 'POST', body: texto});
     const jr = await response.json();    
-    document.getElementById("rdf").value = "Valid: " + jr;
+    document.getElementById("rdf").value = "Valid: " + jr.valid +"\n"+ jr.reason;
     l.stop();
 }
 
