@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import oeg.rdflicense2.ValidationResponse;
+import oeg.rdflicense2.XMLValidator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -34,25 +36,32 @@ public class ValidationController {
     @RequestMapping(value = "/validate",method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity validate(@RequestBody String xml) {
-        boolean b = validateXML(xml);
-        return new ResponseEntity<>( b+"" ,HttpStatus.OK);
-        
-        
+        ValidationResponse vr = validateXML(xml);
+        return new ResponseEntity<>( vr ,HttpStatus.OK);
     }
 
-    public static boolean validateXML(String xml) {
+    public static ValidationResponse validateXML(String xml) {
+        ValidationResponse vr = new ValidationResponse(true,"");
         try {
             System.out.println("Vamos a validar!");
             InputSource is = new InputSource(new StringReader(xml));
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(is);
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            vr = new ValidationResponse(false,"XML is not well formed");
+            return vr;
         }
-
+        boolean v = XMLValidator.validateXMLSchema2("ELG-SHARE.xsd", xml);
+        if (v==false)
+        {
+            vr = new ValidationResponse(false,"XML is well formed, but not conformant to ELG-SHARE.xsd");
+            return vr;
+            
+        }
+        
+        return vr;
     }
 
 }

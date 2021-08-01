@@ -55,11 +55,11 @@
                 <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
                 <div class="col-xs-2">
                     <center>
-                        <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform1()"><span class="ladda-label">XML to RDF </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: transform()"><span class="ladda-label">XML to RDF </span><span class="glyphicon glyphicon-chevron-right"></span></a>
                         <p>Transforms from Metashare XML into Metashare RDF</p>
                     </center>
                     <center>
-                        <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: validate()"><span class="ladda-label">Validates</span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: validate()"><span class="ladda-label">Validate</span><span class="glyphicon glyphicon-chevron-right"></span></a>
                         <p>Validate</p>
                     </center>
                 </div>
@@ -98,7 +98,7 @@
                  </td>
                  
                  <td style="margin-right:20px;">This service was developed in Athens in July 2021 by the <a href="https://www.ilsp.gr/en/home-2/">Institute of Speech and Language Processing</a> (AthenaRC) and the 
-    <a href="http://www.oeg-upm.net">Ontology Engineering Group</a> (Universidad Politécnica de Madrid)
+    <a href="http://www.oeg-upm.net">Ontology Engineering Group</a> (Universidad Politécnica de Madrid). See also the related <a href="https://rdflicense.linkeddata.es/swagger-ui.html">API</a>
                </td>
              </tr>
           </table>
@@ -131,25 +131,16 @@
 <script type="text/javascript">
 
 //enrich
-function submitform1()
+async function transform()
 {
-    console.info("Starting the enrich action");
-    var l = Ladda.create(document.getElementById("boton1"));
+    console.info("transform");
+    var l = Ladda.create(document.getElementById("boton2"));
     l.start();    
-    var http = new XMLHttpRequest();
-    var pgn = document.getElementById("pgn").value;
-    var pgnencoded = encodeURI(pgn);
-    console.info(pgn);
-    var params = "pgn=" + pgnencoded+"&action=enrich";
-    http.open("POST", "/rdfchess/pgn2rdf", true); //true
-    http.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
-    http.setRequestHeader("Content-length", params.length);    
-    http.setRequestHeader("Connection", "close");
-    http.send(params);
-    http.onload = function() {
-        document.getElementById("rdf").value = http.responseText;
-        l.stop();
-    }    
+    var texto = document.getElementById("pgn").value;
+    const response = await fetch("/xmlrdf", {method: 'POST', body: texto});
+    const jr = await response.json();    
+    document.getElementById("rdf").value = jr;
+    l.stop();
 }
 
 //translate
