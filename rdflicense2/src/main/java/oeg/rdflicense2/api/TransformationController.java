@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import java.io.StringReader;
+import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
@@ -32,6 +33,10 @@ import org.apache.jena.rdf.model.RDFNode;
 /**
  * Makes transformations to RDF
  * @author vroddon
+ * 
+ * @ApiParam(name="xml", value="Metashare XMl to be transformed",  example="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+"<ms:MetadataRecord xmlns:ms=\"http://w3id.org/meta-share/meta-share/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://w3id.org/meta-share/meta-share/ https://live.european-language-grid.eu/metadata-schema/ELG-SHARE.xsd\"><ms:metadataCreationDate>2020-02-27</ms:metadataCreationDate><ms:metadataLastDateUpdated>2020-10-21</ms:metadataLastDateUpdated><ms:metadataCurator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCurator><ms:compliesWith>http://w3id.org/meta-share/meta-share/ELG-SHARE</ms:compliesWith><ms:metadataCreator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCreator><ms:DescribedEntity><ms:LicenceTerms><ms:entityType>LicenceTerms</ms:entityType><ms:LicenceIdentifier ms:LicenceIdentifierScheme=\"http://w3id.org/meta-share/meta-share/SPDX\">Abstyles</ms:LicenceIdentifier><ms:licenceTermsName xml:lang=\"en\">Abstyles License</ms:licenceTermsName><ms:licenceTermsShortName xml:lang=\"en\">Abstyles</ms:licenceTermsShortName><ms:licenceTermsURL>https://fedoraproject.org/wiki/Licensing/Abstyles</ms:licenceTermsURL><ms:conditionOfUse>http://w3id.org/meta-share/meta-share/unspecified</ms:conditionOfUse></ms:LicenceTerms></ms:DescribedEntity></ms:MetadataRecord>")
+, produces = "application/n-triples" * 
  */
 @Controller
 @Api(tags = "Transformation", value = "Transformation")
@@ -42,8 +47,8 @@ public class TransformationController {
     @ApiOperation(value = "Transforms the licensing information of a Metashare resource in XML to its flat RDF version")
     @RequestMapping(value = "/xml2rdf", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity transform( @ApiParam(name="xml", value="Metashare XMl to be transformed",  example="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
-"<ms:MetadataRecord xmlns:ms=\"http://w3id.org/meta-share/meta-share/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://w3id.org/meta-share/meta-share/ https://live.european-language-grid.eu/metadata-schema/ELG-SHARE.xsd\"><ms:metadataCreationDate>2020-02-27</ms:metadataCreationDate><ms:metadataLastDateUpdated>2020-10-21</ms:metadataLastDateUpdated><ms:metadataCurator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCurator><ms:compliesWith>http://w3id.org/meta-share/meta-share/ELG-SHARE</ms:compliesWith><ms:metadataCreator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCreator><ms:DescribedEntity><ms:LicenceTerms><ms:entityType>LicenceTerms</ms:entityType><ms:LicenceIdentifier ms:LicenceIdentifierScheme=\"http://w3id.org/meta-share/meta-share/SPDX\">Abstyles</ms:LicenceIdentifier><ms:licenceTermsName xml:lang=\"en\">Abstyles License</ms:licenceTermsName><ms:licenceTermsShortName xml:lang=\"en\">Abstyles</ms:licenceTermsShortName><ms:licenceTermsURL>https://fedoraproject.org/wiki/Licensing/Abstyles</ms:licenceTermsURL><ms:conditionOfUse>http://w3id.org/meta-share/meta-share/unspecified</ms:conditionOfUse></ms:LicenceTerms></ms:DescribedEntity></ms:MetadataRecord>")  @RequestBody String xml) {
+    public ResponseEntity transform(   
+    @RequestBody String xml) {
         TransformationResponse tr = transformXML(xml);
         return new ResponseEntity<>(tr, HttpStatus.OK);
     }
@@ -85,6 +90,26 @@ public class TransformationController {
                 }
             }        
             return "";
+    }
+    private static String getTriple2(String s, String p, String o, String lang)
+    {
+        if (!lang.isEmpty())
+            lang="@"+lang;
+        String rdf="";
+        if (!lang.isEmpty())
+            lang="@"+lang;                            
+        
+        if (s.startsWith("http"))
+            s = "<"+s+">";
+        
+        if (o.startsWith("http"))
+            rdf += s +" <" + p+"> <"+ o +  "> .\n";
+        else
+        {
+            o = Normalizer.normalize(o, Normalizer.Form.NFKC);
+            rdf += s + " <" + p+"> \""+ o +  "\""+lang+" .\n";
+        }
+        return rdf;
     }
 
     public static TransformationResponse transformXML(String xml) {
@@ -133,18 +158,9 @@ public class TransformationController {
                         if (clave.equals(nodename))
                         {
                             String lang = getAttributeValue(n1, "xml:lang");
-                            /* This is an alternative for the next two lines
-                            if (!lang.isEmpty())
-                                lang="@"+lang;                            
-                            if (nodetext.startsWith("http"))
-                                rdf += "_:license <" + pairs.get(clave)+"> <"+ nodetext +  "> .\n";
-                            else
-                                rdf += "_:license <" + pairs.get(clave)+"> \""+ nodetext +  "\""+lang+" .\n";
-                            */
-                             
-                            String triple = getTriple(":license", pairs.get(clave), nodetext, lang);
-                            rdf+=triple;
-//                            System.out.println(triple);
+                            String triple0 = TransformationController.getTriple("_:license", pairs.get(clave), nodetext, lang);
+                            String triple1 = getTriple2("_:license", pairs.get(clave), nodetext, lang);
+                            rdf+=triple1;
                         }
                     }
                     if (nodename.equals("ms:LicenceIdentifier"))
