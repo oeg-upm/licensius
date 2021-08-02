@@ -178,6 +178,7 @@ public class TransformationController {
                 }
             }
             TransformationResponse tr = new TransformationResponse(true, rdf);
+            rdf = rdf.replace("@@", "@");
             return tr;
         } catch (Exception e) {
             System.out.println("error: " + e.getMessage());
