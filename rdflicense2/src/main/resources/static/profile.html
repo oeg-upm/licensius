@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>ODRL Implementation Best Practices</title>
+		<title>ODRL Profile for Policies of Language Resources and Technologies</title>
 		<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
 		<script class="remove" src="config.js"></script>
 		
-	<!-- this is a test edition -->	
+	<!-- this is a draft edition -->	
 		
 	<!-- Also possible the style from view-source:https://www.w3.org/TR/vocab-org/  --> 
 	<!--view-source:https://www.w3.org/TR/vocab-duv/-->
@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<section  id="abstract">
-			<p>This document presents several examples of use of ODRL, describes good implementation practices and provides sample ODRL policies.</p>
+			<p>This document presents the ODRL Profile for accessing Language Resources and Technologies (LRTs). This aims to support entities (repositories, infrastructures, archives, libraries, etc.) that enable the sharing of LRTs and act as intermediaries between LRT providers and consumers; from here on, we refer to them as "distributing entities". To this aim, it extends the <a href="https://www.w3.org/TR/odrl-model/">ODRL</a> model to define policies that express actions, rules, permissions and / or prohibitions related to sharing and processing of LRTs, and re-uses the <a href="http://w3id.org/meta-share/meta-share">META-SHARE</a> ontology to describe these policies and other access or rights related features.</p>
 			 
 		</section>
 		<section id='sotd'>
@@ -25,8 +25,23 @@
 		</section> 
 	
 		<section id="intro">
-		<h2>Introduction</h2> 	
-		
+		<h2>Introduction</h2> 
+		<p>The current profile introduces elements that serve one of these purposes:</p>
+		<ul>
+<li>define actions performed by the above entities in order to provide consumers with access to LRTs</li>
+<li>define restrictions and actions required to implement control of the access to LRTs</li>
+<li>describe vocabulary elements needed to support such policies and/or common policy patterns</li>
+<li>describe vocabulary elements needed to support restrictions and authorization algorithms.</li>
+</ul>
+<p>To achieve these goals, the following requirements motivate our approach to extend the ODRL Vocabulary and Expression specification to define permissions and/or prohibitions associated with access granting operations of LRTs stored and distributed by the above entities, and to re-use and extend the META-SHARE vocabulary to express legal and technical concepts associated to these operations.</p>
+<p>R1. Support specifying user preferences as policies.</p>
+<p>R2. Incorporate vocabulary specifying or aligned to legal concepts.</p>
+<p>R3. Support specifying permissions and prohibitions typical of policies for LRTs.</p>
+<p>R4. Describe policies used to authorise access to data resources and data processing services.</p>
+<p>R5. Specify procedures and algorithms that can generate templates for policies typical of access to LRTs.</p>
+
+
+
 		<section id="conventions">
 				<h3>Document Conventions</h3>
 					<p>In order to read this document a basic knowledge of either RDF or JSON is supposed.</p>
@@ -96,6 +111,12 @@
             <td><a href="https://creativecommons.org/ns#">creativecommons.org</a></td>
           </tr>
     
+			 <tr>
+            <td>ms</td>
+            <td>http://w3id.org/meta-share/meta-share</td>
+            <td></td>
+          </tr>
+
 			 <tr>
             <td>ex</td>
             <td>http://example.com/ns#</td>
