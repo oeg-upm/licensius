@@ -143,7 +143,7 @@ public class TransformationController {
                 Node n0 = nl0.item(i);
                 NodeList nl1 = n0.getChildNodes();
 
-                rdf += "_:license a <http://w3id.org/meta-share/meta-share/LicenceTerms> .\n";
+                rdf += "_:license <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://w3id.org/meta-share/meta-share/LicenceTerms> .\n";
 
                 for(int j=0;j<nl1.getLength();j++)
                 {
@@ -168,7 +168,11 @@ public class TransformationController {
                         String propiedad = "http://w3id.org/meta-share/meta-share/LicenceIdentifier";
                         String identifier = getAttributeValue(n1, "ms:LicenceIdentifierScheme");
                         if (identifier.equals("http://w3id.org/meta-share/meta-share/SPDX"))
-                            rdf += "_:license <" + propiedad +"> <"+ nodetext +  "> .\n";
+                        {
+//                            rdf += "_:license <" + propiedad +"> <"+ nodetext +  "> .\n";
+                            String triple1 = getTriple2("_:license", propiedad, nodetext, "");                            
+                            rdf+=triple1;
+                        }
                     }
                             
                 }
