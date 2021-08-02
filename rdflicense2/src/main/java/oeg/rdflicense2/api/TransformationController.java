@@ -11,6 +11,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import oeg.jodrlapi.helpers.RDFUtils;
 import oeg.rdflicense2.TransformationResponse;
+import oeg.rdflicense2.transformers.TransformerXMLODRL;
+import oeg.rdflicense2.transformers.TransformerXMLRDF;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -37,6 +39,12 @@ import org.apache.jena.rdf.model.RDFNode;
  * @ApiParam(name="xml", value="Metashare XMl to be transformed",  example="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
 "<ms:MetadataRecord xmlns:ms=\"http://w3id.org/meta-share/meta-share/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://w3id.org/meta-share/meta-share/ https://live.european-language-grid.eu/metadata-schema/ELG-SHARE.xsd\"><ms:metadataCreationDate>2020-02-27</ms:metadataCreationDate><ms:metadataLastDateUpdated>2020-10-21</ms:metadataLastDateUpdated><ms:metadataCurator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCurator><ms:compliesWith>http://w3id.org/meta-share/meta-share/ELG-SHARE</ms:compliesWith><ms:metadataCreator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCreator><ms:DescribedEntity><ms:LicenceTerms><ms:entityType>LicenceTerms</ms:entityType><ms:LicenceIdentifier ms:LicenceIdentifierScheme=\"http://w3id.org/meta-share/meta-share/SPDX\">Abstyles</ms:LicenceIdentifier><ms:licenceTermsName xml:lang=\"en\">Abstyles License</ms:licenceTermsName><ms:licenceTermsShortName xml:lang=\"en\">Abstyles</ms:licenceTermsShortName><ms:licenceTermsURL>https://fedoraproject.org/wiki/Licensing/Abstyles</ms:licenceTermsURL><ms:conditionOfUse>http://w3id.org/meta-share/meta-share/unspecified</ms:conditionOfUse></ms:LicenceTerms></ms:DescribedEntity></ms:MetadataRecord>")
 , produces = "application/n-triples" * 
+* 
+* cd C:\Users\vroddon\Desktop\xml_records\
+for /r %%i in (*) do curl -X POST -H "Content-Type: text/xml; charset=utf-8" -d @%%i https://rdflicense.linkeddata.es/xml2rdf > %%i.ttl
+ Example of invocation: 
+* curl -X POST -H "Content-Type: text/xml; charset=utf-8" -d @myxmlfile.xml https://rdflicense.linkeddata.es/xml2rdf 
+* 
  */
 @Controller
 @Api(tags = "Transformation", value = "Transformation")
@@ -49,141 +57,19 @@ public class TransformationController {
     @ResponseBody
     public ResponseEntity transform(   
     @RequestBody String xml) {
-        TransformationResponse tr = transformXML(xml);
+        TransformationResponse tr = TransformerXMLRDF.transformXML(xml);
+        return new ResponseEntity<>(tr, HttpStatus.OK);
+    }
+    @CrossOrigin
+    @ApiOperation(value = "Transforms the licensing information of a Metashare resource in XML to an ODRL policy")
+    @RequestMapping(value = "/xml2odrl", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity transformToOdrl(   
+    @RequestBody String xml) {
+        TransformationResponse tr = TransformerXMLODRL.transformXML2ODRL(xml);
         return new ResponseEntity<>(tr, HttpStatus.OK);
     }
     
-    /**
-     * Creates a triple in ntriples format. 
-     * If the object starts with http, it will be stroed as a resource <uri> <uri> <uri>
-     */
-    private static String getTriple(String s, String p, String o, String lang)
-    {
-        Model model = ModelFactory.createDefaultModel();        
-        String nt ="";
-        Resource rs = ModelFactory.createDefaultModel().createResource(s);
-        Property rp = ModelFactory.createDefaultModel().createProperty(p);
-        RDFNode ro = null; //ModelFactory.createDefaultModel().createProperty(p);
-        if (o.startsWith("http"))
-        {   
-            model.add(rs, rp, ModelFactory.createDefaultModel().createResource(o));
-        }
-        else
-        {   if (lang.isEmpty())
-                model.add(rs, rp, ModelFactory.createDefaultModel().createLiteral(o));
-            else
-                model.add(rs, rp, ModelFactory.createDefaultModel().createLiteral(o, lang));
-        }
-        nt = RDFUtils.toRDF(model, "TURTLE");
-        return nt;
-    }
-    
-    private static String getAttributeValue(Node n, String atext)
-    {
-            NamedNodeMap attributes = n.getAttributes();
-            for(int k=0;k<attributes.getLength();k++)
-            {
-                String atributo = attributes.item(k).getNodeName();
-                if (atributo.equals(atext))
-                {
-                    return attributes.item(k).getNodeValue();
-                }
-            }        
-            return "";
-    }
-    private static String getTriple2(String s, String p, String o, String lang)
-    {
-        String rdf="";
-        if (!lang.isEmpty())
-            lang="@"+lang;                            
-        
-        if (s.startsWith("http"))
-            s = "<"+s+">";
-        
-        if (o.startsWith("http"))
-            rdf += s +" <" + p+"> <"+ o +  "> .\n";
-        else
-        {
-            o = Normalizer.normalize(o, Normalizer.Form.NFKC);
-            rdf += s + " <" + p+"> \""+ o +  "\""+lang+" .\n";
-        }
-        return rdf;
-    }
 
-    public static TransformationResponse transformXML(String xml) {
-        
-        Map<String, String> pairs = new HashMap();
-        pairs.put("ms:conditionOfUse", "http://w3id.org/meta-share/meta-share/conditionOfUse");
-        pairs.put("ms:licenceCategory", "http://w3id.org/meta-share/meta-share/licenceCategory");
-        pairs.put("ms:licenceTermsURL", "http://w3id.org/meta-share/meta-share/licenceTermsURL");
-        pairs.put("ms:licenceTermsName", "http://w3id.org/meta-share/meta-share/licenceTermsName");
-        pairs.put("ms:licenceTermsShortName", "http://w3id.org/meta-share/meta-share/licenceTermsShortName");
-        pairs.put("ms:licenceTermsAlternativeName", "http://w3id.org/meta-share/meta-share/licenceTermsAlternativeName");
-   
-        
-        
-//???   ms:LicenceIdentifier --> get the attribute LicenceIdentifierScheme and check it is http://w3id.org/meta-share/meta-share/SPDX
-//
-                
-        try {
-            String rdf = "";
-            System.out.println("Vamos a transformar!");
-            InputSource is = new InputSource(new StringReader(xml));
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(is);
-            
-            //for each ms:LicenceTerms we create a http://w3id.org/meta-share/meta-share/LicenceTerms
-            NodeList nl0 = doc.getElementsByTagName("ms:LicenceTerms");
-            int cuantos = nl0.getLength();
-            for(int i=0;i<nl0.getLength();i++)
-            {
-                Node n0 = nl0.item(i);
-                NodeList nl1 = n0.getChildNodes();
 
-                rdf += "_:license <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://w3id.org/meta-share/meta-share/LicenceTerms> .\n";
-
-                for(int j=0;j<nl1.getLength();j++)
-                {
-                    Node n1 = nl1.item(j);
-/*                    System.out.println(n1.toString());
-                    System.out.println(n1.getNodeName());
-                    System.out.println(n1.getTextContent());*/
-                    String nodename = n1.getNodeName();
-                    String nodetext = n1.getTextContent();
-                    for(String clave : pairs.keySet())
-                    {
-                        if (clave.equals(nodename))
-                        {
-                            String lang = getAttributeValue(n1, "xml:lang");
-                            String triple0 = TransformationController.getTriple("_:license", pairs.get(clave), nodetext, lang);
-                            String triple1 = getTriple2("_:license", pairs.get(clave), nodetext, lang);
-                            rdf+=triple1;
-                        }
-                    }
-                    if (nodename.equals("ms:LicenceIdentifier"))
-                    {
-                        String propiedad = "http://w3id.org/meta-share/meta-share/LicenceIdentifier";
-                        String identifier = getAttributeValue(n1, "ms:LicenceIdentifierScheme");
-                        if (identifier.equals("http://w3id.org/meta-share/meta-share/SPDX"))
-                        {
-//                            rdf += "_:license <" + propiedad +"> <"+ nodetext +  "> .\n";
-                            String triple1 = getTriple2("_:license", propiedad, nodetext, "");                            
-                            rdf+=triple1;
-                        }
-                    }
-                            
-                }
-            }
-            rdf = rdf.replace("@@", "@");
-            rdf = rdf.replace("\n", "\\n");
-            TransformationResponse tr = new TransformationResponse(true, rdf);
-            return tr;
-        } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
-            e.printStackTrace();
-            TransformationResponse tr = new TransformationResponse(false, e.getMessage());
-            return tr;
-        }
-    }
 }

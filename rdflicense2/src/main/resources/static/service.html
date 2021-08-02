@@ -46,24 +46,29 @@
 	</div>
         
   <div class="well">
-      <h3><img src="favicon.png" align="left" style="padding-right: 5px;">Transformation of Metashare catalog entries</h3> 
+          <!-- <img src="favicon.png" align="left" style="padding-right: 5px;">-->
+      <h3>Transformation of Metashare catalog entries</h3>  
       <p>This webpage demonstrates the transformation of language resource catalog entries from/to various forms</p> 
   </div>
     <div id="PGN2RDF"> <!-- method="post" role="form"  action="/RDFChess/pgn2rdf" -->
         <form  class="form-horizontal" >
             <div class="form-group">
-                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em;font-size:0.9em;" class="form-control" rows="12" id="pgn" name="pgn"></textarea></div>
+                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em;font-size:0.9em;" class="form-control" rows="15" id="pgn" name="pgn"></textarea></div>
                 <div class="col-xs-2">
                     <center>
-                        <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: transform()"><span class="ladda-label">XML to RDF </span><span class="glyphicon glyphicon-chevron-right"></span></a>
-                        <p>Transforms from Metashare XML into Metashare RDF</p>
+                        <a id="boton1" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: transform()"><span class="ladda-label">XML to RDF</span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <p>Metashare XML > RDF</p>
+                    </center>
+                    <center>
+                        <a id="boton3" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: transformodrl()"><span class="ladda-label">XML to ODRL</span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <p>Metashare XML > ODRL</p>
                     </center>
                     <center>
                         <a id="boton2" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: validate()"><span class="ladda-label">Validate</span><span class="glyphicon glyphicon-chevron-right"></span></a>
                         <p>Validate</p>
                     </center>
                 </div>
-                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em;font-size:0.9em;" readonly class="form-control" rows="12" id="rdf" name="rdf"></textarea>
+                <div class="col-xs-5"><textarea style="border:1px solid black;font-family:monospace;line-height:1.1em;font-size:0.9em;" readonly class="form-control" rows="15" id="rdf" name="rdf"></textarea>
 <!--                    <div class="control-group">
                     <a id="boton3" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform3()"><span class="ladda-label">Upload </span><span class="glyphicon glyphicon-upload"></span></a>                        
                     <a id="boton4" class="btn btn-primary ladda-button" data-style="zoom-in" href="javascript: submitform4()"><span class="ladda-label">Expand </span><span class="glyphicon glyphicon-resize-full"></span></a>                        
@@ -130,7 +135,7 @@
     
 <script type="text/javascript">
 
-//enrich
+//xml>rdf
 async function transform()
 {
     console.info("transform");
@@ -146,7 +151,22 @@ async function transform()
         document.getElementById("rdf").value = "error";
     l.stop();
 }
-
+//enrich
+async function transformodrl()
+{
+    console.info("transform");
+    var l = Ladda.create(document.getElementById("boton3"));
+    l.start();    
+    var texto = document.getElementById("pgn").value;
+    const response = await fetch("/xml2odrl", {method: 'POST', body: texto});
+    const jr = await response.json();    
+    console.log(jr.transformation);
+    if (jr.valid===true)
+        document.getElementById("rdf").value = jr.transformation;
+    else
+        document.getElementById("rdf").value = "error";
+    l.stop();
+}
 //translate
 async function validate()
 {

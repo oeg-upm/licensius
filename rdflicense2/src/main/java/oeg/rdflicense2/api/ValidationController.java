@@ -56,7 +56,7 @@ public class ValidationController {
         boolean v = XMLValidator.validateXMLSchema2("ELG-SHARE.xsd", xml);
         if (v==false)
         {
-            vr = new ValidationResponse(false,"XML is well formed, but not conformant to ELG-SHARE.xsd");
+            vr = new ValidationResponse(false,"XML is well formed, but not conformant to ELG-SHARE.xsd. ");
             return vr;
             
         }
