@@ -17,10 +17,14 @@ public class TransformerXMLODRL {
             String prefix = "@prefix odrl: <http://www.w3.org/ns/odrl/2/> .\n@prefix dct: <http://purl.org/dc/terms/> .";
             String line0="_:license a odrl:Policy ;";
             ttl+=line0+"\n";
+            String basepermission = "odrl:permission [ odrl:action odrl:reproduce ] \n";
+            String line1 = "";
+            
+
     
             TransformationResponse tr = new TransformationResponse(true, ttl);
+            
             return tr;
-           
         }catch(Exception e)
         {
             TransformationResponse tr = new TransformationResponse(false, e.getMessage());
