@@ -176,6 +176,7 @@ public class TransformationController {
                 }
             }
             rdf = rdf.replace("@@", "@");
+            rdf = rdf.replace("\n", "\\n");
             TransformationResponse tr = new TransformationResponse(true, rdf);
             return tr;
         } catch (Exception e) {
