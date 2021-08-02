@@ -93,8 +93,6 @@ public class TransformationController {
     }
     private static String getTriple2(String s, String p, String o, String lang)
     {
-        if (!lang.isEmpty())
-            lang="@"+lang;
         String rdf="";
         if (!lang.isEmpty())
             lang="@"+lang;                            
@@ -177,8 +175,8 @@ public class TransformationController {
                             
                 }
             }
-            TransformationResponse tr = new TransformationResponse(true, rdf);
             rdf = rdf.replace("@@", "@");
+            TransformationResponse tr = new TransformationResponse(true, rdf);
             return tr;
         } catch (Exception e) {
             System.out.println("error: " + e.getMessage());
