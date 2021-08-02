@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
@@ -509,5 +510,14 @@ public class RDFUtils {
             return "";
         }
     }
-    
+    public static String toRDF(Model model, String syntax) {
+        try {
+            StringWriter out = new StringWriter();
+            model.write(out, syntax);            
+            return out.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }    
 }

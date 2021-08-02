@@ -7,7 +7,6 @@ import java.util.List;
 //JENA
 //import org.apache.jena.riot.RDFDataMgr;
 import java.io.File;
-import java.net.URI;
 import java.util.ArrayList;
 import oeg.jodrlapi.odrlmodel.Action;
 import oeg.jodrlapi.odrlmodel.Constraint;
@@ -78,14 +77,14 @@ public class ODRLRDF {
         try {
             Model model = null;
             if (path.startsWith("http")) {
-                LOGGER.info("HTTP Model");
+                LOGGER.debug("HTTP Model");
                 String rdf = RDFUtils.browseSemanticWeb(path);
 
                 model = RDFUtils.parseFromText(rdf);
 
             }
             else{
-                LOGGER.info("File Model");
+                LOGGER.debug("File Model");
                 String rdf = FileUtils.readFileToString(new File(path));
                 model = RDFUtils.parseFromText(rdf);
             } 
