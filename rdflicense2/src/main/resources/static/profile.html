@@ -539,19 +539,338 @@ A distinction is made between the <em>language resource / technology</em>, as th
 <section id="Actions">
 <h3>Actions</h3>
 <h4>Operations</h4>
-<p>To cover the operations performed in the context of this profile, the following concepts are used from the ODRL and MS-OWL vocabularies: <code>odrl:execute, <code>odrl:aggregate, <code>ms:download, <code>ms:process and <code>ms:combine.</p>
+<p>To cover the operations performed in the context of this profile, the following concepts are used from the ODRL and META-SHARE vocabularies: <code>odrl:execute</code>, <code>odrl:aggregate</code>, <code>ms:download</code>, <code>ms:process</code> and <code>ms:combine</code>.</p>
 <!-- TODO add tables -->
 </section>
 <section id="Actions for constraints">
 <h3>Actions for Constraints</h3>
 <p>The following subclasses of <code>odrl:Action</code> are required in use with constraints on rules to describe common practices in the domain of LRT distribution: <code>signIn</code>, <code>authorize</code>.</p>
 
+</section>
+<section id="Examples">
+<h2>Examples</h2>
+<h3>Examples of LRTs</h3>
+<pre class="example nohighlight turtle" title="A corpus with one distribution (downloadable files) with one licence" id="LR_oneLicence">
+					
+ex:Resource1 a ms:Corpus ;
+	ms:distribution 
+		[ ms:datasetDistributionForm ms:downloadable 
+		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0>
+		]
+</pre>
 
+<pre class="example nohighlight turtle" title="A corpus with two distributions (downloadable files and accessible with interface) with the same licence" id="LR_twoDistributions">
+					
+ex:Resource1 a ms:Corpus ;
+	ms:distribution 
+		[ ms:datasetDistributionForm ms:downloadable ;
+		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0>
+		]
+	ms:distribution 
+		[ ms:datasetDistributionForm ms:accessibleWithInterface ; 
+		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0>
+		]
+</pre>
+
+<pre class="example nohighlight turtle" title="A tool/service with one distribution (web service) with dual licences (for the model contained in the service and the code)" id="LR_dualLicences">
+					
+ex:Resource1 a ms:ToolService ;
+	ms:distribution 
+		[ ms:softwareDistributionForm ms:webservice ;
+		  dct:license <http://rdflicense.appspot.com/rdflicense/cc-by4.0.ttl> ;
+		  dct:license <http://purl.org/NET/rdflicense/APACHE2.0.ttl>
+		]
+
+</pre>
+
+<pre class="example nohighlight turtle" title="A corpus with one distribution released with different licences (because it is composed of subsets released with different licences)" id="LR_collectionMultipleLicences">
+					
+ex:Resource1 a ms:Corpus ;
+	ms:distribution 
+		[ ms:datasetDistributionForm ms:downloadable ;
+		  dct:license <http://rdflicense.appspot.com/rdflicense/cc-by4.0.ttl> ;
+		  dct:license <http://rdflicense.appspot.com/rdflicense/cc-by-nc-4.0.ttl>
+		]
+</pre>
+
+<pre class="example nohighlight turtle" title="A corpus with two distributions with different pricing restrictions (free for academic users and at a price for commercial users)" id="LR_differentPrices">
+					
+ex:Resource1 a ms:Corpus ;
+	ms:distribution 
+		[ ms:datasetDistributionForm ms:downloadable ;
+		  dct:license < http://rdflicense.appspot.com/rdflicense/elra-end-user.ttl> ; 
+		  ms:userType ms:academic
+		]
+		[ ms:datasetDistributionForm ms:downloadable ;
+		  dct:license < http://rdflicense.appspot.com/rdflicense/elra-end-user.ttl> ; 
+		  ms:cost [ 
+			ms:amount "10000" ; 
+			ms:currency ms:euro
+			]
+		  ms:userType ms:commercial
+		] 
+
+</pre>
+
+<pre class="example nohighlight turtle" title="A corpus embargoed for release after a certain date" id="LR_dateEmbargo">
+					
+ex:Resource1 a ms:Corpus ;
+	ms:distribution 
+		[ ms:datasetDistributionForm ms:downloadable ;
+		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+		  ms:availabilityStartDate "2021-06-30"
+		] .
+
+</pre>
+
+<h3>Examples of Licences</h3>
+
+<pre class="example nohighlight turtle" title="Standard licence without conditions; user is allowed to download, process, execute without any constraints" id="Licence_noConditions">
+					
+<http://purl.org/NET/rdflicense/ilsp/CC0-1.0>
+	a odrl:Policy ;
+	rdfs:label "Creative Commons Zero v1.0 Universal" ;
+	dct:source <https://creativecommons.org/publicdomain/zero/1.0/legalcode> ;
+	dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+	dct:identifier "CC0-1.0" ;
+	rdfs:seeAlso <http://spdx.org/licenses/CC0-1.0> ;
+	ms:licenceCategory ms:allowsDirectAccess ;
+	ms:licenceCategory ms:allowsProcessing ;
+	ms:conditionOfUse ms:noConditions ;
+	odrl:permission [
+        	a odrl:Permission ;
+	        odrl:action ms:download , odrl:execute , ms:process, odrl:aggregate 
+ 	] .
+
+
+</pre>
+
+<pre class="example nohighlight turtle" title="Licence requesting a signature from the user" id="Licence_signature">
+					
+< http://purl.org/NET/rdflicense/elra-var>
+	a odrl:Policy ;
+	rdfs:label " LANGUAGE RESOURCES VALUE-ADDED-RESELLER AGREEMENT" ;
+	dct:source <http://www.elda.org/media/filer_public/2014/08/01/var_140312.pdf> ;
+	dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
+	ms:conditionOfUse ms:noRedistribution , ms:languageEngineeringResearch , ms:spatialConstraint , cc:Attribution ;
+	ms:licenceCategory ms:allowsAccessWithSignature ;
+	ms:licenceCategory ms:requiresUserAuthentication ;
+	ms:licenceCategory ms:allowsProcessing ;
+	odrl:permission [
+        	a odrl:Permission ;
+	        odrl:action ms:download , ms:process, ms:execute, odrl:aggregate, ms:combine ;
+                odrl:constraint
+                        [ a odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:spatial "only at assignee's site"
+                        ] ;
+                        [ a odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:purpose ms:languageEngineeringResearch
+                        ] ;
+                        [ a odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:assignee ms:sign
+						  ] ;
+                        [ a odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:assignee ms:signIn
+                        ] 
+                odrl:duty
+                        [ odrl:action cc:Attribution
+                        ] 
+		] ;
+	odrl:prohibition
+              [ odrl:action cc:Distribution
+              ] .
+
+					
+					
+</pre>
+
+
+
+<pre class="example nohighlight turtle" title="Licence that requires user authentication (the user must be logged in)" id="Licence_authentication">
+					
+<http://purl.org/NET/rdflicense/ilsp/ms-c-nored>
+	a odrl:Policy ;
+	rdfs:label "META-SHARE Commercial NoRedistribution" ;
+	dct:source <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20%20NoRedistribution_v0%207.pdf> ;
+	ms:conditionOfUse ms:noRedistribution , ms:languageEngineeringResearch , ms:attribution ;
+	ms:licenceCategory ms:requiresUserAuthorization ;
+	ms:licenceCategory ms:allowsProcessing ;
+	odrl:permission [
+        	a odrl:Permission ;
+	        odrl:action ms:download , ms:process, ms:execute, odrl:aggregate, ms:combine ;
+                odrl:constraint
+                        [ a       odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:spatial "only at assignee's site"
+                        ] ;
+                odrl:constraint
+                        [ a       odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:purpose ms:languageEngineeringResearch
+                        ] ;
+                odrl:constraint
+                        [ a odrl:Constraint ;
+                          odrl:operator odrl:eq ;
+                          odrl:assignee ms:authorize
+                        ] ;
+                odrl:duty
+                        [ odrl:action cc:Attribution
+                        ] 
+              ] ;
+ 	] ;
+	odrl:prohibition
+              [ odrl:action cc:Distribution
+              ] .
+
+</pre>
+
+<pre class="example nohighlight turtle" title="Terms of use for a service with a price model set by characters on a daily base (different prices per interval)" id="Terms_count_interval">
+
+<p>Processing</p>
+<ul>
+<li>of 0 - 100 characters per day: the user has to pay 10 USD;<li>
+<li>from 101 - 500 chars per day: 50 USD</li>
+</ul>
+
+[]   a odrl:Duty;
+     odrl:action   [
+              a md:Compensate ;
+odrl:payAmount    10.00 ;
+             odrl:unit         <https://www.wikidata.org/wiki/Q4917> ;  # USD
+             odrl:unitOfCount  [ a ms:Character ] ;
+             odrl:refinement [ 
+			odrl:operator odrl:lt ;
+ 			odrl:count 100 ;
+			odrl:meteredTime odrl:lteq “P1D”
+] 
+           ] , [
+              a                md:Compensate ;
+odrl:payAmount    50.00 ;
+             odrl:unit         <https://www.wikidata.org/wiki/Q4917> ;  # USD
+             odrl:unitOfCount  [ a ms:Character ] ;
+             odrl:refinement [ 
+			odrl:operator odrl:gt ;
+ 			odrl:count 100 ;
+			odrl:meteredTime odrl:lteq “P1D”
+], [
+			odrl:operator odrl:lt ;
+ 			odrl:count 500 ;
+			odrl:meteredTime odrl:lteq “P1D”
+]
+           ]
+ .
+
+</pre>
+
+<pre class="example nohighlight turtle" title="Terms of use for a service with limited use on a daily base" id="Terms_count_interval">
+
+<p>Execution of service for up to 100 characters per day</p>
+
+[]   a odrl:Permission ;
+     odrl:action   [
+              a odrl:execute ;
+             odrl:unitOfCount  [ a ms:Character ] ;
+             odrl:refinement [ 
+			odrl:operator odrl:lt ;
+ 			odrl:count 100 ;
+			odrl:meteredTime odrl:lteq “P1D”
+] 
+           ] 
+ .
+</pre>
+
+<pre class="example nohighlight turtle" title="Terms of use for a service with limited use on a daily base" id="Terms_count_interval">
+
+<p>Execution of service for up to 100 characters per day</p>
+
+Execution of service for up to 100 API calls and up to 10 GB of processing volume per day
+[]   a odrl:Permission ;
+     odrl:action   [
+              a odrl:execute ;
+             odrl:unitOfCount  [ a ms:apiCall ] ;
+             odrl:refinement [ 
+			odrl:operator odrl:lt ;
+ 			odrl:count 100 ;
+			odrl:meteredTime odrl:lteq “P1D”
+] ;
+             odrl:unitOfCount  [ a ms:processedGB ] ;
+             odrl:refinement [ 
+			odrl:operator odrl:lt ;
+ 			odrl:count 10 ;
+			odrl:meteredTime odrl:lteq “P1D”
+] 
+           ] 
+ .
+
+
+</pre>
+
+</section>
+
+<section id="acknows">
 
 			<h2>Acknowledgements</h2>
 			<p>
 todo			</p>
 		</section>
+		
+<!-- TODO add section with transformations -->
+
+<section id="userReqs">
+<h2>Appendix A - User requirements</h2>
+
+<p><b>User requirements on LRT hosting/distributing entities from LRT providers</b></p>
+<p>UR1.	As an LRT provider, I want to make available my LRT with a licence</p>
+<p>UR2.	As an LRT provider, I want to make available different forms of my LRT with different licences.</p>
+<p>UR3.	As an LRT provider, I want to be able to release my LRT with a custom licence that includes access restrictions.</p>
+<p>UR4.	As a provider of a commercial LT, I want to limit access to my service based on a count of specific units (e.g., count of API requests, characters to be processed, audio/video seconds to be processed) for a limited time period (e.g., on a weekly basis)</p>
+<p>UR5.	As a provider of a commercial LT, I want to give access to my service with a billing model that takes into account counts (cf. R4).</p>
+<p></p>
+
+<p><b>User requirements on LRT hosting/distributing entities from LRT consumers</b></p>
+<p>UR6.	As an LRT consumer, I want to search for LRTs based on their licences.</p>
+<p>UR7.	As an LRT consumer, I want to search for LRTs based on broad usage conditions.</p>
+<p>UR8.	As an LRT consumer, I want to obtain access to (use, deploy, process, download, …) an LRT </p>
+<p>UR9.	As an LRT consumer, I want to view the licence of an LRT.</p>
+<p>UR10.	As an LRT consumer, I want to be able to combine LRTs.</p>
+<p></p>
+
+<p><b>User requirements of LRT hosting/distributing entities</b></p>
+<p>UR11.	As a distributing entity, I want to give access to LRTs and impose restrictions based on their licensing conditions </p>
+<p>a.	allow users to download/access/consume data resources/services/tools with permissive licences without any interaction</p>
+<p>b.	give access to authorized users only for LRTs requiring authorization</p>
+<p>c.	enforce signature to users before getting access to a resource/service for licences that require signature</p>
+<p>d.	enforce conditions stemming from multiple licences on the same distribution (e.g. combination of software & data)</p>
+<p>e.	give access to authenticated users only for LRTs requiring authentication</p>
+<p>f.	I want to support a billing module that takes into account reductions / restrictions for members of a group</p>
+<p>UR12.	As a distributing entity, I want to monitor the use of LT processing services in order to limit or bill users when accessing them</p>
+<p>UR13.	As a distributing entity, I want to support LRT providers in attaching a single or multiple licences on distributions of LRTs</p>
+<p>UR14.	As a distributing entity, I want to ask the providers to describe the conditions of use for the new licences</p>
+<p>UR15.	As a distributing entity, I want to have information that may affect its licence (e.g. inclusion of non-anonymized sensitive data)</p>
+<p>UR16.	As a distributing entity, I want to know the usage conditions under which a LRT is released, preferably in a machine readable form.</p>
+<p>UR17.	As a distributing entity, I want to aggregate the set of licences of multiple data resources into one set of licences for a collection or attach a single licence on a collection of resources</p>
+
+<!-- Infrastructure	support exchange of PD for users from infra to commercial provider - should these be annonymised and to what degree? -->
+</section>
+
+<section id="dataset">
+<h2>Appendix B - Dataset of licences</h2>
+<p>To facilitate providers of LRTs, a set of licences in ODRL is available at ? in the form of three interpretations:</p>
+<ul>
+<li>following this profile targeting entities responsible for granting access to LRTs</li>
+<li>by the entity that has originally published the licences targeting end-users</li>
+<li>as interpreted by dallic, targeting end-users.</li>
+</ul>
+
+<p>The META-SHARE interpretation of licences includes the SPDX identifier, thus linking the licences to the official SPDX License List. The SPDX License List includes a standardized short identifier, full name, vetted license text including matching guidelines markup as appropriate, and a canonical permanent URL for each license and exception; it is available at the spdx github in various serialization formats.</p>
+<p>The META-SHARE set of licences includes representations for popular licences in the domain of LRTs, both standard ones, such as Creative Commons, but also standard licences created specifically for the distribution of LRTs, namely ELRA, META-SHARE and CLARIN licences.</p>
+
+</section>
+
 		
 	</body>
 </html>
