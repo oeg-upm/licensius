@@ -2,7 +2,9 @@ package oeg.rdflicense2.transformers;
 
 import java.io.StringReader;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import oeg.jodrlapi.helpers.ODRLRDF;
@@ -53,7 +55,8 @@ public class TransformerXMLODRL {
         try {
             Policy policy = new Policy();
             Permission permission = new Permission();
-            Action action = new Action("odrl:reproduce");
+            List<Action> actions = new ArrayList(); 
+            actions.add(new Action("odrl:reproduce"));
 
             InputSource is = new InputSource(new StringReader(xml));
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -133,8 +136,8 @@ public class TransformerXMLODRL {
                         {
                             Duty duty = new Duty();
                             Action action2 = new Action("odrl-lr:informLicensor");
-                            action.addRefinement(new Constraint("http://purl.org/odrl-lr/informedParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
-                            action.addRefinement(new Constraint("http://purl.org/odrl-lr/objectOfReport",ODRLRDF.REQ.toString(), "odrl:Use"));
+                            action2.addRefinement(new Constraint("http://purl.org/odrl-lr/informedParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
+                            action2.addRefinement(new Constraint("http://purl.org/odrl-lr/objectOfReport",ODRLRDF.REQ.toString(), "odrl:Use"));
                             duty.setActions(Arrays.asList(new Action[]{action2}));
                             permission.addDuty(duty);
                         }
@@ -190,18 +193,46 @@ public class TransformerXMLODRL {
                         {
                             Duty duty = new Duty();
                             Action action2 = new Action("odrl-lr:report");
-                            action.addRefinement(new Constraint("http://purl.org/odrl-lr/informedParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
-                            action.addRefinement(new Constraint("http://purl.org/odrl-lr/objectOfReport",ODRLRDF.REQ.toString(), "odrl-lr:ResearchPlan"));
+                            action2.addRefinement(new Constraint("http://purl.org/odrl-lr/informedParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
+                            action2.addRefinement(new Constraint("http://purl.org/odrl-lr/objectOfReport",ODRLRDF.REQ.toString(), "odrl-lr:ResearchPlan"));
                             duty.setActions(Arrays.asList(new Action[]{action2}));
                             permission.addDuty(duty);
                         }
                         
                     }
+                    if (nodename.equals("ms:licenceCategory"))
+                    {
+                        if (nodetext.equals("ms:allowsDirectAccess") || nodetext.equals("http://w3id.org/meta-share/meta-share/allowsDirectAccess"))
+                        {
+                            actions.add(new Action("odrl:reproduce"));
+                            actions.add(new Action("odrl-lr:execute"));
+                        }
+                        if (nodetext.equals("ms:allowsProcessing") || nodetext.equals("http://w3id.org/meta-share/meta-share/allowsProcessing"))
+                        {
+                            actions.add(new Action("odrl-lr:process"));
+                        }
+                        if (nodetext.equals("ms:allowsAccessWithSignature") || nodetext.equals("http://w3id.org/meta-share/meta-share/allowsAccessWithSignature"))
+                        {
+                            Duty duty = new Duty();
+                            Action action2 = new Action("odrl-lr:signLicense");
+                            duty.addAction(action2);
+                            permission.addDuty(duty);
+                        }
+                        if (nodetext.equals("ms:requiresUserAuthentication") || nodetext.equals("http://w3id.org/meta-share/meta-share/requiresUserAuthentication"))
+                        {
+                            Duty duty = new Duty();
+                            Action action2 = new Action("odrl-lr:signIn");
+                            duty.addAction(action2);
+                            permission.addDuty(duty);
+                        }                  
+                    }
+                    
+                    
                     
                     
                 }
             }
-            permission.setActions(Arrays.asList(new Action[]{action}));
+            permission.setActions(actions);
             policy.addRule(permission);
 
             /*
