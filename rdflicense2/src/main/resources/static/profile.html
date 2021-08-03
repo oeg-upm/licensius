@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>ODRL Implementation Best Practices</title>
+		<title>ODRL Profile for Policies of Language Resources and Technologies</title>
 		<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
 		<script class="remove" src="config.js"></script>
 		
-	<!-- this is a test edition -->	
+	<!-- this is a draft edition -->	
 		
 	<!-- Also possible the style from view-source:https://www.w3.org/TR/vocab-org/  --> 
 	<!--view-source:https://www.w3.org/TR/vocab-duv/-->
@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<section  id="abstract">
-			<p>This document presents several examples of use of ODRL, describes good implementation practices and provides sample ODRL policies.</p>
+			<p>This document presents the ODRL Profile for accessing Language Resources and Technologies (LRTs). This aims to support entities (repositories, infrastructures, archives, libraries, etc.) that enable the sharing of LRTs and act as intermediaries between LRT providers and consumers; from here on, we refer to them as "distributing entities". To this aim, it extends the <a href="https://www.w3.org/TR/odrl-model/">ODRL</a> model to define policies that express actions, rules, permissions and / or prohibitions related to sharing and processing of LRTs, and re-uses the <a href="http://w3id.org/meta-share/meta-share">META-SHARE</a> ontology to describe these policies and other access or rights related features.</p>
 			 
 		</section>
 		<section id='sotd'>
@@ -25,11 +25,55 @@
 		</section> 
 	
 		<section id="intro">
-		<h2>Introduction</h2> 	
-		
+		<h2>Introduction</h2> 
+		<h3>Objectives of the profile</h3>
+		<p>The current profile introduces elements that serve one of these purposes:</p>
+		<ul>
+<li>define actions performed by the above entities in order to provide consumers with access to LRTs</li>
+<li>define restrictions and actions required to implement control of the access to LRTs</li>
+<li>describe vocabulary elements needed to support such policies and/or common policy patterns</li>
+<li>describe vocabulary elements needed to support restrictions and authorization algorithms.</li>
+</ul>
+<p>To achieve these goals, the following requirements motivate our approach to extend the ODRL Vocabulary and Expression specification to define permissions and/or prohibitions associated with access granting operations of LRTs stored and distributed by the above entities, and to re-use and extend the META-SHARE vocabulary to express legal and technical concepts associated to these operations.</p>
+<p>R1. Support specifying user preferences as policies.</p>
+<p>R2. Incorporate vocabulary specifying or aligned to legal concepts.</p>
+<p>R3. Support specifying permissions and prohibitions typical of policies for LRTs.</p>
+<p>R4. Describe policies used to authorise access to data resources and data processing services.</p>
+<p>R5. Specify procedures and algorithms that can generate templates for policies typical of access to LRTs.</p>
+		<section id="overview">
+		<h3>Overview of the LRT distribution landscape</h3> 	
+<p>Sharing of Language Resources and Technologies (LRTs) is included in the mission of infrastructures and distribution bodies, such as the <a href="https://www.european-language-grid.eu/">European Language Grid</a>, <a href="https://www.clarin.eu/">CLARIN</a> and its national nodes (e.g. the <a href="https://www.clarin.gr/en">Greek CLARIN</a>), <a href="http://www.meta-share.eu/">META-SHARE</a>, <a href="http://www.elra.info/en/">ELRA-ELDA</a>. To this end, they create and maintain repositories, that enable the upload and storage of resources, their description in a structured form (metadata records), the search and browse of these resources through dedicated catalogue pages, as well as access to them, which can be performed, for instance, by the download of content files or execution of web services.
+These hosting/distributing entities (in short "distributing entities") act as intermediaries between providers and consumers of LRTs, both human and machines. Therefore, the requirements addressed in the current profile are set by the operational needs of the distributing entities, and indirectly by the needs of providers and consumers.<a>
+<p>To make clearer the requirements, we briefly outline here the landscape of LRTs with a focus on issues related to legal rights and access procedures.</a>
+<p>Under the term "Language Resource and Technology" we include any <b>resource</b> composed of linguistic material used in the construction, improvement and/or evaluation of language processing applications, but also, in a broader sense, in language and language-mediated research studies and applications. The term is used with a broader meaning, encompassing (a) data sets (textual, multimodal/multimedia and lexical data, grammars, language models, etc.) in machine readable form, and (b) tools/technologies/services used for their processing and management.</p>
+<p>LRTs are distributed and consumed with various forms: e.g., corpora may be distributed as content files to be downloaded, or made available through dedicated interfaces (e.g., a corpus workbench, or a SPARQL endpoint); tools/services may be distributed as content files containing the source code, as executable files to be downloaded and run locally, or as web services.</p>
+<p><b>Distributable forms</b> of an LRT may be accessed with the same access conditions or with different ones, which must be described in the form of a <b>policy statement</b>; this can range from a "standard" licence (e.g., one from the Creative Commons suite of licences) to a commercial licence with terms for the use of an individual resource.</p>
+<p>Entities that provide access to LRTs typically support one or more of the following <b>operations</b>:</p>
+<ul>
+<li>download of content files hosted in the repository</li>
+<li>execution of services deployed in the repository</li>
+<li>processing of data resources hosted in the repository with services deployed in the repository to create a new output resource (e.g., a corpus annotated with semantic information, a Machine Learning model trained on a corpus)</li>
+<li>combination of data resources hosted in the repository to create a new resource which includes all or parts of the original resource ("collection")</li>
+<li>combination of tools/services deployed in the repository to create a new composite tool or service ("workflow").</li>
+</ul>
+<p>The policy statements (licences and terms of use) that accompany a resource regulate its use by end-users but do not explicitly describe the <b>rules</b> (duties, restrictions, permissions) to be imposed by the entities when providing access to them. This set of rules may be inferred from the licensing conditions and needs to be calculated (semi-)automatically. One of the main objectives of this profile is to support the expression of these conditions, their automatic computation when possible and their representation in the form of authorisation statements and actions.</p>
+		<section id="overview">
+		<h3>Detailed requirements</h3> 	
+<p>Entities responsible for sharing LRTs must satisfy the user requirements of both LRT providers and consumers, as described in Appendix A. To achieve this goal, the following requirements are set:</p>
+<p>R1.	For granting access to an LRT,  the LRT must be released with a clear and accessible usage licence, which must be uniquely referred to in the formal description (metadata record) of the LRT (see also FAIR principle R1.1)</p>
+<p>a.	The licence must be described at the level of the distributable form of the LRT; different distributable forms may be released with different licences.</p>
+<p>R2.	The licence text must be available in a digital form and accessible to the end users so that they are aware of the terms under which they can use the LRT.</p>
+<p>R3.	The formal description of the licence should include metadata elements (names, broad usage conditions) that support findability of the LRT.</p>
+<p>R4.	The formal description of the licence should be machine actionable, i.e. include terms and indications that facilitate computational agents to perform actions that enable access to LRTs according to its licensing conditions. More precisely, it must include at least those terms that the entities granting access can use to restrict access to LRTs; such restrictions are typically based on user type, billing model, soliciting consent by users, tracking of users, monitoring of usage, etc.</p>
+<p>a.	For data resources, access may be limited to download and/or processing based on user type (e.g., for academic users only, for members of a group), following payment, or deposition of a research plan, etc.</p>
+<p>b.	For services, in addition, access may be limited and/or billed based on a count of specific units (e.g., count of API requests, characters to be processed, audio/video seconds to be processed) for a limited time period (e.g., on a weekly basis)</p>
+<p>c.	Entities granting end users access to an LRT must ensure they grant such access in accordance with its licensing conditions to the extent that these can be controlled by them; licensing conditions that cannot be controlled by them remain at the end-user's responsibility/liability.</p>
+<p>R5.	To allow combination of LRTs or processing of LRTs, their licensing conditions must be compatible and allow combination or processing actions; these permissions should be included in the formal description of the licences.</p>
+<p>R6.	The formal description of the LRT should include elements that may help resolve issues related to rights and access.</p>
+
+
 		<section id="conventions">
 				<h3>Document Conventions</h3>
-					<p>In order to read this document a basic knowledge of either RDF or JSON is supposed.</p>
 					<p>Within this document, the following namespace prefix bindings are used:</p>
     <table class="def">
         <tbody>
@@ -97,6 +141,12 @@
           </tr>
     
 			 <tr>
+            <td>ms</td>
+            <td>http://w3id.org/meta-share/meta-share</td>
+            <td></td>
+          </tr>
+
+			 <tr>
             <td>ex</td>
             <td>http://example.com/ns#</td>
             <td></td>
@@ -115,479 +165,392 @@
 		  
 		</section>
 
-		<section id="examples">
-		<h2>Examples of use</h2> 	
-		
-		ODRL is a structured language to express rhat something is permitted, forbidden or obliged, possibly limited by some constraints. ODRL is of particular interest for representing computer policies, licenses and any document where deontic modalities need to have a digital form. ODRL was specified considering <a href="http://w3c.github.io/poe/ucr/">27 use cases</a>, nonetheless a few examples of use follow.
-		
-		<h3>Example 1: Representation of common licenses</h3> 
-		The use of common licenses has become popular among those publishing software, data, photographs and other resources online. These text licenses describe under which conditions the resource can be used. Examples of licenses are the GNU General Public License, the Creative Commons CC-BY 4.0 license, or the UK Open Government License. 
-		
-		The key information in these text documents (waived rights, constraints, prohibitions and obligations) can be represented in a structured language (they have been actually represented in RDF, for example see <a href="https://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fwww.nationalarchives.gov.uk%2Fdoc%2Fopen-government-licence%2Fversion%2F3%2F&format=turtle&rdfagraph=output&vocab_expansion=false&rdfa_lite=false&embedded_rdf=true&space_preserve=true&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false">the latter</a>). ODRL can also be used to describe the core information in the licenses. Having the licensing information in a digital form enables:
-		<ul>
-		<li><em>Search-by-license</em>. If resources are published along with an ODRL license, applications can be developed that perform a search-by-license, where one of the fields in a search form is the type of license of the resource, or the presence of a specific right or obligation (e.g. <em>give me photos of Rome that I can publish in commercial applications</em> ).</li>
-		
-		<li><em>License compatibility</em>. Some works are created as a derivation of two existing works. The licenses of the reused works can limit the license of the composite work, and even certain licenses are incompatible cannot be used in resources bundled together. The digital expression of rights favours smart applications to reason on license compatibility.</li>
-		
-		<li><em>Reducing the impact of license proliferation</em>. Even if the number of licenses has not stopped growing, having an ODRL version of non-famous licenses would enable their renderization using visual elements to make the license understandable in a glimpse.</li>
-		</ul>
-		
-		<!-- 
-http://data.open.ac.uk/licence-picker/?controller=picker&action=index
-http://rdflicense.appspot.com/
-https://tldrlegal.com/
-http://licentia.inria.fr/
-http://www.europeandataportal.eu/sites/default/files/edp-licence-compatibility-published_v1_0.xlsx		
-		-->
-		
-		<h3>Example 2: Representation of access policies to digital resources</h3> 
-		Computer policies govern the access to digital resources. Whereas ODRL provides no mechanism whatsoever to implement any access control logic, ODRL policies can describe how an external access control system should behave. Advantages of having an ODRL representation of access policies:
-		<ul>
-		<li><em>Neutrality</em>. ODRL is completely neutral about the technology used (if any) to grant access to a certain resource.</li>
-		<li><em>Extendability</em>. New allowed actions and new constraints can be created. They can be arranged in a hierarchical form.</li>
-		</ul>
+<section id="spec">
+<h2>Profile specification</h2>
+<h3>Entities</h3>
+The current specification focuses on three classes taken from the <a href="http://w3id.org/meta-share/meta-share">META-SHARE</a> vocabulary: <code>Resource</code>, <code>Distribution</code> and <code>LicenceTerms</code>. For the first two classes, we reuse the META-SHARE vocabulary and include here only those properties that are of interest to this specification. In addition, the <code>LicenceTerm</code> is further represented as a <code>policy</code> in accordance with the ODRL model. 
+<section id="resources">
+<h4>Resources</h4>
+A distinction is made between the <em>language resource / technology</em>, as the object created and described at an abstract level, and its <em>distributable form</em>, i.e., the form as packaged, distributed and consumed by end users. Following the <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT</a> terminology, the former is represented with the class <code>LanguageResource</code> and the latter as <code>DatasetDistribution</code> and <code>SoftwareDistribution</code>.
+
+            <section data-dfn-for="LanguageResource">
+                <h2><dfn>LanguageResource</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>A resource composed of linguistic material used in the construction, improvement and/or evaluation of language processing applications, but also, in a broader sense, in language and language-mediated research studies and applications; the term is used with a broader meaning, encompassing (a) data sets (textual, multimodal/multimedia and lexical data, grammars, language models, etc.) in machine readable form, and (b) tools/technologies/services used for their processing and management.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Language Resource / Technology</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/LanguageResource">http://w3id.org/meta-share/meta-share/LanguageResource</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="https://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 			
-		<h3>Example 3: Representation of rights in rules</h3>
-		Even if ODRL is not capable of accessing the subtleties of legislation, the actions that are forbidden in a certain sorts of noms can be represented in ODRL and act as a summary. 	See <a href="http://w3c.github.io/poe/ucr/#POE.UC.04">UC4</a>. Advantages of an ODRL representation:
-		<ul>
-		<li><em>Summarization</em>. Key actions that are prohibited or permitted are captured in an ODRL policy hance favoring summarization.</li>
-		<li><em>Compliance checking</em>. Business processes can be determined as compliant or non-compliant.</li>
-		</ul>
-		<p>While ODRL can represent elements of a license or regulation for machine consumption, it cannot replace them in court! It is best practice to explicitly point to the license or regulation that a policy models using the dc:terms property provided by the Dublin Core Metadata Initiative.</p>
-        </section>
+            <section data-dfn-for="Corpus">
+                <h2><dfn>Corpus</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>A structured collection of pieces of data (textual, audio, video, multimodal/multimedia, etc.) typically of considerable size and selected according to criteria external to the data (e.g., size, type of language, type of text producers or expected audience, etc.) to represent as comprehensively as possible the object of study.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Corpus</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/Corpus">http://w3id.org/meta-share/meta-share/Corpus</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="http://w3id.org/meta-share/meta-share/LanguageResource">ms:LanguageResource</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="LexicalConceptualResource">
+                <h2><dfn>Lexical/Conceptual Resource</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>A resource organised on the basis of lexical or conceptual entries (lexical items, terms, concepts, etc.) with their supplementary information (e.g., grammatical, semantic, statistical information, etc.).</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Lexical/Conceptual Resource</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/LexicalConceptualResource">http://w3id.org/meta-share/meta-share/LexicalConceptualResource</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="http://w3id.org/meta-share/meta-share/LanguageResource">ms:LanguageResource</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="LanguageDescription">
+                <h2><dfn>Language description</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>A resource that describes a language or some aspect(s) of a language via a systematic documentation of linguistic structures.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Language description</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/LanguageDescription">http://w3id.org/meta-share/meta-share/LanguageDescription</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="http://w3id.org/meta-share/meta-share/LanguageResource">ms:LanguageResource</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="ToolService">
+                <h2><dfn>Tool/Service</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>A tool/service/any piece of software that performs language processing and/or any Language Technology related operation.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Tool/Service</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/ToolService">http://w3id.org/meta-share/meta-share/ToolService</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="http://w3id.org/meta-share/meta-share/LanguageResource">ms:LanguageResource</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+<section id="resourceProp">
+<h4>Resource properties</h4>
+<p>The following properties address R6, i.e. can help determine and/or resolve rights and access issues.<p>
+<ul>
+<li>identification of the IPR holder(s): <code>resourceProvider</code>, <code>iprHolder</code></li>
+<li>identification of sources of potential need for restricted licences: <code>personalDataIncluded</code>, <code>personalDataDetails</code>, <code>sensitiveDataIncluded</code>, <code>sensitiveDataDetails</code>, <code>anonymized</code>, <code>anonymizationDetails</code>.</li>
+</ul>
+
+            <section data-dfn-for="resourceProvider">
+                <h2><dfn>resourceProvider</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>The person/organization responsible for providing, curating, maintaining and making available (publishing) the resource</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>resource provider</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/resourceProvider">http://w3id.org/meta-share/meta-share/resourceProvider</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td><a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
 
 
 
+            <section data-dfn-for="iprHolder">
+                <h2><dfn>IPR holder</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>A person or an organization who holds the full Intellectual Property Rights (Copyright, trademark, etc.) that subsist in the resource. The IPR holder could be different from the creator that may have assigned the rights to the IPR holder (e.g., an author as a creator assigns her rights to the publisher who is the IPR holder) and the distributor that holds a specific licence (i.e. a permission) to distribute the work via a specific distributor.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>IPR holder</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/iprHolder">http://w3id.org/meta-share/meta-share/iprHolder</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td><a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
 
+           <section data-dfn-for="pesonalDataIncluded">
+                <h2><dfn>pesonalDataIncluded</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Specifies whether the language resource contains personal data (mainly in the sense falling under the GDPR)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Pesonal data included</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/personalDataIncluded">http://w3id.org/meta-share/meta-share/personalDataIncluded</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>xs:boolean</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
 
+           <section data-dfn-for="pesonalDataDetails">
+                <h2><dfn>pesonalDataDetails</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>If the resource includes personal data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymization, further request for use, etc.)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Pesonal data details</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/personalDataDetails">http://w3id.org/meta-share/meta-share/personalDataDetails</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>rdf:langString</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
 
-		<section id="styles">
-		<h2>Sample policies</h2> 
-<!--		We can resume here the examples in the <a href="https://www.w3.org/2016/poe/wiki/Best_Practices">wiki</a>. -->
+           <section data-dfn-for="sensitiveDataIncluded">
+                <h2><dfn>sensitiveDataIncluded</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Specifies whether the language resource contains sensitive data (mainly in the sense falling under the GDPR)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Sensitive data included</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataIncluded">http://w3id.org/meta-share/meta-share/sensitiveDataIncluded</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>xs:boolean</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
 
-		<h3>1 How to Represent a General Permission</h3>
-		The following ODRL policy might be read as "<i>Movie 9898 can be used</i>".
-		<div class="example"><div class="example-title marker"><span>Example 1.0</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-00  {
-01	 "@context": "http://www.w3.org/ns/odrl.jsonld",
-02	 "@type": "Set",
-03	 "uid": "http://example.com/policy:1010",
-04	 "permission": [{
-05 		"target": "http://example.com/asset:9898.movie",
-06 		"action": "use"
-07	 }]
-08  }		
-		</pre></div>
-		Explanation line by line:
-		<ul>
-		<li>An ODRL policy is represented as a JSON Object (lines 00 and 08). In particular, ODRL policies can be represented in <a href="https://json-ld.org/">JSON-LD</a> -a lightweight Linked Data format.</li>
-	    <li>The context of the JSON-LD policy is, as in every ODRL policy, <code>http://www.w3.org/ns/odrl.jsonld</code> (see line 01).</li>
-	    <li>Type <code>odrl:Set</code> means this is positive assertion. Somebody <i>affirms</i> that Movie 9898 can be used (line 02).</li>
-	    <li>The policy is identified as <code>http://example.com/policy:1010</code>. ODRL policies are best identified with <a href="https://tools.ietf.org/html/rfc3986">URI</a>s (see line 03).</li>
-		<li>ODRL policies have one or more rules: permissions, obligations, prohibitions (line 04). You may want to see the main <a href="https://www.w3.org/TR/odrl-model/#infoModel">ODRL diagram</a>.  </li>
-	    <li>The target of the policy is the resource referenced by <code>http://example.com/asset:9898.movie</code>, probably a movie (line 05). Assets are best identified with URIs.</li>
-	    <li>The permitted action on the asset is <i>use</i> (line 06). You may want to read its <a href="https://www.w3.org/TR/odrl-vocab/#term-use">definition</a>, or browse other possible actions predefined by the ODRL specs.</li>
-		</ul>
+           <section data-dfn-for="sensitiveDataDetails">
+                <h2><dfn>sensitiveDataDetails</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>If the resource includes sensitive data, this field can be used for entering more information, e.g., whether special handling of the resource is required (e.g., anonymization, further request for use, etc.)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Sensitive data details</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/sensitiveDataDetails">http://w3id.org/meta-share/meta-share/sensitiveDataDetails</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>rdf:langString</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="anonymized">
+                <h2><dfn>anonymized</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Indicates whether the language resource has been anonymized</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>anonymized</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/anonymized">http://w3id.org/meta-share/meta-share/anonymized</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>xs:boolean</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="anonymizationDetails">
+                <h2><dfn>anonymizationDataDetails</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>If the resource has been anonymized, this field can be used for entering more information, e.g., tool or method used for the anonymization, by whom it has been performed, whether there was any check of the results, etc.)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Anonymization details</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/anonymizationDetails">http://w3id.org/meta-share/meta-share/anonymizationDetails</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>LanguageResource</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>rdf:langString</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+			
+			
+<section id="distributions">
+<h4>DatasetDistribution and SoftwareDistribution</h4>
+<p>These are subclasses of <code>dcat:Distribution</code> catering for the distict features of data and software resources, such as different distribution mediums (service or source code for software, content files or forms accessible via interfaces for data resources), descriptive features (size for text, audio, video, image files, technical requirements on the input / output of software).</p>
+
+            <section data-dfn-for="DatasetDistribution">
+                <h2><dfn>DatasetDistribution</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Any form with which a dataset is distributed, such as a downloadable form in a specific format (e.g., spreadsheet, plain text, etc.) or an API with which it can be accessed</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Dataset Distribution</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/DatasetDistribution">http://w3id.org/meta-share/meta-share/DatasetDistribution</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="https://www.w3.org/ns/dcat#Distribution">dcat:Distribution</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+			
 		
-<h4>1.1 How to restrict the permission to a specified party</h4>		
-If the example above permitted the general use of Movie 9898, this permission permits only John to play the movie.
-<div class="example"><div class="example-title marker"><span>Example 1.1</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
- "@context": "http://www.w3.org/ns/odrl.jsonld",
- "@type": "Set",
- "uid": "http://example.com/policy:1010",
- "permission": [{
- 	"target": "http://example.com/asset:9898.movie",
-	"assignee": "John",
-	"action": "play"
- }]
-}		
-		</pre></div>
+            <section data-dfn-for="SoftwareDistribution">
+                <h2><dfn>SoftwareDistribution</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Any form with which software is distributed (e.g., web services, executable or code files, etc.)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Software Distribution</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/SoftwareDistribution">http://w3id.org/meta-share/meta-share/SoftwareDistribution</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="https://www.w3.org/ns/dcat#Distribution">dcat:Distribution</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-<h4>1.2 How to restrict the validity of a permission to a specific circumstance or set of circumstances</h4>		
-<p>Photographs are often licensed on a geographic basis: global rights will likely be more expensive than a country-specific permission. Such conditions are frequently modelled in ODRL by Constraints.</p>
+<section id="distributionProp">
+<h4>Distribution properties</h4>
+<p>Properties of the <code>Distribution</code> subclasses include:</p>
+<ul>
+<li>linking to policy documents regulating the access conditions, addressing R1 and R1a: <code>licenceTerms</code> and <code>accessRights</code>
+<li>describing restrictions related to the billing module, time restrictions or membership to a group and addressing R4: <code>cost</code>, <code>membershipInstitution</code>, <code>availabilityStartDate</code>, <code>availabilityEndDate</code>. These are used in combination with the <code>licenceTerms</code> to refine licences with extra restrictions.
+</li>
+</ul>
 
-<div class="example"><div class="example-title marker"><span>Example 1.2A</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
- "@context": "http://www.w3.org/ns/odrl.jsonld",
- "@type": "Set",
- "uid": "http://example.com/policy:1010",
- "permission": [{
- 	"target": "http://example.com/asset:9898.movie",
-	"action": "display",
-	"constraint": [{
-           "leftOperand": "spatial",
-           "operator": "eq",
-           "rightOperand":  "https://www.wikidata.org/wiki/Q183",
-	   "comment": "i.e Germany"
-       }]
- }]
-}		
-		</pre></div>
+<p>The property <code>licenceTerms</code> addresses R1 and R1a. It is the property used for linking LRTs to the policy statements (class <code>LicenceTerms</code>). This is a mandatory property since without a licence, LRTs must not be accessible to end-users. Multiple licences are allowed for the same <code>Distribution</code> in the following cases:</p>
+<ul>
+<li>a data resource (e.g. a lexicon or corpus) accessible with an interface, in which case the data and the interface are licensed with different licences</li>
+<li>a collection created by subsets released with different licences.</li>
+</ul>
+<p>In both cases, the access procedure must take into account all licences attached to this Distribution.</p>
+<p>LRTs whose licence is not identified in the formal description may be included in a catalogue for information purposes only, clearly marked as such and described with at least an access statement which is added with the <code>accessRights</code> property.</p>
 
-<p>Photographs for the news media can sometimes be "embargoed" - only publishable after a certain data. We can achieve this by putting a time-Constraint on the Permission.</p>
-			
-<p>The following permission can only be exercised after the turn of the New Year in 2019.</p>
+<!-- TODO add tables -->
+</section>
+<section id="policies">
+<h2>Policies (Licences and Terms of use/service)</h2>
+<h3>LicenceTerms</h3>
+<p>This class covers legal documents, i.e., licences and terms of use or service for data resources and software.</p>
+<!-- TODO add tables -->
 
-<div class="example"><div class="example-title marker"><span>Example 1.2B</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
- "@context": "http://www.w3.org/ns/odrl.jsonld",
- "@type": "Set",
- "uid": "http://example.com/policy:1010",
- "permission": [{
- 	"target": "http://example.com/asset:9898.movie",
-	"action": "display",
-	"constraint": [{
-           "leftOperand": "dateTime",
-           "operator": "gt",
-           "rightOperand":  { "@value": "2019-01-01", "@type": "xsd:date" }
-       }]
- }]
-}		
-		</pre></div>	
-			
-<p>We can easily create a permission that only allows the picture to be displayed in Germany after 2018 by adding both Constraints. In this simple scenario ODRL insists both Constraints are satisfied before the Permission becomes active.</p> 
+</section>
+<section id="policiesProp">
+<h3>Licence properties</h3>
+<p>The following set of properties addresses identification of the licence and access to the licence text (R2 and R3) are:</p> <code>name</code>, <code>short name</code>, <code>alternative title</code>, <code>URL</code> (where the licence text can be found), <code>logo</code>, <code>identifier</code>.</p>
+<p>The property <code>conditionOfUse</code> aims to encode the main conditions associated with the use of a LRT (e.g. non commercial use, use by academic users only, etc.) as described in R4a and R4b. These can also be represented as odrl properties (permission, prohibition, duty), but are also added as an object property for two reasons: (a) facilitating LRT providers with no or little prior experience of writing policies in ODRL; (b) supporting the implementation of a filter enhancing the discoverability of LRTs in a catalogue (R3). The class <code>ConditionOfUse</code> contains a set of instances that are typical of licences in the LRT domain.</p>
+<p>The object property <code>licenceCategory</code> addresses R4; i.e., it supports the encoding of terms that can be mapped to actions granting access to LRTs and the authorization procedures required for them. As with <code>conditionOfUse</code>, these can be mapped to ODRL rules and added to the RDF representations of a licence.</p> 
+<p>A set of such mappings has already been made for the typical cases in the LRT domain and is available at ??.<p>
 
-<div class="example"><div class="example-title marker"><span>Example 1.2C</span></div>
-<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
- "@context": "http://www.w3.org/ns/odrl.jsonld",
- "@type": "Set",
- "uid": "http://example.com/policy:1010",
- "permission": [{
- 	"target": "http://example.com/asset:9898.movie",
-	"action": "display",
-	"constraint": [{
-           "leftOperand": "dateTime",
-           "operator": "gt",
-           "rightOperand":  { "@value": "2019-01-01", "@type": "xsd:date" }
-	   }, {
-           "leftOperand": "spatial",
-           "operator": "eq",
-           "rightOperand":  "https://www.wikidata.org/wiki/Q183",
-	   "comment": "i.e Germany"
-       }]
- }]
-}		
-</pre></div>	
+<!-- TODO add tables -->
+</section>
+<section id="parties">
+<h2>Parties</h2>
+<h3>Party roles and types</h3>
+<p>With respect to the transactions of LRT distribution, the following roles can be identified:</p>
+<ul>
+<li>Resource providers</li>
+<li>Resource consumers (end users)</li>
+<li>Hosting/Distributing entities.</li>
+</ul>
+<p>For the scope of the current profile, these roles do not need to be formally represented, as the ODRL roles <code>odrl:assigner</code> and <code>odrl:assignee</code> suffice. </p>
+<p>In terms of legal status, distributing entities can only be organizations, resource providers can be both organizations and individuals, while resource consumers can be only individuals, affiliated or not to organizations. These can be described with any relevant vocabulary such as W3C vCard Ontology, FOAF Vocabulary enriched with META-SHARE and ODRL properties, as required.</p>
+<!-- TODO add tables -->
+</section>
+<section id="partyProps">
+<h3>Party properties</h3>
+<p>The only property specific to this profile is the <code>userType</code>, which distinguishes LRT consumers into commercial and academic ones. This is required because this distinction is related to restrictions on using an LRT or on the price or billing model of an LRT.</p>
+<!-- TODO add tables -->
+</section>
+<section id="Actions">
+<h3>Actions</h3>
+<h4>Operations</h4>
+<p>To cover the operations performed in the context of this profile, the following concepts are used from the ODRL and MS-OWL vocabularies: <code>odrl:execute, <code>odrl:aggregate, <code>ms:download, <code>ms:process and <code>ms:combine.</p>
+<!-- TODO add tables -->
+</section>
+<section id="Actions for constraints">
+<h3>Actions for Constraints</h3>
+<p>The following subclasses of <code>odrl:Action</code> are required in use with constraints on rules to describe common practices in the domain of LRT distribution: <code>signIn</code>, <code>authorize</code>.</p>
 
-<h3>2 How to refine the specification of an Action, Asset, or Party</h3>
-<p>Constraints can also be used to 'inject' additional semantics into the definition of an Action, Asset, or Party</p>
-			
-<h4>2.1 Narrowing the applicability of an Action</h4>			
-<p>The following Permission allows the distribution of a video but resticts the delivery channel to mobile networks only. This video cannot be distributed from a website under this Permission.</p>
-			
-<div class="example"><div class="example-title marker"><span>Example 2.1</span></div>
-<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
-    "@context": "http://www.w3.org/ns/odrl.jsonld",
-    "@type": "Set",
-    "uid": "http://example.com/policy:6161",
-    "permission": [{
-       "target": "http://example.com/asset:9898.movie",
-       "assigner": "http://example.com/org:616",
-       "action": [{
-          "action": "distribute",
-          "refinement": [{
-             "leftOperand": "deliveryChannel",
-             "operator": "eq",
-             "rightOperand": "http://example.com/cv/audMedia/MOBILE"
-          }]
-      }]
-   }]
-}
-</pre></div>
 
-<h4>2.2 Further specifying an Asset</h4>
-<p>In financial markets the value of a piece of data is sometimes proportional to its timeliness. 15-minute delayed stock price is often much cheaper than real-time. We'd probably want different permissions to reflect this. How would we specify the 15 minute delay?</p>
-<p>We could model them as two different Assets. Or we could use Constraints on the same Asset, the stock price:</p>
-			
-			
-			
-			
-<h3>2 How to represent an obligation</h3>
-Example 3 shows how to oblige John to play the movie.
 
-<div class="example"><div class="example-title marker"><span>Example 3</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
- "@context": "http://www.w3.org/ns/odrl.jsonld",
- "@type": "Set",
- "uid": "http://example.com/policy:1010",
- "obligation": [{
-	"target": "http://example.com/asset:9898.movie",
-	"assignee": "John",
-	"action": "play"
- }]
-}		
-		</pre></div>
-
-<h3>3 How to represent a prohibition </h3>
-Example 4 shows how to prohibit John playing the movie.
-
-<div class="example"><div class="example-title marker"><span>Example 4</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
- "@context": "http://www.w3.org/ns/odrl.jsonld",
- "@type": "Set",
- "uid": "http://example.com/policy:1010",
- "prohibition": [{
-	"target": "http://example.com/asset:9898.movie",
-	"assignee": "John",
-	"action": "play"
- }]
-}		
-		</pre></div>
-
-	
-<h3>4 How to represent a permission and a prohibition</h3>		
-	An ODRL can represent one or more <em>rules</em>. For example, the following ODRL policiy might be read as "Alice can use Asset 1, but Bob can't".
-
-	<div class="example"><div class="example-title marker"><span>Example 5</span></div>
-	<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
-	"@context": "http://www.w3.org/ns/odrl.jsonld",
-	"@type": "Set",
-	"uid": "http://example.org/policy/5",
-	"permission": [{
-		"target": "http://example.com/asset/1",
-		"assignee": "http://example.com/party/Alice",
-		"action": "use"
-	}],
-	"prohibition": [{
-		"target": "http://example.com/asset/1",
-		"assignee": "http://example.com/party/Bob",
-		"action": "use"
-	}]
-}		
-</pre></div>
-
-<h3>5 How to simplify policies with more than one rule</h3>	
-ODRL policies with more than one rule can be simplified (<a href="https://www.w3.org/TR/odrl-model/#composition-compact
-">Section 2.7.1</a> in the Information Model). Elements common to every rule can be expressed at root lovel. Policies making use of this feature are called <b>compact policies</b>, an example of them follows.
-
-	<div class="example"><div class="example-title marker"><span>Example 6</span></div>
-	<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
-	"@context": "http://www.w3.org/ns/odrl.jsonld",
-	"@type": "Set",
-	"uid": "http://example.org/policy/5",
-	"action": "use",
-	"target": "http://example.com/asset/1",
-	"permission": [{
-		"assignee": "http://example.com/party/Alice",
-	}],
-	"prohibition": [{
-		"assignee": "http://example.com/party/Bob",
-	}]
-}	
-	</pre></div>
-	
-<h4>6 How to represent an agreement and an offer</h4>		
-All the examples above declared that there existed a certain permission, prohibition or obligation. Example 7 shows ....
-
-<div class="example"><div class="example-title marker"><span>Example 7</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
- "@context": "http://www.w3.org/ns/odrl.jsonld",
- "@type": "Set",
- "uid": "http://example.com/policy:1010",
- "prohibition": [{
-	"target": "http://example.com/asset:9898.movie",
-	"assignee": "John",
-	"action": "play"
- }]
-}		
-		</pre></div>
-	
-<h4>7 How to generalize actions</h4>		
-	Permitting (or prohibiting) some general actions entail permitting (or prohibitting) other specific actions. In the example below, permitting <code>display</code> is redundant because having permitted <code>play</code> also implies permitting <code>display</code>.  
-	
-	<div class="example"><div class="example-title marker"><span>Example 8</span></div>
-	<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-{
-	"@context": "http://www.w3.org/ns/odrl.jsonld",
-	"@type": "Set",
-	"uid": "http://example.org/policy/5",
-	"permission": [{
-		"assignee": "http://example.com/party/Alice",
-		"action": [ "play", <strike>"display"</strike> ],
-		"target": "http://example.com/asset/1"
-	}]
-}	
-	</pre></div>	
-	The figure represents these dependencies. 
-		
-	<center><img src="includedin.png" width=600px /></center>
-	<span class="fig-title">Actions in the ODRL Core Vocabulary (and how they are dependant)</span>
-	
-	Also, one action in the profile may declare that some other actions are necessary for their execution (using <code>:implies</code>), hence if the former is permitted the latter cannot be prohibited. 
-	
-	Although the actions in the ODRL Core Vocabulary do not have these implications, and although the actions in the ODRL Core Vocabulary are hardly dependent from each other, this may be of interest if you some day want to define your own actions.
-	
-	
-	
-		<h3>92. Representing ODRL with RDF Turtle (I)</h3>		
-		JSON-LD is only one of the possible serializations of ODRL a policy. The following example shows the same policy as in Example 1 but in RDF Turtle. It can also be XML.
-		An <a href="https://www.w3.org/TR/vocab-odrl/#term-Policy">ODRL policy</a> is an instance of the class <code>odrl:Policy</code>, which is defined in the ODRL Ontology. No knowledge on the ODRL Ontology is needed if you want to use ODRL.
-		
-		Example 1 and Example 2 have the same meaning.
-		<div class="example"><div class="example-title marker"><span>Example 2</span></div>
-		<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-@prefix odrl: &lt;http://www.w3.org/ns/odrl/2/&gt;
-
-&lt;http://example.org/policy/1&gt; a odrl:Policy, odrl:Set ;
-  odrl:permission [
-    odrl:target &lt;http://example.com/asset/1&gt; ;
-    odrl:assignee &lt;http://example.com/party/Alice&gt; ;
-    odrl:action odrl:use
-  ] ;
-		</pre></div>	
-	
-<h3>93. Representing ODRL with RDF Turtle (II)</h3>		
-	As per RDFS <a href="https://www.w3.org/TR/rdf-mt/#RDFSRules">entailment rule rdfs2</a>, the class of the policy resource <code>odrl:Policy</code> can be inferred, hence its specification is not necessary. As per the ODRL Information Model (<a href="https://www.w3.org/TR/odrl-model/#policy-set">2.1.1 Set Class</a>), Set is the default type of policy, hence its specification is not necessary. The policy shown in Example 3 is also equivalent to the policies in Example 1 and Example 2 (odrl prefix declaration has also been removed for clarity).
-
-	<div class="example"><div class="example-title marker"><span>Example 3a</span></div>
-	<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-&lt;http://example.com/policy:1010&gt; odrl:permission [
-  odrl:target &lt;http://example.com/asset:9898.movie&gt; ;
-  odrl:action odrl:use
-] ;
-	</pre></div>
-	Alternative forms for the same policy are also possible. For example, one might want to attribute a certain policy to a certain asset. 
-	As specified in the <a href="https://www.w3.org/TR/odrl-model/#policy-has">ODRL Information Model</a>, the following code would be equivalent.
-	The RDF triple in line 02 of Example 3b may be stored in a content repository, whereas lines 03 through 06 may be stored in a license repository.
-	<div class="example"><div class="example-title marker"><span>Example 3b</span></div>
-	<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-01 @prefix dct: &lt;http://purl.org/dc/terms/&gt; 
-02 &lt;http://example.com/asset:9898.movie&gt; odrl:hasPolicy &lt;http://example.com/policy:1010&gt; .
-03 &lt;http://example.com/policy:1010&gt; odrl:permission [
-04   odrl:target &lt;http://example.com/asset:9898.movie&gt; ;
-05   odrl:action odrl:use
-06 ] ;
-	</pre></div>	
-	
-	
-<h3>94. Representing ODRL with RDF Turtle (III)</h3>		
-
-Example XXX shows a second example, equivalent to Example 2.
-	<div class="example"><div class="example-title marker"><span>Example XXX</span></div>
-	<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-&lt;http://example.org/policy/5&gt; odrl:permission [
-  odrl:target &lt;http://example.com/asset/1&gt; ;
-  odrl:assignee &lt;http://example.com/party/Alice&gt; ;
-  odrl:action odrl:use
- ];
- odrl:prohibition [
-   odrl:target &lt;http://example.com/asset/1&gt; ;
-   odrl:assignee &lt;http://example.com/party/Bob&gt; ;
-   odrl:action odrl:use
- ].
- 	</pre></div>
-	
-Example XXX shows a second example, equivalent to Example 3.	
-	<div class="example"><div class="example-title marker"><span>Example XXX</span></div>
-	<pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-&lt;http://example.org/policy/5&gt; 
-  odrl:target &lt;http://example.com/asset/1&gt; ;
-  odrl:action odrl:use ;
-  odrl:permission [
-    odrl:assignee &lt;http://example.com/party/Alice&gt; ;
-  ];
-  odrl:prohibition [
-   odrl:assignee &lt;http://example.com/party/Bob&gt; ;
-  ].
- 	</pre></div>	
-	
-	
-	
-        </section>
-		
-		
-		
-		
-<!--		<section id="implementation">
-		<h2>Implementation guidance</h2> 	
-		Two operations are defined over ODRL expressions: validation and evaluation. This section provides some guidance on how to implement the validation and the evaluation. See the <a href="https://www.w3.org/2016/poe/wiki/Validation">validation</a> article in the wiki.
-        </section> -->
-
-		<section id="data">
-		<h2>Sample ODRL policies</h2> 	
-			This section provides some sample ODRL policies. 
-			
-			<p>The policies in <a href="http://odrlapi.appspot.com/">this file</a> has been used to evaluate some test cases.</p>
-			
-			<p>ODRL policies can represent the key content in instance licenses. As an example, the representation of the <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">W3C Software and Document Notice and License</a> follows. Please do note that the W3C Consortium does not endorse nor recommend this representation, which is only an effort of the editors of this document to illustrate how ODRL policies could represent textual licenses.</p>
-			
-
-<div class="example"><div class="example-title marker"><span>Example 1</span></div><pre id="eg2" class="hljs json" aria-busy="false" aria-live="polite">
-@prefix cc:      &lt;http://creativecommons.org/ns#&gt; .
-@prefix dct:     &lt;http://purl.org/dc/terms/&gt; .
-@prefix rdf:     &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix rdfs:    &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix odrl:    &lt;http://www.w3.org/ns/odrl/2/&gt; .
-
-&lt;http://purl.org/NET/rdflicense/W3C1.0&gt;
-      a       odrl:Policy ;
-      rdfs:label &quot;W3C Software Notice and License&quot; ;
-      dct:source &lt;https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document&gt; ;
-      dct:hasVersion &quot;1.0&quot; ;
-      dct:language &lt;http://www.lexvo.org/page/iso639-3/eng&gt; ;
-      dct:publisher &quot;W3C&quot; ;
-      odrl:permission
-      [ 
-         odrl:action odrl:distribute , odrl:modify , odrl:reproduce
-	     odrl:duty
-		 [   
-		    odrl:action cc:Notice , cc:ShareAlike
-		 ] ;
-	  ] ;
-      cc:legalcode &quot;&quot;&quot;
-License
-By obtaining and/or copying this work, you (the licensee) agree that you have read, understood, and will comply with the following terms and conditions.
-
-Permission to copy, modify, and distribute this work, with or without modification, for any purpose and without fee or royalty is hereby granted, provided that you include the following on ALL copies of the work or portions thereof, including modifications:
-
-The full text of this NOTICE in a location viewable to users of the redistributed or derivative work.
-Any pre-existing intellectual property disclaimers, notices, or terms and conditions. If none exist, the W3C Software and Document Short Notice should be included.
-Notice of any changes or modifications, through a copyright statement on the new code or document such as &quot;This software or document includes material copied from or derived from [title and URI of the W3C document]. Copyright &copy; [YEAR] W3C&reg; (MIT, ERCIM, Keio, Beihang).&quot;
-Disclaimers
-THIS WORK IS PROVIDED &quot;AS IS,&quot; AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENT WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
-
-COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENT.
-
-The name and trademarks of copyright holders may NOT be used in advertising or publicity pertaining to the work without specific, written prior permission. Title to copyright in this work will at all times remain with copyright holders.
-
-Notes
-This version: http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-
-Previous version: http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
-
-This version makes clear that the license is applicable to both software and text, by changing the name and substituting &quot;work&quot; for instances of &quot;software and its documentation.&quot; It moves &quot;notice of changes or modifications to the files&quot; to the copyright notice, to make clear that the license is compatible with other liberal licenses.
-&quot;&quot;&quot;@en .
-</pre></div>		
-        </section>
-		<section class='appendix'>
-			<h2>References</h2>
-				<dl class="bibliography" resource="">
-				<dt id="bib-CCREL">[CCREL]</dt>
-				<dd>Hal Abelson; Ben Adida; Mike Linksvayer; Nathan Yergler. W3C/Creative Commons. <a href="http://www.w3.org/Submission/ccREL/" property="dc:references"><cite>ccREL: The Creative Commons Rights Expression Language</cite></a>. 1 May 2008. W3C Member Submission. URL: <a href="http://www.w3.org/Submission/ccREL/" property="dc:references">http://www.w3.org/Submission/ccREL/</a>
-				</dd>
-				<dt id="bib-FOAF">[FOAF]</dt>
-				<dd>Dan Brickley; Libby Miller. FOAF project. <a href="http://xmlns.com/foaf/spec/" property="dc:references"><cite>FOAF Vocabulary Specification 0.99 (Paddington Edition)</cite></a>. 14 January 2014. URL: <a href="http://xmlns.com/foaf/spec/" property="dc:references">http://xmlns.com/foaf/spec/</a>
-				</dd>
-				<dt id="bib-Turtle">[Turtle]</dt>
-				<dd>Eric Prud'hommeaux; Gavin Carothers. W3C. <a href="https://www.w3.org/TR/turtle/" property="dc:references"><cite>RDF 1.1 Turtle</cite></a>. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/" property="dc:references">https://www.w3.org/TR/turtle/</a>
-				</dd>
-				</dl>
 			<h2>Acknowledgements</h2>
 			<p>
-				We would like to acknowledge the contributions to this document by the participants of the W3C POE WG and the W3C ODRL Community Group.
-			</p>
+todo			</p>
 		</section>
 		
 	</body>
