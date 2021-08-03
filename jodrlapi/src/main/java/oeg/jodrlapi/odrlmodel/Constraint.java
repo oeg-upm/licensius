@@ -48,8 +48,8 @@ public class Constraint extends MetadataObject{
     public Constraint(String l, String o, String r)
     {
         this();
-        leftOperand = l;
-        operator = o;
+        leftOperand = ODRLRDF.unroll(l);
+        operator = ODRLRDF.unroll(o);;
         rightOperand = r;
     }
     

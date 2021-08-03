@@ -9,6 +9,7 @@ import oeg.jodrlapi.helpers.ODRLRDF;
 import oeg.jodrlapi.odrlmodel.Action;
 import oeg.jodrlapi.odrlmodel.Constraint;
 import oeg.jodrlapi.odrlmodel.Duty;
+import oeg.jodrlapi.odrlmodel.Party;
 import oeg.jodrlapi.odrlmodel.Permission;
 import oeg.jodrlapi.odrlmodel.Policy;
 import oeg.jodrlapi.odrlmodel.Prohibition;
@@ -52,7 +53,7 @@ public class TransformerXMLODRL {
         try {
             Policy policy = new Policy();
             Permission permission = new Permission();
-            permission.setActions(Arrays.asList(new Action[]{new Action("odrl:reproduce")}));
+            Action action = new Action("odrl:reproduce");
 
             InputSource is = new InputSource(new StringReader(xml));
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -123,18 +124,75 @@ public class TransformerXMLODRL {
                         if (nodetext.equals("ms:redeposit") || nodetext.equals("http://w3id.org/meta-share/meta-share/redeposit"))
                         {
                             Duty duty = new Duty();
-                            Action action = new Action("odrl-lr:deposit"); //http://purl.org/odrl-lr/deposit
-                            action.addRefinement(new Constraint("http://purl.org/odrl-lr/depositingParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
-                            duty.setActions(Arrays.asList(new Action[]{action}));
+                            Action action2 = new Action("odrl-lr:deposit"); //http://purl.org/odrl-lr/deposit
+                            action2.addRefinement(new Constraint("http://purl.org/odrl-lr/depositingParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
+                            duty.setActions(Arrays.asList(new Action[]{action2}));
                             permission.addDuty(duty);
                         }
                         if (nodetext.equals("ms:informLicensor") || nodetext.equals("http://w3id.org/meta-share/meta-share/informLicensor"))
                         {
                             Duty duty = new Duty();
-                            Action action = new Action("odrl-lr:informLicensor");
+                            Action action2 = new Action("odrl-lr:informLicensor");
                             action.addRefinement(new Constraint("http://purl.org/odrl-lr/informedParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
                             action.addRefinement(new Constraint("http://purl.org/odrl-lr/objectOfReport",ODRLRDF.REQ.toString(), "odrl:Use"));
-                            duty.setActions(Arrays.asList(new Action[]{action}));
+                            duty.setActions(Arrays.asList(new Action[]{action2}));
+                            permission.addDuty(duty);
+                        }
+                        if (nodetext.equals("ms:spatial") || nodetext.equals("http://w3id.org/meta-share/meta-share/spatial"))
+                        {
+                            Constraint constraint = new Constraint("odrl:spatial",ODRLRDF.REQ.toString(), "only at assignee's site");
+                            permission.addConstraint(constraint);
+                        }
+                        if (nodetext.equals("ms:academicUseOnly") || nodetext.equals("http://w3id.org/meta-share/meta-share/academicUseOnly"))
+                        {
+                            Constraint constraint = new Constraint("odrl:purpose",ODRLRDF.REQ.toString(), "ms:academicUse");
+                            permission.addConstraint(constraint);
+                        }
+                        if (nodetext.equals("ms:evaluationUse") || nodetext.equals("http://w3id.org/meta-share/meta-share/evaluatonUse"))
+                        {
+                            Constraint constraint = new Constraint("odrl:purpose",ODRLRDF.REQ.toString(), "ms:evaluation");
+                            permission.addConstraint(constraint);
+                        }
+                        if (nodetext.equals("ms:languageEngineeringResearchUse") || nodetext.equals("http://w3id.org/meta-share/meta-share/languageEngineeringResearchUse"))
+                        {
+                            Constraint constraint = new Constraint("odrl:purpose",ODRLRDF.REQ.toString(), "ms:languageEngineeringResearchUse");
+                            permission.addConstraint(constraint);
+                        }
+                        if (nodetext.equals("ms:researchUse") || nodetext.equals("http://w3id.org/meta-share/meta-share/researchUse"))
+                        {
+                            Constraint constraint = new Constraint("odrl:purpose",ODRLRDF.REQ.toString(), "ms:research");
+                            permission.addConstraint(constraint);
+                        }
+                        if (nodetext.equals("ms:trainingUse") || nodetext.equals("http://w3id.org/meta-share/meta-share/trainingUse"))
+                        {
+                            Constraint constraint = new Constraint("odrl:purpose",ODRLRDF.REQ.toString(), "ms:training");
+                            permission.addConstraint(constraint);
+                        }
+                        if (nodetext.equals("ms:academicUser") || nodetext.equals("http://w3id.org/meta-share/meta-share/academicUser"))
+                        {
+                            Party assignee = new Party("");
+                            assignee.addRefinement(new Constraint("odrl:userType",ODRLRDF.REQ.toString(), "ms:academic"));
+                            policy.setAssigneeInAllRules(assignee);
+                        }
+                        if (nodetext.equals("ms:commercialUser") || nodetext.equals("http://w3id.org/meta-share/meta-share/commercialUse"))
+                        {
+                            Party assignee = new Party("");
+                            assignee.addRefinement(new Constraint("odrl:userType",ODRLRDF.REQ.toString(), "ms:commercial"));
+                            policy.setAssigneeInAllRules(assignee);
+                        }
+                        if (nodetext.equals("ms:memberOfAssociation") || nodetext.equals("http://w3id.org/meta-share/meta-share/memberOfAssociation"))
+                        {
+                            Party assignee = new Party("");
+                            assignee.addRefinement(new Constraint("odrl:userType",ODRLRDF.RPARTOF.toString(), "association X"));
+                            policy.setAssigneeInAllRules(assignee);
+                        }
+                        if (nodetext.equals("ms:requestPlan") || nodetext.equals("http://w3id.org/meta-share/meta-share/requestPlan"))
+                        {
+                            Duty duty = new Duty();
+                            Action action2 = new Action("odrl-lr:report");
+                            action.addRefinement(new Constraint("http://purl.org/odrl-lr/informedParty",ODRLRDF.REQ.toString(), ODRLRDF.RASSIGNER.toString()));
+                            action.addRefinement(new Constraint("http://purl.org/odrl-lr/objectOfReport",ODRLRDF.REQ.toString(), "odrl-lr:ResearchPlan"));
+                            duty.setActions(Arrays.asList(new Action[]{action2}));
                             permission.addDuty(duty);
                         }
                         
@@ -143,6 +201,7 @@ public class TransformerXMLODRL {
                     
                 }
             }
+            permission.setActions(Arrays.asList(new Action[]{action}));
             policy.addRule(permission);
 
             /*

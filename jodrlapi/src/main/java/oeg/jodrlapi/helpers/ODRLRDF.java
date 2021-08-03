@@ -436,12 +436,12 @@ public class ODRLRDF {
      * @param duty Duty in the ODRL2.0 Model
      * @return A Jena action
      */
-    public static Resource getResourceFromParty(Party party) {
+    /*public static Resource getResourceFromParty(Party party) {
         Model model = ModelFactory.createDefaultModel();
         Resource raction = model.createResource(party.uri.toString());
         raction.addProperty(RDF.type, ODRLRDF.RPARTY);
         return raction;
-    }
+    }*/
 
     /**
      * Gets a Jena Resource from a a constraint
@@ -466,8 +466,9 @@ public class ODRLRDF {
      *
      * @param permission Permission in the ODRL2.0 Model
      * @return A Jena permission
+     * @deprecated
      */
-    public static Resource getResourceFromRuleX(Rule rule) {
+/*    public static Resource getResourceFromRuleX(Rule rule) {
         Model model = ModelFactory.createDefaultModel();
         Resource rrule = rule.isAnon() ? model.createResource(new AnonId()) : model.createResource(rule.uri.toString());
 
@@ -526,7 +527,7 @@ public class ODRLRDF {
         }
         return rrule;
     }
-
+*/
     /**
      * Sets the resource metadata from the given MetadataObject
      *
@@ -623,7 +624,7 @@ public class ODRLRDF {
     public static Resource RDUTY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Duty");
     private static Resource RCONSTRAINT = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Constraint");
     public static Resource RACTION = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Action");
-    private static Resource RPARTY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Party");
+    public static Resource RPARTY = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/Party");
     private static Property PPERMISSION = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/permission");
     public static Property PTARGET = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/target");
     public static Property PASSIGNER = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/ns/odrl/2/assigner");
@@ -661,6 +662,7 @@ public class ODRLRDF {
     private static Resource RDATASET = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/dcat#Dataset");
     private static Resource RLINKSET = ModelFactory.createDefaultModel().createResource("http://rdfs.org/ns/void#Linkset");
     public static Resource REQ = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/eq");
+    public static Resource RPARTOF = ModelFactory.createDefaultModel().createResource("http://www.w3.org/ns/odrl/2/isPartOf");
     public static Property PVALUE  = ModelFactory.createDefaultModel().createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#value");
 
 }

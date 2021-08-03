@@ -222,12 +222,14 @@ public class Rule extends MetadataObject {
             resource.addProperty(ODRLRDF.PTARGET, target);
         }        
         if (getAssigner() != null) {
-            Resource rparty = ODRLRDF.getResourceFromParty(getAssigner());
+            Resource rparty = getAssigner().getResourceModel().resource;
+//            Resource rparty = ODRLRDF.getResourceFromParty(getAssigner());
             resource.addProperty(ODRLRDF.PASSIGNER, rparty);
             model.add(rparty.getModel());
         }
         if (getAssignee() != null) {
-            Resource rparty = ODRLRDF.getResourceFromParty(getAssignee());
+            Resource rparty = getAssignee().getResourceModel().resource;
+//            Resource rparty = ODRLRDF.getResourceFromParty(getAssignee());
             resource.addProperty(ODRLRDF.PASSIGNEE, rparty);
             model.add(rparty.getModel());
         }
