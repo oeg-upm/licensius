@@ -15,6 +15,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import oeg.jodrlapi.JODRLApiSettings;
 import oeg.jodrlapi.odrlmodel.Action;
 import oeg.jodrlapi.odrlmodel.Constraint;
@@ -519,5 +520,8 @@ public class RDFUtils {
             e.printStackTrace();
             return "";
         }
-    }    
+    }
+
+    
+            
 }

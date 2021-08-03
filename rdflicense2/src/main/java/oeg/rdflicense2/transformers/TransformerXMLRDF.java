@@ -159,6 +159,8 @@ public class TransformerXMLRDF {
             rdf = rdf.replace("@@", "@");
             rdf = rdf.replace("\n", "\\n");
             TransformationResponse tr = new TransformationResponse(true, rdf);
+            if (nl0.getLength()==0)
+                tr = new TransformationResponse(false, "No ms:LicenceTerms was found");
             return tr;
         } catch (Exception e) {
             System.out.println("error: " + e.getMessage());

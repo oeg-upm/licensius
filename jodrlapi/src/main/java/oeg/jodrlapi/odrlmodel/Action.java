@@ -12,14 +12,19 @@ import java.util.List;
 import oeg.jodrlapi.helpers.MetadataObject;
 import java.util.UUID;
 import oeg.jodrlapi.JODRLApiSettings;
+import oeg.jodrlapi.helpers.ODRLRDF;
 import oeg.jodrlapi.helpers.RDFUtils;
 import static oeg.jodrlapi.helpers.RDFUtils.coreModel;
 
 //APACHE COMMONS
-import org.apache.commons.io.FilenameUtils;
 import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntClass;
+import org.apache.jena.rdf.model.AnonId;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.iterator.ExtendedIterator;
+import org.apache.jena.vocabulary.RDF;
 
 /**
  * This class represents an ODRL Action.
@@ -46,12 +51,14 @@ import org.apache.jena.util.iterator.ExtendedIterator;
 @JsonSerialize(using = ActionSerializer.class)
 public class Action extends MetadataObject {
 
+    private List<Constraint> refinements = new ArrayList();
+    
     /**
      * Action constructor with a random URI in the default namespace. 
      * By default, an action will be like this: http://salonica.dia.fi.upm.es/ldr/action/2e7de960-7001-4c07-bde5-c5ad1f35133d
      */
     public Action() {
-        uri = JODRLApiSettings.ODRL_NS + "action/" + UUID.randomUUID().toString();
+        uri = JODRLApiSettings.ODRL_NS + "action/" + UUID.randomUUID().toString().substring(0,8);
     }
 
     /**
@@ -69,10 +76,23 @@ public class Action extends MetadataObject {
      */
     public Action(String _uri) {
         super(_uri);
+        _uri = ODRLRDF.unroll(_uri);
+        setURI(_uri);
+        
         if (!_uri.contains("http"))
             setURI("http://www.w3.org/ns/odrl/2/" + _uri);
 
     }
+    
+    public void addRefinement(Constraint c)
+    {
+        getRefinements().add(c);
+    }
+    public void clearRefinements()
+    {
+        getRefinements().clear();
+    }
+    
     
     /**
      * Gets all the official actions. 
@@ -101,7 +121,49 @@ public class Action extends MetadataObject {
         }
         return actions;
     }
+
+    /**
+     * @return the refinements
+     */
+    public List<Constraint> getRefinements() {
+        return refinements;
+    }
+
+    /**
+     * @param refinements the refinements to set
+     */
+    public void setRefinements(List<Constraint> refinements) {
+        this.refinements = refinements;
+    }
     
+    /**
+     * Gets a Jena ResourceModel from an action
+     * @return A Jena action
+     */
+    public ResourceModel getResourceModel() {
+        Model model = ModelFactory.createDefaultModel();
+
+        //In principle anonymous
+  //      Resource raction = model.createResource(JODRLApiSettings.ODRL_NS + "action/" + UUID.randomUUID().toString().substring(0,8));
+        Resource raction = model.createResource(new AnonId());
+        if (!this.getRefinements().isEmpty())
+        {
+            raction.addProperty(RDF.type, ODRLRDF.RACTION);            
+            model.add(raction, ODRLRDF.PVALUE, model.createResource(this.uri.toString()));
+        }
+        else    //otherwise we use the URI
+        {
+            raction = model.createResource(this.uri.toString());
+        }
+        for(Constraint ref : this.getRefinements())
+        {
+            ResourceModel rm = ref.getResourceModel();
+            model.add(rm.model);
+            model.add(raction, ODRLRDF.PREFINEMENT, rm.resource);
+        }
+        ResourceModel resourcemodel = new ResourceModel(raction, model);        
+        return resourcemodel;
+    }
 
 }
 //Class intended for a cleanear JSON-LD serialization.

@@ -50,6 +50,14 @@ public class Permission extends Rule {
         duties.clear();
         duties.add(duty);
     }
+    /**
+     * Adds a single duty associated to this permission
+     * @param duty Duty to be retrieved
+     */
+    public void addDuty(Duty duty)
+    {
+        duties.add(duty);
+    }
     
     /**
      * Sets the duties associated to this permission

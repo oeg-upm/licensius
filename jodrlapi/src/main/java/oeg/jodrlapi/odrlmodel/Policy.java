@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import oeg.jodrlapi.JODRLApiSettings;
+import oeg.jodrlapi.helpers.ODRLRDF;
 
 /**
  * Policy represents an ODRL policy, supporting a reduced set of the features
@@ -216,6 +217,5 @@ public class Policy extends MetadataObject {
         }
         return res;
     }
-    
 
 }

@@ -1,5 +1,13 @@
 package oeg.jodrlapi.odrlmodel;
 
+import java.util.List;
+import oeg.jodrlapi.helpers.ODRLRDF;
+import org.apache.jena.rdf.model.AnonId;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.RDF;
+
 
 /**
  * This class represents an ODRL2.0 Duty 

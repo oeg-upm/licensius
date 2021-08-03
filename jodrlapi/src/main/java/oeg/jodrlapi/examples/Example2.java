@@ -41,8 +41,8 @@ public class Example2 {
         permission2.setDuty(payment);
         Constraint c = new Constraint("");
         c.setOperator("http://www.w3.org/ns/odrl/2/lteq");
-        c.setRightOperand("http://www.w3.org/ns/odrl/2/count");
-        c.setValue("1");
+        c.setLeftOperand("http://www.w3.org/ns/odrl/2/count");
+        c.setRightOperand("1");
         permission2.setConstraint(Arrays.asList(c));
         policy.addRule(permission2);
 
