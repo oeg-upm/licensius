@@ -813,15 +813,14 @@ Execution of service for up to 100 API calls and up to 10 GB of processing volum
 
 <section id="acknows">
 
-			<h2>Acknowledgements</h2>
-			<p>
-todo			</p>
-		</section>
+<h2>Acknowledgements</h2>
+<p>This work has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 825182: <a href="https://pret-a-llod.github.io/">Prêt-à-LLOD</a> and the COST Action <a href="https://nexuslinguarum.eu/">"Nexus Linguarum"</a> (CA18209)</p>
+<p>A service supporting the transformation of XML files of licences into ODRL policies was developed in Athens in July 2021 by the <a href="https://www.ilsp.gr/en/home-2/">Institute for Language and Speech Processing</a> (Athena RC) and the <a href="https://oeg.fi.upm.es/">Ontology Engineering Group</a> (Universidad Politécnica de Madrid) available at https://rdflicense.linkeddata.es/service.html and as an API at https://rdflicense.linkeddata.es/swagger-ui.html</p>
+</section>
 		
-<!-- TODO add section with transformations -->
 
 <section id="userReqs">
-<h2>Appendix A - User requirements</h2>
+<h2>A. User requirements</h2>
 
 <p><b>User requirements on LRT hosting/distributing entities from LRT providers</b></p>
 <p>UR1.	As an LRT provider, I want to make available my LRT with a licence</p>
@@ -858,7 +857,7 @@ todo			</p>
 </section>
 
 <section id="dataset">
-<h2>Appendix B - Dataset of licences</h2>
+<h2>B. Dataset of licences</h2>
 <p>To facilitate providers of LRTs, a set of licences in ODRL is available at ? in the form of three interpretations:</p>
 <ul>
 <li>following this profile targeting entities responsible for granting access to LRTs</li>
@@ -871,6 +870,235 @@ todo			</p>
 
 </section>
 
+<section id="mappings">
+<h2>C. Mappings for transformation of META-SHARE elements to ODRL policies </h2>
+<h3>Mappings for condition of use</h3>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#93a1a1;border-spacing:0;}
+.tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:1px;color:#002b36;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:1px;color:#fdf6e3;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-ul38{position:-webkit-sticky;position:sticky;text-align:left;top:-1px;vertical-align:top;will-change:transform}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
+<div class="tg-wrap"><table class="tg">
+<thead>
+  <tr>
+    <th class="tg-ul38">Rule type</th>
+    <th class="tg-ul38">Condition of use</th>
+    <th class="tg-ul38">ODRL action/rule representation</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">   <br>Prohibition   </td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:noDerivatives&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:prohibition</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:DerivativeWorks</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Prohibition&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:nonCommercialUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:prohibition</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:CommercialUse</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Prohibition&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:noRedistribution&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:prohibition</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:Distrbution</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:attribution&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:Attribution</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:shareAlike&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:ShareAlike</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:redeposit&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action ms:deposit </span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:leftOperand ms:depositingParty&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;odrl:assigner</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] </span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:informLicensor&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action ms:report </span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:leftOperand odrl:informedParty&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand odrl:assigner</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] ;</span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                         <span style="color:black">odrl:leftOperand ms:objectOfReport&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand odrl:Use</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] </span><br>&nbsp;&nbsp;&nbsp;<br> <br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:spatial&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:spatial ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand "only at&nbsp;&nbsp;&nbsp;assignee's site"</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:academicUseOnly&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:academicUse</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:evaluationUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:evaluation1</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:languageEngineeringResearchUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;ms:languageEngineeringResearch</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:researchUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:research</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:trainingUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:training</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:academicUser&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:userType ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:academic</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:commercialUser&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:userType ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:commercial</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:memberOfAssociation1&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:isPartOf ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:assignee ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand "association&nbsp;&nbsp;&nbsp;X"</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:requestPlan&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action ms:report </span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:leftOperand odrl:informedParty&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;odrl:assigner</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] ;</span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                         <span style="color:black">odrl:leftOperand ms:objectOfReport&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;ms:ResearchPlan</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] </span><br>&nbsp;&nbsp;&nbsp;<br> <br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax">&nbsp;&nbsp;&nbsp;<br>ms:userIdentified&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0lax"><span style="color:black">odrl:duty [</span><br>               <span style="color:black">odrl:Action ms:signIn</span><br>        <span style="color:black">]</span><br>   </td>
+  </tr>
+</tbody>
+</table></div>
+
+<h3>Mappings for licence category</h3>
+<p>The first two values of the licence category  (allowsDirectAccess & allowsProcessing) specify the types of actions that the distributing entity may perform, while the other values refine the constraints on which these actions are performed.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#93a1a1;border-spacing:0;}
+.tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:1px;color:#002b36;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:1px;color:#fdf6e3;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-j1i3{border-color:inherit;position:-webkit-sticky;position:sticky;text-align:left;top:-1px;vertical-align:top;
+  will-change:transform}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
+<div class="tg-wrap"><table class="tg">
+<thead>
+  <tr>
+    <th class="tg-j1i3">Rule type</th>
+    <th class="tg-j1i3">Condition of use</th>
+    <th class="tg-j1i3">ODRL action/rule representation</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">   <br>Prohibition   </td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:noDerivatives&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:prohibition</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:DerivativeWorks</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Prohibition&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:nonCommercialUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:prohibition</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:CommercialUse</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Prohibition&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:noRedistribution&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:prohibition</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:Distrbution</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:attribution&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:Attribution</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:shareAlike&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action cc:ShareAlike</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:redeposit&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action ms:deposit </span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:leftOperand ms:depositingParty&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;odrl:assigner</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] </span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Duty&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:informLicensor&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action ms:report </span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:leftOperand odrl:informedParty&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand odrl:assigner</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] ;</span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                         <span style="color:black">odrl:leftOperand ms:objectOfReport&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand odrl:Use</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] </span><br>&nbsp;&nbsp;&nbsp;<br> <br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:spatial&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:spatial ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand "only at&nbsp;&nbsp;&nbsp;assignee's site"</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">] </span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:academicUseOnly&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:academicUse</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:evaluationUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:evaluation1</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:languageEngineeringResearchUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;ms:languageEngineeringResearch</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:researchUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:research</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:trainingUse&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:purpose ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:training</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:academicUser&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:userType ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:academic</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:commercialUser&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:userType ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand ms:commercial</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:memberOfAssociation1&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:constraint</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">[ a</span>       <span style="color:black">odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>               <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:isPartOf ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:leftOperand odrl:assignee ;</span><br>&nbsp;&nbsp;&nbsp;<br>             <span style="color:black">odrl:rightOperand "association&nbsp;&nbsp;&nbsp;X"</span><br>&nbsp;&nbsp;&nbsp;<br>            <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:requestPlan&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br><span style="color:black">odrl:duty</span><br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">[ odrl:action ms:report </span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:leftOperand odrl:informedParty&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;odrl:assigner</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] ;</span><br>&nbsp;&nbsp;&nbsp;<br>                       <span style="color:black">[</span><br>&nbsp;&nbsp;&nbsp;<br>                <span style="color:black">odrl:refinement</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">[ a odrl:Constraint ;</span><br>&nbsp;&nbsp;&nbsp;<br>                         <span style="color:black">odrl:leftOperand ms:objectOfReport&nbsp;&nbsp;&nbsp;;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:operator&nbsp;&nbsp;&nbsp;odrl:eq ;</span><br>&nbsp;&nbsp;&nbsp;<br>                          <span style="color:black">odrl:rightOperand&nbsp;&nbsp;&nbsp;ms:ResearchPlan</span><br>&nbsp;&nbsp;&nbsp;<br>                        <span style="color:black">] </span><br>&nbsp;&nbsp;&nbsp;<br> <br>&nbsp;&nbsp;&nbsp;<br>              <span style="color:black">]</span>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>Constraint&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky">&nbsp;&nbsp;&nbsp;<br>ms:userIdentified&nbsp;&nbsp;&nbsp;</td>
+    <td class="tg-0pky"><span style="color:black">odrl:duty [</span><br>               <span style="color:black">odrl:Action ms:signIn</span><br>        <span style="color:black">]</span><br>   </td>
+  </tr>
+</tbody>
+</table></div>
+</section>
 		
 	</body>
 </html>
