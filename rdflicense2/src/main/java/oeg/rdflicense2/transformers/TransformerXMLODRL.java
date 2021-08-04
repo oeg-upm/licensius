@@ -32,6 +32,13 @@ public class TransformerXMLODRL {
     
         public static void main(String args[])
         {
+            String xml ="<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+"<ms:MetadataRecord xmlns:ms=\"http://w3id.org/meta-share/meta-share/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://w3id.org/meta-share/meta-share/ https://live.european-language-grid.eu/metadata-schema/ELG-SHARE.xsd\"><ms:metadataCreationDate>2020-03-05</ms:metadataCreationDate><ms:metadataLastDateUpdated>2020-10-21</ms:metadataLastDateUpdated><ms:metadataCurator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">Mapelli</ms:surname><ms:givenName xml:lang=\"en\">Valérie</ms:givenName></ms:metadataCurator><ms:compliesWith>http://w3id.org/meta-share/meta-share/ELG-SHARE</ms:compliesWith><ms:metadataCreator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">Mapelli</ms:surname><ms:givenName xml:lang=\"en\">Valérie</ms:givenName></ms:metadataCreator><ms:DescribedEntity><ms:LicenceTerms><ms:entityType>LicenceTerms</ms:entityType><ms:LicenceIdentifier ms:LicenceIdentifierScheme=\"http://w3id.org/meta-share/meta-share/other\">ELRA-END-USER-ACADEMIC-MEMBER-NONCOMMERCIALUSE-1.0</ms:LicenceIdentifier><ms:licenceTermsName xml:lang=\"en\">ELRA-END-USER-ACADEMIC-MEMBER-NONCOMMERCIALUSE-1.0</ms:licenceTermsName><ms:licenceTermsURL>http://catalogue.elra.info/static/from_media/metashare/licences/ELRA_END_USER.pdf</ms:licenceTermsURL><ms:conditionOfUse>http://w3id.org/meta-share/meta-share/nonCommercialUse</ms:conditionOfUse><ms:conditionOfUse>http://w3id.org/meta-share/meta-share/attribution</ms:conditionOfUse><ms:licenceCategory>http://w3id.org/meta-share/meta-share/allowsAccessWithSignature</ms:licenceCategory><ms:licenceCategory>http://w3id.org/meta-share/meta-share/requiresUserAuthentication</ms:licenceCategory></ms:LicenceTerms></ms:DescribedEntity></ms:MetadataRecord>";
+            System.out.println(transformXML2ODRL(xml).transformation);
+
+            if (true)
+                return;
+
             Policy policy = new Policy("_:policy");
             Permission permission = new Permission();
 
@@ -46,12 +53,10 @@ public class TransformerXMLODRL {
             policy.addRule(permission);
             System.out.println(policy.toJSONLD());
             System.out.println(ODRLRDF.getRDF(policy, Lang.TTL)+"\n================================\n");
-      //      String xml ="<?xml version=\"1.0\" encoding=\"utf-8\"?><ms:MetadataRecord xmlns:ms=\"http://w3id.org/meta-share/meta-share/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://w3id.org/meta-share/meta-share/ https://live.european-language-grid.eu/metadata-schema/ELG-SHARE.xsd\"><ms:metadataCreationDate>2020-02-27</ms:metadataCreationDate><ms:metadataLastDateUpdated>2020-10-21</ms:metadataLastDateUpdated><ms:metadataCurator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCurator><ms:compliesWith>http://w3id.org/meta-share/meta-share/ELG-SHARE</ms:compliesWith><ms:metadataCreator><ms:actorType>Person</ms:actorType><ms:surname xml:lang=\"en\">admin</ms:surname><ms:givenName xml:lang=\"en\">elg</ms:givenName></ms:metadataCreator><ms:DescribedEntity><ms:LicenceTerms><ms:entityType>LicenceTerms</ms:entityType><ms:LicenceIdentifier ms:LicenceIdentifierScheme=\"http://w3id.org/meta-share/meta-share/SPDX\">Abstyles</ms:LicenceIdentifier><ms:licenceTermsName xml:lang=\"en\">Abstyles License</ms:licenceTermsName><ms:licenceTermsShortName xml:lang=\"en\">Abstyles</ms:licenceTermsShortName><ms:licenceTermsURL>https://fedoraproject.org/wiki/Licensing/Abstyles</ms:licenceTermsURL><ms:conditionOfUse>http://w3id.org/meta-share/meta-share/unspecified</ms:conditionOfUse></ms:LicenceTerms></ms:DescribedEntity></ms:MetadataRecord>";
-      //      System.out.println(transformXML2ODRL(xml).transformation);
         }
     
         public static TransformationResponse transformXML2ODRL(String xml) {
-            System.out.println("Vamos a transformar!");
+            System.out.println("Vamos a transformar a ODRL!");
         try {
             Policy policy = new Policy();
             Permission permission = new Permission();
