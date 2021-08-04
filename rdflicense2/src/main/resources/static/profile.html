@@ -40,7 +40,9 @@
 <p>R3. Support specifying permissions and prohibitions typical of policies for LRTs.</p>
 <p>R4. Describe policies used to authorise access to data resources and data processing services.</p>
 <p>R5. Specify procedures and algorithms that can generate templates for policies typical of access to LRTs.</p>
-		<section id="overview">
+</section>
+
+<section id="overview">
 		<h3>Overview of the LRT distribution landscape</h3> 	
 <p>Sharing of Language Resources and Technologies (LRTs) is included in the mission of infrastructures and distribution bodies, such as the <a href="https://www.european-language-grid.eu/">European Language Grid</a>, <a href="https://www.clarin.eu/">CLARIN</a> and its national nodes (e.g. the <a href="https://www.clarin.gr/en">Greek CLARIN</a>), <a href="http://www.meta-share.eu/">META-SHARE</a>, <a href="http://www.elra.info/en/">ELRA-ELDA</a>. To this end, they create and maintain repositories, that enable the upload and storage of resources, their description in a structured form (metadata records), the search and browse of these resources through dedicated catalogue pages, as well as access to them, which can be performed, for instance, by the download of content files or execution of web services.
 These hosting/distributing entities (in short "distributing entities") act as intermediaries between providers and consumers of LRTs, both human and machines. Therefore, the requirements addressed in the current profile are set by the operational needs of the distributing entities, and indirectly by the needs of providers and consumers.<a>
@@ -57,7 +59,9 @@ These hosting/distributing entities (in short "distributing entities") act as in
 <li>combination of tools/services deployed in the repository to create a new composite tool or service ("workflow").</li>
 </ul>
 <p>The policy statements (licences and terms of use) that accompany a resource regulate its use by end-users but do not explicitly describe the <b>rules</b> (duties, restrictions, permissions) to be imposed by the entities when providing access to them. This set of rules may be inferred from the licensing conditions and needs to be calculated (semi-)automatically. One of the main objectives of this profile is to support the expression of these conditions, their automatic computation when possible and their representation in the form of authorisation statements and actions.</p>
-		<section id="overview">
+
+</section>
+<section id="reqsdetail">
 		<h3>Detailed requirements</h3> 	
 <p>Entities responsible for sharing LRTs must satisfy the user requirements of both LRT providers and consumers, as described in Appendix A. To achieve this goal, the following requirements are set:</p>
 <p>R1.	For granting access to an LRT,  the LRT must be released with a clear and accessible usage licence, which must be uniquely referred to in the formal description (metadata record) of the LRT (see also FAIR principle R1.1)</p>
@@ -70,10 +74,10 @@ These hosting/distributing entities (in short "distributing entities") act as in
 <p>c.	Entities granting end users access to an LRT must ensure they grant such access in accordance with its licensing conditions to the extent that these can be controlled by them; licensing conditions that cannot be controlled by them remain at the end-user's responsibility/liability.</p>
 <p>R5.	To allow combination of LRTs or processing of LRTs, their licensing conditions must be compatible and allow combination or processing actions; these permissions should be included in the formal description of the licences.</p>
 <p>R6.	The formal description of the LRT should include elements that may help resolve issues related to rights and access.</p>
-
+</section>
 
 		<section id="conventions">
-				<h3>Document Conventions</h3>
+				<h2>Document Conventions</h2>
 					<p>Within this document, the following namespace prefix bindings are used:</p>
     <table class="def">
         <tbody>
@@ -163,12 +167,12 @@ These hosting/distributing entities (in short "distributing entities") act as in
       <label><input name="presLang" value="json-ld" type="radio">JSON-LD
           (press 'j')</label> . </form>-->
 		  
-		</section>
 
 <section id="spec">
 <h2>Profile specification</h2>
 <h3>Entities</h3>
 The current specification focuses on three classes taken from the <a href="http://w3id.org/meta-share/meta-share">META-SHARE</a> vocabulary: <code>Resource</code>, <code>Distribution</code> and <code>LicenceTerms</code>. For the first two classes, we reuse the META-SHARE vocabulary and include here only those properties that are of interest to this specification. In addition, the <code>LicenceTerm</code> is further represented as a <code>policy</code> in accordance with the ODRL model. 
+</section>
 <section id="resources">
 <h4>Resources</h4>
 A distinction is made between the <em>language resource / technology</em>, as the object created and described at an abstract level, and its <em>distributable form</em>, i.e., the form as packaged, distributed and consumed by end users. Following the <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT</a> terminology, the former is represented with the class <code>LanguageResource</code> and the latter as <code>DatasetDistribution</code> and <code>SoftwareDistribution</code>.
@@ -262,7 +266,7 @@ A distinction is made between the <em>language resource / technology</em>, as th
                     </tbody>
                 </table>
             </section>
-
+</section>
 <section id="resourceProp">
 <h4>Resource properties</h4>
 <p>The following properties address R6, i.e. can help determine and/or resolve rights and access issues.<p>
@@ -441,7 +445,7 @@ A distinction is made between the <em>language resource / technology</em>, as th
                 </table>
             </section>
 			
-			
+			</section>
 <section id="distributions">
 <h4>DatasetDistribution and SoftwareDistribution</h4>
 <p>These are subclasses of <code>dcat:Distribution</code> catering for the distict features of data and software resources, such as different distribution mediums (service or source code for software, content files or forms accessible via interfaces for data resources), descriptive features (size for text, audio, video, image files, technical requirements on the input / output of software).</p>
@@ -483,6 +487,7 @@ A distinction is made between the <em>language resource / technology</em>, as th
                 </table>
             </section>
 
+</section>
 <section id="distributionProp">
 <h4>Distribution properties</h4>
 <p>Properties of the <code>Distribution</code> subclasses include:</p>
