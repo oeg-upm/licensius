@@ -171,8 +171,8 @@ These hosting/distributing entities (in short "distributing entities") act as in
 <section id="spec">
 <h2>Profile specification</h2>
 <h3>Entities</h3>
-The current specification focuses on three classes taken from the <a href="http://w3id.org/meta-share/meta-share">META-SHARE</a> vocabulary: <code>Resource</code>, <code>Distribution</code> and <code>LicenceTerms</code>. For the first two classes, we reuse the META-SHARE vocabulary and include here only those properties that are of interest to this specification. In addition, the <code>LicenceTerm</code> is further represented as a <code>policy</code> in accordance with the ODRL model. 
-</section>
+The current specification focuses on three classes taken from the <a href="http://w3id.org/meta-share/meta-share">META-SHARE</a> vocabulary: <code>Resource</code>, <code>Distribution</code> and <code>LicenceTerms</code>. For the first two classes, we reuse the META-SHARE vocabulary and include here only those properties that are of interest to this specification. In addition, the <code>LicenceTerms</code> is further represented as a <code>policy</code> in accordance with the ODRL model. 
+
 <section id="resources">
 <h4>Resources</h4>
 A distinction is made between the <em>language resource / technology</em>, as the object created and described at an abstract level, and its <em>distributable form</em>, i.e., the form as packaged, distributed and consumed by end users. Following the <a href="https://www.w3.org/TR/vocab-dcat-2/">DCAT</a> terminology, the former is represented with the class <code>LanguageResource</code> and the latter as <code>DatasetDistribution</code> and <code>SoftwareDistribution</code>.
@@ -189,7 +189,7 @@ A distinction is made between the <em>language resource / technology</em>, as th
                         </tr><tr>
                             <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/LanguageResource">http://w3id.org/meta-share/meta-share/LanguageResource</a></td>
                         </tr><tr>
-                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="https://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a></td>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="https://www.w3.org/TR/rdf-schema/#ch_resource">rdfs:Resource</a>, <a href="http://www.w3.org/ns/dcat#Resource">dcat:Resource</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -267,6 +267,7 @@ A distinction is made between the <em>language resource / technology</em>, as th
                 </table>
             </section>
 </section>
+
 <section id="resourceProp">
 <h4>Resource properties</h4>
 <p>The following properties address R6, i.e. can help determine and/or resolve rights and access issues.<p>
@@ -425,7 +426,7 @@ A distinction is made between the <em>language resource / technology</em>, as th
             </section>
 
            <section data-dfn-for="anonymizationDetails">
-                <h2><dfn>anonymizationDataDetails</dfn></h2>
+                <h2><dfn>anonymizationDetails</dfn></h2>
                 <table class="def propdef">
                     <tbody>
                         <tr>
@@ -492,27 +493,173 @@ A distinction is made between the <em>language resource / technology</em>, as th
 <h4>Distribution properties</h4>
 <p>Properties of the <code>Distribution</code> subclasses include:</p>
 <ul>
-<li>linking to policy documents regulating the access conditions, addressing R1 and R1a: <code>licenceTerms</code> and <code>accessRights</code>
-<li>describing restrictions related to the billing module, time restrictions or membership to a group and addressing R4: <code>cost</code>, <code>membershipInstitution</code>, <code>availabilityStartDate</code>, <code>availabilityEndDate</code>. These are used in combination with the <code>licenceTerms</code> to refine licences with extra restrictions.
+<li>linking to policy documents regulating the access conditions, addressing R1 and R1a: <code>licenceTerms</code> (see examples 1 - 6) and <code>accessRights</code>
+<li>describing restrictions related to the billing module, time restrictions or membership to a group and addressing R4: <code>cost</code>, <code>membershipInstitution</code>, <code>availabilityStartDate</code>, <code>availabilityEndDate</code>. These are used in combination with the <code>licenceTerms</code> to refine licences with additional restrictions. (see examples 5 - 6).
 </li>
 </ul>
 
-<p>The property <code>licenceTerms</code> addresses R1 and R1a. It is the property used for linking LRTs to the policy statements (class <code>LicenceTerms</code>). This is a mandatory property since without a licence, LRTs must not be accessible to end-users. Multiple licences are allowed for the same <code>Distribution</code> in the following cases:</p>
+<p>The property <code>licenceTerms</code> addresses R1 and R1a. It is the property used for linking LRTs to the policy statements (class <code>LicenceTerms</code>) and it is mandatory in order to ensure legitimate access by end-users (see examples 1 - 5). Normally, each >Distribution</code> must have one licence attached. Multiple licences are also possible for the same <code>Distribution</code> in the following cases:</p>
 <ul>
-<li>a data resource (e.g. a lexicon or corpus) accessible with an interface, in which case the data and the interface are licensed with different licences</li>
-<li>a collection created by subsets released with different licences.</li>
+<li>a data resource (e.g. a lexicon or corpus) which is accessible with an interface; in this case, the data and the interface may be available with different licences (see example 3)</li>
+<li>a collection composed of subsets released with different licences; for instance, a corpus or lexicon created with the same principles, but released with different conditions for different languages (see example 4).</li>
 </ul>
-<p>In both cases, the access procedure must take into account all licences attached to this Distribution.</p>
+<p>In both cases, the access procedure must take into account all licences attached to this <code>Distribution</code>.</p>
 <p>LRTs whose licence is not identified in the formal description may be included in a catalogue for information purposes only, clearly marked as such and described with at least an access statement which is added with the <code>accessRights</code> property.</p>
 
-<!-- TODO add tables -->
+            <section data-dfn-for="licenceTerms">
+                <h2><dfn>licenceTerms</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Links the distribution (distributable form) of a language resource to the licence or terms of use/service (a specific legal document) with which it is distributed</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>licence</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/licenceTerms">http://w3id.org/meta-share/meta-share/licenceTerms</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:DatasetDistribution, ms:SoftwareDistribution</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>ms:LicenceTerms</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="accessRights">
+                <h2><dfn>accessRights</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Specifies the rights for accessing the distributable form(s) of a language resource (preferrably in accordance to a formalised vocabulary)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>access rights</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/accessRights">http://w3id.org/meta-share/meta-share/accessRights</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:DatasetDistribution, ms:SoftwareDistribution</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>ms:AccessRightsStatement</td>
+                            </tr>
+							<tr>
+                                <th>Note:</th><td>The property is mandatory when no licence is available for a resource and its intended use is for resources catalogued for information only purposes. For the <code>AccessRightsStatement</code>, it is recommended to use a term from standardized vocabularies, such as the <a href="https://vocabularies.coar-repositories.org/access_rights/">Open COAR Access Rights vocabulary</a> or the statements provided by <a href="https://rightsstatements.org/en/">RightsStatements.org</a></td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="cost">
+                <h2><dfn>cost</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Introduces the cost for accessing a resource or the overall budget of a project, formally described as a set of amount and currency unit</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>cost</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/cost">http://w3id.org/meta-share/meta-share/cost</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:DatasetDistribution, ms:SoftwareDistribution</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>ms:Cost (<code>ms:Cost</code> is formally represented using two properties, <code>amount</code> and <code>currency</code>.)</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="membershipInstitution">
+                <h2><dfn>membershipInstitution</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Introduces an institution with members that can benefit from specific conditions on the use of a resource (e.g. discount, unlimited access, etc.)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>membership institution</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/membershipInstitution">http://w3id.org/meta-share/meta-share/membershipInstitution</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:DatasetDistribution, ms:SoftwareDistribution</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>foaf:organization</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="availabilityStartDate">
+                <h2><dfn>availabilityStartDate</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Specifies the start date of availability of a resource - only for cases where a resource is available for a restricted time period.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>availability start date</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/availabilityStartDate">http://w3id.org/meta-share/meta-share/availabilityStartDate</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:DatasetDistribution, ms:SoftwareDistribution</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>xs:date</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="availabilityEndDate">
+                <h2><dfn>availabilityEndDate</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Specifies the end date of availability of a resource - only for cases where a resource is available for a restricted time period.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>availability end date</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/availabilityEndDate">http://w3id.org/meta-share/meta-share/availabilityEndDate</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:DatasetDistribution, ms:SoftwareDistribution</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>xs:date</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
 </section>
 <section id="policies">
 <h2>Policies (Licences and Terms of use/service)</h2>
 <h3>LicenceTerms</h3>
 <p>This class covers legal documents, i.e., licences and terms of use or service for data resources and software.</p>
-<!-- TODO add tables -->
 
+            <section data-dfn-for="LicenceTerms">
+                <h2><dfn>LicenceTerms</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>A legal document (licence or terms of use/service) with which the language resource is distributed</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Licence</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/LicenceTerms">http://w3id.org/meta-share/meta-share/LicenceTerms</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td><a href="https://www.w3.org/ns/dcat#Distribution">cc:License</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+			
 </section>
 <section id="policiesProp">
 <h3>Licence properties</h3>
@@ -521,7 +668,193 @@ A distinction is made between the <em>language resource / technology</em>, as th
 <p>The object property <code>licenceCategory</code> addresses R4; i.e., it supports the encoding of terms that can be mapped to actions granting access to LRTs and the authorization procedures required for them. As with <code>conditionOfUse</code>, these can be mapped to ODRL rules and added to the RDF representations of a licence.</p> 
 <p>A set of such mappings has already been made for the typical cases in the LRT domain and is available at ??.<p>
 
-<!-- TODO add tables -->
+           <section data-dfn-for="licenceTermsName">
+                <h2><dfn>licenceTermsName</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>The name by which a legal document (e.g., licence, terms of use, terms of service) is known</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>licence name</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/licenceTermsName">http://w3id.org/meta-share/meta-share/licenceTermsName</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>rdf:langString</td>
+                            </tr>
+							<tr>
+                                <th>Subproperty of:</th><td>dcterms:title</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="licenceTermsAlternativeName">
+                <h2><dfn>licenceTermsAlternativeName</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Introduces an alternative name (other than the short name) used for a licence or terms of use</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>licence alternative name</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/licenceTermsAlternativeName">http://w3id.org/meta-share/meta-share/licenceTermsAlternativeName</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>rdf:langString</td>
+                            </tr>
+							<tr>
+                                <th>Subproperty of:</th><td>dcterms:alternative</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="licenceTermsShortName">
+                <h2><dfn>licenceTermsShortName</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Introduces the short name (abbreviation, acronym, etc.) used for a licence or terms of use document</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>licence short name</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/licenceTermsShortName">http://w3id.org/meta-share/meta-share/licenceTermsShortName</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>rdf:langString</td>
+                            </tr>
+							<tr>
+                                <th>Subproperty of:</th><td>dcterms:alternative</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="licenceTermsURL">
+                <h2><dfn>licenceTermsURL</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Links to the URL where the text of a licence/terms of use/service is found</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>licence URL</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/licenceTermsURL">http://w3id.org/meta-share/meta-share/licenceTermsURL</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>xsd:anyURI</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="logo">
+                <h2><dfn>logo</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Links to a symbol or graphic object used to identify an entity; please, add a URL with an image file</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>logo</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/logo">http://w3id.org/meta-share/meta-share/logo</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>xsd:anyURI</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="identifier">
+                <h2><dfn>dct:identifier</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Links to a symbol or graphic object used to identify an entity; please, add a URL with an image file</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>identifier</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/logo">http://w3id.org/meta-share/meta-share/logo</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>ms:LicenceIdentifier ("A string used to uniquely identify a licence")</td>
+                            </tr>
+                            </tr><tr>
+                                <th>Usage note:</th><td>The <code>LicenceIdentifier</code> must be defined within a <code>LicenceIdentifierScheme</code>. The use of a standardized vocabulary, such as the <a href="https://spdx.dev/ids/">SPDX identifiers</a> is higly recommended.</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="conditionOfUse">
+                <h2><dfn>conditionOfUse</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Links a licence with a specific condition/term of use imposed for accessing a language resource. It is an optional element and only to be taken as providing brief human readable information on the fact that the language resource is provided under a specific set of conditions. These correspond to the most frequently used conditions imposed by the licensor (via the specified licence). The proper exposition of all conditions and possible exceptions is to be found inside the licence text. Depositors should, hence, carefully choose the values of this field to match the licence chosen and users should carefully read that licence before using the language resource.</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>condition of use</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/conditionOfUse">http://w3id.org/meta-share/meta-share/conditionOfUse</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>ms:ConditionOfUse ("A condition imposed via a specified licence on the use of a language resource (e.g., non-commercial use, no derivatives, etc.")</td>
+                            </tr>
+                            </tr><tr>
+                                <th>Usage note:</th><td>The <code>ConditionOfUse</code> class includes a list of individuals with the most common conditions imposed in the domain of LRTs.</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+           <section data-dfn-for="licenceCategory">
+                <h2><dfn>licenceCategory</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Categorises a licence according to a classification scheme</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>licence category</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/licenceCategory">http://w3id.org/meta-share/meta-share/licenceCategory</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td><a>ms:LicenceTerms</a></td>
+                            </tr><tr>
+                                <th>Range:</th><td>ms:LicenceCategory ("A classification scheme for licences")</td>
+                            </tr>
+                            </tr><tr>
+                                <th>Usage note:</th><td>The <code>LicenceCategory</code> class includes a list of individuals that formalise the restrictions to be taken into account by hosting entities when giving access to LRTs and the type of actions that must or can be performed; for instance, whether users need to be authenticated, belong to a specific user type, whether the resource can be downloaded or processed, etc. For more information, see Section <a href="#Actions">Actions</a> and examples 7 - 12.</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
 </section>
 <section id="parties">
 <h2>Parties</h2>
@@ -534,22 +867,193 @@ A distinction is made between the <em>language resource / technology</em>, as th
 </ul>
 <p>For the scope of the current profile, these roles do not need to be formally represented, as the ODRL roles <code>odrl:assigner</code> and <code>odrl:assignee</code> suffice. </p>
 <p>In terms of legal status, distributing entities can only be organizations, resource providers can be both organizations and individuals, while resource consumers can be only individuals, affiliated or not to organizations. These can be described with any relevant vocabulary such as W3C vCard Ontology, FOAF Vocabulary enriched with META-SHARE and ODRL properties, as required.</p>
-<!-- TODO add tables -->
 </section>
+
 <section id="partyProps">
 <h3>Party properties</h3>
 <p>The only property specific to this profile is the <code>userType</code>, which distinguishes LRT consumers into commercial and academic ones. This is required because this distinction is related to restrictions on using an LRT or on the price or billing model of an LRT.</p>
-<!-- TODO add tables -->
+
+           <section data-dfn-for="userType">
+                <h2><dfn>userType</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Used to identify the type of user of the resource (affiliated with a commercial vs. academic institution); it is usually associated with licensing or pricing conditions on the use of a resource</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>user type</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/userType">http://w3id.org/meta-share/meta-share/userType</a></td>
+                        </tr>
+						<tr>
+                                <th>Domain:</th><td>foaf:Agent</td>
+                            </tr><tr>
+                                <th>Range:</th><td>ms:UserType ("Classification type for users of a language resource; usually required for assessing the licensing or pricing policies for the use of the resource")</td>
+                            </tr>
+                            </tr><tr>
+                                <th>Usage note:</th><td>The <code>UserType</code> class lists two individuals, namely <code>academic</code> and <code>commercial</code>.</td>
+                            </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
 </section>
 <section id="Actions">
 <h3>Actions</h3>
 <h4>Operations</h4>
-<p>To cover the operations performed in the context of this profile, the following concepts are used from the ODRL and META-SHARE vocabularies: <code>odrl:execute</code>, <code>odrl:aggregate</code>, <code>ms:download</code>, <code>ms:process</code> and <code>ms:combine</code>.</p>
-<!-- TODO add tables -->
+<p>To cover the operations performed in the context of this profile, the following concepts are used from the ODRL and META-SHARE vocabularies: <code>odrl:execute</code>, <code>odrl:Aggregate</code>, <code>ms:Download</code>, <code>ms:Process</code> and <code>ms:Combine</code>.</p>
+
+            <section data-dfn-for="Download">
+                <h2><dfn>Download</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Download of a content file (with data or executable file) on one's local system</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Download</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/Download">http://w3id.org/meta-share/meta-share/Download</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="Process">
+                <h2><dfn>Process</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>To process a data resource with a language processing service (e.g. to create an annotated version, or to extract elements from it)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Process</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/Process">http://w3id.org/meta-share/meta-share/Process</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="Combine">
+                <h2><dfn>Combine</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Combine two or more resources of different resource types (e.g. a model and a tool/service) in order to deploy them together</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Combine</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/Combine">http://w3id.org/meta-share/meta-share/Combine</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
 </section>
 <section id="Actions for constraints">
 <h3>Actions for Constraints</h3>
-<p>The following subclasses of <code>odrl:Action</code> are required in use with constraints on rules to describe common practices in the domain of LRT distribution: <code>signIn</code>, <code>authorize</code>.</p>
+<p>The following subclasses of <code>odrl:Action</code> are required in use with constraints on rules to describe common practices in the domain of LRT distribution: <code>SignIn</code>, <code>Authorize</code>, <code>SignLicence</code>, <code>Report</code>, <code>Deposit</code>.</p>
+
+            <section data-dfn-for="SignIn">
+                <h2><dfn>SignIn</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>To sign in a system or application</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>SignIn</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/SignIn">http://w3id.org/meta-share/meta-share/SignIn</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="Authorize">
+                <h2><dfn>Authorize</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>To be formally allowed to access and make use of a resource</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Authorize</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/Authorize">http://w3id.org/meta-share/meta-share/Authorize</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="SignLicence">
+                <h2><dfn>SignLicence</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>The obligation of the assignee to sign a licence before being allowed to use a resource</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>SignLicence</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/SignLicence">http://w3id.org/meta-share/meta-share/SignLicence</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
+            <section data-dfn-for="Report">
+                <h2><dfn>Report</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>Give an account of an event related to the resource (e.g. a research plan, the use of the resource in a project or publication, etc.)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Report</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/Report">http://w3id.org/meta-share/meta-share/Report</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-dfn-for="Deposit">
+                <h2><dfn>Deposit</dfn></h2>
+                <table class="def propdef">
+                    <tbody>
+                        <tr>
+                            <th>Definition:</th><td>The action of uploading a resource to a hosting entity (repository), e.g. for preservation purposes)</td>
+                        </tr>
+						<tr>
+                            <th>Label:</th><td>Deposit</td>
+                        </tr><tr>
+                            <th>Identifier:</th><td><a href="http://w3id.org/meta-share/meta-share/Deposit">http://w3id.org/meta-share/meta-share/Deposit</a></td>
+                        </tr><tr>
+                            <th style="white-space:nowrap;">Sub-class Of:</th><td>odrl:Action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
 </section>
 <section id="Examples">
