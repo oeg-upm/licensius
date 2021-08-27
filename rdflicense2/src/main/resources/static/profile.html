@@ -1060,118 +1060,105 @@ A distinction is made between the <em>language resource / technology</em>, as th
 <h2>Examples</h2>
 <h3>Examples of LRTs</h3>
 <pre class="example nohighlight turtle" title="A corpus with one distribution (downloadable files) with one licence" id="LR_oneLicence">
-					
 ex:Resource1 a ms:Corpus ;
-	ms:distribution 
-		[ ms:datasetDistributionForm ms:downloadable 
-		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0>
-		]
+  ms:distribution 
+    [ ms:datasetDistributionForm ms:downloadable 
+      dct:license &lt;http://purl.org/NET/rdflicense/cc-by4.0&gt;
+    ]
 </pre>
 
-<pre class="example nohighlight turtle" title="A corpus with two distributions (downloadable files and accessible with interface) with the same licence" id="LR_twoDistributions">
-					
+<pre class="example nohighlight turtle" title="A corpus with two distributions (downloadable files and accessible with interface) with the same licence" id="LR_twoDistributions">					
 ex:Resource1 a ms:Corpus ;
-	ms:distribution 
-		[ ms:datasetDistributionForm ms:downloadable ;
-		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0>
-		]
-	ms:distribution 
-		[ ms:datasetDistributionForm ms:accessibleWithInterface ; 
-		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0>
-		]
+  ms:distribution 
+    [ ms:datasetDistributionForm ms:downloadable ;
+      dct:license &lt;http://purl.org/NET/rdflicense/cc-by4.0&gt;
+    ]
+  ms:distribution 
+    [ ms:datasetDistributionForm ms:accessibleWithInterface ; 
+      dct:license &lt;http://purl.org/NET/rdflicense/cc-by4.0&gt;
+    ]
 </pre>
 
-<pre class="example nohighlight turtle" title="A tool/service with one distribution (web service) with dual licences (for the model contained in the service and the code)" id="LR_dualLicences">
-					
+<pre class="example nohighlight turtle" title="A tool/service with one distribution (web service) with dual licences (for the model contained in the service and the code)" id="LR_dualLicences">	
 ex:Resource1 a ms:ToolService ;
-	ms:distribution 
-		[ ms:softwareDistributionForm ms:webservice ;
-		  dct:license <http://rdflicense.appspot.com/rdflicense/cc-by4.0.ttl> ;
-		  dct:license <http://purl.org/NET/rdflicense/APACHE2.0.ttl>
-		]
-
+  ms:distribution 
+    [ ms:softwareDistributionForm ms:webservice ;
+      dct:license &lt;http://rdflicense.appspot.com/rdflicense/cc-by4.0.ttl&gt; ;
+      dct:license &lt;http://purl.org/NET/rdflicense/APACHE2.0.ttl&gt;
+    ]
 </pre>
 
 <pre class="example nohighlight turtle" title="A corpus with one distribution released with different licences (because it is composed of subsets released with different licences)" id="LR_collectionMultipleLicences">
-					
 ex:Resource1 a ms:Corpus ;
-	ms:distribution 
-		[ ms:datasetDistributionForm ms:downloadable ;
-		  dct:license <http://rdflicense.appspot.com/rdflicense/cc-by4.0.ttl> ;
-		  dct:license <http://rdflicense.appspot.com/rdflicense/cc-by-nc-4.0.ttl>
-		]
+  ms:distribution 
+    [ ms:datasetDistributionForm ms:downloadable ;
+      dct:license &lt;http://rdflicense.appspot.com/rdflicense/cc-by4.0.ttl&gt; ;
+      dct:license &lt;http://rdflicense.appspot.com/rdflicense/cc-by-nc-4.0.ttl&gt;
+    ]
 </pre>
 
-<pre class="example nohighlight turtle" title="A corpus with two distributions with different pricing restrictions (free for academic users and at a price for commercial users)" id="LR_differentPrices">
-					
+<pre class="example nohighlight turtle" title="A corpus with two distributions with different pricing restrictions (free for academic users and at a price for commercial users)" id="LR_differentPrices">    
 ex:Resource1 a ms:Corpus ;
-	ms:distribution 
-		[ ms:datasetDistributionForm ms:downloadable ;
-		  dct:license < http://rdflicense.appspot.com/rdflicense/elra-end-user.ttl> ; 
-		  ms:userType ms:academic
-		]
-		[ ms:datasetDistributionForm ms:downloadable ;
-		  dct:license < http://rdflicense.appspot.com/rdflicense/elra-end-user.ttl> ; 
-		  ms:cost [ 
-			ms:amount "10000" ; 
-			ms:currency ms:euro
-			]
-		  ms:userType ms:commercial
-		] 
-
+  ms:distribution 
+    [ ms:datasetDistributionForm ms:downloadable ;
+      dct:license &lt; http://rdflicense.appspot.com/rdflicense/elra-end-user.ttl&gt; ; 
+      ms:userType ms:academic
+    ]
+    [ ms:datasetDistributionForm ms:downloadable ;
+      dct:license &lt; http://rdflicense.appspot.com/rdflicense/elra-end-user.ttl&gt; ; 
+      ms:cost [ 
+      ms:amount &quot;10000&quot; ; 
+      ms:currency ms:euro
+      ]
+      ms:userType ms:commercial
+    ] 
 </pre>
 
 <pre class="example nohighlight turtle" title="A corpus embargoed for release after a certain date" id="LR_dateEmbargo">
-					
 ex:Resource1 a ms:Corpus ;
-	ms:distribution 
-		[ ms:datasetDistributionForm ms:downloadable ;
-		  dct:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
-		  ms:availabilityStartDate "2021-06-30"
-		] .
-
+  ms:distribution 
+    [ ms:datasetDistributionForm ms:downloadable ;
+      dct:license &lt;http://purl.org/NET/rdflicense/cc-by4.0&gt; ;
+      ms:availabilityStartDate &quot;2021-06-30&quot;
+    ] .
 </pre>
 
 <h3>Examples of Licences</h3>
 
 <pre class="example nohighlight turtle" title="Standard licence without conditions; user is allowed to download, process, execute without any constraints" id="Licence_noConditions">
-					
-<http://purl.org/NET/rdflicense/ilsp/CC0-1.0>
-	a odrl:Policy ;
-	rdfs:label "Creative Commons Zero v1.0 Universal" ;
-	dct:source <https://creativecommons.org/publicdomain/zero/1.0/legalcode> ;
-	dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
-	dct:identifier "CC0-1.0" ;
-	rdfs:seeAlso <http://spdx.org/licenses/CC0-1.0> ;
-	ms:licenceCategory ms:allowsDirectAccess ;
-	ms:licenceCategory ms:allowsProcessing ;
-	ms:conditionOfUse ms:noConditions ;
-	odrl:permission [
-        	a odrl:Permission ;
-	        odrl:action ms:download , odrl:execute , ms:process, odrl:aggregate 
- 	] .
-
-
+&lt;http://purl.org/NET/rdflicense/ilsp/CC0-1.0&gt;
+  a odrl:Policy ;
+  rdfs:label &quot;Creative Commons Zero v1.0 Universal&quot; ;
+  dct:source &lt;https://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; ;
+  dct:language &lt;http://www.lexvo.org/page/iso639-3/eng&gt; ;
+  dct:identifier &quot;CC0-1.0&quot; ;
+  rdfs:seeAlso &lt;http://spdx.org/licenses/CC0-1.0&gt; ;
+  ms:licenceCategory ms:allowsDirectAccess ;
+  ms:licenceCategory ms:allowsProcessing ;
+  ms:conditionOfUse ms:noConditions ;
+  odrl:permission [
+          a odrl:Permission ;
+          odrl:action ms:download , odrl:execute , ms:process, odrl:aggregate 
+  ] .
 </pre>
 
 <pre class="example nohighlight turtle" title="Licence requesting a signature from the user" id="Licence_signature">
-					
-< http://purl.org/NET/rdflicense/elra-var>
-	a odrl:Policy ;
-	rdfs:label " LANGUAGE RESOURCES VALUE-ADDED-RESELLER AGREEMENT" ;
-	dct:source <http://www.elda.org/media/filer_public/2014/08/01/var_140312.pdf> ;
-	dct:language <http://www.lexvo.org/page/iso639-3/eng> ;
-	ms:conditionOfUse ms:noRedistribution , ms:languageEngineeringResearch , ms:spatialConstraint , cc:Attribution ;
-	ms:licenceCategory ms:allowsAccessWithSignature ;
-	ms:licenceCategory ms:requiresUserAuthentication ;
-	ms:licenceCategory ms:allowsProcessing ;
-	odrl:permission [
-        	a odrl:Permission ;
-	        odrl:action ms:download , ms:process, ms:execute, odrl:aggregate, ms:combine ;
+ &lt;http://purl.org/NET/rdflicense/elra-var&gt;
+  a odrl:Policy ;
+  rdfs:label &quot; LANGUAGE RESOURCES VALUE-ADDED-RESELLER AGREEMENT&quot; ;
+  dct:source &lt;http://www.elda.org/media/filer_public/2014/08/01/var_140312.pdf&gt; ;
+  dct:language &lt;http://www.lexvo.org/page/iso639-3/eng&gt; ;
+  ms:conditionOfUse ms:noRedistribution , ms:languageEngineeringResearch , ms:spatialConstraint , cc:Attribution ;
+  ms:licenceCategory ms:allowsAccessWithSignature ;
+  ms:licenceCategory ms:requiresUserAuthentication ;
+  ms:licenceCategory ms:allowsProcessing ;
+  odrl:permission [
+          a odrl:Permission ;
+          odrl:action ms:download , ms:process, ms:execute, odrl:aggregate, ms:combine ;
                 odrl:constraint
                         [ a odrl:Constraint ;
                           odrl:operator odrl:eq ;
-                          odrl:spatial "only at assignee's site"
+                          odrl:spatial &quot;only at assignee's site&quot;
                         ] ;
                         [ a odrl:Constraint ;
                           odrl:operator odrl:eq ;
@@ -1180,7 +1167,7 @@ ex:Resource1 a ms:Corpus ;
                         [ a odrl:Constraint ;
                           odrl:operator odrl:eq ;
                           odrl:assignee ms:sign
-						  ] ;
+              ] ;
                         [ a odrl:Constraint ;
                           odrl:operator odrl:eq ;
                           odrl:assignee ms:signIn
@@ -1188,33 +1175,29 @@ ex:Resource1 a ms:Corpus ;
                 odrl:duty
                         [ odrl:action cc:Attribution
                         ] 
-		] ;
-	odrl:prohibition
+    ] ;
+  odrl:prohibition
               [ odrl:action cc:Distribution
-              ] .
-
-					
-					
+              ] . 
 </pre>
 
 
 
 <pre class="example nohighlight turtle" title="Licence that requires user authentication (the user must be logged in)" id="Licence_authentication">
-					
-<http://purl.org/NET/rdflicense/ilsp/ms-c-nored>
-	a odrl:Policy ;
-	rdfs:label "META-SHARE Commercial NoRedistribution" ;
-	dct:source <http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20%20NoRedistribution_v0%207.pdf> ;
-	ms:conditionOfUse ms:noRedistribution , ms:languageEngineeringResearch , ms:attribution ;
-	ms:licenceCategory ms:requiresUserAuthorization ;
-	ms:licenceCategory ms:allowsProcessing ;
-	odrl:permission [
-        	a odrl:Permission ;
-	        odrl:action ms:download , ms:process, ms:execute, odrl:aggregate, ms:combine ;
+&lt;http://purl.org/NET/rdflicense/ilsp/ms-c-nored&gt;
+  a odrl:Policy ;
+  rdfs:label &quot;META-SHARE Commercial NoRedistribution&quot; ;
+  dct:source &lt;http://www.meta-net.eu/meta-share/meta-share-licenses/META-SHARE%20Commercial%20%20NoRedistribution_v0%207.pdf&gt; ;
+  ms:conditionOfUse ms:noRedistribution , ms:languageEngineeringResearch , ms:attribution ;
+  ms:licenceCategory ms:requiresUserAuthorization ;
+  ms:licenceCategory ms:allowsProcessing ;
+  odrl:permission [
+          a odrl:Permission ;
+          odrl:action ms:download , ms:process, ms:execute, odrl:aggregate, ms:combine ;
                 odrl:constraint
                         [ a       odrl:Constraint ;
                           odrl:operator odrl:eq ;
-                          odrl:spatial "only at assignee's site"
+                          odrl:spatial &quot;only at assignee's site&quot;
                         ] ;
                 odrl:constraint
                         [ a       odrl:Constraint ;
@@ -1230,11 +1213,10 @@ ex:Resource1 a ms:Corpus ;
                         [ odrl:action cc:Attribution
                         ] 
               ] ;
- 	] ;
-	odrl:prohibition
+  ] ;
+  odrl:prohibition
               [ odrl:action cc:Distribution
               ] .
-
 </pre>
 
 <pre class="example nohighlight turtle" title="Terms of use for a service with a price model set by characters on a daily base (different prices per interval)" id="Terms_count_interval">
@@ -1249,30 +1231,29 @@ ex:Resource1 a ms:Corpus ;
      odrl:action   [
               a md:Compensate ;
 odrl:payAmount    10.00 ;
-             odrl:unit         <https://www.wikidata.org/wiki/Q4917> ;  # USD
+             odrl:unit         &lt;https://www.wikidata.org/wiki/Q4917&gt; ;  # USD
              odrl:unitOfCount  [ a ms:Character ] ;
              odrl:refinement [ 
-			odrl:operator odrl:lt ;
- 			odrl:count 100 ;
-			odrl:meteredTime odrl:lteq “P1D”
+      odrl:operator odrl:lt ;
+      odrl:count 100 ;
+      odrl:meteredTime odrl:lteq &quot;;P1D&&quot;
 ] 
            ] , [
               a                md:Compensate ;
 odrl:payAmount    50.00 ;
-             odrl:unit         <https://www.wikidata.org/wiki/Q4917> ;  # USD
+             odrl:unit         &lt;https://www.wikidata.org/wiki/Q4917&gt; ;  # USD
              odrl:unitOfCount  [ a ms:Character ] ;
              odrl:refinement [ 
-			odrl:operator odrl:gt ;
- 			odrl:count 100 ;
-			odrl:meteredTime odrl:lteq “P1D”
+      odrl:operator odrl:gt ;
+      odrl:count 100 ;
+      odrl:meteredTime odrl:lteq &quot;P1D&quot;
 ], [
-			odrl:operator odrl:lt ;
- 			odrl:count 500 ;
-			odrl:meteredTime odrl:lteq “P1D”
+      odrl:operator odrl:lt ;
+      odrl:count 500 ;
+      odrl:meteredTime odrl:lteq &quot;P1D&quot;
 ]
            ]
  .
-
 </pre>
 
 <pre class="example nohighlight turtle" title="Terms of use for a service with limited use on a daily base" id="Terms_count_interval">
@@ -1286,10 +1267,9 @@ odrl:payAmount    50.00 ;
              odrl:refinement [ 
 			odrl:operator odrl:lt ;
  			odrl:count 100 ;
-			odrl:meteredTime odrl:lteq “P1D”
-] 
-           ] 
- .
+			odrl:meteredTime odrl:lteq &quot;P1D&quot;
+      ]   
+]  .
 </pre>
 
 <pre class="example nohighlight turtle" title="Terms of use for a service with limited use on a daily base" id="Terms_count_interval">
@@ -1304,18 +1284,15 @@ Execution of service for up to 100 API calls and up to 10 GB of processing volum
              odrl:refinement [ 
 			odrl:operator odrl:lt ;
  			odrl:count 100 ;
-			odrl:meteredTime odrl:lteq “P1D”
-] ;
+			odrl:meteredTime odrl:lteq &quot;P1D&quot;
+ ] ;
              odrl:unitOfCount  [ a ms:processedGB ] ;
              odrl:refinement [ 
 			odrl:operator odrl:lt ;
  			odrl:count 10 ;
-			odrl:meteredTime odrl:lteq “P1D”
-] 
-           ] 
- .
-
-
+			odrl:meteredTime odrl:lteq &quot;P1D&quot;
+ ] 
+]  .
 </pre>
 
 </section>
