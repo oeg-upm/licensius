@@ -8,6 +8,7 @@ import java.util.List;
 //import org.apache.jena.riot.RDFDataMgr;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -28,6 +29,8 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.vocabulary.RDF;
 import org.slf4j.Logger;
@@ -52,8 +55,8 @@ public class ODRLRDF {
     public static String getRDF(Policy policy, org.apache.jena.riot.Lang lang) {
         Resource r = getResourceFromPolicy(policy);
         Model model = ModelFactory.createDefaultModel();
-        addPrefixesToModel(model);
         model.add(r.getModel());
+        addPrefixesToModelIfNeeded(model);
         StringWriter sw = new StringWriter();
         RDFDataMgr.write(sw, model, lang);
         String s = sw.toString();
@@ -567,6 +570,31 @@ public class ODRLRDF {
         mapeos.put("prov", "http://www.w3.org/ns/prov#");
         mapeos.put("odrl-lr", "http://purl.org/odrl-lr/");
         
+    }
+
+    private static void addPrefixesToModelIfNeeded(Model model) {
+        Collection<String> values = mapeos.values();
+        
+        StmtIterator sts = model.listStatements();
+        while(sts.hasNext())
+        {
+            Statement st = sts.nextStatement();
+            String s = st.getSubject().getURI();
+            String p = st.getPredicate().getURI();
+            String o = "";
+            if (st.getObject().isResource())
+                o = st.getObject().asResource().getURI();
+
+            for(String clave : mapeos.keySet())
+            {
+                String v = mapeos.get(clave);
+                if ((s!=null && s.contains(v)) || p.contains(v) || (o!=null && o.contains(v)))
+                {
+                    model.setNsPrefix(clave, v);
+                }
+            }
+            
+        }
     }
     
     /**

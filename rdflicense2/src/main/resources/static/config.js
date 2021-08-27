@@ -1,11 +1,12 @@
 var respecConfig = {
     specStatus: "CG-DRAFT",
-    shortName: "odrl-bp",
+    shortName: "odrl-lr",
     editors: [	{   name:       "Penny Labropoulou",
          	company:    "ILSP, Athena Research Center"},
          	 {  name:       "Víctor Rodríguez-Doncel",
-                    url:        "https://www.cosasbuenas.es",
+                    url:        "https://www.linkedin.com/in/victor-rodriguez-doncel-554b5213/en",
                     company:    "Universidad Politécnica de Madrid",
+                   companyURL: "http://www.upm.es",
                     mailto:     "vrodriguez@fi.upm.es"
            }
     ],
