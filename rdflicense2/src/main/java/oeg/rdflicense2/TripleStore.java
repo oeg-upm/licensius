@@ -100,6 +100,10 @@ public class TripleStore {
 
     public static void loadlicensesIndex(String file) {
         policiesIndex.clear();
+        File f = new File(file);
+        if (!f.exists())
+            clonegit();
+        
         try {
             String str = IOUtils.toString(new FileInputStream(new File(file)), "UTF-8");
             JSONParser parser = new JSONParser();
