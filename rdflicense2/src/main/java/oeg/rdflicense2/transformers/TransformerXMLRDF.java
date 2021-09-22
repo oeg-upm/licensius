@@ -142,14 +142,28 @@ public class TransformerXMLRDF {
                     if (nodename.equals("ms:LicenceIdentifier"))
                     {
                         String propiedad = "http://w3id.org/meta-share/meta-share/LicenceIdentifier";
+                        String propiedaddc = "http://w3id.org/meta-share/meta-share/LicenceIdentifier";
+                        String valorc = "http://w3id.org/meta-share/meta-share/SPDX";
+                        String hasliteral = "http://purl.org/spar/literal/hasLiteralValue";
+                        
                         String identifier = getXMLAttributeValue(n1, "ms:LicenceIdentifierScheme");
                         if (identifier.equals("http://w3id.org/meta-share/meta-share/SPDX"))
                         {
-//                            rdf += "_:license <" + propiedad +"> <"+ nodetext +  "> .\n";
+                            /*
                             String triple1 = getTriple2("_:license", propiedad, nodetext, "");                            
                             rdf+=triple1;                            
                             triple1 = getTriple2("_:license", "http://www.w3.org/2000/01/rdf-schema#seeAlso", "https://spdx.org/licenses/"+nodetext, "");
                             rdf+=triple1;
+                            */
+                            String triple1 = getTriple2("_:license", propiedad, "_:genid1", "");       
+                            //datacite:usesIdentifierScheme ms:SPDX;
+                            rdf+=triple1;                            
+                            triple1 = getTriple2("_:genid1", propiedaddc, valorc, "");                            
+                            rdf+=triple1;                            
+                            triple1 = getTriple2("_:genid1",hasliteral, nodetext, "");                            
+                            rdf+=triple1;                            
+                            triple1 = getTriple2("_:genid1","http://www.w3.org/2000/01/rdf-schema#label", nodetext+" id", "en");                            
+                            rdf+=triple1;                            
                             
                         }
                     }
