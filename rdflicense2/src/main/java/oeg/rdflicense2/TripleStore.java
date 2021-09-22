@@ -112,6 +112,7 @@ public class TripleStore {
             while (iterator.hasNext()) {
                 JSONObject o = (JSONObject) iterator.next();
                 String id = o.get("licenseid").toString();
+                System.out.println("Parsing now: " + id);
                 if (id == null || id.isEmpty()) {
                     continue;
                 }

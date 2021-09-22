@@ -8,12 +8,15 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class Rdflicense2Application {
 
 	public static void main(String[] args) {
+                System.setProperty("org.apache.jena.LEVEL", "OFF");
+
+
 		SpringApplication.run(Rdflicense2Application.class, args);
        //         TripleStore.clonegit();
        //         dailymethod();
                 TripleStore.loadlicensesIndex(TripleStore.INDEXFILE);
                 TripleStore.loadlicenses(TripleStore.DATAFOLDER);
-                TripleStore.startSPARQLServer();
+//                TripleStore.startSPARQLServer();
 	}
         
         /**
