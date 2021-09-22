@@ -164,6 +164,8 @@ public class TransformerXMLRDF {
                             rdf+=triple1;                            
                             triple1 = getTriple2("_:genid1","http://www.w3.org/2000/01/rdf-schema#label", nodetext+" id", "en");                            
                             rdf+=triple1;                            
+                            triple1 = getTriple2("_:genid1","http://www.w3.org/1999/02/22-rdf-syntax-ns#type","http://w3id.org/meta-share/meta-share/LicenceIdentifier" , "");                            
+                            rdf+=triple1;                            
                             
                         }
                     }
