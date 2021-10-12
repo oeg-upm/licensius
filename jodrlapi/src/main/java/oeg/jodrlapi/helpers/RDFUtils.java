@@ -1,6 +1,5 @@
 package oeg.jodrlapi.helpers;
 
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.BufferedReader;
@@ -40,15 +39,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Helper class with some useful methods to manipulate RDF
- * Not to be used by external users.
+ * Helper class with some useful methods to manipulate RDF Not to be used by
+ * external users.
+ *
  * @exclude
  * @author Victor Rodriguez Doncel at OEG-UPM 2014
  */
 public class RDFUtils {
-    
-//    private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
 
+//    private static final Logger logger = Logger.getLogger(RDFUtils.class.getName());
     String property = "";
     String value = "";
     public static Property TITLE = ModelFactory.createDefaultModel().createProperty("http://purl.org/dc/terms/title");
@@ -70,17 +69,16 @@ public class RDFUtils {
         try {
             initModel(true);
         } catch (Exception e) {
-    //        logger.warn("ODRLapi could not loaded odrl ontology, " + e.getMessage());
+            //        logger.warn("ODRLapi could not loaded odrl ontology, " + e.getMessage());
             System.err.println("ODRLApi error");
         }
     }
-    
+
     private static final Logger LOGGER = LoggerFactory.getLogger(RDFUtils.class);
 
     /**
-     * Loads the models.
-     * - The ODRL model
-     * - The CCREL model
+     * Loads the models. - The ODRL model - The CCREL model
+     *
      * @param Whether the file is locally loaded or from the oficial URI
      */
     private static void initModel(boolean local) throws IOException {
@@ -102,11 +100,11 @@ public class RDFUtils {
                 coreModel.read(in1, null, "TTL");
             }
             try {
-                coreModel.read(in2,null, "RDF/XML");
+                coreModel.read(in2, null, "RDF/XML");
             } catch (Exception e2) {
                 in2.close();
                 in2 = RDFUtils.class.getClassLoader().getResourceAsStream("ccrel.rdf");
-                coreModel.read(in2, null,"TTL");
+                coreModel.read(in2, null, "TTL");
             }
         }
         if (coreModel == null) {
@@ -147,7 +145,8 @@ public class RDFUtils {
     }
 
     /**
-     * Creates a constraint with the metadata properties defined in the core model
+     * Creates a constraint with the metadata properties defined in the core
+     * model
      */
     public static Constraint enrichConstraint(Constraint coriginal) {
         Constraint action = new Constraint(coriginal);
@@ -249,7 +248,7 @@ public class RDFUtils {
             out.write(modelo);
             out.close();
         } catch (IOException ex) {
-     //       Logger.getLogger("licenser").warn("Error saving file. " + ex.getMessage());
+            //       Logger.getLogger("licenser").warn("Error saving file. " + ex.getMessage());
             return false;
         }
         return true;
@@ -272,8 +271,9 @@ public class RDFUtils {
 
     /**
      * Returns a CreativeCommons rule from a Resource
+     *
      * @param rpolicy A Jena resource with a CreativeCommons resource
-     * @return an ODRL Rule compatible 
+     * @return an ODRL Rule compatible
      */
     public static Rule findCreativeCommons(Resource rpolicy) {
         List<String> permisosCC = RDFUtils.getAllPropertyStrings(rpolicy, ODRLRDF.PCCPERMISSION);
@@ -299,7 +299,7 @@ public class RDFUtils {
 
     /**
      * Gets a list of resources of the given type
-     * 
+     *
      * @param model Jena model
      * @param resource Given resource
      * @return List of resources
@@ -307,18 +307,16 @@ public class RDFUtils {
     public static List<Resource> getOntResourcesOfType(Model model, Resource resource) {
         List<Resource> res = new ArrayList();
         OntModel ontModel = ModelFactory.createOntologyModel();
-        
+
         ontModel.add(coreModel);
         ontModel.add(model);
-        
 
         // RDFUtils.print(ontModel);
-
         Resource r2 = ontModel.createResource(resource.getURI());
         ExtendedIterator it = ontModel.listIndividuals(r2);
         while (it.hasNext()) {
             Individual ind = (Individual) it.next();
-            
+
             if (ind.isResource()) {
                 res.add(ind);
             }
@@ -343,7 +341,7 @@ public class RDFUtils {
     }
 
     /**
-     * Get 
+     * Get
      */
     public static List<String> getObjectsOfType(Model model, Resource resource) {
         List<String> policies = new ArrayList();
@@ -376,12 +374,11 @@ public class RDFUtils {
         }
         return policies;
     }
-    
+
     public static List<String> getAllProperties(Resource resource) {
         List<String> list = new ArrayList();
         StmtIterator it = resource.listProperties();
-        while(it.hasNext())
-        {
+        while (it.hasNext()) {
             Statement stmt2 = it.nextStatement();
             Resource res = stmt2.getPredicate();
             RDFNode node = stmt2.getObject();
@@ -406,7 +403,9 @@ public class RDFUtils {
     }
 
     /**
-     * Gets all the values of the given property. It assumes that all the values are strings.
+     * Gets all the values of the given property. It assumes that all the values
+     * are strings.
+     *
      * @param resource
      * @param property
      */
@@ -437,10 +436,9 @@ public class RDFUtils {
     }
 
     /**
-     * Downloads a file making its best:
-     * - following redirects
-     * - implementing the best content negotiation
-     * curl -I -L -H "Accept: application/rdf+xml" http://datos.bne.es/resource/XX947766
+     * Downloads a file making its best: - following redirects - implementing
+     * the best content negotiation curl -I -L -H "Accept: application/rdf+xml"
+     * http://datos.bne.es/resource/XX947766
      */
     public static String browseSemanticWeb(String url) {
         String document = "";
@@ -481,26 +479,35 @@ public class RDFUtils {
 
     /**
      * Parses the ontology from a text
+     *
      * @param txt Text with an ontology
      */
     public static Model parseFromText(String txt) {
+        System.setProperty("org.apache.jena.riot.LEVEL", "OFF");
         Model model = ModelFactory.createDefaultModel();
         InputStream is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8)); //StandardCharsets.UTF_8 IMPORTANT
         try {
-            model.read(is, null, "RDF/XML");
+            model.read(is, null);
             return model;
-        } catch (Exception e) {
+        } catch (Exception e5) {
             try {
-                is.close();
-                is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8)); //StandardCharsets.UTF_8
-                model.read(is, null, "TURTLE");
+
+                model.read(is, null, "RDF/XML");
                 return model;
-            } catch (Exception e2) {
-                LOGGER.error("Unable to create model, result is null");
-                return null;
+            } catch (Exception e) {
+                try {
+                    is.close();
+                    is = new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8)); //StandardCharsets.UTF_8
+                    model.read(is, null, "TURTLE");
+                    return model;
+                } catch (Exception e2) {
+                    LOGGER.error("Unable to create model, result is null");
+                    return null;
+                }
             }
         }
     }
+
     public static String getLastPartOfUri(String suri) {
         try {
             URI uri = new URI(suri);
@@ -511,10 +518,11 @@ public class RDFUtils {
             return "";
         }
     }
+
     public static String toRDF(Model model, String syntax) {
         try {
             StringWriter out = new StringWriter();
-            model.write(out, syntax);            
+            model.write(out, syntax);
             return out.toString();
         } catch (Exception e) {
             e.printStackTrace();
@@ -522,6 +530,4 @@ public class RDFUtils {
         }
     }
 
-    
-            
 }

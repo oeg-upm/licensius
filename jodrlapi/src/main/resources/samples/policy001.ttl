@@ -1,0 +1,28 @@
+#@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+#<http://odrlapi.appspot.com/samples/sample001>
+#    a odrl:Policy;
+#    odrl:permission [
+#        a odrl:Permission ;
+#        odrl:target <http://odrlapi.appspot.com/samples/asset000> ;
+#        odrl:action odrl:reproduce ;
+#        odrl:constraint [
+#          odrl:leftOperand odrl:spatial ;
+#          odrl:operator odrl:eq ;
+#          odrl:rightOperand "https://www.wikidata.org/wiki/Q183"
+#        ] ;
+#    ] .
+
+
+#THE T-BOX
+:worksFor rdf:type owl:ObjectProperty .
+:colleageOf rdf:type owl:ObjectProperty .
+
+#THE A-BOX
+:upm rdf:type owl:NamedIndividual . 
+#Rana works for UPM
+:rana rdf:type owl:NamedIndividual ;
+      :worksFor :upm .
+#Victor works for UPM
+:victor rdf:type owl:NamedIndividual ;
+      :worksFor :upm .
+
