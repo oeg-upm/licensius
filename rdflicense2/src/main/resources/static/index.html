@@ -6,44 +6,37 @@
         <meta name="description" content="Licenses in ODRL">
         <meta name="author" content="Victor Rodriguez">
         <link rel="icon" type="image/png" href="favicon.png">          
-
-<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">          
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>        
- -->       
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
-        
-        
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>    
     </head>
     <body>
-        
-<nav class="navbar navbar-inverse"> <!-- navbar-inverse -->
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-home"></span></a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-            <li class="nav-item active" >
-              <a class="nav-link" href="index.html">License list</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sparql.html">SPARQL</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="dump.html">Data dump</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Service</a>
-            </li>
-      </ul>
-        
-    </div>
-  </div>
-</nav>             
-        
+
+        <nav class="navbar navbar-inverse"> <!-- navbar-inverse -->
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-home"></span></a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item active" >
+                            <a class="nav-link" href="index.html">License list</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sparql.html">SPARQL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dump.html">Data dump</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="service.html">Service</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>             
+
         <!-- navbar 
         <nav class="navbar  navbar-inverse navbar-expand-sm bg-light"> <!--  
           <ul class="navbar-nav">
@@ -70,121 +63,123 @@
                 <li>metashare - Licenses used in the domain of language resources (RDF ODRL)</li>
             </ul>
             <table class="table table-striped table-bordered table-sm" style="font-size:small;">
-               <thead>
+                <thead>
                 <th>Id</th>
                 <th>Title</th>
                 <th>Structured Interpretations</th>
-               </thead>
-               <tbody id="idtablebody">
+                </thead>
+                <tbody id="idtablebody">
                 </tbody>
             </table>
             <p style="text-align:left;margin-left:50px;margin-bottom:100px;"><b>Disclaimer</b>:This page contains no legal advice and reproduces interpretations made by third parties. This page may content errors.</p>
         </div>
-        
- <footer class="navbar-fixed-bottom" style="background-color: #fff;font-size: 12px;">
-  <center>
-      <hr style="margin:0px;"> 
-       <table>
-           
-        <tr>
-         <td width=50% style="border: 1; padding-right: 2em; padding-left: 2em;">
-           <table style="font-size:small;">
-              <tr><td width="55px"><img src="eu.jpg" width=50></td>
-                  <td>This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant  agreement No 825182: <a href="https://pret-a-llod.eu/">Prêt-à-LLOD</a> and the COST Action "<a href="https://nexuslinguarum.eu/">NexusLinguarum</a>" (CA18209)<img src="nexus.png" width=20><img src="pretallod.jpg" width=50> </td></tr>
-         </table>
-        </td>
-         <td>
-          <table style="font-size:small;">
-             <tr>
-               <td width="180px"><img src="Logo_OEG.gif" width=60px;><img src="fi.jpg" width=50px;><img src="upm.jpg"   width=60px;></td>
-               <td>Ontology Engineering Group (<a href="http://www.oeg-upm.net">OEG</a>)<br/>Escuela Técnica Superior de Ingenieros Informáticos<br/>Universidad Politécnica de Madrid</td>
-             </tr>
-          </table>
-        </td>
-      </tr>
-   </table>
-<!--   <hr>
-    The content in these pages is published under <a rel="license" href="http://purl.org/NET/rdflicense/cc-by4.0">Creative Commons Attribution 4.0 Unported License</a> -->
-  </center>
-</footer>
 
-        
-<!--    <footer class="footer">
-      <div class="container">
-          <hr style="margin-top:100px;">
-        <span class="text-muted">This work has been supported by the projects COST Action "NexusLinguarum ‐ European network for Web‐centred linguistic data science" (CA18209) and .</span>
-      </div>
-    </footer> -->
-        
-    <script>
-        console.log("hola");
-        var url = "https://pddm-pal.oeg.fi.upm.es/license/?title=true";
-        listlicenses();
-        
-        async function listlicenses()
-        {
-            var url2 = "license";
-            const table = document.getElementById("idtablebody");
-            const response = await fetch(url2);            
-//            const response = await fetch('http://www.licensius.com/api/license/list', {method: 'GET'});
-//            const response = await fetch(url, {method: 'POST', body: JSON.stringify("")});
-            var str ="";
-            const jlist = await response.json();
-            
-jlist.sort(function(a, b) { 
-  if (a.title < b.title) return -1;
-  if (a.title > b.title) return 1;
-  return 0;
-});            
-            
-            for(var i = 0; i < jlist.length; i++) {
-                var obj = jlist[i];
-                let row = table.insertRow();
-                row.insertCell(0).innerHTML = obj.licenseid;
-                var stitle = obj.title;
+        <footer class="navbar-fixed-bottom" style="background-color: #fff;font-size: 12px;">
+            <center>
+                <hr style="margin:0px;"> 
+                <table>
 
-                if (obj.source)
-                    stitle += ' <a href="'+obj.source+'"><span class="glyphicon glyphicon-share-alt"></span></a>';
-        
-                row.insertCell(1).innerHTML = stitle;
-                
-                
-                let celda = row.insertCell(2);
-                var m = "";
-                for(x in obj.mapping)
-                {
-                    var mapeo = obj.mapping[x];
-                    var enlace = "";
-                    if (mapeo.startsWith("http"))
-                        enlace = mapeo;
-                    else
-                        enlace = "https://raw.githubusercontent.com/w3c/odrl/master/bp/license/" + mapeo;
-                    var texto = mapeo;
-                    if (mapeo.includes("dalicc"))
-                        texto = 'dalicc';
-                    else if (mapeo.includes("rdflicense"))
-                        texto = 'rdflicense';
-                    else if (mapeo.includes("spdx"))
-                        texto = 'spdx';
-                    else if (mapeo.includes("official"))
-                        texto = 'official';
-                    else if (mapeo.includes("licensedb"))
-                        texto = 'licensedb';
-                    else
-                        texto = 'other';
-                    
-                    m+='<span class="label label-primary" style="margin-right:3px;"><a style="color:white;text-decoration:none;font-weight:normal;" href="'+ enlace +'">'+texto+'</a></span>';
+                    <tr>
+                        <td width=50% style="border: 1; padding-right: 2em; padding-left: 2em;">
+                            <table style="font-size:small;">
+                                <tr><td width="55px"><img src="eu.jpg" width=50></td>
+                                    <td>This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant  agreement No 825182: <a href="https://pret-a-llod.eu/">Prêt-à-LLOD</a> and the COST Action "<a href="https://nexuslinguarum.eu/">NexusLinguarum</a>" (CA18209)<img src="nexus.png" width=20><img src="pretallod.jpg" width=50> </td></tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table style="font-size:small;">
+                                <tr>
+                                    <td width="180px"><img src="Logo_OEG.gif" width=60px;><img src="fi.jpg" width=50px;><img src="upm.jpg"   width=60px;></td>
+                                    <td>Ontology Engineering Group (<a href="http://www.oeg-upm.net">OEG</a>)<br/>Escuela Técnica Superior de Ingenieros Informáticos<br/>Universidad Politécnica de Madrid</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <!--   <hr>
+                    The content in these pages is published under <a rel="license" href="http://purl.org/NET/rdflicense/cc-by4.0">Creative Commons Attribution 4.0 Unported License</a> -->
+            </center>
+        </footer>
+
+
+        <!--    <footer class="footer">
+              <div class="container">
+                  <hr style="margin-top:100px;">
+                <span class="text-muted">This work has been supported by the projects COST Action "NexusLinguarum ‐ European network for Web‐centred linguistic data science" (CA18209) and .</span>
+              </div>
+            </footer> -->
+
+        <script>
+            console.log("hola");
+            var url = "https://pddm-pal.oeg.fi.upm.es/license/?title=true";
+            listlicenses();
+
+            async function listlicenses()
+            {
+                var url2 = "license";
+                const table = document.getElementById("idtablebody");
+                const response = await fetch(url2);
+    //            const response = await fetch('http://www.licensius.com/api/license/list', {method: 'GET'});
+    //            const response = await fetch(url, {method: 'POST', body: JSON.stringify("")});
+                var str = "";
+                const jlist = await response.json();
+
+                jlist.sort(function (a, b) {
+                    if (a.title < b.title)
+                        return -1;
+                    if (a.title > b.title)
+                        return 1;
+                    return 0;
+                });
+
+                for (var i = 0; i < jlist.length; i++) {
+                    var obj = jlist[i];
+                    let row = table.insertRow();
+                    row.insertCell(0).innerHTML = obj.licenseid;
+                    var stitle = obj.title;
+
+                    if (obj.source)
+                        stitle += ' <a href="' + obj.source + '"><span class="glyphicon glyphicon-share-alt"></span></a>';
+
+                    row.insertCell(1).innerHTML = stitle;
+
+
+                    let celda = row.insertCell(2);
+                    var m = "";
+                    for (x in obj.mapping)
+                    {
+                        var mapeo = obj.mapping[x];
+                        var enlace = "";
+                        if (mapeo.startsWith("http"))
+                            enlace = mapeo;
+                        else
+                            enlace = "https://raw.githubusercontent.com/w3c/odrl/master/bp/license/" + mapeo;
+                        var texto = mapeo;
+                        if (mapeo.includes("dalicc"))
+                            texto = 'dalicc';
+                        else if (mapeo.includes("rdflicense"))
+                            texto = 'rdflicense';
+                        else if (mapeo.includes("spdx"))
+                            texto = 'spdx';
+                        else if (mapeo.includes("official"))
+                            texto = 'official';
+                        else if (mapeo.includes("licensedb"))
+                            texto = 'licensedb';
+                        else
+                            texto = 'other';
+
+                        m += '<span class="label label-primary" style="margin-right:3px;"><a style="color:white;text-decoration:none;font-weight:normal;" href="' + enlace + '">' + texto + '</a></span>';
 
                     }
-                
-                celda.innerHTML = m;
-                console.log(obj.licenseid);
-            }            
-            
-///            document.getElementById("lista").innerHTML =  str; //JSON.stringify(jlist);
-        }
-        
-    </script>
-    
+
+                    celda.innerHTML = m;
+                    console.log(obj.licenseid);
+                }
+
+    ///            document.getElementById("lista").innerHTML =  str; //JSON.stringify(jlist);
+            }
+
+        </script>
+
     </body>
 </html>
