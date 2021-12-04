@@ -8,11 +8,18 @@
         <version>2.5.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>oeg</groupId>
-    <artifactId>rdflicense2</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>rdflicense2</name>
+    <groupId>oeg.licensius</groupId>
+    <artifactId>rdflicense</artifactId>
+    <version>2.0-SNAPSHOT</version>
+    <name>rdflicense</name>
     <description>Licenses served as RDF</description>
+    <developers>
+        <developer>
+            <name>Víctor Rodríguez Doncel</name>
+            <organization>Ontology Engineering Group</organization>
+            <organizationUrl>https://oeg-upm.net</organizationUrl>
+        </developer>    
+    </developers>
     <properties>
         <java.version>1.8</java.version>
     </properties>
