@@ -34,7 +34,7 @@
         <url-pattern>*.jpg</url-pattern>
         <url-pattern>*.htc</url-pattern>
         <url-pattern>*.gif</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

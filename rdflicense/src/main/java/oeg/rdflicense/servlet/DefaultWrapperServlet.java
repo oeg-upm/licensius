@@ -49,6 +49,10 @@ public class DefaultWrapperServlet extends HttpServlet
     	};
  
     	rd.forward(wrapped, resp);
+        
+//       String url = wrapped.getContextPath() + "";
+//       resp.sendRedirect(url);        
+        
     }
 }    
 

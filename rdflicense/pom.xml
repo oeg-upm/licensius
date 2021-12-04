@@ -27,9 +27,9 @@
             <version>1.2.17</version>
         </dependency>
         <dependency>
-                <groupId>oeg</groupId>
+                <groupId>oeg.licensius</groupId>
                 <artifactId>licensius-core</artifactId>
-                <version>2.01</version>
+                <version>2.02</version>
                 <scope>compile</scope>
         </dependency>    
     </dependencies>
