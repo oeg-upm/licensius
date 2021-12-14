@@ -189,7 +189,7 @@ public class TripleStore {
              */
             PullResult result = git.pull().setRemote("origin").setRemoteBranchName("master").call();
             PullCommand pull = git.pull();
-            pull.setRemote("origin");
+            pull.setRemote("origin"); 
             pull.setRemoteBranchName("master");
             pull.call();
             git.close();

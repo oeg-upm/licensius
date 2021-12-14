@@ -79,7 +79,7 @@ public class AppController {
                 Collections.sort(leftOperands, new ActionInfoComparer());
                 Collections.sort(operators, new ActionInfoComparer());
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

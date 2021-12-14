@@ -30,13 +30,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         <version>2.4.0</version>
-        </dependency>
-        <dependency>
+        </dependency> 
+
+<!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
         <version>2.4.0</version>
         </dependency>
-        
+    -->    
         <!--
         <dependency>
             <groupId>com.google.appengine</groupId>
@@ -52,7 +53,7 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-        <dependency>
+<!--        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <version>2.7.4</version>
@@ -61,7 +62,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.7.4</version>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>org.apache.jena</groupId>
@@ -79,11 +80,17 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>         -->
-        <dependency>
+<!--        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
-            <!-- <scope>provided</scope> -->
+        </dependency>
+        -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.0</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <build>
