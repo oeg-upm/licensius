@@ -71,7 +71,7 @@ public class RDFLicense {
             String rdflicense="";
             if (file.exists())
             {
-                rdflicense = IOUtils.toString(getClass().getClassLoader().getResourceAsStream(filename));
+                rdflicense = IOUtils.toString(getClass().getClassLoader().getResourceAsStream(filename)); //, "UTF-8" creo
             }
             else
             {

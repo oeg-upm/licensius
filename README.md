@@ -25,7 +25,7 @@ The code is here: https://github.com/oeg-upm/licensius/tree/master/odrlapi
 ## rdflicense Collection of common licenses as RDF
 
 This is a collection of common licenses as RDF. 
-http://rdflicense.appspot.com/ or http://rdflicense.linkeddata.es/
+http://rdflicense.linkeddata.es/
 
 Source doe here: https://github.com/oeg-upm/licensius/tree/master/rdflicense
 
