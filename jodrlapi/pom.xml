@@ -41,12 +41,22 @@
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.jena/jena -->
         <!-- https://mvnrepository.com/artifact/org.apache.jena/apache-jena-libs -->
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena-libs</artifactId>
-            <version>3.16.0</version>
-            <type>pom</type>
-        </dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.jena/jena-core -->
+<!-- https://mvnrepository.com/artifact/org.apache.jena/apache-jena-libs -->
+<dependency>
+    <groupId>org.apache.jena</groupId>
+    <artifactId>apache-jena-libs</artifactId>
+    <version>3.17.0</version>
+    <type>pom</type>
+</dependency>
+<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+<dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.15</version>
+</dependency>
+
+
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
