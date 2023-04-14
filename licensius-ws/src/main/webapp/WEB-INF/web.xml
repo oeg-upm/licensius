@@ -70,7 +70,7 @@
         <servlet-name>licensefindlicenseintxt</servlet-name>
         <url-pattern>/api/license/findlicenseintxt</url-pattern>
     </servlet-mapping>    
-<!-- INIT deprecated -->
+<!-- INIT deprecated, but in iused by maría poveda -->
     <servlet-mapping>
         <servlet-name>licensegetlicense</servlet-name>
         <url-pattern>/api/license/getLicense</url-pattern>
