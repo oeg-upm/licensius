@@ -29,7 +29,9 @@ import oeg.licensius.core.Licensius;
 import oeg.licensius.util.URLutils;
 
 /**
- * Class centralizing methods around the RDFLicenseDataset dataset
+ * Class centralizing methods around the RDFLicenseDataset dataset. 
+ * The dataset is loaded first from a local cache. 
+ * If the license is not locally found, a remote search is made.
  *
  * @author Victor
  */

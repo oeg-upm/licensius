@@ -34,6 +34,8 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 /**
  * This class implements some basic functionality to search licenses
  *
@@ -45,6 +47,19 @@ public class LicenseFinder {
     static String serror = "";
     private static final Logger logger = Logger.getLogger(LicenseFinder.class.getName());
 
+    public static void main(String[] args) {
+        String uritoscan = "http://data.semanticweb.org/ns/swc/swc_2009-05-09.rdf";
+        uritoscan = "http://purl.org/net/p-plan";
+        String resultado = "Unknown";
+        LicenseFinder lf = new LicenseFinder();
+        
+        String url = "https://spdx.org/licenses/MIT.html";
+        
+        resultado = lf.findLicenseTitle(uritoscan);
+        System.out.println(resultado);
+    }
+    
+    
     /**
      * Parsea un archivo RDF y lo carga en memoria
      */
@@ -255,6 +270,12 @@ public class LicenseFinder {
         return salida;
     }
 
+    /**
+     * Given a raw RDF String, it will try to find which is the license that applies.
+     * This method is in use by OOPS.
+     * @param rawrdf RDF in any serialization
+     * @return The title of the license
+     */
     public String findLicenseTitleRaw(String rawrdf) {
         String resultado = "unknown";
         LicenseFinder lf = new LicenseFinder();
@@ -270,6 +291,24 @@ public class LicenseFinder {
                 System.out.println("RDFLicense: " + rdflicense);
                 resultado = RDFUtils.getLabel(RDFLicenseDataset.modelTotal, rdflicense);
             }
+            if (!rdflicense.isEmpty() && license.contains("spdx")) {
+                license = license.replace(".html", ".json");
+                String json = RDFUtils.browseHTML(license);
+                if (json!=null && json.isEmpty())
+                {
+                    System.out.println("SPDX license: " + rdflicense);
+                    try{
+                        JSONParser parser = new JSONParser();
+                        JSONObject obj = (JSONObject) parser.parse(json);
+                        String name = (String) obj.get("name");
+                        resultado = name;
+                    }catch(Exception ex)
+                    {
+                        
+                    }
+                }
+            }
+            
         }
         return resultado;
 
@@ -420,17 +459,6 @@ public class LicenseFinder {
      */
     
     
-    public static void main(String[] args) {
-        String uritoscan = "http://data.semanticweb.org/ns/swc/swc_2009-05-09.rdf";
-        uritoscan = "http://purl.org/net/p-plan";
-        String resultado = "Unknown";
-        LicenseFinder lf = new LicenseFinder();
-        
-        String url = "http://datos.gob.es/es/catalogo/l01280066-seguridad-vial-accidentes-de-trafico-2014";
-        
-        resultado = lf.findLicenseTitle(uritoscan);
-        System.out.println(resultado);
-    }
 
     public static void testSendMail(String s) {
         Properties props = new Properties();

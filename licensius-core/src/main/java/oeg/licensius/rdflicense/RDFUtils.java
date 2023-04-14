@@ -11,6 +11,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.RDF;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -18,12 +19,16 @@ import org.apache.log4j.Logger;
 import java.io.BufferedWriter;
 import java.io.FileWriter; 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static oeg.licensius.rdflicense.RDFLicenseDataset.modelTotal;
+import org.apache.commons.io.IOUtils;
 
 /**
  * Helper class with some useful methods to manipulate RDF
@@ -472,5 +477,58 @@ public class RDFUtils {
         return false;
     }
     
-    
+    public static String browseHTML(String url) {
+        String lasturi="";
+        try {
+            
+            lasturi = url;
+            URL obj = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+            conn.setReadTimeout(5000);
+            conn.addRequestProperty("User-Agent", "Mozilla");
+              conn.addRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"); //new addition by me
+            conn.addRequestProperty("Referer", "google.com");
+            boolean redirect = false;
+            int status = conn.getResponseCode();
+            if (status != HttpURLConnection.HTTP_OK) {
+                if (status == HttpURLConnection.HTTP_MOVED_TEMP
+                        || status == HttpURLConnection.HTTP_MOVED_PERM
+                        || status == HttpURLConnection.HTTP_SEE_OTHER) {
+                    redirect = true;
+                }
+            }
+            if (redirect) {
+                String newUrl = conn.getHeaderField("Location");
+                String cookies = conn.getHeaderField("Set-Cookie");
+                    int indice = newUrl.indexOf('?');
+                    if (indice!=-1)
+                        newUrl = newUrl.substring(0,indice);
+                lasturi=newUrl;
+                conn = (HttpURLConnection) new URL(newUrl).openConnection();
+                conn.setRequestProperty("Cookie", cookies);
+                conn.addRequestProperty("Accept-Language", "en-US,en;q=0.8");
+                conn.addRequestProperty("User-Agent", "Mozilla");
+                conn.addRequestProperty("Referer", "google.com");
+            }
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer html = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                html.append(inputLine);
+            }
+            in.close();
+            return html.toString();
+        } catch (Exception e) {
+            try{
+                if (lasturi.isEmpty())
+                    return "";
+            String htmlnuevo = IOUtils.toString(new URI(lasturi));
+            return htmlnuevo;
+            }catch(Exception e2)
+            {
+            e.printStackTrace();
+            }
+        }
+        return "";
+    }    
 }
