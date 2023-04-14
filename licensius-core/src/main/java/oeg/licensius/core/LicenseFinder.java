@@ -54,8 +54,25 @@ public class LicenseFinder {
         LicenseFinder lf = new LicenseFinder();
         
         String url = "https://spdx.org/licenses/MIT.html";
-        
-        resultado = lf.findLicenseTitle(uritoscan);
+        String rawrdf = "<?xml version=\"1.0\"?>\n" +
+"<rdf:RDF xmlns=\"http://www.semanticweb.org/leopo/ontologies/2022/0/AirTraffic_Infrastructure#\"\n" +
+"     xml:base=\"http://www.semanticweb.org/leopo/ontologies/2022/0/AirTraffic_Infrastructure\"\n" +
+"     xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n" +
+"     xmlns:ns=\"http://creativecommons.org/ns#\"\n" +
+"     xmlns:owl=\"http://www.w3.org/2002/07/owl#\"\n" +
+"     xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n" +
+"     xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"\n" +
+"     xmlns:xsd=\"http://www.w3.org/2001/XMLSchema#\"\n" +
+"     xmlns:rdfs=\"http://www.w3.org/2000/01/rdf-schema#\"\n" +
+"     xmlns:AirTrafficInfrastructure=\"http://www.semanticweb.org/leopo/ontologies/2022/0/AirTrafficInfrastructure#\">\n" +
+"    <owl:Ontology rdf:about=\"http://www.semanticweb.org/leopo/ontologies/2022/0/AirTrafficInfrastructure\">\n" +
+"        <ns:license rdf:resource=\"https://spdx.org/licenses/MIT.html\"/>\n" +
+"        <dc:creator>Leopoldo Santos</dc:creator>\n" +
+"        <AirTrafficInfrastructure:content_license>The MIT License (MIT)\n" +
+"        </AirTrafficInfrastructure:content_license>\n" +
+"    </owl:Ontology>\n" +
+"</rdf:RDF>";
+        resultado = lf.findLicenseTitleRaw(rawrdf);
         System.out.println(resultado);
     }
     
@@ -291,10 +308,10 @@ public class LicenseFinder {
                 System.out.println("RDFLicense: " + rdflicense);
                 resultado = RDFUtils.getLabel(RDFLicenseDataset.modelTotal, rdflicense);
             }
-            if (!rdflicense.isEmpty() && license.contains("spdx")) {
+            if (rdflicense.isEmpty() && license.contains("spdx")) {
                 license = license.replace(".html", ".json");
                 String json = RDFUtils.browseHTML(license);
-                if (json!=null && json.isEmpty())
+                if (json!=null && !json.isEmpty())
                 {
                     System.out.println("SPDX license: " + rdflicense);
                     try{
