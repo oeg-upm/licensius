@@ -1,2 +1,15 @@
 env: flex
 runtime: java
+liveness_check:
+  path: "/api/test"
+  check_interval_sec: 300
+  timeout_sec: 8
+  failure_threshold: 2
+  success_threshold: 2
+readiness_check:
+  path: "/readiness_check"
+  check_interval_sec: 300
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: 300

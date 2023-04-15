@@ -23,6 +23,7 @@ public class LicenseFindlicenseintxt extends HttpServlet {
 
     /**
      * Discovers a license in a piece of text 
+     * 
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             String txt = req.getParameter("txt");

@@ -16,14 +16,28 @@ import oeg.licensius.model.LicensiusResponse;
 public class LicenseGetLicense extends HttpServlet {
     
     private static final Logger logger = Logger.getLogger(LicenseGetLicense.class.getName());
+    
+    
+    public void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.println("fuck u");
+        String uritoscan = req.getParameter("content");
+        if (uritoscan==null)
+            doPost1(req, resp);
+        else
+            doGet1(req,resp);
+    }
+    
     /**
      * Discovers a license in a piece of text 
      */
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doGet1(HttpServletRequest req, HttpServletResponse resp) throws IOException {
             String uritoscan = req.getParameter("content");
-            
-            LicenseFinder lf = new LicenseFinder();
-            String resultado = lf.findLicenseTitle(uritoscan);
+            String resultado = "unknown";
+            if (uritoscan!=null)
+            {
+                LicenseFinder lf = new LicenseFinder();
+                resultado = lf.findLicenseTitle(uritoscan);
+            }
             
 //            LicensiusResponse le = lf.findLicenseInRDF(uritoscan);
 //            resultado = le.getJSON();
@@ -39,7 +53,7 @@ public class LicenseGetLicense extends HttpServlet {
     /**
      * Discovers a license in a piece of text 
      */
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost1(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 //            String txt = req.getParameter("rdf");
             String body = ServiceCommons.getBody(req);
 
