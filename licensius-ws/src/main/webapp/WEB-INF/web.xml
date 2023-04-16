@@ -81,10 +81,6 @@
         <servlet-name>test</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/_ah/health</url-pattern>
-    </servlet-mapping>
     
 <!--    <welcome-file-list>
         <welcome-file>http://www.licensius.com</welcome-file>

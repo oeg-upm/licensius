@@ -26,11 +26,11 @@ public class Test extends HttpServlet {
      * Sirve una cadena de prueba.
      */
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-            resp.setStatus(200);
-            resp.setContentType("text/html");
-            PrintWriter w = resp.getWriter();
+                resp.setStatus(HttpServletResponse.SC_OK);
+//            resp.setContentType("text/html");
+//            PrintWriter w = resp.getWriter();
 //            w.println("Thanks for testing our licensius 2 (build 106 "+DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now()) +" ) " + req.getRequestURL());
-            w.println("Thanks for testing our licensius 2 (build 110) " + req.getRequestURL());
+//            w.println("Thanks for testing our licensius 2 (build 110) " + req.getRequestURL());
             return;
         }
 
